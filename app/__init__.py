@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_blueprint import Blueprint
 from app.config import config
 
 db = SQLAlchemy()
