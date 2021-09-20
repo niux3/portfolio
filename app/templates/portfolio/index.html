@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<p><a href="" class="btn btn-primary">créer</a></p>
+<table class="table">
+    <thead>
+        <th scope="col">id</th>
+        <th scope="col" style="width:70%">slug</th>
+        <th scope="col">actions</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <a href="" class="toggle-online btn btn-success">online</a>
+                <a href="" class="btn btn-warning">éditer</a>
+                <a href="" class="delete btn btn-danger">supprimer</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+<script>
+$('.toggle-online.btn-danger, .delete').on('click', function(e){
+    var answer = $(this).hasClass('delete')? "supprimer" : 'mettre hors ligne';
+    var response = confirm("Voulez vous vraiment "+ answer +" cet article ?");
+    if(!response){
+        e.preventDefault();
+    }
+});
+</script>
+{% endblock scripts %}
