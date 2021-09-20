@@ -13,7 +13,7 @@ class Function(db.Model):
         return self.name
 
     def __repr__(self):
-        return "<Function %r>" % self.title
+        return "<Function %r>" % self.name
 
 
 class Portfolio(db.Model):
@@ -36,9 +36,9 @@ class Portfolio(db.Model):
         return self.name
 
     def __repr__(self):
-        return "<Portfolio %r>" % self.title
+        return "<Portfolio %r>" % self.name
 
     def generate_slug(self):
         self.slug = ''
         if self.title:
-            self.slug = slugify(self.title)
+            self.slug = slugify(self.name)
