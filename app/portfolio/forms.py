@@ -5,4 +5,4 @@ from wtforms.widgets import TextArea, CheckboxInput, ListWidget, Select, html_pa
 
 
 class CommonForm(FlaskForm):
-    name = StringField('name', validators=[ InputRequired() ], render_kw={"class": "form-control", "maxlength": 128})
+    name = StringField('name', validators=[ InputRequired() ], render_kw={"class": "form-control", 'autofocus': 'true'})
