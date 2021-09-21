@@ -5,14 +5,16 @@
         <th scope="col" style="width: 25%;">actions</th>
     </thead>
     <tbody>
+        {% for row in rows %}
         <tr>
-            <td></td>
-            <td></td>
+            <td>{{ row.id }}</td>
+            <td>{{ row.name }}</td>
             <td>
                 {% if online %}<a href="" class="toggle-online btn btn-success">online</a>{% endif %}
-                <a href="" class="btn btn-warning">éditer</a>
-                <a href="" class="delete btn btn-danger">supprimer</a>
+                <a href="{{ url_for('portfolio.update'+ suffixe_url, id=row.id) }}" class="btn btn-warning">éditer</a>
+                <a href="{{ url_for('portfolio.delete'+ suffixe_url, id=row.id) }}" class="delete btn btn-danger">supprimer</a>
             </td>
         </tr>
+        {% endfor %}
     </tbody>
 </table>
