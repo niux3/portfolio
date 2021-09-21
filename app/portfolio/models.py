@@ -45,6 +45,7 @@ class Portfolio(db.Model):
     name = db.Column(db.String(128), nullable=False)
     slug = db.Column(db.String(128))
     description = db.Column(db.Text)
+    color = db.Column(db.String(8), nullable=False)
     created = db.Column(db.DateTime, default=datetime.now)
     modified = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
     online = db.Column(db.SmallInteger, default=1)
