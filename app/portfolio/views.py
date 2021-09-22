@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from app.portfolio.forms import CommonForm
+from app.portfolio.forms import CommonForm, PortfolioForm
 from app import db
-from app.portfolio.models import Function, Technology
+from app.portfolio.models import Function, Technology, Portfolio
 
 bp = Blueprint('portfolio', __name__)
 
@@ -17,17 +17,33 @@ def index_portfolio():
 
 @bp.route('/create-portfolio')
 def create_portfolio():
-    return render_template('portfolio/edit.html')
+    form = PortfolioForm()
+    if request.method == "POST" and form.validate_on_submit():
+        return 'ok'
+    ctx = {
+        'form': form
+    }
+    return render_template('portfolio/edit.html', **ctx)
 
 
 @bp.route('/update-portfolio-<int:id>', methods=['GET', 'POST'])
 def update_portfolio(id):
-    return "update_portfolio"
+    row = Portfolio.query.get_or_404(id)
+    form = PortfolioForm(obj=row)
+    if request.method == "POST" and form.validate_on_submit():
+        return 'ok'
+    ctx = {
+        'form': form
+    }
+    return render_template('portfolio/edit.html', **ctx)
 
 
 @bp.route('/delete-portfolio-<int:id>')
 def delete_portfolio(id):
-    return "delete_portfolio"
+    row = Portfolio.query.get_or_404(id)
+    db.session.remove(row)
+    db.session.commit()
+    return redirect(url_for('portfolio.index_portfolio'))
 
 
 @bp.route('/functions')
