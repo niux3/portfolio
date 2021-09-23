@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from app.portfolio.forms import CommonForm, PortfolioForm
 from app import db
-from app.portfolio.models import Function, Technology, Portfolio
+from app.portfolio.models import Function, Technology, Portfolio, portfolio_technology
 
 bp = Blueprint('portfolio', __name__)
 
@@ -9,17 +9,33 @@ bp = Blueprint('portfolio', __name__)
 @bp.route('/')
 def index_portfolio():
     ctx = {
+        'rows': Portfolio.query.filter_by(online=1),
         'online': True,
         'suffixe_url': '_portfolio'
     }
     return render_template('portfolio/index.html', **ctx)
 
 
-@bp.route('/create-portfolio')
+@bp.route('/create-portfolio', methods=['GET', 'POST'])
 def create_portfolio():
     form = PortfolioForm()
     if request.method == "POST" and form.validate_on_submit():
-        return 'ok'
+        data = {
+            'name': form.name.data,
+            'slug': form.slug.data,
+            'description': form.description.data,
+            'color': form.color.data,
+            'online': form.online.data,
+            'functions_id': form.functions.data.id,
+        }
+        portfolio = Portfolio(**data)
+        db.session.add(portfolio)
+        db.session.commit()
+        for row in form.technologies.data:
+            data = portfolio_technology.insert().values(portfolios_id=portfolio.id, technologies_id=row.id)
+            db.session.execute(data)
+            db.session.commit()
+        return redirect(url_for('portfolio.index_portfolio'))
     ctx = {
         'form': form
     }

@@ -52,10 +52,6 @@ class Portfolio(db.Model):
     functions_id = db.Column(db.Integer, db.ForeignKey('functions.id'))
     technologies = db.relationship("Technology", secondary=portfolio_technology, backref=db.backref('portfolios', lazy="dynamic"))
 
-    def __init__(self, *args, **kwargs):
-        super(Post, self).__init__(*args, **kwargs)
-        self.generate_slug()
-
     def __str__(self):
         return self.name
 
