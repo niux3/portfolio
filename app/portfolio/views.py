@@ -23,6 +23,7 @@ def create_portfolio():
         data = {
             'name': form.name.data,
             'slug': form.slug.data,
+            'url': form.url.data,
             'description': form.description.data,
             'color': form.color.data,
             'online': form.online.data,
@@ -49,6 +50,7 @@ def update_portfolio(id):
     if request.method == "POST" and form.validate_on_submit():
         row.name = form.name.data
         row.slug = form.slug.data
+        row.url = form.url.data
         row.description = form.description.data
         row.online = form.online.data
         row.functions_id = form.functions.data.id

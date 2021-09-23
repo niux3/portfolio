@@ -13,6 +13,7 @@ class CommonForm(FlaskForm):
 class PortfolioForm(FlaskForm):
     name = StringField('name', validators=[InputRequired()], render_kw={"class": "form-control name", 'autofocus': 'true', "autocomplete": "off"})
     slug = StringField('slug', validators=[InputRequired()], render_kw={"class": "form-control slug"})
+    url = StringField('url', validators=[InputRequired()], render_kw={"class": "form-control"})
     description = StringField('description', validators=[InputRequired()], widget=TextArea(), render_kw={"class": "form-control description"})
     color = StringField('couleur', validators=[InputRequired()], render_kw={"class": "form-control", "type": "color"})
     online = BooleanField('en ligne', render_kw={"class": "form-check-input", "value": "1"})
