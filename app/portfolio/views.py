@@ -44,10 +44,25 @@ def create_portfolio():
 
 @bp.route('/update-portfolio-<int:id>', methods=['GET', 'POST'])
 def update_portfolio(id):
-    row = Portfolio.query.get_or_404(id)
+    row = Portfolio.query.filter(portfolio_technology.c.portfolios_id==id, Portfolio.id==id).first()
     form = PortfolioForm(obj=row)
     if request.method == "POST" and form.validate_on_submit():
-        return 'ok'
+        row.name = form.name.data
+        row.slug = form.slug.data
+        row.description = form.description.data
+        row.online = form.online.data
+        row.functions_id = form.functions.data.id
+        db.session.commit()
+
+        rows = portfolio_technology.delete().where(portfolio_technology.c.portfolios_id==row.id)
+        db.session.execute(rows)
+        db.session.commit()
+        for pt in form.technologies.data:
+            cp = portfolio_technology.insert().values(portfolios_id=row.id, technologies_id=pt.id)
+            db.session.execute(cp)
+            db.session.commit()
+
+        return redirect(url_for('portfolio.index_portfolio'))
     ctx = {
         'form': form
     }
@@ -56,8 +71,8 @@ def update_portfolio(id):
 
 @bp.route('/delete-portfolio-<int:id>')
 def delete_portfolio(id):
-    row = Portfolio.query.get_or_404(id)
-    db.session.remove(row)
+    row = Portfolio.query.get(id)
+    db.session.delete(row)
     db.session.commit()
     return redirect(url_for('portfolio.index_portfolio'))
 
@@ -101,7 +116,7 @@ def update_function(id):
 @bp.route('/delete-function-<int:id>')
 def delete_function(id):
     row = Function.query.get_or_404(id)
-    db.session.remove(row)
+    db.session.delete(row)
     db.session.commit()
     return redirect(url_for('portfolio.index_function'))
 
@@ -145,7 +160,7 @@ def update_technologies(id):
 @bp.route('/delete-technologie-<int:id>')
 def delete_technologies(id):
     row = Technology.query.get_or_404(id)
-    db.session.remove(row)
+    db.session.delete(row)
     db.session.commit()
     return redirect(url_for('portfolio.index_technologies'))
 
