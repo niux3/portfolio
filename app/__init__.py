@@ -20,4 +20,7 @@ def create_app():
     from app.portfolio import views as portfolio_views
     app.register_blueprint(portfolio_views.bp)
 
+    from app.images import views as images_views
+    app.register_blueprint(images_views.bp)
+
     return app

@@ -14,6 +14,7 @@ class Config(object):
     MYBLOG_MAIL_SENDER = '<admin@example.com>'
     MYBLOG_ADMIN = "admin"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    UPLOAD_FOLDER = os.path.join(basedir, 'static', 'img')
 
     @staticmethod
     def init_app(app):
