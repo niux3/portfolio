@@ -9,7 +9,7 @@ bp = Blueprint('portfolio', __name__)
 @bp.route('/')
 def index_portfolio():
     ctx = {
-        'rows': Portfolio.query.filter_by(online=1),
+        'rows': Portfolio.query.all(),
         'online': True,
         'suffixe_url': '_portfolio'
     }
@@ -148,3 +148,11 @@ def delete_technologies(id):
     db.session.remove(row)
     db.session.commit()
     return redirect(url_for('portfolio.index_technologies'))
+
+
+@bp.route('/toggle-online-<int:id>.html')
+def toggle_online_portfolio(id):
+    row = Portfolio.query.get_or_404(id)
+    row.online = not row.online
+    db.session.commit()
+    return redirect(url_for('portfolio.index_portfolio'))
