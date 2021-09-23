@@ -44,7 +44,7 @@ def create_portfolio():
 
 @bp.route('/update-portfolio-<int:id>', methods=['GET', 'POST'])
 def update_portfolio(id):
-    row = Portfolio.query.filter(portfolio_technology.c.portfolios_id==id, Portfolio.id==id).first()
+    row = Portfolio.query.filter(portfolio_technology.c.portfolios_id == id, Portfolio.id == id).first()
     form = PortfolioForm(obj=row)
     if request.method == "POST" and form.validate_on_submit():
         row.name = form.name.data

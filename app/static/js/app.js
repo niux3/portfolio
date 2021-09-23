@@ -12,7 +12,7 @@ $(function(){
         });
     }
     if($('.toggle-online.btn-danger, .delete').length){
-        $('.toggle-online.btn-danger, .delete').on('click', function(e){
+        $('.toggle-online.btn-success, .delete').on('click', function(e){
             var answer = $(this).hasClass('delete')? "supprimer" : 'mettre hors ligne';
             var response = confirm("Voulez vous vraiment "+ answer +" cet article ?");
             if(!response){

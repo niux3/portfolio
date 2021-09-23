@@ -15,6 +15,6 @@ class PortfolioForm(FlaskForm):
     slug = StringField('slug', validators=[InputRequired()], render_kw={"class": "form-control slug"})
     description = StringField('description', validators=[InputRequired()], widget=TextArea(), render_kw={"class": "form-control description"})
     color = StringField('couleur', validators=[InputRequired()], render_kw={"class": "form-control", "type": "color"})
-    online = BooleanField('en ligne', render_kw={"class": "form-check-input", "checked": "checked", "value": "1"})
+    online = BooleanField('en ligne', render_kw={"class": "form-check-input", "value": "1"})
     functions = QuerySelectField(query_factory=lambda: Function.query.all())
     technologies = QuerySelectMultipleField('technologies', query_factory=lambda: Technology.query.all(), widget=ListWidget(prefix_label=False), option_widget=CheckboxInput())
