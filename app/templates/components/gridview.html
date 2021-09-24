@@ -10,9 +10,9 @@
             <td>{{ row.id }}</td>
             <td>{{ row.name }}</td>
             <td>
-                {% if online %}<a href="{{ url_for('portfolio.toggle_online'+ suffixe_url, id=row.id) }}" class="toggle-online btn btn-{% if row.online %}success{% else %}danger{% endif %}">{% if row.online %}online{% else %}offline{% endif %}</a>{% endif %}
-                <a href="{{ url_for('portfolio.update'+ suffixe_url, id=row.id) }}" class="btn btn-warning">éditer</a>
-                <a href="{{ url_for('portfolio.delete'+ suffixe_url, id=row.id) }}" class="delete btn btn-danger">supprimer</a>
+                {% if online %}<a href="{{ url_for(prefixe_url + '.toggle_online'+ suffixe_url, id=row.id) }}" class="toggle-online btn btn-{% if row.online %}success{% else %}danger{% endif %}">{% if row.online %}online{% else %}offline{% endif %}</a>{% endif %}
+                <a href="{{ url_for(prefixe_url + '.update'+ suffixe_url, id=row.id) }}" class="btn btn-warning">éditer</a>
+                <a href="{{ url_for(prefixe_url + '.delete'+ suffixe_url, id=row.id) }}" class="delete btn btn-danger">supprimer</a>
             </td>
         </tr>
         {% endfor %}

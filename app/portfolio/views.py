@@ -11,6 +11,7 @@ def index_portfolio():
     ctx = {
         'rows': Portfolio.query.all(),
         'online': True,
+        'prefixe_url': 'portfolio',
         'suffixe_url': '_portfolio'
     }
     return render_template('views/index.html', **ctx)
@@ -82,6 +83,7 @@ def delete_portfolio(id):
 @bp.route('/functions')
 def index_function():
     ctx = {
+        'prefixe_url': 'portfolio',
         'suffixe_url': '_function',
         'rows': Function.query.all()
     }
@@ -126,6 +128,7 @@ def delete_function(id):
 @bp.route('/technologies')
 def index_technologies():
     ctx = {
+        'prefixe_url': 'portfolio',
         'suffixe_url': '_technologies',
         'rows': Technology.query.all()
     }
