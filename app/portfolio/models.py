@@ -58,8 +58,3 @@ class Portfolio(db.Model):
 
     def __repr__(self):
         return "<Portfolio %r>" % self.name
-
-    def generate_slug(self):
-        self.slug = ''
-        if self.title:
-            self.slug = slugify(self.name)

@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms.validators import InputRequired, ValidationError
-from wtforms import StringField, BooleanField, SelectMultipleField, TextField
+from wtforms.validators import InputRequired
+from wtforms import StringField, BooleanField
 from wtforms.ext.sqlalchemy.fields import QuerySelectMultipleField, QuerySelectField
-from wtforms.widgets import TextArea, CheckboxInput, ListWidget, Select, html_params
+from wtforms.widgets import TextArea, CheckboxInput, ListWidget
 from app.portfolio.models import Technology, Function
 
 
