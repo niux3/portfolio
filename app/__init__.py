@@ -24,4 +24,7 @@ def create_app():
     from app.images import views as images_views
     app.register_blueprint(images_views.bp)
 
+    from app.export import views as export_views
+    app.register_blueprint(export_views.bp)
+
     return app
