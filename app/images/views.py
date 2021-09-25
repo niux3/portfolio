@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from app.portfolio.models import Portfolio
 from app.images.models import Image
-from app.images.forms import UploadCreateForm
+from app.images.forms import UploadImagesForm
 from werkzeug.utils import secure_filename
 from app import config, db
 from app.config import basedir
@@ -15,15 +15,13 @@ bp = Blueprint('images', __name__)
 def index():
     ctx = {
         'rows': Portfolio.query.all(),
-        'prefixe_url': 'images',
-        'suffixe_url': ''
     }
-    return render_template('views/index.html', **ctx)
+    return render_template('images/index.html', **ctx)
 
 
 @bp.route('/create-images', methods=['GET', 'POST'])
 def create():
-    form = UploadCreateForm()
+    form = UploadImagesForm()
     if request.method == 'POST' and form.validate_on_submit():
         dir = form.portfolios.data.slug
         base_path = os.path.join(config['default'].UPLOAD_FOLDER, dir)
@@ -53,11 +51,11 @@ def create():
     return render_template('views/edit-images.html', **ctx)
 
 
-@bp.route('/update-images', methods=['GET', 'POST'])
-def update():
+@bp.route('/update-images-<int:id>', methods=['GET', 'POST'])
+def update(id):
     return 'update images !'
 
 
-@bp.route('/delete-images')
-def delete():
+@bp.route('/delete-images-<int:id>')
+def delete(id):
     return 'delete images !'

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<form method="GET" class="mb-3">
+    <div class="row">
+        <div class="col input select">
+            <select name="portfolios" class="form-select" aria-label="Default select example">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="col input select">
+            <select name="categories" class="form-select" aria-label="Default select example">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="col input submit">
+            <button style="width:100%" type="submit" class="btn btn-secondary">en avant guingamp</button>
+        </div>
+    </div>
+</form>
+<p><a href="{{ url_for('images.create') }}" class="btn btn-primary" style="width:100%;">créer</a></p>
+{% endblock %}
