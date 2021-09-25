@@ -14,7 +14,7 @@ def index_portfolio():
         'prefixe_url': 'portfolio',
         'suffixe_url': '_portfolio'
     }
-    return render_template('views/index.html', **ctx)
+    return render_template('portfolio/index.html', **ctx)
 
 
 @bp.route('/create-portfolio', methods=['GET', 'POST'])
@@ -41,7 +41,7 @@ def create_portfolio():
     ctx = {
         'form': form
     }
-    return render_template('views/edit.html', **ctx)
+    return render_template('portfolio/edit.html', **ctx)
 
 
 @bp.route('/update-portfolio-<int:id>', methods=['GET', 'POST'])
@@ -69,7 +69,7 @@ def update_portfolio(id):
     ctx = {
         'form': form
     }
-    return render_template('views/edit.html', **ctx)
+    return render_template('portfolio/edit.html', **ctx)
 
 
 @bp.route('/delete-portfolio-<int:id>')
@@ -87,7 +87,7 @@ def index_function():
         'suffixe_url': '_function',
         'rows': Function.query.all()
     }
-    return render_template('views/index.html', **ctx)
+    return render_template('portfolio/index.html', **ctx)
 
 
 @bp.route('/create-function', methods=['GET', 'POST'])
@@ -100,7 +100,7 @@ def create_function():
     ctx = {
         'form': form,
     }
-    return render_template('views/edit.html', **ctx)
+    return render_template('portfolio/edit.html', **ctx)
 
 
 @bp.route('/update-function-<int:id>', methods=['GET', 'POST'])
@@ -114,7 +114,7 @@ def update_function(id):
     ctx = {
         'form': form
     }
-    return render_template('views/edit.html', **ctx)
+    return render_template('portfolio/edit.html', **ctx)
 
 
 @bp.route('/delete-function-<int:id>')
@@ -132,7 +132,7 @@ def index_technologies():
         'suffixe_url': '_technologies',
         'rows': Technology.query.all()
     }
-    return render_template('views/index.html', **ctx)
+    return render_template('portfolio/index.html', **ctx)
 
 
 @bp.route('/create-technology', methods=['GET', 'POST'])
@@ -145,7 +145,7 @@ def create_technologies():
     ctx = {
         'form': form,
     }
-    return render_template('views/edit.html', **ctx)
+    return render_template('portfolio/edit.html', **ctx)
 
 
 @bp.route('/update-technologie-<int:id>', methods=['GET', 'POST'])
@@ -159,7 +159,7 @@ def update_technologies(id):
     ctx = {
         'form': form
     }
-    return render_template('views/edit.html', **ctx)
+    return render_template('portfolio/edit.html', **ctx)
 
 
 @bp.route('/delete-technologie-<int:id>')
