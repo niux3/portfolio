@@ -15,7 +15,7 @@ def create_app():
     migrate = Migrate()
 
     from app.portfolio.models import Function, Portfolio
-    from app.images.models import Image
+    from app.images.models import Image, Category
     migrate.init_app(app, db)
 
     from app.portfolio import views as portfolio_views

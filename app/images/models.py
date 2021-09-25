@@ -2,6 +2,12 @@ from app import db
 from datetime import datetime
 
 
+class Category(db.Model):
+    __tablename__ = "categories"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(32), nullable=False)
+
+
 class Image(db.Model):
     __tablename__ = 'images'
 
@@ -10,7 +16,7 @@ class Image(db.Model):
     url = db.Column(db.String(128), nullable=False)
     online = db.Column(db.SmallInteger, default=1)
     description = db.Column(db.Text)
-    thumbnail = db.Column(db.SmallInteger, default=1)
+    categories_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
     portfolios_id = db.Column(db.Integer, db.ForeignKey('functions.id'))
     created = db.Column(db.DateTime, default=datetime.now)
     modified = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
