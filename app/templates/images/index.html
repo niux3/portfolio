@@ -2,23 +2,15 @@
 
 {% block page_content %}
 <form method="GET" class="mb-3">
+    {{ form.send }}
     <div class="row">
-        <div class="col input select">
-            <select name="portfolios" class="form-select" aria-label="Default select example">
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-        </div>
-        <div class="col input select">
-            <select name="categories" class="form-select" aria-label="Default select example">
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-        </div>
+        {% for field in form %}
+            {% if field.name != 'csrf_token' and field.name != 'send' %}
+            <div class="col input select">
+                {{ field }}
+            </div>
+            {% endif %}
+        {% endfor %}
         <div class="col input submit">
             <button style="width:100%" type="submit" class="btn btn-secondary">en avant guingamp</button>
         </div>

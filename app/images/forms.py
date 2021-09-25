@@ -4,6 +4,13 @@ from wtforms import StringField, BooleanField, IntegerField, FileField, HiddenFi
 from wtforms.widgets import TextArea
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from app.portfolio.models import Portfolio
+from app.images.models import Category
+
+
+class SelectViewForm(FlaskForm):
+    send = HiddenField(render_kw={"value": "ok"}, label='')
+    portfolios = QuerySelectField(query_factory=lambda: Portfolio.query.all(), render_kw={"class": "form-select"}, allow_blank=True, blank_text='-- choisir portfolio --')
+    categories = QuerySelectField(query_factory=lambda: Category.query.all(), render_kw={"class": "form-select"}, allow_blank=True, blank_text='-- choisir catégorie --')
 
 
 class UploadImagesForm(FlaskForm):

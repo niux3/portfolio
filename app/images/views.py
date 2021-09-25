@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from app.portfolio.models import Portfolio
-from app.images.models import Image
-from app.images.forms import UploadImagesForm
+from app.images.models import Image, Category
+from app.portfolio.forms import CommonForm
+from app.images.forms import UploadImagesForm, SelectViewForm
 from werkzeug.utils import secure_filename
 from app import config, db
 from app.config import basedir
@@ -13,8 +14,9 @@ bp = Blueprint('images', __name__)
 
 @bp.route('/index-images')
 def index():
+    form = SelectViewForm()
     ctx = {
-        'rows': Portfolio.query.all(),
+        'form': form,
     }
     return render_template('images/index.html', **ctx)
 
@@ -59,3 +61,49 @@ def update(id):
 @bp.route('/delete-images-<int:id>')
 def delete(id):
     return 'delete images !'
+
+
+@bp.route('/categories-images')
+def index_categories():
+    ctx = {
+        'prefixe_url': 'images',
+        'suffixe_url': '_categories',
+        'rows': Category.query.all()
+    }
+    return render_template('portfolio/index.html', **ctx)
+
+
+@bp.route('/create-categories-images', methods=['GET', 'POST'])
+def create_categories():
+    form = CommonForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        print('ok !!')
+        db.session.add(Category(name=form.name.data.lower()))
+        db.session.commit()
+        return redirect(url_for('images.index_categories'))
+    ctx = {
+        'form': form,
+    }
+    return render_template('portfolio/edit.html', **ctx)
+
+
+@bp.route('/edit-categories-images-<int:id>', methods=['GET', 'POST'])
+def update_categories(id):
+    row = Category.query.get_or_404(id)
+    form = CommonForm(obj=row)
+    if request.method == 'POST' and form.validate_on_submit():
+        row.name = form.name.data.lower()
+        db.session.commit()
+        return redirect(url_for('images.index_categories'))
+    ctx = {
+        'form': form,
+    }
+    return render_template('portfolio/edit.html', **ctx)
+
+
+@bp.route('/delete-categories-images-<int:id>')
+def delete_categories(id):
+    row = Category.query.get_or_404(id)
+    db.session.delete(row)
+    db.session.commit()
+    return redirect(url_for('images.index_categories'))
