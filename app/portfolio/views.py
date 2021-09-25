@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from app.portfolio.forms import CommonForm, PortfolioForm
 from app import db
 from app.portfolio.models import Function, Technology, Portfolio, portfolio_technology
@@ -37,6 +37,7 @@ def create_portfolio():
             data = portfolio_technology.insert().values(portfolios_id=portfolio.id, technologies_id=row.id)
             db.session.execute(data)
             db.session.commit()
+        flash("creation d'un portofolio effectuée", "success")
         return redirect(url_for('portfolio.index_portfolio'))
     ctx = {
         'form': form
@@ -65,6 +66,7 @@ def update_portfolio(id):
             db.session.execute(cp)
             db.session.commit()
 
+        flash("mise à jour d'un portofolio effectuée", "success")
         return redirect(url_for('portfolio.index_portfolio'))
     ctx = {
         'form': form
@@ -77,6 +79,8 @@ def delete_portfolio(id):
     row = Portfolio.query.get(id)
     db.session.delete(row)
     db.session.commit()
+
+    flash("suppression d'un portofolio effectuée", "warning")
     return redirect(url_for('portfolio.index_portfolio'))
 
 
@@ -96,6 +100,7 @@ def create_function():
     if request.method == 'POST' and form.validate_on_submit():
         db.session.add(Function(name=form.name.data.lower()))
         db.session.commit()
+        flash("creation d'une function effectuée", "success")
         return redirect(url_for('portfolio.index_function'))
     ctx = {
         'form': form,
@@ -110,6 +115,7 @@ def update_function(id):
     if request.method == 'POST' and form.validate_on_submit():
         row.name = form.name.data.lower()
         db.session.commit()
+        flash("mise à jour d'une function effectuée", "success")
         return redirect(url_for('portfolio.index_function'))
     ctx = {
         'form': form
@@ -122,6 +128,7 @@ def delete_function(id):
     row = Function.query.get_or_404(id)
     db.session.delete(row)
     db.session.commit()
+    flash("suppression d'une function effectuée", "warning")
     return redirect(url_for('portfolio.index_function'))
 
 
@@ -141,6 +148,7 @@ def create_technologies():
     if request.method == 'POST' and form.validate_on_submit():
         db.session.add(Technology(name=form.name.data))
         db.session.commit()
+        flash("création d'une technologie effectuée", "success")
         return redirect(url_for('portfolio.index_technologies'))
     ctx = {
         'form': form,
@@ -155,6 +163,7 @@ def update_technologies(id):
     if request.method == 'POST' and form.validate_on_submit():
         row.name = form.name.data
         db.session.commit()
+        flash("mise à jour d'une technologie effectuée", "success")
         return redirect(url_for('portfolio.index_technologies'))
     ctx = {
         'form': form
@@ -167,6 +176,7 @@ def delete_technologies(id):
     row = Technology.query.get_or_404(id)
     db.session.delete(row)
     db.session.commit()
+    flash("suppression d'une technologie effectuée", "warning")
     return redirect(url_for('portfolio.index_technologies'))
 
 
@@ -175,4 +185,5 @@ def toggle_online_portfolio(id):
     row = Portfolio.query.get_or_404(id)
     row.online = not row.online
     db.session.commit()
+    flash(f"{row.name} est {'en' if row.online else 'hors'} ligne", "success" if row.online else "danger")
     return redirect(url_for('portfolio.index_portfolio'))

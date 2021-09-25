@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from app.portfolio.models import Portfolio
 from app.images.models import Image, Category
 from app.portfolio.forms import CommonForm
@@ -46,6 +46,7 @@ def create():
         image = Image(**data)
         db.session.add(image)
         db.session.commit()
+        flash(f"création d'une image effectuée pour {dir}", "success")
         return redirect(url_for('images.create'))
     ctx = {
         'form': form
@@ -77,9 +78,9 @@ def index_categories():
 def create_categories():
     form = CommonForm()
     if request.method == 'POST' and form.validate_on_submit():
-        print('ok !!')
         db.session.add(Category(name=form.name.data.lower()))
         db.session.commit()
+        flash("création d'une catégorie image effectuée", "success")
         return redirect(url_for('images.index_categories'))
     ctx = {
         'form': form,
@@ -94,6 +95,7 @@ def update_categories(id):
     if request.method == 'POST' and form.validate_on_submit():
         row.name = form.name.data.lower()
         db.session.commit()
+        flash("mise à jour d'une catégorie image effectuée", "success")
         return redirect(url_for('images.index_categories'))
     ctx = {
         'form': form,
@@ -106,4 +108,5 @@ def delete_categories(id):
     row = Category.query.get_or_404(id)
     db.session.delete(row)
     db.session.commit()
+    flash("suppression d'une catégorie image effectuée", "warning")
     return redirect(url_for('images.index_categories'))

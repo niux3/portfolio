@@ -4,6 +4,8 @@ $(function(){
             $('.slug').val($(this).val().slugify());
         });
     }
+
+
     if($('.description').length){
         $('.description').on('keyup', function(){
             if($(this).val() === 'lorem'){
@@ -11,6 +13,8 @@ $(function(){
             }
         });
     }
+
+
     if($('.toggle-online.btn-danger, .delete').length){
         $('.toggle-online.btn-success, .delete').on('click', function(e){
             var answer = $(this).hasClass('delete')? "supprimer" : 'mettre hors ligne';
@@ -19,5 +23,16 @@ $(function(){
                 e.preventDefault();
             }
         });
+    }
+
+    
+    if($('.alert').length){
+        $('.alert').on('click', function(){
+            $(this).remove()
+        });
+
+        setTimeout(()=>{
+            $('.alert').click();
+        }, 3000)
     }
 });
