@@ -16,8 +16,8 @@ class SelectViewForm(FlaskForm):
 class UploadImagesForm(FlaskForm):
     id = HiddenField('id')
     portfolios = QuerySelectField(query_factory=lambda: Portfolio.query.all())
+    categories = QuerySelectField(query_factory=lambda: Category.query.all())
     name = StringField('name', validators=[InputRequired()], render_kw={"class": "form-control", 'autofocus': 'true', 'value': "bla"})
     description = StringField('description', validators=[InputRequired()], widget=TextArea(), render_kw={"class": "form-control description"}, default="blabla")
     online = BooleanField('en ligne', render_kw={"class": "form-check-input", "value": "1"})
-    thumbnail = BooleanField('miniature', render_kw={"class": "form-check-input"})
     upload = FileField('upload')

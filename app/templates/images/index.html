@@ -17,4 +17,30 @@
     </div>
 </form>
 <p><a href="{{ url_for('images.create') }}" class="btn btn-primary" style="width:100%;">créer</a></p>
+
+{% if rows %}
+<table class="table">
+    <thead>
+        <th scope="col">id</th>
+        <th scope="col">portfolio</th>
+        <th scope="col" style="width:50%">img</th>
+        <th scope="col">catégorie</th>
+        <th scope="col">actions</th>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+        <tr>
+            <td>{{ row.id }}</td>
+            <td>{{ row.portfolio }}</td>
+            <td><img src="{{ row.img }}" alt="" style="max-width:33%"></td>
+            <td>{{ row.categorie }}</td>
+            <td>
+                <a href="#" class="btn btn-warning">éditer</a>
+                <a href="#" class="delete btn btn-danger">supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
 {% endblock %}

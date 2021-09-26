@@ -15,8 +15,41 @@ bp = Blueprint('images', __name__)
 @bp.route('/index-images')
 def index():
     form = SelectViewForm()
+    sql = """
+        SELECT 
+            i.id as id,
+            p.name as portfolio,
+            i.url as img,
+            c.name as categorie
+        FROM 
+            portfolios as p,
+            images as i,
+            categories as c 
+        WHERE 
+            p.id = i.portfolios_id 
+        AND 
+            c.id = i.categories_id                   
+    """
+    rows = db.session.execute(sql)
+    # rows = Image.query.all()
+    if request.method == "GET" and request.args.get('send') == "ok":
+        if request.args.get('portfolios') != '__None' and request.args.get('categories') != "__None":
+            sql += "and p.id=:pid and c.id=:cid"
+            params = {'pid': request.args.get('portfolios'), 'cid': request.args.get('categories')}
+            # print(Portfolio.query.filter(Portfolio.id==request.args.get('portfolios')).join(Image).filter(Image.categories_id==request.args.get('categories')).all())
+            # rows = Image.query.filter_by(categories_id=request.args.get('categories'), id=request.args.get('portfolios')).all()
+        elif request.args.get('portfolios') != '__None' and request.args.get('categories') == "__None":
+            sql += "and p.id=:pid"
+            params = {'pid': request.args.get('portfolios')}
+            # rows = Image.query.filter_by(id=request.args.get('portfolios')).all()
+        elif request.args.get('portfolios') == '__None' and request.args.get('categories') != "__None":
+            sql += "and c.id=:cid"
+            params = {'cid': request.args.get('categories')}
+            # rows = Image.query.filter_by(categories_id=request.args.get('categories')).all()
+        rows = db.session.execute(sql, params)
     ctx = {
         'form': form,
+        'rows': rows
     }
     return render_template('images/index.html', **ctx)
 
@@ -32,26 +65,26 @@ def create():
         file = request.files['upload']
         name, ext = file.filename.split('.')
         name = uuid.uuid4()
-        file.filename = f"{form.portfolios.data.id}__{name}.{ext.lower()}"
+        file.filename = f"{form.portfolios.data.id}--{form.categories.data.id}__{name}.{ext.lower()}"
         path = os.path.join(base_path, secure_filename(file.filename))
         data = {
+            'categories_id': form.categories.data.id,
             'portfolios_id': form.portfolios.data.id,
             'url': path.replace(basedir, ''),
             'name': form.name.data,
             'description': form.description.data,
             'online': form.online.data,
-            'thumbnail': form.thumbnail.data,
         }
         file.save(path)
         image = Image(**data)
         db.session.add(image)
         db.session.commit()
         flash(f"création d'une image effectuée pour {dir}", "success")
-        return redirect(url_for('images.create'))
+        return redirect(url_for('images.index'))
     ctx = {
         'form': form
     }
-    return render_template('views/edit-images.html', **ctx)
+    return render_template('portfolio/edit.html', **ctx)
 
 
 @bp.route('/update-images-<int:id>', methods=['GET', 'POST'])
