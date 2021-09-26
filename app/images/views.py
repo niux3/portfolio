@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash
 from app.portfolio.models import Portfolio
 from app.images.models import Image, Category
 from app.portfolio.forms import CommonForm
-from app.images.forms import UploadImagesForm, SelectViewForm
+from app.images.forms import UploadImagesForm, SelectViewForm, EditImgForm
 from werkzeug.utils import secure_filename
 from app import config, db
 from app.config import basedir
@@ -89,12 +89,32 @@ def create():
 
 @bp.route('/update-images-<int:id>', methods=['GET', 'POST'])
 def update(id):
-    return 'update images !'
+    row = Image.query.get_or_404(id)
+    form = EditImgForm(obj=row)
+    if request.method == 'POST' and form.validate_on_submit():
+        row.id = form.id.data
+        row.categories_id = form.categories.data.id
+        row.portfolios_id = form.portfolios.data.id
+        row.name = form.name.data
+        row.description = form.description.data
+        row.online = form.online.data
+        db.session.commit()
+        flash("modification d'une image effectuée", "success")
+        return redirect(url_for('images.index'))
+    ctx = {
+        'form': form
+    }
+    return render_template('portfolio/edit.html', **ctx)
 
 
 @bp.route('/delete-images-<int:id>')
 def delete(id):
-    return 'delete images !'
+    row = Image.query.get_or_404(id)
+    os.remove(os.path.join(basedir, row.url[1:]))
+    db.session.delete(row)
+    db.session.commit()
+    flash("suppression d'une image effectuée", "warning")
+    return redirect(url_for('images.index'))
 
 
 @bp.route('/categories-images')

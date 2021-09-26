@@ -35,8 +35,8 @@
             <td><img src="{{ row.img }}" alt="" style="max-width:33%"></td>
             <td>{{ row.categorie }}</td>
             <td>
-                <a href="#" class="btn btn-warning">éditer</a>
-                <a href="#" class="delete btn btn-danger">supprimer</a>
+                <a href="{{ url_for('images.update', id=row.id) }}" class="btn btn-warning">éditer</a>
+                <a href="{{ url_for('images.delete', id=row.id) }}" class="delete btn btn-danger">supprimer</a>
             </td>
         </tr>
         {% endfor %}
