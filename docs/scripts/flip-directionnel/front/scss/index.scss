@@ -1,0 +1,300 @@
+/*
+                                  __......._    _..--._,--._
+                            _.--''  , ,:   :``-/  :.` (-`,o)``-._
+                         ,-'`::.      ::  .: ` `-._    `--' :. __\
+                      ,-':   `::  `   :: ,:;     . \  :.  _.-''  /
+                    ,'  `:.`  ::. ,   `:.::.  ,  `: `. _,' . ` ,`
+                 _,' `   `:.  `::       `::;     ,    ` __.,.-`
+ `-._         _,'  `:   .-::-.  ::  `    ,:  ,' /. )-'''
+  `  ``--.._,'`:._  `:.     ,: \ `:.___.,::..--/: / /
+      . _.-'    _.--'``--''`'`.:\'''-`------..( `(._`._____.....---
+-..___,'`:_..-''   -  _   -.  _\.`.      -     `:.`.       ,`
+    ,:. ,'---...._______  ,     \_.`. -=    `  , `..\ ,  -     .-  _
+   /  ,'    ___         ```````---`,)'-------....._).`.____,.__....---
+  :  :    ,',-.:.                                  `'`'
+  |  |   ( (   \ \  author : Renaud Bourdeau
+  ::.:    `.:, /./  email : renaudbourdeau@gmail.com
+   `. `-..__..' /
+     `-.::__.:-'
+*/
+
+// config
+@import "config/vars";
+@import "config/mixin";
+
+// base
+@import "base/fonts";
+@import "base/reset";
+
+// atoms
+@import "atoms/a";
+@import "atoms/blockquote";
+@import "atoms/body";
+@import "atoms/bold";
+@import "atoms/code";
+@import "atoms/colors";
+@import "atoms/dl";
+@import "atoms/fieldset";
+@import "atoms/form";
+@import "atoms/grid";
+@import "atoms/hr";
+@import "atoms/html";
+@import "atoms/input";
+@import "atoms/italic";
+@import "atoms/label";
+@import "atoms/legend";
+@import "atoms/list";
+@import "atoms/mark";
+@import "atoms/main";
+@import "atoms/p";
+@import "atoms/select";
+@import "atoms/strike";
+@import "atoms/table";
+@import "atoms/textarea";
+@import "atoms/title";
+
+
+//moelcules
+@import "molecules/block-code";
+@import "molecules/buttons";
+@import "molecules/inputs";
+
+//organismes
+//templates
+html, body, #projects, ol{
+    height: 100%;
+}
+
+#projects{
+    overflow: hidden;
+    ol{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+
+        li{
+            width: 100%;
+            height: 100%;
+            // grid-column-start: 2;
+            // grid-row-start: 2;
+
+            .flip-card {
+                background-color: transparent;
+                width: 100%;
+                height: 100%;
+                perspective: 1000px;
+
+                // &:hover .flip-card-inner {
+                //     transform: rotateY(180deg);
+                // }
+                &.flip-animate{
+                    .flip-card-inner {
+                        transition: transform 0.6s;
+                    }
+
+                    &.flip-from{
+                        &-top{
+                            .flip-card-inner {
+                                transform: rotateX(-180deg);
+                            }
+
+                            &.flip-top{
+                                .flip-card-inner {
+                                    transform: rotateY(0deg);
+                                }
+                            }
+
+                            &.flip-right{
+                                .flip-card-inner {
+                                    transform: rotateX(-180deg) rotateY(-180deg);
+                                }
+                            }
+
+                            &.flip-bottom{
+                                .flip-card-inner {
+                                    transform: rotateY(-360deg);
+                                }
+                            }
+
+                            &.flip-left{
+                                .flip-card-inner {
+                                    transform: rotateX(-180deg) rotateY(180deg);
+                                }
+                            }
+                        }
+                        &-right{
+                            .flip-card-inner {
+                                transform: rotateY(-180deg);
+                            }
+
+                            &.flip-top{
+                                .flip-card-inner {
+                                    transform: rotateY(-180deg) rotateX(-180deg);
+                                }
+                            }
+
+                            &.flip-right{
+                                .flip-card-inner {
+                                    transform: rotateY(0deg);
+                                }
+                            }
+
+
+                            &.flip-bottom{
+                                .flip-card-inner {
+                                    transform: rotateY(-180deg) rotateX(180deg);
+                                }
+                            }
+
+                            &.flip-left{
+                                .flip-card-inner {
+                                    transform: rotateY(-360deg);
+                                }
+                            }
+                        }
+                        &-bottom{
+                            .flip-card-inner {
+                                transform: rotateX(180deg);
+                            }
+
+                            &.flip-top{
+                                .flip-card-inner {
+                                    transform: rotateY(360deg);
+                                }
+                            }
+
+                            &.flip-right{
+                                .flip-card-inner {
+                                    transform: rotateX(180deg) rotateY(-180deg);
+                                }
+                            }
+
+                            &.flip-bottom{
+                                .flip-card-inner {
+                                    transform: rotateY(0deg);
+                                }
+                            }
+
+                            &.flip-left{
+                                .flip-card-inner {
+                                    transform: rotateX(180deg) rotateY(180deg);
+                                }
+                            }
+                        }
+                        &-left{
+                            .flip-card-inner {
+                                transform: rotateY(180deg);
+                            }
+
+                            &.flip-bottom{
+                                .flip-card-inner {
+                                    transform: rotateY(180deg) rotateX(180deg);
+                                }
+                            }
+
+                            &.flip-top{
+                                .flip-card-inner {
+                                    transform: rotateY(180deg) rotateX(-180deg);
+                                }
+                            }
+
+                            &.flip-right{
+                                .flip-card-inner {
+                                    transform: rotateY(360deg);
+                                }
+                            }
+
+
+                            &.flip-left{
+                                .flip-card-inner {
+                                    transform: rotateY(0deg);
+                                }
+                            }
+
+                        }
+                    }
+
+                    // &.flip{
+                    //     &-top{
+                    //         .flip-card-inner {
+                    //             transform: rotateX(-180deg);
+                    //         }
+                    //     }
+                    //     &-right{
+                    //         .flip-card-inner {
+                    //             transform: rotateY(180deg);
+                    //         }
+                    //     }
+                    //     &-bottom{
+                    //         .flip-card-inner {
+                    //             transform: rotateX(-180deg);
+                    //         }
+                    //     }
+                    //     &-left{
+                    //         .flip-card-inner {
+                    //             //animation: .6s flipLeft forwards;
+                    //             // transform: rotateY(180deg);
+                    //         }
+                    //     }
+                    // }
+                }
+
+                .flip-card-inner {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+
+                    transform-style: preserve-3d;
+
+                    // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                }
+                .flip-card-front, .flip-card-back {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden;
+                }
+
+                .flip-card-front {
+                    background-color: #bbb;
+                    color: black;
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                    }
+                }
+
+                .flip-card-back {
+                    background-color: #2980b9;
+                    color: white;
+                    transform: rotateY(180deg);
+                }
+            }
+
+        }
+    }
+}
+
+@keyframes flipFromLeft{
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(180deg);
+    }
+}
+@keyframes flipLeft{
+    from{
+        transform: rotateX(0deg);
+    }
+    to{
+        transform: rotateX(180deg);
+    }
+}
