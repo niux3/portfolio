@@ -24,19 +24,15 @@ import '../scss/index.scss';
         var fromClass, toClass, str_direction;
 			switch( direction ) {
 				case 0:
-					// from top
                     str_direction = '-top';
 					break;
 				case 1:
-					// from right
                     str_direction = '-right';
 					break;
 				case 2:
-					// from bottom
                     str_direction = '-bottom';
 					break;
 				case 3:
-					// from left
                     str_direction = '-left';
 					break;
 			};
@@ -47,8 +43,6 @@ import '../scss/index.scss';
     let clearAnimate = null,
         $flipCards = document.querySelectorAll('.flip-card');
     $flipCards.forEach(($el, i)=>{
-        // $el.classList.add('flip-animate');
-        // $el.classList.add('flip-from-top');
         ['mouseenter', 'mouseleave'].forEach(evenName =>{
             $el.addEventListener(evenName, e =>{
                 let eventType = e.type,
@@ -58,21 +52,19 @@ import '../scss/index.scss';
                     cls = null;
                 switch (eventType){
                     case 'mouseenter':
-                        console.log(hoverClasses.from);
+                        // console.log(hoverClasses.from);
                         $el.classList.add('flip-animate');
                         $el.classList.add(hoverClasses.from);
                         break;
                     case 'mouseleave':
-                        console.log(hoverClasses.to);
+                        // console.log(hoverClasses.to);
                         $el.classList.add('flip-animate');
                         $el.classList.add(hoverClasses.to);
                         clearAnimate = setTimeout(()=>{
                             $el.classList.remove('flip-animate');
                             $el.classList.remove(hoverClasses.to);
-                            cls = $el.className.match(/flip-from-\w+/);
-                            if(cls !== null){
-                                $el.classList.remove(cls.shift());
-                            }
+                            let pattern = /flip(-from)?-(top|right|bottom|left)/g;
+                            $el.className = $el.className.replace(pattern, '');
                             clearTimeout(clearAnimate);
                         },parseFloat(window.getComputedStyle($cardInner,null).getPropertyValue("transition-duration")) * 1000 + 1);
                         break;

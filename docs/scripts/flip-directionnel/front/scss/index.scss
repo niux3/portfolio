@@ -78,8 +78,6 @@ html, body, #projects, ol{
         li{
             width: 100%;
             height: 100%;
-            grid-column-start: 2;
-            grid-row-start: 2;
 
             .flip-card {
                 background-color: transparent;
@@ -89,9 +87,7 @@ html, body, #projects, ol{
 
                 &.flip-animate{
                     .flip-card-inner {
-                        transition: transform 0.35s;
-
-
+                        transition: transform 0.3s;
                     }
 
                     &.flip-from{
@@ -100,7 +96,7 @@ html, body, #projects, ol{
                                 transform: rotateX(-180deg);
 
                                 .flip-card-back{
-                                    transform: rotateY(180deg) rotate(180deg) !important;
+                                    transform: rotateY(180deg) rotate(180deg);
                                 }
                             }
 
@@ -113,6 +109,10 @@ html, body, #projects, ol{
                             &.flip-right{
                                 .flip-card-inner {
                                     transform: rotateX(-180deg) rotateY(-180deg);
+
+                                    .flip-card-front{
+                                        transform: rotate(180deg);
+                                    }
                                 }
                             }
 
@@ -125,6 +125,10 @@ html, body, #projects, ol{
                             &.flip-left{
                                 .flip-card-inner {
                                     transform: rotateX(-180deg) rotateY(180deg);
+
+                                    .flip-card-front{
+                                        transform: rotate(180deg);
+                                    }
                                 }
                             }
                         }
@@ -136,6 +140,10 @@ html, body, #projects, ol{
                             &.flip-top{
                                 .flip-card-inner {
                                     transform: rotateY(-180deg) rotateX(-180deg);
+
+                                    .flip-card-front{
+                                        transform: rotate(180deg);
+                                    }
                                 }
                             }
 
@@ -149,6 +157,10 @@ html, body, #projects, ol{
                             &.flip-bottom{
                                 .flip-card-inner {
                                     transform: rotateY(-180deg) rotateX(180deg);
+
+                                    .flip-card-front{
+                                        transform: rotate(180deg);
+                                    }
                                 }
                             }
 
@@ -176,6 +188,10 @@ html, body, #projects, ol{
                             &.flip-right{
                                 .flip-card-inner {
                                     transform: rotateX(180deg) rotateY(-180deg);
+
+                                    .flip-card-front{
+                                        transform: rotate(180deg);
+                                    }
                                 }
                             }
 
@@ -188,6 +204,10 @@ html, body, #projects, ol{
                             &.flip-left{
                                 .flip-card-inner {
                                     transform: rotateX(180deg) rotateY(180deg);
+
+                                    .flip-card-front{
+                                        transform: rotate(180deg);
+                                    }
                                 }
                             }
                         }
@@ -199,12 +219,20 @@ html, body, #projects, ol{
                             &.flip-bottom{
                                 .flip-card-inner {
                                     transform: rotateY(180deg) rotateX(180deg);
+
+                                    .flip-card-front{
+                                        transform: rotate(180deg);
+                                    }
                                 }
                             }
 
                             &.flip-top{
                                 .flip-card-inner {
                                     transform: rotateY(180deg) rotateX(-180deg);
+
+                                    .flip-card-front{
+                                        transform: rotate(180deg);
+                                    }
                                 }
                             }
 
@@ -258,22 +286,5 @@ html, body, #projects, ol{
             }
 
         }
-    }
-}
-
-@keyframes flipFromLeft{
-    from{
-        transform: rotateY(0deg);
-    }
-    to{
-        transform: rotateY(180deg);
-    }
-}
-@keyframes flipLeft{
-    from{
-        transform: rotateX(0deg);
-    }
-    to{
-        transform: rotateX(180deg);
     }
 }
