@@ -44,9 +44,11 @@ import '../scss/index.scss';
             toClass = `flip${str_direction}`;
 			return { from : fromClass, to: toClass };
     };
-    let clearAnimate;
-    document.querySelectorAll('.flip-card').forEach($el =>{
-
+    let clearAnimate = null,
+        $flipCards = document.querySelectorAll('.flip-card');
+    $flipCards.forEach(($el, i)=>{
+        // $el.classList.add('flip-animate');
+        // $el.classList.add('flip-from-top');
         ['mouseenter', 'mouseleave'].forEach(evenName =>{
             $el.addEventListener(evenName, e =>{
                 let eventType = e.type,
@@ -57,41 +59,24 @@ import '../scss/index.scss';
                 switch (eventType){
                     case 'mouseenter':
                         console.log(hoverClasses.from);
+                        $el.classList.add('flip-animate');
                         $el.classList.add(hoverClasses.from);
-                        cls = $el.className.match(/flip-from-(top|right|bottom|left)/);
-                        if(cls !== null){
-                            console.log('-->', cls);
-                            $el.classList.remove(cls.shift());
-                        }
-                        clearTimeout(clearAnimate);
-                        clearAnimate = setTimeout(()=>{
-                            $el.classList.add('flip-animate');
-                            $el.classList.add(hoverClasses.from);
-                        },0);
                         break;
                     case 'mouseleave':
                         console.log(hoverClasses.to);
-                        cls = $el.className.match(/flip-(top|right|bottom|left)/);
-                        if(cls !== null){
-                            console.log('-->', cls);
-                            $el.classList.remove(cls.shift());
-                        }
-                        clearTimeout(clearAnimate);
-                        clearAnimate = setTimeout(()=>{
-                            $el.classList.add('flip-animate');
-                            $el.classList.add(hoverClasses.to);
-                        },0);
-
+                        $el.classList.add('flip-animate');
+                        $el.classList.add(hoverClasses.to);
                         clearAnimate = setTimeout(()=>{
                             $el.classList.remove('flip-animate');
                             $el.classList.remove(hoverClasses.to);
-                            cls = $el.className.match(/flip-from-(top|right|bottom|left)/);
+                            cls = $el.className.match(/flip-from-\w+/);
                             if(cls !== null){
-                                console.log('-->', cls);
                                 $el.classList.remove(cls.shift());
                             }
-                        },600);
+                            clearTimeout(clearAnimate);
+                        },parseFloat(window.getComputedStyle($cardInner,null).getPropertyValue("transition-duration")) * 1000 + 1);
                         break;
+
                 }
             });
         })
