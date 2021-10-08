@@ -8,12 +8,14 @@ import '../scss/index.scss';
         let $lis = Array.from($slider.querySelectorAll('ul li')),
             index = 0,
             save_index = index,
-            next_position = '';
+            next_position = '',
+            onEvent = false;
 
         $slider.addEventListener('pointerdown', e =>{
-            if(e.target.closest('button')){
+            if(e.target.closest('button') && !onEvent){
                 let sign = '';
 
+                onEvent = true;
                 save_index = index;
                 if(e.target.closest('button').classList.contains('next')){
                     index = index >= $lis.length - 1? 0 : ++index;
@@ -36,6 +38,7 @@ import '../scss/index.scss';
                     });
                     $lis[index].removeAttribute('class');
                     $lis[index].classList.add('at-middle');
+                    onEvent = false;
                 });
             }
         });

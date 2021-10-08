@@ -2,9 +2,7 @@ import '../scss/index.scss';
 
 (()=>{
     // ???
-    document.body.style.margin = 0;
-    document.body.style.background = '#2ecc71';
-    document.querySelector('section').style.height = '929px';
+    document.querySelector('section').style.height = '2000px';
 
     let get_properties_window = ()=>{
         return {
@@ -16,12 +14,15 @@ import '../scss/index.scss';
         let props_window = get_properties_window(),
             $header = document.querySelector('header'),
             style = [
-                `width:${props_window.w - 16}px`,
                 `height:${props_window.h}px`,
             ];
             $header.style = style.join(';');
 
     }
     set_resize_header();
-    window.addEventListener('resize', set_resize_header)
+    window.addEventListener('resize', set_resize_header);
+
+    let $nav = document.querySelector('nav');
+    document.querySelector('.global').style.top = `${get_properties_window().h - $nav.getBoundingClientRect().height}px`;
+
 })()

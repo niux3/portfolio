@@ -80,13 +80,8 @@ $breakpoints: (
 ) !default;
 
 $fonts : (
-    materialicons     : materialicons-regular,
-    light             : raleway-light-webfont,
-    lightitalic       : raleway-lightitalic-webfont,
-    regular           : raleway-regular-webfont,
-    italic            : raleway-regularitalic-webfont,
-    bold              : raleway-bold-webfont,
-    bolditalic        : raleway-bolditalic-webfont,
+    entypo            : entypo,
+    impact            : impact,
 ) !default;
 
 $font-family-base : "regular", Helvetica, Arial, sans-serif !default;

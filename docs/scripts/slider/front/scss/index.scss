@@ -45,9 +45,9 @@ html{
                 margin: 0;
                 position: absolute;
                 top: -40rem;
-                transition: left 600ms cubic-bezier(0.85, 0, 0.15, 1);
 
                 &[class*="at-"]{
+                    transition: left 600ms cubic-bezier(0.85, 0, 0.15, 1);
                     top: 0;
                 }
 

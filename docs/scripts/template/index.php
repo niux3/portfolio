@@ -5,11 +5,13 @@
         <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RB web developpement - porfolio</title>
-        <link rel="stylesheet" href="./public/css/styles.css" media="all">
+        <link rel="stylesheet" href="./public/css/style.css" media="all">
     </head>
     <body>
-        <header></header>
-        <main>
+        <header class="bg-casino">
+            <h1>yo</h1>
+        </header>
+        <div class="global">
             <nav>
                 <ul class="main">
             	    <li class="current"><a href="#">&#8962;</a></li>
@@ -21,7 +23,7 @@
             	</ul>
             </nav>
             <section></section>
-        </main>
+        </div>
         <script defer src="./public/js/app.js"></script>
     </body>
 </html>

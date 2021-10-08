@@ -1,0 +1,36 @@
+nav{
+    font-family: 'entypo';
+    background: map-get($colors, midnight-blue);
+    position: sticky;
+    top: 0;right: 0;left: 0;
+
+    ul{
+
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+
+        li{
+            margin: 0;
+            a{
+                background: transparent;
+                text-decoration: none;
+                color: #fff;
+                font-size: 5.5rem;
+                line-height: 0;
+                text-align: center;
+                padding: 2.5rem;
+                outline: none;
+                display: block;
+                transition: background-color $speed, color $speed;
+
+                &:hover{
+                    background: #3498db;
+                    color: white;
+                }
+            }
+        }
+
+    }
+}

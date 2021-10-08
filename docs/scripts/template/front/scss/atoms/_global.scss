@@ -1,0 +1,7 @@
+.global{
+    background-color: map-get($colors, clouds);
+    position: absolute;
+    transition: top $speed;
+    top: 100%; right: 0;left: 0;
+    z-index: 500;
+}
