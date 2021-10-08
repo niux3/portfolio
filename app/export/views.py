@@ -13,27 +13,27 @@ bp = Blueprint('export', __name__)
 @bp.route('/export-json')
 def index():
     sql = """
-        SELECT 
+        SELECT
             p.id as pid,
             p.name as pname,
             p.slug as pslug,
             p.description as pdescription,
             p.url as purl,
             p.color as pcolor,
-            f.name as fname 
-        FROM 
-            portfolios as p, 
-            functions as f 
-        WHERE 
-            f.id = p.functions_id 
-        AND 
+            f.name as fname
+        FROM
+            portfolios as p,
+            functions as f
+        WHERE
+            f.id = p.functions_id
+        AND
             p.online = 1
     """
 
     rows = db.session.execute(sql)
     output_rows = []
+    output_css = []
     for row in rows:
-        print('>> ', row.pid, ' <-> ',  row.pname)
         technologies = []
         for trow in db.session.execute(portfolio_technology.join(Technology).select().where(portfolio_technology.c.portfolios_id == row.pid)):
             technologies.append(trow.name)
@@ -41,7 +41,7 @@ def index():
             images = {
                 'thumbnail': "miniature",
                 'logo': 'logo',
-                'standard': list(range(0,10))
+                'standard': list(range(0, 10))
             }
         output = {
             'id': row.pid,
@@ -55,6 +55,16 @@ def index():
             'images': images
         }
         output_rows.append(output)
+
+        # css
+        tpl = f"""
+            .bg-{row.pslug}{{background-color: {row.pcolor};}}
+            .c-{row.pslug}{{color: {row.pcolor};}}
+        """
+        output_css.append(tpl)
+
     with open(os.path.join(basedir, 'data', 'export.json'), "w") as file:
         file.write(json.dumps(output_rows, indent=4))
+    with open(os.path.join(basedir, 'data', '_export-univers.scss'), "w") as file:
+        file.write("\n".join(output_css))
     return "export method"
