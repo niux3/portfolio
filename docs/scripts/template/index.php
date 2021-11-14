@@ -7,8 +7,8 @@
         <title>RB web developpement - porfolio</title>
         <link rel="stylesheet" href="./public/css/style.css" media="all">
     </head>
-    <body>
-        <header class="bg-casino">
+    <body class="univers-leroy-merlin">
+        <header>
             <h1>yo</h1>
         </header>
         <div class="global">
@@ -19,10 +19,12 @@
             	    <li><a href="#competences">&#9871;</a></li>
             	    <li class="home-no-info"><a href="#competences" id="iconInfo">&#59141;</a></li>
             	    <li><a href="#" id="iconNext">&#59238;</a></li>
+                    <li class=""><a href="#about" id="iconHelp">&#59140;</a></li>
             	    <li><a href="#contact">&#9993;</a></li>
+            	    <li><a href="#contact">&#62233;</a></li>
             	</ul>
             </nav>
-            <section></section>
+            <section id="competences"></section>
         </div>
         <script defer src="./public/js/app.js"></script>
     </body>

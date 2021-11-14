@@ -33,6 +33,7 @@ def index():
     rows = db.session.execute(sql)
     output_rows = []
     output_css = []
+    root = os.path.dirname(basedir)
     for row in rows:
         technologies = []
         for trow in db.session.execute(portfolio_technology.join(Technology).select().where(portfolio_technology.c.portfolios_id == row.pid)):
@@ -58,13 +59,20 @@ def index():
 
         # css
         tpl = f"""
-            .bg-{row.pslug}{{background-color: {row.pcolor};}}
-            .c-{row.pslug}{{color: {row.pcolor};}}
+.univers-{row.pslug}{{
+    > header{{
+        background-color: {row.pcolor};
+    }}
+
+    > .global nav a:hover{{
+        background-color: {row.pcolor};
+    }}
+}}
         """
         output_css.append(tpl)
 
-    with open(os.path.join(basedir, 'data', 'export.json'), "w") as file:
+    with open(os.path.join(root, 'docs', 'scripts', 'template', 'public', 'export.json'), "w") as file:
         file.write(json.dumps(output_rows, indent=4))
-    with open(os.path.join(basedir, 'data', '_export-univers.scss'), "w") as file:
+    with open(os.path.join(root, 'docs', 'scripts', 'template', 'front', 'scss', 'atoms', '_export-univers.scss'), "w") as file:
         file.write("\n".join(output_css))
     return "export method"

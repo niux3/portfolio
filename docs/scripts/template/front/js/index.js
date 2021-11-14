@@ -22,7 +22,10 @@ import '../scss/index.scss';
     set_resize_header();
     window.addEventListener('resize', set_resize_header);
 
-    let $nav = document.querySelector('nav');
-    document.querySelector('.global').style.top = `${get_properties_window().h - $nav.getBoundingClientRect().height}px`;
+    let animNavTop = setTimeout(()=>{
+        let $nav = document.querySelector('nav');
+        document.querySelector('.global').style.top = `${get_properties_window().h - $nav.getBoundingClientRect().height}px`;
+        clearTimeout(animNavTop);
+    }, 800);
 
 })()
