@@ -14,7 +14,7 @@
     <div id="projects">
         <ol>
             <?php foreach($rows as $k => $row): ?>
-                <?php if($k === 0): ?>
+
                 <li>
                     <div class="flip-card">
                         <div class="flip-card-inner">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 </li>
-                <?php endif; ?>
+                
             <?php endforeach; ?>
         </ol>
     </div>
