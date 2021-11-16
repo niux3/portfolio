@@ -52,6 +52,7 @@ class Portfolio(db.Model):
     url = db.Column(db.String(256), nullable=False)
     functions_id = db.Column(db.Integer, db.ForeignKey('functions.id'))
     technologies = db.relationship("Technology", secondary=portfolio_technology, backref=db.backref('portfolios', lazy="dynamic"))
+    sort = db.Column(db.Integer, nullable=False)
 
     def __str__(self):
         return self.name

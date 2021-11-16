@@ -28,6 +28,8 @@ def index():
             f.id = p.functions_id
         AND
             p.online = 1
+        ORDER BY
+            p.sort
     """
 
     rows = db.session.execute(sql)

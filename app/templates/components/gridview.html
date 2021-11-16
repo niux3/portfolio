@@ -1,13 +1,25 @@
 <table class="table">
     <thead>
         <th scope="col" style="width: 5%;">id</th>
-        <th scope="col" style="width:70%">name</th>
+        {% if sortable %}
+        <th scope="col" style="width: 5%;">sort</th>
+        {% endif %}
+        <th scope="col" style="width:65%">name</th>
         <th scope="col" style="width: 25%;">actions</th>
     </thead>
-    <tbody>
+    <tbody{% if sortable %} class="sortable"{% endif %}>
         {% for row in rows %}
         <tr>
-            <td>{{ row.id }}</td>
+            <td>
+                {{ row.id }}
+            </td>
+            {% if sortable %}
+            <td>
+                <span class="txtSort">{{ row.id }}</span>
+                <input type="hidden" name="row_id" class="row_id" value="{{ row.id }}">
+                <input type="hidden" name="sortable" class="row_sort" value="{{ row.sort }}">
+            </td>
+            {% endif %}
             <td>{{ row.name }}</td>
             <td>
                 {% if online %}<a href="{{ url_for(prefixe_url + '.toggle_online'+ suffixe_url, id=row.id) }}" class="toggle-online btn btn-{% if row.online %}success{% else %}danger{% endif %}">{% if row.online %}online{% else %}offline{% endif %}</a>{% endif %}

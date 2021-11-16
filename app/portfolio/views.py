@@ -9,18 +9,34 @@ bp = Blueprint('portfolio', __name__)
 @bp.route('/')
 def index_portfolio():
     ctx = {
-        'rows': Portfolio.query.all(),
+        'rows': Portfolio.query.order_by('sort'),
         'online': True,
         'prefixe_url': 'portfolio',
-        'suffixe_url': '_portfolio'
+        'suffixe_url': '_portfolio',
+        'sortable': True,
     }
     return render_template('portfolio/index.html', **ctx)
+
+
+@bp.route('/update-portfolio-sort', methods=['POST'])
+def update_portfolio_sort():
+    if request.method == "POST":
+        for row_ajx in request.get_json():
+            row = Portfolio.query.get(row_ajx['id'])
+            row.sort = row_ajx['sort']
+            db.session.commit()
+        return 'ok'
 
 
 @bp.route('/create-portfolio', methods=['GET', 'POST'])
 def create_portfolio():
     form = PortfolioForm()
     if request.method == "POST" and form.validate_on_submit():
+        if Portfolio.query.order_by(Portfolio.id.desc()).first() is not None:
+            last_id = int(Portfolio.query.order_by(Portfolio.id.desc()).first().id)
+        else:
+            last_id = 0
+
         data = {
             'name': form.name.data,
             'slug': form.slug.data,
@@ -29,7 +45,9 @@ def create_portfolio():
             'color': form.color.data,
             'online': form.online.data,
             'functions_id': form.functions.data.id,
+            'sort': last_id + 1,
         }
+
         portfolio = Portfolio(**data)
         db.session.add(portfolio)
         db.session.commit()
@@ -58,7 +76,7 @@ def update_portfolio(id):
         row.functions_id = form.functions.data.id
         db.session.commit()
 
-        rows = portfolio_technology.delete().where(portfolio_technology.c.portfolios_id==row.id)
+        rows = portfolio_technology.delete().where(portfolio_technology.c.portfolios_id == row.id)
         db.session.execute(rows)
         db.session.commit()
         for pt in form.technologies.data:
