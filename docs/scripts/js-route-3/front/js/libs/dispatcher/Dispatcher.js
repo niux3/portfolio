@@ -20,7 +20,7 @@ export default class Dispatcher{
                     this._request.url = window.location.hash;
                     router.check(this._request);
                     let controller = this._load();
-                    controller[this._request.action].apply({}, this._request.params);
+                    controller[this._request.action](...this._request.params);
                 }catch(e){
                     this._errors(e);
                 }
