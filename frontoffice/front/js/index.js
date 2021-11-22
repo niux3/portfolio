@@ -1,7 +1,8 @@
 import '../scss/index.scss';
+import Dispatcher from './libs/dispatcher/Dispatcher';
+
 
 (()=>{
-    // ???
     document.querySelector('section').style.height = '2000px';
 
     let get_properties_window = ()=>{
@@ -28,4 +29,11 @@ import '../scss/index.scss';
         clearTimeout(animNavTop);
     }, 800);
 
+
+    let dispatcher = new Dispatcher()
+    dispatcher.run();
+
+    if(window.location.hash === ""){
+        dispatcher.navigateTo('/home')
+    }
 })()
