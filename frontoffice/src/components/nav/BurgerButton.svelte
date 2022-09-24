@@ -1,7 +1,7 @@
 <script>
     import {createEventDispatcher} from 'svelte';
-
-    let isClosedVisible = false;
+    export let is_burger_display;
+    let isClosedVisible = is_burger_display;
     let dispatch = createEventDispatcher();
     let toggleClosedVisible = e =>{
         isClosedVisible = !isClosedVisible;
@@ -25,7 +25,7 @@
     top: 0;
     width: 60px;
     height: 60px;
-    background: purple;
+    background: #0189c7;
     border: none;
     border-radius: 50%;
     cursor: pointer;
