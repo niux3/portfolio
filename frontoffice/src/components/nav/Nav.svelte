@@ -4,7 +4,6 @@
     let isNavVisible = false;
     let nav_visible = e => isNavVisible = e.detail.get;
 </script>
-{isNavVisible}
 <nav class="{isNavVisible ? 'isNavVisible' : ''}">
     <BurgerButton on:nav_visible={nav_visible}/>
     <Items content_visible={isNavVisible} />
@@ -17,10 +16,10 @@
     top: 30px;
     z-index: 3;
     //background: red;
-    padding-top: 60px;
+    padding-top: 30px;
     padding-bottom: 0;
     min-height: 60px;
-    transition: padding-bottom 200ms;
+    transition: padding-bottom 800ms;
 
     &:before{
       content:'';
@@ -29,7 +28,7 @@
       bottom: 30px;
       width: 60px;
       background-color: purple;
-      transition: all 200ms;
+      transition: all 800ms;
     }
     &:after{
       content:'';
@@ -44,7 +43,7 @@
     }
 
     &.isNavVisible{
-      padding-bottom: 60px;
+      padding-bottom: 30px;
     }
   }
 </style>

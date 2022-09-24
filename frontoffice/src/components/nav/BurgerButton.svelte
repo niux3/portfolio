@@ -35,7 +35,7 @@
       top: 50%;
       transform: translateY(-50%);
       left: 33%;
-      background-color: red;
+      background-color: white;
       width: 33%;
       height: 2px;
       transition: background-color 200ms;
@@ -48,7 +48,7 @@
         content: '';
         width: 100%;
         height: 2px;
-        background-color: red;
+        background-color: white;
       }
 
       &:before{
