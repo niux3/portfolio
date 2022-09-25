@@ -1,5 +1,7 @@
 <script>
-    import Header from './components/Header.svelte';
+    import Nav from './components/nav/Nav.svelte'
+    import Main from './components/views/Main.svelte';
 </script>
 
-<Header />
+<Nav />
+<Main />

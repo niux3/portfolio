@@ -29,17 +29,16 @@
     let goToHiddenNav = e =>{
         console.log('t => ', e.target);
         dispatch('nav_click', {
-            'url': e.target.closest('li').querySelector('a').href,
+            'url': e.target.closest('li').querySelector('a').getAttribute('href'),
             'visible': false
         })
     }
-
     onMount(()=>{
         let len_item = Object.keys(data).length,
             output = '';
         for(let i = 1; i <= len_item; i++){
             let str = `
-                header .isNavVisible .visible li:nth-child(${i}) svg{
+                .isNavVisible .visible li:nth-child(${i}) svg{
                     animation-delay: ${i === 1? 0 : i * 75}ms;
                 }
             `;
@@ -49,9 +48,10 @@
 
     })
 </script>
+<p style="position: fixed; top:30px; right:50px;">{current_view}</p>
 <ul class="{content_visible? 'visible' : 'isNotVisible'}">
     {#each Object.entries(data) as [key, value], i}
-    <li on:click={goToHiddenNav}>
+    <li on:click={goToHiddenNav} class="{current_view === '#/' + value.slug ? 'current' : ''}">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {value.size} 512">{@html value.icon}</svg>
         <a href="#/{value.slug}">
             <span>{key.toUpperCase()}</span>
@@ -74,6 +74,18 @@
     li{
       position: relative;
       cursor: pointer;
+      &:before{
+          content:"";
+          position: absolute;
+          display: block;
+          width: 5px;
+          left: 60px;
+        opacity: 0;
+          top: 15px;
+          bottom: 15px;
+          background-color: white;
+          transition: opacity 400ms;
+        }
       svg{
         width: 16px;
         display: block;
@@ -92,14 +104,14 @@
         transition: color 400ms;
         line-break: 0;
 
-        &:before{
-          content:"";
-        }
+
 
         &:hover{
           color: #0189c7;
           text-decoration: none;
         }
+
+
       }
     }
 
@@ -107,13 +119,25 @@
       max-height: 0;
       visibility: hidden;
 
-      li{
-        a{
-        }
-      }
     }
     &.visible{
       li{
+        &:hover{
+          &:before{
+            animation-name: none;
+            left: 55px;
+            opacity: 1;
+          }
+        }
+        &.current {
+            &:before {
+              animation-name: current;
+              animation-delay: 800ms;
+              animation-duration: 200ms;
+              animation-fill-mode: forwards;
+            }
+          }
+
         svg{
           animation-name: svg;
           animation-duration: 400ms;
@@ -125,6 +149,7 @@
           opacity: 0;
           filter: blur(1px);
           transition: opacity 400ms, padding-left 400ms;
+
         }
         &:hover {
           a {
@@ -167,6 +192,18 @@
       opacity: 1;
       padding-left: 75px;
     }
-
+  }
+  @keyframes current {
+    0%{
+      opacity: 0;
+      left: 60px;
+    }
+    75%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+      left: 55px;
+    }
   }
 </style>
