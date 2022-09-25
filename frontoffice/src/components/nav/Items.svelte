@@ -84,7 +84,7 @@
           top: 15px;
           bottom: 15px;
           background-color: white;
-          transition: opacity 400ms;
+          transition: opacity 400ms, left 400ms;
         }
       svg{
         width: 16px;
@@ -104,10 +104,7 @@
         transition: color 400ms;
         line-break: 0;
 
-
-
         &:hover{
-          color: #0189c7;
           text-decoration: none;
         }
 
@@ -122,20 +119,19 @@
     }
     &.visible{
       li{
-        &:hover{
-          &:before{
-            animation-name: none;
-            left: 55px;
-            opacity: 1;
-          }
-        }
+
         &.current {
             &:before {
               animation-name: current;
-              animation-delay: 800ms;
+              animation-delay: 400ms;
               animation-duration: 200ms;
               animation-fill-mode: forwards;
             }
+          &:hover {
+            a {
+              color: #0189c7;
+            }
+          }
           }
 
         svg{
@@ -152,10 +148,16 @@
 
         }
         &:hover {
+          &:before{
+            animation-name: none;
+            left: 55px;
+            opacity: 1;
+          }
           a {
             opacity: 1;
             padding-left: 75px;
             filter: none;
+            color: #88878c;
           }
         }
       }
