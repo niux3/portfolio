@@ -1,5 +1,5 @@
 <script>
-    import {onMount, createEventDispatcher} from 'svelte';
+    import {onMount, createEventDispatcher, setContext} from 'svelte';
     export let content_visible;
     export let current_view;
 
@@ -25,14 +25,19 @@
             'slug': 'me-contacter',
         },
     }
+
+
     let dispatch = createEventDispatcher();
     let goToHiddenNav = e =>{
         console.log('t => ', e.target);
+
         dispatch('nav_click', {
             'url': e.target.closest('li').querySelector('a').getAttribute('href'),
             'visible': false
         })
     }
+
+
     onMount(()=>{
         let len_item = Object.keys(data).length,
             output = '';
@@ -47,6 +52,7 @@
         document.querySelector('head').insertAdjacentHTML('beforeend', `<style>${output}</style>`);
 
     })
+
 </script>
 <p style="position: fixed; top:30px; right:50px;">{current_view}</p>
 <ul class="{content_visible? 'visible' : 'isNotVisible'}">

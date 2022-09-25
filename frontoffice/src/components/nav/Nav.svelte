@@ -1,20 +1,22 @@
 <script>
-    import {onMount} from 'svelte';
+    import {onMount, createEventDispatcher} from 'svelte';
     import BurgerButton from './BurgerButton.svelte';
     import Items from './Items.svelte';
 
+    export let current_view;
+
     let isNavVisible = false;
     let nav_visible = e => isNavVisible = e.detail.get;
-    let current_view;
+    let dispatch = createEventDispatcher()
     onMount(()=>{
-        current_view = window.location.hash;
-        window.addEventListener('hashchange', e =>{
-            console.log(">>", window.location.hash);
-        })
+        console.log(">>", current_view);
     });
     let onNavClick = e =>{
         isNavVisible = e.detail.visible;
         current_view = e.detail.url;
+        dispatch('nav_click', {
+            current_view
+        })
         console.log('-> ', e.detail);
     }
 </script>
