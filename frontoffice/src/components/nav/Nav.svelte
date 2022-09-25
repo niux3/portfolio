@@ -2,16 +2,25 @@
     import {onMount} from 'svelte';
     import BurgerButton from './BurgerButton.svelte';
     import Items from './Items.svelte';
+
     let isNavVisible = false;
     let nav_visible = e => isNavVisible = e.detail.get;
     let current_view;
     onMount(()=>{
         current_view = window.location.hash;
+        window.addEventListener('hashchange', e =>{
+            console.log(">>", window.location.hash);
+        })
     });
+    let onNavClick = e =>{
+        isNavVisible = e.detail.visible;
+        current_view = e.detail.url;
+        console.log('-> ', e.detail);
+    }
 </script>
 <nav class="{isNavVisible ? 'isNavVisible' : ''}">
     <BurgerButton on:nav_visible={nav_visible} is_burger_display="{isNavVisible}"/>
-    <Items content_visible={isNavVisible} current_view={current_view}/>
+    <Items content_visible={isNavVisible} current_view={current_view} on:nav_click={onNavClick} />
 </nav>
 
 <style lang="scss">

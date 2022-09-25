@@ -1,5 +1,5 @@
 <script>
-    import {onMount} from 'svelte';
+    import {onMount, createEventDispatcher} from 'svelte';
     export let content_visible;
     export let current_view;
 
@@ -25,6 +25,14 @@
             'slug': 'me-contacter',
         },
     }
+    let dispatch = createEventDispatcher();
+    let goToHiddenNav = e =>{
+        console.log('t => ', e.target);
+        dispatch('nav_click', {
+            'url': e.target.closest('li').querySelector('a').href,
+            'visible': false
+        })
+    }
 
     onMount(()=>{
         let len_item = Object.keys(data).length,
@@ -43,7 +51,7 @@
 </script>
 <ul class="{content_visible? 'visible' : 'isNotVisible'}">
     {#each Object.entries(data) as [key, value], i}
-    <li>
+    <li on:click={goToHiddenNav}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {value.size} 512">{@html value.icon}</svg>
         <a href="#/{value.slug}">
             <span>{key.toUpperCase()}</span>
@@ -115,12 +123,14 @@
         a{
           padding-left: 95px;
           opacity: 0;
+          filter: blur(1px);
           transition: opacity 400ms, padding-left 400ms;
         }
         &:hover {
           a {
             opacity: 1;
             padding-left: 75px;
+            filter: none;
           }
         }
       }

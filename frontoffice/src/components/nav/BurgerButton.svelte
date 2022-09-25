@@ -1,7 +1,7 @@
 <script>
     import {createEventDispatcher} from 'svelte';
     export let is_burger_display;
-    let isClosedVisible = is_burger_display;
+    $: isClosedVisible = is_burger_display;
     let dispatch = createEventDispatcher();
     let toggleClosedVisible = e =>{
         isClosedVisible = !isClosedVisible;
@@ -10,6 +10,7 @@
         });
     }
 </script>
+<p style="position: fixed; right: 50px; top: 50px;">{is_burger_display}</p>
 
 <button class="burger {isClosedVisible ? 'isClosedVisible' : ''}" on:click={toggleClosedVisible}>
     <span></span>
