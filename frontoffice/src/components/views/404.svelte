@@ -2,13 +2,13 @@
     import {onMount, onDestroy} from 'svelte'
 
     onMount(()=>{
-        console.log('about loaded')
+        console.log('404 loaded')
     })
 
     onDestroy(()=>{
         let end = setTimeout(()=>{
 
-            console.log('about unloaded')
+            console.log('404 unloaded')
             clearTimeout(end)
         }, 2000)
     })
@@ -16,7 +16,7 @@
 
 <section>
     <article>
-        <div>a propos de</div>
+        <div>404</div>
     </article>
 </section>
 

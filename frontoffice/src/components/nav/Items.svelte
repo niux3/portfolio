@@ -1,5 +1,4 @@
 <script>
-    import {Link} from 'svelte-navigator';
     import {current_view, debug} from "../../store";
     import {onMount, createEventDispatcher} from 'svelte';
     export let content_visible;

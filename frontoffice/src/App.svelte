@@ -9,17 +9,17 @@
         '#/me-contacter': 'Contact',
         '#/accueil': 'Home',
     }
+
     async function hashChange(){
-        current_view.set(window.location.hash);
+        current_view.set(window.location.hash.length === 0? '#/accueil' : window.location.hash);
     }
 
+    $: view = Object.keys(translate_views).includes($current_view)? View[translate_views[$current_view]] : View['View_404'];
     onMount(hashChange)
-
-
 </script>
 <svelte:window on:hashchange={hashChange}/>
 <Nav />
 <main>
-    <svelte:component this={View[translate_views[$current_view]]} />
+    <svelte:component this={view} />
 </main>
 
