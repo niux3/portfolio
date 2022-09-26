@@ -1,4 +1,5 @@
 <script>
+    import {debug} from "../../store";
     import {createEventDispatcher} from 'svelte';
     export let is_burger_display;
     $: isClosedVisible = is_burger_display;
@@ -10,8 +11,9 @@
         });
     }
 </script>
-<p style="position: fixed; right: 50px; top: 50px;">{is_burger_display}</p>
-
+{#if $debug}
+    <p style="position: fixed; right: 50px; top: 50px;">{is_burger_display}</p>
+{/if}
 <button class="burger {isClosedVisible ? 'isClosedVisible' : ''}" on:click={toggleClosedVisible}>
     <span></span>
 </button>

@@ -1,12 +1,10 @@
 <script>
-    export let current_view;
-    export let w;
-    export let h;
+
 </script>
 
 <section>
     <article>
-        <div>ok</div>
+        <div>portfolio book ..</div>
     </article>
 </section>
 
@@ -18,7 +16,6 @@
     height: 100%;
     margin: 0 auto;
     article{
-      min-height: 2000px;
 
       div{
 

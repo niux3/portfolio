@@ -1,5 +1,6 @@
 <script>
-    import {current_view} from "../../store";
+    import {Link} from 'svelte-navigator';
+    import {current_view, debug} from "../../store";
     import {onMount, createEventDispatcher} from 'svelte';
     export let content_visible;
     let data = {
@@ -49,7 +50,9 @@
     })
 
 </script>
-<p style="position: fixed; top:30px; right:50px;">{$current_view}</p>
+{#if $debug}
+    <p style="position: fixed; top:30px; right:50px;">{$current_view}</p>
+{/if}
 <ul class="{content_visible? 'visible' : 'isNotVisible'}">
     {#each Object.entries(data) as [key, value], i}
     <li on:click={goToHiddenNav} class="{$current_view === '#/' + value.slug ? 'current' : ''}">

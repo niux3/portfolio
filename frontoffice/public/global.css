@@ -21,6 +21,7 @@ html, body {
 }
 
 body {
+	background: #f5f5f5;
 	color: #88878c;
 	margin: 0;
 	box-sizing: border-box;
