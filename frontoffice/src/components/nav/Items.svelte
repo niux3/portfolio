@@ -1,5 +1,5 @@
 <script>
-    import {onMount, createEventDispatcher, setContext} from 'svelte';
+    import {onMount, createEventDispatcher} from 'svelte';
     export let content_visible;
     export let current_view;
 
@@ -182,23 +182,6 @@
     100%{
       transform: scale(1) translateY(-50%);
       opacity: 1;
-    }
-  }
-  @keyframes link {
-    0%{
-      opacity: 0;
-      transform: scale(0);
-      padding-left: 15px;
-    }
-    75%{
-      opacity: 0;
-      transform: scale(1.2);
-      padding-left: 90px;
-    }
-    100%{
-      transform: scale(1);
-      opacity: 1;
-      padding-left: 75px;
     }
   }
   @keyframes current {

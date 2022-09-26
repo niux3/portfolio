@@ -1,5 +1,5 @@
 <script>
-    import {onMount, createEventDispatcher} from 'svelte';
+    import {createEventDispatcher} from 'svelte';
     import BurgerButton from './BurgerButton.svelte';
     import Items from './Items.svelte';
 
@@ -8,16 +8,13 @@
     let isNavVisible = false;
     let nav_visible = e => isNavVisible = e.detail.get;
     let dispatch = createEventDispatcher()
-    onMount(()=>{
-        console.log(">>", current_view);
-    });
+
     let onNavClick = e =>{
         isNavVisible = e.detail.visible;
         current_view = e.detail.url;
         dispatch('nav_click', {
             current_view
         })
-        console.log('-> ', e.detail);
     }
 </script>
 <nav class="{isNavVisible ? 'isNavVisible' : ''}">
