@@ -1,25 +1,18 @@
 <script>
-    import {createEventDispatcher} from 'svelte';
     import BurgerButton from './BurgerButton.svelte';
     import Items from './Items.svelte';
 
-    export let current_view;
 
     let isNavVisible = false;
     let nav_visible = e => isNavVisible = e.detail.get;
-    let dispatch = createEventDispatcher()
 
     let onNavClick = e =>{
         isNavVisible = e.detail.visible;
-        current_view = e.detail.url;
-        dispatch('nav_click', {
-            current_view
-        })
     }
 </script>
 <nav class="{isNavVisible ? 'isNavVisible' : ''}">
     <BurgerButton on:nav_visible={nav_visible} is_burger_display="{isNavVisible}"/>
-    <Items content_visible={isNavVisible} current_view={current_view} on:nav_click={onNavClick} />
+    <Items content_visible={isNavVisible} on:nav_click={onNavClick} />
 </nav>
 
 <style lang="scss">
