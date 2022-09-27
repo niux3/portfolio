@@ -2,23 +2,20 @@
     import {display} from "../../libs/store";
     import {onMount, onDestroy} from 'svelte'
     import {toVisible, toInvisible} from "../../libs/transition";
+    import Header from '../Header.svelte'
     onMount(()=>{
-        toInvisible(()=>{
-            display.set(true)
-        });
+        toVisible();
     })
 
     onDestroy(()=>{
-        console.log(document.getElementById('overlayTransition'))
-        toVisible(()=>{
-            display.set(false);
-        });
+        toInvisible();
     })
 
 </script>
 
 
 {#if $display}
+    <Header />
 <section>
     <article>
         <div>me contacter</div>

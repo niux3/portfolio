@@ -5,7 +5,12 @@
     export let text;
     let run = false;
     let stop = false;
-    let onClick = e => current_view.set(e.target.closest('a').getAttribute('href'));
+    let onClick = e => {
+        setTimeout(()=>{
+            current_view.set(e.target.closest('a').getAttribute('href'));
+            window.location.hash = $current_view;
+        }, 400);
+    };
     let onMouseLeave = e =>{
         stop = true;
          e.target.closest('a').textContent = text
@@ -67,4 +72,4 @@
     }
 </script>
 
-<a href={to} on:click={onClick} on:mouseenter={onMouseOver} on:focus={onMouseOver} on:mouseleave={onMouseLeave}>{text}</a>
+<a href={to} on:click|preventDefault={onClick} on:mouseenter={onMouseOver} on:focus={onMouseOver} on:mouseleave={onMouseLeave}>{text}</a>
