@@ -1,5 +1,4 @@
 <script>
-    import {onMount} from 'svelte'
     import {current_view} from "../libs/store";
     export let to;
     export let text;
