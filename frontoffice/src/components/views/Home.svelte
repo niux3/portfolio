@@ -1,11 +1,30 @@
 <script>
+    import {display} from "../../libs/store";
+    import {onMount, onDestroy} from 'svelte'
+    import {toVisible, toInvisible} from "../../libs/transition";
+    onMount(()=>{
+        toInvisible(()=>{
+            display.set(true)
+        });
+    })
+
+    onDestroy(()=>{
+        console.log(document.getElementById('overlayTransition'))
+        toVisible(()=>{
+            display.set(false);
+        });
+    })
+
 </script>
 
+
+{#if $display}
 <section>
     <article>
         <div>accueil</div>
     </article>
 </section>
+{/if}
 
 <style lang="scss">
   section{

@@ -1,6 +1,6 @@
 <script>
     import {onMount} from 'svelte'
-    import {current_view} from "../store";
+    import {current_view} from "../libs/store";
     export let to;
     export let text;
     let run = false;
@@ -65,9 +65,6 @@
         Olink(e.target.closest('a'));
 
     }
-    onMount(()=>{
-        console.log(document.querySelector('a').textContent);
-    })
 </script>
 
 <a href={to} on:click={onClick} on:mouseenter={onMouseOver} on:focus={onMouseOver} on:mouseleave={onMouseLeave}>{text}</a>

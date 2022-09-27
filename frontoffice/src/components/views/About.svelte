@@ -6,8 +6,9 @@
     })
 
     onDestroy(()=>{
+        console.log(document.getElementById('overlayTransition'))
+        document.getElementById('overlayTransition').classList.add('visible');
         let end = setTimeout(()=>{
-
             console.log('about unloaded')
             clearTimeout(end)
         }, 2000)

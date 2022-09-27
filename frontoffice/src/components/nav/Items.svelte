@@ -1,5 +1,5 @@
 <script>
-    import {current_view, debug} from "../../store";
+    import {current_view, debug} from "../../libs/store";
     import {onMount, createEventDispatcher} from 'svelte';
     export let content_visible;
     let data = {

@@ -82,7 +82,57 @@ main{
 	padding: 30px 25px;
 	overflow: hidden;
 }
+#overlayTransition{
+	position: fixed;
+	top: 100%;
+	right: 0;
+	bottom: -100%;
+	left: 0;
+	background-color: #444;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #eee;
+}
+#overlayTransition span{
+	font-size: 24px;
+}
 
+#overlayTransition.visible{
+	animation-name: overlayTransitionVisible;
+	animation-duration: 400ms;
+	animation-fill-mode: forwards;
+}
+
+
+#overlayTransition.visible.invisible{
+	animation-name: overlayTransitionInvisible;
+	animation-duration: 400ms;
+	animation-fill-mode: forwards;
+}
+
+
+@keyframes overlayTransitionInvisible {
+	0%{
+		top: 0;
+		bottom: 0;
+	}
+	100%{
+		top: -100%;
+		bottom: 100%;
+	}
+}
+
+@keyframes overlayTransitionVisible {
+	0%{
+		top: 100%;
+		bottom: -100%;
+	}
+    100%{
+		top: 0;
+		bottom: 0;
+	}
+}
 
 label {
 	display: block;

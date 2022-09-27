@@ -1,5 +1,5 @@
 <script>
-    import {debug} from "../../store";
+    import {debug} from "../../libs/store";
     import {createEventDispatcher} from 'svelte';
     export let is_burger_display;
     $: isClosedVisible = is_burger_display;

@@ -1,6 +1,6 @@
 <script>
     import {onMount} from 'svelte';
-    import {current_view} from "./store";
+    import {current_view} from "./libs/store";
     import Nav from './components/nav/Nav.svelte'
     import Header from './components/Header.svelte'
     import * as View from './components/views/index.js';
@@ -16,7 +16,10 @@
     }
 
     $: view = Object.keys(translate_views).includes($current_view)? View[translate_views[$current_view]] : View['View_404'];
-    onMount(hashChange)
+    onMount(()=>{
+        hashChange();
+        document.body.insertAdjacentHTML('beforeend', '<div id="overlayTransition"><span>Renaud Bourdeau</span></div>');
+    })
 </script>
 <svelte:window on:hashchange={hashChange}/>
 <Header />
