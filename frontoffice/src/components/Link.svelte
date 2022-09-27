@@ -3,21 +3,23 @@
     import {current_view} from "../store";
     export let to;
     export let text;
+    let run = false;
+    let stop = false;
     let onClick = e => current_view.set(e.target.closest('a').getAttribute('href'));
-    let onMouseLeave = e => e.target.closest('a').textContent = text;
+    let onMouseLeave = e =>{
+        stop = true;
+         e.target.closest('a').textContent = text
+    };
     let onMouseOver = e =>{
         let P,T,tag;
         let car = "-------------------- 0123456789abcdefghijklmnopqrstuvwxyz";
         let L = car.length;
-        console.log(e.target.closest('a').getBoundingClientRect().width)
-        // e.target.closest('a').style.width = (e.target.closest('a').getBoundingClientRect().width + 10) + "px";
         let Olink = node =>{
+            stop = false;
             let txt = node.innerHTML;
             let len_txt = txt.length;
             let txa = "";
-            let txo = "";
-            let run = false;
-            let stop = false;
+
             let cp = [];
             let over = ()=>{
                 txa="";
