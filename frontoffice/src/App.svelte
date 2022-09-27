@@ -2,6 +2,7 @@
     import {onMount} from 'svelte';
     import {current_view} from "./store";
     import Nav from './components/nav/Nav.svelte'
+    import Header from './components/Header.svelte'
     import * as View from './components/views/index.js';
     let translate_views = {
         '#/portfolio': 'Portfolio',
@@ -18,7 +19,7 @@
     onMount(hashChange)
 </script>
 <svelte:window on:hashchange={hashChange}/>
-<Nav />
+<Header />
 <main>
     <svelte:component this={view} />
 </main>
