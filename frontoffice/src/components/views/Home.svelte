@@ -54,10 +54,10 @@
             margin-right: 14%;
 
             h1{
-              font-size: 75px;
+              font-size: 4em;
               font-weight: 200;
               margin-bottom: 15px;
-              line-height: 75px;
+              line-height: 1em;
             }
 
           }
