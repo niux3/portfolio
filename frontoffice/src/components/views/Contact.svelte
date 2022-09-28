@@ -2,7 +2,6 @@
     import {display} from "../../libs/store";
     import {onMount, onDestroy} from 'svelte'
     import {toVisible, toInvisible} from "../../libs/transition";
-    import Header from '../Header.svelte'
     onMount(()=>{
         toVisible();
     })
@@ -15,7 +14,6 @@
 
 
 {#if $display}
-    <Header />
 <section>
     <article>
         <div>me contacter</div>
