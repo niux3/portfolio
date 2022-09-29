@@ -1,5 +1,5 @@
 <script>
-    import {display} from "../../libs/store";
+    import {display, current_view} from "../../libs/store";
     import {onMount, onDestroy} from 'svelte'
     import {toVisible, toInvisible} from "../../libs/transition";
     onMount(()=>{
@@ -16,7 +16,7 @@
 {#if $display}
 <section>
     <article>
-        <div>me contacter</div>
+        <div>{$current_view}</div>
     </article>
 </section>
 {/if}

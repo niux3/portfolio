@@ -6,8 +6,12 @@
     let stop = false;
     let onClick = e => {
         setTimeout(()=>{
-            current_view.set(e.target.closest('a').getAttribute('href'));
-            window.location.hash = $current_view;
+            let url = e.target.closest('a').getAttribute('href');
+            if(url.includes('#/')){
+                e.preventDefault();
+                current_view.set(url);
+                window.location.hash = $current_view;
+            }
         }, 400);
     };
     let onMouseLeave = e =>{
@@ -71,4 +75,4 @@
     }
 </script>
 
-<a href={to} on:click|preventDefault={onClick} on:mouseenter={onMouseOver} on:focus={onMouseOver} on:mouseleave={onMouseLeave}>{text}</a>
+<a href={to} on:click={onClick} on:mouseenter={onMouseOver} on:focus={onMouseOver} on:mouseleave={onMouseLeave}>{text}</a>

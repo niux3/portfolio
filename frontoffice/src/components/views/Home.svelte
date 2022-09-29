@@ -105,6 +105,36 @@
                 </li>
             </ul>
         </div>
+        <div class="awwards">
+            <p>récompenses</p>
+            <ul>
+                <li>
+                    <span>2016</span>
+                    <span>Top Com Or</span>
+                    <span>Renault Kadjarquest</span>
+                </li>
+                <li>
+                    <span>2013</span>
+                    <span>Top Com Or</span>
+                    <span>Leroy Merlin</span>
+                </li>
+                <li>
+                    <span>2012</span>
+                    <span>Top Com Or</span>
+                    <span>Peugeot</span>
+                </li>
+                <li>
+                    <span>2012</span>
+                    <span>Top Com Or</span>
+                    <span>Peugeot 4008</span>
+                </li>
+                <li>
+                    <span>2011</span>
+                    <span>Top Com Or</span>
+                    <span>Areva</span>
+                </li>
+            </ul>
+        </div>
     </article>
 </section>
 {/if}
@@ -120,8 +150,7 @@
     grid-template-rows: auto;
   }
   section{
-    overflow: auto;
-    width: 100%;
+
 ;
     article{
 
@@ -175,7 +204,7 @@
             }
           }
         }
-        &.experience{
+        &.experience, &.awwards{
           display: grid;
           width: 100%;
           grid-auto-columns: 1fr;
