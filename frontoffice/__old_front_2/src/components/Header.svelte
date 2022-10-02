@@ -2,7 +2,7 @@
     import Link from './Link.svelte';
 </script>
 
-<header>
+<header class="onTop">
     <Link to="#/accueil" text="Renaud Bourdeau" />
     <nav>
         <ol>

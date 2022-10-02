@@ -18,27 +18,27 @@
             <ol>
                 <li>
                     <a href="#/projets/leroy-merlin">
-                        <img src="https://picsum.photos/id/1/800/600" alt="" />
+                        <img src="./img/john-paul-2.webp" alt="" />
                         <div class="description">
-                            <div class="counter">1 - 50</div>
-                            <h2 class="name">Leroy Merlin</h2>
+                            <p class="counter">1 - 50</p>
+                            <h2 class="name">John Paul</h2>
                             <div class="cartouche">
                                 <dl>
                                     <dt>Type</dt>
                                     <dd>
-                                        <span>frontend</span>
+                                        <span>backend</span>
                                     </dd>
                                 </dl>
                                 <dl>
                                     <dt>description</dt>
                                     <dd>
-                                        <span>Magasin de bricolage</span>
+                                        <span>conciergerie</span>
                                     </dd>
                                 </dl>
                                 <dl>
                                     <dt>année</dt>
                                     <dd>
-                                        <span>2010 - 2013</span>
+                                        <span>2022</span>
                                     </dd>
                                 </dl>
                             </div>
@@ -47,10 +47,10 @@
                 </li>
                 <li>
                     <a href="#/projets/areva">
-                        <img src="https://picsum.photos/id/106/800/600" alt="" />
+                        <img src="./img/radio-france.jpg" alt="" />
                         <div class="description">
                             <div class="counter">2 - 50</div>
-                            <h2 class="name">Areva</h2>
+                            <h2 class="name">Radio France</h2>
                             <div class="cartouche">
                                 <dl>
                                     <dt>Type</dt>
@@ -61,13 +61,13 @@
                                 <dl>
                                     <dt>description</dt>
                                     <dd>
-                                        <span>Énergie</span>
+                                        <span>Média</span>
                                     </dd>
                                 </dl>
                                 <dl>
                                     <dt>année</dt>
                                     <dd>
-                                        <span>2011</span>
+                                        <span>2021 - 2022</span>
                                     </dd>
                                 </dl>
                             </div>
@@ -76,10 +76,68 @@
                 </li>
                 <li>
                     <a href="#/projets/dyson-airblade">
-                        <img src="https://picsum.photos/id/120/800/600" alt="" />
+                        <img src="./img/lepoint.png" alt="" />
                         <div class="description">
                             <div class="counter">3 - 50</div>
-                            <h2 class="name">Dyson Airblade</h2>
+                            <h2 class="name">Le Point</h2>
+                            <div class="cartouche">
+                                <dl>
+                                    <dt>Type</dt>
+                                    <dd>
+                                        <span>fullstack</span>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>description</dt>
+                                    <dd>
+                                        <span>Média</span>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>année</dt>
+                                    <dd>
+                                        <span>2019 - 2021</span>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/projets/dyson-airblade">
+                        <img src="./img/carenity.jpg" alt="" />
+                        <div class="description">
+                            <div class="counter">4 - 50</div>
+                            <h2 class="name">Carenity</h2>
+                            <div class="cartouche">
+                                <dl>
+                                    <dt>Type</dt>
+                                    <dd>
+                                        <span>fullstack</span>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>description</dt>
+                                    <dd>
+                                        <span>Réseau social</span>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>année</dt>
+                                    <dd>
+                                        <span>2019</span>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/projets/dyson-airblade">
+                        <img src="./img/rimowa.jpg" alt="" />
+                        <div class="description">
+                            <div class="counter">5 - 50</div>
+                            <h2 class="name">Rimowa</h2>
                             <div class="cartouche">
                                 <dl>
                                     <dt>Type</dt>
@@ -90,13 +148,42 @@
                                 <dl>
                                     <dt>description</dt>
                                     <dd>
-                                        <span>Énergie</span>
+                                        <span>Luxe</span>
                                     </dd>
                                 </dl>
                                 <dl>
                                     <dt>année</dt>
                                     <dd>
-                                        <span>2011</span>
+                                        <span>2018</span>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/projets/dyson-airblade">
+                        <img src="./img/longchamp.jpg" alt="" />
+                        <div class="description">
+                            <div class="counter">6 - 50</div>
+                            <h2 class="name">Longchamp</h2>
+                            <div class="cartouche">
+                                <dl>
+                                    <dt>Type</dt>
+                                    <dd>
+                                        <span>frontend</span>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>description</dt>
+                                    <dd>
+                                        <span>Luxe</span>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>année</dt>
+                                    <dd>
+                                        <span>2018</span>
                                     </dd>
                                 </dl>
                             </div>
@@ -139,6 +226,8 @@
           img{
             display: block;
             width: 100%;
+            height: 100%;
+            object-fit: cover;
             //filter: grayscale(100%) blur(1px);
           }
           .description{
