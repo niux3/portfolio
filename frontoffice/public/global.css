@@ -56,10 +56,70 @@ body {
 #work nav ul li{
     border-top: none;
     border-bottom: none;
-    min-width: 110px;
+    width: 110px;
     position: relative;
     transition: width 400ms;
 }
+#work nav ul li:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: left 400ms, right 400ms;
+    /*animation-duration: 400ms;*/
+    /*animation-fill-mode: forwards;*/
+    /*animation-delay: 400ms;*/
+}
+#work nav ul li.current.right:before{
+    /*animation-name: slideColorHiddenRight;*/
+}
+
+#work nav ul li.current.left:before{
+    /*animation-name: slideColorHiddenLeft;*/
+}
+
+#work nav ul li.before-left:before{
+    /*animation-name: slideColorDisplayLeft;*/
+    /*animation-delay: 0;*/
+}
+
+@keyframes slideColorHiddenRight{
+    0%{
+        left: 0;
+    }
+    100%{
+        left: 100%;
+    }
+}
+@keyframes slideColorHiddenLeft{
+    0%{
+        right: 0;
+    }
+    100%{
+        right: 100%;
+    }
+}
+
+@keyframes slideColorDisplayRight {
+     0%{
+        left: 100%;
+    }
+    100%{
+        left: 0;
+    }
+}
+
+@keyframes slideColorDisplayLeft {
+    0%{
+        left:100%;
+    }
+    100%{
+        left: 0;
+    }
+}
+
 #work nav ul li button {
     background-color: transparent;
     outline: none;
@@ -74,7 +134,7 @@ body {
     padding: 0;
     width: 110px;
 }
-#work nav ul li span{
+#work nav ul li button > span{
     transform: rotate(-90deg);
     position: absolute;
     bottom: 20px;
@@ -85,8 +145,49 @@ body {
     z-index: 200;
     transform-origin: left;
     font-size: 2em;
-
+    overflow: hidden;
 }
+
+#work nav ul li button > span span{
+    top: 0px;
+    display: block;
+    position: relative;
+    transition: top 400ms, opacity 400ms;
+}
+
+#work nav ul li.current button span span{
+    opacity: 0;
+}
+
+#work nav ul li.before-left button span span{
+    animation-name: txtBeforeLeft;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes txtBeforeLeft {
+    0%{
+        top: 5em;
+    }
+    100%{
+        top: 0;
+    }
+}
+#work nav ul li.before-right button span span{
+    animation-name: txtBeforeRight;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes txtBeforeRight {
+   0%{
+       top: -5em;
+   }
+    100%{
+        top: 0;
+    }
+}
+
 a {
     color: rgb(0,100,200);
     text-decoration: none;

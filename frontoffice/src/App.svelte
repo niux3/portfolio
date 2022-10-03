@@ -53,60 +53,94 @@
         "#e67e22",
         "#e74c3c",
         "#95a5a6",
-    ]
+    ];
+
     onMount(()=>{
         const scrollContainer = document.querySelector("#work nav");
         scrollContainer.addEventListener("wheel", (evt) => {
             scrollContainer.scrollLeft += evt.deltaY;
         }, {passive:true});
+
+        // document.querySelectorAll('#work button span').forEach(el =>{
+        //     let txt = el.textContent;
+        //     let output = '';
+        //     for(let i=0; i < txt.length; i++){
+        //         output += `<span>${txt[i]}</span>`;
+        //     }
+        //     el.innerHTML = output;
+        // });
+
     })
 
+    let indexHistory = [];
     let selectSlide = e =>{
-        let index = parseInt(e.target.closest('button').dataset.index, 10)
+        let index = parseInt(e.target.closest('button').dataset.index, 10);
         let work = e.target.closest('#work')
         let container = work.querySelector("nav");
         let list = work.querySelector("ul");
+        let li = work.querySelectorAll(`nav ul li`);
         let item = work.querySelector(`nav ul li:nth-child(${index + 1})`);
         let innerWidth = window.innerWidth;
-        let itemWidth = (innerWidth - 110);
+        let itemWidth = (innerWidth - 220);
+        let scrollLeftValue = (110 * index) - 110;
+
+        let direction = (()=>{
+            let output = 'right';
+             if(indexHistory.slice(-1) < index){
+                output = 'left'
+             }
+             return output;
+        })()
+        indexHistory = [...indexHistory, index];
+        console.log(indexHistory,' - - - ',indexHistory.slice(-2, 1))
+
 
         list.style = `width: ${(42 * 110) + itemWidth}px`;
         container.style = 'scroll-behavior: smooth';
 
-        container.scrollLeft = 110 * index;
-        work.querySelectorAll(`nav ul li`).forEach((el, i) =>{
-            let defaultValue = `width: 110px; background-color: ${colors[i % colors.length]}`;
+        container.scrollLeft = scrollLeftValue;
+        li.forEach((el, i) =>{
+            let defaultValue = `width: 110px;`;
             if(i === index){
                 if(parseInt(item.style.width, 10) > 110){
+                    el.classList.remove('current', 'left', 'right');
                     el.style = defaultValue;
                     list.style = `width: ${42 * 110}px`;
-
                 }else{
+                    if(indexHistory.length > 1){
+                        console.log(li[indexHistory[indexHistory.length - 2]])
+                        li[indexHistory[indexHistory.length - 2]].classList.add('before-' + direction)
+                    }
+                    el.classList.add('current', direction);
                     item.style.width = itemWidth + 'px';
                 }
             }else{
+                el.classList.remove('current', 'left', 'right');
                 el.style = defaultValue;
             }
         });
-        list.addEventListener('transitionend', e =>{
-            container.scrollLeft = 110 * index;
+        setTimeout(()=>{
+            container.scrollLeft = scrollLeftValue;
+            if(indexHistory.length > 1) {
+                li.forEach(el => el.classList.remove('before-right', 'before-left'))
+            }
             container.removeAttribute('style');
-        })
+        }, 800)
     }
 </script>
 
 <main id="work">
     <nav>
-        <ul style="width: {(42 * 110) + 0}px">
+        <ul style="width: {(42 * 110)}px">
             {#each data as row, i}
-            <li data-id="{row}" style="background-color: {colors[i % colors.length]}">
-                <button data-index="{i}" on:click={selectSlide}>
-                    <span>{row.toUpperCase()}</span>
-                </button>
-
-
-            </li>
-                {/each}
+                <li data-id="{row}">
+                    <button data-index="{i}" on:click={selectSlide}>
+                        <span>
+                            <span>{row.toUpperCase()}</span>
+                        </span>
+                    </button>
+                </li>
+            {/each}
         </ul>
     </nav>
 </main>
