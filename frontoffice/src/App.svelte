@@ -92,7 +92,6 @@
              return output;
         })()
         indexHistory = [...indexHistory, index];
-        console.log(indexHistory,' - - - ',indexHistory.slice(-2, 1))
 
 
         list.style = `width: ${(42 * 110) + itemWidth}px`;
@@ -104,11 +103,11 @@
             if(i === index){
                 if(parseInt(item.style.width, 10) > 110){
                     el.classList.remove('current', 'left', 'right');
+                    el.classList.add('before-left')
                     el.style = defaultValue;
                     list.style = `width: ${42 * 110}px`;
                 }else{
                     if(indexHistory.length > 1){
-                        console.log(li[indexHistory[indexHistory.length - 2]])
                         li[indexHistory[indexHistory.length - 2]].classList.add('before-' + direction)
                     }
                     el.classList.add('current', direction);
