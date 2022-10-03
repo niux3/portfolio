@@ -104,7 +104,9 @@
                 if(parseInt(item.style.width, 10) > 110){
                     el.classList.remove('current', 'left', 'right');
                     el.classList.add('before-left')
-                    el.style = defaultValue;
+                    setTimeout(()=>{
+                        el.style = defaultValue;
+                    }, 400);
                     list.style = `width: ${42 * 110}px`;
                 }else{
                     if(indexHistory.length > 1){
