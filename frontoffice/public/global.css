@@ -67,22 +67,14 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    transition: left 400ms, right 400ms;
-    /*animation-duration: 400ms;*/
-    /*animation-fill-mode: forwards;*/
-    /*animation-delay: 400ms;*/
+    /*transition: left 400ms, right 400ms;*/
+
 }
 #work nav ul li.current.right:before{
-    /*animation-name: slideColorHiddenRight;*/
-}
-
-#work nav ul li.current.left:before{
-    /*animation-name: slideColorHiddenLeft;*/
-}
-
-#work nav ul li.before-left:before{
-    /*animation-name: slideColorDisplayLeft;*/
-    /*animation-delay: 0;*/
+    animation-name: slideColorHiddenRight;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    animation-delay: 400ms;
 }
 
 @keyframes slideColorHiddenRight{
@@ -93,6 +85,14 @@ body {
         left: 100%;
     }
 }
+
+#work nav ul li.current.left:before{
+    animation-name: slideColorHiddenLeft;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    animation-delay: 400ms;
+}
+
 @keyframes slideColorHiddenLeft{
     0%{
         right: 0;
@@ -102,14 +102,13 @@ body {
     }
 }
 
-@keyframes slideColorDisplayRight {
-     0%{
-        left: 100%;
-    }
-    100%{
-        left: 0;
-    }
+#work nav ul li.before-left:before{
+    animation-name: slideColorDisplayLeft;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    animation-delay: 0;
 }
+
 
 @keyframes slideColorDisplayLeft {
     0%{
@@ -119,6 +118,24 @@ body {
         left: 0;
     }
 }
+
+#work nav ul li.before-right:before{
+    animation-name: slideColorDisplayRight;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    animation-delay: 0;
+}
+
+@keyframes slideColorDisplayRight {
+     0%{
+        right: 100%;
+    }
+    100%{
+        right: 0;
+    }
+}
+
+
 
 #work nav ul li button {
     background-color: transparent;
@@ -134,6 +151,7 @@ body {
     padding: 0;
     width: 110px;
 }
+
 #work nav ul li button > span{
     transform: rotate(-90deg);
     position: absolute;
@@ -152,13 +170,43 @@ body {
     top: 0px;
     display: block;
     position: relative;
-    transition: top 400ms, opacity 400ms;
+    transition: opacity 400ms;
 }
 
 #work nav ul li.current button span span{
     opacity: 0;
 }
 
+
+#work nav ul li.current.left button span span{
+    animation-name: txtCurrentLeft;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes txtCurrentLeft {
+    0%{
+        top: 0;
+    }
+    100%{
+        top: -5em;
+    }
+}
+
+#work nav ul li.current.right button span span{
+    animation-name: txtCurrentRight;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes txtCurrentLeft {
+    0%{
+        top: 0;
+    }
+    100%{
+        top: 5em;
+    }
+}
 #work nav ul li.before-left button span span{
     animation-name: txtBeforeLeft;
     animation-duration: 400ms;
