@@ -1,49 +1,49 @@
 <script>
     import {onMount} from 'svelte'
-	let data = [
-        "sacla",
-        "cavadeos",
-        "banquecasino",
-        "peugeot 4008",
-        "mypeugeot",
-        "decolorstop",
-        "qui est le moins cher",
-        "michel edouard leclerc",
-        "fidelity vie",
-        "algeco",
-        "cfcopies",
-        "air Madagascar",
-        "air caraïbes",
-        "europcar",
-        "flyopenskies",
-        "areva",
-        "leroy merlin",
-        "peugeot",
-        "peugeot design lab",
-        "dyson affaire aireblade",
-        "brasserie flo",
-        "bazarchic",
-        "mytravelchic",
-        "afflelou",
-        "adp",
-        "atelier Renault",
-        "le siège renault",
-        "Renault kadjarquest",
-        "Renault clio RS Melody",
-        "upsa",
-        "system dacia",
-        "serie toplexil",
-        "honda moto",
-        "rene furterer",
-        "cevital",
-        "longchamp",
-        "rimowa",
-        "carenity",
-        "le point",
-        "palmares le point",
-        "radio france",
-        "john paul",
-    ];
+	let data = {
+        "sacla": "fa-solid fa-utensils",
+        "cavadeos": "fa-solid fa-horse",
+        "banquecasino": "fa-solid fa-piggy-bank",
+        "peugeot 4008": "fa-solid fa-car",
+        "mypeugeot": "fa-solid fa-car",
+        "decolorstop": "fa-solid fa-soap",
+        "qui est le moins cher": "fa-solid fa-cart-shopping",
+        "michel edouard leclerc": "fa-brands fa-blogger",
+        "fidelity vie": "fa-solid fa-piggy-bank",
+        "algeco": "fa-solid fa-person-digging",
+        "cfcopies": "fa-solid fa-book",
+        "air Madagascar": "fa-solid fa-plane",
+        "air caraïbes": "fa-solid fa-plane",
+        "europcar": "fa-solid fa-car",
+        "flyopenskies": "fa-solid fa-plane",
+        "areva": "fa-solid fa-radiation",
+        "leroy merlin": "fa-solid fa-cart-shopping",
+        "peugeot": "fa-solid fa-car",
+        "peugeot design lab": "fa-solid fa-car",
+        "dyson affaire aireblade": "fa-sharp fa-solid fa-vacuum",
+        "brasserie flo": "fa-solid fa-utensils",
+        "bazarchic": "fa-solid fa-cart-shopping",
+        "mytravelchic": "fa-solid fa-cart-shopping",
+        "afflelou": "fa-solid fa-glasses",
+        "adp": "fa-solid fa-plane",
+        "atelier Renault": "fa-solid fa-car",
+        "le siège renault": "fa-solid fa-car",
+        "Renault kadjarquest": "fa-solid fa-car",
+        "Renault clio RS Melody": "fa-solid fa-car",
+        "upsa": "fa-solid fa-notes-medical",
+        "system dacia": "fa-solid fa-car",
+        "serie toplexil": "fa-solid fa-notes-medical",
+        "honda moto": "fa-solid fa-motorcycle",
+        "rene furterer": "fa-solid fa-scissors",
+        "cevital": "fa-solid fa-shirt",
+        "longchamp": "fa-solid fa-shirt",
+        "rimowa": "fa-solid fa-suitcase-rolling",
+        "carenity":"fa-solid fa-people-arrows",
+        "le point":"fa-solid fa-newspaper",
+        "palmares le point":"fa-solid fa-newspaper",
+        "radio france": "fa-solid fa-radio",
+        "john paul": "fa-solid fa-bell-concierge",
+    };
     let colors = [
         "#1abc9c",
         "#2ecc71",
@@ -129,15 +129,16 @@
         }, 800)
     }
 </script>
-
+<img id="logo" src="logo.svg" alt="">
 <main id="work">
     <nav>
         <ul style="width: {(42 * 110)}px">
-            {#each data as row, i}
-                <li data-id="{row}">
+            {#each Object.entries(data) as [name, icon], i }
+                <li data-id="{name}">
+                    <i class="{icon}"></i>
                     <button data-index="{i}" on:click={selectSlide}>
                         <span>
-                            <span>{row.toUpperCase()}</span>
+                            <span>{name.toUpperCase()}</span>
                         </span>
                     </button>
                 </li>
