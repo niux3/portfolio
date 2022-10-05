@@ -79,11 +79,13 @@
         let container = work.querySelector("nav");
         let list = work.querySelector("ul");
         let li = work.querySelectorAll(`nav ul li`);
+        let width_li = 9
         let item = work.querySelector(`nav ul li:nth-child(${index + 1})`);
         let innerWidth = window.innerWidth;
-        let itemWidth = (innerWidth - 220);
-        let scrollLeftValue = (110 * index) - 110;
-
+        let itemWidth = (innerWidth - width_li * 2);
+        let scrollLeftValue = (width_li * index) - width_li;
+        scrollLeftValue = (((width_li * innerWidth) / 100) * index) - ((width_li * innerWidth) / 100)
+        console.log(innerWidth, width_li, ' -- ', (width_li * innerWidth) / 100)
         let direction = (()=>{
             let output = 'right';
              if(indexHistory.slice(-1) < index){
@@ -94,26 +96,26 @@
         indexHistory = [...indexHistory, index];
 
 
-        list.style = `width: ${(42 * 110) + itemWidth}px`;
+        list.style = `width: ${(42 * width_li) + itemWidth}vw`;
         container.style = 'scroll-behavior: smooth';
 
         container.scrollLeft = scrollLeftValue;
         li.forEach((el, i) =>{
-            let defaultValue = `width: 110px;`;
+            let defaultValue = `width: ${width_li}vw;`;
             if(i === index){
-                if(parseInt(item.style.width, 10) > 110){
+                if(parseInt(item.style.width, 10) > 9){
                     el.classList.remove('current', 'left', 'right');
                     el.classList.add('before-left')
                     setTimeout(()=>{
                         el.style = defaultValue;
                     }, 400);
-                    list.style = `width: ${42 * 110}px`;
+                    list.style = `width: ${42 * width_li}vw`;
                 }else{
                     if(indexHistory.length > 1){
                         li[indexHistory[indexHistory.length - 2]].classList.add('before-' + direction)
                     }
                     el.classList.add('current', direction);
-                    item.style.width = itemWidth + 'px';
+                    item.style.width = '82vw';
                 }
             }else{
                 el.classList.remove('current', 'left', 'right');
@@ -129,10 +131,9 @@
         }, 800)
     }
 </script>
-<img id="logo" src="logo.svg" alt="">
 <main id="work">
     <nav>
-        <ul style="width: {(42 * 110)}px">
+        <ul style="width: {(42 * 200)}px">
             {#each Object.entries(data) as [name, icon], i }
                 <li data-id="{name}">
                     <i class="{icon}"></i>
@@ -145,4 +146,42 @@
             {/each}
         </ul>
     </nav>
+    <article>
+        <img id="logo" src="logo.svg" alt="">
+        <header>
+            <div class="description">
+                <p class="counter">1 - 50</p>
+                <h1 class="name">Air Caraïbes</h1>
+                <div class="wrap">
+                    <div class="cartouche">
+                        <dl>
+                            <dt>type</dt>
+                            <dd>
+                                <span>backend</span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>description</dt>
+                            <dd>
+                                <span>conciergerie</span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>année</dt>
+                            <dd>
+                                <span>2022</span>
+                            </dd>
+                        </dl>
+                    </div>
+                    <ul>
+                        <li>python 3</li>
+                        <li>django 3</li>
+                        <li>postgresql</li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="content" style="height: 2000px"></div>
+    </article>
 </main>
+
