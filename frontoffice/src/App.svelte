@@ -45,14 +45,14 @@
         "john paul": "fa-solid fa-bell-concierge",
     };
     let colors = [
-        "#1abc9c",
-        "#2ecc71",
-        "#3498db",
-        "#9b59b6",
+        "#bbac4e",
+        "#af9e93",
+        "#c86d62",
+        "#c5692c",
         "#34495e",
-        "#e67e22",
-        "#e74c3c",
-        "#95a5a6",
+        "#0a5378",
+        "#77a93a",
+        "#ae0a36",
     ];
 
     onMount(()=>{
@@ -61,15 +61,8 @@
             scrollContainer.scrollLeft += evt.deltaY;
         }, {passive:true});
 
-        // document.querySelectorAll('#work button span').forEach(el =>{
-        //     let txt = el.textContent;
-        //     let output = '';
-        //     for(let i=0; i < txt.length; i++){
-        //         output += `<span>${txt[i]}</span>`;
-        //     }
-        //     el.innerHTML = output;
-        // });
-
+        const article = document.querySelector('article');
+        article.style = ["z-index:-1", "visibility: hidden"].join(";");
     })
 
     let indexHistory = [];
@@ -84,8 +77,12 @@
         let innerWidth = window.innerWidth;
         let itemWidth = (innerWidth - width_li * 2);
         let scrollLeftValue = (width_li * index) - width_li;
+
+        const article = document.querySelector('article');
+        article.style = ["z-index:-1", "visibility: hidden"].join(";");
+
         scrollLeftValue = (((width_li * innerWidth) / 100) * index) - ((width_li * innerWidth) / 100)
-        console.log(innerWidth, width_li, ' -- ', (width_li * innerWidth) / 100)
+        // console.log(innerWidth, width_li, ' -- ', (width_li * innerWidth) / 100)
         let direction = (()=>{
             let output = 'right';
              if(indexHistory.slice(-1) < index){
@@ -110,12 +107,16 @@
                         el.style = defaultValue;
                     }, 400);
                     list.style = `width: ${42 * width_li}vw`;
+                    article.style = ["z-index:-1", "visibility: hidden"].join(";");
                 }else{
                     if(indexHistory.length > 1){
                         li[indexHistory[indexHistory.length - 2]].classList.add('before-' + direction)
                     }
                     el.classList.add('current', direction);
                     item.style.width = '82vw';
+                    setTimeout(()=>{
+                        article.style = ["z-index:1", "visibility: visible"].join(";");
+                    }, 1200)
                 }
             }else{
                 el.classList.remove('current', 'left', 'right');
@@ -128,6 +129,7 @@
                 li.forEach(el => el.classList.remove('before-right', 'before-left'))
             }
             container.removeAttribute('style');
+
         }, 800)
     }
 </script>

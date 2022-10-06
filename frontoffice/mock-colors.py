@@ -43,21 +43,23 @@ data = [
     "john paul",
 ]
 colors = [
-    "#1abc9c",
-    "#2ecc71",
-    "#3498db",
-    "#9b59b6",
-    "#34495e",
-    "#e67e22",
-    "#e74c3c",
-    "#95a5a6",
+    "#bbac4e",
+    "#af9e93",
+    "#c86d62",
+    "#c5692c",
+    "#4eacbb",
+    "#bb73b9",
+    "#64bb66",
+    "#bb4e4e",
+    "#7571bb",
+
 ]
 
 output = ""
 for i, row in enumerate(data):
     output += '#work nav ul li:nth-child(' + str(i + 1) + '):before{background-color:' + str(colors[i % len(colors)]) + ';}'
 
-with open('./public/color-slide.css', 'w') as f:
+with open('./public/css/color-slide.css', 'w') as f:
     f.write(output)
 
 print('done !')
