@@ -54,12 +54,13 @@
         "#77a93a",
         "#ae0a36",
     ];
-    let display_article;
+    let display_article = false;
+    let scroll_event = true;
     onMount(()=>{
         const scrollContainer = document.querySelector("#work nav");
         display_article = false;
         scrollContainer.addEventListener("wheel", (evt) => {
-            scrollContainer.scrollLeft += !display_article? evt.deltaY : 0;
+            scrollContainer.scrollLeft += !display_article && scroll_event? evt.deltaY : 0;
         }, {passive:true});
     })
 
@@ -77,6 +78,7 @@
         let scrollLeftValue = (width_li * index) - width_li;
 
         display_article = false;
+        scroll_event = false;
 
         scrollLeftValue = (((width_li * innerWidth) / 100) * index) - ((width_li * innerWidth) / 100)
         // console.log(innerWidth, width_li, ' -- ', (width_li * innerWidth) / 100)
@@ -105,12 +107,14 @@
                     }, 400);
                     list.style = `width: ${42 * width_li}vw`;
                     display_article = false;
+                    scroll_event = true;
                 }else{
                     if(indexHistory.length > 1){
                         li[indexHistory[indexHistory.length - 2]].classList.add('before-' + direction)
                     }
                     el.classList.add('current', direction);
                     item.style.width = '82vw';
+                    scroll_event = false;
                     setTimeout(()=>{
                         display_article = true;
                         work.parentNode.querySelector('article').style = ["z-index:1", "visibility: visible"].join(";");
