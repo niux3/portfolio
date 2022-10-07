@@ -265,8 +265,10 @@ article{
     position: fixed;
     left: 10vw;
     right: 10vw;
-    top: 25px;
-    bottom: 25px;
+    top: 0;
+    bottom: 0;
+    margin-top: 25px;
+    margin-bottom: 25px;
     z-index: -1;
     overflow: auto;
 }

@@ -54,15 +54,13 @@
         "#77a93a",
         "#ae0a36",
     ];
-
+    let display_article;
     onMount(()=>{
         const scrollContainer = document.querySelector("#work nav");
+        display_article = false;
         scrollContainer.addEventListener("wheel", (evt) => {
-            scrollContainer.scrollLeft += evt.deltaY;
+            scrollContainer.scrollLeft += !display_article? evt.deltaY : 0;
         }, {passive:true});
-
-        const article = document.querySelector('article');
-        article.style = ["z-index:-1", "visibility: hidden"].join(";");
     })
 
     let indexHistory = [];
@@ -78,8 +76,7 @@
         let itemWidth = (innerWidth - width_li * 2);
         let scrollLeftValue = (width_li * index) - width_li;
 
-        const article = document.querySelector('article');
-        article.style = ["z-index:-1", "visibility: hidden"].join(";");
+        display_article = false;
 
         scrollLeftValue = (((width_li * innerWidth) / 100) * index) - ((width_li * innerWidth) / 100)
         // console.log(innerWidth, width_li, ' -- ', (width_li * innerWidth) / 100)
@@ -107,7 +104,7 @@
                         el.style = defaultValue;
                     }, 400);
                     list.style = `width: ${42 * width_li}vw`;
-                    article.style = ["z-index:-1", "visibility: hidden"].join(";");
+                    display_article = false;
                 }else{
                     if(indexHistory.length > 1){
                         li[indexHistory[indexHistory.length - 2]].classList.add('before-' + direction)
@@ -115,7 +112,8 @@
                     el.classList.add('current', direction);
                     item.style.width = '82vw';
                     setTimeout(()=>{
-                        article.style = ["z-index:1", "visibility: visible"].join(";");
+                        display_article = true;
+                        work.parentNode.querySelector('article').style = ["z-index:1", "visibility: visible"].join(";");
                     }, 1200)
                 }
             }else{
@@ -148,42 +146,44 @@
             {/each}
         </ul>
     </nav>
-    <article>
-        <img id="logo" src="logo.svg" alt="">
-        <header>
-            <div class="description">
-                <p class="counter">1 - 50</p>
-                <h1 class="name">Air Caraïbes</h1>
-                <div class="wrap">
-                    <div class="cartouche">
-                        <dl>
-                            <dt>type</dt>
-                            <dd>
-                                <span>backend</span>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>description</dt>
-                            <dd>
-                                <span>conciergerie</span>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>année</dt>
-                            <dd>
-                                <span>2022</span>
-                            </dd>
-                        </dl>
+    {#if display_article}
+        <article style="z-index: 1">
+            <img id="logo" src="logo.svg" alt="">
+            <header>
+                <div class="description">
+                    <p class="counter">1 - 50</p>
+                    <h1 class="name">Air Caraïbes</h1>
+                    <div class="wrap">
+                        <div class="cartouche">
+                            <dl>
+                                <dt>type</dt>
+                                <dd>
+                                    <span>backend</span>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>description</dt>
+                                <dd>
+                                    <span>conciergerie</span>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>année</dt>
+                                <dd>
+                                    <span>2022</span>
+                                </dd>
+                            </dl>
+                        </div>
+                        <ul>
+                            <li>python 3</li>
+                            <li>django 3</li>
+                            <li>postgresql</li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li>python 3</li>
-                        <li>django 3</li>
-                        <li>postgresql</li>
-                    </ul>
                 </div>
-            </div>
-        </header>
-        <div class="content" style="height: 2000px"></div>
-    </article>
+            </header>
+            <div class="content" style="height: 2000px"></div>
+        </article>
+    {/if}
 </main>
 
