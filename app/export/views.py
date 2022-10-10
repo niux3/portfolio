@@ -38,9 +38,11 @@ def index():
     root = os.path.dirname(basedir)
     for row in rows:
         technologies = []
+        images = None
         for trow in db.session.execute(portfolio_technology.join(Technology).select().where(portfolio_technology.c.portfolios_id == row.pid)):
             technologies.append(trow.name)
         for irow in Image.query.join(Category).filter(Image.portfolios_id == row.pid, Image.online == 1).all():
+            print('>> ', irow)
             images = {
                 'thumbnail': "miniature",
                 'logo': 'logo',
@@ -73,8 +75,8 @@ def index():
         """
         output_css.append(tpl)
 
-    with open(os.path.join(root, 'docs', 'scripts', 'template', 'public', 'export.json'), "w") as file:
+    with open(os.path.join(root, 'docs', 'scripts', 'export.json'), "w") as file:
         file.write(json.dumps(output_rows, indent=4))
-    with open(os.path.join(root, 'docs', 'scripts', 'template', 'front', 'scss', 'atoms', '_export-univers.scss'), "w") as file:
-        file.write("\n".join(output_css))
+    # with open(os.path.join(root, 'docs', 'scripts', 'template', 'front', 'scss', 'atoms', '_export-univers.scss'), "w") as file:
+    #     file.write("\n".join(output_css))
     return "export method"
