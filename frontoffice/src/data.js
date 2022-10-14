@@ -1,4 +1,4 @@
-[
+const data  = [
     {
         "id": 4,
         "name": "John Paul",
@@ -697,4 +697,6 @@
         ],
         "images": []
     }
-]
+];
+
+export default data;

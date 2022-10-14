@@ -272,6 +272,10 @@ article{
     z-index: -1;
     overflow: auto;
 }
+article.first{
+    left: 5vw;
+    right: 20vw;
+}
 
  article::-webkit-scrollbar, article *::-webkit-scrollbar {
     width: 5px;
