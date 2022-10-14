@@ -64,9 +64,12 @@
         scrollContainer.addEventListener("wheel", (evt) => {
             scrollContainer.scrollLeft += !display_article && scroll_event? evt.deltaY : 0;
         }, {passive:true});
+
+        document.querySelector('nav li button').click()
     })
 
     let position_article = "";
+    let data_article = data[0]
     let indexHistory = [];
     let selectSlide = e =>{
         let index = parseInt(e.target.closest('button').dataset.index, 10);
@@ -120,6 +123,9 @@
                     item.style.width = '82vw';
                     scroll_event = false;
                     position_article = i === 0? 'first': i === li.length - 1? 'last' : ''
+                    data_article = data.filter(r => r.id === parseInt(e.target.closest('button').dataset.id, 10))[0]
+                    data_article['index'] = index + 1;
+                    console.log(">>", index)
                     setTimeout(()=>{
                         display_article = true;
                         work.parentNode.querySelector('article').style = ["z-index:1", "visibility: visible"].join(";");
@@ -146,7 +152,7 @@
             {#each data as row, i }
                 <li data-id="{row.name}">
                     <i class=""></i>
-                    <button data-index="{i}" on:click={selectSlide}>
+                    <button data-index="{i}" data-id="{row.id}" on:click={selectSlide}>
                         <span>
                             <span>{row.name.toUpperCase()}</span>
                         </span>
@@ -160,14 +166,14 @@
             <img id="logo" src="logo.svg" alt="">
             <header>
                 <div class="description">
-                    <p class="counter">1 - 50</p>
-                    <h1 class="name">Air Caraïbes</h1>
+                    <p class="counter">{data_article.index} - {data.length}</p>
+                    <h1 class="name">{data_article.name}</h1>
                     <div class="wrap">
                         <div class="cartouche">
                             <dl>
                                 <dt>type</dt>
                                 <dd>
-                                    <span>backend</span>
+                                    <span>{data_article.function}</span>
                                 </dd>
                             </dl>
                             <dl>
@@ -184,9 +190,9 @@
                             </dl>
                         </div>
                         <ul>
-                            <li>python 3</li>
-                            <li>django 3</li>
-                            <li>postgresql</li>
+                            {#each data_article.technologies as technology, i}
+                                <li>{technology}</li>
+                            {/each}
                         </ul>
                     </div>
                 </div>

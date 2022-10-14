@@ -6,7 +6,7 @@ const data  = [
         "url": "https://www.johnpaul.com/fr",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet laborum illum maxime iusto minima reiciendis praesentium labore ab, sed sapiente officia enim consequuntur atque non rerum nostrum quibusdam rem molestiae!",
         "color": "#000000",
-        "function": "responsable frontend",
+        "function": "responsable backend",
         "technologies": [
             "Python 3",
             "Django",
