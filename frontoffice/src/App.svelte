@@ -148,9 +148,17 @@
 </script>
 <main id="work">
     <nav>
-        <ul style="width: {(42 * 200)}px">
+        <ul style="width: {(data.length * 200)}px">
+<!--            <li>-->
+<!--                <i class=""></i>-->
+<!--                <button on:click={selectSlide}>-->
+<!--                        <span>-->
+<!--                            <span>À PROPOS DE MOI</span>-->
+<!--                        </span>-->
+<!--                </button>-->
+<!--            </li>-->
             {#each data as row, i }
-                <li data-id="{row.name}">
+                <li data-id="{row.id}">
                     <i class=""></i>
                     <button data-index="{i}" data-id="{row.id}" on:click={selectSlide}>
                         <span>
