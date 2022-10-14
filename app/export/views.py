@@ -38,16 +38,17 @@ def index():
     root = os.path.dirname(basedir)
     for row in rows:
         technologies = []
-        images = None
+        images = []
         for trow in db.session.execute(portfolio_technology.join(Technology).select().where(portfolio_technology.c.portfolios_id == row.pid)):
             technologies.append(trow.name)
         for irow in Image.query.join(Category).filter(Image.portfolios_id == row.pid, Image.online == 1).all():
-            print('>> ', irow)
-            images = {
-                'thumbnail': "miniature",
-                'logo': 'logo',
-                'standard': list(range(0, 10))
-            }
+            print('>> ', irow.name, irow.url)
+            images.append(irow.url)
+            # images = {
+            #     'thumbnail': "miniature",
+            #     'logo': 'logo',
+            #     'standard': list(range(0, 10))
+            # }
         output = {
             'id': row.pid,
             'name': row.pname,
