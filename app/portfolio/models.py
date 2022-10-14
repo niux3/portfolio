@@ -16,6 +16,19 @@ class Function(db.Model):
         return "<Function %r>" % self.name
 
 
+class Activity(db.Model):
+    __tablename__ = 'activities'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), nullable=False)
+    icon = db.Column(db.Text, nullable=True)
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return "<Function %r>" % self.name
+
 portfolio_technology = db.Table(
     'portfolios_technologies',
 
@@ -53,6 +66,8 @@ class Portfolio(db.Model):
     functions_id = db.Column(db.Integer, db.ForeignKey('functions.id'))
     technologies = db.relationship("Technology", secondary=portfolio_technology, backref=db.backref('portfolios', lazy="dynamic"))
     sort = db.Column(db.Integer, nullable=False)
+    year = db.Column(db.Integer, nullable=False)
+    activities_id = db.Column(db.Integer, db.ForeignKey('activities.id'))
 
     def __str__(self):
         return self.name
