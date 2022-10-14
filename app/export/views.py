@@ -20,12 +20,18 @@ def index():
             p.description as pdescription,
             p.url as purl,
             p.color as pcolor,
+            p.year as pyear,
+            a.name as aname,
+            a.icon as aicon,
             f.name as fname
         FROM
             portfolios as p,
-            functions as f
+            functions as f,
+            activities as a
         WHERE
             f.id = p.functions_id
+        AND 
+            a.id = P.activities_id 
         AND
             p.online = 1
         ORDER BY
@@ -56,6 +62,9 @@ def index():
             'url': row.purl,
             'description': row.pdescription,
             'color': row.pcolor,
+            'year': row.pyear,
+            'activity_name': row.aname,
+            'activity_icon': row.aicon,
             'function': row.fname,
             'technologies': technologies,
             'images': images
@@ -75,9 +84,9 @@ def index():
 }}
         """
         output_css.append(tpl)
-
-    with open(os.path.join(root, 'docs', 'scripts', 'export.json'), "w") as file:
-        file.write(json.dumps(output_rows, indent=4))
+    print(f"const data  = {json.dumps(output_rows)}; export default data;")
+    with open(os.path.join(root, 'frontoffice', 'src', 'data.js'), "w") as file:
+        file.write(f"const data  = {json.dumps(output_rows)}; export default data;")
     # with open(os.path.join(root, 'docs', 'scripts', 'template', 'front', 'scss', 'atoms', '_export-univers.scss'), "w") as file:
     #     file.write("\n".join(output_css))
     return "export method"
