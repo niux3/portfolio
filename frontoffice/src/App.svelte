@@ -187,13 +187,13 @@
                             <dl>
                                 <dt>description</dt>
                                 <dd>
-                                    <span>conciergerie</span>
+                                    <span>{data_article.activity_name}</span>
                                 </dd>
                             </dl>
                             <dl>
                                 <dt>année</dt>
                                 <dd>
-                                    <span>2022</span>
+                                    <span>{data_article.year}</span>
                                 </dd>
                             </dl>
                         </div>
