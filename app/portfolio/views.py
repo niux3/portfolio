@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from app.portfolio.forms import CommonForm, PortfolioForm
+from app.portfolio.forms import CommonForm, PortfolioForm, ActivityForm
 from app import db
-from app.portfolio.models import Function, Technology, Portfolio, portfolio_technology
+from app.portfolio.models import Function, Technology, Portfolio, portfolio_technology, Activity
 
 bp = Blueprint('portfolio', __name__)
 
@@ -46,6 +46,8 @@ def create_portfolio():
             'online': form.online.data,
             'functions_id': form.functions.data.id,
             'sort': last_id + 1,
+            'year': form.year.data,
+            'activities': form.activities.data,
         }
 
         portfolio = Portfolio(**data)
@@ -71,9 +73,11 @@ def update_portfolio(id):
         row.name = form.name.data
         row.slug = form.slug.data
         row.url = form.url.data
+        row.year = form.year.data
         row.description = form.description.data
         row.online = form.online.data
         row.functions_id = form.functions.data.id
+        row.activities_id = form.activities.data.id
         db.session.commit()
 
         rows = portfolio_technology.delete().where(portfolio_technology.c.portfolios_id == row.id)
@@ -100,6 +104,55 @@ def delete_portfolio(id):
 
     flash("suppression d'un portofolio effectuée", "warning")
     return redirect(url_for('portfolio.index_portfolio'))
+
+
+@bp.route('/activites')
+def index_activities():
+    ctx = {
+        'prefixe_url': 'portfolio',
+        'suffixe_url': '_activity',
+        'rows': Activity.query.all()
+    }
+    return render_template('portfolio/index.html', **ctx)
+
+
+@bp.route('/create-activity', methods=['GET', 'POST'])
+def create_activity():
+    form = ActivityForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        db.session.add(Activity(name=form.name.data.lower(), icon=form.icon.data))
+        db.session.commit()
+        flash("creation d'une activité effectuée", "success")
+        return redirect(url_for('portfolio.index_activities'))
+    ctx = {
+        'form': form,
+    }
+    return render_template('portfolio/edit.html', **ctx)
+
+
+@bp.route('/update-activity-<int:id>', methods=['GET', 'POST'])
+def update_activity(id):
+    row = Activity.query.get_or_404(id)
+    form = ActivityForm(obj=row)
+    if request.method == 'POST' and form.validate_on_submit():
+        row.name = form.name.data.lower()
+        row.icon = form.icon.data.lower()
+        db.session.commit()
+        flash("mise à jour d'une activité effectuée", "success")
+        return redirect(url_for('portfolio.index_activities'))
+    ctx = {
+        'form': form
+    }
+    return render_template('portfolio/edit.html', **ctx)
+
+
+@bp.route('/delete-activity-<int:id>')
+def delete_activity(id):
+    row = Activity.query.get_or_404(id)
+    db.session.delete(row)
+    db.session.commit()
+    flash("suppression d'une activitée effectuée", "warning")
+    return redirect(url_for('portfolio.index_activities'))
 
 
 @bp.route('/functions')

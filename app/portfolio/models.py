@@ -66,7 +66,7 @@ class Portfolio(db.Model):
     functions_id = db.Column(db.Integer, db.ForeignKey('functions.id'))
     technologies = db.relationship("Technology", secondary=portfolio_technology, backref=db.backref('portfolios', lazy="dynamic"))
     sort = db.Column(db.Integer, nullable=False)
-    year = db.Column(db.Integer, nullable=False)
+    year = db.Column(db.Integer, nullable=True)
     activities_id = db.Column(db.Integer, db.ForeignKey('activities.id'))
 
     def __str__(self):

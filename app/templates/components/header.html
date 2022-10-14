@@ -20,6 +20,9 @@
                             <a class="nav-link{% if request.path ==  url_for('portfolio.index_portfolio') %} active{% endif %}" aria-current="page" href="{{ url_for('portfolio.index_portfolio') }}">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link{% if request.path ==  url_for('portfolio.index_activities') %} active{% endif %}" href="{{ url_for('portfolio.index_activities') }}">Activités</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link{% if request.path ==  url_for('portfolio.index_function') %} active{% endif %}" href="{{ url_for('portfolio.index_function') }}">Fonctions</a>
                         </li>
                         <li class="nav-item">
