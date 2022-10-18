@@ -84,7 +84,7 @@ def index():
 }}
         """
         output_css.append(tpl)
-    print(f"const data  = {json.dumps(output_rows)}; export default data;")
+
     with open(os.path.join(root, 'frontoffice', 'src', 'data.js'), "w") as file:
         file.write(f"const data  = {json.dumps(output_rows)}; export default data;")
     # with open(os.path.join(root, 'docs', 'scripts', 'template', 'front', 'scss', 'atoms', '_export-univers.scss'), "w") as file:

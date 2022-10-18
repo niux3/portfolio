@@ -56,6 +56,7 @@
         "#77a93a",
         "#ae0a36",
     ];
+    let is_clicked = false;
     let display_article = false;
     let scroll_event = true;
     onMount(()=>{
@@ -72,78 +73,85 @@
     let data_article = data[0]
     let indexHistory = [];
     let selectSlide = e =>{
-        let index = parseInt(e.target.closest('button').dataset.index, 10);
-        let work = e.target.closest('#work')
-        let container = work.querySelector("nav");
-        let list = work.querySelector("ul");
-        let li = work.querySelectorAll(`nav ul li`);
-        let width_li = 9
-        let item = work.querySelector(`nav ul li:nth-child(${index + 1})`);
-        let innerWidth = window.innerWidth;
-        let itemWidth = (innerWidth - width_li * 2);
-        let scrollLeftValue = (width_li * index) - width_li;
+        if(!is_clicked){
+            let index = parseInt(e.target.closest('button').dataset.index, 10);
+            let work = e.target.closest('#work')
+            let container = work.querySelector("nav");
+            let list = work.querySelector("ul");
+            let li = work.querySelectorAll(`nav ul li`);
+            let width_li = 9
+            let item = work.querySelector(`nav ul li:nth-child(${index + 1})`);
+            let innerWidth = window.innerWidth;
+            let itemWidth = (innerWidth - width_li * 2);
+            let scrollLeftValue = (width_li * index) - width_li;
 
-        display_article = false;
-        scroll_event = false;
+            display_article = false;
+            scroll_event = false;
+            is_clicked = true;
 
-        scrollLeftValue = (((width_li * innerWidth) / 100) * index) - ((width_li * innerWidth) / 100)
-        // console.log(innerWidth, width_li, ' -- ', (width_li * innerWidth) / 100)
-        let direction = (()=>{
-            let output = 'right';
-             if(indexHistory.slice(-1) < index){
-                output = 'left'
-             }
-             return output;
-        })()
-        indexHistory = [...indexHistory, index];
-
-
-        list.style = `width: ${(42 * width_li) + itemWidth}vw`;
-        container.style = 'scroll-behavior: smooth';
-
-        container.scrollLeft = scrollLeftValue;
-        li.forEach((el, i) =>{
-            let defaultValue = `width: ${width_li}vw;`;
-            if(i === index){
-
-                if(parseInt(item.style.width, 10) > 9){
-                    el.classList.remove('current', 'left', 'right');
-                    el.classList.add('before-left')
-                    setTimeout(()=>{
-                        el.style = defaultValue;
-                    }, 400);
-                    list.style = `width: ${42 * width_li}vw`;
-                    display_article = false;
-                    scroll_event = true;
-                }else{
-                    if(indexHistory.length > 1){
-                        li[indexHistory[indexHistory.length - 2]].classList.add('before-' + direction)
-                    }
-                    el.classList.add('current', direction);
-                    item.style.width = '82vw';
-                    scroll_event = false;
-                    position_article = i === 0? 'first': i === li.length - 1? 'last' : ''
-                    data_article = data.filter(r => r.id === parseInt(e.target.closest('button').dataset.id, 10))[0]
-                    data_article['index'] = index + 1;
-                    console.log(">>", index)
-                    setTimeout(()=>{
-                        display_article = true;
-                        work.parentNode.querySelector('article').style = ["z-index:1", "visibility: visible"].join(";");
-                    }, 1200)
+            scrollLeftValue = (((width_li * innerWidth) / 100) * index) - ((width_li * innerWidth) / 100)
+            // console.log(innerWidth, width_li, ' -- ', (width_li * innerWidth) / 100)
+            let direction = (()=>{
+                let output = 'right';
+                if(indexHistory.slice(-1) < index){
+                    output = 'left'
                 }
-            }else{
-                el.classList.remove('current', 'left', 'right');
-                el.style = defaultValue;
-            }
-        });
-        setTimeout(()=>{
-            container.scrollLeft = scrollLeftValue;
-            if(indexHistory.length > 1) {
-                li.forEach(el => el.classList.remove('before-right', 'before-left'))
-            }
-            container.removeAttribute('style');
+                return output;
+            })()
+            indexHistory = [...indexHistory, index];
 
-        }, 800)
+
+            list.style = `width: ${(42 * width_li) + itemWidth}vw`;
+            container.style = 'scroll-behavior: smooth';
+
+            container.scrollLeft = scrollLeftValue;
+            li.forEach((el, i) =>{
+                let defaultValue = `width: ${width_li}vw;`;
+                if(i === index){
+
+                    if(parseInt(item.style.width, 10) > 9){
+                        el.classList.remove('current', 'left', 'right');
+                        el.classList.add('before-left')
+                        setTimeout(()=>{
+                            el.style = defaultValue;
+                        }, 400);
+                        list.style = `width: ${42 * width_li}vw`;
+                        display_article = false;
+                        scroll_event = true;
+                    }else{
+                        if(indexHistory.length > 1){
+                            li[indexHistory[indexHistory.length - 2]].classList.add('before-' + direction)
+                        }
+                        el.classList.add('current', direction);
+                        item.style.width = '82vw';
+                        scroll_event = false;
+                        position_article = i === 0? 'first': i === li.length - 1? 'last' : ''
+                        data_article = data.filter(r => r.id === parseInt(e.target.closest('button').dataset.id, 10))[0]
+                        data_article['index'] = index + 1;
+
+                        let timeout = setTimeout(()=>{
+                            is_clicked = false;
+                            display_article = true;
+                            work.parentNode.querySelector('article').style = ["z-index:1", "visibility: visible"].join(";");
+                            clearTimeout(timeout);
+                        }, 1200)
+                    }
+                }else{
+                    el.classList.remove('current', 'left', 'right');
+                    el.style = defaultValue;
+                }
+            });
+            let timeout = setTimeout(()=>{
+                container.scrollLeft = scrollLeftValue;
+                if(indexHistory.length > 1) {
+                    li.forEach(el => el.classList.remove('before-right', 'before-left'))
+                }
+                container.removeAttribute('style');
+
+                clearTimeout(timeout);
+            }, 800)
+        }
+
     }
 </script>
 <main id="work">
