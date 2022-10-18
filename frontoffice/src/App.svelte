@@ -108,7 +108,6 @@
             li.forEach((el, i) =>{
                 let defaultValue = `width: ${width_li}vw;`;
                 if(i === index){
-
                     if(parseInt(item.style.width, 10) > 9){
                         el.classList.remove('current', 'left', 'right');
                         el.classList.add('before-left')
@@ -118,6 +117,7 @@
                         list.style = `width: ${42 * width_li}vw`;
                         display_article = false;
                         scroll_event = true;
+                        is_clicked = false;
                     }else{
                         if(indexHistory.length > 1){
                             li[indexHistory[indexHistory.length - 2]].classList.add('before-' + direction)
@@ -147,7 +147,6 @@
                     li.forEach(el => el.classList.remove('before-right', 'before-left'))
                 }
                 container.removeAttribute('style');
-
                 clearTimeout(timeout);
             }, 800)
         }
@@ -167,7 +166,7 @@
 <!--            </li>-->
             {#each data as row, i }
                 <li data-id="{row.id}">
-                    <i class=""></i>
+                    <span class="{row.activity_icon}"></span>
                     <button data-index="{i}" data-id="{row.id}" on:click={selectSlide}>
                         <span>
                             <span>{row.name.toUpperCase()}</span>
