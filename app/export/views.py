@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, redirect, url_for, flash
 from app import db
 from app.config import basedir
 from app.portfolio.models import Technology, portfolio_technology
@@ -89,4 +89,5 @@ def index():
         file.write(f"const data  = {json.dumps(output_rows)}; export default data;")
     # with open(os.path.join(root, 'docs', 'scripts', 'template', 'front', 'scss', 'atoms', '_export-univers.scss'), "w") as file:
     #     file.write("\n".join(output_css))
-    return "export method"
+    flash("export réussi", "success")
+    return redirect(url_for('portfolio.index_portfolio'))
