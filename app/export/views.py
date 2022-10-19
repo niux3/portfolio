@@ -42,7 +42,19 @@ def index():
     output_rows = []
     output_css = []
     root = os.path.dirname(basedir)
-    for row in rows:
+
+    colors = [
+        "#807535",
+        "#80736b",
+        "#80453e",
+        "#80441c",
+        "#803535",
+        "#804e7e",
+        "#504d80",
+        "#357580",
+        "#448046",
+    ]
+    for i, row in enumerate(rows):
         technologies = []
         images = []
         for trow in db.session.execute(portfolio_technology.join(Technology).select().where(portfolio_technology.c.portfolios_id == row.pid)):
@@ -72,22 +84,12 @@ def index():
         output_rows.append(output)
 
         # css
-        tpl = f"""
-.univers-{row.pslug}{{
-    > header{{
-        background-color: {row.pcolor};
-    }}
-
-    > .global nav a:hover{{
-        background-color: {row.pcolor};
-    }}
-}}
-        """
+        tpl = '#work nav ul li:nth-child(' + str(i + 1) + '):before{background-color:' + str(colors[i % len(colors)]) + ';}'
         output_css.append(tpl)
 
     with open(os.path.join(root, 'frontoffice', 'src', 'data.js'), "w") as file:
         file.write(f"const data  = {json.dumps(output_rows)}; export default data;")
-    # with open(os.path.join(root, 'docs', 'scripts', 'template', 'front', 'scss', 'atoms', '_export-univers.scss'), "w") as file:
-    #     file.write("\n".join(output_css))
+    with open(os.path.join(root, 'frontoffice', 'public', 'css', 'color-slide.css'), "w") as file:
+        file.write("\n".join(output_css))
     flash("export réussi", "success")
     return redirect(url_for('portfolio.index_portfolio'))
