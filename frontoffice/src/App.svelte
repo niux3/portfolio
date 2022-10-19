@@ -152,6 +152,9 @@
         }
 
     }
+    let onCloseNav = e =>{
+        document.querySelector('#work li.current button').click()
+    }
 </script>
 <main id="work">
     <nav>
@@ -178,7 +181,10 @@
     </nav>
     {#if display_article}
         <article class="{position_article}" style="z-index: 1">
-            <img id="logo" src="logo.svg" alt="">
+            <div class="wrap-nav">
+                <img id="logo" src="logo.svg" alt="">
+                <button on:click={onCloseNav}><i class="fa-solid fa-bars"></i></button>
+            </div>
             <header>
                 <div class="description">
                     <p class="counter">{data_article.index} - {data.length}</p>
@@ -204,15 +210,16 @@
                                 </dd>
                             </dl>
                         </div>
-                        <ul>
-                            {#each data_article.technologies as technology, i}
-                                <li>{technology}</li>
-                            {/each}
-                        </ul>
+<!--                        <ul>-->
+<!--                            {#each data_article.technologies as technology, i}-->
+<!--                                <li>{technology}</li>-->
+<!--                            {/each}-->
+<!--                        </ul>-->
                     </div>
                 </div>
             </header>
-            <div class="content" style="height: 2000px"></div>
+            <div class="content"></div>
+            <footer> -- footer -- </footer>
         </article>
     {/if}
 </main>

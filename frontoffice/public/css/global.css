@@ -69,6 +69,11 @@ body {
     left: 0;
 
 }
+#work nav ul li.current span[class^=fa]{
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+}
+
 #work nav ul li.current.right:before{
     animation-name: slideColorHiddenRight;
     animation-duration: 400ms;
@@ -172,6 +177,10 @@ body {
     transition: opacity 400ms;
 }
 
+#work nav ul li.current button{
+    left: -100%;
+}
+
 #work nav ul li.current button span span{
     opacity: 0;
 }
@@ -236,12 +245,12 @@ body {
 }
 
 
-*[class^="fa"]{
+#work nav *[class^="fa"]{
     position: absolute;
     z-index: 500;
     top: 30px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(1);
     color: white;
     width: 40px;
     height: 40px;
@@ -250,10 +259,11 @@ body {
     background: white;
     color: #444;
     pointer-events: none;
+    transition: opacity 400ms, transform 400ms;
 }
 
-*[class^="fa"]:before{
-    content: "\e529";
+#work nav *[class^="fa"]:before{
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -268,7 +278,7 @@ article{
     top: 0;
     bottom: 0;
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
     z-index: -1;
     overflow: auto;
 }
@@ -277,7 +287,7 @@ article.first{
     right: 20vw;
 }
 
- article::-webkit-scrollbar, article *::-webkit-scrollbar {
+article::-webkit-scrollbar, article *::-webkit-scrollbar {
     width: 5px;
     height: 8px;
     background-color: #eee;
@@ -285,9 +295,19 @@ article.first{
 article::-webkit-scrollbar-thumb, article *::-webkit-scrollbar-thumb {
     background: #666;
 }
-
+.wrap-nav{
+    display: flex;
+    justify-content: space-between;
+}
 #logo{
     width: 300px;
+}
+article .wrap-nav button{
+    border: none;
+    margin-right: 25px;
+    cursor: pointer;
+    font-size: 2em;
+    color: #444;
 }
 article header{
     margin-top: 21.5em;
@@ -305,6 +325,7 @@ article header .wrap{
     justify-content: space-between;
 
 }
+
 article header .cartouche{
     display: flex;
 }
@@ -341,6 +362,15 @@ article header .wrap ul li{
     border-color: #1d1d1d;
 }
 
+article .content{
+    min-height: 2000px;
+}
+
+
+article footer{
+    position: fixed;
+    bottom: 0;
+}
 
 a {
     color: rgb(0,100,200);
