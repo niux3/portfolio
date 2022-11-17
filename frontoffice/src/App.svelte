@@ -69,6 +69,7 @@
                             li[indexHistory[indexHistory.length - 2]].classList.add('before-' + direction)
                         }
                         el.classList.add('current', direction);
+
                         item.style.width = '82vw';
                         scroll_event = false;
                         position_article = i === 0? 'first': i === li.length - 1? 'last' : ''
