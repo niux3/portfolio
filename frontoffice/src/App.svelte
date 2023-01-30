@@ -1,5 +1,6 @@
 <script>
     import {onMount} from 'svelte'
+    import {debounce} from './helpers'
     import data from './data.js'
 
     let is_clicked = false;
@@ -8,24 +9,39 @@
     onMount(()=>{
         const scrollContainer = document.querySelector("#work nav");
         display_article = false;
+        let cls_on_scroll = 'on-scroll'
         scrollContainer.addEventListener("wheel", (evt) => {
+            if(!scrollContainer.classList.contains(cls_on_scroll)){
+                scrollContainer.classList.add(cls_on_scroll)
+            }
             scrollContainer.scrollLeft += !display_article && scroll_event? evt.deltaY : 0;
+            debounce(()=>{
+                if(scrollContainer.classList.contains(cls_on_scroll)){
+                    scrollContainer.classList.remove(cls_on_scroll)
+                }
+            }, 250)()
         }, {passive:true});
 
         scrollContainer.classList.remove('on-nav')
-        let li = Array.from(document.querySelectorAll('li'))
-        let count = 0
-        let timer = setInterval(()=>{
-            if(count < li.slice(0, 13).length){
-                li[count].classList.add('display')
-                ++count
-            }else{
-                clearInterval(timer)
-                li.map(el => el.classList.add('display'))
-                document.querySelector('nav li button').click()
-            }
-        }, 75)
-
+        let anim_intro = true
+        if(anim_intro) {
+            let li = Array.from(document.querySelectorAll('li'))
+            let count = 0
+            let timer = setInterval(() => {
+                if (count < li.slice(0, 13).length) {
+                    li[count].classList.add('display')
+                    ++count
+                } else {
+                    clearInterval(timer)
+                    li.map(el => el.classList.add('display'))
+                    document.querySelector('nav li button').click()
+                }
+            }, 75)
+        }else{
+            let li = Array.from(document.querySelectorAll('li'))
+            li.map(el => el.classList.add('display'))
+            document.querySelector('nav li button').click()
+        }
     })
 
     let position_article = "";
