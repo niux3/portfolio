@@ -58,17 +58,32 @@ body {
     border-bottom: none;
     width: 9vw;
     position: relative;
-    transition: width 400ms;
+    transition: width 200ms;
+}
+
+#work nav.on-nav ul li.display:hover {
+    width: 11vw !important;
 }
 #work nav ul li:before{
     content: "";
     position: absolute;
-    top: 0;
+    top: 100%;
     right: 0;
     bottom: 0;
     left: 0;
-
+    background-color: #2980b9;
+    border-left: 2px solid transparent;
+    transition: background-color 400ms, top 400ms, border-left-color 200ms 800ms;
 }
+#work nav ul li.display:before{
+    top: 0;
+    border-left-color: #2475a9;
+}
+
+#work nav ul li:hover:before{
+    background-color: #2475a9;
+}
+
 #work nav ul li.current span[class^=fa]{
     opacity: 0;
     transform: translateX(-50%) scale(0);
@@ -154,14 +169,20 @@ body {
     margin: 0;
     padding: 0;
     width: 9vw;
+    transition: width 400ms;
 }
+
+#work nav.on-nav ul li:hover button{
+    width: 11vw;
+}
+
 
 #work nav ul li button > span{
     transform: rotate(-90deg);
     position: absolute;
     bottom: 20px;
     left: 50%;
-    color: white;
+    color: #f5f5f5;
     display: block;
     width: 910px;
     z-index: 200;
@@ -251,13 +272,12 @@ body {
     top: 30px;
     left: 50%;
     transform: translateX(-50%) scale(1);
-    color: white;
     width: 40px;
     height: 40px;
     border-radius: 100%;
     display: block;
-    background: white;
-    color: #444;
+    /*background: white;*/
+    color: #f5f5f5;
     pointer-events: none;
     transition: opacity 400ms, transform 400ms;
 }

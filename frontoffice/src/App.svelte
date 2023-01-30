@@ -12,7 +12,20 @@
             scrollContainer.scrollLeft += !display_article && scroll_event? evt.deltaY : 0;
         }, {passive:true});
 
-        document.querySelector('nav li button').click()
+        scrollContainer.classList.remove('on-nav')
+        let li = Array.from(document.querySelectorAll('li'))
+        let count = 0
+        let timer = setInterval(()=>{
+            if(count < li.slice(0, 13).length){
+                li[count].classList.add('display')
+                ++count
+            }else{
+                clearInterval(timer)
+                li.map(el => el.classList.add('display'))
+                document.querySelector('nav li button').click()
+            }
+        }, 75)
+
     })
 
     let position_article = "";
@@ -48,19 +61,20 @@
 
 
             list.style = `width: ${(42 * width_li) + itemWidth}vw`;
+            container.classList.remove('on-nav');
             container.style = 'scroll-behavior: smooth';
 
             container.scrollLeft = scrollLeftValue;
             li.forEach((el, i) =>{
                 let defaultValue = `width: ${width_li}vw;`;
                 if(i === index){
-                    if(parseInt(item.style.width, 10) > 9){
+                    if(9 < parseInt(item.style.width, 10)){
                         el.classList.remove('current', 'left', 'right');
                         el.classList.add('before-left')
                         setTimeout(()=>{
                             el.style = defaultValue;
                         }, 400);
-                        list.style = `width: ${42 * width_li}vw`;
+                        list.style = `width: ${42 * width_li + 2}vw`;
                         display_article = false;
                         scroll_event = true;
                         is_clicked = false;
@@ -101,6 +115,10 @@
     }
     let onCloseNav = e =>{
         document.querySelector('#work li.current button').click()
+        let timeout = setTimeout(()=>{
+            document.querySelector('#work nav').classList.add('on-nav');
+            clearTimeout(timeout);
+        }, 400)
     }
 </script>
 <main id="work">
