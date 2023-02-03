@@ -18,6 +18,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    /*font-size: 62.5%;*/
     overflow: hidden;
 }
 #work{
@@ -151,7 +152,7 @@ body {
 }
 
 @keyframes slideColorDisplayRight {
-     0%{
+    0%{
         right: 100%;
     }
     100%{
@@ -265,9 +266,9 @@ body {
 }
 
 @keyframes txtBeforeRight {
-   0%{
-       top: -5em;
-   }
+    0%{
+        top: -5em;
+    }
     100%{
         top: 0;
     }
@@ -296,6 +297,80 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.wrap-logo-anim{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.wrap-logo-anim + #work{
+    display: none;
+}
+
+.wrap-logo-anim .logo-anim{
+    position: relative;
+    display: inline-block;
+    transform: scale(.4);
+}
+
+.wrap-logo-anim .logo-anim svg:nth-child(2){
+    position: absolute;
+    top: 0;left: 0;
+    opacity: 0;
+}
+
+.wrap-logo-anim .logo-anim svg:nth-child(1){
+    transform: rotate(-90deg);
+}
+
+.wrap-logo-anim .logo-anim svg:nth-child(1) circle{
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 2000;
+    fill: transparent;
+}
+
+.wrap-logo-anim .logo-anim svg:nth-child(1) circle{
+    animation: draw 2s forwards .4s cubic-bezier(.79,0,.31,.98);
+}
+.wrap-logo-anim .logo-anim svg:nth-child(2){
+    animation: appear .5s forwards 1.5s;
+}
+.wrap-logo-anim .logo-anim{
+    animation: scale_down .3s forwards 3.2s cubic-bezier(.79,0,.31,.98);
+}
+@keyframes scale_down{
+    from{
+        transform: scale(.4);
+        opacity: 1;
+    }
+    to{
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes draw{
+    from{
+        stroke-dashoffset: 1000;
+        fill:transparent;
+        stroke:#444;
+    }
+    to{
+        stroke-dashoffset: 0;
+        stroke:#444;
+    }
+}
+@keyframes appear{
+    from{
+        transform: scale(.95);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 
@@ -333,7 +408,7 @@ article::-webkit-scrollbar-thumb, article *::-webkit-scrollbar-thumb {
     justify-content: space-between;
 }
 #logo{
-    width: 300px;
+    width: 80px;
 }
 article .wrap-nav button{
     border: none;
