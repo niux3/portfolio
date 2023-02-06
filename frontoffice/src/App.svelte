@@ -57,6 +57,7 @@
     let selectSlide = e =>{
         if(!is_clicked){
             let index = parseInt(e.target.closest('button').dataset.index, 10);
+            let id = parseInt(e.target.closest('button').dataset.id, 10)
             let work = e.target.closest('#work')
             let container = work.querySelector("nav");
             let list = work.querySelector("ul");
@@ -110,8 +111,12 @@
                         item.style.width = '82vw';
                         scroll_event = false;
                         position_article = i === 0? 'first': i === li.length - 1? 'last' : ''
-                        data_article = data.filter(r => r.id === parseInt(e.target.closest('button').dataset.id, 10))[0]
-                        data_article['index'] = index + 1;
+                        if(id !== 0){
+                            data_article = data.filter(r => r.id === id)[0]
+                            data_article['index'] = index + 1
+                        }else{
+                            data_article = false
+                        }
 
                         let timeout = setTimeout(()=>{
                             is_clicked = false;
@@ -172,18 +177,18 @@
 <main id="work">
     <nav>
         <ul style="width: {(data.length * 200)}px">
-<!--            <li>-->
-<!--                <i class=""></i>-->
-<!--                <button on:click={selectSlide}>-->
-<!--                        <span>-->
-<!--                            <span>À PROPOS DE MOI</span>-->
-<!--                        </span>-->
-<!--                </button>-->
-<!--            </li>-->
+            <li>
+                <span class="fa-solid fa-address-card"></span>
+                <button data-index="0" data-id="0" on:click={selectSlide}>
+                        <span>
+                            <span>À PROPOS DE MOI</span>
+                        </span>
+                </button>
+            </li>
             {#each data as row, i }
                 <li data-id="{row.id}">
                     <span class="{row.activity_icon}"></span>
-                    <button data-index="{i}" data-id="{row.id}" on:click={selectSlide}>
+                    <button data-index="{i + 1}" data-id="{row.id}" on:click={selectSlide}>
                         <span>
                             <span>{row.name.toUpperCase()}</span>
                         </span>
@@ -193,6 +198,7 @@
         </ul>
     </nav>
     {#if display_article}
+        {#if data_article !== false}
         <article class="{position_article}" style="z-index: 1">
             <div class="wrap-nav">
                 <img on:click={onFirstSlide} id="logo" src="logo.svg" alt="">
@@ -234,6 +240,11 @@
             <div class="content"></div>
             <footer> -- footer -- </footer>
         </article>
+        {:else}
+            <article>
+                a propos
+            </article>
+        {/if}
     {/if}
 </main>
 
