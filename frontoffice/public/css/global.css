@@ -81,13 +81,26 @@ body {
     border-left: 2px solid transparent;
     transition: background-color 400ms, top 400ms, border-left-color 200ms 800ms;
 }
+
+#work nav ul li:first-child:before{
+    background-color: #16a085;
+    border-left-color: #11725f !important;
+}
 #work nav ul li.display:before{
     top: 0;
     border-left-color: #2475a9;
 }
 
+#work nav ul li.current.display:before{
+    top: 0;
+    border-left-color: #2475a9;
+}
 #work nav ul li:hover:before{
     background-color: #2475a9;
+}
+
+#work nav ul li:hover:first-child:before{
+    background-color: #11725f;
 }
 
 #work nav ul li.current span[class^=fa]{
