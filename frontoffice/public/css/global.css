@@ -400,6 +400,10 @@ article{
     scrollbar-color: #444 transparent;
     scrollbar-width: auto !important;
 }
+#work.on-article article{
+    z-index: 1;
+    visibility: visible;
+}
 article:hover{
     scrollbar-width: auto !important;
 }

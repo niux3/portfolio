@@ -23,7 +23,7 @@
         }, {passive:true});
 
         scrollContainer.classList.remove('on-nav')
-        let anim_intro = false
+        let anim_intro = true
         if(anim_intro) {
             setTimeout(()=>{
 
@@ -51,7 +51,7 @@
         }
     })
 
-    let position_article = "";
+    // let position_article = "";
     let data_article = data[0]
     let indexHistory = [];
     let selectSlide = e =>{
@@ -99,6 +99,7 @@
                             el.style = defaultValue;
                         }, 400);
                         list.style = `width: ${42 * width_li + 2}vw`;
+                        work.classList.remove('on-article')
                         display_article = false;
                         scroll_event = true;
                         is_clicked = false;
@@ -110,7 +111,7 @@
 
                         item.style.width = '82vw';
                         scroll_event = false;
-                        position_article = i === 0? 'first': i === li.length - 1? 'last' : ''
+                        // position_article = i === 0? 'first': i === li.length - 1? 'last' : ''
                         if(id !== 0){
                             data_article = data.filter(r => r.id === id)[0]
                             data_article['index'] = index + 1
@@ -121,7 +122,8 @@
                         let timeout = setTimeout(()=>{
                             is_clicked = false;
                             display_article = true;
-                            work.parentNode.querySelector('article').style = ["z-index:1", "visibility: visible"].join(";");
+                            work.classList.add('on-article')
+                            // work.querySelector('article').style = ["z-index:1", "visibility: visible"].join(";");
                             clearTimeout(timeout);
                         }, 1200)
                     }
@@ -199,7 +201,7 @@
     </nav>
     {#if display_article}
         {#if data_article !== false}
-        <article class="{position_article}" style="z-index: 1">
+        <article style="z-index: 1">
             <div class="wrap-nav">
                 <img on:click={onFirstSlide} id="logo" src="logo.svg" alt="">
                 <button on:click={onCloseNav}><i class="fa-solid fa-bars"></i></button>
@@ -241,8 +243,13 @@
             <footer> -- footer -- </footer>
         </article>
         {:else}
-            <article>
-                a propos
+            <article class="first">
+                <div class="wrap-nav">
+                    <img on:click={onFirstSlide} id="logo" src="logo.svg" alt="">
+                    <button on:click={onCloseNav}><i class="fa-solid fa-bars"></i></button>
+                </div>
+                <div class="content"></div>
+            <footer> -- footer -- </footer>
             </article>
         {/if}
     {/if}
