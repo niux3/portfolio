@@ -10,6 +10,7 @@
         const scrollContainer = document.querySelector("#work nav");
         display_article = false;
         let cls_on_scroll = 'on-scroll'
+
         scrollContainer.addEventListener("wheel", (evt) => {
             if(!scrollContainer.classList.contains(cls_on_scroll)){
                 scrollContainer.classList.add(cls_on_scroll)
@@ -22,8 +23,36 @@
             }, 250)()
         }, {passive:true});
 
+        let is_down = false
+        let start_x
+        let scroll_left
+        let event_mouse_button = (event_type, callback) =>{
+            scrollContainer.addEventListener(event_type, e =>{
+                if(scrollContainer.classList.contains('on-nav')){
+                    callback(e)
+                }
+            })
+        }
+        event_mouse_button('mousedown', e =>{
+            if(scrollContainer.classList.contains('on-nav')){
+                is_down = true
+                start_x = e.pageX - scrollContainer.offsetLeft
+                scroll_left = scrollContainer.scrollLeft
+            }
+        })
+        event_mouse_button('mouseleave', e => is_down = false)
+        event_mouse_button('mouseup', e => is_down = false)
+        event_mouse_button('mousemove', e =>{
+            if(!is_down) return
+            e.preventDefault()
+            let x = e.pageX - scrollContainer.offsetLeft;
+            let walk = (x - start_x) * 3; //scroll-fast
+            scrollContainer.scrollLeft = scroll_left - walk;
+        })
+
+
         scrollContainer.classList.remove('on-nav')
-        let anim_intro = true
+        let anim_intro = false
         if(anim_intro) {
             setTimeout(()=>{
 
@@ -203,7 +232,7 @@
         {#if data_article !== false}
         <article style="z-index: 1">
             <div class="wrap-nav">
-                <img on:click={onFirstSlide} id="logo" src="logo.svg" alt="">
+                <img on:click={onFirstSlide} id="logo" src="logo.svg?v=1" alt="">
                 <button on:click={onCloseNav}><i class="fa-solid fa-bars"></i></button>
             </div>
             <header>
@@ -245,7 +274,7 @@
         {:else}
             <article class="first">
                 <div class="wrap-nav">
-                    <img on:click={onFirstSlide} id="logo" src="logo.svg" alt="">
+                    <img on:click={onFirstSlide} id="logo" src="logo.svg?v=1" alt="">
                     <button on:click={onCloseNav}><i class="fa-solid fa-bars"></i></button>
                 </div>
                 <div class="content"></div>
