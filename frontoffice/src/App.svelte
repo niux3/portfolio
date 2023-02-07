@@ -53,7 +53,7 @@
         })
 
         scrollContainer.classList.remove('on-nav')
-        let anim_intro = false
+        let anim_intro = true
         if(anim_intro) {
             setTimeout(()=>{
 
