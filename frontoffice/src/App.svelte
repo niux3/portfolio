@@ -1,6 +1,8 @@
 <script>
     import {onMount} from 'svelte'
     import {debounce} from './helpers'
+    import Footer from './Footer.svelte'
+    import PreHeader from './Preheader.svelte'
     import data from './data.js'
 
     let is_clicked = false;
@@ -46,10 +48,9 @@
             if(!is_down) return
             e.preventDefault()
             let x = e.pageX - scrollContainer.offsetLeft;
-            let walk = (x - start_x) * 3; //scroll-fast
+            let walk = (x - start_x) * 3;
             scrollContainer.scrollLeft = scroll_left - walk;
         })
-
 
         scrollContainer.classList.remove('on-nav')
         let anim_intro = false
@@ -231,10 +232,7 @@
     {#if display_article}
         {#if data_article !== false}
         <article style="z-index: 1">
-            <div class="wrap-nav">
-                <img on:click={onFirstSlide} id="logo" src="logo.svg?v=1" alt="">
-                <button on:click={onCloseNav}><i class="fa-solid fa-bars"></i></button>
-            </div>
+            <PreHeader onSelectFirstSlide={onFirstSlide} onCloseNav={onCloseNav} />
             <header>
                 <div class="description">
                     <p class="counter">{data_article.index} - {data.length}</p>
@@ -269,16 +267,13 @@
                 </div>
             </header>
             <div class="content"></div>
-            <footer> -- footer -- </footer>
+            <Footer onSelectFirstSlide={onFirstSlide} />
         </article>
         {:else}
             <article class="first">
-                <div class="wrap-nav">
-                    <img on:click={onFirstSlide} id="logo" src="logo.svg?v=1" alt="">
-                    <button on:click={onCloseNav}><i class="fa-solid fa-bars"></i></button>
-                </div>
+                <PreHeader onSelectFirstSlide={onFirstSlide} onCloseNav={onCloseNav} />
                 <div class="content"></div>
-            <footer> -- footer -- </footer>
+                <Footer onSelectFirstSlide={onFirstSlide} />
             </article>
         {/if}
     {/if}

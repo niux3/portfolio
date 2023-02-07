@@ -426,6 +426,7 @@ article::-webkit-scrollbar-thumb, article *::-webkit-scrollbar-thumb {
 }
 #logo{
     width: 80px;
+    cursor: pointer;
 }
 article .wrap-nav button{
     border: none;
@@ -495,6 +496,21 @@ article .content{
 article footer{
     position: fixed;
     bottom: 0;
+    display: flex;
+    padding: 25px;
+    justify-content: space-around;
+    left: 10vw;
+    right: 10vw;
+}
+article.first footer{
+    left: 5vw;
+    right: 20vw;
+}
+article footer a{
+    text-transform: uppercase;
+    color: #444 !important;
+    font-size: 12px;
+
 }
 
 a {
