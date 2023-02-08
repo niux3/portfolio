@@ -424,20 +424,54 @@ article::-webkit-scrollbar-thumb, article *::-webkit-scrollbar-thumb {
 .wrap-nav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 #logo{
     width: 80px;
     cursor: pointer;
 }
+article .wrap-nav .burger-button{
+    position:relative;
+    width:30px;
+    height:30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 25px;
+}
+article .wrap-nav .burger-button .bar1,
+article .wrap-nav .burger-button .bar2,
+article .wrap-nav .burger-button .bar3{
+    width:30px;
+    height:5px;
+    background-color:#444;
+    transition: all 0.4s;
+    border-radius:10px;
+}
+
+article .wrap-nav .burger-button:hover .bar1{
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+article .wrap-nav .burger-button:hover .bar2{
+    opacity: 0;
+}
+
+article .wrap-nav .burger-button:hover .bar3{
+    transform: rotate(-45deg) translate(8.5px, -7.5px);
+}
 article .wrap-nav button{
     border: none;
     margin-right: 25px;
+    margin-bottom: 0;
+    padding: 0;
     cursor: pointer;
     font-size: 2em;
     color: #444;
 }
 article header{
-    margin-top: 21.5em;
+    margin-top: 220px;
 }
 article header h1{
     max-width: 35vw;
