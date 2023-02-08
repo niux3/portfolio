@@ -389,27 +389,27 @@ body {
 
 article{
     position: fixed;
-    left: 10vw;
-    right: 10vw;
+    left: 9vw;
+    right: 9vw;
     top: 0;
     bottom: 0;
-    margin-top: 25px;
-    margin-bottom: 50px;
+    margin: 25px 40px 50px;
     z-index: -1;
     overflow: auto;
     scrollbar-color: #444 transparent;
-    scrollbar-width: auto !important;
+    scrollbar-width: thin !important;
+    scroll-behavior: smooth;
 }
 #work.on-article article{
     z-index: 1;
     visibility: visible;
 }
 article:hover{
-    scrollbar-width: auto !important;
+    scrollbar-width: thin !important;
 }
 article.first{
-    left: 5vw;
-    right: 20vw;
+    left: 6vw;
+    right: 18vw;
 }
 
 article::-webkit-scrollbar, article *::-webkit-scrollbar {
@@ -420,6 +420,7 @@ article::-webkit-scrollbar, article *::-webkit-scrollbar {
 article::-webkit-scrollbar-thumb, article *::-webkit-scrollbar-thumb {
     background-color: #666;
 }
+
 .wrap-nav{
     display: flex;
     justify-content: space-between;
