@@ -1,8 +1,8 @@
 <script>
     import {onMount} from 'svelte'
     import {debounce} from './helpers'
-    import Footer from './Footer.svelte'
-    import PreHeader from './Preheader.svelte'
+    import Preload from './Preload.svelte'
+    import Article from './Article.svelte'
     import data from './data.js'
 
     let is_clicked = false;
@@ -48,12 +48,12 @@
             if(!is_down) return
             e.preventDefault()
             let x = e.pageX - scrollContainer.offsetLeft;
-            let walk = (x - start_x) * 3;
+            let walk = (x - start_x) * 3;   //accelarateur
             scrollContainer.scrollLeft = scroll_left - walk;
         })
 
         scrollContainer.classList.remove('on-nav')
-        let anim_intro = true
+        let anim_intro = false
         if(anim_intro) {
             setTimeout(()=>{
 
@@ -185,27 +185,7 @@
         }, 400)
     }
 </script>
-<div class="wrap-logo-anim">
-    <div class="logo-anim">
-        <svg width="79.375mm" height="79.375mm" version="1.1" viewBox="0 0 79.375 79.375" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-            <circle cx="39.6875" cy="39.6875" r="17" stroke-miterlimit="10" stroke-width="34" />
-        </svg>
-        <svg width="79.375mm" height="79.375mm" version="1.1" viewBox="0 0 79.375 79.375" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-            <circle cx="97.246" cy="111.52" r="16.492" fill="none" stroke="" stroke-width="33.073" id="circle-stroke" />
-            <g transform="translate(-57.558 -71.836)" id="content">
-                <circle cx="97.246" cy="111.52" r="33.073" fill="#444" stroke-width=".177" style="paint-order:markers fill stroke"/>
-                <g transform="matrix(.33371 0 0 .33371 -78.371 192.62)" fill="#f5f5f5">
-                    <g transform="translate(243.55 81.615)" stroke-width=".67039" aria-label="rb">
-                        <path d="m251.15-309.59v27.653h-25.077v-31.927q0-10.81 2.0112-16.843 2.0112-6.0963 6.8505-10.81 3.6452-3.6452 8.4846-5.6564 4.9022-2.074 9.8044-2.074 2.3882 0 4.7136 0.18855 2.3254 0.18854 4.5251 0.56563v26.396q-0.43994-0.0628-1.3198-0.18855-2.074-0.31424-2.6396-0.31424-4.0852 0-5.7192 2.6396-1.6341 2.6396-1.6341 10.37z"/>
-                        <path d="m270.76-373.69h24.448v51.599q0 9.553 2.2626 13.324t7.5418 3.7709q3.8338 0 6.662-2.8282 2.8282-2.891 2.8282-6.7876 0-4.2109-2.7653-7.039-2.7653-2.891-6.7248-2.891-1.0056 0-2.1368 0.31425-1.1313 0.25139-3.2681 1.1313v-26.019q0.62849-0.0629 2.6396-0.18855 2.0112-0.18855 3.1424-0.18855 14.141 0 24.008 10.181 9.9301 10.119 9.9301 24.7 0 6.8505-2.514 13.135-2.5139 6.222-7.2276 11.061-4.9022 4.965-11.187 7.6675-6.222 2.6396-13.135 2.6396-10.181 0-18.415-5.2164-8.1703-5.2793-12.13-14.267-2.074-4.7765-3.0167-9.8672-0.94273-5.1536-0.94273-12.758v-4.9022z"/>
-                    </g>
-                    <path d="m542.38-288.15h-31.744l15.872-17.36z" stroke-width=".44511" style="paint-order:markers fill stroke"/>
-                </g>
-
-            </g>
-        </svg>
-    </div>
-</div>
+<Preload />
 <main id="work">
     <nav>
         <ul style="width: {(data.length * 200)}px">
@@ -230,52 +210,13 @@
         </ul>
     </nav>
     {#if display_article}
-        {#if data_article !== false}
-        <article style="z-index: 1">
-            <PreHeader onSelectFirstSlide={onFirstSlide} onCloseNav={onCloseNav} />
-            <header>
-                <div class="description">
-                    <p class="counter">{data_article.index} - {data.length}</p>
-                    <h1 class="name">{data_article.name}</h1>
-                    <div class="wrap">
-                        <div class="cartouche">
-                            <dl>
-                                <dt>type</dt>
-                                <dd>
-                                    <span>{data_article.function}</span>
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>description</dt>
-                                <dd>
-                                    <span>{data_article.activity_name}</span>
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>année</dt>
-                                <dd>
-                                    <span>{data_article.year}</span>
-                                </dd>
-                            </dl>
-                        </div>
-<!--                        <ul>-->
-<!--                            {#each data_article.technologies as technology, i}-->
-<!--                                <li>{technology}</li>-->
-<!--                            {/each}-->
-<!--                        </ul>-->
-                    </div>
-                </div>
-            </header>
-            <div class="content"></div>
-            <Footer onSelectFirstSlide={onFirstSlide} />
-        </article>
-        {:else}
-            <article class="first">
-                <PreHeader onSelectFirstSlide={onFirstSlide} onCloseNav={onCloseNav} />
-                <div class="content"></div>
-                <Footer onSelectFirstSlide={onFirstSlide} />
-            </article>
-        {/if}
+        <Article
+                is_not_first={data_article}
+                onSelectFirstSlide={onFirstSlide}
+                onCloseNav={onCloseNav}
+                len={data.length}
+                data={data_article}
+        />
     {/if}
 </main>
 
