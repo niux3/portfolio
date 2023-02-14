@@ -209,7 +209,7 @@ body {
     width: 910px;
     z-index: 200;
     transform-origin: left;
-    font-size: 2em;
+    font-size: 1.75vw;
     overflow: hidden;
 }
 
@@ -298,6 +298,7 @@ body {
     height: 40px;
     border-radius: 100%;
     display: block;
+    font-size: .75vw;
     /*background: white;*/
     color: #f5f5f5;
     pointer-events: none;
@@ -474,20 +475,24 @@ article .wrap-nav button{
     color: #444;
 }
 article header{
-    margin-top: 220px;
-    padding: 0 50px;
+    margin-top: 11vw;
+    padding: 0 2.5vw;
+}
+article header .counter{
+    font-size: 1vw;
 }
 article header h1{
     max-width: 35vw;
     margin-top: 0.8rem;
     margin-bottom: 1rem;
-    font-size: 4.4em;
+    font-size: 4vw;
     line-height: 1;
     font-weight: 400;
 }
 article header .wrap{
     display: flex;
     justify-content: space-between;
+align-items: end;
 
 }
 
@@ -501,15 +506,17 @@ article header .cartouche dl{
 
 article header .cartouche dl:nth-child(2){
     max-width: 10em;
-    margin: 0 3rem;
+    margin: 0 3vw;
 }
 
 article header .cartouche dl dt{
     text-transform: uppercase;
+    font-size: .85vw;
 }
 
 article header .cartouche dl dd{
     margin-left: 0;
+    font-size: 1vw;
 }
 
 article header .wrap ul{
@@ -520,21 +527,23 @@ article header .wrap ul{
 }
 
 article header .wrap ul li{
-    margin: 0 16px;
-    min-width: 120px;
-    padding: 0.7em 2em;
+    margin: 0 .5vw;
+    /*min-width: 120px;*/
+    padding: 0.4vw 1vw;
     border: 1px solid #f8f8f8;
     border-radius: 100vw;
-    font-size: .875em;
+    font-size: .65vw;
     font-weight: 400;
     text-align: center;
     text-transform: uppercase;
     border-color: #1d1d1d;
+    height: 2vw;
+    line-height: 1.3vw;
 }
 
 article .content{
-    margin-top: 50px;
-    padding: 25px;
+    margin-top: 4vw;
+    padding: 0 25px;
     min-height: 2000px;
 }
 

@@ -27,7 +27,7 @@
                     e.target.classList.add(clsOnScrollUp)
                 }
                 lastScrollTop = currentScrollTop
-            }, 800)()
+            }, 400)()
         })
     })
 

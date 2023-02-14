@@ -27,11 +27,11 @@
                     </dd>
                 </dl>
             </div>
-<!--                <ul>-->
-<!--                    {#each data.technologies as technology, i}-->
-<!--                        <li>{technology}</li>-->
-<!--                    {/each}-->
-<!--                </ul>-->
+                <ul>
+                    {#each data.technologies as technology, i}
+                        <li>{technology}</li>
+                    {/each}
+                </ul>
         </div>
     </div>
 </header>

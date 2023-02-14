@@ -79,6 +79,7 @@
             li.map(el => el.classList.add('display'))
             document.querySelector('nav li button').click()
         }
+        // window.addEventListener('resize', e => debounce(()=> window.location = window.location.href, 400)())
     })
 
     // let position_article = "";
