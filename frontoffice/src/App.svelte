@@ -8,6 +8,7 @@
     let is_clicked = false;
     let display_article = false;
     let scroll_event = true;
+    let id_slide_clicked = 0
     onMount(()=>{
         const scrollContainer = document.querySelector("#work nav");
         display_article = false;
@@ -79,7 +80,18 @@
             li.map(el => el.classList.add('display'))
             document.querySelector('nav li button').click()
         }
-        // window.addEventListener('resize', e => debounce(()=> window.location = window.location.href, 400)())
+        window.addEventListener('resize', e => {
+            display_article = false
+            debounce(()=>{
+                if(document.querySelector('nav li.current button') !== null){
+                    document.querySelector('nav li.current button').click()
+                    let timer = setTimeout(()=>{
+                        document.querySelector(`nav li[data-id="${id_slide_clicked}"] button`).click()
+                        clearTimeout(timer)
+                    }, 1200)
+                }
+            }, 400)()
+        })
     })
 
     // let position_article = "";
@@ -102,6 +114,8 @@
             display_article = false;
             scroll_event = false;
             is_clicked = true;
+
+            id_slide_clicked = id
 
             scrollLeftValue = (((width_li * innerWidth) / 100) * index) - ((width_li * innerWidth) / 100)
             // console.log(innerWidth, width_li, ' -- ', (width_li * innerWidth) / 100)
@@ -190,7 +204,7 @@
 <main id="work">
     <nav>
         <ul style="width: {(data.length * 200)}px">
-            <li>
+            <li data-id="0">
                 <span class="fa-solid fa-address-card"></span>
                 <button data-index="0" data-id="0" on:click={selectSlide}>
                         <span>

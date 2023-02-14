@@ -20,7 +20,7 @@
         document.querySelector('article').addEventListener('scroll', e =>{
             debounce(()=>{
                 let currentScrollTop = e.target.scrollTop
-                console.log('>>', currentScrollTop)
+                // console.log('>>', currentScrollTop)
                 if(currentScrollTop > lastScrollTop && e.target.classList.contains(clsOnScrollUp)){
                     e.target.classList.remove(clsOnScrollUp)
                 }else if(currentScrollTop < lastScrollTop && !e.target.classList.contains(clsOnScrollUp)){

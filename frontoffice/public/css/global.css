@@ -431,7 +431,7 @@ article::-webkit-scrollbar-thumb, article *::-webkit-scrollbar-thumb {
     transition: top .4s;
 }
 #logo{
-    width: 80px;
+    width: 5vw;
     cursor: pointer;
 }
 article .wrap-nav .burger-button{
