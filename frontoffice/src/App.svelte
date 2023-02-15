@@ -81,16 +81,16 @@
             document.querySelector('nav li button').click()
         }
         window.addEventListener('resize', e => {
-            // display_article = false
-            // debounce(()=>{
-            //     if(document.querySelector('nav li.current button') !== null){
-            //         document.querySelector('nav li.current button').click()
-            //         let timer = setTimeout(()=>{
-            //             document.querySelector(`nav li[data-id="${id_slide_clicked}"] button`).click()
-            //             clearTimeout(timer)
-            //         }, 1200)
-            //     }
-            // }, 400)()
+            display_article = false
+            debounce(()=>{
+                if(document.querySelector('nav li.current button') !== null){
+                    document.querySelector('nav li.current button').click()
+                    let timer = setTimeout(()=>{
+                        document.querySelector(`nav li[data-id="${id_slide_clicked}"] button`).click()
+                        clearTimeout(timer)
+                    }, 1200)
+                }
+            }, 400)()
         })
     })
 
@@ -110,14 +110,15 @@
             let innerWidth = window.innerWidth;
             let itemWidth = (innerWidth - width_li * 2);
             let scrollLeftValue = (width_li * index) - width_li;
-
+            let responsiveScrollLeftContainer = window.matchMedia('(min-width: 768px)').matches? 0 : 1
+            let styleItemWidth = window.matchMedia('(min-width: 768px)').matches? '82vw' : '100vw'
             display_article = false;
             scroll_event = false;
             is_clicked = true;
 
             id_slide_clicked = id
 
-            scrollLeftValue = (((width_li * innerWidth) / 100) * index) - ((width_li * innerWidth) / 100)
+            scrollLeftValue = (((width_li * innerWidth) / 100) * (index + responsiveScrollLeftContainer)) - ((width_li * innerWidth) / 100)
             // console.log(innerWidth, width_li, ' -- ', (width_li * innerWidth) / 100)
             let direction = (()=>{
                 let output = 'right';
@@ -154,7 +155,7 @@
                         }
                         el.classList.add('current', direction);
 
-                        item.style.width = '82vw';
+                        item.style.width = styleItemWidth;
                         scroll_event = false;
                         // position_article = i === 0? 'first': i === li.length - 1? 'last' : ''
                         if(id !== 0){

@@ -7,7 +7,6 @@
         <div>
             <h1>Web développeur frontend et backend à Paris</h1>
             <p>Bonjour, ancien infographiste, je suis désormais un professionnel dans le web. Mon expertise se situe principalement dans les technologies du web où j'excelle avec aisance dans le monde professionnel depuis {year} ans. À mon actif, j'ai plus de 50 beaux projets et j'ai été récompensé 5 fois. </p>
-            <button></button>
         </div>
     </div>
     <div class="resume">

@@ -455,6 +455,14 @@ article{
     scrollbar-width: thin !important;
     scroll-behavior: smooth;
 }
+@media (max-width: 767px){
+    article{
+        left: 0 !important;
+        right: 0 !important;
+    }
+}
+
+
 #work.on-article article{
     z-index: 1;
     visibility: visible;
