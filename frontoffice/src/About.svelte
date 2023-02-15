@@ -11,12 +11,12 @@
         </div>
     </div>
     <div class="resume">
-        <div class="aboutGrid top">
+        <div class="top">
             <p>à propos de moi</p>
             <p>Je suis passionné par tout ce qui a à voir avec la conception numérique. J'aime travailler avec des agences et des personnes enthousiastes qui veulent résoudre des problèmes grâce à une conception suivant les standards.</p>
-            <img src="" alt="Renaud Bourdeau" />
+<!--            <img src="" alt="Renaud Bourdeau" />-->
         </div>
-        <div class="aboutGrid bottom">
+        <div class="bottom">
             <div>
                 <h2>Développement frontend</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolorem mollitia quam quia sint? Atque aut illum odio quia rem saepe? Ad at aut doloribus illo, obcaecati omnis pariatur! Est?</p>
@@ -29,9 +29,9 @@
                 <h2>Conception visuelle</h2>
                 <p>En utilisant mon expertise, je m'assure qu'une identité visuelle puisse être utilisée dans toute son étendue. Non seulement intemporel, mais utilisable dans le monde numérique d'aujourd'hui.</p>
             </div>
-            <div>
-                <button>portfolio</button>
-            </div>
+<!--            <div>-->
+<!--                <button>portfolio</button>-->
+<!--            </div>-->
         </div>
     </div>
     <div class="experience">
@@ -88,27 +88,27 @@
         <p>récompenses</p>
         <ul>
             <li>
-                <span>2016</span>
+<!--                <span>2016</span>-->
                 <span>Top Com Or</span>
                 <span>Renault Kadjarquest</span>
             </li>
             <li>
-                <span>2013</span>
+<!--                <span>2013</span>-->
                 <span>Top Com Or</span>
                 <span>Leroy Merlin</span>
             </li>
             <li>
-                <span>2012</span>
+<!--                <span>2012</span>-->
                 <span>Top Com Or</span>
                 <span>Peugeot</span>
             </li>
             <li>
-                <span>2012</span>
+<!--                <span>2012</span>-->
                 <span>Top Com Or</span>
                 <span>Peugeot 4008</span>
             </li>
             <li>
-                <span>2011</span>
+<!--                <span>2011</span>-->
                 <span>Top Com Or</span>
                 <span>Areva</span>
             </li>

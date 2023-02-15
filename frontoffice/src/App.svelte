@@ -81,16 +81,16 @@
             document.querySelector('nav li button').click()
         }
         window.addEventListener('resize', e => {
-            display_article = false
-            debounce(()=>{
-                if(document.querySelector('nav li.current button') !== null){
-                    document.querySelector('nav li.current button').click()
-                    let timer = setTimeout(()=>{
-                        document.querySelector(`nav li[data-id="${id_slide_clicked}"] button`).click()
-                        clearTimeout(timer)
-                    }, 1200)
-                }
-            }, 400)()
+            // display_article = false
+            // debounce(()=>{
+            //     if(document.querySelector('nav li.current button') !== null){
+            //         document.querySelector('nav li.current button').click()
+            //         let timer = setTimeout(()=>{
+            //             document.querySelector(`nav li[data-id="${id_slide_clicked}"] button`).click()
+            //             clearTimeout(timer)
+            //         }, 1200)
+            //     }
+            // }, 400)()
         })
     })
 
