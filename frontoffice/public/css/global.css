@@ -84,7 +84,6 @@ body {
     scroll-behavior: auto;
     scrollbar-color: transparent transparent;
     scrollbar-width: auto;
-
 }
 
 #work nav::-webkit-scrollbar {
@@ -147,7 +146,7 @@ body {
 
 #work nav ul li.current.display:before{
     top: 0;
-    border-left-color: #2475a9;
+    border-left-color: transparent;
 }
 #work nav ul li:hover:before{
     background-color: #2475a9;
@@ -496,6 +495,11 @@ article::-webkit-scrollbar-thumb, article *::-webkit-scrollbar-thumb {
     width: 4vw;
     cursor: pointer;
 }
+@media (max-width: 767px){
+    #logo{
+        width: 10vw;
+    }
+}
 article .wrap-nav .burger-button{
     position:relative;
     width:30px;
@@ -691,11 +695,12 @@ article footer a{
 
 .about .intro{
     min-height: 440px;
-    height: calc(100vh - 146px);
+    height: calc(100vh - 90px);
     margin-right: 10%;
     margin-left: 45%;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 .about .intro > div{
     margin: auto 0;
@@ -707,7 +712,32 @@ article footer a{
     line-height: 1em;
 }
 .about .intro p{
-    font-size: .9vw;
+    font-size: 1.3vw;
+}
+@media (max-width: 900px){
+    .about .intro p{
+        font-size: 1.7vw;
+    }
+
+}
+@media (max-width: 767px){
+    .about .intro{
+        margin-left: 0;
+    }
+
+    .about .intro > div{
+        position: absolute;
+        left: 1vw;
+        bottom: 6vh;
+        width: 75%;
+    }
+
+    .about .intro h1{
+        font-size: 6vw;
+    }
+    .about .intro p{
+        font-size: 2vw;
+    }
 }
 
 .about .resume{
@@ -722,7 +752,7 @@ article footer a{
     grid-column-gap: 0px;
     grid-row-gap: 16px;
     justify-content: space-between;
-    grid-template-columns: minmax(200px, 20vw) minmax(200px, 20vw) minmax(200px, 20vw) 20vw;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
 }
 
@@ -747,6 +777,38 @@ article footer a{
     grid-column-start: 2;
 }
 
+
+@media (max-width: 900px){
+    .about .resume .top{
+        display: block;
+    }
+    .about .resume .top p:nth-child(1){
+        display: none;
+    }
+
+    .about .resume .top p:nth-child(2){
+        font-size: 2vw;
+    }
+    .about .resume .bottom{
+        display: flex;
+        flex-direction: column;
+    }
+    .about .resume .bottom > div{
+        border-top: 1px solid #444;
+        display: flex;
+        justify-content: space-between;
+    }
+    .about .resume .bottom > div > *{
+        width: 50%;
+    }
+    .about .resume .bottom > div h2{
+        font-size: 2vw;
+    }
+    .about .resume .bottom > div p{
+        font-size: 1.7vw;
+    }
+}
+
 .about .experience,
 .about .awwards{
     display: grid;
@@ -754,7 +816,7 @@ article footer a{
     grid-auto-columns: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 16px;
-    grid-template-columns: minmax(200px, 20vw) minmax(200px, 20vw) minmax(200px, 20vw) 20vw;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     border-top: 1px solid #444;
     padding-top: 4vw;
