@@ -642,6 +642,28 @@ article footer{
     transition: bottom .4s;
 }
 
+article footer a{
+    display: flex !important;
+    align-items: center;
+}
+@media (max-width: 680px){
+    article footer a:before{
+        font-size: 2vw;
+    }
+    article footer a span{
+        display: none;
+    }
+}
+@media (min-width: 681px){
+    article footer a:before{
+        display: none;
+    }
+}
+@media (min-width: 960px){
+    article footer a span{
+        font-size: 1vw;
+    }
+}
 article.on-scroll-up footer{
     bottom: 0;
 }
@@ -694,10 +716,14 @@ article.first footer{
 article footer a{
     text-transform: uppercase;
     color: #444 !important;
-    font-size: 12px;
+    font-size: 1vw;
     height: 50px;
     line-height: 50px;
     padding: 0 25px;
+}
+article footer a span{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-weight: 400;
 }
 
 .about{
