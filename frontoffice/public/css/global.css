@@ -365,6 +365,11 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+@media (max-width: 900px){
+    #work nav *[class^="fa"]:before{
+        font-size: 1.2vw;
+    }
+}
 
 .wrap-logo-anim{
     position: fixed;
@@ -495,9 +500,15 @@ article::-webkit-scrollbar-thumb, article *::-webkit-scrollbar-thumb {
     width: 4vw;
     cursor: pointer;
 }
+
+@media (max-width: 900px){
+    #logo{
+        width: 6vw;
+    }
+}
 @media (max-width: 767px){
     #logo{
-        width: 10vw;
+        width: 7vw;
     }
 }
 article .wrap-nav .burger-button{
@@ -852,4 +863,21 @@ article footer a{
 .about .experience li span,
 .about .awwards li span{
     margin: .2vw 0;
+}
+@media (max-width: 900px){
+    .about .experience,
+    .about .awwards{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about .experience li,
+    .about .awwards li{
+        font-size: 1.7vw;
+    }
+
+    .about .experience p,
+    .about .awwards p{
+        margin-top: 0;
+    }
 }

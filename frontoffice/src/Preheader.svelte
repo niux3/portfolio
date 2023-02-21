@@ -5,9 +5,21 @@
 
     onMount(()=>{
         let scale_burger = ()=>{
-            let $burgerButton = document.querySelector('.burger-button')
+            let $burgerButton = document.querySelector('.burger-button'),
+                quotient = 0
+            if(matchMedia('(min-width: 960px)').matches){
+                quotient = 1920
+            }else if(matchMedia('(min-width: 900px)').matches){
+                quotient = 1000
+            }else if(matchMedia('(min-width: 768px)').matches){
+                quotient = 1200
+            }else if(matchMedia('(min-width: 680px)').matches){
+                quotient = 1000
+            }else if(matchMedia('(min-width: 320px)').matches){
+                quotient = 800
+            }
             if($burgerButton.style !== null){
-                $burgerButton.style.transform = `scale(${parseFloat((window.innerWidth * 1 / 1920).toFixed(2))})`
+                $burgerButton.style.transform = `scale(${parseFloat((window.innerWidth * 1 / quotient).toFixed(2))})`
             }
         }
         scale_burger()
