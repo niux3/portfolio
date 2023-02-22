@@ -496,9 +496,28 @@ article::-webkit-scrollbar-thumb, article *::-webkit-scrollbar-thumb {
     top: -105px;
     transition: top .4s;
 }
+
 #logo{
     width: 4vw;
     cursor: pointer;
+}
+
+.on-article .wrap-nav #logo{
+    animation: on_wrap_nav_display .4s forwards;
+}
+.on-article .wrap-nav .burger-button{
+    animation: on_wrap_nav_display .4s forwards .2s;
+}
+
+@keyframes on_wrap_nav_display {
+   0%{
+       margin-top: -150px;
+       opacity: 0;
+   }
+    100%{
+        margin-top: 0;
+        opacity: 1;
+    }
 }
 
 @media (max-width: 900px){
@@ -520,6 +539,7 @@ article .wrap-nav .burger-button{
     flex-direction: column;
     justify-content: space-between;
     margin-right: 25px;
+    opacity: 0;
 }
 article .wrap-nav .burger-button .bar1,
 article .wrap-nav .burger-button .bar2,
@@ -642,10 +662,40 @@ article footer{
     transition: bottom .4s;
 }
 
+
 article footer a{
     display: flex !important;
     align-items: center;
+    opacity: 0;
 }
+
+.on-article footer a:nth-child(1){
+    animation: on_footer_display .4s forwards 1s;
+}
+
+.on-article footer a:nth-child(2){
+    animation: on_footer_display .4s forwards 1.2s;
+}
+
+.on-article footer a:nth-child(3){
+    animation: on_footer_display .4s forwards 1.4s;
+}
+
+.on-article footer a:nth-child(4){
+    animation: on_footer_display .4s forwards 1.6s;
+}
+
+@keyframes on_footer_display {
+   0%{
+       margin-bottom: -150px;
+       opacity: 0;
+   }
+    100%{
+        margin-bottom: 0;
+        opacity: 1;
+    }
+}
+
 @media (max-width: 680px){
     article footer a:before{
         font-size: 2vw;
@@ -747,10 +797,47 @@ article footer a span{
     font-size: 4vw;
     margin-bottom: 15px;
     line-height: 1em;
+    position: relative;
+    right: -50px;
+    opacity: 0;
 }
 .about .intro p{
     font-size: 1.3vw;
+    position: relative;
+    left: -50px;
+    opacity: 0;
 }
+
+.on-article .about .intro h1{
+   animation: on_display_intro_h1 .4s forwards .4s;
+}
+
+.on-article .about .intro p{
+    animation: on_display_intro_p .4s forwards .4s;
+
+}
+@keyframes on_display_intro_h1 {
+   0%{
+       opacity: 0;
+       right: -50px;
+   }
+    100%{
+        opacity: 1;
+        right: 0;
+    }
+}
+
+@keyframes on_display_intro_p {
+    0%{
+        opacity: 0;
+        left: -50px;
+    }
+    100%{
+        opacity: 1;
+        left: 0;
+    }
+}
+
 @media (max-width: 900px){
     .about .intro p{
         font-size: 1.7vw;
