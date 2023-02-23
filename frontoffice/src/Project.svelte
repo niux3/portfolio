@@ -1,4 +1,5 @@
 <script>
+    import Lazy from 'svelte-lazy'
     export let data
     export let len
 </script>
@@ -36,9 +37,13 @@
     </div>
 </header>
 <div class="content">
-    <img src="https://placekitten.com/g/914/533" alt="">
+    <Lazy fadeOption={{ delay: 400, duration: 200 }} height={914} offset={150}>
+        <img src="https://placekitten.com/g/914/533" alt="">
+    </Lazy>
     <div class="info">
-        <aside></aside>
+        <aside>
+            <a href={data.url} target="_blank">{data.url} <span class="fa-solid fa-caret-right"></span></a>
+        </aside>
         <div class="resume">
             <div>{data.description}</div>
             <ul>
