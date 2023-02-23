@@ -40,7 +40,7 @@
     <div class="info">
         <aside></aside>
         <div class="resume">
-            <div>Touch my tail, i shred your hand purrrr put toy mouse in food bowl run out of litter box at full speed climb a tree, wait for a fireman jump to fireman then scratch his face so jump on fridge. I could pee on this if i had the energy i see a bird i stare at it i meow at it i do a wiggle come here birdy friends are not food.</div>
+            <div>{data.description}</div>
             <ul>
                 <li><strong>client</strong><span>ACME</span></li>
                 <li><strong>année</strong><span>2021</span></li>
