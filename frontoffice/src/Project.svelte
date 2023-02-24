@@ -2,6 +2,8 @@
     import Lazy from 'svelte-lazy'
     export let data
     export let len
+    let thumb = data.images.find(img => /\d+--1/.test(img))
+    console.log(thumb)
 </script>
 <header>
     <div class="description">

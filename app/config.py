@@ -1,7 +1,7 @@
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-
+print(basedir)
 
 class Config(object):
     SECRET_KEY = 'hard to guess string'
@@ -14,7 +14,7 @@ class Config(object):
     MYBLOG_MAIL_SENDER = '<admin@example.com>'
     MYBLOG_ADMIN = "admin"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    UPLOAD_FOLDER = os.path.join(basedir, 'static', 'img')
+    UPLOAD_FOLDER = os.path.join(os.path.dirname(basedir), 'frontoffice', 'public', 'img')
 
     @staticmethod
     def init_app(app):
