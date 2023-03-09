@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
 from app.portfolio.forms import CommonForm, PortfolioForm, ActivityForm
 from app import db
 from app.portfolio.models import Function, Technology, Portfolio, portfolio_technology, Activity
@@ -258,3 +258,14 @@ def toggle_online_portfolio(id):
     db.session.commit()
     flash(f"{row.name} est {'en' if row.online else 'hors'} ligne", "success" if row.online else "danger")
     return redirect(url_for('portfolio.index_portfolio'))
+
+
+@bp.route('/get-data-select')
+def get_data_function():
+    print(request.args.get('id_portfolio'))
+    row = Portfolio.query.get(request.args.get('id_portfolio'))
+    print(row.functions_id)
+    return jsonify({
+        "activities": row.activities_id,
+        "functions": row.functions_id,
+    })
