@@ -1,8 +1,9 @@
 from flask import Blueprint, redirect, url_for, flash
-from app import db
+from app import db, config
 from app.config import basedir
 from app.portfolio.models import Technology, portfolio_technology
 from app.images.models import Image, Category
+from subprocess import Popen, PIPE
 import json
 import os
 
@@ -61,7 +62,7 @@ def index():
             technologies.append(trow.name)
         for irow in Image.query.join(Category).filter(Image.portfolios_id == row.pid, Image.online == 1).all():
             print('>> ', irow.name, irow.url)
-            images.append(irow.url)
+            images.append(irow.url.replace('/static/', './'))
             # images = {
             #     'thumbnail': "miniature",
             #     'logo': 'logo',
@@ -91,5 +92,18 @@ def index():
         file.write(f"const data  = {json.dumps(output_rows)}; export default data;")
     with open(os.path.join(root, 'frontoffice', 'public', 'css', 'color-slide.css'), "w") as file:
         file.write("\n".join(output_css))
+
+    # copy imgs folders
+    source = config['default'].UPLOAD_FOLDER
+    print(source)
+    output = os.path.join(os.path.dirname(basedir), 'frontoffice', 'public', 'img')
+    for folder in [file for file in os.listdir(source) if os.path.isdir(os.path.join(source, file))]:
+        Popen([
+            'cp',
+            '-r',
+            os.path.join(source, folder),
+            os.path.join(output),
+        ], stdout=PIPE, stderr=PIPE)
+
     flash("export réussi", "success")
     return redirect(url_for('portfolio.index_portfolio'))
