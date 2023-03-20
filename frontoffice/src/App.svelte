@@ -10,6 +10,12 @@
     let scroll_event = true;
     let id_slide_clicked = 0
     onMount(()=>{
+        (()=>{
+            if(document.querySelectorAll('a[href*="000webhost"]').length){
+                document.querySelector('a[href*="000webhost"]').closest('div').remove()
+            }
+        })()
+
         const scrollContainer = document.querySelector("#work nav");
         display_article = false;
         let cls_on_scroll = 'on-scroll'
