@@ -27,3 +27,6 @@ htmlcov/
 *,cover
 node_modules/*
 
+frontoffice/public/img/*
+docs/images/
+
