@@ -1,9 +1,10 @@
 <script>
-    import Lazy from 'svelte-lazy'
     export let data
     export let len
-    let thumb = data.images.find(img => /\d+--1/.test(img))
-    console.log(thumb)
+    let thumb = data.images.find(img => /\d+--1/.test(img)) !== undefined?
+        data.images.find(img => /\d+--1/.test(img)) :
+        "https://placekitten.com/g/914/533"
+    console.log(data.images.find(img => /\d+--1/.test(img)))
 </script>
 <header>
     <div class="description">
@@ -39,9 +40,9 @@
     </div>
 </header>
 <div class="content">
-    <Lazy fadeOption={{ delay: 400, duration: 200 }} height={914} offset={150}>
-        <img src="https://placekitten.com/g/914/533" alt="">
-    </Lazy>
+        <div class="wrap-thumb">
+            <img src={thumb} alt="" loading="lazy">
+        </div>
     <div class="info">
         <aside>
             <a href={data.url} target="_blank">{data.url} <span class="fa-solid fa-caret-right"></span></a>
