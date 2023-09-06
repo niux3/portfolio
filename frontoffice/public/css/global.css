@@ -829,9 +829,9 @@ article footer a span{
 
 .about .intro{
     min-height: 440px;
-    height: calc(100vh - 90px);
+    height: calc(100vh - 145px);
     margin-right: 10%;
-    margin-left: 45%;
+    margin-left: 50%;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -842,6 +842,7 @@ article footer a span{
 
 .about .intro h1{
     font-size: 4vw;
+    margin-top: 0;
     margin-bottom: 15px;
     line-height: 1em;
     position: relative;

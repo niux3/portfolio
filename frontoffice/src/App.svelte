@@ -30,7 +30,7 @@
                     scrollContainer.classList.remove(cls_on_scroll)
                 }
             }, 250)()
-        }, {passive:true});
+        }, {passive:true})
 
         let is_down = false
         let start_x
@@ -60,10 +60,9 @@
         })
 
         scrollContainer.classList.remove('on-nav')
-        let anim_intro = false
+        let anim_intro = true
         if(anim_intro) {
             setTimeout(()=>{
-
                 let li = Array.from(document.querySelectorAll('li'))
                 let count = 0
 
