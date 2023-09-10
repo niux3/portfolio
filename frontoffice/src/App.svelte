@@ -10,9 +10,3 @@
     <Nav></Nav>
     <Carousel {index}></Carousel>
 </main>
-
-<style lang="scss">
-    html, body{
-        overflow: hidden;
-    }
-</style>

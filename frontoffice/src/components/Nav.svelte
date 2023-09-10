@@ -1,7 +1,7 @@
 <nav>
     <a href="#/a-propos-de-moi">à propos de moi</a>
     <a href="#/projets">réalisations</a>
-    <a href="#/projet">réalisation</a>
+    <!-- <a href="#/projet">réalisation</a> -->
     <a href="#/contact">contact</a>
 </nav>
 

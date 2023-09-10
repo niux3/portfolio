@@ -1,6 +1,7 @@
 <script>
     import {onMount} from 'svelte'
     import {debounce} from '../helpers'
+    import About from './About.svelte';
 
 
     export let index
@@ -69,7 +70,9 @@
 <svelte:window  on:hashchange={hashchange} on:resize={resize} />
 <div class="carousel fullscreen">
     <div class="wrap">
-        <div class="fullscreen about">à propos de</div>
+        <div class="fullscreen about">
+            <About />
+        </div>
         <div class="fullscreen projects">home project</div>
         <div class="fullscreen project">project</div>
     </div>
@@ -82,6 +85,11 @@
         overflow: hidden;
         transition: transform 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
 
+        .fullscreen{
+            overflow: auto;
+            padding: 2.5rem;
+        }
+
         .wrap{
             display: flex;
             flex-wrap: nowrap;
@@ -89,11 +97,11 @@
         }
 
         .about{
-            background-color: orangered;
+            // background-color: orangered;
         }
 
         .projects{
-            background-color: tan;
+            // background-color: tan;
         }
 
         .project{
