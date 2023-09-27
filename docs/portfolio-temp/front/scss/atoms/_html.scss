@@ -1,0 +1,16 @@
+html{
+  font-size: 62.5%;
+  color: $color-base;
+  background-color: $background-color-base;
+  height: 100%;
+    overflow-y: scroll;
+  scrollbar-color: red $background-color-base;
+  scrollbar-width: normal;
+
+  &::-webkit-scrollbar{
+    background-color: $background-color-base;
+  }
+  &::-webkit-scrollbar-thumb{
+    background: red;
+  }
+}
