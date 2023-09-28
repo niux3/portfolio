@@ -49,7 +49,7 @@ class Carousel{
     }
 
     _setPosUl(){
-        let referencePos = (this._lenLi * 2) - 2
+        let referencePos = this._lenLi * 2 - 1
         this._$ulTitle.style.marginTop = `-${referencePos * this._$lisTitle[0].getBoundingClientRect().height}px`
         this._$ulIllustration.style.marginTop = `-${referencePos * this._$lisIllustration[0].getBoundingClientRect().height}px`
     }
@@ -85,7 +85,11 @@ class Carousel{
                 heightLiIllustration = this._$lisIllustration[0].getBoundingClientRect().height,
                 [directionTitle, directionIllustation] = this._index >= 0? ['', '-'] : ['-', ''],
                 indexDirection = this._index >= 0? this._index : Math.abs(this._index)
-
+            console.log('>>> ', this._index % this._lenLi)
+            let $lis = this._$ulTitle.querySelectorAll('li')
+            console.log(this._lenLi * 2 - 1)
+            console.log(Array.from($lis).slice(0, this._lenLi * 2 - 1))
+            console.log(Array.from($lis).slice(this._lenLi * 2 - 1))
             //console.log(this._index)
             //console.log(directionTitle, directionIllustation)
 

@@ -9,6 +9,15 @@
   bottom: 0;
   left: 0;
 
+  hr{
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border: 1px solid red;
+  }
+
   > .projects{
     position: relative;
     height: 100%;
@@ -37,7 +46,7 @@
         z-index: 2;
         background-color: map-get($colors, black12);
         //background-color: red;
-        //opacity: .5;
+        opacity: .0;
       }
 
       &:after{
@@ -51,7 +60,7 @@
         //background-color: blue;
         z-index: 2;
         opacity: .9;
-        //opacity: .5;
+        opacity: .0;
       }
 
 

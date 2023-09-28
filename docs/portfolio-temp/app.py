@@ -22,7 +22,7 @@ def index():
     data_reverse = data_raw.copy()
     data_reverse.reverse()
 
-    data = data_reverse + data_reverse[1:-1] + data_raw + data_raw[1:-1] + data_raw
+    data = data_reverse + data_reverse[:-1] + data_raw + data_raw
     ctx = {
         'objects_list': data,
         'len_data': len(data_raw),
