@@ -62,7 +62,7 @@ class Carousel{
             this._setPosMask()
             this._setCenterY()
             this._setPosUl()
-        }, 50))
+        }, 800))
     }
 
     onLoad(){
@@ -81,12 +81,17 @@ class Carousel{
         window.addEventListener('wheel', utils.debounce(e=>{
             console.log('onWheel');
             this._setIndex(e)
-            console.log(this._index)
             let heightLiTitle = this._$lisTitle[0].getBoundingClientRect().height,
-                heightLiIllustration = this._$lisIllustration[0].getBoundingClientRect().height
-            this._$ulTitle.style.transform = 'translateY('+ (this._index * heightLiTitle) +'px)'
-            this._$ulIllustration.style.transform = 'translateY(-'+ (this._index * heightLiIllustration) +'px)'
-        }, 50))
+                heightLiIllustration = this._$lisIllustration[0].getBoundingClientRect().height,
+                [directionTitle, directionIllustation] = this._index >= 0? ['', '-'] : ['-', ''],
+                indexDirection = this._index >= 0? this._index : Math.abs(this._index)
+
+            //console.log(this._index)
+            //console.log(directionTitle, directionIllustation)
+
+            this._$ulTitle.style.transform = `translateY(${directionTitle}${indexDirection * heightLiTitle}px)`
+            this._$ulIllustration.style.transform = `translateY(${directionIllustation}${indexDirection * heightLiIllustration}px)`
+        }, 80))
     }
 }
 

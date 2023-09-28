@@ -9,7 +9,7 @@
 </head>
 <body>
   {% block content %}{% endblock %}
-  <script defer src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='js/app.js') }}?v={{ version }}"></script>
   <script src="http://localhost:9000/livereload.js"></script>
 </body>
 </html>

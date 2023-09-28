@@ -1,8 +1,8 @@
+from time import time
 from flask import Flask, render_template
 from csv import DictWriter
 from pathlib import Path
 from sqlalchemy import MetaData, create_engine, Table
-from pprint import pprint
 
 
 app = Flask(__name__)
@@ -18,14 +18,15 @@ def index():
     connect = engine.connect()
     portfolios = Table('portfolios', meta, autoload_with=engine)
     query = portfolios.select()
-    data_raw = connect.execute(query).fetchall()
+    data_raw = connect.execute(query).fetchall()[:5]
     data_reverse = data_raw.copy()
     data_reverse.reverse()
 
     data = data_reverse + data_reverse[1:-1] + data_raw + data_raw[1:-1] + data_raw
     ctx = {
         'objects_list': data,
-        'len_data': len(data_raw)
+        'len_data': len(data_raw),
+        'version': time()
     }
     return render_template('home.html', **ctx)
 
