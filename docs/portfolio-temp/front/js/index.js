@@ -21,8 +21,14 @@ class Carousel{
     }
 
     _setCenterY(){
-        this._$ulTitle.closest('.wrap').style.marginTop = `-${this._roundHeightLiTitle / 2}px`
-        this._$ulIllustration.closest('.wrap').style.marginTop = `-${this._roundHeightLiIllustration / 2}px`
+        let referencePos = this._lenLi * 2 - 1,
+            posUlBaseTitle = this._roundHeightLiTitle / 2,
+            posUlBaseIllustration = this._roundHeightLiIllustration / 2,
+            posUlTitle = referencePos * this._$lisTitle[0].getBoundingClientRect().height,
+            posUlIllustration = referencePos * this._$lisIllustration[0].getBoundingClientRect().height
+
+        this._$ulTitle.closest('.wrap').style.marginTop = `-${posUlBaseTitle + posUlTitle}px`
+        this._$ulIllustration.closest('.wrap').style.marginTop = `-${posUlBaseIllustration + posUlIllustration}px`
     }
 
     _setPosMask(){
@@ -46,12 +52,15 @@ class Carousel{
 
     _setIndex(e){
         this._index = e.deltaY >= 0? this._index + 1 : this._index - 1
-    }
+        /*
+        if(this._index > this._lenLi - 1){
+            this._index = 0
+        }
 
-    _setPosUl(){
-        let referencePos = this._lenLi * 2 - 1
-        this._$ulTitle.style.marginTop = `-${referencePos * this._$lisTitle[0].getBoundingClientRect().height}px`
-        this._$ulIllustration.style.marginTop = `-${referencePos * this._$lisIllustration[0].getBoundingClientRect().height}px`
+        if(this._index < 0){
+            this._index = this._lenLi - 1
+        }
+        */
     }
 
     onResize(utils){
@@ -61,7 +70,6 @@ class Carousel{
             this._setHeightLiIllustration()
             this._setPosMask()
             this._setCenterY()
-            this._setPosUl()
         }, 800))
     }
 
@@ -73,7 +81,6 @@ class Carousel{
             this._setHeightLiIllustration()
             this._setPosMask()
             this._setCenterY()
-            this._setPosUl()
         })
     }
 
@@ -85,14 +92,28 @@ class Carousel{
                 heightLiIllustration = this._$lisIllustration[0].getBoundingClientRect().height,
                 [directionTitle, directionIllustation] = this._index >= 0? ['', '-'] : ['-', ''],
                 indexDirection = this._index >= 0? this._index : Math.abs(this._index)
-            console.log('>>> ', this._index % this._lenLi)
-            let $lis = this._$ulTitle.querySelectorAll('li')
-            console.log(this._lenLi * 2 - 1)
-            console.log(Array.from($lis).slice(0, this._lenLi * 2 - 1))
-            console.log(Array.from($lis).slice(this._lenLi * 2 - 1))
-            //console.log(this._index)
-            //console.log(directionTitle, directionIllustation)
+            //console.log('>>> ', this._index % this._lenLi)
+            //let $lis = this._$ulTitle.querySelectorAll('li')
+            //console.log(Array.from($lis).slice(0, this._lenLi * 2 - 1))
+            //console.log(Array.from($lis).slice(this._lenLi * 2 - 1))
 
+            console.log('=> ', directionTitle * heightLiTitle)
+            console.log('-> ', this._index % this._lenLi)
+            //console.log('>> ', (this._index % this._lenLi).toString().includes('0'))
+            //console.log('=> ', Math.sign(this._index % this._lenLi))
+            if(this._index % this._lenLi == 0){
+                console.log('>> ', (this._index - 1) * heightLiTitle)
+                let styles = [
+                    `margin-top: -${(this._lenLi) * heightLiTitle}px`,
+                    //`transition-duration: 0`,
+                    //`transition-property: none`,
+                    //`transform: translateY(-${(this._index - 1) * heightLiTitle}px)`
+
+                ]
+                //this._$ulTitle.style = `transition-duration: 0 !important; transform: translateY(-${heightLiTitle}px)`
+                this._$ulTitle.style = styles.join(';')
+            }
+            //console.log(directionTitle, directionIllustation)
             this._$ulTitle.style.transform = `translateY(${directionTitle}${indexDirection * heightLiTitle}px)`
             this._$ulIllustration.style.transform = `translateY(${directionIllustation}${indexDirection * heightLiIllustration}px)`
         }, 80))
