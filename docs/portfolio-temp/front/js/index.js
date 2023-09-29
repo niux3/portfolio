@@ -10,6 +10,7 @@ class Carousel{
         this._roundHeightLiTitle = 0
         this._roundHeightLiIllustration = 0
         this._index = 0
+        this._step = 0
     }
 
     _setHeightLiTitle(){
@@ -86,34 +87,21 @@ class Carousel{
 
     onWheel(utils){
         window.addEventListener('wheel', utils.debounce(e=>{
-            console.log('onWheel');
             this._setIndex(e)
             let heightLiTitle = this._$lisTitle[0].getBoundingClientRect().height,
                 heightLiIllustration = this._$lisIllustration[0].getBoundingClientRect().height,
                 [directionTitle, directionIllustation] = this._index >= 0? ['', '-'] : ['-', ''],
                 indexDirection = this._index >= 0? this._index : Math.abs(this._index)
-            //console.log('>>> ', this._index % this._lenLi)
-            //let $lis = this._$ulTitle.querySelectorAll('li')
-            //console.log(Array.from($lis).slice(0, this._lenLi * 2 - 1))
-            //console.log(Array.from($lis).slice(this._lenLi * 2 - 1))
 
             console.log('=> ', directionTitle * heightLiTitle)
             console.log('-> ', this._index % this._lenLi)
-            //console.log('>> ', (this._index % this._lenLi).toString().includes('0'))
-            //console.log('=> ', Math.sign(this._index % this._lenLi))
-            if(this._index % this._lenLi == 0){
-                console.log('>> ', (this._index - 1) * heightLiTitle)
-                let styles = [
-                    `margin-top: -${(this._lenLi) * heightLiTitle}px`,
-                    //`transition-duration: 0`,
-                    //`transition-property: none`,
-                    //`transform: translateY(-${(this._index - 1) * heightLiTitle}px)`
 
-                ]
-                //this._$ulTitle.style = `transition-duration: 0 !important; transform: translateY(-${heightLiTitle}px)`
-                this._$ulTitle.style = styles.join(';')
+            if(this._index % this._lenLi == 0){
+                this._step++
+                this._$ulTitle.style.marginTop = `${directionIllustation}${this._step * this._lenLi * heightLiTitle}px`
+                this._$ulIllustration.style.marginTop = `${directionTitle}${this._step * this._lenLi * heightLiIllustration}px`
             }
-            //console.log(directionTitle, directionIllustation)
+
             this._$ulTitle.style.transform = `translateY(${directionTitle}${indexDirection * heightLiTitle}px)`
             this._$ulIllustration.style.transform = `translateY(${directionIllustation}${indexDirection * heightLiIllustration}px)`
         }, 80))
