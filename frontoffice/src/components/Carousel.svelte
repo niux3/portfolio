@@ -1,7 +1,8 @@
 <script>
     import {onMount} from 'svelte'
     import {debounce} from '../helpers'
-    import About from './About.svelte';
+    import About from './About.svelte'
+    import Contact from './Contact.svelte'
 
 
     export let index
@@ -76,13 +77,15 @@
         <div class="fullscreen projects">home project</div>
         <div class="fullscreen project">project</div>
     </div>
-    <div class="fullscreen contact">contact</div>
+    <div class="fullscreen contact">
+        <Contact />
+    </div>
 </div>
 
 
 <style lang="scss">
     .carousel{
-        overflow: hidden;
+        /*overflow: hidden;*/
         transition: transform 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
 
         .fullscreen{
@@ -109,7 +112,7 @@
         }
 
         .contact{
-            background-color: tan;
+            /*background-color: tan;*/
         }
     }
 </style>

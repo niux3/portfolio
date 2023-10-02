@@ -7,6 +7,6 @@
     console.log(index);
 </script>
 <main>
-    <Nav></Nav>
+    <Nav />
     <Carousel {index}></Carousel>
 </main>
