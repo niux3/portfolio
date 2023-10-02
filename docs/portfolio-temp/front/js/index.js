@@ -11,6 +11,7 @@ class Carousel{
         this._roundHeightLiIllustration = 0
         this._index = 0
         this._step = 0
+        this._operatorStep = 0
     }
 
     _setHeightLiTitle(){
@@ -22,7 +23,7 @@ class Carousel{
     }
 
     _setCenterY(){
-        let referencePos = this._lenLi * 2 - 1,
+        let referencePos = this._lenLi * 4 - 1,
             posUlBaseTitle = this._roundHeightLiTitle / 2,
             posUlBaseIllustration = this._roundHeightLiIllustration / 2,
             posUlTitle = referencePos * this._$lisTitle[0].getBoundingClientRect().height,
@@ -53,20 +54,11 @@ class Carousel{
 
     _setIndex(e){
         this._index = e.deltaY >= 0? this._index + 1 : this._index - 1
-        /*
-        if(this._index > this._lenLi - 1){
-            this._index = 0
-        }
-
-        if(this._index < 0){
-            this._index = this._lenLi - 1
-        }
-        */
+        this._operatorStep = e.deltaY >= 0?  1 : - 1
     }
 
     onResize(utils){
         window.addEventListener('resize', utils.debounce(e =>{
-            console.log('onresize');
             this._setHeightLiTitle()
             this._setHeightLiIllustration()
             this._setPosMask()
@@ -76,8 +68,6 @@ class Carousel{
 
     onLoad(){
         window.addEventListener('load', e => {
-            console.log('onload');
-            // console.log('>>', this._lenLi, this._lenLi / 3)
             this._setHeightLiTitle()
             this._setHeightLiIllustration()
             this._setPosMask()
@@ -93,13 +83,15 @@ class Carousel{
                 [directionTitle, directionIllustation] = this._index >= 0? ['', '-'] : ['-', ''],
                 indexDirection = this._index >= 0? this._index : Math.abs(this._index)
 
-            console.log('=> ', directionTitle * heightLiTitle)
-            console.log('-> ', this._index % this._lenLi)
+            console.log('=> ', this._index)
 
             if(this._index % this._lenLi == 0){
-                this._step++
-                this._$ulTitle.style.marginTop = `${directionIllustation}${this._step * this._lenLi * heightLiTitle}px`
-                this._$ulIllustration.style.marginTop = `${directionTitle}${this._step * this._lenLi * heightLiIllustration}px`
+                this._step = this._operatorStep === 1? this._step + 1 : this._step - 1
+                console.error('>> ', this._step)
+                console.error('-> ', directionIllustation, directionTitle)
+                console.log(this._step <= 0? 'negatif' : 'positif')
+                this._$ulTitle.style.marginTop = `-${this._step * this._lenLi * heightLiTitle}px`
+                this._$ulIllustration.style.marginTop = `${this._step * this._lenLi * heightLiIllustration}px`
             }
 
             this._$ulTitle.style.transform = `translateY(${directionTitle}${indexDirection * heightLiTitle}px)`
