@@ -92,6 +92,7 @@
         });
 
         validate.middleware.formOnSuccess = (e, $el)=>{
+            e.preventDefault();
             console.log('formOnSuccess', e, $el);
             let headers = new Headers({
                     "X-Requested-With": "XMLHttpRequest",
@@ -105,12 +106,12 @@
 
             let data = Object.entries(object).map(([k,v]) => `${k}=${v}`).join('&'),
                 params = {
-                    method: $form.method,
+                    method: 'POST',
                     headers,
                     cache: 'no-cache',
                     redirect: 'follow',
                     referrerPolicy: 'no-referrer',
-                    mode: "same-origin",
+                    mode: "cors",
                     body: data
                 }
             fetch('http://localhost/portfolio/frontoffice/mail.php', params).then(resp =>{
@@ -155,7 +156,7 @@
     <div class="wrap-contact">
         <h1>Travaillons ensemble</h1>
         <p class="intro">proposition de carrière &#x2022; me dire bonjour</p>
-        <form id="form-contact" method="post">
+        <form id="form-contact">
             <div class="col">
                 <div class="input select required cell-4">
                     <label>
@@ -164,7 +165,7 @@
                             <option value="">choisir</option>
                             <option value="Mlle">Mademoiselle</option>
                             <option value="Mme">Madame</option>
-                            <option value="M">Monsieur</option>
+                            <option value="M" selected>Monsieur</option>
                         </select>
                     </label>
                 </div>
@@ -177,7 +178,7 @@
                 <div class="input text required cell-4">
                     <label>
                         <span>Nom</span>
-                    <input type="text" name="lastname" required>
+                        <input type="text" name="lastname" required value="Dupont">
                     </label>
                 </div>
             </div>
@@ -185,13 +186,13 @@
                 <div class="input text required cell-6">
                     <label>
                         <span>Email</span>
-                        <input type="text" name="email" required>
+                        <input type="text" name="email" required value="dd@dd.dd">
                     </label>
                 </div>
                 <div class="input text required cell-6">
                     <label>
                         <span>Sujet</span>
-                        <input type="text" name="subject" required>
+                        <input type="text" name="subject" required value="un sujet">
                     </label>
                 </div>
             </div>
@@ -225,7 +226,7 @@
             <div class="input textarea required">
                 <label>
                     <span>Message</span>
-                    <textarea name="message" required></textarea>
+                    <textarea name="message" required>lorem ipsum</textarea>
                 </label>
             </div>
             <div class="col">
@@ -269,7 +270,7 @@
                     <div class="input text required no-margin">
                         <label>
                             <span>Recopier le motif</span>
-                            <input type="text" maxlength="4" required name="captcha">
+                            <input type="text" maxlength="4" required name="captcha" value="abcd">
                         </label>
                     </div>
                 </div>
@@ -373,10 +374,6 @@
                             height: 0%;
                             transition: height 400ms;
                             overflow: hidden;
-
-                            &.animate{
-                                height: 100%;
-                            }
                         }
                     }
 
