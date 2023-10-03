@@ -349,3 +349,12 @@ template {
 [hidden] {
     display: none !important;
 }
+
+span.error{
+    color: red;
+    text-transform:unset !important;
+}
+
+input.error, textarea.error{
+    border-color: #f00 !important;
+}

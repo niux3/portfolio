@@ -1,26 +1,183 @@
 <script>
-    let isAppointment = false,
-        onCaptcha = e => e.target.value = e.target.value.toUpperCase(),
-        onSubmit = e =>{
-            console.log(e)
+    import { onMount } from 'svelte'
+    import Validator from '../libs/validator/Validator'
+
+    onMount(()=>{
+        let defaultErrorMessage = "<span>Ce champ ne doit pas être vide</span>",
+            errorMessage3chars = "<span>Ce champ doit avoir minimum 3 caractères</span>",
+            optionValidator = {
+                "selector" : "#form-contact",
+                "mode" : "object",
+                "fields" : {
+                    "civility" : {
+                        "notempty":{
+                            "error" : defaultErrorMessage
+                        },
+                    },
+                    "lastname" : {
+                        "notempty":{
+                            "error" : defaultErrorMessage
+                        },
+                        "minlength":{
+                            'params': 3,
+                            "error" : errorMessage3chars
+                        }
+                    },
+                    "email" : {
+                        "notempty":{
+                            "error" : defaultErrorMessage
+                        },
+                        "email":{
+                            "error" : "<span>Ce champ doit avoir la bonne saisie (dom@dom.com)</span>"
+                        }
+                    },
+                    "subject" : {
+                        "notempty":{
+                            "error" : defaultErrorMessage
+                        },
+                        "minlength":{
+                            'params': 3,
+                            "error" : errorMessage3chars
+                        }
+                    },
+                    "message" : {
+                        "notempty":{
+                            "error" : defaultErrorMessage
+                        },
+                        "minlength":{
+                            'params': 3,
+                            "error" : errorMessage3chars
+                        }
+                    },
+                    "hour_appointment" : {
+                        "notempty" : {
+                            "error" : defaultErrorMessage
+                        }
+                    },
+                    "phone" : {
+                        "notempty" : {
+                            "error" : defaultErrorMessage
+                        },
+                        "checkphone" : {
+                            "error" : "<span>Le format ne semble pas être bon 0102030405</span>"
+                        },
+                    },
+                    "captcha" : {
+                        "notempty" : {
+                            "error" : defaultErrorMessage
+                        },
+                        "minlength" : {
+                            "params": 4,
+                            "error" : "<span>ce champ doit contenir 4 caractères</span>"
+                        },
+                        "alpha" : {
+                            "error" : "<span>ce champ doit contenir que des caractères alphabétiques</span>"
+                        },
+                    },
+                    "date_appointment" : {
+                        "notempty":{
+                            "error" : defaultErrorMessage
+                        },
+                        "date":{
+                            "error" : "<span>Ce champ doit être une date valide</span>"
+                        }
+                    }
+                }
+            },
+            validate = new Validator(optionValidator)
+
+        //add rules for phone input
+        validate.addRules('checkphone', (value)=>{
+            return !/^0[1-8][ .-]?(\d{2}[ .-]?){4}$/.test(value);
+        });
+
+        validate.middleware.formOnSuccess = (e, $el)=>{
+            console.log('formOnSuccess', e, $el);
+            let headers = new Headers({
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Accept": "application/json",
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }),
+                $form = e.target,
+                object = {},
+                formData = new FormData($form)
+            formData.forEach((value, key) => object[key] = value)
+
+            let data = Object.entries(object).map(([k,v]) => `${k}=${v}`).join('&'),
+                params = {
+                    method: $form.method,
+                    headers,
+                    cache: 'no-cache',
+                    redirect: 'follow',
+                    referrerPolicy: 'no-referrer',
+                    mode: "same-origin",
+                    body: data
+                }
+            fetch('http://localhost/portfolio/frontoffice/mail.php', params).then(resp =>{
+                if(resp.ok === true) 
+                    return resp.json()
+            }).then(d => console.table(d))
         }
+
+        let $isAppointment = document.querySelector('input[name=appointment]')
+        
+        $isAppointment.addEventListener('change', e =>{
+            let $requires = $isAppointment.closest('.col').querySelectorAll('.required input')
+            for(let $input of $requires){
+                if($isAppointment.checked){
+                    $input.parentNode.style.height = '100%'
+                    $input.classList.add('require')
+                    validate.addRequireField($input)
+                }else{
+                    $input.parentNode.style.height = '0%'
+                    $input.classList.remove('require')
+                    validate.removeRequireField($input)
+                }
+            }
+        })
+
+        let listRequireField = [
+            'input[type=text]',
+            'input[type=date]',
+            'input[type=password]',
+            'textarea',
+        ];
+        document.querySelectorAll(listRequireField.join(',')).forEach(($field)=>{
+            $field.addEventListener('blur', (e)=>{
+                validate.element(e.target);
+            });
+        });
+
+        validate.form();
+    })
 </script>
 <div class="contact">
     <div class="wrap-contact">
         <h1>Travaillons ensemble</h1>
         <p class="intro">proposition de carrière &#x2022; me dire bonjour</p>
-        <form method="post" on:submit|preventDefault={onSubmit}>
+        <form id="form-contact" method="post">
             <div class="col">
-                <div class="input text cell-6">
+                <div class="input select required cell-4">
+                    <label>
+                        <span>Civilité</span>
+                        <select name="civility" required>
+                            <option value="">choisir</option>
+                            <option value="Mlle">Mademoiselle</option>
+                            <option value="Mme">Madame</option>
+                            <option value="M">Monsieur</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="input text cell-4">
                     <label>
                         <span>Prénom</span>
                         <input type="text" name="firstname">
                     </label>
                 </div>
-                <div class="input text required cell-6">
+                <div class="input text required cell-4">
                     <label>
                         <span>Nom</span>
-                        <input type="text" name="lastname">
+                    <input type="text" name="lastname" required>
                     </label>
                 </div>
             </div>
@@ -28,33 +185,39 @@
                 <div class="input text required cell-6">
                     <label>
                         <span>Email</span>
-                        <input type="text" name="email">
+                        <input type="text" name="email" required>
                     </label>
                 </div>
                 <div class="input text required cell-6">
                     <label>
                         <span>Sujet</span>
-                        <input type="text" name="subject">
+                        <input type="text" name="subject" required>
                     </label>
                 </div>
             </div>
             <div class="col">
-                <div class="cell-4 input checkbox">
+                <div class="cell-3 input checkbox">
                     <label>
-                        <input type="checkbox" name="appointment" bind:checked={isAppointment}>
+                        <input type="checkbox" name="appointment">
                         <span>Prendre rendez vous avec moi&nbsp;?&nbsp;</span>
                     </label>
                 </div>
-                <div class="cell-4 input date {isAppointment? 'required' : ''}">
-                    <label style={isAppointment? 'height:100%' : 'height:0%'}>
-                        <span>Date</span>
-                        <input type="date" name="date_appointment" class="{isAppointment? 'required' : ''}">
+                <div class="cell-3 input tel required">
+                    <label>
+                        <span>Téléphone</span>
+                        <input type="text" name="phone">
                     </label>
                 </div>
-                <div class="cell-4 input time {isAppointment? 'required' : ''}">
-                    <label style={isAppointment? 'height:100%' : 'height:0%'}>
+                <div class="cell-3 input date required">
+                    <label>
+                        <span>Date</span>
+                        <input type="date" name="date_appointment">
+                    </label>
+                </div>
+                <div class="cell-3 input time required">
+                    <label>
                         <span>Heure</span>
-                        <input type="time" min="09:00" max="18:00" name="hour_appointment" class="{isAppointment? 'required' : ''}">
+                        <input type="time" min="09:00" max="18:00" name="hour_appointment">
                     </label>
                 </div>
             </div>
@@ -62,7 +225,7 @@
             <div class="input textarea required">
                 <label>
                     <span>Message</span>
-                    <textarea name="message"></textarea>
+                    <textarea name="message" required></textarea>
                 </label>
             </div>
             <div class="col">
@@ -106,7 +269,7 @@
                     <div class="input text required no-margin">
                         <label>
                             <span>Recopier le motif</span>
-                            <input type="text" maxlength="4" name="captcha" on:input={onCaptcha}>
+                            <input type="text" maxlength="4" required name="captcha">
                         </label>
                     </div>
                 </div>
@@ -142,6 +305,10 @@
             h1{
                 margin-bottom: 0;
             }
+
+            .no-margin{
+                margin: 0 !important;
+            }
             
             form{
                 label{
@@ -162,18 +329,17 @@
                     &.text, 
                     &.date,
                     &.time,
-                    &.textarea{
+                    &.textarea,
+                    &.tel,
+                    &.select{
                         margin-bottom: 25px;
 
-                        &.no-margin{
-                            margin: 0;
-                        }
 
                         label > span:first-of-type{
                             display: inline-block;
                             margin-bottom: 10px;
                         }
-                        input, textarea{
+                        input, textarea, select{
                             width: 100%;
                             height: 50px;
                             border-radius: 3px;
@@ -188,11 +354,29 @@
                                 border-color: darken(#f5f5f5, 70%);
                                 background-color: #f5f5f5;
                             }
+
+                            &[name=captcha]{
+                                text-transform: uppercase;
+                            }
                         }
 
                         textarea{
                             padding: 15px;
                             height: 100%;
+                        }
+                    }
+
+                    &.date, 
+                    &.time,
+                    &.tel{
+                        label{
+                            height: 0%;
+                            transition: height 400ms;
+                            overflow: hidden;
+
+                            &.animate{
+                                height: 100%;
+                            }
                         }
                     }
 
@@ -210,18 +394,6 @@
                         }
                     }
 
-                    &.date, 
-                    &.time {
-                        label{
-                            height: 0%;
-                            transition: height 400ms;
-                            overflow: hidden;
-
-                            &.animate{
-                                height: 100%;
-                            }
-                        }
-                    }
 
                     &.submit{
                         height: 100%;
@@ -229,7 +401,8 @@
                         align-items: end;
 
                         button{
-                            border: 1px solid #444;
+                            border: 2px solid darken(#f5f5f5, 30%);
+                            background-color: transparent;
                             text-transform: uppercase;
                             width: 100%;
                             height: 50px;
