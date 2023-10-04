@@ -3,8 +3,13 @@
 
 
     class Rules{
+
         static function notempty(){
             return intval(strlen(func_get_args()[0])) === 0;
+        }
+
+        static function honeypot(){
+            return intval(strlen(func_get_args()[0])) !== 0;
         }
 
         static function email(){
@@ -16,7 +21,7 @@
         }
 
         static function equalto(){
-            return intval(strlen(func_get_args()[0])) === func_get_args()[1];
+            return intval(strlen(func_get_args()[0])) !== func_get_args()[1];
         }
 
         static function phone(){

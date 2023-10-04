@@ -3,6 +3,22 @@
     import Validator from '../libs/validator/Validator'
 
     onMount(()=>{
+        let $isAppointment = document.querySelector('input[name=appointment]')
+        
+        $isAppointment.addEventListener('change', e =>{
+            let $requires = $isAppointment.closest('.col').querySelectorAll('.required input')
+            for(let $input of $requires){
+                if($isAppointment.checked){
+                    $input.parentNode.style.height = '100%'
+                    $input.classList.add('require')
+                    validate.addRequireField($input)
+                }else{
+                    $input.parentNode.style.height = '0%'
+                    $input.classList.remove('require')
+                    validate.removeRequireField($input)
+                }
+            }
+        })
         let defaultErrorMessage = "<span>Ce champ ne doit pas être vide</span>",
             errorMessage3chars = "<span>Ce champ doit avoir minimum 3 caractères</span>",
             optionValidator = {
@@ -83,8 +99,9 @@
                         }
                     }
                 }
-            },
-            validate = new Validator(optionValidator)
+            }
+            // optionValidator = {}
+            let validate = new Validator(optionValidator)
 
         validate.addRules('checkphone', (value)=>{
             return !/^0[1-8][ .-]?(\d{2}[ .-]?){4}$/.test(value);
@@ -92,7 +109,6 @@
 
         validate.middleware.formOnSuccess = (e, $el)=>{
             e.preventDefault();
-            console.log('formOnSuccess', e, $el);
             let headers = new Headers({
                     "X-Requested-With": "XMLHttpRequest",
                     "Accept": "application/json",
@@ -100,9 +116,19 @@
                 }),
                 $form = e.target,
                 object = {},
-                formData = new FormData($form)
-            formData.forEach((value, key) => object[key] = value)
-
+                formData = new FormData($form),
+                optionalFields = [
+                    'phone',
+                    'date_appointment',
+                    'hour_appointment',
+                ]
+            formData.forEach((value, key) =>{
+                object[key] = value
+            })
+            if(!$isAppointment.checked){
+                optionalFields.forEach(input => delete object[input])
+            }
+            console.table(object)
             let data = Object.entries(object).map(([k,v]) => `${k}=${v}`).join('&'),
                 params = {
                     method: 'POST',
@@ -113,30 +139,14 @@
                     mode: "cors",
                     body: data
                 },
-                url = 'http://localhost/portfolio/frontoffice/server/index.php?controller=mail&action=send'
+                url ='http://localhost/portfolio/frontoffice/services/mail/send'
 
-            fetch('http://localhost/portfolio/frontoffice/server/mail/send', params).then(resp =>{
+            fetch(url, params).then(resp =>{
                 if(resp.ok === true) 
                     return resp.json()
             }).then(d => console.table(d))
         }
 
-        let $isAppointment = document.querySelector('input[name=appointment]')
-        
-        $isAppointment.addEventListener('change', e =>{
-            let $requires = $isAppointment.closest('.col').querySelectorAll('.required input')
-            for(let $input of $requires){
-                if($isAppointment.checked){
-                    $input.parentNode.style.height = '100%'
-                    $input.classList.add('require')
-                    validate.addRequireField($input)
-                }else{
-                    $input.parentNode.style.height = '0%'
-                    $input.classList.remove('require')
-                    validate.removeRequireField($input)
-                }
-            }
-        })
 
         let listRequireField = [
             'input[type=text]',

@@ -36,8 +36,6 @@
                     "errors" => $validator->get_errors()
                 ];
                 echo json_encode($rows);
-            }else{
-                echo 'ok';
             }
         }
 
@@ -60,26 +58,5 @@
             $validator->check($data);
 
             print_r($validator->get_errors());
-            /*
-            $errors = [];
-            foreach($data as $k => $v){
-                if(!empty($config[$k])){
-                    //printf('%s <hr>', $k);
-                    foreach($config[$k] as $method => $config_method){
-                        //printf('<hr>%s => %s<br>', $k, $method);
-                        $args = [$v];
-                        if(!empty($config_method['params'])){
-                            $args[] = $config_method['params'];
-                        }
-                        if(Rules::$method(...$args)){
-                            $errors[$k] = $config_method['error'];
-                        }
-                        //var_dump(Rules::$method(...$args));
-                        //echo '<hr>';
-                    }
-                }
-            }
-            var_dump($errors);
-             */
         }
     }
