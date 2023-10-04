@@ -1,6 +1,9 @@
 <?php
     namespace apps\controller;
+
     use apps\core\Controller;
+    use apps\core\libs\validator\Rules;
+    use apps\core\libs\validator\Validator;
 
 
     class MailController extends Controller{
@@ -24,18 +27,13 @@
                     $_POST = array_map($method, $_POST);
                 }
                 
-                foreach($_POST as $k => $v){
-                    switch($k){
-                        case 'civility':
-                        case 'lastname':
-                        
-                    }
-                }
-
-
+                $mail_model = $this->loadModel('Mail');
+                $validator = new Validator($mail_model->get_validator());
+                $validator->check($_POST);
 
                 $rows = [
-                    "data" => $_POST
+                    "data" => $_POST,
+                    "errors" => $validator->get_errors()
                 ];
                 echo json_encode($rows);
             }else{
@@ -45,9 +43,43 @@
 
 
         function show(){
-            $rules = new \apps\core\libs\validator\Rules();
-            echo date('d M Y', strtotime('2023-10-05')).'<hr>';
-            echo $rules::date('2023-10-05')? 'ok': 'ko';
-            echo '<hr>';
+            $data = [
+                "civility" => "",
+                "lastname" => "a",
+                "email" => "",
+                "subject" => "",
+                "message" => "",
+                "hour_appointment" => "",
+                "date_appointment" => "",
+                "phone" => "",
+                "captcha" => "",
+                "firstname" => "",
+            ];
+            $mail_model = $this->loadModel('Mail');
+            $validator = new Validator($mail_model->get_validator());
+            $validator->check($data);
+
+            print_r($validator->get_errors());
+            /*
+            $errors = [];
+            foreach($data as $k => $v){
+                if(!empty($config[$k])){
+                    //printf('%s <hr>', $k);
+                    foreach($config[$k] as $method => $config_method){
+                        //printf('<hr>%s => %s<br>', $k, $method);
+                        $args = [$v];
+                        if(!empty($config_method['params'])){
+                            $args[] = $config_method['params'];
+                        }
+                        if(Rules::$method(...$args)){
+                            $errors[$k] = $config_method['error'];
+                        }
+                        //var_dump(Rules::$method(...$args));
+                        //echo '<hr>';
+                    }
+                }
+            }
+            var_dump($errors);
+             */
         }
     }

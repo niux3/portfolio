@@ -7,10 +7,11 @@
         $loader = new \apps\core\Autoloader();
         $loader->register();
         $namespaces = [
-            // 'apps\core\libs\db' => APPS.'core/libs/db/',
-            'apps\core' => APPS.'core/',
+            'apps\core\libs\db' => APPS.'core/libs/db/',
             'apps\core\libs\validator' => APPS.'core/libs/validator/',
+            'apps\core' => APPS.'core/',
             'apps\controller' => APPS.'controller/',
+            'apps\model' => APPS.'model/',
         ];
 
         foreach($namespaces as $namespace => $path){
