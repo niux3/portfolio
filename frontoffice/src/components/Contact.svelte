@@ -2,7 +2,36 @@
     import { onMount } from 'svelte'
     import Validator from '../libs/validator/Validator'
 
+
+    let getCaptcha = () =>{
+        fetch('http://localhost/portfolio/frontoffice/services/mail/show').then(resp =>{
+            if(resp.ok === true){
+                return resp.json()
+            }
+        }).then( data =>{
+            console.table(data);
+            if(document.querySelectorAll('input[name="token"]').length === 0){
+                let tpl =  `<input type="hidden" name="token" value="${data['token']}" />`
+                document.querySelector('#form-contact').insertAdjacentHTML('afterbegin',tpl);
+            }
+            document.querySelector('input[name="token"]').value = data['token'];
+            let outputChars = '';
+
+            for(let i = 0, len = data['captcha'].length; i < len; i++){
+                let styles = [
+                    'font-size:.5vw',
+                    'overflow:hidden', 
+                    'margin:auto 0',
+                ]
+                outputChars += `<pre class="cell-3" style="${styles.join(';')}">${data['captcha'][i]}</pre>`
+            }
+            document.querySelector('.captcha-pattern').innerHTML = outputChars
+        })
+    }
+
     onMount(()=>{
+        getCaptcha();
+
         let $isAppointment = document.querySelector('input[name=appointment]')
         
         $isAppointment.addEventListener('change', e =>{
@@ -100,7 +129,7 @@
                     }
                 }
             }
-            // optionValidator = {}
+             optionValidator = {}
             let validate = new Validator(optionValidator)
 
         validate.addRules('checkphone', (value)=>{
@@ -128,7 +157,6 @@
             if(!$isAppointment.checked){
                 optionalFields.forEach(input => delete object[input])
             }
-            console.table(object)
             let data = Object.entries(object).map(([k,v]) => `${k}=${v}`).join('&'),
                 params = {
                     method: 'POST',
@@ -144,7 +172,18 @@
             fetch(url, params).then(resp =>{
                 if(resp.ok === true) 
                     return resp.json()
-            }).then(d => console.table(d))
+            }).then(({data, errors}) =>{
+                document.querySelectorAll('span.error').forEach($el => $el.remove())
+                document.querySelectorAll('.require').forEach($el => $el.classList.remove('error'));
+                if(Object.keys(errors).length > 0){
+                    getCaptcha();
+                    for(let k in errors){
+                        let $input = document.querySelector(`*[name="${k}"]`)
+                        $input.classList.add('error')
+                        $input.insertAdjacentHTML('afterend', `<span class="error">${errors[k]}</span>`)
+                    }
+                }
+            })
         }
 
 
@@ -330,6 +369,7 @@
                 }
                 .captcha-pattern{
                     height: 100%;
+                    justify-content: center;
                     pre{
                         font-size: .5vw;
                         overflow: hidden;

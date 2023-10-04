@@ -4,12 +4,14 @@
     use apps\core\Controller;
     use apps\core\libs\validator\Rules;
     use apps\core\libs\validator\Validator;
+    use apps\core\libs\captcha\AsciiCaptcha;
 
 
     class MailController extends Controller{
         public function __construct(){
             header("Access-Control-Allow-Origin: *");
             header("Access-Control-Allow-Headers: *");
+            session_start();
         }
 
 
@@ -36,27 +38,19 @@
                     "errors" => $validator->get_errors()
                 ];
                 echo json_encode($rows);
+                die;
             }
         }
 
 
         function show(){
-            $data = [
-                "civility" => "",
-                "lastname" => "a",
-                "email" => "",
-                "subject" => "",
-                "message" => "",
-                "hour_appointment" => "",
-                "date_appointment" => "",
-                "phone" => "",
-                "captcha" => "",
-                "firstname" => "",
-            ];
-            $mail_model = $this->loadModel('Mail');
-            $validator = new Validator($mail_model->get_validator());
-            $validator->check($data);
-
-            print_r($validator->get_errors());
+            header('Content-Type: application/json; charset=utf-8');
+            $captcha = new \apps\core\libs\captcha\AsciiCaptcha('AnsiShadow');
+            $_SESSION = $captcha->getCaptcha();
+            echo json_encode([
+                'token' => $_SESSION['token'],
+                'captcha' => array_values($_SESSION['captcha'])
+            ]);
+            die;
         }
     }

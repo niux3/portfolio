@@ -35,7 +35,6 @@
         private function getController(Request $request){
             if ($request->argumentIsExist('controller')) {
                 $controller = $request->getArguments('controller');
-                // Première lettre en majuscules
                 $controller = ucfirst(strtolower($controller));
             }else{
                 $controller = Configuration::get('controller');

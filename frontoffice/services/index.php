@@ -9,6 +9,8 @@
         $namespaces = [
             'apps\core\libs\db' => APPS.'core/libs/db/',
             'apps\core\libs\validator' => APPS.'core/libs/validator/',
+            'apps\core\libs\captcha' => APPS.'core/libs/captcha/',
+            'apps\core\libs\captcha\chars' => APPS.'core/libs/captcha/chars',
             'apps\core' => APPS.'core/',
             'apps\controller' => APPS.'controller/',
             'apps\model' => APPS.'model/',
