@@ -86,7 +86,6 @@
             },
             validate = new Validator(optionValidator)
 
-        //add rules for phone input
         validate.addRules('checkphone', (value)=>{
             return !/^0[1-8][ .-]?(\d{2}[ .-]?){4}$/.test(value);
         });
@@ -113,8 +112,10 @@
                     referrerPolicy: 'no-referrer',
                     mode: "cors",
                     body: data
-                }
-            fetch('http://localhost/portfolio/frontoffice/mail.php', params).then(resp =>{
+                },
+                url = 'http://localhost/portfolio/frontoffice/server/index.php?controller=mail&action=send'
+
+            fetch('http://localhost/portfolio/frontoffice/server/mail/send', params).then(resp =>{
                 if(resp.ok === true) 
                     return resp.json()
             }).then(d => console.table(d))
