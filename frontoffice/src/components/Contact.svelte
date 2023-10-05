@@ -194,6 +194,7 @@
         let listRequireField = [
             'input[type=text]',
             'input[type=date]',
+            'input[type=time]',
             'input[type=password]',
             'textarea',
             'select',
@@ -358,6 +359,10 @@
                     &.select{
                         margin-bottom: 25px;
 
+                        @media screen and (max-width: 639px) {
+                            margin-bottom: 0;
+                        }
+
 
                         label > span:first-of-type{
                             display: inline-block;
@@ -437,6 +442,7 @@
         .col{
             display: flex;
             justify-content:space-between;
+            flex-wrap: wrap;
 
             .cell-6{
                 width: 49%;
@@ -448,6 +454,12 @@
 
             .cell-4{
                 width: 32%;
+            }
+        }
+
+        @media screen and (max-width: 639px) {
+            *[class*=cell]{
+                width: 100% !important;
             }
         }
     }
