@@ -11,7 +11,6 @@
         public function __construct(){
             header("Access-Control-Allow-Origin: *");
             header("Access-Control-Allow-Headers: *");
-            session_start();
         }
 
 
@@ -38,7 +37,6 @@
                     "errors" => $validator->get_errors()
                 ];
                 echo json_encode($rows);
-                die;
             }
         }
 
@@ -46,10 +44,14 @@
         function show(){
             header('Content-Type: application/json; charset=utf-8');
             $captcha = new \apps\core\libs\captcha\AsciiCaptcha('AnsiShadow');
-            $_SESSION = $captcha->getCaptcha();
+            $data = $captcha->getCaptcha();
+
+            $arg_file = sprintf('%s/%s/%s.json', ROOT, 'logs', 'captcha');
+            file_put_contents($arg_file, json_encode($data));
+
             echo json_encode([
-                'token' => $_SESSION['token'],
-                'captcha' => array_values($_SESSION['captcha'])
+                'token' => $data['token'],
+                'captcha' => array_values($data['captcha'])
             ]);
             die;
         }

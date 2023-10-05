@@ -9,7 +9,6 @@
                 return resp.json()
             }
         }).then( data =>{
-            console.table(data);
             if(document.querySelectorAll('input[name="token"]').length === 0){
                 let tpl =  `<input type="hidden" name="token" value="${data['token']}" />`
                 document.querySelector('#form-contact').insertAdjacentHTML('afterbegin',tpl);
@@ -129,7 +128,6 @@
                     }
                 }
             }
-             optionValidator = {}
             let validate = new Validator(optionValidator)
 
         validate.addRules('checkphone', (value)=>{
@@ -177,6 +175,7 @@
                 document.querySelectorAll('.require').forEach($el => $el.classList.remove('error'));
                 if(Object.keys(errors).length > 0){
                     getCaptcha();
+                    document.querySelector('input[name="captcha"]').value = '';
                     for(let k in errors){
                         let $input = document.querySelector(`*[name="${k}"]`)
                         $input.classList.add('error')
@@ -215,7 +214,7 @@
                             <option value="">choisir</option>
                             <option value="Mlle">Mademoiselle</option>
                             <option value="Mme">Madame</option>
-                            <option value="M" selected>Monsieur</option>
+                            <option value="M">Monsieur</option>
                         </select>
                     </label>
                 </div>
@@ -228,7 +227,7 @@
                 <div class="input text required cell-4">
                     <label>
                         <span>Nom</span>
-                        <input type="text" name="lastname" required value="Dupont">
+                        <input type="text" name="lastname" required>
                     </label>
                 </div>
             </div>
@@ -236,13 +235,13 @@
                 <div class="input text required cell-6">
                     <label>
                         <span>Email</span>
-                        <input type="text" name="email" required value="dd@dd.dd">
+                        <input type="text" name="email" required>
                     </label>
                 </div>
                 <div class="input text required cell-6">
                     <label>
                         <span>Sujet</span>
-                        <input type="text" name="subject" required value="un sujet">
+                        <input type="text" name="subject" required>
                     </label>
                 </div>
             </div>
@@ -281,46 +280,13 @@
             </div>
             <div class="col">
                 <div class="cell-4">
-                    <div class="col captcha-pattern">
-<pre class="cell-3">
-     █████╗ 
-    ██╔══██╗
-    ███████║
-    ██╔══██║
-    ██║  ██║
-    ╚═╝  ╚═╝
-</pre>
-<pre class="cell-3">
-     ███████╗
-     ██╔════╝
-     █████╗  
-     ██╔══╝  
-     ██║     
-     ╚═╝     
-</pre>
-<pre class="cell-3">
-     ███╗   ███╗
-     ████╗ ████║
-     ██╔████╔██║
-     ██║╚██╔╝██║
-     ██║ ╚═╝ ██║
-     ╚═╝     ╚═╝
-</pre>
-<pre class="cell-3">
-     ██╗    ██╗
-     ██║    ██║
-     ██║ █╗ ██║
-     ██║███╗██║
-     ╚███╔███╔╝
-      ╚══╝╚══╝ 
-</pre>
-                    </div>
+                    <div class="col captcha-pattern"></div>
                 </div>
                 <div class="cell-4">
                     <div class="input text required no-margin">
                         <label>
                             <span>Recopier le motif</span>
-                            <input type="text" maxlength="4" required name="captcha" value="abcd">
+                            <input type="text" maxlength="4" required name="captcha">
                         </label>
                     </div>
                 </div>

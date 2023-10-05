@@ -1,5 +1,8 @@
 <?php 
     namespace apps\core\libs\validator;
+    
+
+    use apps\core\libs\captcha\AsciiCaptcha;
 
 
     class Rules{
@@ -34,5 +37,16 @@
 
         static function date(){
             return strtotime(func_get_args()[0]) <= time();
+        }
+
+        static function captcha(){
+            $salt = AsciiCaptcha::getSalt();
+            $args_file = sprintf('%s/%s/%s.json', ROOT, 'logs', 'captcha');
+            $data = json_decode(file_get_contents($args_file), true);
+
+            $not_equalto = strtoupper(func_get_args()[0]) !== implode(array_keys($data['captcha']), '');
+            $not_token = $_POST[func_get_args()[1]] !== hash('sha256', strtoupper(func_get_args()[0]).$salt);
+            
+            return $not_token && $not_equalto;
         }
     }

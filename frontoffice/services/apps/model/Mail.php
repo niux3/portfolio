@@ -73,6 +73,10 @@
                 "notempty" => [
                     "error" => "<span>Ce champ ne doit pas être vide</span>",
                 ],
+                "captcha" => [
+                    "params"=> 'token',
+                    "error" => "<span>captcha le motif ne correspond pas</span>",
+                ],
             ],
         ];
     }
