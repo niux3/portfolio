@@ -98,7 +98,11 @@
                     "hour_appointment" : {
                         "notempty" : {
                             "error" : defaultErrorMessage
-                        }
+                        },
+                        "betweenhour" : {
+                            'params': '9;18',
+                            "error" :  "<span>Les rendez vous sont compris entre 9 h 00 et 18 h 00</span>"
+                        },
                     },
                     "phone" : {
                         "notempty" : {
@@ -134,6 +138,15 @@
 
         validate.addRules('checkphone', (value)=>{
             return !/^0[1-8][ .-]?(\d{2}[ .-]?){4}$/.test(value);
+        });
+
+        validate.addRules('betweenhour', (...args)=>{
+            let [value, params_validate] = args,
+                {params, error} = params_validate,
+                [min, max] = params.split(';'),
+                [hour, minutes] = value.split(':')
+            
+            return parseInt(min, 10) > parseInt(hour, 10) || parseInt(max, 10) < parseInt(hour, 10);
         });
 
         validate.middleware.formOnSuccess = (e, $el)=>{
@@ -274,7 +287,7 @@
                 <div class="cell-3 input time required">
                     <label>
                         <span>Heure</span>
-                        <input type="time" min="09:00" max="18:00" name="hour_appointment" tabindex="0">
+                        <input type="time" name="hour_appointment" tabindex="0">
                     </label>
                 </div>
             </div>
