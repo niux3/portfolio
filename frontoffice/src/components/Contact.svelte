@@ -11,10 +11,10 @@
         }).then( data =>{
             if(document.querySelectorAll('input[name="token"]').length === 0){
                 let tpl =  `<input type="hidden" tabindex="0" name="token" value="${data['token']}" />`
-                document.querySelector('#form-contact').insertAdjacentHTML('afterbegin',tpl);
+                document.querySelector('#form-contact').insertAdjacentHTML('afterbegin',tpl)
             }
-            document.querySelector('input[name="token"]').value = data['token'];
-            let outputChars = '';
+            document.querySelector('input[name="token"]').value = data['token']
+            let outputChars = ''
 
             for(let i = 0, len = data['captcha'].length; i < len; i++){
                 let styles = [
@@ -29,7 +29,7 @@
     }
 
     onMount(()=>{
-        getCaptcha();
+        getCaptcha()
 
         let $isAppointment = document.querySelector('input[name=appointment]')
         
@@ -128,6 +128,9 @@
                         "notempty":{
                             "error" : defaultErrorMessage
                         },
+                        "businessday": {
+                            "error":  "<span>les rendez vous sont du lundi au vendredi</span>"
+                        },
                         "date":{
                             "error" : "<span>Ce champ doit être une date valide</span>"
                         }
@@ -136,21 +139,19 @@
             }
             let validate = new Validator(optionValidator)
 
-        validate.addRules('checkphone', (value)=>{
-            return !/^0[1-8][ .-]?(\d{2}[ .-]?){4}$/.test(value);
-        });
-
+        validate.addRules('checkphone', (value)=> !/^0[1-8][ .-]?(\d{2}[ .-]?){4}$/.test(value))
+        validate.addRules('businessday', (value)=> [0, 6].includes(new Date(value).getDay()))
         validate.addRules('betweenhour', (...args)=>{
             let [value, params_validate] = args,
                 {params, error} = params_validate,
                 [min, max] = params.split(';'),
                 [hour, minutes] = value.split(':')
             
-            return parseInt(min, 10) > parseInt(hour, 10) || parseInt(max, 10) < parseInt(hour, 10);
-        });
+            return parseInt(min, 10) > parseInt(hour, 10) || parseInt(max, 10) < parseInt(hour, 10)
+        })
 
         validate.middleware.formOnSuccess = (e, $el)=>{
-            e.preventDefault();
+            e.preventDefault()
             let headers = new Headers({
                     "X-Requested-With": "XMLHttpRequest",
                     "Accept": "application/json",
@@ -187,10 +188,10 @@
                     return resp.json()
             }).then(({data, errors}) =>{
                 document.querySelectorAll('span.error').forEach($el => $el.remove())
-                document.querySelectorAll('.require').forEach($el => $el.classList.remove('error'));
+                document.querySelectorAll('.require').forEach($el => $el.classList.remove('error'))
                 if(Object.keys(errors).length > 0){
-                    getCaptcha();
-                    document.querySelector('input[name="captcha"]').value = '';
+                    getCaptcha()
+                    document.querySelector('input[name="captcha"]').value = ''
                     for(let k in errors){
                         let $input = document.querySelector(`*[name="${k}"]`)
                         $input.classList.add('error')
@@ -211,14 +212,14 @@
             'input[type=password]',
             'textarea',
             'select',
-        ];
+        ]
         document.querySelectorAll(listRequireField.join(',')).forEach(($field)=>{
             $field.addEventListener('blur', (e)=>{
-                validate.element(e.target);
-            });
-        });
+                validate.element(e.target)
+            })
+        })
 
-        validate.form();
+        validate.form()
     })
 </script>
 <div class="contact">
@@ -232,9 +233,9 @@
                         <span>Civilité</span>
                         <select name="civility" required tabindex="1">
                             <option value="">choisir</option>
-                            <option value="Mlle">Mademoiselle</option>
-                            <option value="Mme">Madame</option>
-                            <option value="M">Monsieur</option>
+                            <option value="Mademoiselle">Mademoiselle</option>
+                            <option value="Madame">Madame</option>
+                            <option value="Monsieur">Monsieur</option>
                         </select>
                     </label>
                 </div>
@@ -446,6 +447,7 @@
                             height: 50px;
                             border-radius:3px;
                             margin-bottom: 8px;
+                            cursor: pointer;
                         }
                     }
                 }

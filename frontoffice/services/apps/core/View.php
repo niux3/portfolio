@@ -55,6 +55,7 @@
                 'root' => $root,
             ];
             $layout = sprintf('%sview/%s.php', APPS, $this->layout);
+
             echo $this->generate($layout,$args);
         }
 

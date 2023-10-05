@@ -75,7 +75,7 @@
                 ],
                 "captcha" => [
                     "params"=> 'token',
-                    "error" => "<span>captcha le motif ne correspond pas</span>",
+                    "error" => "<span>Le motif ne correspond pas</span>",
                 ],
             ],
         ];
