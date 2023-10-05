@@ -10,7 +10,7 @@
             }
         }).then( data =>{
             if(document.querySelectorAll('input[name="token"]').length === 0){
-                let tpl =  `<input type="hidden" name="token" value="${data['token']}" />`
+                let tpl =  `<input type="hidden" tabindex="0" name="token" value="${data['token']}" />`
                 document.querySelector('#form-contact').insertAdjacentHTML('afterbegin',tpl);
             }
             document.querySelector('input[name="token"]').value = data['token'];
@@ -38,10 +38,12 @@
             for(let $input of $requires){
                 if($isAppointment.checked){
                     $input.parentNode.style.height = '100%'
+                    $input.setAttribute('tabindex', 1)
                     $input.classList.add('require')
                     validate.addRequireField($input)
                 }else{
                     $input.parentNode.style.height = '0%'
+                    $input.setAttribute('tabindex', 0)
                     $input.classList.remove('require')
                     validate.removeRequireField($input)
                 }
@@ -181,6 +183,9 @@
                         $input.classList.add('error')
                         $input.insertAdjacentHTML('afterend', `<span class="error">${errors[k]}</span>`)
                     }
+                }else{
+                    $el.reset()
+                    alert('ok !')
                 }
             })
         }
@@ -191,6 +196,7 @@
             'input[type=date]',
             'input[type=password]',
             'textarea',
+            'select',
         ];
         document.querySelectorAll(listRequireField.join(',')).forEach(($field)=>{
             $field.addEventListener('blur', (e)=>{
@@ -210,7 +216,7 @@
                 <div class="input select required cell-4">
                     <label>
                         <span>Civilité</span>
-                        <select name="civility" required>
+                        <select name="civility" required tabindex="1">
                             <option value="">choisir</option>
                             <option value="Mlle">Mademoiselle</option>
                             <option value="Mme">Madame</option>
@@ -221,13 +227,13 @@
                 <div class="input text cell-4">
                     <label>
                         <span>Prénom</span>
-                        <input type="text" name="firstname">
+                        <input type="text" name="firstname" tabindex="1">
                     </label>
                 </div>
                 <div class="input text required cell-4">
                     <label>
                         <span>Nom</span>
-                        <input type="text" name="lastname" required>
+                        <input type="text" name="lastname" required tabindex="1">
                     </label>
                 </div>
             </div>
@@ -235,39 +241,39 @@
                 <div class="input text required cell-6">
                     <label>
                         <span>Email</span>
-                        <input type="text" name="email" required>
+                        <input type="text" name="email" required tabindex="1">
                     </label>
                 </div>
                 <div class="input text required cell-6">
                     <label>
                         <span>Sujet</span>
-                        <input type="text" name="subject" required>
+                        <input type="text" name="subject" required tabindex="1">
                     </label>
                 </div>
             </div>
             <div class="col">
                 <div class="cell-3 input checkbox">
                     <label>
-                        <input type="checkbox" name="appointment">
+                        <input type="checkbox" name="appointment" tabindex="1">
                         <span>Prendre rendez vous avec moi&nbsp;?&nbsp;</span>
                     </label>
                 </div>
                 <div class="cell-3 input tel required">
                     <label>
                         <span>Téléphone</span>
-                        <input type="text" name="phone">
+                        <input type="text" name="phone" tabindex="0">
                     </label>
                 </div>
                 <div class="cell-3 input date required">
                     <label>
                         <span>Date</span>
-                        <input type="date" name="date_appointment">
+                        <input type="date" name="date_appointment" tabindex="0">
                     </label>
                 </div>
                 <div class="cell-3 input time required">
                     <label>
                         <span>Heure</span>
-                        <input type="time" min="09:00" max="18:00" name="hour_appointment">
+                        <input type="time" min="09:00" max="18:00" name="hour_appointment" tabindex="0">
                     </label>
                 </div>
             </div>
@@ -275,7 +281,7 @@
             <div class="input textarea required">
                 <label>
                     <span>Message</span>
-                    <textarea name="message" required>lorem ipsum</textarea>
+                    <textarea name="message" required tabindex="1"></textarea>
                 </label>
             </div>
             <div class="col">
@@ -286,13 +292,13 @@
                     <div class="input text required no-margin">
                         <label>
                             <span>Recopier le motif</span>
-                            <input type="text" maxlength="4" required name="captcha">
+                            <input type="text" maxlength="4" required name="captcha" tabindex="1">
                         </label>
                     </div>
                 </div>
                 <div class="cell-4">
                     <div class="input submit">
-                        <button type="submit">envoyer</button>
+                        <button type="submit" tabindex="1">envoyer</button>
                     </div>
                 </div>
             </div>
