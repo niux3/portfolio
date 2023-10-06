@@ -18,19 +18,19 @@
         getCoord = ()=>{
             let {w, h} = getWindowProperties(),
                 registry = {
-                    'loading': {
+                    'onLoading': {
                         x : w * 1,
                         y : h
                     },
-                    'form': {
+                    'onForm': {
                         x: w * 1,
                         y: 0
                     },
-                    'error': {
+                    'onError': {
                         x: 0,
                         y: h
                     },
-                    'success':{
+                    'onSuccess':{
                         x: w * 2,
                         y: h
                     }
@@ -41,7 +41,7 @@
             carouselSize()
             let {w, h} = getWindowProperties()
             let coord = getCoord()
-            position = coord['form']
+            position = coord['onForm']
         },
         carouselSize = () =>{
             let {w, h} = getWindowProperties(),
@@ -57,16 +57,15 @@
                 $el.style = styles.join(';')
             })
         },
-        onSlideStatus = e =>{
-            let key_redirection = e.target.dataset.redirection,
-                redirection = getCoord()[key_redirection]
+        onSlideStatus = key_redirection =>{
+            let redirection = getCoord()[key_redirection]
 
             position.x = redirection.x
             position.y = redirection.y
         },
         hashchange = e =>{
             if(window.location.hash !== '#/contact'){
-                position = getCoord()['form']
+                position = getCoord()['onForm']
             }
         }
 
@@ -79,20 +78,17 @@
 <div class="carousel-contact">
     <div class="wrap-parent" style="margin-top: -{position.y}px;">
         <div class="fullscreen form">
-                <button on:click={onSlideStatus} data-redirection="loading">go back</button>
-            <Contact />
+            <Contact {onSlideStatus} />
         </div>
         <div class="wrap" style="margin-left: -{position.x}px;">
             <div class="fullscreen error">
                 <h1>error</h1>
-                <button on:click={onSlideStatus} data-redirection="form">go back</button>
             </div>
             <div class="fullscreen loading">
                 <Loading width="50" />
             </div>
             <div class="fullscreen success">
                 <h1>success</h1>
-                <button on:click={onSlideStatus} data-redirection="form">go back</button>
             </div>
         </div>
     </div>
@@ -103,7 +99,7 @@
     .carousel-contact{
         overflow: hidden;
         .wrap-parent{
-            transition: margin-top 400ms 400ms;
+            transition: margin-top 400ms 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
         }
         .fullscreen{
             padding: 2.5rem;
@@ -113,7 +109,7 @@
         .wrap{
             display: flex;
             flex-wrap: nowrap;
-            transition: margin-left 400ms 400ms;
+            transition: margin-left 400ms 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
         }
 
         .success{
