@@ -198,7 +198,7 @@
                         $input.insertAdjacentHTML('afterend', `<span class="error">${errors[k]}</span>`)
                     }
                 }else{
-                    $el.reset()
+                    // $el.reset()
                     alert('ok !')
                 }
             })
@@ -349,6 +349,9 @@
             }
             
             form{
+                max-width: 1124px;
+                margin: 0 auto;
+
                 label{
                     display: block;
                     text-transform: uppercase;

@@ -6,6 +6,10 @@
     use apps\core\libs\validator\Validator;
     use apps\core\libs\captcha\AsciiCaptcha;
 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+    use PHPMailer\PHPMailer\SMTP;
+
 
     class MailController extends Controller{
         public function __construct(){
@@ -27,16 +31,72 @@
                 foreach($clean_methods as $method){
                     $_POST = array_map($method, $_POST);
                 }
-                
+
+                $ctx = [
+                    "data" => $_POST,
+                    "errors" => []
+                ];
+
                 $mail_model = $this->loadModel('Mail');
                 $validator = new Validator($mail_model->get_validator());
                 $validator->check($_POST);
+                
+                if(count($validator->get_errors()) > 0){
+                    $ctx["errors"] = $validator->get_errors();
+                    $ctx["status"] = false;
+                }else{
+                    try{
+                        $mail = new PHPMailer(true);
+                        $mail->isSMTP();
 
-                $rows = [
-                    "data" => $_POST,
-                    "errors" => $validator->get_errors()
-                ];
-                echo json_encode($rows);
+                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                        $mail->SMTPAuth = true;
+
+                        $mail->Host = 'smtp.gmail.com';
+                        $mail->Username = 'renaudbourdeau@gmail.com';
+                        $mail->Password = 'pvcr uiwq xjlt vlig ';
+                        $mail->Port = 465;
+
+                        $mail->setFrom('renaudbourdeau@gmail.com');
+                        $mail->addAddress('renaudbourdeau@gmail.com');
+
+                        $mail->isHTML(false);
+
+                        extract($_POST);
+                        require_once APPS.'view/Mail/template_txt.php'; // $output_txt
+                        require_once APPS.'view/Mail/template_html.php'; // $output_html
+                        
+                        $mail->Subject = $_POST['subject'];
+                        $mail->Body = $output_txt;
+                        
+                        // mail txt (à moi)
+                        if (!$mail->send()) {
+                            throw new Exception('Mailer Error: ' . $mail->ErrorInfo);
+                        } else {
+                            $mail->addAddress($_POST['email']);
+                            $mail->isHTML(true);
+                            $mail->Subject = "A propos de votre visite sur rb webstudio";
+                            $mail->Body = $output_html;
+                            
+                            // réponse automatique
+                            if (!$mail->send()) {
+                                throw new Exception('Mailer Error: ' . $mail->ErrorInfo);
+                            } else {
+                                $ctx["status"] = true;
+                            }
+                        }
+                        echo json_encode($ctx);
+                        die;
+                    } catch (Exception $e) {
+                        $ctx["errors"] = [
+                            'mail_lib' => 'Mailer Error: ' . $mail->ErrorInfo
+                        ];
+                        $ctx["status"] = false;
+                        echo json_encode($ctx);
+                        die;
+                    }
+                }
+
             }
         }
 
@@ -56,6 +116,7 @@
             die;
         }
 
+        /*
         function template(){
             $data = [
                 "civility" => 'M',
@@ -76,9 +137,11 @@ Tu vois, même si on frime comme on appelle ça en France... il faut se recréer
             ];
 
             extract($data);
-            require_once APPS.'/view/template_destination.php';
+            require_once APPS.'view/Mail/template_mail_txt.php';
+
             
-            printf('<pre>%s</pre>', $output);
+            printf('<pre>%s</pre>', $output_mail_txt);
+            print_r($data);
 
 
         }
@@ -105,4 +168,39 @@ Tu vois, même si on frime comme on appelle ça en France... il faut se recréer
 
             $this->render($data);
         }
+
+
+        function test_send(){
+            $mail = new PHPMailer(true);
+            $mail->isSMTP();
+            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->SMTPAuth = true;
+    
+    
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Username = 'renaudbourdeau@gmail.com';
+            $mail->Password = 'pvcr uiwq xjlt vlig ';
+            $mail->Port = 465;
+    
+            $mail->setFrom('renaudbourdeau@gmail.com');
+            $mail->addAddress('renaudbourdeau@gmail.com'); // destinataire
+    
+            $mail->isHTML(true);
+    
+            $mail->Subject = 'un super sujet';
+            $mail->Body = "super contenu";
+    
+            if (!$mail->send()) {
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                echo 'Message sent!';
+                //Section 2: IMAP
+                //Uncomment these to save your message in the 'Sent Mail' folder.
+                #if (save_mail($mail)) {
+                #    echo "Message saved!";
+                #}
+            }
+        }
+        */
     }
