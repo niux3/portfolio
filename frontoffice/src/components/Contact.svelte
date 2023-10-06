@@ -27,6 +27,7 @@
             document.querySelector('.captcha-pattern').innerHTML = outputChars
         })
     }
+    let status_send_form = 'onForm'
 
     onMount(()=>{
         getCaptcha()
@@ -152,6 +153,8 @@
 
         validate.middleware.formOnSuccess = (e, $el)=>{
             e.preventDefault()
+            status_send_form = 'onLoading'
+
             let headers = new Headers({
                     "X-Requested-With": "XMLHttpRequest",
                     "Accept": "application/json",
@@ -182,7 +185,6 @@
                     body: data
                 },
                 url ='http://localhost/portfolio/frontoffice/services/mail/send'
-
             fetch(url, params).then(resp =>{
                 if(resp.ok === true) 
                     return resp.json()
@@ -190,17 +192,26 @@
                 document.querySelectorAll('span.error').forEach($el => $el.remove())
                 document.querySelectorAll('.require').forEach($el => $el.classList.remove('error'))
                 if(Object.keys(errors).length > 0){
+                    status_send_form = 'onForm'
                     getCaptcha()
                     document.querySelector('input[name="captcha"]').value = ''
                     for(let k in errors){
-                        let $input = document.querySelector(`*[name="${k}"]`)
-                        $input.classList.add('error')
-                        $input.insertAdjacentHTML('afterend', `<span class="error">${errors[k]}</span>`)
+                        if(Object.keys(errors).includes(k)){
+                            let $input = document.querySelector(`*[name="${k}"]`)
+                            $input.classList.add('error')
+                            $input.insertAdjacentHTML('afterend', `<span class="error">${errors[k]}</span>`)
+                        }else{
+                            throw new Error("Une erreur est survenue. Veuillez réessayer plus tard.");
+                        }
                     }
                 }else{
                     // $el.reset()
+                    status_send_form = 'onSucess'
                     alert('ok !')
                 }
+            }).catch(err => {
+                console.error(err)
+                status_send_form = 'onError'
             })
         }
 
@@ -226,98 +237,140 @@
     <div class="wrap-contact">
         <h1>Travaillons ensemble</h1>
         <p class="intro">proposition de carrière &#x2022; me dire bonjour</p>
-        <form id="form-contact">
-            <div class="col">
-                <div class="input select required cell-4">
-                    <label>
-                        <span>Civilité</span>
-                        <select name="civility" required tabindex="1">
-                            <option value="">choisir</option>
-                            <option value="Mademoiselle">Mademoiselle</option>
-                            <option value="Madame">Madame</option>
-                            <option value="Monsieur">Monsieur</option>
-                        </select>
-                    </label>
-                </div>
-                <div class="input text cell-4">
-                    <label>
-                        <span>Prénom</span>
-                        <input type="text" name="firstname" tabindex="1">
-                    </label>
-                </div>
-                <div class="input text required cell-4">
-                    <label>
-                        <span>Nom</span>
-                        <input type="text" name="lastname" required tabindex="1">
-                    </label>
-                </div>
-            </div>
-            <div class="col">
-                <div class="input text required cell-6">
-                    <label>
-                        <span>Email</span>
-                        <input type="text" name="email" required tabindex="1">
-                    </label>
-                </div>
-                <div class="input text required cell-6">
-                    <label>
-                        <span>Sujet</span>
-                        <input type="text" name="subject" required tabindex="1">
-                    </label>
-                </div>
-            </div>
-            <div class="col">
-                <div class="cell-3 input checkbox">
-                    <label>
-                        <input type="checkbox" name="appointment" tabindex="1">
-                        <span>Prendre rendez vous avec moi&nbsp;?&nbsp;</span>
-                    </label>
-                </div>
-                <div class="cell-3 input tel required">
-                    <label>
-                        <span>Téléphone</span>
-                        <input type="text" name="phone" tabindex="0">
-                    </label>
-                </div>
-                <div class="cell-3 input date required">
-                    <label>
-                        <span>Date</span>
-                        <input type="date" name="date_appointment" tabindex="0">
-                    </label>
-                </div>
-                <div class="cell-3 input time required">
-                    <label>
-                        <span>Heure</span>
-                        <input type="time" name="hour_appointment" tabindex="0">
-                    </label>
-                </div>
-            </div>
-            <input type="text" name="address" value="">
-            <div class="input textarea required">
-                <label>
-                    <span>Message</span>
-                    <textarea name="message" required tabindex="1"></textarea>
-                </label>
-            </div>
-            <div class="col">
-                <div class="cell-4">
-                    <div class="col captcha-pattern"></div>
-                </div>
-                <div class="cell-4">
-                    <div class="input text required no-margin">
+            <form id="form-contact" class="accordeon" style="{status_send_form !== 'onForm'? 'max-height:0%; opacity:0;' : 'max-height:100%; opacity:1'}">
+                <div class="col">
+                    <div class="input select required cell-4">
                         <label>
-                            <span>Recopier le motif</span>
-                            <input type="text" maxlength="4" required name="captcha" tabindex="1">
+                            <span>Civilité</span>
+                            <select name="civility" required tabindex="1">
+                                <option value="">choisir</option>
+                                <option value="Mademoiselle">Mademoiselle</option>
+                                <option value="Madame">Madame</option>
+                                <option value="Monsieur" selected>Monsieur</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="input text cell-4">
+                        <label>
+                            <span>Prénom</span>
+                            <input type="text" name="firstname" tabindex="1">
+                        </label>
+                    </div>
+                    <div class="input text required cell-4">
+                        <label>
+                            <span>Nom</span>
+                            <input type="text" name="lastname" required tabindex="1" value="Delanoé">
                         </label>
                     </div>
                 </div>
-                <div class="cell-4">
-                    <div class="input submit">
-                        <button type="submit" tabindex="1">envoyer</button>
+                <div class="col">
+                    <div class="input text required cell-6">
+                        <label>
+                            <span>Email</span>
+                            <input type="text" name="email" required tabindex="1" value="renaudbourdeau@gmail.com">
+                        </label>
+                    </div>
+                    <div class="input text required cell-6">
+                        <label>
+                            <span>Sujet</span>
+                            <input type="text" name="subject" required tabindex="1" value="un sujet">
+                        </label>
                     </div>
                 </div>
+                <div class="col">
+                    <div class="cell-3 input checkbox">
+                        <label>
+                            <input type="checkbox" name="appointment" tabindex="1">
+                            <span>Prendre rendez vous avec moi&nbsp;?&nbsp;</span>
+                        </label>
+                    </div>
+                    <div class="cell-3 input tel required">
+                        <label>
+                            <span>Téléphone</span>
+                            <input type="text" name="phone" tabindex="0">
+                        </label>
+                    </div>
+                    <div class="cell-3 input date required">
+                        <label>
+                            <span>Date</span>
+                            <input type="date" name="date_appointment" tabindex="0">
+                        </label>
+                    </div>
+                    <div class="cell-3 input time required">
+                        <label>
+                            <span>Heure</span>
+                            <input type="time" name="hour_appointment" tabindex="0">
+                        </label>
+                    </div>
+                </div>
+                <input type="text" name="address" value="">
+                <div class="input textarea required">
+                    <label>
+                        <span>Message</span>
+                        <textarea name="message" required tabindex="1">lorem ipsum</textarea>
+                    </label>
+                </div>
+                <div class="col">
+                    <div class="cell-4">
+                        <div class="col captcha-pattern"></div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="input text required no-margin">
+                            <label>
+                                <span>Recopier le motif</span>
+                                <input type="text" maxlength="4" required name="captcha" tabindex="1">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="input submit">
+                            <button type="submit" tabindex="1">envoyer</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="accordeon loading" style="{status_send_form !== 'onLoading'? 'max-height:0%; opacity:0;' : 'max-height:100%; opacity:1'}">
+<svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" width="50">
+ <path fill="#444" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+  c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+      <animateTransform 
+         attributeName="transform" 
+         attributeType="XML" 
+         type="rotate"
+         dur="2s" 
+         from="0 50 50"
+         to="360 50 50" 
+         repeatCount="indefinite" />
+  </path>
+ <path fill="#444" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+  c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+      <animateTransform 
+         attributeName="transform" 
+         attributeType="XML" 
+         type="rotate"
+         dur="1s" 
+         from="0 50 50"
+         to="-360 50 50" 
+         repeatCount="indefinite" />
+  </path>
+ <path fill="#444" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+  L82,35.7z">
+      <animateTransform 
+         attributeName="transform" 
+         attributeType="XML" 
+         type="rotate"
+         dur="2s" 
+         from="0 50 50"
+         to="360 50 50" 
+         repeatCount="indefinite" />
+  </path>
+</svg>
+            
             </div>
-        </form>
+            <div class="accordeon" style="{status_send_form !== 'onSucess'? 'max-height:0%; opacity:0;' : 'max-height:100%; opacity:1'}">success</div>
+            <div class="accordeon" style="{status_send_form !== 'onError'? 'max-height:0%; opacity:0;' : 'max-height:100%; opacity:1'}">error</div>
     </div>
 </div>
 <style lang="scss">
@@ -334,6 +387,19 @@
         .wrap-contact{
             margin: auto;
             width: 100%;
+
+            .accordeon{
+                transition: max-height 400ms, opacity 400ms;
+                overflow: hidden;
+                max-height: 0%;
+
+                &.loading{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 50vh;
+                }
+            }
             
             h1, .intro{
                 text-transform: uppercase;
@@ -350,7 +416,7 @@
             
             form{
                 max-width: 1124px;
-                margin: 0 auto;
+                margin: 50px auto;
 
                 label{
                     display: block;

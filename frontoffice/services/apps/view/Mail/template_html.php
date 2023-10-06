@@ -40,7 +40,7 @@ $output_html = <<<TPL
         <td align="center">
             <table id="view" style="max-width:600px; width:100%;">
                 <tr>
-                    <td align="center" style="height:200px"><img src="https://rb-webstudio.000webhostapp.com/logo-mail.png?v=1" width="100" alt=""></td>
+                    <td align="center" style="height:200px"><a href="https://rb-webstudio.000webhostapp.com/" target="_blank"><img src="https://rb-webstudio.000webhostapp.com/logo-mail.png?v=1" width="100" alt=""></a></td>
                 </tr>
                 <tr>
                     <td style="color:#444 !important; padding-right:25px; padding-left:25px;">

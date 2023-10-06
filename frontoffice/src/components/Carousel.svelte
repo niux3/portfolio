@@ -3,9 +3,22 @@
     import {debounce} from '../helpers'
     import About from './About.svelte'
     import Contact from './Contact.svelte'
+    import Projects from './Projects.svelte'
 
 
     export let index
+
+
+    let data = [
+        {
+            id: 1,
+            name: "Renaud",
+        },
+        {
+            id: 2,
+            name: "Denis",
+        },
+    ];
 
 
     let getWindowProperties = ()=>{
@@ -74,7 +87,9 @@
         <div class="fullscreen about">
             <About />
         </div>
-        <div class="fullscreen projects">home project</div>
+        <div class="fullscreen projects">
+            <Projects {data} />
+        </div>
         <div class="fullscreen project">project</div>
     </div>
     <div class="fullscreen contact">

@@ -1,8 +1,13 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_STRICT);
+
     define('ROOT', dirname(__FILE__));
     define('APPS', sprintf('%s/apps/', ROOT));
     try{
         require_once APPS.'core/Autoloader.php';
+
 
         $loader = new \apps\core\Autoloader();
         $loader->register();
@@ -25,4 +30,5 @@
         $router->executeRequest();
     }catch(Exception $e){
         echo $e->getMessage();
+        header('HTTP/1.1 500 Internal Server Error');
     }

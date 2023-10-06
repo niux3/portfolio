@@ -22,6 +22,8 @@
             if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest' && !empty($_POST)){
                 header('Content-Type: application/json; charset=utf-8');
 
+                sleep(2);
+
                 $clean_methods = [
                     'trim',
                     'strip_tags',
@@ -31,19 +33,23 @@
                 foreach($clean_methods as $method){
                     $_POST = array_map($method, $_POST);
                 }
-
-                $ctx = [
-                    "data" => $_POST,
-                    "errors" => []
-                ];
-
+                
                 $mail_model = $this->loadModel('Mail');
                 $validator = new Validator($mail_model->get_validator());
                 $validator->check($_POST);
                 
+                unset($_POST['token']);
+                $ctx = [
+                    "data" => $_POST,
+                    "errors" => []
+                ];
+                
+
                 if(count($validator->get_errors()) > 0){
                     $ctx["errors"] = $validator->get_errors();
                     $ctx["status"] = false;
+                    echo json_encode($ctx);
+                    die;
                 }else{
                     try{
                         $mail = new PHPMailer(true);
@@ -88,6 +94,7 @@
                         echo json_encode($ctx);
                         die;
                     } catch (Exception $e) {
+                        header('HTTP/1.1 400 Internal Server Error');
                         $ctx["errors"] = [
                             'mail_lib' => 'Mailer Error: ' . $mail->ErrorInfo
                         ];
