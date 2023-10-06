@@ -2,7 +2,7 @@
     import {onMount} from 'svelte'
     import {debounce} from '../helpers'
     import About from './About.svelte'
-    import Contact from './Contact.svelte'
+    import CarouselContact from './CarouselContact.svelte'
     import Projects from './Projects.svelte'
 
 
@@ -22,24 +22,25 @@
 
 
     let getWindowProperties = ()=>{
-        return {
-            w: window.innerWidth,
-            h: window.innerHeight
+            return {
+                w: window.innerWidth,
+                h: window.innerHeight
+            }
+        },
+        carouselSize = ()=>{
+            let {w, h} = getWindowProperties(),
+                styles = [
+                    `width: ${w}px`,
+                    `height: ${h}px`,
+                ],
+                $wrap = document.querySelector('.carousel .wrap'),
+                $fullscreens = $wrap.querySelectorAll('.fullscreen')
+
+            $wrap.style.width = `${w * $fullscreens.length }px`
+            document.querySelectorAll('.fullscreen').forEach($el =>{
+                $el.style = styles.join(';')
+            })
         }
-    }
-    let carouselSize = ()=>{
-        let {w, h} = getWindowProperties(),
-            styles = [
-                `width: ${w}px`,
-                `height: ${h}px`,
-            ],
-            $wrap = document.querySelector('.carousel .wrap'),
-            $fullscreenWrapped = $wrap.querySelectorAll('.fullscreen')
-        $wrap.style.width = `${w * $fullscreenWrapped.length }px`
-        document.querySelectorAll('.fullscreen').forEach($el =>{
-            $el.style = styles.join(';')
-        })
-    }
 
 
     let routes = []
@@ -92,8 +93,8 @@
         </div>
         <div class="fullscreen project">project</div>
     </div>
-    <div class="fullscreen contact">
-        <Contact />
+    <div class="contact">
+        <CarouselContact />
     </div>
 </div>
 
