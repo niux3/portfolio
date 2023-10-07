@@ -4,6 +4,7 @@
 
 
     export let onSlideStatus
+    export let dataForm
 
     let getCaptcha = () =>{
         fetch('http://localhost/portfolio/frontoffice/services/mail/show').then(resp =>{
@@ -128,6 +129,9 @@
                         "notempty":{
                             "error" : defaultErrorMessage
                         },
+                        "datemin":{
+                            "error" : "<span>La date de rendez vous doit être suppérieur à aujourd'hui</span>"
+                        },
                         "businessday": {
                             "error":  "<span>les rendez vous sont du lundi au vendredi</span>"
                         },
@@ -140,6 +144,17 @@
             let validate = new Validator(optionValidator)
 
         validate.addRules('checkphone', (value)=> !/^0[1-8][ .-]?(\d{2}[ .-]?){4}$/.test(value))
+        validate.addRules('datemin', (value)=>{
+            let now = new Date(),
+                dateUser = new Date(value)
+            
+            dateUser.setHours(0)
+            dateUser.setMinutes(0)
+            now.setHours(0)
+            now.setMinutes(0)
+            
+            return now.getTime() >= dateUser.getTime()
+        })
         validate.addRules('businessday', (value)=> [0, 6].includes(new Date(value).getDay()))
         validate.addRules('betweenhour', (...args)=>{
             let [value, params_validate] = args,
@@ -205,7 +220,6 @@
                 }else{
                     // $el.reset()
                     onSlideStatus('onSuccess')
-                    alert('ok !')
                 }
             }).catch(err => {
                 console.error(err)
@@ -246,24 +260,24 @@
                 <div class="input select required cell-4">
                     <label>
                         <span>Civilité</span>
-                        <select name="civility" required tabindex="1">
+                        <select name="civility" required tabindex="1" bind:value={dataForm['civility']}>
                             <option value="">choisir</option>
                             <option value="Mademoiselle">Mademoiselle</option>
                             <option value="Madame">Madame</option>
-                            <option value="Monsieur" selected>Monsieur</option>
+                            <option value="Monsieur">Monsieur</option>
                         </select>
                     </label>
                 </div>
                 <div class="input text cell-4">
                     <label>
                         <span>Prénom</span>
-                        <input type="text" name="firstname" tabindex="1">
+                        <input type="text" name="firstname" tabindex="1" bind:value={dataForm['firstname']}>
                     </label>
                 </div>
                 <div class="input text required cell-4">
                     <label>
                         <span>Nom</span>
-                        <input type="text" name="lastname" required tabindex="1" value="Delanoé">
+                        <input type="text" name="lastname" required tabindex="1" bind:value={dataForm['lastname']}>
                     </label>
                 </div>
             </div>
@@ -271,39 +285,39 @@
                 <div class="input text required cell-6">
                     <label>
                         <span>Email</span>
-                        <input type="text" name="email" required tabindex="1" value="renaudbourdeau@gmail.com">
+                        <input type="text" name="email" required tabindex="1" bind:value={dataForm['email']}>
                     </label>
                 </div>
                 <div class="input text required cell-6">
                     <label>
                         <span>Sujet</span>
-                        <input type="text" name="subject" required tabindex="1" value="un sujet">
+                        <input type="text" name="subject" required tabindex="1" bind:value={dataForm['subject']}>
                     </label>
                 </div>
             </div>
             <div class="col">
                 <div class="cell-3 input checkbox">
                     <label>
-                        <input type="checkbox" name="appointment" tabindex="1">
+                        <input type="checkbox" name="appointment" tabindex="1" bind:checked={dataForm['appointment']}>
                         <span>Prendre rendez vous avec moi&nbsp;?&nbsp;</span>
                     </label>
                 </div>
                 <div class="cell-3 input tel required">
                     <label>
                         <span>Téléphone</span>
-                        <input type="text" name="phone" tabindex="0">
+                        <input type="text" name="phone" tabindex="0" bind:value={dataForm['phone']}>
                     </label>
                 </div>
                 <div class="cell-3 input date required">
                     <label>
                         <span>Date</span>
-                        <input type="date" name="date_appointment" tabindex="0">
+                        <input type="date" name="date_appointment" tabindex="0" bind:value={dataForm['date_appointment']}>
                     </label>
                 </div>
                 <div class="cell-3 input time required">
                     <label>
                         <span>Heure</span>
-                        <input type="time" name="hour_appointment" tabindex="0">
+                        <input type="time" name="hour_appointment" tabindex="0" bind:value={dataForm['hour_appointment']}>
                     </label>
                 </div>
             </div>
@@ -311,7 +325,7 @@
             <div class="input textarea required">
                 <label>
                     <span>Message</span>
-                    <textarea name="message" required tabindex="1">lorem ipsum</textarea>
+                    <textarea name="message" required tabindex="1" on:keyup={e => dataForm['message'] = e.target.value}>lorem ipsum</textarea>
                 </label>
             </div>
             <div class="col">

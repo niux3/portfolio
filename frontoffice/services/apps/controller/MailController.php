@@ -2,6 +2,7 @@
     namespace apps\controller;
 
     use apps\core\Controller;
+    use apps\controller\Component\Clean;
     use apps\core\libs\validator\Rules;
     use apps\core\libs\validator\Validator;
     use apps\core\libs\captcha\AsciiCaptcha;
@@ -22,18 +23,9 @@
             if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest' && !empty($_POST)){
                 header('Content-Type: application/json; charset=utf-8');
 
-                sleep(2);
+                sleep(1);
+                $_POST = Clean::normalize($_POST);
 
-                $clean_methods = [
-                    'trim',
-                    'strip_tags',
-                    'htmlspecialchars',
-                ];
-
-                foreach($clean_methods as $method){
-                    $_POST = array_map($method, $_POST);
-                }
-                
                 $mail_model = $this->loadModel('Mail');
                 $validator = new Validator($mail_model->get_validator());
                 $validator->check($_POST);
@@ -51,6 +43,10 @@
                     echo json_encode($ctx);
                     die;
                 }else{
+                    $ctx["status"] = true;
+                    echo json_encode($ctx);
+                    die;
+                    /*
                     try{
                         $mail = new PHPMailer(true);
                         $mail->isSMTP();
@@ -102,6 +98,7 @@
                         echo json_encode($ctx);
                         die;
                     }
+                    */
                 }
 
             }

@@ -19,6 +19,7 @@
             'apps\core\libs\captcha\chars' => APPS.'core/libs/captcha/chars',
             'apps\core' => APPS.'core/',
             'apps\controller' => APPS.'controller/',
+            'apps\controller\Component' => APPS.'controller/components',
             'apps\model' => APPS.'model/',
         ];
 

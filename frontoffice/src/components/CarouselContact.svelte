@@ -2,9 +2,10 @@
     import {onMount} from 'svelte'
     import Contact from './Contact.svelte'
     import Loading from './Loading.svelte'
+    import OnSuccess from './OnSuccess.svelte'
 
 
-    let slide_status = 'form',
+    let dataForm = {},
         getWindowProperties = ()=>{
             return {
                 w: window.innerWidth,
@@ -67,7 +68,8 @@
             if(window.location.hash !== '#/contact'){
                 position = getCoord()['onForm']
             }
-        }
+        },
+        onChange = e => dataForm[e.target.name] = e.target.value
 
     onMount(()=>{
         carouselSize()
@@ -78,7 +80,8 @@
 <div class="carousel-contact">
     <div class="wrap-parent" style="margin-top: -{position.y}px;">
         <div class="fullscreen form">
-            <Contact {onSlideStatus} />
+                <OnSuccess {dataForm} />
+            <Contact {onSlideStatus} bind:dataForm />
         </div>
         <div class="wrap" style="margin-left: -{position.x}px;">
             <div class="fullscreen error">
@@ -88,7 +91,7 @@
                 <Loading width="50" />
             </div>
             <div class="fullscreen success">
-                <h1>success</h1>
+                <OnSuccess {dataForm} />
             </div>
         </div>
     </div>
