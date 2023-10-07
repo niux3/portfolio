@@ -80,7 +80,6 @@
 <div class="carousel-contact">
     <div class="wrap-parent" style="margin-top: -{position.y}px;">
         <div class="fullscreen form">
-                <OnSuccess {dataForm} />
             <Contact {onSlideStatus} bind:dataForm />
         </div>
         <div class="wrap" style="margin-left: -{position.x}px;">
@@ -115,10 +114,6 @@
             transition: margin-left 400ms 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
         }
 
-        .success{
-            background-color: teal;
-        }
-
         .loading{
             display: flex;
             align-items: center;
@@ -128,7 +123,5 @@
         .error{
             background-color: orangered;
         }
-
-
     }
 </style>

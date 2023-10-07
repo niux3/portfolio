@@ -43,10 +43,6 @@
                     echo json_encode($ctx);
                     die;
                 }else{
-                    $ctx["status"] = true;
-                    echo json_encode($ctx);
-                    die;
-                    /*
                     try{
                         $mail = new PHPMailer(true);
                         $mail->isSMTP();
@@ -98,9 +94,7 @@
                         echo json_encode($ctx);
                         die;
                     }
-                    */
                 }
-
             }
         }
 

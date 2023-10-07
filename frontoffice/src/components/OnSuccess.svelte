@@ -33,27 +33,42 @@
             'vendredi',
             'samedi'
         ]
-    
-
 </script>
-<p>{JSON.stringify(dataForm)}</p>
-<p>{typeof dataForm['appointment']}</p>
-
 <div class="on-success">
-    <h1>Merci !</h1>
-    <p>Bonjour {dataForm['civility']} {dataForm['lastname']}, <br><br>Le mail que vous m'avez transmis m'a bien été remis. Je vous transmettrai dans les meilleurs délais une réponse.</p>
-    
-    {#if appointment }
+    <div class="wrap-on-success">
+        <h1>Merci !</h1>
+        <p>Bonjour {dataForm['civility']} {dataForm['lastname']}, <br><br>Le mail que vous m'avez transmis m'a bien été remis. Je vous transmettrai dans les meilleurs délais une réponse.</p>
         
-    <p>Je prends note du rendez vous que vous m'avez soumis</p>
-        <dl>
-            <dt>Date</dt>
-            <dd>{days[dateDayWeek]} {dateNumber} {months[dateMonth]} {dateYear}</dd>
-            <dt>Heure</dt>
-            <dd>{hour}</dd>
-            <dt>Téléphone</dt>
-            <dd>{phone}</dd>
-        </dl>
-    {/if}
-    <p>Si vous avez des questions annexes, n'hésitez pas à me contacter. Je me ferai un plaisir de vous répondre au mieux que je pourrai.<br> En ayant le plaisir de converser ou de discuter avec vous, <br>bien à vous et à bientôt</p>
+        {#if appointment }
+            
+        <p>Je prends note du rendez vous que vous m'avez soumis</p>
+            <dl>
+                <dt>Date</dt>
+                <dd>{days[dateDayWeek]} {dateNumber} {months[dateMonth]} {dateYear}</dd>
+                <dt>Heure</dt>
+                <dd>{hour}</dd>
+                <dt>Téléphone</dt>
+                <dd>{phone}</dd>
+            </dl>
+        {/if}
+        <p>Si vous avez des questions annexes, n'hésitez pas à me contacter. Je me ferai un plaisir de vous répondre au mieux que je pourrai.<br> En ayant le plaisir de converser ou de discuter avec vous, <br>bien à vous et à bientôt</p>
+    </div>
 </div>
+
+<style lang="scss">
+    .on-success{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .wrap-on-success{
+            max-width: 1124px;
+            width: 100%;
+            margin: 50px auto;
+
+            h1{
+                text-transform: uppercase;
+                text-align: center;
+            }
+        }
+    }
+</style>
