@@ -4,6 +4,7 @@
     import About from './About.svelte'
     import CarouselContact from './CarouselContact.svelte'
     import Projects from './Projects.svelte'
+    import Project from './Project.svelte'
 
 
     export let index
@@ -21,6 +22,8 @@
             slug: "denise"
         },
     ];
+
+    $: row = {}
 
 
     let getWindowProperties = ()=>{
@@ -70,6 +73,9 @@
     let hashchange = e =>{
         // console.log(window.location.hash, routes)
         let hash = window.location.hash
+
+        row = data.find(r => r.slug === hash)
+
         if(hash === document.querySelector('nav a:last-child').getAttribute('href')){
             document.querySelector('.carousel').style.transform = `translateY(-${getWindowProperties().h}px)`
         }else{
@@ -97,7 +103,9 @@
         <div class="fullscreen projects">
             <Projects {data} />
         </div>
-        <div class="fullscreen project">project</div>
+        <div class="fullscreen project">
+            <Project {row} />
+        </div>
     </div>
     <div class="contact">
         <CarouselContact />
