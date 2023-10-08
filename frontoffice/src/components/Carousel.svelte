@@ -13,10 +13,12 @@
         {
             id: 1,
             name: "Renaud",
+            slug: "renaud"
         },
         {
             id: 2,
             name: "Denis",
+            slug: "denise"
         },
     ];
 
@@ -52,6 +54,10 @@
                 $a.click()
             }
         })
+        for(let row of data){
+            routes.push(`#/${row.slug}`)
+        }
+        console.log("routes >>", routes)
     })
 
     let resize = e =>{
@@ -67,7 +73,7 @@
         if(hash === document.querySelector('nav a:last-child').getAttribute('href')){
             document.querySelector('.carousel').style.transform = `translateY(-${getWindowProperties().h}px)`
         }else{
-            index = routes.indexOf(window.location.hash)
+            index = routes.indexOf(window.location.hash) > 2 ? 2 : routes.indexOf(window.location.hash)
             let sleep = 0
             if(!/translateY\(0(px)?\)/.test(document.querySelector('.carousel').style.transform)){
                 document.querySelector('.carousel').style.transform = `translateY(0)`

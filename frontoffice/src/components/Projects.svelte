@@ -4,7 +4,7 @@
 
 <ul>
     {#each data as row}
-        <li>{ row.id }</li>
+        <li><a href="#/{row.slug}">{ row.id } {row.name}</a></li>
     {/each}
 </ul>
 
