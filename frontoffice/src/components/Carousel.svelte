@@ -23,7 +23,7 @@
         },
     ];
 
-    $: row = {}
+    let row = {}
 
 
     let getWindowProperties = ()=>{
@@ -73,8 +73,7 @@
     let hashchange = e =>{
         // console.log(window.location.hash, routes)
         let hash = window.location.hash
-
-        row = data.find(r => r.slug === hash)
+        row = data.find(r => r.slug === hash.substring(2))
 
         if(hash === document.querySelector('nav a:last-child').getAttribute('href')){
             document.querySelector('.carousel').style.transform = `translateY(-${getWindowProperties().h}px)`
