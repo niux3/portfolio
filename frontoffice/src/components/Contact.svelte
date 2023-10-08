@@ -325,7 +325,7 @@
             <div class="input textarea required">
                 <label>
                     <span>Message</span>
-                    <textarea name="message" required tabindex="1" on:keyup={e => dataForm['message'] = e.target.value}>lorem ipsum</textarea>
+                    <textarea name="message" required tabindex="1" on:keyup={e => dataForm['message'] = e.target.value}></textarea>
                 </label>
             </div>
             <div class="col">

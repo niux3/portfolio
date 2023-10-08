@@ -54,6 +54,7 @@
                         $mail->Username = 'renaudbourdeau@gmail.com';
                         $mail->Password = 'pvcr uiwq xjlt vlig ';
                         $mail->Port = 465;
+                        $mail->charSet = "UTF-8"; 
 
                         $mail->setFrom('renaudbourdeau@gmail.com');
                         $mail->addAddress('renaudbourdeau@gmail.com');
@@ -64,13 +65,14 @@
                         require_once APPS.'view/Mail/template_txt.php'; // $output_txt
                         require_once APPS.'view/Mail/template_html.php'; // $output_html
                         
-                        $mail->Subject = $_POST['subject'];
+                        $mail->Subject = sprintf('[PORTFOLIO] %s', $_POST['subject']);
                         $mail->Body = $output_txt;
                         
                         // mail txt (à moi)
                         if (!$mail->send()) {
                             throw new Exception('Mailer Error: ' . $mail->ErrorInfo);
                         } else {
+                            $mail->clearAddresses();
                             $mail->addAddress($_POST['email']);
                             $mail->isHTML(true);
                             $mail->Subject = "A propos de votre visite sur rb webstudio";
@@ -135,10 +137,10 @@ Tu vois, même si on frime comme on appelle ça en France... il faut se recréer
             ];
 
             extract($data);
-            require_once APPS.'view/Mail/template_mail_txt.php';
+            require_once APPS.'view/Mail/template_html.php';
 
             
-            printf('<pre>%s</pre>', $output_mail_txt);
+            printf('<pre>%s</pre>', $output_html);
             print_r($data);
 
 
