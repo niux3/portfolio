@@ -16,6 +16,14 @@
         public function __construct(){
             header("Access-Control-Allow-Origin: *");
             header("Access-Control-Allow-Headers: *");
+
+            // if(empty($_GET['apikey'])){
+            //     header('HTTP/1.1 400 Internal Server Error');
+            //     $ctx["errors"] = "mauvaise url";
+            //     $ctx["status"] = false;
+            //     echo json_encode($ctx);
+            //     die;
+            // }
         }
 
 
@@ -23,7 +31,6 @@
             if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest' && !empty($_POST)){
                 header('Content-Type: application/json; charset=utf-8');
 
-                sleep(1);
                 $_POST = Clean::normalize($_POST);
 
                 $mail_model = $this->loadModel('Mail');
@@ -72,6 +79,7 @@
                         if (!$mail->send()) {
                             throw new Exception('Mailer Error: ' . $mail->ErrorInfo);
                         } else {
+                            sleep(1);
                             $mail->clearAddresses();
                             $mail->addAddress($_POST['email']);
                             $mail->isHTML(true);
@@ -102,18 +110,20 @@
 
 
         function show(){
-            header('Content-Type: application/json; charset=utf-8');
-            $captcha = new \apps\core\libs\captcha\AsciiCaptcha('AnsiShadow');
-            $data = $captcha->getCaptcha();
+            if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest'){
+                header('Content-Type: application/json; charset=utf-8');
+                $captcha = new \apps\core\libs\captcha\AsciiCaptcha('AnsiShadow');
+                $data = $captcha->getCaptcha();
 
-            $arg_file = sprintf('%s/%s/%s.json', ROOT, 'logs', 'captcha');
-            file_put_contents($arg_file, json_encode($data));
+                $arg_file = sprintf('%s/%s/%s.json', ROOT, 'logs', 'captcha');
+                file_put_contents($arg_file, json_encode($data));
 
-            echo json_encode([
-                'token' => $data['token'],
-                'captcha' => array_values($data['captcha'])
-            ]);
-            die;
+                echo json_encode([
+                    'token' => $data['token'],
+                    'captcha' => array_values($data['captcha'])
+                ]);
+                die;
+            }
         }
 
         /*

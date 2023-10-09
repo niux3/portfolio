@@ -7,7 +7,20 @@
     export let dataForm
 
     let getCaptcha = () =>{
-        fetch('http://localhost/portfolio/frontoffice/services/mail/show').then(resp =>{
+        let headers = new Headers({
+                "X-Requested-With": "XMLHttpRequest",
+                "Accept": "application/json",
+                "Content-Type": "application/x-www-form-urlencoded"
+            }),
+            params = {
+                    method: 'GET',
+                    headers,
+                    cache: 'no-cache',
+                    redirect: 'follow',
+                    referrerPolicy: 'no-referrer',
+                    mode: "cors",
+            }
+        fetch('http://localhost/portfolio/frontoffice/services/mail/show.html', params).then(resp =>{
             if(resp.ok === true){
                 return resp.json()
             }
@@ -197,7 +210,7 @@
                     mode: "cors",
                     body: data
                 },
-                url ='http://localhost/portfolio/frontoffice/services/mail/send'
+                url ='http://localhost/portfolio/frontoffice/services/mail/send.html'
             fetch(url, params).then(resp =>{
                 if(resp.ok === true) 
                     return resp.json()

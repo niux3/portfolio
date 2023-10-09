@@ -1,4 +1,4 @@
 RewriteEngine on
 # RewriteRule .* public/$1 [L]
 # RewriteRule ^mail/test-send(\.html)?$ index.php?controller=mail&action=test_send [NC,L]
-RewriteRule ^([a-zA-Z]*)/?([a-zA-Z]*)?-?([a-zA-Z0-9]*)?-?(\.html)?$ index.php?controller=$1&action=$2&id=$3 [NC,L]
+RewriteRule ^([a-zA-Z]*)/?([a-zA-Z]*)?-?([a-zA-Z0-9]*)?-?(\.html)?$ index.php?controller=$1&action=$2&apikey=$3 [NC,L]
