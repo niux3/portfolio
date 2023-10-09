@@ -5,26 +5,13 @@
     import CarouselContact from './CarouselContact.svelte'
     import Projects from './Projects.svelte'
     import Project from './Project.svelte'
+    import data from '../data'
 
 
     export let index
 
-
-    let data = [
-        {
-            id: 1,
-            name: "Renaud",
-            slug: "renaud"
-        },
-        {
-            id: 2,
-            name: "Denis",
-            slug: "denise"
-        },
-    ];
-
-    let row = {}
-
+    let row = data[0],
+        rowindex = 1
 
     let getWindowProperties = ()=>{
             return {
@@ -73,12 +60,16 @@
     let hashchange = e =>{
         // console.log(window.location.hash, routes)
         let hash = window.location.hash
-        row = data.find(r => r.slug === hash.substring(2))
 
         if(hash === document.querySelector('nav a:last-child').getAttribute('href')){
             document.querySelector('.carousel').style.transform = `translateY(-${getWindowProperties().h}px)`
         }else{
             index = routes.indexOf(window.location.hash) > 2 ? 2 : routes.indexOf(window.location.hash)
+            if(index >= 2){
+                row = data.find(r => r.slug === hash.substring(2))
+                rowindex = data.indexOf(row) + 1
+            }
+
             let sleep = 0
             if(!/translateY\(0(px)?\)/.test(document.querySelector('.carousel').style.transform)){
                 document.querySelector('.carousel').style.transform = `translateY(0)`
@@ -103,7 +94,7 @@
             <Projects {data} />
         </div>
         <div class="fullscreen project">
-            <Project {row} />
+            <Project {row} len={data.length} index={rowindex} />
         </div>
     </div>
     <div class="contact">
@@ -137,7 +128,7 @@
         }
 
         .project{
-            background-color: tomato;
+            // background-color: tomato;
         }
 
         .contact{
