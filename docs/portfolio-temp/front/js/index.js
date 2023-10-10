@@ -83,14 +83,16 @@ class Carousel{
                 [directionTitle, directionIllustation] = this._index >= 0? ['', '-'] : ['-', ''],
                 indexDirection = this._index >= 0? this._index : Math.abs(this._index)
 
-            console.log('=> ', this._index)
+            // console.log('=> ', this._index)
 
             if(this._index % this._lenLi == 0){
+                // console.error('>> ', this._step)
+                // console.error('-> ', directionIllustation, directionTitle)
+                // console.log(this._step <= 0? 'negatif' : 'positif')
+
                 this._step = this._operatorStep === 1? this._step + 1 : this._step - 1
-                console.error('>> ', this._step)
-                console.error('-> ', directionIllustation, directionTitle)
-                console.log(this._step <= 0? 'negatif' : 'positif')
-                this._$ulTitle.style.marginTop = `-${this._step * this._lenLi * heightLiTitle}px`
+                let titleMarginTop = this._step <= 0? `${this._step * this._lenLi * heightLiTitle * (-1)}px` : `-${this._step * this._lenLi * heightLiTitle}px` 
+                this._$ulTitle.style.marginTop = titleMarginTop
                 this._$ulIllustration.style.marginTop = `${this._step * this._lenLi * heightLiIllustration}px`
             }
 
