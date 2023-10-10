@@ -69,6 +69,13 @@
                 row = data.find(r => r.slug === hash.substring(2))
                 rowindex = data.indexOf(row) + 1
             }
+            if(index === 1){
+                document.querySelector('.wrap').addEventListener('transitionend', e =>{
+                    document.querySelector('#home').classList.add('onFixed')
+                })
+                console.log(document.querySelector('#home'));
+                
+            }
 
             let sleep = 0
             if(!/translateY\(0(px)?\)/.test(document.querySelector('.carousel').style.transform)){

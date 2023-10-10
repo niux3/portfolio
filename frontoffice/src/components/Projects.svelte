@@ -1,10 +1,153 @@
 <script>
+    import {onMount} from 'svelte'
+    import Carousel from "../libs/carousel_project/Carousel";
+    import Utils from "../libs/utils/Utils";
+
     export let data
+    let len_data = data.length
+    let data_reverse = [...data].reverse()
+    let data_minus_one = [...data].reverse().slice(0, -1)
+    let data_changed = data_reverse.concat(data_reverse, data_reverse, data_minus_one, data, data, data, data)
+    // console.log(data);
+    // console.log(data_reverse);
+    // console.log(data_minus_one);
+    
+    onMount(()=>{
+        let carousel = new Carousel()
+
+        carousel.onLoad()
+        carousel.onResize(Utils)
+        carousel.onWheel(Utils)
+
+    })
+    
 </script>
 
-<ul>
-    {#each data as row}
-        <li><a href="#/{row.slug}">{ row.id } {row.name}</a></li>
-    {/each}
-</ul>
+<div id="home" class="carousel-project fullscreen" data-len="{ len_data }">
+    <div class="projects title">
+        <div class="wrap">
+            <ul>
+                {#each data_changed as row}
+                <li>
+                    <h2><a href={`#/${row.slug}`}>{ row.name }</a></h2>
+                </li>
+                {/each}
+            </ul>
+        </div>
+    </div>
+    <div class="projects illustrations">
+        <div class="wrap">
+            <ul>
+                {#each data_changed as row}
+                <li>
+                    <a href={`#/${row.slug}`}><img src="https://fakeimg.pl/800x400/?text={ row.slug }" alt=""></a>
+                </li>
+                {/each}
+            </ul>
+        </div>
+    </div>
+</div>
 
+<style lang="scss">
+    /*
+#home{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  height: 100%;
+//   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  &.onFixed{
+    position: fixed;
+  }
+
+  hr{
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border: 1px solid red;
+  }
+
+  > .projects{
+    position: relative;
+    height: 100%;
+    .wrap{
+      position: absolute;
+      top: 50%;
+      bottom: 0;
+      right: 44px;
+      left: 44px;
+      ul{
+        transition: transform 200ms;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    &.title{
+      &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        //bottom: 53%;
+        left: 0;
+        z-index: 2;
+        // background-color: map-get($colors, black12);
+        //background-color: red;
+        // opacity: .0;
+      }
+
+      &:after{
+        content: '';
+        position: absolute;
+        //top: 53%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        // background-color: map-get($colors, black12);
+        //background-color: blue;
+        z-index: 2;
+        opacity: .9;
+        // opacity: .0;
+      }
+
+
+      ul{
+        li{
+          margin: 0;
+          h2{
+            font-size: 3.9vw;
+            line-height: 4.94vw;
+            margin: 0;
+            font-family: 'boldcondensed', sans-serif;
+          }
+        }
+      }
+    }
+
+    &.illustrations{
+      ul{
+        li{
+          display: flex;
+          justify-content: right;
+          margin-bottom: 0;
+          img{
+            margin-bottom: 30px;
+            display: block;
+            width: 90%;
+          }
+        }
+      }
+    }
+  }
+}
+*/
+</style>
