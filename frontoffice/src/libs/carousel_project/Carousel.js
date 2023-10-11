@@ -60,6 +60,9 @@ export default class Carousel{
             this._setHeightLiIllustration()
             this._setPosMask()
             this._setCenterY()
+            this._setCenterY()
+            this._setCenterY()
+            this._setCenterY()
         }, 800))
     }
 
@@ -73,14 +76,12 @@ export default class Carousel{
     }
 
     onWheel(utils){
-        window.addEventListener('wheel', utils.debounce(e=>{
+        window.addEventListener('wheel', utils.throttle(e=>{
             this._setIndex(e)
             let heightLiTitle = this._$lisTitle[0].getBoundingClientRect().height,
                 heightLiIllustration = this._$lisIllustration[0].getBoundingClientRect().height,
                 [directionTitle, directionIllustation] = this._index >= 0? ['', '-'] : ['-', ''],
                 indexDirection = this._index >= 0? this._index : Math.abs(this._index)
-
-            // console.log('=> ', this._index)
 
             if(this._index % this._lenLi == 0){
                 // console.error('>> ', this._step)
@@ -95,6 +96,20 @@ export default class Carousel{
 
             this._$ulTitle.style.transform = `translateY(${directionTitle}${indexDirection * heightLiTitle}px)`
             this._$ulIllustration.style.transform = `translateY(${directionIllustation}${indexDirection * heightLiIllustration}px)`
+
+            // let current = (this._lenLi * 4 - 1) - 1
+            // this._$lisTitle[current].querySelector('a').style.color = 'red'
+            // console.log('>>>>',this._$lisTitle[current]);
+            // let animEndSlide;
+            // clearTimeout(animEndSlide)
+            // animEndSlide = null
+            // animEndSlide = setTimeout(()=>{
+            //     Array.from(this._$lisTitle).map(li => li.style.color = '#444')
+            //     let current = (this._lenLi * 4 - 1)
+            //     this._$lisTitle[current].style.color = 'red'
+            //     clearTimeout(animEndSlide)
+            //     animEndSlide = null
+            // }, 1000)
         }, 80))
     }
 }

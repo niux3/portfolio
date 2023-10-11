@@ -4,13 +4,12 @@
     import Utils from "../libs/utils/Utils";
 
     export let data
+
     let len_data = data.length
     let data_reverse = [...data].reverse()
     let data_minus_one = [...data].reverse().slice(0, -1)
     let data_changed = data_reverse.concat(data_reverse, data_reverse, data_minus_one, data, data, data, data)
-    // console.log(data);
-    // console.log(data_reverse);
-    // console.log(data_minus_one);
+    
     let positionCarousel = () =>{
         let w = window.innerWidth,
             h = window.innerHeight
@@ -56,7 +55,11 @@
             <ul>
                 {#each data_changed as row}
                 <li>
-                    <a href={`#/${row.slug}`}><img src="https://fakeimg.pl/800x400/?text={ row.slug }" alt=""></a>
+                    <a href={`#/${row.slug}`}>
+                      <img src="./mask.gif" alt="" width="800" height="400">
+                      <!-- <img src="https://fakeimg.pl/800x400/?text={ row.slug }" alt="" class="project-illustration" width="800"> -->
+                      <img src="https://picsum.photos/id/{parseInt(Math.random(1, 100) * 1000, 10)}/800/400" loading="lazy" alt={row.slug} class="project-illustration">
+                    </a>
                 </li>
                 {/each}
             </ul>

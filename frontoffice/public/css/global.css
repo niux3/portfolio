@@ -496,6 +496,10 @@ input.error, textarea.error{
   opacity: 0.9;
   background-color: #f5f5f5;
 }
+#home > .projects.title ul li a{
+    text-decoration: none;
+    color: #444;
+}
 #home > .projects ul li {
   margin: 0;
 }
@@ -512,7 +516,17 @@ input.error, textarea.error{
   margin-bottom: 0;
 }
 #home > .projects.illustrations ul li img {
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   display: block;
-  width: 90%;
+}
+#home > .projects.illustrations ul li a{
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+#home > .projects.illustrations ul li a .project-illustration{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
