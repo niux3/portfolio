@@ -1,6 +1,6 @@
 <script>
     import {onMount} from 'svelte'
-    import {debounce} from '../helpers'
+    import Utils from '../libs/utils/Utils'
     import About from './About.svelte'
     import CarouselContact from './CarouselContact.svelte'
     import Projects from './Projects.svelte'
@@ -47,13 +47,16 @@
         for(let row of data){
             routes.push(`#/${row.slug}`)
         }
-        console.log("routes >>", routes)
+
+        if(window.location.hash !== ''){
+            hashchange(null) // pas de var event !
+        }
     })
 
     let resize = e =>{
         carouselSize()
         
-        debounce(() => {
+        Utils.debounce(() => {
             document.querySelector(`nav a`).click()
         }, 200)()
     }
@@ -73,8 +76,6 @@
                 document.querySelector('.wrap').addEventListener('transitionend', e =>{
                     document.querySelector('#home').classList.add('onFixed')
                 })
-                console.log(document.querySelector('#home'));
-                
             }
 
             let sleep = 0

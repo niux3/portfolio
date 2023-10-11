@@ -11,8 +11,24 @@
     // console.log(data);
     // console.log(data_reverse);
     // console.log(data_minus_one);
-    
+    let positionCarousel = () =>{
+        let w = window.innerWidth,
+            h = window.innerHeight
+
+        document.querySelector('.carousel-project').style = [
+            `width:${w}px`, 
+            `height:${h}px`, 
+            `top:0`, 
+            `left:${w}px`, 
+            `right:${w}px`, 
+            `bottom:${h}px`, 
+        ].join(';')
+    }
+    let onResize = e =>{
+        Utils.debounce(positionCarousel, 200)()
+    }
     onMount(()=>{
+        positionCarousel()
         let carousel = new Carousel()
 
         carousel.onLoad()
@@ -22,8 +38,8 @@
     })
     
 </script>
-
-<div id="home" class="carousel-project fullscreen" data-len="{ len_data }">
+<svelte:window on:resize={onResize} />
+<div id="home" class="carousel-project" data-len="{ len_data }">
     <div class="projects title">
         <div class="wrap">
             <ul>

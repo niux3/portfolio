@@ -25,9 +25,6 @@ export default class Carousel{
             posUlBaseIllustration = this._roundHeightLiIllustration / 2,
             posUlTitle = referencePos * this._$lisTitle[0].getBoundingClientRect().height,
             posUlIllustration = referencePos * this._$lisIllustration[0].getBoundingClientRect().height
-        console.log('ref pos', referencePos)
-        console.log('title', this._roundHeightLiTitle, posUlBaseTitle);
-        console.log('illus', this._roundHeightLiIllustration, posUlBaseIllustration);
 
         this._$ulTitle.closest('.wrap').style.marginTop = `-${posUlBaseTitle + posUlTitle}px`
         this._$ulIllustration.closest('.wrap').style.marginTop = `-${posUlBaseIllustration + posUlIllustration}px`

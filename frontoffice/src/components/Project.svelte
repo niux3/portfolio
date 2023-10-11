@@ -5,8 +5,6 @@
     $: thumb = row.images.find(img => /\d+--1/.test(img)) !== undefined?
         row.images.find(img => /\d+--1/.test(img)) :
         "https://placekitten.com/g/914/533"
-    console.log(row.images.find(img => /\d+--1/.test(img)))
-    console.log('>>>', row.images)
 </script>
 <header>
     <div class="description">
