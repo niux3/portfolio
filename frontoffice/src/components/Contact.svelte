@@ -273,7 +273,7 @@
                 <div class="input select required cell-4">
                     <label>
                         <span>Civilité</span>
-                        <select name="civility" required tabindex="1" bind:value={dataForm['civility']}>
+                        <select name="civility" required tabindex="1" bind:value={dataForm['civility']} class="event-cursor">
                             <option value="">choisir</option>
                             <option value="Mademoiselle">Mademoiselle</option>
                             <option value="Madame">Madame</option>
@@ -284,13 +284,13 @@
                 <div class="input text cell-4">
                     <label>
                         <span>Prénom</span>
-                        <input type="text" name="firstname" tabindex="1" bind:value={dataForm['firstname']}>
+                        <input type="text" name="firstname" tabindex="1" bind:value={dataForm['firstname']} class="event-cursor">
                     </label>
                 </div>
                 <div class="input text required cell-4">
                     <label>
                         <span>Nom</span>
-                        <input type="text" name="lastname" required tabindex="1" bind:value={dataForm['lastname']}>
+                        <input type="text" name="lastname" required tabindex="1" bind:value={dataForm['lastname']} class="event-cursor">
                     </label>
                 </div>
             </div>
@@ -298,19 +298,19 @@
                 <div class="input text required cell-6">
                     <label>
                         <span>Email</span>
-                        <input type="text" name="email" required tabindex="1" bind:value={dataForm['email']}>
+                        <input type="text" name="email" required tabindex="1" bind:value={dataForm['email']} class="event-cursor">
                     </label>
                 </div>
                 <div class="input text required cell-6">
                     <label>
                         <span>Sujet</span>
-                        <input type="text" name="subject" required tabindex="1" bind:value={dataForm['subject']}>
+                        <input type="text" name="subject" required tabindex="1" bind:value={dataForm['subject']} class="event-cursor">
                     </label>
                 </div>
             </div>
             <div class="col">
-                <div class="cell-3 input checkbox">
-                    <label>
+                <div class="cell-4 input checkbox">
+                    <label class="event-cursor">
                         <input type="checkbox" name="appointment" tabindex="1" bind:checked={dataForm['appointment']}>
                         <span>Prendre rendez vous avec moi&nbsp;?&nbsp;</span>
                     </label>
@@ -318,19 +318,19 @@
                 <div class="cell-3 input tel required">
                     <label>
                         <span>Téléphone</span>
-                        <input type="text" name="phone" tabindex="0" bind:value={dataForm['phone']}>
+                        <input type="text" name="phone" tabindex="0" bind:value={dataForm['phone']} class="event-cursor">
                     </label>
                 </div>
                 <div class="cell-3 input date required">
                     <label>
                         <span>Date</span>
-                        <input type="date" name="date_appointment" tabindex="0" bind:value={dataForm['date_appointment']}>
+                        <input type="date" name="date_appointment" tabindex="0" bind:value={dataForm['date_appointment']} class="event-cursor">
                     </label>
                 </div>
-                <div class="cell-3 input time required">
+                <div class="cell-2 input time required">
                     <label>
                         <span>Heure</span>
-                        <input type="time" name="hour_appointment" tabindex="0" bind:value={dataForm['hour_appointment']}>
+                        <input type="time" name="hour_appointment" tabindex="0" bind:value={dataForm['hour_appointment']} class="event-cursor">
                     </label>
                 </div>
             </div>
@@ -338,7 +338,7 @@
             <div class="input textarea required">
                 <label>
                     <span>Message</span>
-                    <textarea name="message" required tabindex="1" on:keyup={e => dataForm['message'] = e.target.value}></textarea>
+                    <textarea name="message" required tabindex="1" on:keyup={e => dataForm['message'] = e.target.value} class="event-cursor"></textarea>
                 </label>
             </div>
             <div class="col">
@@ -349,13 +349,13 @@
                     <div class="input text required no-margin">
                         <label>
                             <span>Recopier le motif</span>
-                            <input type="text" maxlength="4" required name="captcha" tabindex="1">
+                            <input type="text" maxlength="4" required name="captcha" tabindex="1" class="event-cursor">
                         </label>
                     </div>
                 </div>
                 <div class="cell-4">
                     <div class="input submit">
-                        <button type="submit" tabindex="1">envoyer</button>
+                        <button type="submit" tabindex="1" class="event-cursor">envoyer</button>
                     </div>
                 </div>
             </div>
@@ -479,14 +479,34 @@
 
                     &.checkbox{
                         margin: auto 0;
+                        
+                        label{
+                            padding: 7px;
+                            position: relative;
+                            z-index: 1;
+                            display: flex;
+
+                            span, input, div{
+                                display: block;
+                                position: relative;
+                                z-index: 1;
+                            }
+
+                            span{
+                                margin-left: 5px;
+                            }
+                        }
                     }
 
                     &.required{
-                        label > span:first-of-type{
-                            &:after{
-                                content : ' *';
-                                color: red;
-                                font-weight: 600;
+                        label{
+                            position: relative;
+                            > span:first-of-type{
+                                &:after{
+                                    content : ' *';
+                                    color: red;
+                                    font-weight: 600;
+                                }
                             }
                         }
                     }
@@ -521,12 +541,24 @@
                 width: 49%;
             }
 
-            .cell-3{
-                width: 24%;
+            .cell-5{
+                width: 41%;
             }
 
             .cell-4{
                 width: 32%;
+            }
+
+            .cell-3{
+                width: 24%;
+            }
+
+            .cell-2{
+                width: 15%;
+            }
+
+            .cell-1{
+                width: 7%;
             }
         }
 

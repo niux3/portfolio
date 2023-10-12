@@ -353,6 +353,10 @@ template {
 span.error{
     color: red;
     text-transform:unset !important;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
 }
 
 input.error, textarea.error{
@@ -529,4 +533,21 @@ input.error, textarea.error{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+#cursor{
+    width: 10px;
+    height: 10px;
+    border: 2px solid #444;
+    border-radius: 50%;
+    position: fixed;
+    transition: width 200ms, height 200ms, padding 200ms, border-radius 200ms;
+    transform: translate(-50%, -50%);
+    z-index: 500;
+    pointer-events: none;
+}
+
+*{
+    cursor:none !important;
 }

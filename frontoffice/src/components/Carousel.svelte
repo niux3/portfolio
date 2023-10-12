@@ -37,6 +37,24 @@
 
     let routes = []
     onMount(()=>{
+        /*
+        let $images = document.querySelectorAll('#home .project-illustration'),
+            lenImgs = $images.length
+        for(let i = 0; i < lenImgs; i++){
+            let img = new Image()
+            img.src = $images[i].src
+
+            img.addEventListener('load', e =>{
+                let percent = (i + 1) * 100 / lenImgs
+                if(i >= lenImgs - 1){
+                    console.log('100');
+
+                }
+                    console.log(percent)
+            })
+        }
+        */
+
         carouselSize()
         document.querySelectorAll('nav a').forEach(($a, i) =>{
             routes.push($a.getAttribute('href'))

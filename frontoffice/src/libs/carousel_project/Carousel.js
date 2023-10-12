@@ -56,13 +56,17 @@ export default class Carousel{
 
     onResize(utils){
         window.addEventListener('resize', utils.debounce(e =>{
+            window.location.reload()
+            /*
             this._setHeightLiTitle()
             this._setHeightLiIllustration()
             this._setPosMask()
             this._setCenterY()
-            this._setCenterY()
-            this._setCenterY()
-            this._setCenterY()
+            let centerAgain = setTimeout(()=>{
+                this._setCenterY()
+                clearTimeout(centerAgain)
+            }, 0)
+            */
         }, 800))
     }
 
