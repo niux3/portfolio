@@ -566,3 +566,104 @@ input.error, textarea.error, select.error{
 *{
     cursor:none !important;
 }
+
+article header{
+    margin-top: 40vh;
+    padding: 0 2.5vw;
+}
+article header .counter{
+    font-size: 1vw;
+    position: relative;
+}
+
+article header h1{
+    max-width: 35vw;
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 4vw;
+    line-height: 1;
+    font-weight: 400;
+    position: relative;
+}
+
+article header .wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+article header .cartouche{
+    display: flex;
+}
+
+article header .cartouche dl{
+    margin: 0;
+}
+
+article header .cartouche dl:nth-child(2){
+    max-width: 10em;
+    margin: 0 3vw;
+}
+
+article header .cartouche dl dt{
+    text-transform: uppercase;
+    font-size: .85vw;
+}
+
+article header .cartouche dl dd{
+    margin-left: 0;
+    font-size: 1vw;
+}
+
+article header .wrap ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+article header .wrap ul li{
+    margin: 0 .5vw;
+    /*min-width: 120px;*/
+    padding: 0.4vw 1vw;
+    border: 1px solid #f8f8f8;
+    border-radius: 100vw;
+    font-size: .65vw;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    border-color: #1d1d1d;
+    height: 2vw;
+    line-height: 1.3vw;
+}
+
+article .content{
+    margin-top: 4vw;
+    padding: 0 25px;
+    min-height: 2000px;
+}
+
+article .content img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+article footer{
+    position: fixed;
+    bottom: -50px;
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
+    align-items: center;
+    left: 10vw;
+    right: 10vw;
+    transition: bottom .4s;
+}
+
+
+article footer a{
+    display: flex !important;
+    align-items: center;
+    opacity: 0;
+}

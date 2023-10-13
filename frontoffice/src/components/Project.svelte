@@ -6,6 +6,7 @@
         row.images.find(img => /\d+--1/.test(img)) :
         "https://placekitten.com/g/914/533"
 </script>
+<article>
 <header>
     <div class="description">
         <p class="counter">✺&nbsp;&nbsp;{index} - {len}</p>
@@ -58,3 +59,4 @@
         </div>
     </div>
 </div>
+</article>
