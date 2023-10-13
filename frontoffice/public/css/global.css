@@ -359,7 +359,7 @@ span.error{
     left: 0;
 }
 
-input.error, textarea.error{
+input.error, textarea.error, select.error{
     border-color: #f00 !important;
 }
 
