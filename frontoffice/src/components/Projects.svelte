@@ -44,7 +44,7 @@
             <ul>
                 {#each data_changed as row}
                 <li>
-                    <h2><a href={`#/${row.slug}`}>{ row.name }</a></h2>
+                    <h2><a href={`#/${row.slug}`} class="event-cursor">{ row.name }</a></h2>
                 </li>
                 {/each}
             </ul>
@@ -56,6 +56,7 @@
                 {#each data_changed as row}
                 <li>
                     <a href={`#/${row.slug}`}>
+                      <span class="event-cursor"></span>
                       <img src="./mask.gif" alt="" width="800" height="400">
                       <!-- <img src="https://fakeimg.pl/800x400/?text={ row.slug }" alt="" class="project-illustration" width="800"> -->
                       <img src="https://picsum.photos/id/{parseInt(Math.random(1, 100) * 1000, 10)}/800/400" loading="lazy" alt={row.slug} class="project-illustration">
