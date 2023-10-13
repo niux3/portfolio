@@ -2,7 +2,26 @@
     import {onMount} from 'svelte'
     
     
-    let hash = window.location.hash
+    let hash = null,
+        onHashChange = e => {
+            hash = window.location.hash
+            let $as = Array.from(document.querySelectorAll('nav a')),
+                hrefs = []
+            $as.map($a => hrefs.push($a.href))
+            if(hrefs.every(href => href !== hash)){
+                hash = $as[1].href
+            }
+
+        },
+        onLoad = e => {
+            hash = window.location.hash
+            let selector = hash === ''? 'nav a' : `nav a[href="${hash}"]`
+            if(document.querySelector(selector) === null){
+                selector = 'nav a[href="#/projets"]'
+            }
+            console.log(document.querySelector(selector));
+            document.querySelector(selector).classList.add('current')
+        }
     
     onMount(()=>{
         let $as = document.querySelectorAll('nav a')
@@ -15,6 +34,7 @@
         })
     })
 </script>
+<svelte:window on:hashchange={onHashChange} on:load={onLoad} />
 <nav>
     <a href="#/a-propos-de-moi" class="event-cursor {hash === '#/a-propos-de-moi'? 'current' : ''}">à propos de moi</a>
     <a href="#/projets" class="event-cursor {hash === '#/projets'? 'current' : ''}">réalisations</a>
