@@ -532,6 +532,9 @@ input.error, textarea.error, select.error{
     margin-bottom: 30px;
     position: relative;
     overflow: hidden;
+    z-index: 200;
+    border-radius: 6px;
+    background-color: #ddd;
 }
 
 #home > .projects.illustrations ul li a .event-cursor{
