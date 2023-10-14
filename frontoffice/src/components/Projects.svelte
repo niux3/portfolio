@@ -59,7 +59,7 @@
                       <span class="event-cursor"></span>
                       <img src="./mask.gif" alt="" width="800" height="400">
                       <!-- <img src="https://fakeimg.pl/800x400/?text={ row.slug }" alt="" class="project-illustration" width="800"> -->
-                      <img src="https://picsum.photos/id/{parseInt(Math.random(1, 100) * 1000, 10)}/800/400" loading="lazy" alt={row.slug} class="project-illustration">
+                      <img src="https://picsum.photos/id/{parseInt(Math.random(1, 100) * 1000, 10)}/800/400" loading="lazy" alt={row.name} class="project-illustration">
                     </a>
                 </li>
                 {/each}
