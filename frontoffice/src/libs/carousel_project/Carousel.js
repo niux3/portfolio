@@ -81,39 +81,41 @@ export default class Carousel{
 
     onWheel(utils){
         window.addEventListener('wheel', utils.throttle(e=>{
-            this._setIndex(e)
-            let heightLiTitle = this._$lisTitle[0].getBoundingClientRect().height,
-                heightLiIllustration = this._$lisIllustration[0].getBoundingClientRect().height,
-                [directionTitle, directionIllustation] = this._index >= 0? ['', '-'] : ['-', ''],
-                indexDirection = this._index >= 0? this._index : Math.abs(this._index)
+            if(window.location.hash === '#/projets'){
+                this._setIndex(e)
+                let heightLiTitle = this._$lisTitle[0].getBoundingClientRect().height,
+                    heightLiIllustration = this._$lisIllustration[0].getBoundingClientRect().height,
+                    [directionTitle, directionIllustation] = this._index >= 0? ['', '-'] : ['-', ''],
+                    indexDirection = this._index >= 0? this._index : Math.abs(this._index)
 
-            if(this._index % this._lenLi == 0){
-                // console.error('>> ', this._step)
-                // console.error('-> ', directionIllustation, directionTitle)
-                // console.log(this._step <= 0? 'negatif' : 'positif')
+                if(this._index % this._lenLi == 0){
+                    // console.error('>> ', this._step)
+                    // console.error('-> ', directionIllustation, directionTitle)
+                    // console.log(this._step <= 0? 'negatif' : 'positif')
 
-                this._step = this._operatorStep === 1? this._step + 1 : this._step - 1
-                let titleMarginTop = this._step <= 0? `${this._step * this._lenLi * heightLiTitle * (-1)}px` : `-${this._step * this._lenLi * heightLiTitle}px` 
-                this._$ulTitle.style.marginTop = titleMarginTop
-                this._$ulIllustration.style.marginTop = `${this._step * this._lenLi * heightLiIllustration}px`
+                    this._step = this._operatorStep === 1? this._step + 1 : this._step - 1
+                    let titleMarginTop = this._step <= 0? `${this._step * this._lenLi * heightLiTitle * (-1)}px` : `-${this._step * this._lenLi * heightLiTitle}px` 
+                    this._$ulTitle.style.marginTop = titleMarginTop
+                    this._$ulIllustration.style.marginTop = `${this._step * this._lenLi * heightLiIllustration}px`
+                }
+
+                this._$ulTitle.style.transform = `translateY(${directionTitle}${indexDirection * heightLiTitle}px)`
+                this._$ulIllustration.style.transform = `translateY(${directionIllustation}${indexDirection * heightLiIllustration}px)`
+
+                // let current = (this._lenLi * 4 - 1) - 1
+                // this._$lisTitle[current].querySelector('a').style.color = 'red'
+                // console.log('>>>>',this._$lisTitle[current]);
+                // let animEndSlide;
+                // clearTimeout(animEndSlide)
+                // animEndSlide = null
+                // animEndSlide = setTimeout(()=>{
+                //     Array.from(this._$lisTitle).map(li => li.style.color = '#444')
+                //     let current = (this._lenLi * 4 - 1)
+                //     this._$lisTitle[current].style.color = 'red'
+                //     clearTimeout(animEndSlide)
+                //     animEndSlide = null
+                // }, 1000)
             }
-
-            this._$ulTitle.style.transform = `translateY(${directionTitle}${indexDirection * heightLiTitle}px)`
-            this._$ulIllustration.style.transform = `translateY(${directionIllustation}${indexDirection * heightLiIllustration}px)`
-
-            // let current = (this._lenLi * 4 - 1) - 1
-            // this._$lisTitle[current].querySelector('a').style.color = 'red'
-            // console.log('>>>>',this._$lisTitle[current]);
-            // let animEndSlide;
-            // clearTimeout(animEndSlide)
-            // animEndSlide = null
-            // animEndSlide = setTimeout(()=>{
-            //     Array.from(this._$lisTitle).map(li => li.style.color = '#444')
-            //     let current = (this._lenLi * 4 - 1)
-            //     this._$lisTitle[current].style.color = 'red'
-            //     clearTimeout(animEndSlide)
-            //     animEndSlide = null
-            // }, 1000)
         }, 80))
     }
 }
