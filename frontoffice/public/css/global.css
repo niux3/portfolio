@@ -535,6 +535,7 @@ input.error, textarea.error, select.error{
     z-index: 200;
     border-radius: 6px;
     background-color: #ddd;
+    color: #444;
 }
 
 #home > .projects.illustrations ul li a .event-cursor{

@@ -51,10 +51,10 @@
             <div class="resume">
                 <div>{row.description}</div>
                 <ul>
-                    <li><strong>client</strong><span>ACME</span></li>
-                    <li><strong>année</strong><span>2021</span></li>
-                    <li><strong>type</strong><span>frontend</span></li>
-                    <li><strong>lieu</strong><span>Paris</span></li>
+                    <li><strong>client</strong><span>{row.customer}</span></li>
+                    <li><strong>année</strong><span>{row.year}</span></li>
+                    <li><strong>type</strong><span>{row.function}</span></li>
+                    <li><strong>lieu</strong><span>{row.location}</span></li>
                 </ul>
             </div>
         </div>

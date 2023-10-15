@@ -48,6 +48,8 @@ def create_portfolio():
             'sort': last_id + 1,
             'year': form.year.data,
             'activities': form.activities.data,
+            'customer': form.customer.data,
+            'location': form.location.data,
         }
 
         portfolio = Portfolio(**data)
@@ -78,6 +80,8 @@ def update_portfolio(id):
         row.online = form.online.data
         row.functions_id = form.functions.data.id
         row.activities_id = form.activities.data.id
+        row.location = form.location.data
+        row.customer = form.customer.data
         db.session.commit()
 
         rows = portfolio_technology.delete().where(portfolio_technology.c.portfolios_id == row.id)

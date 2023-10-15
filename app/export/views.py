@@ -22,6 +22,8 @@ def index():
             p.url as purl,
             p.color as pcolor,
             p.year as pyear,
+            p.customer as pcustomer,
+            p.location as plocation,
             a.name as aname,
             a.icon as aicon,
             f.name as fname
@@ -79,6 +81,8 @@ def index():
             'activity_name': row.aname,
             'activity_icon': row.aicon,
             'function': row.fname,
+            'location': row.plocation,
+            'customer': row.pcustomer,
             'technologies': technologies,
             'images': images
         }

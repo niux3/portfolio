@@ -68,6 +68,9 @@ class Portfolio(db.Model):
     sort = db.Column(db.Integer, nullable=False)
     year = db.Column(db.Integer, nullable=True)
     activities_id = db.Column(db.Integer, db.ForeignKey('activities.id'))
+    customer = db.Column(db.String(128), nullable=False)
+    location = db.Column(db.String(128), nullable=False)
+
 
     def __str__(self):
         return self.name

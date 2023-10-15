@@ -22,6 +22,8 @@ class PortfolioForm(FlaskForm):
     year = StringField('year', validators=[InputRequired()], render_kw={"class": "form-control"})
     description = StringField('description', validators=[InputRequired()], widget=TextArea(), render_kw={"class": "form-control description"})
     color = StringField('couleur', validators=[InputRequired()], render_kw={"class": "form-control", "type": "color"})
+    customer = StringField('customer', validators=[InputRequired()], render_kw={"class": "form-control"})
+    location = StringField('location', validators=[InputRequired()], render_kw={"class": "form-control"})
     online = BooleanField('en ligne', render_kw={"class": "form-check-input", "value": "1"})
     activities = QuerySelectField(query_factory=lambda: Activity.query.all())
     functions = QuerySelectField(query_factory=lambda: Function.query.all())
