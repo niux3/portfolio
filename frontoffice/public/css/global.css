@@ -359,6 +359,10 @@ span.error{
     left: 0;
 }
 
+.row-appointement span.error{
+    position: static !important;
+}
+
 input.error, textarea.error, select.error{
     border-color: #f00 !important;
 }

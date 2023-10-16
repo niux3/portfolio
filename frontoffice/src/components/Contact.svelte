@@ -308,7 +308,7 @@
                     </label>
                 </div>
             </div>
-            <div class="col">
+            <div class="col row-appointement">
                 <div class="cell-4 input checkbox">
                     <label class="event-cursor">
                         <input type="checkbox" name="appointment" tabindex="1" bind:checked={dataForm['appointment']}>
