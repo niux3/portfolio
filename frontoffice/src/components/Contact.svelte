@@ -268,7 +268,7 @@
     <div class="wrap-contact">
         <h1>Travaillons ensemble</h1>
         <p class="intro">proposition de carrière &#x2022; me dire bonjour</p>
-        <form id="form-contact">
+        <form id="form-contact" autocomplete="off">
             <div class="col">
                 <div class="input select required cell-4">
                     <label>
