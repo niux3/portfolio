@@ -47,7 +47,7 @@ def create_portfolio():
             'functions_id': form.functions.data.id,
             'sort': last_id + 1,
             'year': form.year.data,
-            'activities': form.activities.data,
+            'activities_id': form.activities.data.id,
             'customer': form.customer.data,
             'location': form.location.data,
         }
