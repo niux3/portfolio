@@ -231,7 +231,7 @@
                         }
                     }
                 }else{
-                    // $el.reset()
+                    $el.reset()
                     onSlideStatus('onSuccess')
                 }
             }).catch(err => {

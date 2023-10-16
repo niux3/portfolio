@@ -83,7 +83,7 @@
                             $mail->clearAddresses();
                             $mail->addAddress($_POST['email']);
                             $mail->isHTML(true);
-                            $mail->Subject = "A propos de votre visite sur rb webstudio";
+                            $mail->Subject = "A propos de votre visite sur rb webstudio le ".date('d/m/Y');
                             $mail->Body = $output_html;
                             
                             // réponse automatique
