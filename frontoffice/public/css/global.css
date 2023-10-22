@@ -866,3 +866,27 @@ article footer a span{
     top: 0;
     transition-delay: 600ms;
 }
+
+
+.about h1{
+    transform: translateX(100px);
+    opacity: 0 !important;
+    transition: transform 400ms cubic-bezier(.79,0,.31,.98) 600ms, opacity 400ms cubic-bezier(.79,0,.31,.98) 600ms;
+}
+
+.about .mouse-icon{
+    opacity: 0;
+    bottom: -100px;
+    transition: bottom 400ms cubic-bezier(.79,0,.31,.98) 800ms, opacity 400ms cubic-bezier(.79,0,.31,.98) 800ms;
+}
+
+.about.anim h1{
+    transform: translateX(0);
+    opacity: 1 !important;
+}
+.about.anim .mouse-icon{
+    bottom: 25px;
+    opacity: 1;
+}
+
+

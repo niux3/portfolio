@@ -4,7 +4,12 @@
     let now = new Date(), 
         year = now.getFullYear() - 2009
 
-
+    onMount(()=>{
+        let animAbout = setTimeout(()=>{
+            document.querySelector('.about').classList.add('anim')
+            clearTimeout(animAbout)
+        }, window.location.hash !== '' ? 1000 : 4000)
+    })
     
 </script>
 <div class="about">

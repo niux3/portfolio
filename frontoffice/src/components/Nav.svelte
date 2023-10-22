@@ -38,7 +38,8 @@
         })
 
         let animNav = setTimeout(()=>{
-            document.querySelector('.wrap-nav').classList.add('anim');
+            document.querySelector('.wrap-nav').classList.add('anim')
+            clearTimeout(animNav)
         }, window.location.hash !== '' ? 800 : 3500);
 
     })
