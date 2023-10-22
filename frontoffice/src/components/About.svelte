@@ -1,6 +1,11 @@
 <script>
+    import {onMount} from 'svelte'
+
     let now = new Date(), 
         year = now.getFullYear() - 2009
+
+
+    
 </script>
 <div class="about">
     <div class="intro">
