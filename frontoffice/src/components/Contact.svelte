@@ -264,7 +264,7 @@
     }
 </script>
 <svelte:window on:hashchange={hashchange} />
-<div class="contact">
+<div class="contact" id="contact">
     <div class="wrap-contact">
         <h1>Travaillons ensemble</h1>
         <p class="intro">proposition de carrière &#x2022; me dire bonjour</p>
