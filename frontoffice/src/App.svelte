@@ -48,7 +48,6 @@
                 index = index !== -1 ? index : registryHash.length - 1
                 document.querySelector(registryHash[index]).classList.add('anim')
             }, 1000)
-
         }
 
         window.addEventListener('hashchange', e =>{

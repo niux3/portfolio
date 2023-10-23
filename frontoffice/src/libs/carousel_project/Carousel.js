@@ -54,6 +54,10 @@ export default class Carousel{
         this._operatorStep = e.deltaY >= 0?  1 : - 1
     }
 
+    getIndex(){
+        return this._index
+    }
+
     onResize(utils){
         window.addEventListener('resize', utils.debounce(e =>{
             window.location.reload()

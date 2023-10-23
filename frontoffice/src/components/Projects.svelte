@@ -34,6 +34,30 @@
         carousel.onResize(Utils)
         carousel.onWheel(Utils)
 
+        // let $lisTitle = Array.from(document.querySelectorAll('.projects.title li')),
+        //     $lisIllus = Array.from(document.querySelectorAll('.projects.illustrations li'))
+        // window.addEventListener('hashchange', e =>{
+        //     if(window.location.hash === '#/projets'){
+        //     console.log(carousel.getIndex())
+        //         let i = 0,
+        //             animInterval = setInterval(()=>{
+        //                 $lisTitle[i].classList.add('anim')
+        //                 $lisIllus[i].classList.add('anim')
+                        
+        //                 i += 1
+        //                 if(i >= $lisTitle.length){
+        //                     clearInterval(animInterval);
+        //                 }
+        //             }, 5)
+        //     }else{
+        //         let animRemoveClass = setTimeout(()=>{
+        //             $lisTitle.map($el => $el.classList.remove('anim'))
+        //             $lisIllus.map($el => $el.classList.remove('anim'))
+        //             clearTimeout(animRemoveClass)
+        //         }, 800)
+        //     }
+        // })
+
     })
     
 </script>

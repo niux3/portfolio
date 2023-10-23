@@ -1,12 +1,25 @@
 <script>
     import { onMount } from 'svelte'
     import Validator from '../libs/validator/Validator'
+    import Utils from '../libs/utils/Utils'
 
 
     export let onSlideStatus
     export let dataForm
+    let appear = ()=>{
+        let elsAnimated = Array.from(document.querySelectorAll('#contact h1, #contact p.intro, .input, .captcha-pattern pre'))
+        elsAnimated = Utils.shuffle(elsAnimated)
 
-    let getCaptcha = () =>{
+        let i = 0,
+            animEls = setInterval(()=>{
+                elsAnimated[i].classList.add('anim')
+                i += 1
+                if(i >= elsAnimated.length){
+                    clearInterval(animEls)
+                }
+            }, 50)
+    }
+    let getCaptcha = (callback=null) =>{
         let headers = new Headers({
                 "X-Requested-With": "XMLHttpRequest",
                 "Accept": "application/json",
@@ -41,6 +54,9 @@
                 outputChars += `<pre class="cell-3" style="${styles.join(';')}">${data['captcha'][i]}</pre>`
             }
             document.querySelector('.captcha-pattern').innerHTML = outputChars
+            if(callback !== null){
+                callback()
+            }
         })
     }
 
@@ -256,10 +272,15 @@
         })
 
         validate.form()
+        getCaptcha(appear)
     })
+
     let hashchange = e =>{
         if(window.location.hash === '#/contact'){
-            getCaptcha()
+            getCaptcha(appear)
+        }else{
+            let elsAnimated = Array.from(document.querySelectorAll('#contact h1, #contact p.intro, .input, .captcha-pattern pre'))
+            elsAnimated.map(el => el.classList.remove('anim'))
         }
     }
 </script>

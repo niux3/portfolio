@@ -869,7 +869,7 @@ article footer a span{
 
 
 .about h1{
-    transform: translateX(100px);
+    transform: translateX(-100px);
     opacity: 0 !important;
     transition: transform 400ms cubic-bezier(.79,0,.31,.98) 600ms, opacity 400ms cubic-bezier(.79,0,.31,.98) 600ms;
 }
@@ -889,4 +889,14 @@ article footer a span{
     opacity: 1;
 }
 
+#contact h1,
+#contact p.intro,
+#contact .input,
+#contact pre {
+    opacity: 0;
+    transition: opacity 400ms;
+}
 
+#contact .anim{
+    opacity: 1 !important;
+}
