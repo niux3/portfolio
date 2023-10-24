@@ -19,7 +19,6 @@
             if(document.querySelector(selector) === null){
                 selector = 'nav a[href="#/projets"]'
             }
-            console.log(document.querySelector(selector));
             document.querySelector(selector).classList.add('current')
         }
     

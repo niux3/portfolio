@@ -578,6 +578,8 @@ article header{
 article header .counter{
     font-size: 1vw;
     position: relative;
+    opacity: 0;
+    bottom: -10px;
 }
 
 article header h1{
@@ -588,6 +590,8 @@ article header h1{
     line-height: 1;
     font-weight: 400;
     position: relative;
+    opacity: 0;
+    bottom: -10px;
 }
 
 article header .wrap{
@@ -602,11 +606,21 @@ article header .cartouche{
 
 article header .cartouche dl{
     margin: 0;
+    position: relative;
+    opacity: 0;
 }
 
+article header .cartouche dl:nth-child(1){
+    left: -10px;
+}
 article header .cartouche dl:nth-child(2){
     max-width: 10em;
     margin: 0 3vw;
+    bottom: -10px;
+}
+
+article header .cartouche dl:nth-child(3){
+    right: -10px;
 }
 
 article header .cartouche dl dt{
@@ -639,12 +653,21 @@ article header .wrap ul li{
     border-color: #1d1d1d;
     height: 2vw;
     line-height: 1.3vw;
+    position: relative;
+    bottom: -10px;
+    opacity: 0;
 }
 
 article .content{
     margin-top: 4vw;
     padding: 0 25px;
     min-height: 2000px;
+}
+
+article .content .wrap-thumb{
+    position: relative;
+    bottom: -10px;
+    opacity: 0;
 }
 
 article .content img{
@@ -899,4 +922,121 @@ article footer a span{
 
 #contact .anim{
     opacity: 1 !important;
+}
+
+
+#projet.anim p.counter, 
+#projet.anim h1{
+    animation: display_from_bottom 400ms forwards 300ms;
+}
+
+@keyframes display_from_bottom {
+    0%{
+        bottom: -10px;
+        opacity: 0;
+    }
+    100%{
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes display_from_left {
+    0%{
+        left: -10px;
+        opacity: 0;
+    }
+    100%{
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes display_from_right {
+    0%{
+        right: -10px;
+        opacity: 0;
+    }
+    100%{
+        right: 0;
+        opacity: 1;
+    }
+}
+
+
+#projet.anim .cartouche dl:nth-child(1){
+    animation: display_from_left 400ms forwards 400ms;
+
+}
+
+#projet.anim .cartouche dl:nth-child(2){
+    animation: display_from_bottom 400ms forwards 600ms;
+
+}
+
+#projet.anim .cartouche dl:nth-child(3){
+    animation: display_from_right 400ms forwards 800ms;
+
+}
+
+#projet.anim header .wrap ul li:nth-child(1){
+    animation: display_from_bottom 400ms forwards 200ms;
+}
+
+#projet.anim header .wrap ul li:nth-child(2){
+    animation: display_from_bottom 400ms forwards 400ms;
+}
+
+#projet.anim header .wrap ul li:nth-child(3){
+    animation: display_from_bottom 400ms forwards 600ms;
+}
+
+#projet.anim header .wrap ul li:nth-child(4){
+    animation: display_from_bottom 400ms forwards 800ms;
+}
+
+#projet.anim header .wrap ul li:nth-child(5){
+    animation: display_from_bottom 400ms forwards 1000ms;
+}
+
+#projet.anim header .wrap ul li:nth-child(6){
+    animation: display_from_bottom 400ms forwards 1200ms;
+}
+
+#projet.anim header .wrap ul li:nth-child(7){
+    animation: display_from_bottom 400ms forwards 1400ms;
+}
+
+#projet.anim header .wrap ul li:nth-child(8){
+    animation: display_from_bottom 400ms forwards 1600ms;
+}
+
+#projet.anim header .wrap ul li:nth-child(9){
+    animation: display_from_bottom 400ms forwards 1800ms;
+}
+
+#projet.anim header .wrap ul li:nth-child(10){
+    animation: display_from_bottom 400ms forwards 2000ms;
+}
+
+#projet.anim .wrap-thumb {
+    animation: display_from_bottom 400ms forwards 1000ms;
+}
+
+
+#projet.endAnim p.counter, 
+#projet.endAnim h1, 
+#projet.endAnim dl, 
+#projet.endAnim .wrap li,
+#projet.endAnim .wrap-thumb{
+    animation: hide_to_bottom 400ms forwards;
+}
+
+@keyframes hide_to_bottom {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }

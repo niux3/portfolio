@@ -1,10 +1,27 @@
 <script>
+    import {onMount} from 'svelte'
+
     export let row
     export let index
     export let len
     $: thumb = row.images.find(img => /\d+--1/.test(img)) !== undefined?
         row.images.find(img => /\d+--1/.test(img)) :
         "https://placekitten.com/g/914/533"
+    onMount(()=>{
+        window.addEventListener('hashchange', e =>{
+            let othersHash = [
+                '#/a-propos-de-moi',
+                '#/projets',
+                '#/contact'
+            ]
+            if(othersHash.every(h => e.oldURL !== `${window.location.origin}/${h}`)){
+                document.getElementById('projet').classList.add('endAnim')
+                let endAnim = setTimeout(()=>{
+                    document.getElementById('projet').classList.remove('endAnim')
+                }, 400)
+            }
+        })
+    })
 </script>
 <article id="projet">
     <header>
