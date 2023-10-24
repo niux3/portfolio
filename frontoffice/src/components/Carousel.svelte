@@ -37,6 +37,8 @@
 
     let routes = []
     onMount(()=>{
+
+        // preload ??
         /*
         let $images = document.querySelectorAll('#home .project-illustration'),
             lenImgs = $images.length

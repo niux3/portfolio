@@ -54,6 +54,12 @@ export default class Carousel{
         this._operatorStep = e.deltaY >= 0?  1 : - 1
     }
 
+    // _resetCurrentSlide(){
+    //     let referencePos = this._lenLi * 4 - 1
+    //     this._$lisTitle[referencePos].classList.add('current')
+    //     this._$lisIllustration[referencePos].classList.add('current')
+    // }
+
     getIndex(){
         return this._index
     }
@@ -105,20 +111,14 @@ export default class Carousel{
 
                 this._$ulTitle.style.transform = `translateY(${directionTitle}${indexDirection * heightLiTitle}px)`
                 this._$ulIllustration.style.transform = `translateY(${directionIllustation}${indexDirection * heightLiIllustration}px)`
+                
 
-                // let current = (this._lenLi * 4 - 1) - 1
-                // this._$lisTitle[current].querySelector('a').style.color = 'red'
-                // console.log('>>>>',this._$lisTitle[current]);
-                // let animEndSlide;
-                // clearTimeout(animEndSlide)
-                // animEndSlide = null
-                // animEndSlide = setTimeout(()=>{
-                //     Array.from(this._$lisTitle).map(li => li.style.color = '#444')
-                //     let current = (this._lenLi * 4 - 1)
-                //     this._$lisTitle[current].style.color = 'red'
-                //     clearTimeout(animEndSlide)
-                //     animEndSlide = null
-                // }, 1000)
+                // let baseIndex = this._lenLi * 4 - 1,
+                //     resultTitle = baseIndex - this._index,
+                //     resultIllus = baseIndex + this._index 
+                // console.log(this._index % this._lenLi);
+                // console.log(this._$lisTitle[resultTitle]);
+                // console.log(this._$lisIllustration[resultIllus]);
             }
         }, 80))
     }
