@@ -24,9 +24,9 @@
                 let index = Object.values(registryAnim).indexOf(window.location.hash),
                     registryHash = Object.keys(registryAnim)
                 index = index !== -1 ? index : registryHash.length - 1
-
+                
+                Array.from(document.querySelectorAll(registryHash.join(','))).map($el => $el.parentNode.scrollTop = 0)
                 document.querySelector(registryHash[index]).classList.add('anim')
-                document.querySelector(registryHash[index]).parentNode.scrollTop = 0
                 clearTimeout(sleepTimeout)
             }, sleep)
         }
@@ -39,6 +39,7 @@
                     clearTimeout(removeClassSlide)
                 }, 400),
                 animLogo = setTimeout(()=>{
+                    document.querySelector('nav a').click()
                     $logoAnim.remove()
                     animSlide(200)
                     clearTimeout(animLogo)

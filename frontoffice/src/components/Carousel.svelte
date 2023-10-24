@@ -60,9 +60,6 @@
         carouselSize()
         document.querySelectorAll('nav a').forEach(($a, i) =>{
             routes.push($a.getAttribute('href'))
-            if(i === 0 && window.location.hash === ''){
-                $a.click()
-            }
         })
         for(let row of data){
             routes.push(`#/${row.slug}`)
@@ -139,6 +136,18 @@
         .fullscreen{
             overflow: auto;
             padding: 2.5rem;
+            margin: 5px;
+            scrollbar-color: #444 transparent;
+            scrollbar-width: auto !important;
+        }
+
+        .fullscreen::-webkit-scrollbar{
+            width: 5px;
+            height: 8px;
+            background-color: #f5f5f5;
+        }
+        .fullscreen::-webkit-scrollbar-thumb{
+            background-color: #444;
         }
 
         .wrap{

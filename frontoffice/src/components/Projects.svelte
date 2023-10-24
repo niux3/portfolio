@@ -34,18 +34,18 @@
         carousel.onResize(Utils)
         carousel.onWheel(Utils)
 
-        let $lisTitle = Array.from(document.querySelectorAll('.projects.title li')),
-            $lisIllus = Array.from(document.querySelectorAll('.projects.illustrations li')),
-            searchCurrent = setTimeout(()=>{
-                let $liIllusCurrent = document.querySelector('.projects.illustrations .current'),
-                    indexIllusCurrent = $lisIllus.indexOf($liIllusCurrent),
-                    $lisIllusParts = [...$lisIllus].slice(indexIllusCurrent - 3, indexIllusCurrent + 3)
-                $lisIllusParts.map($el => $el.classList.add('anim'))
-                console.log('>>> ', $liIllusCurrent);
-                console.log('>>> ', $lisIllusParts);
+        // let $lisTitle = Array.from(document.querySelectorAll('.projects.title li')),
+        //     $lisIllus = Array.from(document.querySelectorAll('.projects.illustrations li')),
+        //     searchCurrent = setTimeout(()=>{
+        //         let $liIllusCurrent = document.querySelector('.projects.illustrations .current'),
+        //             indexIllusCurrent = $lisIllus.indexOf($liIllusCurrent),
+        //             $lisIllusParts = [...$lisIllus].slice(indexIllusCurrent - 3, indexIllusCurrent + 3)
+        //         $lisIllusParts.map($el => $el.classList.add('anim'))
+        //         console.log('>>> ', $liIllusCurrent);
+        //         console.log('>>> ', $lisIllusParts);
             
 
-            }, 600)
+        //     }, 600)
         // window.addEventListener('hashchange', e =>{
         //     if(window.location.hash === '#/projets'){
         //     console.log(carousel.getIndex())
