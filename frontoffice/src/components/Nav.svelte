@@ -46,7 +46,7 @@
 </script>
 <svelte:window on:hashchange={onHashChange} on:load={onLoad} />
 <div class="wrap-nav">
-    <a href="#/a-propos-de-moi" class="logo">
+    <a href="/" class="logo">
         <img src="logo.svg" alt="" class="event-cursor">
     </a>
     <nav>

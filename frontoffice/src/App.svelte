@@ -13,11 +13,22 @@
         cursor.event()
 
         let slides = Array.from(document.querySelectorAll('#about, #home, #contact, #projet'))
-        let registryAnim = {
-            '#about' : '#/a-propos-de-moi',
-            '#home': '#/projets',
-            '#contact' : '#/contact',
-            '#projet': '#/'
+        let animSlide = (sleep)=>{
+            let registryAnim = {
+                '#about' : '#/a-propos-de-moi',
+                '#home': '#/projets',
+                '#contact' : '#/contact',
+                '#projet': '#/'
+            }
+            let sleepTimeout = setTimeout(()=>{
+                let index = Object.values(registryAnim).indexOf(window.location.hash),
+                    registryHash = Object.keys(registryAnim)
+                index = index !== -1 ? index : registryHash.length - 1
+
+                document.querySelector(registryHash[index]).classList.add('anim')
+                document.querySelector(registryHash[index]).parentNode.scrollTop = 0
+                clearTimeout(sleepTimeout)
+            }, sleep)
         }
 
         let isDoAnim = window.location.hash === ''
@@ -29,35 +40,17 @@
                 }, 400),
                 animLogo = setTimeout(()=>{
                     $logoAnim.remove()
-                    let animSlide = setTimeout(()=>{
-                        let index = Object.values(registryAnim).indexOf(window.location.hash),
-                            registryHash = Object.keys(registryAnim)
-                        index = index !== -1 ? index : registryHash.length - 1
-
-                        document.querySelector(registryHash[index]).classList.add('anim')
-                        clearTimeout(animSlide)
-                    }, 200)
+                    animSlide(200)
                     clearTimeout(animLogo)
                 }, 3500)
         }else{
             $logoAnim.remove()
-
-            let animSlide = setTimeout(()=>{
-                let index = Object.values(registryAnim).indexOf(window.location.hash),
-                    registryHash = Object.keys(registryAnim)
-                index = index !== -1 ? index : registryHash.length - 1
-                document.querySelector(registryHash[index]).classList.add('anim')
-            }, 1000)
+            animSlide(1000)
         }
 
         window.addEventListener('hashchange', e =>{
             slides.map(s => s.classList.remove('anim'))
-            let animSlide = setTimeout(()=>{
-                let index = Object.values(registryAnim).indexOf(window.location.hash),
-                    registryHash = Object.keys(registryAnim)
-                index = index !== -1 ? index : registryHash.length - 1
-                document.querySelector(registryHash[index]).classList.add('anim')
-            }, window.location.hash === '' ? 3800 : 100)
+            animSlide(window.location.hash === '' ? 3800 : 100)
         })
     })
 </script>

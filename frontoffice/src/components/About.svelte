@@ -1,16 +1,8 @@
 <script>
-    import {onMount} from 'svelte'
 
     let now = new Date(), 
         year = now.getFullYear() - 2009
 
-    onMount(()=>{
-        // let animAbout = setTimeout(()=>{
-        //     document.querySelector('.about').classList.add('anim')
-        //     clearTimeout(animAbout)
-        // }, window.location.hash !== '' ? 1000 : 4000)
-    })
-    
 </script>
 <div class="about" id="about">
     <div class="intro">
@@ -18,13 +10,7 @@
 <!--            <h1>Web développeur frontend et backend à Paris</h1>-->
             <h1>Découvrez un développeur full stack pour faire avancer vos projets web</h1>
 <!--            <p>Bonjour, ancien infographiste, je suis désormais un professionnel dans le web. Mon expertise se situe principalement dans les technologies du web où j'excelle avec aisance dans le monde professionnel depuis {year} ans. À mon actif, j'ai plus de 50 beaux projets et j'ai été récompensé 5 fois. </p>-->
-
-<div class="mouse-icon"><div class="wheel"></div></div>
-
-
-
-
-
+            <div class="mouse-icon"><div class="wheel"></div></div>
         </div>
     </div>
     <div class="resume">
@@ -62,12 +48,12 @@
                 <span>John Paul</span>
             </li>
             <li>
-                <span>2021 - 2022</span>
+                <span>2021&nbsp;&ndash;&nbsp;2022</span>
                 <span>développeur front/back</span>
                 <span>la Maison de la Radio</span>
             </li>
             <li>
-                <span>2019 - 2021</span>
+                <span>2019&nbsp;&ndash;&nbsp;2021</span>
                 <span>développeur front/back</span>
                 <span>Journal LePoint</span>
             </li>
@@ -77,27 +63,27 @@
                 <span>Carenity</span>
             </li>
             <li>
-                <span>2018 - 2019</span>
+                <span>2018&nbsp;&ndash;&nbsp;2019</span>
                 <span>développeur front/back</span>
                 <span>Groupe Creative</span>
             </li>
             <li>
-                <span>2016 - 2018</span>
+                <span>2016&nbsp;&ndash;&nbsp;2018</span>
                 <span>développeur front/back</span>
                 <span>Prodigious</span>
             </li>
             <li>
-                <span>2015 - 2016</span>
+                <span>2015&nbsp;&ndash;&nbsp;2016</span>
                 <span>développeur front</span>
                 <span>Fullsix</span>
             </li>
             <li>
-                <span>2014 - 2015</span>
+                <span>2014&nbsp;&ndash;&nbsp;2015</span>
                 <span>développeur front</span>
                 <span>Groupe Bazarchic</span>
             </li>
             <li>
-                <span>2010 - 2013</span>
+                <span>2010&nbsp;&ndash;&nbsp;2013</span>
                 <span>développeur front</span>
                 <span>Business Lab</span>
             </li>
