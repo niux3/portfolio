@@ -136,7 +136,7 @@
         .fullscreen{
             overflow: auto;
             padding: 2.5rem;
-            margin: 5px;
+            margin: 3px;
             scrollbar-color: #444 transparent;
             scrollbar-width: auto !important;
         }
@@ -147,6 +147,9 @@
             background-color: #f5f5f5;
         }
         .fullscreen::-webkit-scrollbar-thumb{
+            background-color: #f5f5f5;
+        }
+        .fullscreen:hover::-webkit-scrollbar-thumb{
             background-color: #444;
         }
 
