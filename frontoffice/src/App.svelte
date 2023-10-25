@@ -53,11 +53,15 @@
             slides.map(s => s.classList.remove('anim'))
             animSlide(window.location.hash === '' ? 3800 : 100)
         })
+        /* shoot pub */
+        if(document.querySelectorAll('a[href*="000webhost"]').length){
+            document.querySelector('a[href*="000webhost"]').closest('div').remove()
+        }
     })
 </script>
 
 <Preload />
-<main>
+<main style="overflow: hidden;">
     <Nav />
     <Carousel {index}></Carousel>
 </main>

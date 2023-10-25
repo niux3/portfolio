@@ -32,8 +32,9 @@
                     redirect: 'follow',
                     referrerPolicy: 'no-referrer',
                     mode: "cors",
-            }
-        fetch('http://localhost/portfolio/frontoffice/services/mail/show.html', params).then(resp =>{
+            },
+            url = window.location.origin.includes('rb-webstudio') ? 'https://rb-webstudio.000webhostapp.com/services/mail/show.html' : 'http://localhost/portfolio/frontoffice/services/mail/show.html'
+        fetch(url, params).then(resp =>{
             if(resp.ok === true){
                 return resp.json()
             }
@@ -50,6 +51,7 @@
                     'font-size:.5vw',
                     'overflow:hidden', 
                     'margin:auto 0',
+                    'opacity: 1'
                 ]
                 outputChars += `<pre class="cell-3" style="${styles.join(';')}">${data['captcha'][i]}</pre>`
             }
@@ -226,7 +228,7 @@
                     mode: "cors",
                     body: data
                 },
-                url ='http://localhost/portfolio/frontoffice/services/mail/send.html'
+                url = window.location.origin.includes('rb-webstudio') ? 'https://rb-webstudio.000webhostapp.com/services/mail/send.html' :'http://localhost/portfolio/frontoffice/services/mail/send.html'
             fetch(url, params).then(resp =>{
                 if(resp.ok === true) 
                     return resp.json()
