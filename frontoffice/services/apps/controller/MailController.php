@@ -85,6 +85,7 @@
                             $mail->isHTML(true);
                             $mail->Subject = "A propos de votre visite sur rb webstudio le ".date('d/m/Y');
                             $mail->Body = $output_html;
+                            $mail->AltBody = "Bonjour, je suis ravi de faire votre connaissance. Merci pour l'email que vous m'avez transmis.  J'apprécie le fait que vous ayez pris le temps de le rédiger. Je vous encourage à consulter mon profil LinkedIn : https://www.linkedin.com/in/renaud-bourdeau-%F0%9F%90%A7-7639b944 . Vous y trouverez davantage d'informations sur mon parcours professionnel et mes compétences. Je vous souhaite une excellente journée, et encore une fois, je vous remercie pour cette prise de contact. Cordialement.";
                             
                             // réponse automatique
                             if (!$mail->send()) {

@@ -18,6 +18,8 @@ APPOINTMENT;
 
 
 $output_html = <<<TPL
+<html>
+<head>
 <style>
     html,
     body{
@@ -36,16 +38,17 @@ $output_html = <<<TPL
         margin: 0 25px;
     }
 </style>
+</head>
+<body>
 <table id="base" style="background-color:#f5f5f5; height:100%; width: 100%;">
     <tr>
         <td align="center">
             <table id="view" style="max-width:600px; width:100%;">
                 <tr>
-                    <td align="center" style="height:200px"><a href="https://rb-webstudio.000webhostapp.com/" target="_blank"><img src="https://rb-webstudio.000webhostapp.com/logo-mail.png?v=1" width="100" alt=""></a></td>
+                    <td align="center" style="height:200px"><a href="https://rb-webstudio.000webhostapp.com/" target="_blank"><span style="display:none !important">RB webstudio - digital designer - développeur frontend & backend - Python - TS/JS/ESnext - ExpressJS - React/Svelte - NodeJS</span><img src="https://rb-webstudio.000webhostapp.com/logo-mail.png?v=1" width="100" alt="RB webstudio - digital designer - développeur frontend & backend - Python - TS/JS/ESnext - ExpressJS - React/Svelte - NodeJS" /></a></td>
                 </tr>
                 <tr>
                     <td style="color:#444 !important; padding-right:25px; padding-left:25px;">
-                        
                         <p>Bonjour $civility $lastname, <br> <br>
                         Je suis ravi de faire votre connaissance. Merci pour l&#039;email que vous m&#039;avez transmis.  J&#039;appr&eacute;cie le fait que vous ayez pris le temps de le r&eacute;diger.</p>
                         $appointment
@@ -61,6 +64,8 @@ $output_html = <<<TPL
         </td>
     </tr>
 </table>
+</body>
+</html>
 TPL;
 
 ?>
