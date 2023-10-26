@@ -30,6 +30,11 @@
                 
                 Array.from(document.querySelectorAll(registryHash.join(','))).map($el => $el.parentNode.scrollTop = 0)
                 document.querySelector(registryHash[index]).classList.add('anim')
+
+                document.querySelector('.wrap-nav').classList.remove('move')
+                if(window.location.hash === '#/projets' && window.matchMedia("(min-width: 1024px)").matches && window.matchMedia("(max-width: 1200px)").matches){
+                    document.querySelector('.wrap-nav').classList.add('move')
+                }
                 clearTimeout(sleepTimeout)
             }, sleep)
         }

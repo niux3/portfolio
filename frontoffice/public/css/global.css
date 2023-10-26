@@ -573,13 +573,16 @@ input.error, textarea.error, select.error{
     z-index: -1;
 }
 
-@media screen and (max-width: 960px){
+@media screen and (max-width: 1024px){
     #home{
         grid-template-columns: 100%;
         grid-template-rows: 50% 50%;
     }
     #home > .projects{
         overflow: hidden;
+    }
+    #home > .projects.illustrations ul li{
+        justify-content: space-around;
     }
 }
 

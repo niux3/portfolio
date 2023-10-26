@@ -45,7 +45,7 @@ export default class Carousel{
                 </style>
             `,
             value = (window.innerHeight / 2) + (this._roundHeightLiTitle / 2)
-        if(window.matchMedia("(max-width: 960px)").matches){
+        if(window.matchMedia("(max-width: 1024px)").matches){
             let heightTitle = document.querySelector('.carousel .title').getBoundingClientRect().height,
                 heighLi = this._$lisTitle[0].getBoundingClientRect().height
             value = (heightTitle / 2) + heighLi / 2
