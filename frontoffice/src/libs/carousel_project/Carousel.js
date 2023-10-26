@@ -103,16 +103,15 @@ export default class Carousel{
 
     onResize(utils){
         window.addEventListener('resize', utils.debounce(e =>{
-            // window.location.reload()
             this._setHeightLiTitle()
             this._setHeightLiIllustration()
             this._setPosMask()
+            this._$ulTitle.removeAttribute('style')
+            this._$ulIllustration.removeAttribute('style')
+            this._index = 0
             this._setCenterY()
-            let centerAgain = setTimeout(()=>{
-                this._setCenterY()
-                clearTimeout(centerAgain)
-            }, 0)
-        }, 800))
+            // this._triggerSlide()
+        }, 400))
     }
 
     onLoad(){
