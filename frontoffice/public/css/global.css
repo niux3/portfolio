@@ -457,6 +457,8 @@ input.error, textarea.error, select.error{
   */
   overflow: hidden;
 }
+
+
 #home.onFixed {
   position: fixed;
 }
@@ -569,6 +571,16 @@ input.error, textarea.error, select.error{
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
+}
+
+@media screen and (max-width: 960px){
+    #home{
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 50%;
+    }
+    #home > .projects{
+        overflow: hidden;
+    }
 }
 
 

@@ -45,6 +45,11 @@ export default class Carousel{
                 </style>
             `,
             value = (window.innerHeight / 2) + (this._roundHeightLiTitle / 2)
+        if(window.matchMedia("(max-width: 960px)").matches){
+            let heightTitle = document.querySelector('.carousel .title').getBoundingClientRect().height,
+                heighLi = this._$lisTitle[0].getBoundingClientRect().height
+            value = (heightTitle / 2) + heighLi / 2
+        }
 
         if(document.querySelectorAll('style.before-after').length){
             document.querySelector('style.before-after').remove()
@@ -98,8 +103,7 @@ export default class Carousel{
 
     onResize(utils){
         window.addEventListener('resize', utils.debounce(e =>{
-            window.location.reload()
-            /*
+            // window.location.reload()
             this._setHeightLiTitle()
             this._setHeightLiIllustration()
             this._setPosMask()
@@ -108,7 +112,6 @@ export default class Carousel{
                 this._setCenterY()
                 clearTimeout(centerAgain)
             }, 0)
-            */
         }, 800))
     }
 

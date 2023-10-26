@@ -70,15 +70,7 @@
         }
     })
 
-    let resize = e =>{
-        carouselSize()
-        
-        Utils.debounce(() => {
-            document.querySelector(`nav a`).click()
-        }, 200)()
-    }
-    let hashchange = e =>{
-        // console.log(window.location.hash, routes)
+    let goTo = ()=>{
         let hash = window.location.hash
 
         if(hash === document.querySelector('nav a:last-child').getAttribute('href')){
@@ -106,6 +98,21 @@
                 clearTimeout(animTransition)
             }, sleep)
         }
+    }
+
+    let resize = e =>{
+        carouselSize()
+        goTo()
+
+        /*
+        Utils.debounce(() => {
+            document.querySelector(`nav a`).click()
+        }, 200)()
+        */
+    }
+    let hashchange = e =>{
+        // console.log(window.location.hash, routes)
+        goTo()
     }
 </script>
 
