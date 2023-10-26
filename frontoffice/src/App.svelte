@@ -9,8 +9,11 @@
     let index = 0
 
     onMount(()=>{
-        let cursor = new Cursor()
-        cursor.event()
+        if (!/Android|iPhone/i.test(navigator.userAgent)) {
+            document.querySelector('html').classList.add('desktop')
+            let cursor = new Cursor()
+            cursor.event()
+        }
 
         let slides = Array.from(document.querySelectorAll('#about, #home, #contact, #projet'))
         let animSlide = (sleep)=>{

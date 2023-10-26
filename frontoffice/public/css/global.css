@@ -882,7 +882,7 @@ article footer a span{
 }
 
 
-*{
+.desktop *{
     cursor:none !important;
 }
 
