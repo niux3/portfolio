@@ -1,3 +1,6 @@
+import swiped from "../swiped_events/swiped-events"
+
+
 export default class Carousel{
     constructor(){
         [this._$ulTitle, this._$ulIllustration] = document.querySelectorAll('.carousel-project .projects ul')
@@ -54,6 +57,35 @@ export default class Carousel{
         this._operatorStep = e.deltaY >= 0?  1 : - 1
     }
 
+    _triggerSlide(){
+        let heightLiTitle = this._$lisTitle[0].getBoundingClientRect().height,
+            heightLiIllustration = this._$lisIllustration[0].getBoundingClientRect().height,
+            [directionTitle, directionIllustation] = this._index >= 0? ['', '-'] : ['-', ''],
+            indexDirection = this._index >= 0? this._index : Math.abs(this._index)
+
+        if(this._index % this._lenLi == 0){
+            // console.error('>> ', this._step)
+            // console.error('-> ', directionIllustation, directionTitle)
+            // console.log(this._step <= 0? 'negatif' : 'positif')
+
+            this._step = this._operatorStep === 1? this._step + 1 : this._step - 1
+            let titleMarginTop = this._step <= 0? `${this._step * this._lenLi * heightLiTitle * (-1)}px` : `-${this._step * this._lenLi * heightLiTitle}px` 
+            this._$ulTitle.style.marginTop = titleMarginTop
+            this._$ulIllustration.style.marginTop = `${this._step * this._lenLi * heightLiIllustration}px`
+        }
+
+        this._$ulTitle.style.transform = `translateY(${directionTitle}${indexDirection * heightLiTitle}px)`
+        this._$ulIllustration.style.transform = `translateY(${directionIllustation}${indexDirection * heightLiIllustration}px)`
+        
+
+        // let baseIndex = this._lenLi * 4 - 1,
+        //     resultTitle = baseIndex - this._index,
+        //     resultIllus = baseIndex + this._index 
+        // console.log(this._index % this._lenLi);
+        // console.log(this._$lisTitle[resultTitle]);
+        // console.log(this._$lisIllustration[resultIllus]);
+    }
+
     // _resetCurrentSlide(){
     //     let referencePos = this._lenLi * 4 - 1
     //     this._$lisTitle[referencePos].classList.add('current')
@@ -89,36 +121,30 @@ export default class Carousel{
         })
     }
 
+    onSwiped(){
+        document.addEventListener('swiped', e =>{
+            if(window.location.hash === '#/projets'){
+                switch(e.detail.dir){
+                    case 'up':
+                        this._index += 1
+                        this._operatorStep = 1
+                        break
+                    case 'down':
+                        this._index -= 1
+                        this._operatorStep = -1
+                        break
+                }
+                this._triggerSlide()
+            }
+        })
+    }
+
+
     onWheel(utils){
         window.addEventListener('wheel', utils.throttle(e=>{
             if(window.location.hash === '#/projets'){
                 this._setIndex(e)
-                let heightLiTitle = this._$lisTitle[0].getBoundingClientRect().height,
-                    heightLiIllustration = this._$lisIllustration[0].getBoundingClientRect().height,
-                    [directionTitle, directionIllustation] = this._index >= 0? ['', '-'] : ['-', ''],
-                    indexDirection = this._index >= 0? this._index : Math.abs(this._index)
-
-                if(this._index % this._lenLi == 0){
-                    // console.error('>> ', this._step)
-                    // console.error('-> ', directionIllustation, directionTitle)
-                    // console.log(this._step <= 0? 'negatif' : 'positif')
-
-                    this._step = this._operatorStep === 1? this._step + 1 : this._step - 1
-                    let titleMarginTop = this._step <= 0? `${this._step * this._lenLi * heightLiTitle * (-1)}px` : `-${this._step * this._lenLi * heightLiTitle}px` 
-                    this._$ulTitle.style.marginTop = titleMarginTop
-                    this._$ulIllustration.style.marginTop = `${this._step * this._lenLi * heightLiIllustration}px`
-                }
-
-                this._$ulTitle.style.transform = `translateY(${directionTitle}${indexDirection * heightLiTitle}px)`
-                this._$ulIllustration.style.transform = `translateY(${directionIllustation}${indexDirection * heightLiIllustration}px)`
-                
-
-                // let baseIndex = this._lenLi * 4 - 1,
-                //     resultTitle = baseIndex - this._index,
-                //     resultIllus = baseIndex + this._index 
-                // console.log(this._index % this._lenLi);
-                // console.log(this._$lisTitle[resultTitle]);
-                // console.log(this._$lisIllustration[resultIllus]);
+                this._triggerSlide()
             }
         }, 80))
     }

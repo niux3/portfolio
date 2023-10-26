@@ -32,6 +32,7 @@
 
         carousel.onLoad()
         carousel.onResize(Utils)
+        carousel.onSwiped()
         carousel.onWheel(Utils)
 
         // let $lisTitle = Array.from(document.querySelectorAll('.projects.title li')),
