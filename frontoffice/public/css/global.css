@@ -891,17 +891,21 @@ article footer a span{
 
 .wrap-nav nav a{
     top: -100px;
-    transition: top 400ms cubic-bezier(.79,0,.31,.98);
+    opacity: 0;
+    transition: top 400ms cubic-bezier(.79,0,.31,.98), opacity 400ms cubic-bezier(.79,0,.31,.98);
 }
 
 .wrap-nav > .logo img{
     position: relative;
     left: -100px;
-    transition: left 400ms cubic-bezier(.79,0,.31,.98);
+    opacity: 0;
+    transition: left 400ms cubic-bezier(.79,0,.31,.98), opacity 400ms cubic-bezier(.79,0,.31,.98);
 }
+
 
 .wrap-nav.anim > .logo img{
     left: 0;
+    opacity: 1;
 }
 
 .wrap-nav.anim nav a:nth-child(1){
@@ -918,7 +922,27 @@ article footer a span{
     top: 0;
     transition-delay: 600ms;
 }
+.wrap-nav.anim nav a{
+    opacity: 1;
+}
+@media screen and (max-width: 1200px){
+    .wrap-nav > a.logo img{
+        position: relative;
+        opacity: 0;
+        transition: top 400ms cubic-bezier(.79,0,.31,.98), opacity 400ms cubic-bezier(.79,0,.31,.98);
+        top: -500px;
+    }
 
+    .wrap-nav.anim > .logo img{
+        top: 0;
+        opacity: 1;
+    }
+    .wrap-nav nav a{
+        top: 15px;
+        opacity: 0;
+        transition: top 400ms cubic-bezier(.79,0,.31,.98), opacity 400ms cubic-bezier(.79,0,.31,.98);
+    }
+}
 
 .about h1{
     transform: translateX(-100px);
