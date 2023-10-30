@@ -71,6 +71,17 @@
                     <li><strong>client</strong><span>{row.customer}</span></li>
                     <li><strong>année</strong><span>{row.year}</span></li>
                     <li><strong>type</strong><span>{row.function}</span></li>
+                    <li class="technologies">
+                        <strong>technologies</strong>
+                        <span>
+                            {#each row.technologies as technology, i}
+                                {#if i !== 0}
+                                    &ndash;
+                                {/if}
+                                <span>{technology}</span>
+                            {/each}
+                        </span>
+                    </li>
                     <li><strong>lieu</strong><span>{row.location}</span></li>
                 </ul>
             </div>
