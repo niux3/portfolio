@@ -30,6 +30,9 @@
             $a.addEventListener('pointerdown', e=>{
                 Array.from($as).map($el => $el.classList.remove('current'))
                 $a.classList.add('current')
+                setTimeout(()=>{
+                    document.querySelector('.wrap-nav').classList.remove('open')
+                }, 200)
 
             })
         }

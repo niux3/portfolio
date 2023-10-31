@@ -1086,15 +1086,15 @@ article .content .info aside a:hover{
     border-radius:10px;
 }
 
-.burger-button:hover .bar1{
+.open .burger-button .bar1{
     transform: rotate(45deg) translate(10px, 6px);
 }
 
-.burger-button:hover .bar2{
+.open .burger-button .bar2{
     opacity: 0;
 }
 
-.burger-button:hover .bar3{
+.open .burger-button .bar3{
     transform: rotate(-45deg) translate(8px, -5px);
 }
 
