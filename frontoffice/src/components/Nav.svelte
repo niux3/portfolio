@@ -43,6 +43,12 @@
             clearTimeout(animNav)
         }, window.location.hash !== '' ? 800 : 3500);
 
+        document.querySelector('.burger-button').addEventListener('click', e =>{
+            let $wrap = document.querySelector('.wrap-nav'),
+                method = $wrap.classList.contains('open')? 'remove' : 'add'
+            $wrap.classList[method]('open')
+        })
+
     })
 </script>
 <svelte:window on:hashchange={onHashChange} on:load={onLoad} />
@@ -50,6 +56,11 @@
     <a href="/" class="logo">
         <img src="logo.svg" alt="" class="event-cursor">
     </a>
+    <button class="burger-button">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </button>
     <nav>
         <a href="#/a-propos-de-moi" class="event-cursor {hash === '#/a-propos-de-moi'? 'current' : ''}">à propos de</a>
         <a href="#/projets" class="event-cursor {hash === '#/projets'? 'current' : ''}">réalisations</a>
@@ -57,78 +68,3 @@
         <a href="#/contact" class="event-cursor {hash === '#/contact'? 'current' : ''}">contact</a>
     </nav>
 </div>
-
-<style lang="scss">
-    .wrap-nav {
-        display: flex;
-        align-items: center;
-        position: fixed;
-        top: 25px;right: 50%;left: 25px;
-        z-index: 1000;
-        transition: left 400ms, right 400ms;
-
-            &.move{
-                left: 15px;
-                right: 50%;
-            }
-
-        @media screen and (min-width:1024px) and (max-width:1200px) {
-            flex-direction:column;
-            &:not(.move){
-                left: 25%;
-                right: 25%;
-            }
-        }
-        @media screen and (max-width: 1023px){
-            flex-direction:column;
-            left:1% !important;
-            right:1% !important;
-        }
-
-        .logo{
-            display: block;
-            left: 10px;
-            top: 10px;
-            z-index: 50;
-
-            img{
-                width: 50px;
-                height: 50px;
-                display: block;
-
-            }
-        }
-        nav{
-            display: flex;
-
-            a{
-                padding: 10px 20px;
-                margin: 0 5px;
-                position: relative;
-                z-index: 1;
-                display: block;
-                color: #444;
-                text-decoration: none;
-                text-transform: uppercase;
-                display: flex;
-                align-items: center;
-
-                &:before{
-                    content: '\25AA';
-                    margin-right: 10px;
-                    font-size: 32px;
-                    line-height: 0;
-                    opacity: 0;
-                    transition: opacity 400ms;
-                }
-
-                &:hover, &.current{
-                    &::before{
-                        opacity: 1;
-                    }
-                }
-            }
-
-        }
-    }
-</style>
