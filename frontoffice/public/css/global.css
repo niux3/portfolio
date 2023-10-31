@@ -578,9 +578,16 @@ input.error, textarea.error, select.error{
         grid-template-columns: 100%;
         grid-template-rows: 50% 50%;
     }
+
     #home > .projects{
         overflow: hidden;
     }
+
+    #home > .projects ul li h2{
+        font-size: 5.8vw;
+        line-height: 9vw;
+    }
+
     #home > .projects.illustrations ul li{
         justify-content: space-around;
     }
