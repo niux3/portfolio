@@ -7,6 +7,7 @@
     $: thumb = row.images.find(img => /\d+--1/.test(img)) !== undefined?
         row.images.find(img => /\d+--1/.test(img)) :
         "https://placekitten.com/g/914/533"
+    $: illustrations = row.images.filter(img => /\d+--2/.test(img))
     onMount(()=>{
         window.addEventListener('hashchange', e =>{
             let othersHash = [
@@ -58,9 +59,9 @@
         </div>
     </header>
     <div class="content">
-            <div class="wrap-thumb">
-                <img src={thumb} alt="" loading="lazy">
-            </div>
+        <div class="wrap-thumb">
+            <img src={thumb} alt="" loading="lazy">
+        </div>
         <div class="info">
             <aside>
                 <a href={row.url} target="_blank">{row.url} <span class="fa-solid fa-caret-right"></span></a>
@@ -85,6 +86,13 @@
                     <li><strong>lieu</strong><span>{row.location}</span></li>
                 </ul>
             </div>
+        </div>
+        <div class="illustrations">
+            {#each illustrations as illustration}
+            <p>
+                <img src="{illustration}" alt="">
+            </p>
+            {/each}
         </div>
     </div>
 </article>
