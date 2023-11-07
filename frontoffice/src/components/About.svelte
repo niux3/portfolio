@@ -43,17 +43,17 @@
         <p>expérience</p>
         <ul>
             <li>
-                <span>2022</span>
+                <span>2023</span>
                 <span>développeur backend</span>
                 <span>John Paul</span>
             </li>
             <li>
-                <span>2021&nbsp;&ndash;&nbsp;2022</span>
+                <span>2022&nbsp;&ndash;&nbsp;2023</span>
                 <span>développeur front/back</span>
                 <span>la Maison de la Radio</span>
             </li>
             <li>
-                <span>2019&nbsp;&ndash;&nbsp;2021</span>
+                <span>2019&nbsp;&ndash;&nbsp;2022</span>
                 <span>développeur front/back</span>
                 <span>Journal LePoint</span>
             </li>
