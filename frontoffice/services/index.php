@@ -1,10 +1,13 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_STRICT);
-
     define('ROOT', dirname(__FILE__));
     define('APPS', sprintf('%s/apps/', ROOT));
+    define('IS_PROD', strstr($_SERVER['HTTP_HOST'], 'rb-webstudio.000webhostapp.com') == true ? 0 : 1);
+
+
+    ini_set('display_errors', IS_PROD);
+    ini_set('display_startup_errors', IS_PROD);
+    error_reporting(E_STRICT);
+
     try{
         require_once APPS.'core/Autoloader.php';
 
