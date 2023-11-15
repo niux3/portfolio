@@ -29,9 +29,9 @@
         foreach($namespaces as $namespace => $path){
             $loader->addNamespace($namespace, $path);
         }
-        
         $router = new \apps\core\Router();
         $router->executeRequest();
+        
     }catch(Exception $e){
         echo $e->getMessage();
         header('HTTP/1.1 500 Internal Server Error');
