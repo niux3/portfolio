@@ -33,8 +33,8 @@
          * @throws Exception Si l'action n'existe pas dans la classe Controleur courante
          */
         public function execute($action){
-            if (method_exists($this, $action)) {
-                $this->action = $action;
+            if (method_exists($this, str_replace('-', '_', $action))) {
+                $this->action = str_replace('-', '_', $action);
                 $this->{$this->action}();
             } else {
                 header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
@@ -57,10 +57,15 @@
          *
          * @param array $donneesVue Données nécessaires pour la génération de la vue
          */
-        protected function render($data = []){
+        protected function render($data=[], $path=""){
             // Détermination du nom du fichier vue à partir du nom du contrôleur actuel
             $classeController = get_class($this);
             $controller = str_replace("Controller", "", $classeController);
+
+            if($path !== ''){
+                $this->action = $path;
+                $controller = "";
+            }
 
             // Instanciation et génération de la vueF
             $vue = new View($this->action, $controller);

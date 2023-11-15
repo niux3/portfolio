@@ -54,9 +54,10 @@
                 'content' => $content,
                 'root' => $root,
             ];
+            $params = array_merge($args, $data);
             $layout = sprintf('%sview/%s.php', APPS, $this->layout);
 
-            echo $this->generate($layout,$args);
+            echo $this->generate($layout, $params);
         }
 
 

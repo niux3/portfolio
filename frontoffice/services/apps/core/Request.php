@@ -41,10 +41,9 @@
          * @throws Exception Si le paramètre n'existe pas dans la requête
          */
         public function getArguments($name) {
-            if ($this->argumentIsExist($name)) {
+            if($this->argumentIsExist($name)){
                 return $this->arguments[$name];
-            }
-            else {
+            }else{
                 throw new Exception("Paramètre '$name' absent de la requête");
             }
         }

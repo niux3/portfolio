@@ -69,6 +69,8 @@
         * @param Exception $exception Exception qui s'est produite
         */
         private function errorManager(Exception $exception){
+            echo 'ivi'; 
+            die;
             $view = new View('error');
             $view->render(['msgErreur' => $exception->getMessage()]);
         }
