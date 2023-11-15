@@ -1,0 +1,26 @@
+{
+    "show@contact" : {
+        "url" : "mail/show.html",
+        "method": ["GET"]
+    },
+    "send@contact" : {
+        "url": "mail/send.html",
+        "method": ["GET", "POST"]
+    },
+    "other@pages" : {
+        "url" : ":uuid-:slug-:id.html",
+        "params" : {
+            ":slug" : "([0-9a-z-]+)",
+            ":id" : "([0-9]+)",
+            ":uuid" : "([0-9a-z]+)"
+        },
+        "method": ["GET"]
+    },
+    "show@pages" : {
+        "url": "pages/:id-article.html",
+        "params": {
+            ":id": "([0-9]+)"
+        },
+        "method": ["GET"]
+    }
+}
