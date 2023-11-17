@@ -1,3 +1,6 @@
+<?php 
+    $this->layout = "empty";
+?>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -39,6 +42,10 @@
     p {
       display: block;
       margin: 13px 0;
+    }
+    
+    a[href⁼"https://www.000webhost.com"]{
+        display: none !important;
     }
 
   </style>
@@ -155,39 +162,11 @@
       float: right;
     }
 
-    a[href^⁼"https://www.000webhost.com"] {
-      display: none !important;
-    }
-
   </style>
 </head>
 
 <body style="word-spacing:normal;background-color:#f5f5f5;">
   <div style="background-color:#f5f5f5;">
-    <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:800px;" width="800" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
-    <div style="margin:0px auto;max-width:800px;">
-      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
-        <tbody>
-          <tr>
-            <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
-              <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:800px;" ><![endif]-->
-              <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
-                  <tbody>
-                    <tr>
-                      <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                        <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:center;color:#444444;">Si vous ne visualisez pas correctement cet email, <a style="color:#444; text-decoration:underline" href="https://rb-webstudio.000webhostapp.com/services/{{ user.id }}-lire-mail.html">cliquez ici</a>.</div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!--[if mso | IE]></td></tr></table><![endif]-->
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
     <!--[if mso | IE]></td></tr></table><![endif]-->
     <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
       <tbody>
@@ -228,10 +207,10 @@
                             <tr>
                               <td align="right" style="font-size:0px;word-break:break-word;">
                                 <!--[if !mso><!-->
-                                <input type="checkbox" id="ba964f9796469ddf" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;" />
+                                <input type="checkbox" id="e54a724969ad4aac" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;" />
                                 <!--<![endif]-->
                                 <div class="mj-menu-trigger" style="display:none;max-height:0px;max-width:0px;font-size:0px;overflow:hidden;">
-                                  <label for="ba964f9796469ddf" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:#444444;font-size:30px;font-family:Ubuntu, Helvetica, Arial, sans-serif;text-transform:uppercase;text-decoration:none;line-height:30px;padding:10px;" align="center">
+                                  <label for="e54a724969ad4aac" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:#444444;font-size:30px;font-family:Ubuntu, Helvetica, Arial, sans-serif;text-transform:uppercase;text-decoration:none;line-height:30px;padding:10px;" align="center">
                                     <span class="mj-menu-icon-open" style="mso-hide:all;"> &#9776; </span>
                                     <span class="mj-menu-icon-close" style="display:none;mso-hide:all;"> &#8855; </span>
                                   </label>
@@ -273,8 +252,8 @@
                   <tbody>
                     <tr>
                       <td align="right" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                        <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:right;color:#000000;"><img src="https://rb-webstudio.000webhostapp.com/services/mail/mail-lu?id={{ user.id }}" alt="" />
-                          <h1 style="font-size: 24px;color:#444; line-height: 33px;">Bonjour {{ user.recruteurs }}, <br>Du front-end au back-end, maîtrisez chaque élément avec mes différentes compétences en développement !</h1>
+                        <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:right;color:#000000;">
+                          <h1 style="font-size: 24px;color:#444; line-height: 33px;">Bonjour <?= $fullname ?>, <br>Du front-end au back-end, maîtrisez chaque élément avec mes différentes compétences en développement !</h1>
                         </div>
                       </td>
                     </tr>

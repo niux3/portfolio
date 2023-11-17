@@ -13,5 +13,9 @@
             ":uuid" : "([0-9a-z]+)"
         },
         "method": ["GET"]
+    },
+    "mail_read@mail" : {
+        "url" : "mail/mail-lu",
+        "method": ["GET"]
     }
 }

@@ -24,7 +24,6 @@ class Emailing:
 
         model = Model()
         users = model.get(config['path']['data'])
-        citations = model.get(config['path']['citations'])
 
         server = smtplib.SMTP(config['smtp'], config['port'])
         server.ehlo()
@@ -35,9 +34,9 @@ class Emailing:
             msg = MIMEMultipart('alternative')
             msg['Subject'] = config['subject']
             msg['From'] = config['expediteur']
-            msg['To'] = row['email']
+            msg['To'] = row['mail']
 
-            data = {'user' : row, 'citation' : random.choice(citations)}
+            data = {'user' : row}
             for index, value in enumerate(config['path']['view']):
                 tpl = View.get(value)
                 msg.attach(MIMEText(tpl.render(data), 'plain' if index == 0 else 'html'))

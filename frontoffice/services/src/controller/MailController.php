@@ -8,7 +8,7 @@ use src\core\Exception;
 class MailController extends Controller{
     function show($uuid){
         $mask = '%s/model/data/%s';
-        $path = sprintf($mask, SRC, 'contacts_mailing.json');
+        $path = sprintf($mask, SRC, 'data_recruteurs.json');
         $resource = file_get_contents($path);
         $data = json_decode($resource, false);
         $row = [];
@@ -23,8 +23,25 @@ class MailController extends Controller{
         }
         $fullname = sprintf('%s %s', $row->firstname, $row->lastname);
         $this->render([
-            'fullname' => $fullname,
+            'user' => $row,
         ]);
+    }
+
+
+    function mail_read(){
+        header("Content-Type: image/png");
+        if(!empty($_GET)){
+            $resource = fopen('output.csv', 'a+');
+            $row = [
+                $_GET['id'],
+                strftime('%d/%m/%Y %H:%M:%S', time())
+            ];
+            fwrite($resource, implode(', ', $row)."\n");
+            fclose($resource);
+        }
+        $im = imagecreate(1, 1);
+        $background_color = imagecolorallocate($im, 0, 0, 0);
+        imagepng($im);
     }
 }
 
