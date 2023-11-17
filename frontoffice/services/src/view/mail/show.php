@@ -157,8 +157,8 @@
       width: 80% !important;
       float: right;
     }
-    
-    img[src*="cdn.000webhost.com"]{
+
+    img[src*="cdn.000webhost.com"] {
       display: none !important;
     }
 
@@ -207,10 +207,10 @@
                             <tr>
                               <td align="right" style="font-size:0px;word-break:break-word;">
                                 <!--[if !mso><!-->
-                                <input type="checkbox" id="ba964f9796469ddf" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;" />
+                                <input type="checkbox" id="97929466d4b5ff05" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;" />
                                 <!--<![endif]-->
                                 <div class="mj-menu-trigger" style="display:none;max-height:0px;max-width:0px;font-size:0px;overflow:hidden;">
-                                  <label for="ba964f9796469ddf" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:#444444;font-size:30px;font-family:Ubuntu, Helvetica, Arial, sans-serif;text-transform:uppercase;text-decoration:none;line-height:30px;padding:10px;" align="center">
+                                  <label for="97929466d4b5ff05" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:#444444;font-size:30px;font-family:Ubuntu, Helvetica, Arial, sans-serif;text-transform:uppercase;text-decoration:none;line-height:30px;padding:10px;" align="center">
                                     <span class="mj-menu-icon-open" style="mso-hide:all;"> &#9776; </span>
                                     <span class="mj-menu-icon-close" style="display:none;mso-hide:all;"> &#8855; </span>
                                   </label>
@@ -252,7 +252,7 @@
                   <tbody>
                     <tr>
                       <td align="right" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                        <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:right;color:#000000;"><img src="https://rb-webstudio.000webhostapp.com/services/mail/mail-lu?id=<?= $user->id ?>" alt="" />
+                        <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:right;color:#000000;"><img src="https://rb-webstudio.000webhostapp.com/services/mail/<?= $user->id ?>-mail-lu.png" alt="image developpeur" />
                           <h1 style="font-size: 24px;color:#444; line-height: 33px;">Bonjour <?= $user->recruteurs ?>, <br>Du front-end au back-end, maîtrisez chaque élément avec mes différentes compétences en développement !</h1>
                         </div>
                       </td>

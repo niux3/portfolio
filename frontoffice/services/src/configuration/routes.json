@@ -15,7 +15,10 @@
         "method": ["GET"]
     },
     "mail_read@mail" : {
-        "url" : "mail/mail-lu",
+        "url" : "mail/:id-mail-lu.png",
+        "params" : {
+            ":id" : "([0-9a-z]+)"
+        },
         "method": ["GET"]
     }
 }

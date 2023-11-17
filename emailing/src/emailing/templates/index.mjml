@@ -36,7 +36,7 @@
             <mj-section padding="15px 0 50px">
                 <mj-column>
                     <mj-text align="right">
-                        <img src="https://rb-webstudio.000webhostapp.com/services/mail/mail-lu?id={{ user.id }}" alt="" />
+                        <img src="https://rb-webstudio.000webhostapp.com/services/mail/{{ user.id }}-mail-lu.png" alt="image developpeur" />
                         <h1 style="font-size: 24px;color:#444; line-height: 33px;">Bonjour {{ user.recruteurs }}, <br>Du front-end au back-end, maîtrisez chaque élément avec mes différentes compétences en développement !</h1>
                     </mj-text>
                     <mj-button align="right" border-radius="6px" background-color="#f5f5f5" color="#444" border="3px solid #444" text-transform="uppercase" font-weight="600" href="https://rb-webstudio.000webhostapp.com/#/contact">contactez moi pour plus d'informations</mj-button>

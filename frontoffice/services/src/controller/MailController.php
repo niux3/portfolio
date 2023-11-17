@@ -28,17 +28,16 @@ class MailController extends Controller{
     }
 
 
-    function mail_read(){
+    function mail_read($id){
         header("Content-Type: image/png");
-        if(!empty($_GET)){
-            $resource = fopen('output.csv', 'a+');
-            $row = [
-                $_GET['id'],
-                strftime('%d/%m/%Y %H:%M:%S', time())
-            ];
-            fwrite($resource, implode(', ', $row)."\n");
-            fclose($resource);
-        }
+        $path = sprintf('%s/logs/mail_read.csv', ROOT);
+        $resource = fopen($path, 'a+');
+        $row = [
+            $id,
+            strftime('%d/%m/%Y %H:%M:%S', time())
+        ];
+        fwrite($resource, implode(', ', $row)."\n");
+        fclose($resource);
         $im = imagecreate(1, 1);
         $background_color = imagecolorallocate($im, 0, 0, 0);
         imagepng($im);
