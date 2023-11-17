@@ -9,10 +9,10 @@
                 width:80% !important;
                 float:right;
             }
-    
-            a[href^⁼"https://www.000webhost.com"]{
-                display: none !important;
-            }
+   
+            img[src*="cdn.000webhost.com"]{
+              display: none !important;
+            } 
         </mj-style>
     </mj-head>
     <mj-body background-color="#f5f5f5" width="800px">

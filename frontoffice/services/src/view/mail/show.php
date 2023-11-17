@@ -1,3 +1,6 @@
+<?php 
+    $this->layout = "empty";
+?>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -154,8 +157,8 @@
       width: 80% !important;
       float: right;
     }
-
-    a[href^⁼"https://www.000webhost.com"] {
+    
+    img[src*="cdn.000webhost.com"]{
       display: none !important;
     }
 

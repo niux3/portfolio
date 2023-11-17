@@ -41,9 +41,15 @@ class Emailing:
                 tpl = View.get(value)
                 msg.attach(MIMEText(tpl.render(data), 'plain' if index == 0 else 'html'))
 
-            server.sendmail(config['expediteur'], row['email'], msg.as_string().encode('utf-8'))
+            server.sendmail(config['expediteur'], row['mail'], msg.as_string().encode('utf-8'))
             
-            ouputLog = "{c} {f} {l} ({e}) envoyé !"
-            logger.info(ouputLog.format(c = row['civilities'], f = row['firstname'], l = row['lastname'], e = row['email']))
+            ouputLog = "{c} {f} {l} ({e}) %%{i}%% envoyé !"
+            logger.info(ouputLog.format(
+                c = row['civilities'], 
+                f = row['firstname'], 
+                l = row['lastname'], 
+                e = row['mail'], 
+                i = row['id']
+            ))
 
         server.quit()
