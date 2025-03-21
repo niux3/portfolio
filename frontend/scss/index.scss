@@ -14,14 +14,21 @@
 @import "atoms/body";
 @import "atoms/header";
 @import "atoms/logo";
+@import "atoms/introduction";
+@import "atoms/about";
 
 // helpers
 @import "atoms/bold";
 @import "atoms/light";
+@import "atoms/grid_container";
+@import "atoms/title";
+@import "atoms/mark";
+
 
 
 
 //moelcules
+@import "molecules/about";
 
 //organismes
 
