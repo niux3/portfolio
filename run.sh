@@ -1,4 +1,6 @@
 #!/bin/bash
 
-export FLASK_ENV=development && export FLASK_APP=app && flask run -p 8000
-
+flask run -p 5000
+# flask shell
+# flask db migrate
+# flask db upgrade

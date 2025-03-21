@@ -1,9 +1,0 @@
-node_modules/
-node_modules/*
-/public/build/
-
-logs/*
-*.log
-logs/*.txt
-logs/*.json
-.DS_Store

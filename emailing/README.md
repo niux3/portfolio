@@ -1,2 +1,0 @@
-# python-emailing
-python emailing

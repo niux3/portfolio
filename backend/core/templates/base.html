@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}RB webstudio - concepteur numérique - développeur fullstack - Python - Javascript/Typescript{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation-float.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation-prototype.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation-rtl.min.css') }}">
+        {% block css %}{% endblock %}
+    </head>
+
+    <body id="{% block id_body %}{% endblock %}">
+        <main class="grid-container">
+            {% include "partials/header.html" %}
+            {% include "partials/intro.html" %}
+            {% include "partials/flash.html" %}
+            <section class="margin-vertical-3">{% block content %}{% endblock %}</section>
+        </main>
+        <script src="{{ url_for('static', filename="js/app.js") }}"></script>
+        {% block js %}{% endblock %}
+        <script src="http://localhost:5173/@vite/client" type="module"></script>
+        <script src="http://localhost:5173/frontend/main.js" type="module"></script>
+    </body>
+</html>

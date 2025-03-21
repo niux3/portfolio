@@ -1,0 +1,9 @@
+body{
+    font-family: $font-family-base;
+    font-weight: $weight-regular;
+    line-height: $line-height-base;
+    hyphens: auto;
+    @include font-size(base);
+    color: $color-base;
+    background-color: $background-color-base;
+}
