@@ -23,6 +23,7 @@
       {#{% include "partials/about.html" %}#}
       {% include "partials/flash.html" %}
       {% block content %}{% endblock %}
+      {% include "partials/contact.html" %}
       {% include "partials/footer.html" %}
     </main>
     <script src="{{ url_for('static', filename="js/app.js") }}"></script>
