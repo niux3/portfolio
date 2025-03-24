@@ -1,0 +1,14 @@
+label{
+  >span{
+    //background-color: map-get($colors, nice);
+    border-radius: $border-radius;
+    display: block;
+    padding: .8rem;
+
+    > span{
+      color: map-get($colors, cannes);
+      font-size: $font-size-base;
+      font-weight: 600;
+    }
+  }
+}

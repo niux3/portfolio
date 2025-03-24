@@ -1,0 +1,13 @@
+.button{
+  border-radius: $border-radius;
+  font-size: $font-size-base;
+  color: map-get($colors, laval);
+  background-color: map-get($colors, cannes);
+  font-variant: small-caps;
+  transition: color .4s, background-color .4s;
+
+  &:hover{
+    color: map-get($colors, cannes);
+    background-color: map-get($colors, nice);
+  }
+}
