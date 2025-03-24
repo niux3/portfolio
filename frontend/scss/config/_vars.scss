@@ -10,18 +10,18 @@ $color-ghost            : transparent !default;
 
 
 $breakpoints: (
-    tiny-screen           : 320px,
-    tiny-plus-screen      : 480px,
-    small-less-screen     : 600px,
-    small-screen          : 640px,
-    small-plus-screen     : 768px,
-    medium-less-screen    : 800px,
-    medium-screen         : 960px,
-    medium-plus-screen    : 1024px,
-    large-screen          : 1280px,
-    large-plus-screen     : 1440px,
-    extra-large-screen    : 1600px,
-    ultra-large-screen    : 1920px
+  tiny-screen           : 320px,
+  tiny-plus-screen      : 480px,
+  small-less-screen     : 600px,
+  small-screen          : 640px,
+  small-plus-screen     : 768px,
+  medium-less-screen    : 800px,
+  medium-screen         : 960px,
+  medium-plus-screen    : 1024px,
+  large-screen          : 1280px,
+  large-plus-screen     : 1440px,
+  extra-large-screen    : 1600px,
+  ultra-large-screen    : 1920px
 ) !default;
 
 $fonts : (
@@ -40,34 +40,34 @@ $font-family-monospace : consolas, monaco, courier, monospace !default;
 
 $font-size-base : 1.6rem !default;
 $font-sizes: (
-    base: (
-        mobile  : 1.4rem,
-        desktop : $font-size-base
-    ),
-    h1: (
-        mobile  : 4rem,
-        desktop : 5rem
-    ),
-    h2: (
-        mobile  : 3.6rem,
-        desktop : 4.2rem
-    ),
-    h3: (
-        mobile  : 3rem,
-        desktop : 3.6rem
-    ),
-    h4: (
-        mobile  : 2.4rem,
-        desktop : 3rem
-    ),
-    h5: (
-        mobile  : 1.8rem,
-        desktop : 2.4rem
-    ),
-    h6: (
-        mobile  : 1.5rem,
-        desktop : 1.5rem
-    )
+  base: (
+    mobile  : 1.4rem,
+    desktop : $font-size-base
+  ),
+  h1: (
+    mobile  : 4rem,
+    desktop : 5rem
+  ),
+  h2: (
+    mobile  : 3.6rem,
+    desktop : 4.2rem
+  ),
+  h3: (
+    mobile  : 3rem,
+    desktop : 3.6rem
+  ),
+  h4: (
+    mobile  : 2.4rem,
+    desktop : 3rem
+  ),
+  h5: (
+    mobile  : 1.8rem,
+    desktop : 2.4rem
+  ),
+  h6: (
+    mobile  : 1.5rem,
+    desktop : 1.5rem
+  )
 ) !default;
 
 // Font weights
@@ -80,12 +80,12 @@ $weight-bold    : 600 !default;
 // Line heights
 $line-height-base : 1.6 !default;
 $line-height-title : (
-    h1 : 1.2,
-    h2 : 1.25,
-    h3 : 1.3,
-    h4 : 1.35,
-    h5 : 1.5,
-    h6 : $line-height-base,
+  h1 : 1.2,
+  h2 : 1.25,
+  h3 : 1.3,
+  h4 : 1.35,
+  h5 : 1.5,
+  h6 : $line-height-base,
 );
 
 // ------------
