@@ -1,0 +1,37 @@
+.items-icons{
+  margin-left: 0;
+  list-style: none;
+  li{
+    a{
+      color: map-get($colors, cannes);
+      padding: 1.2rem;
+      transition: background-color .8s;
+      display: block;
+      border-radius: $border-radius;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &:before{
+        content: '';
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        background-color: map-get($colors, nice);
+        border-radius: $border-radius;
+      }
+    
+      &:hover{
+        background-color: map-get($colors, nice);
+      }
+
+      > span{
+        width: 100%;
+        max-width: calc(100% - 5rem);
+        > span{
+          display: block;
+        }
+      } 
+    }
+  }
+}
