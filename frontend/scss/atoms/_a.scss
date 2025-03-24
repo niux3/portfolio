@@ -1,0 +1,8 @@
+a{
+  color: map-get($colors, cannes);
+
+  &:hover{
+    color: map-get($colors, cannes);
+    text-decoration: underline;
+  }
+}

@@ -20,9 +20,10 @@
         background-color: map-get($colors, nice);
         border-radius: $border-radius;
       }
-    
+
       &:hover{
         background-color: map-get($colors, nice);
+        text-decoration: none;
       }
 
       > span{
@@ -31,7 +32,7 @@
         > span{
           display: block;
         }
-      } 
+      }
     }
   }
 }
