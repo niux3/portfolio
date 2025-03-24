@@ -12,19 +12,19 @@
 // atoms
 @import "atoms/html";
 @import "atoms/body";
+@import "atoms/a";
 @import "atoms/header";
 @import "atoms/logo";
 @import "atoms/introduction";
-@import "atoms/about";
+@import "atoms/section";
+@import "atoms/footer";
+@import "atoms/title";
+@import "atoms/mark";
 
 // helpers
-@import "atoms/a";
 @import "atoms/bold";
 @import "atoms/light";
 @import "atoms/grid_container";
-@import "atoms/title";
-@import "atoms/mark";
-@import "atoms/footer";
 
 
 
@@ -32,6 +32,7 @@
 //moelcules
 @import "molecules/about";
 @import "molecules/items_icons";
+@import "molecules/section";
 @import "molecules/work";
 
 //organismes
