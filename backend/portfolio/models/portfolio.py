@@ -16,7 +16,7 @@ class Portfolio(db.Model):
     online = db.Column(db.SmallInteger, default=1)
     url = db.Column(db.String(256), nullable=False)
     functions_id = db.Column(db.Integer, db.ForeignKey('portfolio_functions.id', onupdate='CASCADE', ondelete='CASCADE'))
-    technologies = db.relationship("Technology", secondary=PortfolioTechnology, backref=db.backref('portfolios', lazy="dynamic"))
+    # technologies = db.relationship("Technology", secondary=PortfolioTechnology, backref=db.backref('portfolios', lazy="dynamic"))
     sort = db.Column(db.Integer, nullable=False)
     year = db.Column(db.Integer, nullable=True)
     activities_id = db.Column(db.Integer, db.ForeignKey('portfolio_activities.id', onupdate='CASCADE', ondelete='CASCADE'))
