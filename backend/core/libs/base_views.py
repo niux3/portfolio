@@ -1,7 +1,6 @@
-"""
 from flask import render_template, request, redirect, url_for, flash
 from slugify import slugify
-from app import db
+from backend import db
 
 
 class BaseView:
@@ -13,8 +12,9 @@ class BaseView:
         ctx['object_list'] = obj.query.all()
         ctx['category'] = category
         ctx['fields'] = fields
-        return render_template('companies/index.html', **ctx)
+        return render_template('portfolio/index.html', **ctx)
 
+    """
     @staticmethod
     def add(objForm, obj, prefix_bp):
         form = objForm()
@@ -58,4 +58,4 @@ class BaseView:
             'form': form
         }
         return render_template('companies/edit.html', **ctx)
-"""
+    """

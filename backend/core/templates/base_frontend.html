@@ -16,15 +16,14 @@
     {% block css %}{% endblock %}
   </head>
 
-  <body id="{% block id_body %}{% endblock %}">
+  <body>
     <main class="grid-container">
-      {% include "partials/header.html" %}
-      {% include "partials/intro.html" %}
+      {% include "partials/frontend/header.html" %}
+      {% include "partials/frontend/intro.html" %}
       {#{% include "partials/about.html" %}#}
-      {% include "partials/flash.html" %}
       {% block content %}{% endblock %}
-      {% include "partials/contact.html" %}
-      {% include "partials/footer.html" %}
+      {% include "partials/frontend/contact.html" %}
+      {% include "partials/frontend/footer.html" %}
     </main>
     <script src="{{ url_for('static', filename="js/app.js") }}"></script>
     {% block js %}{% endblock %}
