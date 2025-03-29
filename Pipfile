@@ -16,6 +16,7 @@ python-dotenv = "*"
 python-slugify = "*"
 flask-cors = "*"
 jedi = "*"
+flask-wtf = "*"
 
 [dev-packages]
 
