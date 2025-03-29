@@ -1,5 +1,6 @@
 from backend import db
 from datetime import datetime
+from backend.portfolio.models import PortfolioTechnology
 
 
 class Portfolio(db.Model):
@@ -14,11 +15,11 @@ class Portfolio(db.Model):
     modified = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
     online = db.Column(db.SmallInteger, default=1)
     url = db.Column(db.String(256), nullable=False)
-    functions_id = db.Column(db.Integer, db.ForeignKey('functions.id'))
-    # technologies = db.relationship("Technology", secondary=portfolio_technology, backref=db.backref('portfolios', lazy="dynamic"))
+    functions_id = db.Column(db.Integer, db.ForeignKey('portfolio_functions.id', onupdate='CASCADE', ondelete='CASCADE'))
+    technologies = db.relationship("Technology", secondary=PortfolioTechnology, backref=db.backref('portfolios', lazy="dynamic"))
     sort = db.Column(db.Integer, nullable=False)
     year = db.Column(db.Integer, nullable=True)
-    activities_id = db.Column(db.Integer, db.ForeignKey('activities.id'))
+    activities_id = db.Column(db.Integer, db.ForeignKey('portfolio_activities.id', onupdate='CASCADE', ondelete='CASCADE'))
     customer = db.Column(db.String(128), nullable=False)
     location = db.Column(db.String(128), nullable=False)
 
