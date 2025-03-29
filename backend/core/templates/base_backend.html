@@ -8,17 +8,22 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation-float.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation-prototype.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation-rtl.min.css') }}">
+<style>
+.top-bar{
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+}
+.top-bar ul{
+  background-color: white;
+}
+</style>
     {% block css %}{% endblock %}
   </head>
 
   <body>
     <main class="grid-container">
-      {% include "partials/frontend/header.html" %}
-      {% include "partials/frontend/intro.html" %}
-      {#{% include "partials/about.html" %}#}
+      {% include "partials/backend/header.html" %}
       {% block content %}{% endblock %}
-      {% include "partials/frontend/contact.html" %}
-      {% include "partials/frontend/footer.html" %}
     </main>
     <script src="{{ url_for('static', filename="js/app.js") }}"></script>
     {% block js %}{% endblock %}

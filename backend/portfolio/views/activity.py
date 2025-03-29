@@ -13,6 +13,5 @@ def index():
         'Nom' : 'name',
     }
     print(Activity.query.all())
-    # return BaseView.index(Activity, prefix_bp, fields, "une activité")
-    return 'ok'
+    return BaseView.index(Activity, prefix_bp, fields, "une activité")
 
