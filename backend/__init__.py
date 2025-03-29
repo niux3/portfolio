@@ -20,13 +20,13 @@ def create_app():
     config.init_app(app)
     CORS(app)
 
-    # migrate = Migrate()
+    migrate = Migrate()
 
-    # db.init_app(app)
-    # migrate.init_app(app, db)
+    db.init_app(app)
+    migrate.init_app(app, db)
 
-    # Autoload.import_models()
-    # migrate.init_app(app, db, directory=config.BASEDIR / config.MIGRATIONS)
+    Autoload.import_models()
+    migrate.init_app(app, db, directory=config.BASEDIR / config.MIGRATIONS)
 
     Autoload.import_views(app)
     # Autoload.import_errors(app)
