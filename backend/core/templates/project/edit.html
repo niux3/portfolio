@@ -1,0 +1,8 @@
+{% extends 'base_backend.html' %}
+
+{% block content %}
+      <form method="post" enctype="multipart/form-data">
+        {% include 'partials/backend/form.html' %}
+        <div><button type="submit" class="button primary">envoyer</button></div>
+    </form>
+{% endblock %}

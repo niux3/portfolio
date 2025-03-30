@@ -1,30 +1,31 @@
+<p>{{ prefix_bp }}</p>
+<p class="text-right"><a class="button primary" href="{{ url_for(add) }}">ajouter {{ category }}</a></p>
+{% if object_list| length > 0 %}
 <table class="hover unstriped">
-  <thead>
-    <tr>
-      <th>Table Header</th>
-      <th>Table Header</th>
-      <th>Table Header</th>
-      <th>Table Header</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Content Goes Here</td>
-      <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-    </tr>
-    <tr>
-      <td>Content Goes Here</td>
-      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-    </tr>
-    <tr>
-      <td>Content Goes Here</td>
-      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            {% for k, v in fields.items() %}
+                <th class="text-left" scope="col">{{ k }}</th>
+            {% endfor %}
+            <th class="text-center" scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in object_list %}
+            <tr>
+                {% for k, v in fields.items() %}
+                    {% if object[v] != '' %}
+                        <td class="text-left">{{ object[v] }}</td>
+                    {% else %}
+                        <td class="text-left">&ndash;</td>
+                    {% endif %}
+                {% endfor %}
+            <td class="text-center">
+                <a class="button warning" href="{{ url_for(edit, id=object.id) }}">éditer</a>
+                <a class="button alert" onclick="javascript: return confirm('Êtes vous sur de vouloir supprimer cette ligne ?')" href="{{ url_for(destroy, id=object.id) }}">supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
+{% endif %}

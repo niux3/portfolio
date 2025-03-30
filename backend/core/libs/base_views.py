@@ -12,9 +12,8 @@ class BaseView:
         ctx['object_list'] = obj.query.all()
         ctx['category'] = category
         ctx['fields'] = fields
-        return render_template('portfolio/index.html', **ctx)
+        return render_template('project/index.html', **ctx)
 
-    """
     @staticmethod
     def add(objForm, obj, prefix_bp):
         form = objForm()
@@ -29,7 +28,7 @@ class BaseView:
         ctx = {
             'form': form
         }
-        return render_template('companies/edit.html', **ctx)
+        return render_template('project/edit.html', **ctx)
 
     @staticmethod
     def destroy(id, obj, prefix_bp):
@@ -40,14 +39,12 @@ class BaseView:
         return redirect(url_for(f'{prefix_bp}.index'))
 
     @staticmethod
-    def edit(id, slug, obj, objForm, prefix_bp, to_slug=None):
+    def edit(id, obj, objForm, prefix_bp):
         instance = obj.query.get_or_404(id)
         form = objForm(obj=instance)
         if form.validate_on_submit() and request.method == "POST":
             form.populate_obj(instance)
             slug_data = form.name.data
-            if to_slug is not None:
-                slug_data = to_slug(form)
             instance.slug = slugify(slug_data)
             db.session.add(instance)
             db.session.commit()
@@ -57,5 +54,4 @@ class BaseView:
         ctx = {
             'form': form
         }
-        return render_template('companies/edit.html', **ctx)
-    """
+        return render_template('project/edit.html', **ctx)

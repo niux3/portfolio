@@ -1,0 +1,11 @@
+{% for item in form %}
+    <div>
+        {% if item.label.text != "CSRF Token" %}
+            {{ item.label }}
+        {% endif %}
+        {{ item(class="") }}
+        {% for error in item.errors %}
+            <span class="form-error is-visible">{{ error }}</span>
+        {% endfor %}
+    </div>
+{% endfor %}
