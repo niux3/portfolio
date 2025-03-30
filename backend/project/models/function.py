@@ -2,7 +2,7 @@ from backend import db
 
 
 class Function(db.Model):
-    __tablename__ = 'portfolio_functions'
+    __tablename__ = 'project_functions'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), nullable=False)

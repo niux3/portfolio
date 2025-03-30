@@ -2,7 +2,7 @@ from backend import db
 
 
 class Activity(db.Model):
-    __tablename__ = 'portfolio_activities'
+    __tablename__ = 'project_activities'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), nullable=False)

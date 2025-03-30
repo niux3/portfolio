@@ -3,9 +3,9 @@ from wtforms.validators import InputRequired
 from wtforms import StringField, BooleanField
 from wtforms.ext.sqlalchemy.fields import QuerySelectMultipleField, QuerySelectField
 from wtforms.widgets import TextArea, CheckboxInput, ListWidget
-from backend.portfolio.models import Technology, Function, Activity
+from backend.project.models import Technology, Function, Activity
 
-class PortfolioForm(FlaskForm):
+class ProjectForm(FlaskForm):
     name = StringField('name', validators=[InputRequired()], render_kw={'autofocus': 'true', "autocomplete": "off"})
     slug = StringField('slug', validators=[InputRequired()])
     url = StringField('url', validators=[InputRequired()])

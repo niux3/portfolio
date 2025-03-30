@@ -1,6 +1,6 @@
 from flask import Blueprint
-from backend.portfolio.models import Activity
-from backend.portfolio.forms import ActivityForm
+from backend.project.models import Activity
+from backend.project.forms import ActivityForm
 from backend.core.libs.base_views import BaseView
 
 
