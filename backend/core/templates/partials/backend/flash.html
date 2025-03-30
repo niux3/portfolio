@@ -1,0 +1,31 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="callout {{ category }}" role="alert">
+              <p>{{ message }}</p>
+            </div>
+        {% endfor %}
+        <style>
+            .callout{
+                position: fixed;
+                bottom: 0;
+                width: 50%;
+                left: 25%;
+                right: 25%;
+                cursor:pointer;
+            }
+        </style>
+        <script>
+(()=>{
+    if(document.querySelectorAll('.callout').length){
+        let $callout = document.querySelector('.callout')
+        $callout.addEventListener('pointerdown', e => $callout.remove())
+
+        setTimeout(()=>{
+            $callout.remove()
+        }, 3000)
+    }
+})()
+        </script>
+    {% endif  %}
+{% endwith  %}
