@@ -34,11 +34,11 @@
   <h3>PROJETS</h3>
   <div class="content">
     <ul class="items-icons">
-      {% for _ in range(50) %}
+      {% for object in object_list.projects %}
       <li>
         <a href="#">
           <span>
-            <span class="bold">azerty</span>
+            <span class="bold">{{ object.name }}</span>
             <span>Elit modi accusantium eaque at assuda.</span>
           </span>
         </a>
@@ -50,8 +50,10 @@
 <section class="technologies">
   <h3>Technologies utilisées</h3>
   <div class="content">
-    <ul class="no-bullet">
-      <li><a href=""> <span>Python</span></a></li>
+    <ul class="no-bullet grid-x grid-margin-x padding-bottom-3">
+      {% for object in object_list.technologies %}
+        <li class="cell medium-2 text-center margin-vertical-1"><a href=""> <span>{{ object.name }}</span></a></li>
+      {% endfor %}
     </ul>
   </div>
 </section>
