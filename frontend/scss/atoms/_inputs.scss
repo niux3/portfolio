@@ -1,10 +1,17 @@
-select, input[type=text]{
+select, option, input[type=text], input[type=date], input[type=time], textarea{
   font-size: $font-size-base;
   margin-bottom: 0;
   border: none;
   border-bottom: .1rem solid map-get($colors, cannes);
-  padding: .5rem .8rem;
+  padding: .5rem 0 0 .8rem;
   box-shadow: none;
   color: map-get($colors, cannes);
   background-color: transparent;
+  height: 4rem;
+
+  &:focus{
+    border: none;
+    border-bottom: .1rem solid map-get($colors, cannes);
+    box-shadow: none;
+  }
 }
