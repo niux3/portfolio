@@ -3,11 +3,33 @@ label{
     border-radius: $border-radius;
     display: block;
     padding: .8rem;
+    position: relative;
+
+    &:before{
+      content: '';
+      position: absolute;
+      left:50%;
+      right: 50%;
+      bottom: 0.7rem;
+      height: .1rem;
+      background-color: transparent;
+      transition: left .2s, right .2s, background-color .2s;
+    }
+
 
     > span{
       color: map-get($colors, cannes);
       font-size: $font-size-base;
       font-weight: 600;
+    }
+  }
+  &:has(input:not([type=checkbox]):focus, select:focus, textarea:focus){
+    > span{
+      &::before{
+        left: 0.8rem;
+        right: 0.8rem;
+        background-color: map-get($colors, cannes);
+      }
     }
   }
 }
