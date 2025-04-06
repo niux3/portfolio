@@ -7,6 +7,7 @@
     <ul class="items-icons">
       <li>
         <a href="https://github.com/niux3/validator" target="_blank">
+          <span class="fa-brands fa-js"></span>
           <span>
             <span class="bold">ValidatorJS</span>
             <span>Système de validation des données (16 kio)</span>
@@ -15,6 +16,7 @@
       </li>
       <li>
         <a href="https://github.com/niux3/js-template-engine" target="_blank">
+          <span class="fa-brands fa-js"></span>
           <span>
             <span class="bold">Moteur de template en JS</span>
             <span>Moteur de template très léger (920 o)</span>
@@ -23,6 +25,7 @@
       </li>
       <li>
         <a href="https://github.com/niux3/forum" target="_blank">
+          <span class="fa-brands fa-python"></span>
           <span>
             <span class="bold">Forum</span>
             <span>Forum de discussion en Python</span>
@@ -37,6 +40,7 @@
       {% for object in object_list.projects %}
       <li>
         <a href="#">
+          <span class="{{ object.activities.icon }}"></span>
           <span>
             <span class="bold">{{ object.name }}</span>
             <span>Elit modi accusantium eaque at assuda.</span>

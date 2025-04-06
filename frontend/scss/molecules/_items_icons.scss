@@ -13,12 +13,6 @@
       justify-content: space-between;
 
       &:before{
-        content: '';
-        display: block;
-        width: 4rem;
-        height: 4rem;
-        background-color: map-get($colors, nice);
-        border-radius: $border-radius;
       }
 
       &:hover{
@@ -26,7 +20,16 @@
         text-decoration: none;
       }
 
-      > span{
+      > span:nth-child(1){
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        line-height: 4rem;
+        text-align: center;
+        background-color: map-get($colors, nice);
+        border-radius: $border-radius;
+      }
+      > span:nth-child(2){
         width: 100%;
         max-width: calc(100% - 5rem);
         > span{

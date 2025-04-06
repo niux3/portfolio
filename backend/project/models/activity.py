@@ -1,4 +1,5 @@
 from backend import db
+from sqlalchemy.orm import relationship, backref
 
 
 class Activity(db.Model):
@@ -7,6 +8,8 @@ class Activity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), nullable=False)
     icon = db.Column(db.Text, nullable=True)
+
+    activities = relationship('Project', backref=backref('activities'))
 
     def __str__(self):
         return self.name
