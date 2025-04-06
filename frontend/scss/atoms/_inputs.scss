@@ -8,10 +8,17 @@ select, option, input[type=text], input[type=date], input[type=time], textarea{
   color: map-get($colors, cannes);
   background-color: transparent;
   height: 4rem;
+  opacity: 1;
+  transition: opacity .2s;
 
   &:focus{
     border: none;
     border-bottom: .1rem solid map-get($colors, cannes);
     box-shadow: none;
+  }
+
+  &:disabled{
+    opacity: 0;
+    pointer-events: none;
   }
 }
