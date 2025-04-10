@@ -5,4 +5,4 @@ from wtforms import StringField, BooleanField
 
 class TechnologyForm(FlaskForm):
     name = StringField('name', validators=[InputRequired()])
-    online = BooleanField('en ligne', render_kw={"value": "1"})
+    online = BooleanField('en ligne', render_kw={"value": 1}, false_values='0')
