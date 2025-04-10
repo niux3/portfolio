@@ -8,8 +8,8 @@ bp = Blueprint('pages', __name__)
 def index():
     ctx = {
         "object_list": {
-            "projects": Project.query.all(),
-            "technologies": Technology.query.all()
+            "projects": Project.query.filter(Project.online == 1).all(),
+            "technologies": Technology.query.filter(Technology.online == 1).all()
         }
     }
     return render_template('pages/index.html', **ctx)

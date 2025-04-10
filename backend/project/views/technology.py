@@ -1,6 +1,6 @@
 from flask import Blueprint
 from backend.project.models import Technology
-from backend.project.forms import CommonForm
+from backend.project.forms import TechnologyForm
 from backend.core.libs.base_views import BaseView
 
 
@@ -16,7 +16,7 @@ def index():
 
 @bp.route('/ajouter.html', methods=['GET', 'POST'])
 def add():
-    return BaseView.add(CommonForm, Technology, prefix_bp)
+    return BaseView.add(TechnologyForm, Technology, prefix_bp)
 
 @bp.route('/<int:id>-supprimer.html')
 def destroy(id):
@@ -24,5 +24,5 @@ def destroy(id):
 
 @bp.route('/<int:id>-editer.html', methods=['GET', 'POST'])
 def edit(id):
-    return BaseView.edit(id, Technology, CommonForm, prefix_bp)
+    return BaseView.edit(id, Technology, TechnologyForm, prefix_bp)
 
