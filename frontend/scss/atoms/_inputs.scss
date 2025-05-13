@@ -11,10 +11,18 @@ select, option, input[type=text], input[type=date], input[type=time], textarea{
   opacity: 1;
   transition: opacity .2s;
 
+  &.error{
+    border-bottom: .1rem solid map-get($colors, marseille);
+  }
+
   &:focus{
     border: none;
     border-bottom: .1rem solid map-get($colors, cannes);
     box-shadow: none;
+
+    &.error{
+      border-bottom: .1rem solid map-get($colors, marseille);
+    }
   }
 
   &:disabled{
