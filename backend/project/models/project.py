@@ -1,5 +1,6 @@
-from backend import db
 from datetime import datetime
+from backend import db
+from backend.project.models.function import Function
 
 
 class Project(db.Model):
@@ -27,3 +28,7 @@ class Project(db.Model):
 
     def __repr__(self):
         return "<Project %r>" % self.name
+
+    @property
+    def function(self):
+        return Function.query.get_or_404(self.functions_id)

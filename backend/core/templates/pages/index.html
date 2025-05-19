@@ -39,11 +39,11 @@
     <ul class="items-icons">
       {% for object in object_list.projects %}
       <li>
-        <a href="#">
+        <a href="{{ object.url }}" target="_blank">
           <span class="{{ object.activities.icon }}"></span>
           <span>
             <span class="bold">{{ object.name }}</span>
-            <span>Elit modi accusantium eaque at assuda.</span>
+            <span>développement {{ object.function.name }}</span>
           </span>
         </a>
       </li>
