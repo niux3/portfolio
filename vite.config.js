@@ -15,12 +15,14 @@ export default defineConfig(({ command }) => ({
     // publicDir: 'resources/static',
     build: {
         outDir: `dist`, // Dossier destination du build
-        assetsDir: 'assets', // Sous-dossier dans lequel placer les assets (js, css) générés par Vite
-        emptyOutDir: true, // Vide le dossier destination à chaque build
-        manifest: true, // Génère un manifeste json listant les chemins vers les assets
+        assetsDir: 'static', // Sous-dossier dans lequel placer les assets (js, css) générés par Vite
+        emptyOutDir: false, // Vide le dossier destination à chaque build
+        manifest: false, // Génère un manifeste json listant les chemins vers les assets
         rollupOptions: {
             input: {
-                index: path.resolve(__dirname, 'index.html'), // Point d'entrée HTML
+                // index: path.resolve(__dirname, 'index.html'), // Point d'entrée HTML
+                app: path.resolve(__dirname, 'frontend/main.js'), // Point d'entrée HTML
+                styles: path.resolve(__dirname, 'frontend/scss/index.scss'), // Point d'entrée HTML
                 // index: 'main.js', // Point d'entrée JS, important les assets
                 // custom: 'resources/scripts/burger-menu.js',
             },

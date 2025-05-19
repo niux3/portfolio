@@ -45,7 +45,6 @@ class BaseView:
         instance = obj.query.get_or_404(id)
         form = objForm(obj=instance)
         if form.validate_on_submit() and request.method == "POST":
-            print(form.data['online'])
             form.populate_obj(instance)
             if 'online' in form.data.keys():
                 instance.online = 1 if form.data['online'] == True else 0
