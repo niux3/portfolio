@@ -1,0 +1,20 @@
+[
+    {
+        "id": "6555f96ddec5a",
+        "firstname": "Robert",
+        "lastname": "Michu",
+        "email": "robert.minchu@gmail.com"
+    },
+    {
+        "id": "6555fa3264299",
+        "firstname": "Gilberte",
+        "lastname": "Dupont",
+        "email": "contact@dd.com"
+    },
+    {
+        "id": "6555fa3f88def",
+        "firstname": "Cédric",
+        "lastname": "Durant",
+        "email": "info@domain.fr"
+    }
+]
