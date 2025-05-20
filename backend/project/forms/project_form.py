@@ -16,10 +16,10 @@ class ProjectForm(FlaskForm):
     location = StringField('location', validators=[InputRequired()])
     online = BooleanField('en ligne', render_kw={"value": "1"})
     activities = QuerySelectField(query_factory=lambda: Activity.query.all())
-    functions = QuerySelectField(query_factory=lambda: Function.query.all())
-    technologies = QuerySelectMultipleField(
-        'technologies',
-        query_factory=lambda: Technology.query.all(),
-        widget=ListWidget(prefix_label=False),
-        option_widget=CheckboxInput()
-    )
+    functions_id = QuerySelectField(query_factory=lambda: Function.query.all())
+    # technologies = QuerySelectMultipleField(
+        # 'technologies',
+        # query_factory=lambda: Technology.query.all(),
+        # widget=ListWidget(prefix_label=False),
+        # option_widget=CheckboxInput()
+    # )
