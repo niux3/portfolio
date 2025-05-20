@@ -5,7 +5,7 @@
       <label class="cell medium-4 padding-left-0">
         <span>
           <span>Civilité</span>
-          <select name="civility" required data-validate-rules="isnotempty" data-error-isnotempty="Ce champ ne doit pas être vide">
+          <select name="civility" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
             <option value="">choisir</option>
             <option value="Mademoiselle">Mademoiselle</option>
             <option value="Madame">Madame</option>
@@ -22,26 +22,27 @@
       <label class="cell medium-4 padding-right-0">
         <span>
           <span>Nom</span>
-          <input type="text" name="lastname" required data-validate-rules="isnotempty" data-error-isnotempty="Ce champ ne doit pas être vide">
+          <input type="text" name="lastname" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
         </span>
       </label>
       <label class="cell medium-6 margin-top-1 padding-left-0">
         <span>
           <span>Email</span>
-          <input type="text" name="email" required data-validate-rules="isnotempty" data-error-isnotempty="Ce champ ne doit pas être vide">
+          <input type="text" name="email" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
         </span>
       </label>
+      <label><span><span>addresse</span><input type="text" name="address"></span></label>
       <label class="cell medium-6 padding-right-0 margin-top-1">
         <span>
           <span>Sujet</span>
-          <input type="text" name="subject" required data-validate-rules="isnotempty" data-error-isnotempty="Ce champ ne doit pas être vide">
+          <input type="text" name="subject" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
         </span>
       </label>
       <label class="cell medium-3 flex-container align-middle"><span><input type="checkbox" name="appointement"><span class="margin-left-1">un rendez-vous</span></span></label>
-      <label class="cell medium-3"><span><span>Téléphone</span><input type="text" name="phone" disabled></span></label>
-      <label class="cell medium-3"><span><span>Date</span><input type="date" name="date_appointment" disabled></span></label>
-      <label class="cell medium-3"><span><span>Heure</span><input type="time" name="hour_appointment" disabled></span></label>
-      <label class="cell medium-12"><span><span>Message</span><textarea id="" name="message" cols="30" rows="10" required data-validate-rules="isnotempty" data-error-isnotempty="Ce champ ne doit pas être vide"></textarea></span></label>
+      <label class="cell medium-3"><span><span>Téléphone</span><input type="text" name="phone" disabled data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide"></span></label>
+      <label class="cell medium-3"><span><span>Date</span><input type="date" name="date_appointment" disabled data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide"></span></label>
+      <label class="cell medium-3"><span><span>Heure</span><input type="time" name="hour_appointment" disabled data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide"></span></label>
+      <label class="cell medium-12"><span><span>Message</span><textarea id="" name="message" cols="30" rows="10" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide"></textarea></span></label>
       <div class="cell medium-4 margin-top-1 large-offset-8">
         <button class="button expanded" type="submit">envoyer</button>
       </div>
