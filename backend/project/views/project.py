@@ -20,33 +20,13 @@ def index():
 def add():
     form = ProjectForm()
     if form.validate_on_submit() and request.method == "POST":
-        cleared_data = {k:v for k, v in form.data.items() if k != 'csrf_token'}
-        if 'online' in cleared_data.keys():
-            cleared_data['online'] = 1 if cleared_data['online'] == True else 0
-        project = Project(**{
-            "name": cleared_data["name"],
-            "slug": slugify(cleared_data["name"]),
-            "url": cleared_data["url"],
-            "year": cleared_data["year"],
-            "description": cleared_data["description"],
-            "color": cleared_data["color"],
-            "customer": cleared_data["customer"],
-            "location": cleared_data["location"],
-            "online": cleared_data["online"],
-            "activities_id": cleared_data["activities"].id,
-            "functions_id": cleared_data["functions_id"].id,
-        })
+        project = Project()
+        form.populate_obj(project)
+        project.slug = slugify(project.name)
+        project.online = 1 if form.online.data else 0
+        project.technologies = form.technologies.data
         db.session.add(project)
         db.session.commit()
-        db.session.refresh(project)
-        for tech in cleared_data['technologies']:
-            project_technology = ProjectTechnology(**{
-                "technologies_id": tech.id,
-                "projects_id": project.id
-            })
-            db.session.add(project_technology)
-            db.session.commit()
-
         flash("Votre item a bien été ajouté", "success")
         return redirect(url_for(f'{prefix_bp}.index'))
     ctx = {
@@ -56,7 +36,14 @@ def add():
 
 @bp.route('/<int:id>-supprimer.html')
 def destroy(id):
-    return BaseView.destroy(id, Project, prefix_bp)
+    instance = Project.query.get_or_404(id)
+    instance.technologies.clear()
+
+    db.session.flush()
+    db.session.delete(instance)
+    db.session.commit()
+    flash("Votre item a bien été supprimé", "success")
+    return redirect(url_for(f'{prefix_bp}.index'))
 
 @bp.route('/<int:id>-editer.html', methods=['GET', 'POST'])
 def edit(id):
@@ -71,7 +58,7 @@ def edit(id):
         if 'online' in form.data.keys():
             project.online = 1 if form.data['online'] == True else 0
         project.technologies = form.technologies.data
-        project.slug = slugify(form.slug.data)
+        project.slug = slugify(form.name.data)
         try:
             db.session.commit()
             flash("Votre item a bien été modifié", "success")

@@ -7,7 +7,7 @@ from backend.project.models import Technology, Function, Activity
 
 class ProjectForm(FlaskForm):
     name = StringField('name', validators=[InputRequired()], render_kw={'autofocus': 'true', "autocomplete": "off"})
-    slug = StringField('slug', validators=[InputRequired()])
+    slug = StringField('slug', render_kw={"readonly": True})
     url = StringField('url', validators=[InputRequired()])
     year = StringField('year', validators=[InputRequired()])
     description = StringField('description', validators=[InputRequired()], widget=TextArea())

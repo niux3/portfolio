@@ -27,9 +27,10 @@ class Project(db.Model):
     technologies = db.relationship(
         'Technology',
         secondary='project_projects_technologies',
-        backref='projects'
+        backref=db.backref('projects', lazy='dynamic'),
+        lazy='subquery',
+        cascade="all, delete"
     )
-
 
     def __str__(self):
         return self.name
