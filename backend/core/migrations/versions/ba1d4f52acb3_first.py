@@ -1,8 +1,8 @@
 """first
 
-Revision ID: 95e3055ee2fe
+Revision ID: ba1d4f52acb3
 Revises: 
-Create Date: 2025-03-30 13:19:46.626211
+Create Date: 2025-05-21 15:34:53.813418
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '95e3055ee2fe'
+revision = 'ba1d4f52acb3'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,6 +32,7 @@ def upgrade():
     op.create_table('project_technologies',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=32), nullable=False),
+    sa.Column('online', sa.SmallInteger(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('project_projects',
@@ -45,8 +46,8 @@ def upgrade():
     sa.Column('online', sa.SmallInteger(), nullable=True),
     sa.Column('url', sa.String(length=256), nullable=False),
     sa.Column('functions_id', sa.Integer(), nullable=True),
-    sa.Column('sort', sa.Integer(), nullable=False),
-    sa.Column('year', sa.Integer(), nullable=True),
+    sa.Column('sort', sa.Integer(), nullable=True),
+    sa.Column('year', sa.String(length=16), nullable=True),
     sa.Column('activities_id', sa.Integer(), nullable=True),
     sa.Column('customer', sa.String(length=128), nullable=False),
     sa.Column('location', sa.String(length=128), nullable=False),
