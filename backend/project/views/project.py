@@ -3,6 +3,7 @@ from slugify import slugify
 from backend.project.models import Project, ProjectTechnology
 from backend.project.forms import ProjectForm
 from backend.core.libs.base_views import BaseView
+from backend import db
 
 
 prefix_bp = 'projects'
@@ -59,7 +60,31 @@ def destroy(id):
 
 @bp.route('/<int:id>-editer.html', methods=['GET', 'POST'])
 def edit(id):
-    return BaseView.edit(id, Project, ProjectForm, prefix_bp)
+    project = Project.query.get_or_404(id)
+    form = ProjectForm(obj=project)
+
+    if request.method == 'GET':
+        form.technologies.data = project.technologies
+
+    if form.validate_on_submit():
+        form.populate_obj(project)
+        if 'online' in form.data.keys():
+            project.online = 1 if form.data['online'] == True else 0
+        project.technologies = form.technologies.data
+        project.slug = slugify(form.slug.data)
+        try:
+            db.session.commit()
+            flash("Votre item a bien été modifié", "success")
+        except Exception as e:
+            db.session.rollback()
+            flash(f"Erreur lors de la mise à jour : {str(e)}", "danger")
+            print("Erreur SQLAlchemy :", e)
+        return redirect(url_for(f'{prefix_bp}.index'))
+    ctx = {
+        "project": project,
+        "form": form
+    }
+    return render_template('project/edit.html', **ctx)
 
 """
 import json

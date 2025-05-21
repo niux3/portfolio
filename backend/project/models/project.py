@@ -16,11 +16,19 @@ class Project(db.Model):
     online = db.Column(db.SmallInteger, default=1)
     url = db.Column(db.String(256), nullable=False)
     functions_id = db.Column(db.Integer, db.ForeignKey('project_functions.id', onupdate='CASCADE', ondelete='CASCADE'))
+    function = db.relationship("Function", backref="projects")
     sort = db.Column(db.Integer, nullable=True)
     year = db.Column(db.String(16), nullable=True)
     activities_id = db.Column(db.Integer, db.ForeignKey('project_activities.id', onupdate='CASCADE', ondelete='CASCADE'))
+    activity = db.relationship("Activity", backref="projects")
     customer = db.Column(db.String(128), nullable=False)
     location = db.Column(db.String(128), nullable=False)
+
+    technologies = db.relationship(
+        'Technology',
+        secondary='project_projects_technologies',
+        backref='projects'
+    )
 
 
     def __str__(self):
@@ -30,5 +38,5 @@ class Project(db.Model):
         return "<Project %r>" % self.name
 
     @property
-    def function(self):
+    def functions(self):
         return Function.query.get_or_404(self.functions_id)

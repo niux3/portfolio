@@ -15,8 +15,8 @@ class ProjectForm(FlaskForm):
     customer = StringField('customer', validators=[InputRequired()])
     location = StringField('location', validators=[InputRequired()])
     online = BooleanField('en ligne', render_kw={"value": "1"})
-    activities = QuerySelectField(query_factory=lambda: Activity.query.all())
-    functions_id = QuerySelectField(query_factory=lambda: Function.query.all())
+    activity = QuerySelectField('Activity', query_factory=lambda: Activity.query.all(), get_label='name')
+    function = QuerySelectField( 'Fonction', query_factory=lambda: Function.query.all(), get_label='name')
     technologies = QuerySelectMultipleField(
         'technologies',
         query_factory=lambda: Technology.query.all(),

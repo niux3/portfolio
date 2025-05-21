@@ -15,4 +15,4 @@ class ProjectTechnology(db.Model):
         return self.id
 
     def __repr__(self):
-        return "<ProjectTechnology %r %r %r>" % ( self.id, self.technologies_id, self.portfolios_id )
+        return "<ProjectTechnology %r %r %r>" % (self.id, self.technologies_id, self.projects_id)
