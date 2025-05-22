@@ -12,7 +12,6 @@ window.addEventListener('load', () =>{
         errorMessage3chars = "Ce champ doit avoir minimum 3 caractères",
         optionValidator = {
             "selector" : "form",
-            "mode" : "html",
             /*
             "fields" : {
                 "civility" : {

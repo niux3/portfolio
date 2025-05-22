@@ -1,0 +1,16 @@
+{
+  "frontend/main.js": {
+    "file": "app-DH-URjOl.js",
+    "name": "app",
+    "src": "frontend/main.js",
+    "isEntry": true,
+    "css": [
+      "styles-DYrZ0gGZ.css"
+    ]
+  },
+  "frontend/scss/index.scss": {
+    "file": "styles-DYrZ0gGZ.css",
+    "src": "frontend/scss/index.scss",
+    "isEntry": true
+  }
+}
