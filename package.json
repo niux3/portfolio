@@ -13,7 +13,7 @@
     "vite": "^6.2.0"
   },
   "dependencies": {
-    "@niuxe/validator": "^2.0.3",
+    "@niuxe/validator": "^2.0.4",
     "sass": "^1.86.0"
   }
 }
