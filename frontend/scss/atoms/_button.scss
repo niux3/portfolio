@@ -6,7 +6,12 @@
   font-variant: small-caps;
   transition: color .4s, background-color .4s;
 
-  &:hover{
+  &:focus{
+    color: map-get($colors, laval);
+    background-color: darken(map-get($colors, cannes), 10%);
+  }
+
+  &:is(:hover, :active){
     color: map-get($colors, cannes);
     background-color: map-get($colors, nice);
   }

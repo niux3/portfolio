@@ -1,7 +1,7 @@
 $colors : (
   cannes: #355269,
   laval: #eeeeee,
-  marseille: #8a1b1b,
+  marseille: lighten(#8a1b1b, 10%),
   nice: #fff
 ) !default;
 
