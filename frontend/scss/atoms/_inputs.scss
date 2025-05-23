@@ -1,4 +1,4 @@
-select, option, input[type=text], input[type=date], input[type=time], textarea{
+select, option, input[type=text], input[type=email], input[type=date], input[type=time], textarea{
   font-size: $font-size-base;
   margin-bottom: 0;
   border: none;
@@ -6,7 +6,7 @@ select, option, input[type=text], input[type=date], input[type=time], textarea{
   padding: .5rem 0 0 .8rem;
   box-shadow: none;
   color: map-get($colors, cannes);
-  background-color: transparent;
+  background-color: transparent !important;
   height: 4rem;
   opacity: 1;
   transition: opacity .2s;
