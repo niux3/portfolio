@@ -11,11 +11,11 @@ class Contact extends Model{
                 "error" => "<span>Ce champ ne doit pas être vide</span>",
             ],
         ],
-        "address" => [
-            "honeypot" => [
-                "error" => "<span>Ce champ ne doit pas être vide</span>",
-            ],
-        ],
+        //"address" => [
+            //"honeypot" => [
+                //"error" => "<span>Ce champ ne doit pas être vide</span>",
+            //],
+        //],
         "lastname" =>[
             "minlength" => [
                 "params" => 3,
@@ -88,4 +88,4 @@ class Contact extends Model{
     ];
 
 }
-    
+

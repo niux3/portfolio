@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="/static/styles-DYrZ0gGZ.css">
+    <link rel="stylesheet" href="/static/styles-EAQFAHR3.css">
   </head>
 
   <body>
@@ -653,7 +653,7 @@
       <section class="contact">
   <h3>me contacter</h3>
   <div class="content">
-    <form action="/services/mail/send.html" method="post" class="grid-x grid-padding-x">
+    <form action="/services/mail/send.html" method="post" class="grid-x grid-padding-x" novalidate>
       <label class="cell medium-4 padding-left-0">
         <span>
           <span>Civilité</span>
@@ -674,27 +674,28 @@
       <label class="cell medium-4 padding-right-0">
         <span>
           <span>Nom</span>
-          <input type="text" name="lastname" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
+          <input type="text" name="lastname" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
         </span>
       </label>
       <label class="cell medium-6 margin-top-1 padding-left-0">
         <span>
           <span>Email</span>
-          <input type="text" name="email" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
+          <input type="email" name="email" required data-validate-rules="isnotempty isemail" data-error-isnotempty="ne doit pas être vide" data-error-isemail="Ce champ doit avoir la bonne saisie (dom@dom.com)">
         </span>
       </label>
       <label><span><span>addresse</span><input type="text" name="address"></span></label>
       <label class="cell medium-6 padding-right-0 margin-top-1">
         <span>
           <span>Sujet</span>
-          <input type="text" name="subject" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
+          <input type="text" name="subject" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
         </span>
       </label>
       <label class="cell medium-3 flex-container align-middle"><span><input type="checkbox" name="appointement"><span class="margin-left-1">un rendez-vous</span></span></label>
-      <label class="cell medium-3"><span><span>Téléphone</span><input type="text" name="phone" disabled data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide"></span></label>
-      <label class="cell medium-3"><span><span>Date</span><input type="date" name="date_appointment" disabled data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide"></span></label>
-      <label class="cell medium-3"><span><span>Heure</span><input type="time" name="hour_appointment" disabled data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide"></span></label>
-      <label class="cell medium-12"><span><span>Message</span><textarea name="message" cols="30" rows="10" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide"></textarea></span></label>
+      <label class="cell medium-3"><span><span>Téléphone</span><input type="text" name="phone" disabled data-validate-rules="isnotempty checkphone" data-error-isnotempty="le n° de téléphone est manquant" data-error-checkphone="Le format du champ téléphone ne semble pas être bon 0102030405" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Date</span><input type="date" name="date_appointment" disabled data-validate-rules="isnotempty datemin businessday isdate" data-error-isnotempty="la date est manquante" data-error-datemin="La date de rendez vous doit être suppérieur à aujourd'hui" data-error-businessday="les rendez vous sont du lundi au vendredi" data-error-isdate="Ce champ doit être une date valide" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Heure</span><input type="time" name="hour_appointment" disabled data-validate-rules="isnotempty betweenhour" data-error-isnotempty="l'heure est manquante" data-error-betweenhour="Les rendez vous sont compris entre 9 h 00 et 18 h 00" data-validate-target-error="#errorAppointment" data-validate-betweenhour-args="9;18"></span></label>
+      <div id="errorAppointment" class="cell medium-12"></div>
+      <label class="cell medium-12"><span><span>Message</span><textarea name="message" cols="30" rows="10" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3"></textarea></span></label>
       <div class="cell medium-4 margin-top-1 large-offset-8">
         <button class="button expanded" type="submit">envoyer</button>
       </div>
@@ -709,6 +710,7 @@
 </footer>
 
     </main>
-    <script src="/static/app-DH-URjOl.js"></script>
+    <script src="/static/app-7lDb6viP.js"></script>
+    <script src="./app-temp.js"></script>
   </body>
 </html>

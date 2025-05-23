@@ -39,7 +39,12 @@ class ContactController extends Controller{
     function send(){
         if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest' && !empty($_POST)){
             header('Content-Type: application/json; charset=utf-8');
-
+            if(!empty($_POST['address'])){
+                $ctx['status'] = true;
+                $ctx['errors'] = [];
+                echo json_encode($ctx);
+                die;
+            }
             $_POST = Clean::normalize($_POST);
 
             $contact_model = $this->loadModel('Contact');

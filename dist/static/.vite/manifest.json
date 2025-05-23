@@ -1,15 +1,15 @@
 {
   "frontend/main.js": {
-    "file": "app-DH-URjOl.js",
+    "file": "app-7lDb6viP.js",
     "name": "app",
     "src": "frontend/main.js",
     "isEntry": true,
     "css": [
-      "styles-DYrZ0gGZ.css"
+      "styles-EAQFAHR3.css"
     ]
   },
   "frontend/scss/index.scss": {
-    "file": "styles-DYrZ0gGZ.css",
+    "file": "styles-EAQFAHR3.css",
     "src": "frontend/scss/index.scss",
     "isEntry": true
   }
