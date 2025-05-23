@@ -25,15 +25,19 @@ label{
     > span.error{
       font-size: $font-size-base;
       color: map-get($colors, marseille);
+      position: absolute;
+      bottom: -3rem;
+      left: 0.8rem;
+      right: 0.8rem;
     }
   }
-  &:has(input.error:not([type=checkbox]), select.error, textarea.error){
-    > span{
-      &::before{
-        bottom: 3.6rem;
-      }
-    }
-  }
+  //&:has(input.error:not([type=checkbox]), select.error, textarea.error){
+    //> span{
+      //&::before{
+        //bottom: 3.6rem;
+      //}
+    //}
+  //}
   &:has(input:not([type=checkbox]):focus, select:focus, textarea:focus){
     > span{
       &::before{
@@ -46,9 +50,9 @@ label{
   &:has(input.error:not([type=checkbox]):focus, select.error:focus, textarea.error:focus){
     > span{
       &::before{
-        left: 0.8rem;
-        right: 0.8rem;
-        bottom: 3.6rem;
+        //left: 0.8rem;
+        //right: 0.8rem;
+        //bottom: 3.6rem;
         background-color: map-get($colors, marseille);
       }
     }

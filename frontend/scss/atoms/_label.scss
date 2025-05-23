@@ -2,6 +2,8 @@ label{
   transition: background-color .4s;
   border-radius: $border-radius;
   padding: .5rem;
+  margin-top: 0 !important;
+  margin-bottom: 2.1rem !important;
 
   &:has(input:focus, select:focus, textarea:focus){
     background-color: map-get($colors, nice);
