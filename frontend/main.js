@@ -8,6 +8,7 @@ window.addEventListener('load', () =>{
             document.querySelector('input[name="date_appointment"]'),
             document.querySelector('input[name="hour_appointment"]'),
         ],
+        $formContact = document.getElementById('formContact'),
         validate = new Validator()
 
 
@@ -45,4 +46,18 @@ window.addEventListener('load', () =>{
         return parseInt(min, 10) <= parseInt(hour, 10) && parseInt(max, 10) > parseInt(hour, 10)
     })
     validate.form()
+    validate.middleware.formOnSuccess = (e, $el) =>{
+        if($el === $formContact){
+            e.preventDefault()
+            let $content = $formContact.closest('.content')
+            let $result = document.createElement('div')
+            $result.classList.add('result')
+            $result.insertAdjacentHTML('beforeend', `<p class="text-center"><span>Merci pour votre message. <br>Je vous recontacte dans les plus brefs délais. <br>Vous allez recevoir une réponse automatique</span></p>`)
+            $content.insertAdjacentElement('afterend', $result)
+            $content.classList.add('minimize')
+            setTimeout(()=>{
+                $result.classList.add('show')
+            }, 0)
+        }
+    }
 })

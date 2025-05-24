@@ -1,3 +1,4 @@
+/*
 document.querySelector('form').addEventListener('submit', e =>{
     e.preventDefault()
     console.log('ok')
@@ -31,7 +32,7 @@ document.querySelector('form').addEventListener('submit', e =>{
             mode: "cors",
             body: data
         },
-        url = window.location.origin.includes('rb-webstudio') ? 'https://rb-webstudio.000webhostapp.com/services/mail/send.html' : 'http://localhost/portfolio/dist/services/mail/send.html'
+        url = window.location.origin.includes('rb-webstudio') ? $form.action : 'http://localhost/portfolio/dist/services/mail/send.html'
     fetch(url, params).then(resp =>{
         if(resp.ok === true)
             return resp.json()
@@ -60,3 +61,4 @@ document.querySelector('form').addEventListener('submit', e =>{
         //onSlideStatus('onError')
     })
 })
+*/
