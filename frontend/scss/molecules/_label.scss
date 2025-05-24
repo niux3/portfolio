@@ -38,6 +38,15 @@ label{
       //}
     //}
   //}
+  &:has(.require){
+    > span > span:first-child{
+      &:after{
+        content: ' *';
+        color: map-get($colors, marseille);
+        position: static;
+      }
+    }
+  }
   &:has(input:not([type=checkbox]):focus, select:focus, textarea:focus){
     > span{
       &::before{
