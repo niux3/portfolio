@@ -1,7 +1,10 @@
 <section class="contact">
   <h3>me contacter</h3>
   <div class="content">
-    <form action="/services/mail/send.html" method="post" class="grid-x grid-padding-x" novalidate>
+    <p class="info">
+      <small><em><span>*</span> champ obligatoire</em></small>
+    </p>
+    <form id="formContact" action="/services/mail/send.html" method="post" class="grid-x grid-padding-x clearfix" novalidate>
       <label class="cell medium-4 padding-left-0">
         <span>
           <span>Civilité</span>
@@ -31,7 +34,7 @@
           <input type="email" name="email" required data-validate-rules="isnotempty isemail" data-error-isnotempty="ne doit pas être vide" data-error-isemail="Ce champ doit avoir la bonne saisie (dom@dom.com)">
         </span>
       </label>
-      <label><span><span>addresse</span><input type="text" name="address"></span></label>
+      <label><span><span>addresse</span><input type="text" name="address" tabindex="-1"></span></label>
       <label class="cell medium-6 padding-right-0 margin-top-1">
         <span>
           <span>Sujet</span>
