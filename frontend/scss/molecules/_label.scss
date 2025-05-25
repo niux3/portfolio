@@ -31,13 +31,6 @@ label{
       right: 0.8rem;
     }
   }
-  //&:has(input.error:not([type=checkbox]), select.error, textarea.error){
-    //> span{
-      //&::before{
-        //bottom: 3.6rem;
-      //}
-    //}
-  //}
   &:has(.require){
     > span > span:first-child{
       &:after{
@@ -70,7 +63,42 @@ label{
   > span{
     &:has(input:disabled){
       > span{
-        color: transparent;
+        transition: none !important;
+        color: transparent !important;
+      }
+    }
+  }
+}
+html[data-theme-preference="dark"]{
+  label{
+    >span{
+      > span{
+        color: var(--color-cannes);
+        transition: color .8s;
+
+        &.error{
+          color: var(--color-marseille);
+        }
+      }
+      input, select, textarea{
+        color: var(--color-cannes);
+        transition: color .8s;
+      }
+      &:has(input:focus, select:focus, textarea:focus){
+        > span{
+          color: var(--color-laval);
+
+          &:before{
+            background-color: var(--color-laval);
+          }
+          &.error{
+            color: var(--color-marseille);
+          }
+        }
+        input, select, textarea{
+          color: var(--color-laval);
+          border-bottom-color: var(--color-laval);
+        }
       }
     }
   }
