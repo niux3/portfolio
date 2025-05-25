@@ -5,6 +5,7 @@ import Validator from '@niuxe/validator'
 window.addEventListener('DOMContentLoaded', () =>{
     // darkmode
     let $btnChangeMode = document.querySelector('.changeMode'),
+        storedTheme = localStorage.getItem('theme'),
         changeMode = $btn =>{
             let mode = {
                 'light': {
@@ -21,9 +22,12 @@ window.addEventListener('DOMContentLoaded', () =>{
             $btn.querySelector('.fa-solid').className = mode[key]['icon']
             $btn.querySelector('.text').textContent = mode[key]['text']
             document.documentElement.dataset.themePreference = key
+            localStorage.setItem('theme', key)
         }
 
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if(storedTheme){
+        document.documentElement.dataset.themePreference = storedTheme
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         //document.documentElement.dataset.themePreference = 'dark'
         changeMode($btnChangeMode)
     }
