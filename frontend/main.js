@@ -27,12 +27,10 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     if(storedTheme){
         document.documentElement.dataset.themePreference = storedTheme
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        //document.documentElement.dataset.themePreference = 'dark'
+    }else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
         changeMode($btnChangeMode)
     }
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        //document.documentElement.dataset.themePreference = event.matches? 'dark' : 'dark'
         changeMode($btnChangeMode)
     })
     $btnChangeMode.addEventListener('pointerdown', e =>{
