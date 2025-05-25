@@ -20,3 +20,20 @@
     background-color: var(--color-nice);
   }
 }
+html[data-theme-preference="dark"]{
+  .button{
+    border: .2rem solid transparent;
+    transition: color .4s, background-color .4s, border-color .4s;
+    &.clear{
+      border: none;
+      &:focus{
+        color: var(--color-cannes);
+      }
+    }
+    &:is(:hover, :active){
+      color: var(--color-cannes);
+      background-color: var(--color-laval);
+      border-color: var(--color-cannes);
+    }
+  }
+}
