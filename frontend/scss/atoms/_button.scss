@@ -1,18 +1,18 @@
 .button{
   border-radius: $border-radius;
   font-size: $font-size-base;
-  color: map-get($colors, laval);
-  background-color: map-get($colors, cannes);
+  color: var(--color-laval);
+  background-color: var(--color-cannes);
   font-variant: small-caps;
   transition: color .4s, background-color .4s;
 
   &:focus{
-    color: map-get($colors, laval);
-    background-color: darken(map-get($colors, cannes), 10%);
+    color: var(--color-laval);
+    background-color: var(--color-cannes);
   }
 
   &:is(:hover, :active){
-    color: map-get($colors, cannes);
-    background-color: map-get($colors, nice);
+    color: var(--color-cannes);
+    background-color: var(--color-nice);
   }
 }

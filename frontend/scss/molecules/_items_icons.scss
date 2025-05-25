@@ -3,7 +3,7 @@
   list-style: none;
   li{
     a{
-      color: map-get($colors, cannes);
+      color: var(--color-cannes);
       padding: 1.2rem;
       transition: background-color .8s;
       display: block;
@@ -12,11 +12,8 @@
       align-items: center;
       justify-content: space-between;
 
-      &:before{
-      }
-
       &:hover{
-        background-color: map-get($colors, nice);
+        background-color: var(--color-nice);
         text-decoration: none;
       }
 
@@ -26,7 +23,7 @@
         height: 4rem;
         line-height: 4rem;
         text-align: center;
-        background-color: map-get($colors, nice);
+        background-color: var(--color-nice);
         border-radius: $border-radius;
       }
       > span:nth-child(2){

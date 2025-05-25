@@ -1,7 +1,7 @@
 #errorAppointment{
   .error{
     display: list-item;
-    color: map-get($colors, marseille);
+    color: var(--color-marseille);
     list-style-type: disc;
     list-style: inside;
   }

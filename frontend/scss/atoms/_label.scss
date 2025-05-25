@@ -6,7 +6,7 @@ label{
   margin-bottom: 2.1rem !important;
 
   &:has(input:focus, select:focus, textarea:focus){
-    background-color: map-get($colors, nice);
+    background-color: var(--color-nice);
   }
 
 }

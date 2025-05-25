@@ -1,14 +1,15 @@
-$colors : (
-  cannes: #355269,
-  laval: #eeeeee,
-  marseille: lighten(#8a1b1b, 10%),
-  nice: #fff
-) !default;
+//$colors : (
+  //cannes: #355269,
+  //laval: #eeeeee,
+  //marseille: lighten(#8a1b1b, 10%),
+  //nice: #fff
+//) !default;
 
-// Semantic colors
-$color-base             : map-get($colors, cannes) !default;
-$background-color-base  : map-get($colors, laval) !default;
-$color-ghost            : transparent !default;
+
+//// Semantic colors
+//$color-base             : map-get($colors, cannes) !default;
+//$background-color-base  : map-get($colors, laval) !default;
+//$color-ghost            : transparent !default;
 
 
 $breakpoints: (

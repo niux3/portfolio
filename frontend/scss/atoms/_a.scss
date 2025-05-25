@@ -1,8 +1,8 @@
 a{
-  color: map-get($colors, cannes);
+  color: var(--color-cannes);
 
   &:hover{
-    color: map-get($colors, cannes);
+    color: var(--color-cannes);
     text-decoration: underline;
   }
 }
