@@ -27,6 +27,7 @@
 @import "atoms/inputs";
 @import "atoms/extra";
 @import "atoms/error_appointment";
+@import "atoms/change_mode";
 
 // helpers
 @import "atoms/bold";
@@ -46,5 +47,5 @@
 //organismes
 @import "organismes/contact";
 
-
 //templates
+@import "templates/items_icons";

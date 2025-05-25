@@ -6,6 +6,10 @@
   font-variant: small-caps;
   transition: color .4s, background-color .4s;
 
+  &.clear{
+    color: var(--color-cannes);
+  }
+
   &:focus{
     color: var(--color-laval);
     background-color: var(--color-cannes);

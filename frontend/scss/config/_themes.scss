@@ -2,6 +2,7 @@ $colors : (
   earth: #355269,
   jupyter: #eeeeee,
   mars: lighten(#8a1b1b, 10%),
+  pluton: #FFB370,
   venus: #fff
 ) !default;
 
@@ -15,7 +16,7 @@ $light-theme: (
 $dark-theme: (
   cannes: map-get($colors, jupyter),
   laval: map-get($colors, earth),
-  marseille: map-get($colors, mars),
+  marseille: map-get($colors, pluton),
   nice: map-get($colors, venus)
 );
 
@@ -34,8 +35,3 @@ $dark-theme: (
     @include theme($dark-theme);
   }
 }
-
-// Semantic colors
-//$color-base             : map-get($colors, cannes) !default;
-//$background-color-base  : map-get($colors, laval) !default;
-//$color-ghost            : transparent !default;

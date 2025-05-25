@@ -3,6 +3,39 @@ import Validator from '@niuxe/validator'
 
 
 window.addEventListener('DOMContentLoaded', () =>{
+    // darkmode
+    let $btnChangeMode = document.querySelector('.changeMode'),
+        changeMode = $btn =>{
+            let mode = {
+                'light': {
+                    'text': 'mode clair',
+                    'icon': 'fa-solid fa-moon',
+                },
+                'dark': {
+                    'text': 'mode sombre',
+                    'icon':  'fa-solid fa-sun'
+                }
+            },
+            isLigth = [undefined, 'light'].some(m => m === document.documentElement.dataset.themePreference),
+            key = isLigth ? 'dark' : 'light'
+            $btn.querySelector('.fa-solid').className = mode[key]['icon']
+            $btn.querySelector('.text').textContent = mode[key]['text']
+            document.documentElement.dataset.themePreference = key
+        }
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        //document.documentElement.dataset.themePreference = 'dark'
+        changeMode($btnChangeMode)
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        //document.documentElement.dataset.themePreference = event.matches? 'dark' : 'dark'
+        changeMode($btnChangeMode)
+    })
+    $btnChangeMode.addEventListener('pointerdown', e =>{
+        changeMode($btnChangeMode)
+    })
+
+    // validation
     let $fields = [
             document.querySelector('input[name="phone"]'),
             document.querySelector('input[name="date_appointment"]'),
