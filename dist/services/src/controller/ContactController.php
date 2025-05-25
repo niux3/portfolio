@@ -50,13 +50,12 @@ class ContactController extends Controller{
             $contact_model = $this->loadModel('Contact');
             $validator = new Validator($contact_model->get_validator());
             $validator->check($_POST);
-            
+
             unset($_POST['token']);
             $ctx = [
                 "data" => $_POST,
                 "errors" => []
             ];
-            
 
             if(count($validator->get_errors()) > 0){
                 $ctx["errors"] = $validator->get_errors();
@@ -75,7 +74,7 @@ class ContactController extends Controller{
                     $mail->Username = 'renaudbourdeau@gmail.com';
                     $mail->Password = 'pvcr uiwq xjlt vlig ';
                     $mail->Port = 465;
-                    $mail->charSet = "UTF-8"; 
+                    $mail->charSet = "UTF-8";
 
                     $mail->setFrom('renaudbourdeau@gmail.com');
                     $mail->addAddress('renaudbourdeau@gmail.com');
@@ -85,10 +84,10 @@ class ContactController extends Controller{
                     extract($_POST);
                     require_once SRC.'view/contact/template_txt.php'; // $output_txt
                     require_once SRC.'view/contact/template_html.php'; // $output_html
-                    
+
                     $mail->Subject = sprintf('[PORTFOLIO] %s', $_POST['subject']);
                     $mail->Body = $output_txt;
-                    
+
                     // mail txt (à moi)
                     if (!$mail->send()) {
                         throw new Exception('Mailer Error: ' . $mail->ErrorInfo);
@@ -100,7 +99,7 @@ class ContactController extends Controller{
                         $mail->Subject = "A propos de votre visite sur rb webstudio le ".date('d/m/Y');
                         $mail->Body = $output_html;
                         $mail->AltBody = "Bonjour, je suis ravi de faire votre connaissance. Merci pour l'email que vous m'avez transmis.  J'apprécie le fait que vous ayez pris le temps de le rédiger. Je vous encourage à consulter mon profil LinkedIn : https://www.linkedin.com/in/renaud-bourdeau-%F0%9F%90%A7-7639b944 . Vous y trouverez davantage d'informations sur mon parcours professionnel et mes compétences. Je vous souhaite une excellente journée, et encore une fois, je vous remercie pour cette prise de contact. Cordialement.";
-                        
+
                         // réponse automatique
                         if (!$mail->send()) {
                             throw new Exception('Mailer Error: ' . $mail->ErrorInfo);

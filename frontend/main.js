@@ -2,7 +2,7 @@ import './scss/index.scss'
 import Validator from '@niuxe/validator'
 
 
-window.addEventListener('load', () =>{
+window.addEventListener('DOMContentLoaded', () =>{
     let $fields = [
             document.querySelector('input[name="phone"]'),
             document.querySelector('input[name="date_appointment"]'),
@@ -48,6 +48,7 @@ window.addEventListener('load', () =>{
     validate.form()
     validate.middleware.formOnSuccess = (e, $el) =>{
         if($el === $formContact){
+            e.preventDefault()
             let headers = new Headers({
                     "X-Requested-With": "XMLHttpRequest",
                     "Accept": "application/json",
@@ -90,6 +91,7 @@ window.addEventListener('load', () =>{
                     body: data
                 },
                 url = window.location.origin.includes('rb-webstudio') ? $form.action : 'http://localhost/portfolio/dist/services/mail/send.html'
+
             fetch(url, params).then(resp =>{
                 if(resp.ok === true)
                     return resp.json()
