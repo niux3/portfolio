@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', () =>{
         changeMode($btnChangeMode)
     })
 
-    // validation
+    // form contact
     let $fields = [
             document.querySelector('input[name="phone"]'),
             document.querySelector('input[name="date_appointment"]'),
@@ -46,10 +46,29 @@ window.addEventListener('DOMContentLoaded', () =>{
         $formContact = document.getElementById('formContact'),
         validate = new Validator()
 
+    if(window.matchMedia('(max-width: 640px)').matches){
+        $fields.forEach($f => {
+            if($f.hasAttribute('disabled')){
+                $f.closest('label').classList.add('hide')
+            }
+        })
+    }
+
+    window.addEventListener('resize', e =>{
+        $fields.forEach($f => {
+            if($f.hasAttribute('disabled')){
+                $f.closest('label').classList.add('hide')
+            }
+        })
+    })
+
 
     document.querySelector('input[name=appointement]').addEventListener('change', e =>{
+        let cls = window.matchMedia('(max-width: 640px)').matches? 'hide' : 'invisible'
         for(let $field of $fields){
             $field.setAttribute('disabled', true)
+            $field.closest('label').classList.remove('hide', 'invisible')
+            $field.closest('label').classList.add(cls)
             validate.removeRequireField($field)
             if(document.querySelectorAll('#errorAppointment .error').length > 0){
                 document.querySelectorAll('#errorAppointment .error').forEach(el => el.remove())
@@ -58,6 +77,7 @@ window.addEventListener('DOMContentLoaded', () =>{
             if(e.target.checked){
                 $field.removeAttribute('disabled')
                 validate.addRequireField($field)
+                $field.closest('label').classList.remove(cls)
             }
         }
     })
