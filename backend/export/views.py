@@ -9,7 +9,7 @@ from backend.project.models import Project, Technology
 bp = Blueprint('export', __name__)
 
 @bp.route('/export.html')
-def export():
+def export_project():
     result = subprocess.check_call('npm run build', shell=True)
     dist_folder = config.BASEDIR.parent / 'dist'
     static_folder = dist_folder / 'static'

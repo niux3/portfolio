@@ -2,10 +2,23 @@
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="menu-text">backoffice</li>
-      <li><a href="{{ url_for('projects.index') }}">Projets</a></li>
-      <li><a href="{{ url_for('activities.index') }}">Activités</a></li>
-      <li><a href="{{ url_for('functions.index') }}">Fonctions</a></li>
-      <li><a href="{{ url_for('technology.index') }}">Technologies</a></li>
+      <li>
+        <a href="#">projects</a>
+        <ul class="menu">
+          <li><a href="{{ url_for('projects.index') }}">Projets</a></li>
+          <li><a href="{{ url_for('activities.index') }}">Activités</a></li>
+          <li><a href="{{ url_for('functions.index') }}">Fonctions</a></li>
+          <li><a href="{{ url_for('technology.index') }}">Technologies</a></li>
+          <li><a href="{{ url_for('export.export_project') }}">exporter</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">articles</a>
+        <ul class="menu">
+          <li><a href="">posts</a></li>
+          <li><a href="">tags</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
   <div class="top-bar-right">

@@ -16,6 +16,21 @@
 .top-bar ul{
   background-color: white;
 }
+    .dropdown.menu{
+      li{
+        position: relative;
+        ul{
+          position: absolute;
+          border: 1px solid #ccc;
+          display: none;
+        }
+        &:hover{
+          ul{
+            display: list-item;
+          }
+        }
+      }
+    }
 </style>
     {% block css %}{% endblock %}
   </head>
