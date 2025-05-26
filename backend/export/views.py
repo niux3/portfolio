@@ -1,5 +1,6 @@
 import subprocess
 import json
+from sqlalchemy import desc
 from flask import render_template, Blueprint, jsonify
 from backend.core.config import config
 from backend.project.models import Project, Technology
@@ -21,7 +22,7 @@ def export():
         "js_file": manifest_data.get('frontend/main.js').get('file'),
         "css_file": manifest_data.get('frontend/scss/index.scss').get('file'),
         "object_list": {
-            "projects": Project.query.filter(Project.online == 1).all(),
+            "projects": Project.query.filter(Project.online == 1).order_by(desc('year')),
             "technologies": Technology.query.filter(Technology.online == 1).all(),
         }
     }
