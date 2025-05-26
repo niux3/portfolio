@@ -1,3 +1,4 @@
+from sqlalchemy import desc
 from flask import render_template, Blueprint
 from backend.project.models import Project, Technology
 
@@ -8,7 +9,7 @@ bp = Blueprint('pages', __name__)
 def index():
     ctx = {
         "object_list": {
-            "projects": Project.query.filter(Project.online == 1).all(),
+            "projects": Project.query.filter(Project.online == 1).order_by(desc('year')),
             "technologies": Technology.query.filter(Technology.online == 1).all()
         }
     }
