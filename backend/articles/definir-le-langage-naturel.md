@@ -1,5 +1,3 @@
-# Définir le langage naturel
-
 Si une page ne contient pas de définition explicite du langage naturel dans lequel elle est rédigée, les logiciels risquent de ne pas pouvoir traduire correctement le contenu. Le terme &laquo;&nbsp;langue naturelle&nbsp;&raquo; fait référence à la langue utilisée pour le contenu de la page, et non au langage de programmation. Ce manque d'information peut entraîner des traductions erronées, une mauvaise mise en forme et un contenu difficile à comprendre pour les utilisateurs de lecteurs d'écran.
 
 Vous pouvez définir la langue naturelle d'une page en utilisant l'attribut `lang` sur l'élément `<html>`.

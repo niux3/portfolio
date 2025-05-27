@@ -3,7 +3,20 @@
 {% block content %}
   <section>
     <article>
-      {{ object|safe }}
+      <h1>Définir le langage naturel</h1>
+      <div class="grid-x grid-padding-x">
+        <ul class="cell medium-6 flex-container no-bullet tags-list">
+          {% for tag in tags %}
+            <li><a href="#"><span>{{ tag }}</span></a></li>
+          {% endfor %}
+        </ul>
+        <ul class="cell medium-6 flex-container no-bullet share">
+          {% for share in shares %}
+            <li><a href="#" class="{{ share }}"><span>text</span></a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="content">{{ object|safe }}</div>
     </article>
   </section>
 {% endblock %}
