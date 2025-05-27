@@ -16,7 +16,7 @@ export default defineConfig(({ command }) => ({
     build: {
         outDir: `dist/static`, // Dossier destination du build
         assetsDir: '', // Sous-dossier dans lequel placer les assets (js, css) générés par Vite
-        emptyOutDir: true, // Vide le dossier destination à chaque build
+        emptyOutDir: false, // Vide le dossier destination à chaque build
         manifest: true, // Génère un manifeste json listant les chemins vers les assets
         rollupOptions: {
             input: {

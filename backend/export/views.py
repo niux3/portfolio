@@ -1,5 +1,6 @@
 import subprocess
 import json
+import pathlib
 from sqlalchemy import desc
 from flask import render_template, Blueprint, jsonify
 from backend.core.config import config
@@ -10,11 +11,18 @@ bp = Blueprint('export', __name__)
 
 @bp.route('/export.html')
 def export_project():
-    result = subprocess.check_call('npm run build', shell=True)
     dist_folder = config.BASEDIR.parent / 'dist'
     static_folder = dist_folder / 'static'
+    path_manifest = static_folder / '.vite' / 'manifest.json'
 
-    with open(str(static_folder / '.vite' / 'manifest.json'), encoding='utf-8') as f:
+    with open(str(path_manifest), encoding='utf-8') as f:
+        manifest_data = json.load(f)
+    pathlib.Path.unlink(static_folder / manifest_data.get('frontend/main.js').get('file'))
+    pathlib.Path.unlink(static_folder / manifest_data.get('frontend/scss/index.scss').get('file'))
+
+    result = subprocess.check_call('npm run build', shell=True)
+
+    with open(str(path_manifest), encoding='utf-8') as f:
         manifest_data = json.load(f)
 
     ctx = {
