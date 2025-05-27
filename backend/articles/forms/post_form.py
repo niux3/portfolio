@@ -6,7 +6,7 @@ from wtforms.widgets import TextArea, CheckboxInput, ListWidget
 from backend.articles.models import Tag
 
 
-class TagForm(FlaskForm):
+class PostForm(FlaskForm):
     status = SelectField('Status', validators=[InputRequired()], choices=[("", "choisir un status"), (0, "brouillon"), (1, "publier")])
     title = StringField('Titre', validators=[InputRequired()])
     slug = StringField('Slug', render_kw={"readonly": True})
