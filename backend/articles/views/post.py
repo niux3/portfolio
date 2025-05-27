@@ -3,12 +3,11 @@ from markdown import markdown
 from backend.core.config import config
 
 
-bp = Blueprint('articles', __name__)
+bp = Blueprint('posts', __name__, url_prefix='/articles')
 
-@bp.route('/article.html')
+@bp.route('/voir.html')
 def show():
-    print(config.BASEDIR / 'articles')
-    with open(str(config.BASEDIR / 'articles'/ 'definir-le-langage-naturel.md')) as f:
+    with open(str(config.BASEDIR / 'core'/ 'backup' / 'definir-le-langage-naturel.md')) as f:
         obj = markdown(f.read(), extensions=['extra'])
     ctx = {
         'object': obj,
