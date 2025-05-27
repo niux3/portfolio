@@ -1,0 +1,38 @@
+article{
+  h1{
+    font-size: 3.6rem;
+    margin-bottom: 3.2rem;
+    font-weight: 600;
+  }
+  h2{
+    font-weight: 600;
+    margin-top: 5rem;
+  }
+  h3{
+    font-weight: 600;
+    text-transform: none;
+    margin-top: 3rem;
+    font-size: 1.8rem;
+  }
+
+  a{
+    text-decoration: underline;
+    text-underline-offset: .4rem;
+    color: var(--color-marseille);
+    &:hover{
+      text-decoration: none;
+      color: var(--color-marseille);
+    }
+    &:after{
+      //content: " \203A";
+    }
+  }
+
+  p{
+    margin: 2rem 0 .5rem;
+    line-height: 2.8rem;
+  }
+  pre{
+    margin: 0 0 2.5rem;
+  }
+}

@@ -27,6 +27,7 @@
 @import "atoms/extra";
 @import "atoms/error_appointment";
 @import "atoms/change_mode";
+@import "atoms/pre";
 
 // helpers
 @import "atoms/bold";
@@ -43,8 +44,10 @@
 @import "molecules/work";
 @import "molecules/label";
 @import "molecules/inputs";
+@import "molecules/pre";
 
 //organismes
 @import "organismes/contact";
+@import "organismes/article";
 
 //templates
