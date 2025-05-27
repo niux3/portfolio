@@ -3,9 +3,10 @@ from flask import render_template, Blueprint
 from backend.project.models import Project, Technology
 
 
-bp = Blueprint('pages', __name__)
+prefix_bp = 'pages'
+bp = Blueprint(prefix_bp, __name__)
 
-@bp.route('/')
+@bp.route('/index.html')
 def index():
     ctx = {
         "object_list": {

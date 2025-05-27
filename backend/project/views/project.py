@@ -7,16 +7,16 @@ from backend import db
 
 
 prefix_bp = 'projects'
-bp = Blueprint(prefix_bp, __name__, url_prefix='/projets')
+bp = Blueprint(prefix_bp, __name__)
 
-@bp.route('/index.html')
+@bp.route('/')
 def index():
     fields = {
         'Nom' : 'name',
     }
     return BaseView.index(Project, prefix_bp, fields, "un projet")
 
-@bp.route('/ajouter.html', methods=['GET', 'POST'])
+@bp.route('/projets/ajouter.html', methods=['GET', 'POST'])
 def add():
     form = ProjectForm()
     if form.validate_on_submit() and request.method == "POST":
@@ -34,7 +34,7 @@ def add():
     }
     return render_template('project/edit.html', **ctx)
 
-@bp.route('/<int:id>-supprimer.html')
+@bp.route('/projets/<int:id>-supprimer.html')
 def destroy(id):
     instance = Project.query.get_or_404(id)
     instance.technologies.clear()
@@ -45,7 +45,7 @@ def destroy(id):
     flash("Votre item a bien été supprimé", "success")
     return redirect(url_for(f'{prefix_bp}.index'))
 
-@bp.route('/<int:id>-editer.html', methods=['GET', 'POST'])
+@bp.route('/projets/<int:id>-editer.html', methods=['GET', 'POST'])
 def edit(id):
     project = Project.query.get_or_404(id)
     form = ProjectForm(obj=project)
