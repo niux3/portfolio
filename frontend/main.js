@@ -145,7 +145,7 @@ window.addEventListener('DOMContentLoaded', () =>{
                     mode: "cors",
                     body: data
                 },
-                url = window.location.origin.includes('rb-webstudio') ? $form.action : 'http://localhost/portfolio/dist/services/mail/send.html'
+                url = window.location.origin.includes('rb-webstudio') ? $form.action : 'http://localhost/portfolio/public/services/mail/send.html'
 
             fetch(url, params).then(resp =>{
                 if(resp.ok === true)
