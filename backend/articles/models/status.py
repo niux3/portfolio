@@ -7,6 +7,7 @@ class Status(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False, unique=True)
+    posts = db.relationship('Post', backref='status', lazy=True)
 
     def __str__(self):
         return self.name

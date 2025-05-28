@@ -14,7 +14,6 @@ class Post(db.Model):
     updated = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 
     status_id = db.Column(db.Integer, db.ForeignKey('articles_status.id', onupdate='CASCADE', ondelete='CASCADE'))
-    status = db.relationship("Status", backref="posts")
 
     post_tags = db.relationship('PostTag', back_populates='post', cascade="all, delete-orphan")
 
