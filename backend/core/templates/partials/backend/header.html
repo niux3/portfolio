@@ -17,7 +17,7 @@
       <li>
         <a href="">articles</a>
         <ul class="menu">
-          <li><a href="">Posts</a></li>
+          <li><a href="{{ url_for('posts.index') }}">Posts</a></li>
           <li><a href="{{ url_for('tags.index') }}">Tags</a></li>
           <li><a href="{{ url_for('status.index') }}">Status</a></li>
         </ul>
