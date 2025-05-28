@@ -50,7 +50,7 @@
       {% for object in object_list.projects %}
       <li>
         <a href="{{ object.url }}" target="_blank">
-          <span class="{{ object.activities.icon }}"></span>
+          <span class="{{ object.activity.icon }}"></span>
           <span>
             <span class="bold">{{ object.name }}</span>
             <span>développement {{ object.function.name }}</span>
