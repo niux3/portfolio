@@ -18,7 +18,7 @@ def export_html():
     public_folder = config.BASEDIR.parent / 'public'
     static_folder = public_folder / 'static'
     path_manifest = public_folder / '.vite' / 'manifest.json'
-    
+
     with open(str(path_manifest), encoding='utf-8') as f:
         manifest_data = json.load(f)
     pathlib.Path.unlink(public_folder / manifest_data.get('frontend/main.js').get('file'))
@@ -73,4 +73,3 @@ def import_json():
     db.session.commit()
     flash("Votre import en json est réussi", "success")
     return redirect(url_for('projects.index'))
-

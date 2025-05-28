@@ -10,8 +10,7 @@ class PostForm(FlaskForm):
     status = QuerySelectField('Status', query_factory=lambda: Status.query.all(), get_label='name')
     title = StringField('Titre', validators=[InputRequired()])
     slug = StringField('Slug', render_kw={"readonly": True})
-    body = StringField('Contenu', validators=[InputRequired()], widget=TextArea())
-    online = BooleanField('en ligne', render_kw={"value": "1"})
+    body = StringField('Contenu', validators=[InputRequired()], widget=TextArea(), render_kw={'class': 'markdownEdit'})
 
     tags = QuerySelectMultipleField(
         'Tags',

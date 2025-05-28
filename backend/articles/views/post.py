@@ -1,9 +1,10 @@
-from flask import render_template, Blueprint
+from flask import render_template, Blueprint, flash, redirect, url_for
 from markdown import markdown
 from backend.core.config import config
 from backend.core.libs.base_views import BaseView
 from backend.articles.models import Post
 from backend.articles.forms import PostForm
+from backend import db
 
 
 prefix_bp = 'posts'
@@ -42,16 +43,39 @@ def index():
 def add():
     form = PostForm()
     if form.validate_on_submit():
-        return 'valide !'
+        post = Post()
+        form.populate_obj(post)
+        post.generate_slug()
+        post.tags = form.tags.data
+        db.session.add(post)
+        db.session.commit()
+        flash("Votre item a bien été ajouté", "success")
+        return redirect(url_for(f'{prefix_bp}.index'))
     ctx = {
         'form': form
     }
-    return 'ajouter'
+    return render_template('articles/edit.html', **ctx)
 
 @bp.route('/<int:id>-supprimer.html')
 def destroy(id):
-    return 'destoy ' + id
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+    flash("Votre item a bien été supprimé", "success")
+    return redirect(url_for(f'{prefix_bp}.index'))
 
 @bp.route('/<int:id>-editer.html', methods=['GET', 'POST'])
 def edit(id):
-    return 'edit ' + id
+    post = Post.query.get(id)
+    form = PostForm(obj=post)
+    if form.validate_on_submit():
+        form.populate_obj(post)
+        post.generate_slug()
+        db.session.add(post)
+        db.session.commit()
+        flash("Votre item a bien été modifié", "success")
+        return redirect(url_for(f'{prefix_bp}.index'))
+    ctx = {
+        'form': form
+    }
+    return render_template('articles/edit.html', **ctx)

@@ -1,5 +1,6 @@
 from datetime import datetime
 from slugify import slugify
+from backend.articles.models import PostTag
 from backend import db
 
 
@@ -20,6 +21,10 @@ class Post(db.Model):
     @property
     def tags(self):
         return [pt.tag for pt in self.post_tags]
+
+    @tags.setter
+    def tags(self, tags_list):
+        self.post_tags = [PostTag(tag=tag) for tag in tags_list]
 
     def __init__(self, *args, **kwargs):
         super(Post, self).__init__(*args, **kwargs)
