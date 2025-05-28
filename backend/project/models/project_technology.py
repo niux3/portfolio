@@ -1,7 +1,8 @@
 from backend import db
+from backend.core.libs.serializer_mixin import SerializerMixin
 
 
-class ProjectTechnology(db.Model):
+class ProjectTechnology(db.Model, SerializerMixin):
     __tablename__ = 'project_projects_technologies'
 
     id = db.Column(db.Integer, primary_key=True)

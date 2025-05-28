@@ -1,9 +1,10 @@
 from datetime import datetime
 from backend import db
+from backend.core.libs.serializer_mixin import SerializerMixin
 from backend.project.models.function import Function
 
 
-class Project(db.Model):
+class Project(db.Model, SerializerMixin):
     __tablename__ = 'project_projects'
 
     id = db.Column(db.Integer, primary_key=True)

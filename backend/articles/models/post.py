@@ -4,19 +4,17 @@ from backend import db
 
 
 class Post(db.Model):
-    STATUS_DRAFT = 0
-    STATUS_PUBLIC = 1
-
     __tablename__ = 'articles_posts'
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
     slug = db.Column(db.String(255), nullable=False)
     body = db.Column(db.Text, nullable=False)
-    online = db.Column(db.SmallInteger, default=1)
     created = db.Column(db.DateTime, default=datetime.now)
     updated = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
-    status = db.Column(db.SmallInteger, default=STATUS_DRAFT)
+
+    status_id = db.Column(db.Integer, db.ForeignKey('articles_status.id', onupdate='CASCADE', ondelete='CASCADE'))
+    status = db.relationship("Status", backref="posts")
 
     tags = db.relationship(
         'Tag',

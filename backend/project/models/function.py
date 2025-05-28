@@ -1,7 +1,8 @@
 from backend import db
+from backend.core.libs.serializer_mixin import SerializerMixin
 
 
-class Function(db.Model):
+class Function(db.Model, SerializerMixin):
     __tablename__ = 'project_functions'
 
     id = db.Column(db.Integer, primary_key=True)

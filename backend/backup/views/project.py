@@ -1,6 +1,7 @@
 import subprocess
 import json
 import pathlib
+from pprint import pprint
 from datetime import datetime
 from sqlalchemy import desc
 from flask import render_template, Blueprint, jsonify, url_for, redirect, flash
@@ -45,25 +46,13 @@ def export_html():
 
 @bp.route('/projets-export-json.html')
 def export_json():
-    output = [{
-        'id': project.id,
-        'name': project.name,
-        'slug': project.slug,
-        'description': project.description,
-        'color': project.color,
-        'created': str(project.created),
-        'modified': str(project.modified),
-        'online': project.online,
-        'url': project.url,
-        'function': project.function.name,
-        'technologies': [technology.name for technology in project.technologies],
-        'year': project.year,
-        'activity_icon': project.activity.icon,
-        'activity_name': project.activity.name,
-        'location': project.location,
-        'customer': project.customer,
-        'sort': project.sort,
-    } for project in Project.query.all()]
+    output = {
+        'project': [r.to_dict() for r in Project.query.all()],
+        'activity': [r.to_dict() for r in Activity.query.all()],
+        'function': [r.to_dict() for r in Function.query.all()],
+        'technology': [r.to_dict() for r in Technology.query.all()],
+        'project_technology': [r.to_dict() for r in ProjectTechnology.query.all()],
+    }
 
     with open(str(file_data_project_json), 'w', encoding='utf-8') as f:
         f.write(json.dumps(output, indent=2))
@@ -74,49 +63,14 @@ def export_json():
 def import_json():
     with open(str(file_data_project_json), 'r', encoding='utf-8') as f:
         data = json.load(f)
-    for row in data:
-        if Activity.query.filter(Activity.name==row['activity_name']).count() == 0:
-            activity = Activity()
-            activity.name = row['activity_name']
-            activity.icon = row['activity_icon']
-            db.session.add(activity)
-            db.session.commit()
-            db.session.refresh(activity)
-        else:
-            activity = Activity.query.filter(Activity.name==row['activity_name']).first()
-        if Function.query.filter(Function.name==row['function']).count() == 0:
-            function = Function()
-            function.name = row['function']
-            db.session.add(function)
-            db.session.commit()
-            db.session.refresh(function)
-        else:
-            function = Function.query.filter(Function.name==row['function']).first()
+    projects = [Project.from_dict(item) for item in data['project']]
+    activities = [Activity.from_dict(item) for item in data['activity']]
+    functions = [Function.from_dict(item) for item in data['function']]
+    technologies = [Technology.from_dict(item) for item in data['technology']]
+    project_technologies = [ProjectTechnology.from_dict(item) for item in data['project_technology']]
 
-        for tech in row['technologies']:
-            if Technology.query.filter(Technology.name==tech).count() == 0:
-                instance = Technology()
-                instance.name = tech
-                db.session.add(instance)
-                db.session.commit()
-        print(activity, activity.id)
-        print(function, function.id)
-
-        ctx_data = {k : v for k, v in row.items() if k != 'technologies' and not k.startswith('activi') and k != 'function' and k != 'id' and k != 'images'}
-        ctx_data['activities_id'] = Activity.query.filter(Activity.name==row['activity_name']).first().id
-        ctx_data['functions_id'] = Function.query.filter(Function.name==row['function']).first().id
-        ctx_data['created'] = datetime.strptime(row['created'][:row['created'].find('.')], '%Y-%m-%d %H:%M:%S')
-        ctx_data['modified'] = datetime.strptime(row['modified'][:row['modified'].find('.')], '%Y-%m-%d %H:%M:%S')
-
-        instance = Project(**ctx_data)
-        db.session.add(instance)
-        db.session.commit()
-        db.session.refresh(instance)
-        for tech in row['technologies']:
-            instance_tech = ProjectTechnology(projects_id=instance.id, technologies_id=Technology.query.filter(Technology.name==tech).first().id)
-            db.session.add(instance_tech)
-            db.session.commit()
-            db.session.refresh(instance_tech)
+    db.session.add_all(projects + activities + functions + technologies + project_technologies)
+    db.session.commit()
     flash("Votre import en json est réussi", "success")
     return redirect(url_for('projects.index'))
 

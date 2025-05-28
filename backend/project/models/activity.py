@@ -1,8 +1,9 @@
 from backend import db
+from backend.core.libs.serializer_mixin import SerializerMixin
 from sqlalchemy.orm import relationship, backref
 
 
-class Activity(db.Model):
+class Activity(db.Model, SerializerMixin):
     __tablename__ = 'project_activities'
 
     id = db.Column(db.Integer, primary_key=True)
