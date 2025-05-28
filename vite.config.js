@@ -14,8 +14,8 @@ export default defineConfig(({ command }) => ({
     // Dossier dans lequel on place les ressources statiques non compilées, qui seront copiées vers outDir
     // publicDir: 'resources/static',
     build: {
-        outDir: `public/static`, // Dossier destination du build
-        assetsDir: '', // Sous-dossier dans lequel placer les assets (js, css) générés par Vite
+        outDir: 'public', // Dossier destination du build
+        assetsDir: 'static', // Sous-dossier dans lequel placer les assets (js, css) générés par Vite
         emptyOutDir: false, // Vide le dossier destination à chaque build
         manifest: true, // Génère un manifeste json listant les chemins vers les assets
         rollupOptions: {
