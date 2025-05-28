@@ -9,6 +9,8 @@ class Technology(db.Model, SerializerMixin):
     name = db.Column(db.String(32), nullable=False)
     online = db.Column(db.SmallInteger, default=1, nullable=True)
 
+    project_technologies = db.relationship("ProjectTechnology", back_populates="technology")
+
     def __str__(self):
         return self.name
 

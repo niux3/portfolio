@@ -9,8 +9,8 @@ class ProjectTechnology(db.Model, SerializerMixin):
     technologies_id = db.Column(db.Integer, db.ForeignKey('project_technologies.id', onupdate='CASCADE', ondelete='CASCADE'))
     projects_id = db.Column(db.Integer, db.ForeignKey('project_projects.id', onupdate='CASCADE', ondelete='CASCADE'))
 
-    project = db.relationship("Project", backref="project")
-    technology = db.relationship("Technology", backref="technology")
+    project = db.relationship("Project", back_populates="project_technologies")
+    technology = db.relationship("Technology", back_populates="project_technologies")
 
     def __str__(self):
         return self.id

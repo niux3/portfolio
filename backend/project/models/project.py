@@ -21,16 +21,18 @@ class Project(db.Model, SerializerMixin):
     sort = db.Column(db.Integer, nullable=True)
     year = db.Column(db.String(16), nullable=True)
     activities_id = db.Column(db.Integer, db.ForeignKey('project_activities.id', onupdate='CASCADE', ondelete='CASCADE'))
-    activity = db.relationship("Activity", backref="projects")
+    activity = db.relationship("Activity", back_populates="projects")
     customer = db.Column(db.String(128), nullable=False)
     location = db.Column(db.String(128), nullable=False)
+
+    project_technologies = db.relationship("ProjectTechnology", back_populates="project")
 
     technologies = db.relationship(
         'Technology',
         secondary='project_projects_technologies',
         backref=db.backref('projects', lazy='dynamic'),
         lazy='subquery',
-        cascade="all, delete"
+        overlaps="project_technologies,technology"
     )
 
     def __str__(self):

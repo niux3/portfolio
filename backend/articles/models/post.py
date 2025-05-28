@@ -16,13 +16,11 @@ class Post(db.Model):
     status_id = db.Column(db.Integer, db.ForeignKey('articles_status.id', onupdate='CASCADE', ondelete='CASCADE'))
     status = db.relationship("Status", backref="posts")
 
-    tags = db.relationship(
-        'Tag',
-        secondary='articles_posts_tags',
-        backref=db.backref('posts', lazy='dynamic'),
-        lazy='subquery',
-        cascade="all, delete"
-    )
+    post_tags = db.relationship('PostTag', back_populates='post', cascade="all, delete-orphan")
+
+    @property
+    def tags(self):
+        return [pt.tag for pt in self.post_tags]
 
     def __init__(self, *args, **kwargs):
         super(Post, self).__init__(*args, **kwargs)

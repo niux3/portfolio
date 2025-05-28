@@ -12,7 +12,6 @@ def index():
     fields = {
         'Nom' : 'name',
     }
-    print(Activity.query.all())
     return BaseView.index(Activity, prefix_bp, fields, "une activité")
 
 @bp.route('/ajouter.html', methods=['GET', 'POST'])

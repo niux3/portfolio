@@ -8,8 +8,8 @@ class PostTag(db.Model):
     posts_id = db.Column(db.Integer, db.ForeignKey('articles_posts.id', onupdate='CASCADE', ondelete='CASCADE'))
     tags_id = db.Column(db.Integer, db.ForeignKey('articles_tags.id', onupdate='CASCADE', ondelete='CASCADE'))
 
-    post = db.relationship('Post', backref="post")
-    tag = db.relationship('Tag', backref="tag")
+    post = db.relationship('Post', back_populates='post_tags')
+    tag = db.relationship('Tag', back_populates='post_tags')
 
     def __str__(self):
         return self.id

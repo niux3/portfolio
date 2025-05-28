@@ -10,7 +10,7 @@ class Activity(db.Model, SerializerMixin):
     name = db.Column(db.String(64), nullable=False)
     icon = db.Column(db.Text, nullable=True)
 
-    activities = relationship('Project', backref=backref('activities'))
+    projects = db.relationship("Project", back_populates="activity")
 
     def __str__(self):
         return self.name
