@@ -1,7 +1,8 @@
 from backend import db
+from backend.core.libs.serializer_mixin import SerializerMixin
 
 
-class PostTag(db.Model):
+class PostTag(db.Model, SerializerMixin):
     __tablename__ = 'articles_posts_tags'
 
     id = db.Column(db.Integer, primary_key=True)

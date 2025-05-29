@@ -11,7 +11,7 @@ from backend import db
 
 
 bp = Blueprint('backup_projects', __name__, url_prefix='/sauvegarde')
-file_data_project_json = config.BASEDIR / 'core' / 'backup' / 'data-projects.json'
+file_data = config.BASEDIR / 'core' / 'backup' / 'data-projects.json'
 
 @bp.route('/projets-export-html.html')
 def export_html():
@@ -54,14 +54,14 @@ def export_json():
         'project_technology': [r.to_dict() for r in ProjectTechnology.query.all()],
     }
 
-    with open(str(file_data_project_json), 'w', encoding='utf-8') as f:
+    with open(str(file_data), 'w', encoding='utf-8') as f:
         f.write(json.dumps(output, indent=2))
     flash("Votre export en json est réussi", "success")
     return redirect(url_for('projects.index'))
 
 @bp.route('/projets-import-json.html')
 def import_json():
-    with open(str(file_data_project_json), 'r', encoding='utf-8') as f:
+    with open(str(file_data), 'r', encoding='utf-8') as f:
         data = json.load(f)
     projects = [Project.from_dict(item) for item in data['project']]
     activities = [Activity.from_dict(item) for item in data['activity']]

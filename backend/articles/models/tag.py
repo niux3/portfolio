@@ -1,8 +1,9 @@
 from slugify import slugify
+from backend.core.libs.serializer_mixin import SerializerMixin
 from backend import db
 
 
-class Tag(db.Model):
+class Tag(db.Model, SerializerMixin):
     __tablename__ = 'articles_tags'
 
     id = db.Column(db.Integer, primary_key=True)

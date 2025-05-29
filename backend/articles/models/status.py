@@ -1,8 +1,9 @@
 from slugify import slugify
+from backend.core.libs.serializer_mixin import SerializerMixin
 from backend import db
 
 
-class Status(db.Model):
+class Status(db.Model, SerializerMixin):
     __tablename__ = 'articles_status'
 
     id = db.Column(db.Integer, primary_key=True)

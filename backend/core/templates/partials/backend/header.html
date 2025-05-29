@@ -9,9 +9,9 @@
           <li><a href="{{ url_for('activities.index') }}">Activités</a></li>
           <li><a href="{{ url_for('functions.index') }}">Fonctions</a></li>
           <li><a href="{{ url_for('technology.index') }}">Technologies</a></li>
-          <li><a href="{{ url_for('backup_projects.export_html') }}">Exporter&nbsp;Homepage</a></li>
-          <li><a href="{{ url_for('backup_projects.export_json') }}">Exporter&nbsp;json</a></li>
           <li><a href="{{ url_for('backup_projects.import_json') }}">Importer&nbsp;json</a></li>
+          <li><a href="{{ url_for('backup_projects.export_json') }}">Exporter&nbsp;json</a></li>
+          <li><a href="{{ url_for('backup_projects.export_html') }}">Exporter&nbsp;Homepage</a></li>
         </ul>
       </li>
       <li>
@@ -20,6 +20,8 @@
           <li><a href="{{ url_for('posts.index') }}">Posts</a></li>
           <li><a href="{{ url_for('tags.index') }}">Tags</a></li>
           <li><a href="{{ url_for('status.index') }}">Status</a></li>
+          <li><a href="{{ url_for('backup_articles.import_json') }}">Importer&nbsp;json</a></li>
+          <li><a href="{{ url_for('backup_articles.export_json') }}">Exporter&nbsp;json</a></li>
         </ul>
       </li>
     </ul>

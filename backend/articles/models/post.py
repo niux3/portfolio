@@ -1,10 +1,11 @@
 from datetime import datetime
 from slugify import slugify
 from backend.articles.models import PostTag
+from backend.core.libs.serializer_mixin import SerializerMixin
 from backend import db
 
 
-class Post(db.Model):
+class Post(db.Model, SerializerMixin):
     __tablename__ = 'articles_posts'
 
     id = db.Column(db.Integer, primary_key=True)

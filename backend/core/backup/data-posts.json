@@ -1,0 +1,41 @@
+{
+  "post": [
+    {
+      "id": 1,
+      "title": "Automaton",
+      "slug": "automaton",
+      "body": "lorem ipsum indolores",
+      "created": "2025-05-29T00:05:02.119186",
+      "updated": "2025-05-29T00:21:26.189816",
+      "status_id": 3
+    }
+  ],
+  "tag": [
+    {
+      "id": 1,
+      "name": "html",
+      "slug": "html"
+    }
+  ],
+  "posttag": [
+    {
+      "id": 4,
+      "posts_id": 1,
+      "tags_id": 1
+    }
+  ],
+  "status": [
+    {
+      "id": 1,
+      "name": "brouillon"
+    },
+    {
+      "id": 2,
+      "name": "online"
+    },
+    {
+      "id": 3,
+      "name": "offline"
+    }
+  ]
+}
