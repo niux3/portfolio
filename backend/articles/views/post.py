@@ -22,12 +22,20 @@ def show():
             'seo',
             'ux'
         ],
-        'shares': [
-            'fa-brands fa-linkedin',
-            'fa-brands fa-square-facebook',
-            'fa-brands fa-square-x-twitter',
-            'fa-solid fa-square-share-nodes',
-        ]
+        'shares': {
+            'linkedin' : {
+                'url' : 'https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftonsite.com%2Fton-article&title=Le%20titre%20de%20ton%20article&summary=Un%20petit%20résumé&source=tonsite.com',
+                'icon' : 'fa-brands fa-linkedin',
+            },
+            'twitter': {
+                'url': 'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftonsite.com%2Fton-article&text=Découvre%20cet%20article%20intéressant',
+                'icon': 'fa-brands fa-square-x-twitter',
+            },
+            'facebook': {
+                'url': 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftonsite.com%2Fton-article',
+                'icon': 'fa-brands fa-square-facebook',
+            },
+        }
     }
     return render_template('articles/show.html', **ctx)
 

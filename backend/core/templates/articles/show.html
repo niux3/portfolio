@@ -10,11 +10,13 @@
             <li><a href="#"><span>{{ tag }}</span></a></li>
           {% endfor %}
         </ul>
-        <ul class="cell medium-6 flex-container no-bullet share">
-          {% for share in shares %}
-            <li><a href="#" class="{{ share }}"><span>text</span></a></li>
-          {% endfor %}
-        </ul>
+        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
+          <ul class="flex-container no-bullet share">
+            {% for k, v in shares.items() %}
+              <li><a href="{{ v.url }}" class="{{ v.icon }}" target="_blank" rel="noopener noreferrer"><span>Partager sur {{ k|title }}</span></a></li>
+            {% endfor %}
+          </ul>
+        </nav>
       </div>
       <div class="content">{{ object|safe }}</div>
     </article>
