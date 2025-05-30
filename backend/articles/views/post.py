@@ -1,3 +1,5 @@
+from pprint import pprint
+from urllib.parse import quote
 from flask import render_template, Blueprint, flash, redirect, url_for
 from markdown import markdown
 from backend.core.config import config
@@ -14,19 +16,23 @@ bp = Blueprint(prefix_bp, __name__, url_prefix='/articles')
 def show():
     obj = Post.query.get_or_404(1)
     obj.body = markdown(obj.body, extensions=['extra'])
+    querystring_title = quote(obj.title)
+    querystring_site = 'http://rb-webstudio.go.yj.fr'
+    querystring_url = quote(f'{querystring_site}{url_for(f"{prefix_bp}.show")}')
+    print(querystring_url)
     ctx = {
         'object': obj,
         'shares': {
             'linkedin' : {
-                'url' : 'https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftonsite.com%2Fton-article&title=Le%20titre%20de%20ton%20article&summary=Un%20petit%20résumé&source=tonsite.com',
+                'url' : f'https://www.linkedin.com/shareArticle?mini=true&url={querystring_url}&title={querystring_title}&source={quote(querystring_site)}',
                 'icon' : 'fa-brands fa-linkedin',
             },
             'twitter': {
-                'url': 'https://twitter.com/intent/tweet?url=https%3A%2F%2Ftonsite.com%2Fton-article&text=Découvre%20cet%20article%20intéressant',
+                'url': f'https://twitter.com/intent/tweet?url={querystring_url}&text={querystring_title}',
                 'icon': 'fa-brands fa-square-x-twitter',
             },
             'facebook': {
-                'url': 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftonsite.com%2Fton-article',
+                'url': f'https://www.facebook.com/sharer/sharer.php?u={querystring_url}',
                 'icon': 'fa-brands fa-square-facebook',
             },
         }
