@@ -16,10 +16,11 @@ bp = Blueprint(prefix_bp, __name__, url_prefix='/articles')
 def show():
     obj = Post.query.get_or_404(1)
     obj.body = markdown(obj.body, extensions=['extra'])
+
     querystring_title = quote(obj.title)
     querystring_site = 'http://rb-webstudio.go.yj.fr'
     querystring_url = quote(f'{querystring_site}{url_for(f"{prefix_bp}.show")}')
-    print(querystring_url)
+
     ctx = {
         'object': obj,
         'shares': {
