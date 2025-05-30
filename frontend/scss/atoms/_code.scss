@@ -1,14 +1,8 @@
-pre{
-  //border: 1px solid #cacaca;
+code{
   border: .1rem solid var(--color-rouen);
-  border-radius: 6px;
+  border-radius: 3px;
   background-color: var(--color-rennes);
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-weight: 400;
   color: var(--color-cannes);
-  display: block;
-  max-width: 100%;
-  word-wrap: break-word;
-  padding: 1.5rem;
-  margin: 1.5rem 0;
 }

@@ -1,21 +1,33 @@
 $colors : (
-  earth: #355269,
+  saturne: #355269,
+  titan: darken(#355269, 5%),
+  thetys: darken(#355269, 25%),
   jupyter: #eeeeee,
+  ganymede: darken(#eeeeee, 5%),
+  io: darken(#eee, 25%),
   mars: lighten(#8a1b1b, 10%),
   pluton: #FFB370,
   venus: #fff
 ) !default;
 
 $light-theme: (
-  cannes: map-get($colors, earth),
+  cannes: map-get($colors, saturne),
+  antibes: map-get($colors, titan),
+  mandelieu: map-get($colors, thetys),
   laval: map-get($colors, jupyter),
+  rennes: map-get($colors, ganymede),
+  rouen: map-get($colors, io),
   marseille: map-get($colors, mars),
   nice: map-get($colors, venus)
 );
 
 $dark-theme: (
   cannes: map-get($colors, jupyter),
-  laval: map-get($colors, earth),
+  antibes: map-get($colors, ganymede),
+  mandelieu: map-get($colors, io),
+  laval: map-get($colors, saturne),
+  rennes: map-get($colors, titan),
+  rouen: map-get($colors, thetys),
   marseille: map-get($colors, pluton),
   nice: map-get($colors, venus)
 );
