@@ -3,6 +3,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from backend.core.libs.filters import format_date_fr
 from backend.core.config import config
 from backend.core.libs.autoload import Autoload
 
@@ -18,6 +19,8 @@ def create_app():
     )
     app.config.from_object(config)
     config.init_app(app)
+
+
     CORS(app)
 
     migrate = Migrate()
@@ -33,5 +36,6 @@ def create_app():
 
     # from app.auth import views as auth_views
     # app.register_blueprint(auth_views.bp, url_prefix='/auth')
+    app.jinja_env.filters['date_fr'] = format_date_fr
 
     return app
