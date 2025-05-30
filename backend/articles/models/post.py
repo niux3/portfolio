@@ -14,6 +14,7 @@ class Post(db.Model, SerializerMixin):
     body = db.Column(db.Text, nullable=False)
     created = db.Column(db.DateTime, default=datetime.now)
     updated = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+    meta_description = db.Column(db.String(255), default="")
 
     status_id = db.Column(db.Integer, db.ForeignKey('articles_status.id', onupdate='CASCADE', ondelete='CASCADE'))
 
