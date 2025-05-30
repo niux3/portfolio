@@ -12,16 +12,10 @@ bp = Blueprint(prefix_bp, __name__, url_prefix='/articles')
 
 @bp.route('/voir.html')
 def show():
-    with open(str(config.BASEDIR / 'core'/ 'backup' / 'definir-le-langage-naturel.md')) as f:
-        obj = markdown(f.read(), extensions=['extra'])
+    obj = Post.query.get_or_404(1)
+    obj.body = markdown(obj.body, extensions=['extra'])
     ctx = {
         'object': obj,
-        'tags': [
-            'accessibilité',
-            'html',
-            'seo',
-            'ux'
-        ],
         'shares': {
             'linkedin' : {
                 'url' : 'https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftonsite.com%2Fton-article&title=Le%20titre%20de%20ton%20article&summary=Un%20petit%20résumé&source=tonsite.com',
