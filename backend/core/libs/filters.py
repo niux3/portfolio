@@ -12,5 +12,4 @@ def format_date_fr(value, format="%d %B %Y"):
     if isinstance(value, str):
         value = datetime.fromisoformat(value)
     months = []
-    print('=---> ', value)
     return value.strftime(format)
