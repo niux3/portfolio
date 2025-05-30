@@ -1,8 +1,13 @@
 import './scss/index.scss'
+import ProgressBarBehavior from './js/progressBar/ProgressBarBehavior'
 import Validator from '@niuxe/validator'
 
 
 window.addEventListener('DOMContentLoaded', () =>{
+    // progressBar
+    ProgressBarBehavior.run()
+
+
     // darkmode
     let $btnChangeMode = document.querySelector('.changeMode'),
         storedTheme = localStorage.getItem('theme'),

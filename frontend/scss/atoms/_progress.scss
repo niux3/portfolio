@@ -1,0 +1,22 @@
+[id^=progress]{
+  position: fixed;
+  top: -50000px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: .5rem;
+
+  &#progressFalse{
+    top: 0;
+    background-color: transparent;
+
+    #cursorProgress{
+      transition: width .4s;
+      width: 0%;
+      height: .5rem;
+      background-color: var(--color-cannes);
+    }
+  }
+}
