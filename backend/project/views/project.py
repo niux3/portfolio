@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, flash, request, url_for, redirect
 from slugify import slugify
-from backend.project.models import Project, ProjectTechnology
+from sqlalchemy import desc
+from backend.project.models import Project, ProjectTechnology, Technology
 from backend.project.forms import ProjectForm
 from backend.core.libs.base_views import BaseView
 from backend import db
@@ -73,62 +74,12 @@ def edit(id):
     }
     return render_template('project/edit.html', **ctx)
 
-"""
-import json
-from backend.core.config import config
-from pprint import pprint
-from backend.project.models import Activity, Function, ProjectTechnology, Technology
-from backend import db
-
-
-@bp.route('/import-project')
-def import_data():
-    src = config.BASEDIR / 'core' / 'backup' / 'data.json'
-    with open(src, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    for i, row in enumerate(data):
-        if Activity.query.filter(Activity.name==row['activity_name']).count() == 0:
-            activity = Activity()
-            activity.name = row['activity_name']
-            activity.icon = row['activity_icon']
-            db.session.add(activity)
-            db.session.commit()
-            db.session.refresh(activity)
-        else:
-            activity = Activity.query.filter(Activity.name==row['activity_name']).first()
-        if Function.query.filter(Function.name==row['function']).count() == 0:
-            function = Function()
-            function.name = row['function']
-            db.session.add(function)
-            db.session.commit()
-            db.session.refresh(function)
-        else:
-            function = Function.query.filter(Function.name==row['function']).first()
-
-        for tech in row['technologies']:
-            if Technology.query.filter(Technology.name==tech).count() == 0:
-                instance = Technology()
-                instance.name = tech
-                db.session.add(instance)
-                db.session.commit()
-        print(activity, activity.id)
-        print(function, function.id)
-
-        ctx_data = {k : v for k, v in row.items() if k != 'technologies' and not k.startswith('activi') and k != 'function' and k != 'id' and k != 'images'}
-        ctx_data['activities_id'] = Activity.query.filter(Activity.name==row['activity_name']).first().id
-        ctx_data['functions_id'] = Function.query.filter(Function.name==row['function']).first().id
-
-        instance = Project(**ctx_data)
-        db.session.add(instance)
-        db.session.commit()
-        db.session.refresh(instance)
-        for tech in row['technologies']:
-            instance_tech = ProjectTechnology(projects_id=instance.id, technologies_id=Technology.query.filter(Technology.name==tech).first().id)
-            db.session.add(instance_tech)
-            db.session.commit()
-            db.session.refresh(instance_tech)
-
-        pprint(row, indent=2)
-        pprint(ctx_data, indent=2)
-    return 'ok'
-"""
+@bp.route('/index.html')
+def show():
+    ctx = {
+        "object_list": {
+            "projects": Project.query.filter(Project.online == 1).order_by(desc('year')),
+            "technologies": Technology.query.filter(Technology.online == 1).all()
+        }
+    }
+    return render_template('project/show.html', **ctx)
