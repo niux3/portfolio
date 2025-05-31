@@ -25,14 +25,17 @@ class Project(db.Model, SerializerMixin):
     customer = db.Column(db.String(128), nullable=False)
     location = db.Column(db.String(128), nullable=False)
 
-    project_technologies = db.relationship("ProjectTechnology", back_populates="project")
+    project_technologies = db.relationship(
+        "ProjectTechnology",
+        back_populates="project",
+        overlaps="technologies,project_technologies"
+    )
 
     technologies = db.relationship(
         'Technology',
         secondary='project_projects_technologies',
         backref=db.backref('projects', lazy='dynamic'),
-        lazy='subquery',
-        overlaps="project_technologies,technology"
+        viewonly=True  # Solution clé : marque cette relation comme lecture seule
     )
 
     def __str__(self):
