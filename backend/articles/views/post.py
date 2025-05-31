@@ -12,14 +12,15 @@ from backend import db
 prefix_bp = 'posts'
 bp = Blueprint(prefix_bp, __name__, url_prefix='/articles')
 
-@bp.route('/voir.html')
-def show():
-    obj = Post.query.get_or_404(1)
+@bp.route('/<id>-<slug>.html')
+def show(id, slug, export=None):
+    obj = Post.query.get_or_404(id)
     obj.body = markdown(obj.body, extensions=['extra'])
 
     querystring_title = quote(obj.title)
     querystring_site = 'http://rb-webstudio.go.yj.fr'
-    querystring_url = quote(f'{querystring_site}{url_for(f"{prefix_bp}.show")}')
+    url = url_for(f'{prefix_bp}.show', id=obj.id, slug=obj.slug)
+    querystring_url = quote(f'{querystring_site}{url}')
 
     ctx = {
         'object': obj,
@@ -38,6 +39,8 @@ def show():
             },
         }
     }
+    if export is not None:
+        ctx.update(export)
     return render_template('articles/show.html', **ctx)
 
 @bp.route('/index.html')

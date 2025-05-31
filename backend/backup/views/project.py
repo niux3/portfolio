@@ -38,7 +38,7 @@ def export_html():
             "technologies": Technology.query.filter(Technology.online == 1).all(),
         }
     }
-    html = render_template('pages/index.html', **ctx)
+    html = render_template('project/show.html', **ctx)
     with open(str(public_folder / 'index.html'), "w", encoding="utf-8") as f:
         f.write(html)
     flash("Votre export de la page accueil est réussi", "success")

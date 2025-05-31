@@ -1,7 +1,9 @@
 {% extends 'base_frontend.html' %}
 
+{% block title %} {{ object.title }} - RB webstudio {% endblock %}
+{% block meta_description %}{{ object.meta_description }}{% endblock %}
 {% block content %}
-<progress id="progressTrue" max="100" value="70"></progress>
+<progress id="progressTrue" max="100" value="0"></progress>
   <section>
     <article>
       <h1>{{ object.title }}</h1>

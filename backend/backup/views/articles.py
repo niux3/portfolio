@@ -1,11 +1,14 @@
 import subprocess
 import json
 import pathlib
+from urllib.parse import quote
 from pprint import pprint
 from datetime import datetime
+from markdown import markdown
 from sqlalchemy import desc
 from flask import render_template, Blueprint, jsonify, url_for, redirect, flash
 from backend.core.config import config
+from backend.articles.views.post import prefix_bp, show
 from backend.articles.models import Post, PostTag, Tag, Status
 from backend import db
 
@@ -40,3 +43,29 @@ def import_json():
     db.session.commit()
     flash("Votre import en json est réussi", "success")
     return redirect(url_for('projects.index'))
+
+
+@bp.route('/articles-export-html')
+def export_html():
+    public_folder = config.BASEDIR.parent / 'public'
+    path_manifest = public_folder / '.vite' / 'manifest.json'
+
+    with open(str(path_manifest), encoding='utf-8') as f:
+        manifest_data = json.load(f)
+    items = []
+    for obj in Post.query.all():
+        items.append({
+            "url": url_for(f'{prefix_bp}.show', id=obj.id, slug=obj.slug),
+            'content': show(obj.id, obj.slug, export={
+                "layout_template": "base_export.html",
+                "js_file": manifest_data.get('frontend/main.js').get('file'),
+                "css_file": manifest_data.get('frontend/scss/index.scss').get('file'),
+            })
+        })
+    for item in items:
+        url = item.get('url')[item.get('url').rfind('/') + 1:]
+        with open(str(public_folder / 'articles' / url), 'w', encoding='utf-8') as f:
+            f.write(item.get('content'))
+    return {
+        'msg': html
+    }
