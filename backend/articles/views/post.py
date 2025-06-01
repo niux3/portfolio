@@ -1,10 +1,11 @@
-from pprint import pprint
 from urllib.parse import quote
 from flask import render_template, Blueprint, flash, redirect, url_for
+from sqlalchemy import desc
+from sqlalchemy.orm import aliased
 from markdown import markdown
 from backend.core.config import config
 from backend.core.libs.base_views import BaseView
-from backend.articles.models import Post
+from backend.articles.models import Post, Status, Tag, PostTag
 from backend.articles.forms import PostForm
 from backend import db
 
@@ -12,7 +13,7 @@ from backend import db
 prefix_bp = 'posts'
 bp = Blueprint(prefix_bp, __name__, url_prefix='/articles')
 
-@bp.route('/<id>-<slug>.html')
+@bp.route('/<slug>-<id>.html')
 def show(id, slug, export=None):
     obj = Post.query.get_or_404(id)
     obj.body = markdown(obj.body, extensions=['extra'])
@@ -43,7 +44,7 @@ def show(id, slug, export=None):
         ctx.update(export)
     return render_template('articles/show.html', **ctx)
 
-@bp.route('/index.html')
+@bp.route('/backoffice/index.html')
 def index():
     fields = {
         'slug' : 'slug',
@@ -51,7 +52,7 @@ def index():
     }
     return BaseView.index(Post, prefix_bp, fields, "un article")
 
-@bp.route('/ajouter.html', methods=['GET', 'POST'])
+@bp.route('/backoffice/ajouter.html', methods=['GET', 'POST'])
 def add():
     form = PostForm()
     if form.validate_on_submit():
@@ -68,7 +69,7 @@ def add():
     }
     return render_template('articles/edit.html', **ctx)
 
-@bp.route('/<int:id>-supprimer.html')
+@bp.route('/backoffice/<int:id>-supprimer.html')
 def destroy(id):
     post = Post.query.get(id)
     db.session.delete(post)
@@ -76,7 +77,7 @@ def destroy(id):
     flash("Votre item a bien été supprimé", "success")
     return redirect(url_for(f'{prefix_bp}.index'))
 
-@bp.route('/<int:id>-editer.html', methods=['GET', 'POST'])
+@bp.route('/backofficee/<int:id>-editer.html', methods=['GET', 'POST'])
 def edit(id):
     post = Post.query.get(id)
     form = PostForm(obj=post)
@@ -91,3 +92,31 @@ def edit(id):
         'form': form
     }
     return render_template('articles/edit.html', **ctx)
+
+@bp.route('/index.html')
+def index_articles():
+    ctx = {
+        'title': "Articles techniques - RB webstudio",
+        'meta_description': "Découvrez nos articles récents sur le développement web, Python, JavaScript, frameworks modernes et bonnes pratiques techniques.",
+        'h1': "Derniers articles & tutoriels de développement web",
+        'object_list': Post.query.join(Status, Post.status_id == Status.id).filter(Status.name == 'online').order_by(desc(Post.updated)).all()
+    }
+    return render_template('articles/index.html', **ctx)
+
+@bp.route('/chercher-articles-par-<slug>.html')
+def index__by_tags(slug):
+    tag = Tag.query.filter(Tag.slug==slug).first()
+    post_tag_alias = aliased(PostTag)
+    posts = db.session.query(Post)\
+        .join(post_tag_alias, Post.id == post_tag_alias.posts_id)\
+        .join(Status, Post.status_id == Status.id)\
+        .filter(post_tag_alias.tags_id == tag.id, Status.name == 'online')\
+        .order_by(desc(Post.updated)).all()
+
+    ctx = {
+        'title': f"Chercher les articles par {tag.name} - RB webstudio",
+        'meta_description': f"Découvrez nos articles sur {tag.name}",
+        'h1': f"Chercher des articles avec le tag : {tag.name}",
+        'object_list': posts
+    }
+    return render_template('articles/index.html', **ctx)

@@ -77,6 +77,7 @@ def edit(id):
 @bp.route('/index.html')
 def show():
     ctx = {
+        'homepage': True,
         "object_list": {
             "projects": Project.query.filter(Project.online == 1).order_by(desc('year')),
             "technologies": Technology.query.filter(Technology.online == 1).all()

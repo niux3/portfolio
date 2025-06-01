@@ -1,4 +1,4 @@
-{% extends 'base_frontend.html' %}
+{% extends layout_template or 'base_frontend.html' %}
 
 {% block title %} {{ object.title }} - RB webstudio {% endblock %}
 {% block meta_description %}{{ object.meta_description }}{% endblock %}
@@ -10,7 +10,7 @@
       <div class="grid-x grid-padding-x">
         <ul class="cell medium-6 flex-container no-bullet tags-list">
           {% for tag in object.tags %}
-            <li><a href="#"><span>{{ tag }}</span></a></li>
+            <li><a href="{{ url_for('posts.index__by_tags', slug=tag.slug) }}"><span>{{ tag }}</span></a></li>
           {% endfor %}
         </ul>
         <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">

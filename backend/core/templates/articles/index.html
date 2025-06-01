@@ -1,0 +1,29 @@
+{% extends layout_template or 'base_frontend.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+{% block content %}
+<section class="posts">
+  <h1>{{ h1 }}</h1>
+  <div class="content">
+    <ul class="no-bullet items-articles">
+      {% for object in object_list %}
+      <li>
+        <div class="fa-solid fa-newspaper"></div>
+        <div>
+          <a href="{{ url_for('posts.show', id=object.id, slug=object.slug) }}">{{ object.title }}</a>
+          <div>
+            <ul class="no-bullet">
+              {% for tag in object.tags %}
+                <li><a href="{{ url_for('posts.index__by_tags', slug=tag.slug) }}">{{ tag.name }}</a></li>
+              {% endfor %}
+            </ul>
+            <span>{{ object.created|date_fr("%d-%m-%y") }}</span>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}
