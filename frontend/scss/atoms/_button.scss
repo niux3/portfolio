@@ -1,0 +1,39 @@
+.button{
+  border-radius: $border-radius;
+  font-size: $font-size-base;
+  color: var(--color-laval);
+  background-color: var(--color-cannes);
+  font-variant: small-caps;
+  transition: color .4s, background-color .4s;
+
+  &.clear{
+    color: var(--color-cannes);
+  }
+
+  &:focus{
+    color: var(--color-laval);
+    background-color: var(--color-cannes);
+  }
+
+  &:is(:hover, :active){
+    color: var(--color-cannes);
+    background-color: var(--color-nice);
+  }
+}
+html[data-theme-preference="dark"]{
+  .button{
+    border: .2rem solid transparent;
+    transition: color .4s, background-color .4s, border-color .4s;
+    &.clear{
+      border: none;
+      &:focus{
+        color: var(--color-cannes);
+      }
+    }
+    &:is(:hover, :active){
+      color: var(--color-cannes);
+      background-color: var(--color-laval);
+      border-color: var(--color-cannes);
+    }
+  }
+}

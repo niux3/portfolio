@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr" id="top">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}RB webstudio - spécialiste Python - Javascript/Typescript{% endblock %}</title>
+    <meta name="description"  content="RB webstudio - spécialiste Python - Javascript/Typescript">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation-float.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation-prototype.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation-rtl.min.css') }}">
+
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    {% block css %}{% endblock %}
+  </head>
+
+  <body>
+    <main class="grid-container">
+      {% include "partials/frontend/header.html" %}
+      {% block content %}{% endblock %}
+      {% include "partials/frontend/contact.html" %}
+      {% include "partials/frontend/footer.html" %}
+    </main>
+    <script src="{{ url_for('static', filename="js/app.js") }}"></script>
+    {% block js %}{% endblock %}
+    <script src="http://localhost:5173/@vite/client" type="module"></script>
+    <script src="http://localhost:5173/frontend/main.js" type="module"></script>
+  </body>
+</html>

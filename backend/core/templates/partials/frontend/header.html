@@ -1,0 +1,12 @@
+<header class="flex-container align-justify align-middle">
+    {% if homepage %}
+    <h1>{% include "partials/frontend/logo.html" %}</h1>
+    {% else %}
+    <div>{% include "partials/frontend/logo.html" %}</div>
+    {% endif %}
+    <nav class="flex-container align-right">
+      <a href="{{ url_for('posts.index_articles') }}" class="margin-horizontal-1">articles</a>
+      <a href="#contact" class="margin-horizontal-1">contact</a>
+    </nav>
+</header>
+

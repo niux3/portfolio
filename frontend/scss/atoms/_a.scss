@@ -1,0 +1,8 @@
+a{
+  color: var(--color-cannes);
+
+  &:hover{
+    color: var(--color-cannes);
+    text-decoration: underline;
+  }
+}

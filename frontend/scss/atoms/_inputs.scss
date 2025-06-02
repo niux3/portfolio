@@ -1,0 +1,32 @@
+select, option, input[type=text], input[type=email], input[type=date], input[type=time], textarea{
+  font-size: $font-size-base;
+  margin-bottom: 0;
+  border: none;
+  border-bottom: .1rem solid var(--color-cannes);
+  padding: .5rem 0 0 .8rem;
+  box-shadow: none;
+  color: var(--color-cannes);
+  background-color: transparent !important;
+  height: 4rem;
+  opacity: 1;
+  transition: opacity .2s;
+
+  &.error{
+    border-bottom: .1rem solid var(--color-marseille);
+  }
+
+  &:focus{
+    border: none;
+    border-bottom: .1rem solid var(--color-cannes);
+    box-shadow: none;
+
+    &.error{
+      border-bottom: .1rem solid var(--color-marseille);
+    }
+  }
+
+  &:disabled{
+    opacity: 0;
+    pointer-events: none;
+  }
+}

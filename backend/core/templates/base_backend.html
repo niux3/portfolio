@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}backoffice{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation-float.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation-prototype.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation-rtl.min.css') }}">
+<style>
+.top-bar{
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+}
+.top-bar ul{
+  background-color: white;
+}
+    .dropdown.menu{
+      li{
+        position: relative;
+        ul{
+          position: absolute;
+          border: 1px solid #ccc;
+          display: none;
+        }
+        &:hover{
+          ul{
+            display: list-item;
+          }
+        }
+      }
+    }
+</style>
+    {% block css %}{% endblock %}
+  </head>
+
+  <body>
+    <main class="grid-container">
+      {% include "partials/backend/header.html" %}
+      {% include "partials/backend/flash.html" %}
+      {% block content %}{% endblock %}
+    </main>
+    <script src="{{ url_for('static', filename="js/app.js") }}"></script>
+    {% block js %}{% endblock %}
+  </body>
+</html>

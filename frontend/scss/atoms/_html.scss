@@ -1,0 +1,10 @@
+html{
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  &[data-theme-preference="dark"] {
+    @include theme($dark-theme);
+  }
+  &[data-theme-preference="light"] {
+    @include theme($light-theme);
+  }
+}

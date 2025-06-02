@@ -1,0 +1,9 @@
+mark{
+  background: transparent !important;
+  border: 2px solid var(--color-cannes);
+  border-radius: $border-radius;
+  display: inline-block;
+  padding: 0 .3rem;
+  margin: .3rem 0;
+  color: var(--color-cannes);
+}

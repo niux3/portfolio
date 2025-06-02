@@ -1,0 +1,33 @@
+{% extends layout_template or 'base_frontend.html' %}
+
+{% block title %} {{ object.title }} - RB webstudio {% endblock %}
+{% block meta_description %}{{ object.meta_description }}{% endblock %}
+{% block content %}
+<progress id="progressTrue" max="100" value="0"></progress>
+  <section>
+    <article>
+      <h1>{{ object.title }}</h1>
+      <div class="grid-x grid-padding-x">
+        <ul class="cell medium-6 flex-container no-bullet tags-list">
+          {% for tag in object.tags %}
+            <li><a href="{{ url_for('posts.index_by_tags', slug=tag.slug) }}"><span>{{ tag }}</span></a></li>
+          {% endfor %}
+        </ul>
+        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
+          <ul class="flex-container no-bullet share">
+            {% for k, v in shares.items() %}
+              <li><a href="{{ v.url }}" class="{{ v.icon }}" target="_blank" rel="noopener noreferrer"><span>Partager sur {{ k|title }}</span></a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+      <div class="content">{{ object.body|safe }}</div>
+      <p class="text-right">Publié le {{ object.created|date_fr }}, mise à jour le {{ object.updated|date_fr }}</p>
+    </article>
+  </section>
+  <template id="tplProgressFalse">
+    <div id="progressFalse">
+      <div id="cursorProgress">&nbsp;</div>
+    </div>
+  </template>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base_backend.html' %}
+
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename="css/simplemde.min.css") }}">
+{% endblock %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+{% for item in form %}
+    <div>
+        {% if item.label.text != "CSRF Token" %}
+            {{ item.label }}
+        {% endif %}
+        {{ item }}
+        {% for error in item.errors %}
+            <span class="form-error is-visible">{{ error }}</span>
+        {% endfor %}
+    </div>
+{% endfor %}
+  <div><button type="submit" class="button primary">envoyer</button></div>
+</form>
+{% endblock %}
+
+{% block js %}
+  <script src="{{ url_for('static', filename="js/simplemde.min.js") }}"></script>
+  <script>
+    var simplemde = new SimpleMDE({
+          element: document.querySelector('.markdownEdit'),
+          forceSync: true,
+    });
+</script>
+{% endblock %}

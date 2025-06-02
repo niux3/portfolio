@@ -1,0 +1,13 @@
+label{
+  transition: background-color .8s;
+  border-radius: $border-radius;
+  padding: .5rem;
+  margin-top: 0 !important;
+  margin-bottom: 2.1rem !important;
+  cursor: pointer;
+
+  &:has(input:focus, select:focus, textarea:focus){
+    background-color: var(--color-nice);
+  }
+
+}

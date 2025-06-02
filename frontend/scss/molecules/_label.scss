@@ -1,0 +1,105 @@
+label{
+  >span{
+    border-radius: $border-radius;
+    display: block;
+    padding: .8rem;
+    position: relative;
+
+    &:before{
+      content: '';
+      position: absolute;
+      left:50%;
+      right: 50%;
+      bottom: 0.7rem;
+      height: .1rem;
+      background-color: transparent;
+      transition: left .2s, right .2s, background-color .2s;
+    }
+
+    > span:not(.error){
+      color: var(--color-cannes);
+      font-size: $font-size-base;
+      font-weight: 600;
+      transition: color .2s;
+    }
+    > span.error{
+      font-size: $font-size-base;
+      color: var(--color-marseille);
+      position: absolute;
+      bottom: -3rem;
+      left: 0.8rem;
+      right: 0.8rem;
+    }
+  }
+  &:has(.require){
+    > span > span:first-child{
+      &:after{
+        content: ' *';
+        color: var(--color-marseille);
+        position: static;
+      }
+    }
+  }
+  &:has(input:not([type=checkbox]):focus, select:focus, textarea:focus){
+    > span{
+      &::before{
+        left: 0.8rem;
+        right: 0.8rem;
+        background-color: var(--color-cannes);
+      }
+    }
+  }
+  &:has(input.error:not([type=checkbox]):focus, select.error:focus, textarea.error:focus){
+    > span{
+      &::before{
+        //left: 0.8rem;
+        //right: 0.8rem;
+        //bottom: 3.6rem;
+        background-color: var(--color-marseille);
+      }
+    }
+  }
+
+  > span{
+    &:has(input:disabled){
+      > span{
+        transition: none !important;
+        color: transparent !important;
+      }
+    }
+  }
+}
+html[data-theme-preference="dark"]{
+  label{
+    >span{
+      > span{
+        color: var(--color-cannes);
+        transition: color .8s;
+
+        &.error{
+          color: var(--color-marseille);
+        }
+      }
+      input, select, textarea{
+        color: var(--color-cannes);
+        transition: color .8s;
+      }
+      &:has(input:focus, select:focus, textarea:focus){
+        > span{
+          color: var(--color-laval);
+
+          &:before{
+            background-color: var(--color-laval);
+          }
+          &.error{
+            color: var(--color-marseille);
+          }
+        }
+        input, select, textarea{
+          color: var(--color-laval);
+          border-bottom-color: var(--color-laval);
+        }
+      }
+    }
+  }
+}

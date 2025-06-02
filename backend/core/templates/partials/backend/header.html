@@ -1,0 +1,35 @@
+<div class="top-bar margin-vertical-3">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">backoffice</li>
+      <li>
+        <a href="#">projects</a>
+        <ul class="menu">
+          <li><a href="{{ url_for('projects.index') }}">Projets</a></li>
+          <li><a href="{{ url_for('activities.index') }}">Activités</a></li>
+          <li><a href="{{ url_for('functions.index') }}">Fonctions</a></li>
+          <li><a href="{{ url_for('technology.index') }}">Technologies</a></li>
+          <li><a href="{{ url_for('backup_projects.import_json') }}">Importer&nbsp;json</a></li>
+          <li><a href="{{ url_for('backup_projects.export_json') }}">Exporter&nbsp;json</a></li>
+          <li><a href="{{ url_for('backup_projects.export_html') }}">Exporter&nbsp;Homepage</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">articles</a>
+        <ul class="menu">
+          <li><a href="{{ url_for('posts.index') }}">Posts</a></li>
+          <li><a href="{{ url_for('tags.index') }}">Tags</a></li>
+          <li><a href="{{ url_for('status.index') }}">Status</a></li>
+          <li><a href="{{ url_for('backup_articles.import_json') }}">Importer&nbsp;json</a></li>
+          <li><a href="{{ url_for('backup_articles.export_json') }}">Exporter&nbsp;json</a></li>
+          <li><a href="{{ url_for('backup_articles.export_html') }}">Exporter&nbsp;HTML</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><a href="{{ url_for('projects.show') }}" class="button" target="_blank">voir le site</a></li>
+    </ul>
+  </div>
+</div>

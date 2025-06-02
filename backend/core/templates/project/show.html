@@ -1,0 +1,74 @@
+{% extends layout_template or 'base_frontend.html' %}
+
+{% block content %}
+<section class="introduction">
+    <h2>
+        <span class="bold">RB Webstudio</span>
+        <br>
+        <span class="light">Développement web <span class="bold">stratégique</span> pour entrepreneurs <span class="bold">ambitieux</span></span>
+        <br>
+        <span class="light">Je construis des solutions techniques <span class="bold">stables</span> et <span class="bold">scalables</span>, pour que votre <span class="bold">tech</span> devienne un <span class="bold">levier de croissance</span> &ndash; pas un frein.</span>
+    </h2>
+</section>
+
+<section class="work">
+  <h3>PROJETS PERSONNELS</h3>
+  <div class="content">
+    <ul class="items-icons">
+      <li>
+        <a href="https://github.com/niux3/validator" target="_blank">
+          <span class="fa-brands fa-js"></span>
+          <span>
+            <span class="bold">ValidatorJS</span>
+            <span>Système de validation des données (16 kio)</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/niux3/js-template-engine" target="_blank">
+          <span class="fa-brands fa-js"></span>
+          <span>
+            <span class="bold">Moteur de template en JS</span>
+            <span>Moteur de template très léger (920 o)</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/niux3/forum" target="_blank">
+          <span class="fa-brands fa-python"></span>
+          <span>
+            <span class="bold">Forum</span>
+            <span>Forum de discussion en Python</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <h3>PROJETS</h3>
+  <div class="content">
+    <ul class="items-icons">
+      {% for object in object_list.projects %}
+      <li>
+        <a href="{{ object.url }}" target="_blank">
+          <span class="{{ object.activity.icon }}"></span>
+          <span>
+            <span class="bold">{{ object.name }}</span>
+            <span>développement {{ object.function.name }}</span>
+          </span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+<section class="technologies">
+  <h3>Technologies utilisées</h3>
+  <div class="content">
+    <ul class="no-bullet grid-x grid-margin-x padding-bottom-3">
+      {% for object in object_list.technologies %}
+        <li class="cell medium-2 text-center margin-vertical-1"><span>{{ object.name }}</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

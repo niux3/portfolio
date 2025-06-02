@@ -1,0 +1,9 @@
+@for $i from 1 through 6{
+  h#{$i}, .h#{$i}{
+    font-family: $font-family-title;
+    font-weight: $weight-regular;
+  }
+}
+h2{
+  font-size: 2.5rem;
+}

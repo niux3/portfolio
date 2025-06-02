@@ -1,0 +1,16 @@
+{
+  "frontend/main.js": {
+    "file": "static/app-DZmhBA0e.js",
+    "name": "app",
+    "src": "frontend/main.js",
+    "isEntry": true,
+    "css": [
+      "static/styles-Bjd40x7D.css"
+    ]
+  },
+  "frontend/scss/index.scss": {
+    "file": "static/styles-Bjd40x7D.css",
+    "src": "frontend/scss/index.scss",
+    "isEntry": true
+  }
+}
