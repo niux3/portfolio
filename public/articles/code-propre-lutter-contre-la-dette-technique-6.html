@@ -12,7 +12,7 @@
           })(window,document,'script','dataLayer','GTM-MCT7LV9P');</script>
     <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chercher les articles par django - RB webstudio</title>
+    <title> Code propre : Lutter contre la Dette Technique - RB webstudio </title>
 
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="/static/styles-BAxRS7g8.css">
-    <meta name="description"  content="Découvrez nos articles sur django">
+    <meta name="description"  content="Un code propre, c’est un code qui parle de lui-même. Moins de bugs, plus de clarté, zéro dette technique. La propreté, c’est la puissance.">
   </head>
 
   <body>
@@ -51,35 +51,77 @@
 </header>
 
       
-<section class="posts">
-  <h1>Chercher des articles avec le tag : django</h1>
-  <div class="content">
-    <ul class="no-bullet items-articles">
-      
-      <li>
-        <div class="fa-solid fa-newspaper"></div>
-        <div>
-          <a href="/articles/comment-django-contribue-a-securiser-vos-applications-web-2.html">Comment Django contribue à sécuriser vos applications web ?</a>
-          <div>
-            <ul class="no-bullet">
-              
-                <li><a href="/articles/chercher-articles-par-django.html">django</a></li>
-              
-                <li><a href="/articles/chercher-articles-par-python.html">python</a></li>
-              
-                <li><a href="/articles/chercher-articles-par-developpement.html">développement</a></li>
-              
-                <li><a href="/articles/chercher-articles-par-cybersecurite.html">cybersécurité</a></li>
-              
-            </ul>
-            <span>29-05-25</span>
-          </div>
-        </div>
-      </li>
-      
-    </ul>
-  </div>
-</section>
+<progress id="progressTrue" max="100" value="0"></progress>
+  <section>
+    <article>
+      <h1>Code propre : Lutter contre la Dette Technique</h1>
+      <div class="grid-x grid-padding-x">
+        <ul class="cell medium-6 flex-container no-bullet tags-list">
+          
+            <li><a href="/articles/chercher-articles-par-developpement.html"><span>développement</span></a></li>
+          
+        </ul>
+        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
+          <ul class="flex-container no-bullet share">
+            
+              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//rb-webstudio.go.yj.fr/articles/code-propre-lutter-contre-la-dette-technique-6.html&amp;title=Code%20propre%20%3A%20Lutter%20contre%20la%20Dette%20Technique&amp;source=http%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
+            
+              <li><a href="https://twitter.com/intent/tweet?url=http%3A//rb-webstudio.go.yj.fr/articles/code-propre-lutter-contre-la-dette-technique-6.html&amp;text=Code%20propre%20%3A%20Lutter%20contre%20la%20Dette%20Technique" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
+            
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//rb-webstudio.go.yj.fr/articles/code-propre-lutter-contre-la-dette-technique-6.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
+            
+          </ul>
+        </nav>
+      </div>
+      <div class="content"><p><strong>Un code propre est évident pour les autres développeurs.</strong></p>
+<p>Il ne s'agit pas de créer des algorithmes complexes et sophistiqués. Des noms de variables mal choisis, des classes et méthodes surchargées, des "nombres magiques" — tous ces éléments rendent le code confus et difficile à comprendre. Un bon code est lisible, compréhensible et auto-explicatif, même pour quelqu'un qui ne l’a pas écrit.</p>
+<p><strong>Un code propre ne contient pas de doublons.</strong></p>
+<p>La duplication complique les changements futurs. Chaque fois que vous devez modifier un morceau de code dupliqué, vous devez vous souvenir de répliquer ce changement à chaque instance. Cela augmente inutilement la charge cognitive et ralentit le travail.</p>
+<p><strong>Un code propre est minimaliste.</strong></p>
+<p>Il doit contenir le strict nécessaire en termes de classes et d'éléments. Moins de code signifie moins de choses à comprendre et à maintenir, donc moins de bugs potentiels. Le code est une responsabilité — gardez-le concis et simple.</p>
+<p><strong>Les commentaires dans un code propre</strong></p>
+<p>Les commentaires jouent un rôle important dans la lisibilité et la compréhension d'un code, mais leur utilisation doit être judicieuse. Voici comment aborder les commentaires dans un code propre :</p>
+<ul>
+<li><strong>Clarté et Contexte </strong>: Les commentaires doivent expliquer le pourquoi d'un choix plutôt que le quoi. Un bon code devrait être suffisamment clair pour que les développeurs comprennent la logique sans avoir à lire des commentaires détaillés. Les commentaires peuvent fournir un contexte précieux, comme la raison d'un algorithme particulier ou des détails sur une décision de conception.</li>
+<li><strong>Éviter les Redondances</strong> : Évitez de commenter des éléments évidents ou de décrire ce que fait le code ligne par ligne. Par exemple, au lieu de commenter un code comme ci-dessous, il vaut mieux choisir des noms de variables explicites et rendre le code lisible.</li>
+</ul>
+<pre><code class="language-python">x = x + 1  # Ajoute 1 à x
+</code></pre>
+<ul>
+<li><strong>Documentation des Fonctions</strong> : Utilisez des docstrings (commentaires en début de fonction) pour expliquer le but de la fonction, ses paramètres et ce qu’elle retourne. Cela aide à comprendre comment utiliser une fonction sans avoir à lire son code.</li>
+</ul>
+<pre><code class="language-python">def add(a, b):
+    &quot;&quot;&quot;
+    Additionne deux nombres.
+
+    :param a: Premier nombre
+    :param b: Deuxième nombre
+    :return: Somme de a et b
+    &quot;&quot;&quot;
+    return a + b
+</code></pre>
+<ul>
+<li><strong>Mettre à Jour les Commentaires</strong> : Les commentaires doivent être mis à jour en même temps que le code. Des commentaires obsolètes peuvent induire en erreur et causer plus de confusion qu’ils n’en résolvent. Une bonne pratique est de revoir les commentaires lors de chaque refactoring.</li>
+<li><strong>Sections et TODOs</strong> : Les commentaires peuvent être utilisés pour marquer des sections de code ou des tâches à accomplir (TODOs). Cependant, veillez à ce que ces commentaires soient également suivis et maintenus. Par exemple :</li>
+</ul>
+<pre><code class="language-python"># TODO: Optimiser cette fonction pour de meilleures performances
+</code></pre>
+<ul>
+<li><strong>Exceptions et Cas Particuliers</strong> : Si vous gérez des cas particuliers ou des exceptions qui ne sont pas évidents, des commentaires peuvent aider à clarifier pourquoi une solution a été choisie. Cela permet de mieux comprendre les décisions qui ont été prises.</li>
+</ul>
+<p>Dans un code propre, les commentaires sont un complément, pas un substitut à la clarté du code. Ils doivent être utilisés pour améliorer la compréhension et fournir des informations essentielles sans surcharger le code de détails inutiles. Un bon équilibre entre un code lisible et des commentaires pertinents est la clé d'un code maintenable et efficace.</p>
+<h3>Un code propre réussit tous les tests.</h3>
+<p>Si seulement 95 % de vos tests passent, c’est un signal d’alerte. Pire encore, une couverture de tests à 0 % signifie que vous travaillez sans filet. Un code propre est pleinement testé, assurant ainsi sa robustesse.</p>
+<h3>Un code propre est économique à long terme.</h3>
+<p>Un code bien écrit est moins coûteux à maintenir. Il réduit la complexité, les erreurs, et donc le temps passé à corriger ou à faire évoluer le projet. En fin de compte, cela diminue les frais techniques.</p></div>
+      <p class="text-right">Publié le 02 juin 2025, mise à jour le 02 juin 2025</p>
+    </article>
+  </section>
+  <template id="tplProgressFalse">
+    <div id="progressFalse">
+      <div id="cursorProgress">&nbsp;</div>
+    </div>
+  </template>
 
       <section class="contact" id="contact">
   <h3>me contacter</h3>

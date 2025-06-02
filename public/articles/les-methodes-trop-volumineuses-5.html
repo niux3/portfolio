@@ -12,7 +12,7 @@
           })(window,document,'script','dataLayer','GTM-MCT7LV9P');</script>
     <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chercher les articles par django - RB webstudio</title>
+    <title> Les méthodes trop volumineuses - RB webstudio </title>
 
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="/static/styles-BAxRS7g8.css">
-    <meta name="description"  content="Découvrez nos articles sur django">
+    <meta name="description"  content="Méthodes trop longues ? Apprenez à les simplifier pour un code plus clair, maintenable et performant.">
   </head>
 
   <body>
@@ -51,35 +51,63 @@
 </header>
 
       
-<section class="posts">
-  <h1>Chercher des articles avec le tag : django</h1>
-  <div class="content">
-    <ul class="no-bullet items-articles">
-      
-      <li>
-        <div class="fa-solid fa-newspaper"></div>
-        <div>
-          <a href="/articles/comment-django-contribue-a-securiser-vos-applications-web-2.html">Comment Django contribue à sécuriser vos applications web ?</a>
-          <div>
-            <ul class="no-bullet">
-              
-                <li><a href="/articles/chercher-articles-par-django.html">django</a></li>
-              
-                <li><a href="/articles/chercher-articles-par-python.html">python</a></li>
-              
-                <li><a href="/articles/chercher-articles-par-developpement.html">développement</a></li>
-              
-                <li><a href="/articles/chercher-articles-par-cybersecurite.html">cybersécurité</a></li>
-              
-            </ul>
-            <span>29-05-25</span>
-          </div>
-        </div>
-      </li>
-      
-    </ul>
-  </div>
-</section>
+<progress id="progressTrue" max="100" value="0"></progress>
+  <section>
+    <article>
+      <h1>Les méthodes trop volumineuses</h1>
+      <div class="grid-x grid-padding-x">
+        <ul class="cell medium-6 flex-container no-bullet tags-list">
+          
+            <li><a href="/articles/chercher-articles-par-developpement.html"><span>développement</span></a></li>
+          
+        </ul>
+        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
+          <ul class="flex-container no-bullet share">
+            
+              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//rb-webstudio.go.yj.fr/articles/les-methodes-trop-volumineuses-5.html&amp;title=Les%20m%C3%A9thodes%20trop%20volumineuses&amp;source=http%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
+            
+              <li><a href="https://twitter.com/intent/tweet?url=http%3A//rb-webstudio.go.yj.fr/articles/les-methodes-trop-volumineuses-5.html&amp;text=Les%20m%C3%A9thodes%20trop%20volumineuses" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
+            
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//rb-webstudio.go.yj.fr/articles/les-methodes-trop-volumineuses-5.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
+            
+          </ul>
+        </nav>
+      </div>
+      <div class="content"><p>Dans le monde du développement logiciel, un code peut sembler parfait à première vue, mais il peut cacher des problèmes sous-jacents qui peuvent se manifester au fil du temps. L'une des règles d'or en matière de développement est qu'une méthode ou fonction dépassant dix/quinze lignes devrait vous alerter. Pourquoi ? Parce que cela pourrait être le signe d'une mauvaise pratique de développement.</p>
+<h2>Raisons du Problème</h2>
+<p>Au fil du temps, les développeurs ont tendance à ajouter des fonctionnalités à une méthode sans jamais en supprimer. Ce phénomène est problématique, car il est généralement plus facile d'écrire du nouveau code que de relire et de réviser le code existant. Ainsi, cette accumulation peut passer inaperçue jusqu'à ce que la méthode devienne un véritable fouillis.</p>
+<p>La pensée selon laquelle "ce ne sont que deux lignes" incite souvent à éviter la création de nouvelles méthodes pour de petits ajouts. Cela entraîne l’ajout de lignes de code une à une, ce qui peut aboutir à un enchevêtrement de code spaghetti. Ce type de code devient alors difficile à comprendre, à maintenir et à faire évoluer.</p>
+<h3>Amélioration</h3>
+<p>Heureusement, il existe plusieurs stratégies pour améliorer la qualité de votre code :</p>
+<h3>Extraire la Méthode</h3>
+<p>Si vous vous trouvez dans l'obligation de commenter une partie de votre code à l'intérieur d'une méthode, cela peut être un signe qu'il est temps de créer une nouvelle méthode. En effet, si une portion de code nécessite une explication, il est souvent préférable de la séparer dans une méthode distincte. Cela non seulement améliore la lisibilité du code, mais permet également de rendre son fonctionnement plus clair. Même si vous n’avez qu'une seule ligne de code à isoler, le fait de l'extraire dans une méthode dédiée peut aider à rendre votre code plus compréhensible et maintenable.</p>
+<h3>Gérer les Variables</h3>
+<p>Lorsque les variables ou les paramètres locaux rendent difficile l'extraction d'une méthode, plusieurs techniques peuvent être utilisées pour simplifier le processus :</p>
+<ul>
+<li>Remplacer la méthode temporaire par une requête : Au lieu de laisser des variables temporaires encombrer la méthode, envisagez de les remplacer par une requête qui renvoie directement la valeur souhaitée. Cela peut aider à réduire la complexité et à améliorer la lisibilité.</li>
+<li>Introduire un objet de paramètre : Si une méthode nécessite plusieurs paramètres, pensez à créer un objet qui regroupe ces paramètres. Cela permet de passer un seul objet à la méthode au lieu de plusieurs variables, rendant l'appel de la méthode plus clair. </li>
+<li>Préserver l'objet entier : Dans certains cas, il peut être judicieux de passer l'objet entier à la méthode plutôt que de passer uniquement certaines de ses propriétés. Cela peut simplifier la gestion des données et éviter des erreurs liées à des variables manquantes.</li>
+</ul>
+<h3>Déplacer des Méthodes</h3>
+<p>Si aucune des solutions précédentes ne permet de simplifier votre code, pensez à déplacer la méthode entière dans un objet distinct. Cette approche peut contribuer à rendre votre code plus clair et plus modulaire, car elle permet de regrouper des fonctionnalités similaires dans une seule entité. Cela facilite également la maintenance et les tests, car chaque objet peut être géré indépendamment des autres.</p>
+<h3>Décomposer les Conditions et Boucles</h3>
+<p>Les opérateurs conditionnels (comme if, else, etc.) et les boucles (comme for ou while) peuvent souvent indiquer que votre code contient des éléments qui pourraient être mieux organisés dans une méthode distincte. Lorsque vous remarquez de telles structures, envisagez d'utiliser des techniques comme :</p>
+<ul>
+<li>Décomposer la condition : Si une condition devient trop complexe, il peut être utile de la simplifier en la séparant dans une méthode distincte. Cela rendra le code plus lisible et facilitera la compréhension de la logique.</li>
+<li>Extraire la méthode pour les boucles : Si une boucle contient un code substantiel, envisagez de créer une méthode distincte pour gérer ce code. Cela permet de clarifier ce que fait la boucle et de réduire la longueur de la méthode d'origine.</li>
+</ul>
+<h2>Bénéfices</h2>
+<p>Les classes qui contiennent des méthodes courtes ont tendance à être plus durables et plus faciles à maintenir. En effet, plus une méthode est longue, plus elle devient difficile à comprendre. De plus, les méthodes longues peuvent dissimuler du code dupliqué, ce qui complique davantage la maintenance du code. En ayant des méthodes plus courtes et mieux définies, vous facilitez la compréhension et la gestion de votre code.
+Performances</p>
+<p>Un argument fréquemment avancé contre la réduction de la taille des méthodes est qu'elle pourrait nuire aux performances. Cependant, dans la plupart des cas, cet impact est si minime qu'il ne mérite pas d'inquiétude. En écrivant un code clair et lisible, vous serez mieux placé pour repérer des opportunités d'optimisation et ainsi réaliser de réels gains de performance si cela s'avère nécessaire.</p></div>
+      <p class="text-right">Publié le 02 juin 2025, mise à jour le 02 juin 2025</p>
+    </article>
+  </section>
+  <template id="tplProgressFalse">
+    <div id="progressFalse">
+      <div id="cursorProgress">&nbsp;</div>
+    </div>
+  </template>
 
       <section class="contact" id="contact">
   <h3>me contacter</h3>

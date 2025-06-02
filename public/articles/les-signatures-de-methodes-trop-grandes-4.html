@@ -12,7 +12,7 @@
           })(window,document,'script','dataLayer','GTM-MCT7LV9P');</script>
     <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chercher les articles par django - RB webstudio</title>
+    <title> Les signatures de méthodes trop grandes - RB webstudio </title>
 
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="/static/styles-BAxRS7g8.css">
-    <meta name="description"  content="Découvrez nos articles sur django">
+    <meta name="description"  content="Des méthodes avec trop de paramètres nuisent à la lisibilité et à la maintenance du code. Découvrez comment simplifier vos signatures grâce aux techniques : introduire un objet paramètre, préserver l’objet entier et remplacer un paramètre par un appel de méthode.">
   </head>
 
   <body>
@@ -51,35 +51,43 @@
 </header>
 
       
-<section class="posts">
-  <h1>Chercher des articles avec le tag : django</h1>
-  <div class="content">
-    <ul class="no-bullet items-articles">
-      
-      <li>
-        <div class="fa-solid fa-newspaper"></div>
-        <div>
-          <a href="/articles/comment-django-contribue-a-securiser-vos-applications-web-2.html">Comment Django contribue à sécuriser vos applications web ?</a>
-          <div>
-            <ul class="no-bullet">
-              
-                <li><a href="/articles/chercher-articles-par-django.html">django</a></li>
-              
-                <li><a href="/articles/chercher-articles-par-python.html">python</a></li>
-              
-                <li><a href="/articles/chercher-articles-par-developpement.html">développement</a></li>
-              
-                <li><a href="/articles/chercher-articles-par-cybersecurite.html">cybersécurité</a></li>
-              
-            </ul>
-            <span>29-05-25</span>
-          </div>
-        </div>
-      </li>
-      
-    </ul>
-  </div>
-</section>
+<progress id="progressTrue" max="100" value="0"></progress>
+  <section>
+    <article>
+      <h1>Les signatures de méthodes trop grandes</h1>
+      <div class="grid-x grid-padding-x">
+        <ul class="cell medium-6 flex-container no-bullet tags-list">
+          
+            <li><a href="/articles/chercher-articles-par-developpement.html"><span>développement</span></a></li>
+          
+        </ul>
+        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
+          <ul class="flex-container no-bullet share">
+            
+              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//rb-webstudio.go.yj.fr/articles/les-signatures-de-methodes-trop-grandes-4.html&amp;title=Les%20signatures%20de%20m%C3%A9thodes%20trop%20grandes&amp;source=http%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
+            
+              <li><a href="https://twitter.com/intent/tweet?url=http%3A//rb-webstudio.go.yj.fr/articles/les-signatures-de-methodes-trop-grandes-4.html&amp;text=Les%20signatures%20de%20m%C3%A9thodes%20trop%20grandes" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
+            
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//rb-webstudio.go.yj.fr/articles/les-signatures-de-methodes-trop-grandes-4.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
+            
+          </ul>
+        </nav>
+      </div>
+      <div class="content"><p>Une méthode qui prend plus de trois ou quatre paramètres peut rapidement devenir problématique. Ce phénomène se produit souvent lorsqu'on essaie de combiner plusieurs algorithmes ou logiques au sein d'une même méthode. Dans ces cas, une longue liste de paramètres est utilisée pour indiquer quel algorithme ou quelle logique doit être exécuté et comment cela doit se dérouler.</p>
+<p>Un autre facteur pouvant conduire à des listes de paramètres excessives est l'effort de rendre les classes plus indépendantes entre elles. Par exemple, pour réduire les dépendances entre classes, le code qui s'occupait de créer des objets dans une méthode est déplacé en dehors de celle-ci. Désormais, c’est la méthode appelante qui crée ces objets et les passe en paramètres. Cela permet à la classe d'origine de ne plus être au courant des relations entre ces objets, ce qui réduit sa dépendance. Cependant, si plusieurs objets doivent être créés de cette manière, chacun d'entre eux devra être transmis sous forme de paramètre, allongeant ainsi la liste des paramètres de la méthode.</p>
+<p>Les longues listes de paramètres présentent plusieurs inconvénients. Elles rendent la méthode plus difficile à comprendre, car il devient de plus en plus complexe de savoir ce que chaque paramètre représente et comment ils interagissent. De plus, ces listes de paramètres peuvent devenir contradictoires et compliquées à utiliser à mesure qu'elles grandissent.</p>
+<h2>Vérification des valeurs passées en paramètres</h2>
+<p>Vérifiez quelles valeurs sont passées en tant que paramètres dans une méthode. Si certains des arguments ne sont en réalité que le résultat d'appels de méthode sur un autre objet, vous pouvez appliquer la technique <strong>Remplacer un paramètre par un appel de méthode</strong>. Cela consiste à éviter de passer le résultat de cet appel en paramètre et à plutôt effectuer cet appel directement à l'intérieur de la méthode concernée. L'objet sur lequel l'appel est fait peut être stocké dans un champ de la classe elle-même ou bien transmis à la méthode sous forme de paramètre.</p>
+<p>Au lieu de passer un ensemble de données issues d'un autre objet sous forme de plusieurs paramètres, il est souvent plus judicieux de passer directement l'objet entier à la méthode. Cette approche est connue sous le nom de <strong>Préserver l'objet entier</strong>. Cela permet de simplifier le nombre de paramètres et d'accéder plus facilement aux données nécessaires sans devoir les décomposer à l'avance.</p>
+<p>Cependant, si les paramètres proviennent de différentes sources (c'est-à-dire de différents objets ou structures de données), il est recommandé de les regrouper dans un objet unique. Ce regroupement de paramètres peut être effectué à l'aide de la technique <strong>Introduire un objet paramètre</strong>. Cela consiste à créer un objet spécifique qui contiendra tous les paramètres nécessaires, ce qui permet de ne passer qu'un seul paramètre à la méthode au lieu de plusieurs.</p></div>
+      <p class="text-right">Publié le 02 juin 2025, mise à jour le 02 juin 2025</p>
+    </article>
+  </section>
+  <template id="tplProgressFalse">
+    <div id="progressFalse">
+      <div id="cursorProgress">&nbsp;</div>
+    </div>
+  </template>
 
       <section class="contact" id="contact">
   <h3>me contacter</h3>
