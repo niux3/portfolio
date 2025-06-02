@@ -8,7 +8,7 @@ from markdown import markdown
 from sqlalchemy import desc
 from flask import render_template, Blueprint, jsonify, url_for, redirect, flash
 from backend.core.config import config
-from backend.articles.views.post import prefix_bp, show
+from backend.articles.views.post import prefix_bp, show, index_articles, index_by_tags
 from backend.articles.models import Post, PostTag, Tag, Status
 from backend import db
 
@@ -53,19 +53,29 @@ def export_html():
     with open(str(path_manifest), encoding='utf-8') as f:
         manifest_data = json.load(f)
     items = []
+    data_for_frontend = {
+        "layout_template": "base_export.html",
+        "js_file": manifest_data.get('frontend/main.js').get('file'),
+        "css_file": manifest_data.get('frontend/scss/index.scss').get('file'),
+    }
     for obj in Post.query.all():
         items.append({
             "url": url_for(f'{prefix_bp}.show', id=obj.id, slug=obj.slug),
-            'content': show(obj.id, obj.slug, export={
-                "layout_template": "base_export.html",
-                "js_file": manifest_data.get('frontend/main.js').get('file'),
-                "css_file": manifest_data.get('frontend/scss/index.scss').get('file'),
-            })
+            'content': show(obj.id, obj.slug, export=data_for_frontend)
+        })
+    items.append({
+        "url": url_for('posts.index_articles'),
+        "content": index_articles(export=data_for_frontend)
+    })
+    for tag in Tag.query.all():
+        items.append({
+            "url": url_for('posts.index_by_tags', slug=tag.slug),
+            "content": index_by_tags(tag.slug, export=data_for_frontend)
         })
     for item in items:
         url = item.get('url')[item.get('url').rfind('/') + 1:]
         with open(str(public_folder / 'articles' / url), 'w', encoding='utf-8') as f:
             f.write(item.get('content'))
     return {
-        'msg': html
+        'msg': 'ok'
     }

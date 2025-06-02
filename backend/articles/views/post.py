@@ -94,17 +94,19 @@ def edit(id):
     return render_template('articles/edit.html', **ctx)
 
 @bp.route('/index.html')
-def index_articles():
+def index_articles(export=None):
     ctx = {
         'title': "Articles techniques - RB webstudio",
         'meta_description': "Découvrez nos articles récents sur le développement web, Python, JavaScript, frameworks modernes et bonnes pratiques techniques.",
         'h1': "Derniers articles & tutoriels de développement web",
         'object_list': Post.query.join(Status, Post.status_id == Status.id).filter(Status.name == 'online').order_by(desc(Post.updated)).all()
     }
+    if export is not None:
+        ctx.update(export)
     return render_template('articles/index.html', **ctx)
 
 @bp.route('/chercher-articles-par-<slug>.html')
-def index__by_tags(slug):
+def index_by_tags(slug, export=None):
     tag = Tag.query.filter(Tag.slug==slug).first()
     post_tag_alias = aliased(PostTag)
     posts = db.session.query(Post)\
@@ -119,4 +121,6 @@ def index__by_tags(slug):
         'h1': f"Chercher des articles avec le tag : {tag.name}",
         'object_list': posts
     }
+    if export is not None:
+        ctx.update(export)
     return render_template('articles/index.html', **ctx)

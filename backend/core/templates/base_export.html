@@ -3,6 +3,13 @@
 
   <head>
     <meta charset="UTF-8">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-MCT7LV9P');</script>
+    <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}RB webstudio - spécialiste Python - Javascript/Typescript{% endblock %}</title>
 
@@ -12,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="https://rb-webstudio.go.yj.fr/{{ css_file }}">
+    <link rel="stylesheet" href="/{{ css_file }}">
     <meta name="description"  content="{% block meta_description %}RB webstudio - spécialiste Python - Javascript/Typescript{% endblock %}">
   </head>
 
@@ -23,6 +30,11 @@
       {% include "partials/frontend/contact.html" %}
       {% include "partials/frontend/footer.html" %}
     </main>
-    <script src="https://rb-webstudio.go.yj.fr/{{ js_file }}"></script>
+    <script src="/{{ js_file }}"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
   </body>
 </html>

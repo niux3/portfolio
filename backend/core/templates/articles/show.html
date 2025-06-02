@@ -10,7 +10,7 @@
       <div class="grid-x grid-padding-x">
         <ul class="cell medium-6 flex-container no-bullet tags-list">
           {% for tag in object.tags %}
-            <li><a href="{{ url_for('posts.index__by_tags', slug=tag.slug) }}"><span>{{ tag }}</span></a></li>
+            <li><a href="{{ url_for('posts.index_by_tags', slug=tag.slug) }}"><span>{{ tag }}</span></a></li>
           {% endfor %}
         </ul>
         <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
