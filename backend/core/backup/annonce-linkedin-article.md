@@ -13,6 +13,6 @@ J’ai passé en revue chaque point du classement, et analysé comment Django pe
 
 👉 Un article clair, structuré et utile pour tout développeur soucieux de la sécurité de ses applications.
 
-📖 À lire ici : [Lien vers l’article]
+📖 À lire ici : Comment Django contribue à sécuriser vos applications web ?
 
 #Django #OWASP2021 #Cybersécurité #Python #SécuritéWeb #DéveloppementWeb
