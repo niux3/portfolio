@@ -12,3 +12,19 @@ J’ai rédigé un article pour rappeler les bonnes pratiques autour de la balis
 Un petit détail de code, de grands impacts pour l’expérience utilisateur.
 
 #accessibilité #HTML #webdev #SEO #UX #responsive #frontend #a11y
+
+
+# Améliorer les performances web commence dans le <head> !
+
+Saviez-vous que l’ordre des balises dans le <head> peut impacter l’accessibilité, la vitesse de chargement… et donc l’expérience utilisateur dans son ensemble ?
+
+Dans mon dernier article, je partage :
+✅ Les bonnes pratiques recommandées par des experts comme Harry Roberts
+✅ Un exemple clair d’organisation optimale du <head>
+✅ Des conseils pour concilier performance et inclusion numérique
+
+👉 À lire ici : [lien vers ton article]
+
+#HTML #PerformanceWeb #Accessibilité #DéveloppementWeb #UX #SEO #BestPractices
+
+
