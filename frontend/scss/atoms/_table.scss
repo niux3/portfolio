@@ -1,0 +1,37 @@
+table{
+  margin: 3.5rem 0;
+  caption{
+    caption-side: bottom;
+  }
+  thead{
+    background-color: transparent;
+    color: var(--color-cannes);
+    border-bottom: .3rem solid var(--color-cannes);
+
+    tr{
+      th{
+        text-align: left;
+      }
+    }
+  }
+  tbody{
+    border: none;
+    background-color: transparent;
+
+    tr{
+      border-bottom: none !important;
+      background-color: transparent !important;
+      td{
+        padding: 1.25rem .625rem;
+      }
+    }
+  }
+}
+[data-theme-preference="dark"]{
+  table{
+    thead{
+      border: none;
+      border-bottom: .3rem solid var(--color-cannes);
+    }
+  }
+}
