@@ -1,30 +1,9 @@
-# Zoom désactivé = accessibilité sacrifiée ?
+# Structurer votre HTML, c'est aussi structurer l'expérience utilisateur
 
-Aujourd’hui encore, près de 30 % des sites mobiles bloquent le zoom. Et si on revenait aux bases ?
+Trop de pages sont encore construites sans repères sémantiques. Résultat : une navigation laborieuse pour les utilisateurs de lecteurs d’écran, et une UX pénalisée.
 
-J’ai rédigé un article pour rappeler les bonnes pratiques autour de la balise meta viewport, en mettant en lumière :
-✅ Comment bien la configurer
-❌ Ce qu’il faut absolument éviter (avec exemples concrets)
-♿ Et surtout, pourquoi ne pas restreindre le zoom est une question d’accessibilité avant tout
+Dans cet article, je vous explique comment utiliser intelligemment les éléments HTML comme <main>, <nav> ou encore <footer>, et comment ces balises améliorent l’accessibilité, la SEO et la compréhension globale de vos pages.
 
-👉 À lire ici : [lien de l'article]
-
-Un petit détail de code, de grands impacts pour l’expérience utilisateur.
-
-#accessibilité #HTML #webdev #SEO #UX #responsive #frontend #a11y
-
-
-# Améliorer les performances web commence dans le <head> !
-
-Saviez-vous que l’ordre des balises dans le <head> peut impacter l’accessibilité, la vitesse de chargement… et donc l’expérience utilisateur dans son ensemble ?
-
-Dans mon dernier article, je partage :
-✅ Les bonnes pratiques recommandées par des experts comme Harry Roberts
-✅ Un exemple clair d’organisation optimale du <head>
-✅ Des conseils pour concilier performance et inclusion numérique
+Avec des exemples concrets, des bonnes pratiques et les raccourcis clavier associés aux repères sur différents lecteurs d’écran (JAWS, NVDA, VoiceOver, etc.).
 
 👉 À lire ici : [lien vers ton article]
-
-#HTML #PerformanceWeb #Accessibilité #DéveloppementWeb #UX #SEO #BestPractices
-
-
