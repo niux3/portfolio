@@ -12,7 +12,7 @@
           })(window,document,'script','dataLayer','GTM-MCT7LV9P');</script>
     <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Trop de types primitifs - RB webstudio </title>
+    <title> Optimiser l&#39;ordre de rendu - RB webstudio </title>
 
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="/static/styles-DBhRYU8w.css">
-    <meta name="description"  content="Découvrez pourquoi l’abus de types primitifs (int, string, float) nuit à la qualité du code. Apprenez à les remplacer par des objets pour améliorer la maintenabilité, la lisibilité et l’évolutivité de vos applications.">
+    <meta name="description"  content="Optimisez l’ordre des balises &lt;head&gt; pour un chargement web plus rapide, accessible et performant">
   </head>
 
   <body>
@@ -54,51 +54,93 @@
 <progress id="progressTrue" max="100" value="0"></progress>
   <section>
     <article>
-      <h1>Trop de types primitifs</h1>
+      <h1>Optimiser l&#39;ordre de rendu</h1>
       <div class="grid-x grid-padding-x">
         <ul class="cell medium-6 flex-container no-bullet tags-list">
           
-            <li><a href="/articles/chercher-articles-par-developpement.html"><span>développement</span></a></li>
+            <li><a href="/articles/chercher-articles-par-html.html"><span>html</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-accessibilite.html"><span>accessibilité</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-seo.html"><span>seo</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-ux.html"><span>ux</span></a></li>
           
         </ul>
         <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
           <ul class="flex-container no-bullet share">
             
-              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//rb-webstudio.go.yj.fr/articles/trop-de-types-primitifs-3.html&amp;title=Trop%20de%20types%20primitifs&amp;source=http%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
+              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//rb-webstudio.go.yj.fr/articles/optimiser-l-ordre-de-rendu-10.html&amp;title=Optimiser%20l%27ordre%20de%20rendu&amp;source=http%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
             
-              <li><a href="https://twitter.com/intent/tweet?url=http%3A//rb-webstudio.go.yj.fr/articles/trop-de-types-primitifs-3.html&amp;text=Trop%20de%20types%20primitifs" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
+              <li><a href="https://twitter.com/intent/tweet?url=http%3A//rb-webstudio.go.yj.fr/articles/optimiser-l-ordre-de-rendu-10.html&amp;text=Optimiser%20l%27ordre%20de%20rendu" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
             
-              <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//rb-webstudio.go.yj.fr/articles/trop-de-types-primitifs-3.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//rb-webstudio.go.yj.fr/articles/optimiser-l-ordre-de-rendu-10.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
             
           </ul>
         </nav>
       </div>
-      <div class="content"><p><strong>Usage de types primitifs au lieu de petits objets pour des tâches simples</strong></p>
-<p>Dans un code bien structuré, il est préférable de créer de petits objets pour représenter des informations spécifiques telles que les devises, les intervalles de valeurs ou les numéros de téléphone. Cependant, une obsession des types primitifs se manifeste lorsque des entiers, des chaînes de caractères ou d'autres types primitifs sont employés à la place d'objets dédiés. Par exemple, au lieu de concevoir une classe « Devise » pour manipuler des valeurs monétaires, le code utilise un simple float ou int. Ce choix, bien qu'initialement pratique, finit par complexifier la maintenance et la lisibilité du code.</p>
-<p><strong>Utilisation de constantes pour encoder des informations</strong></p>
-<p>Une pratique courante dans ce contexte est de définir des constantes pour signifier des informations spécifiques, comme <code>ROLE_UTILISATEUR_ADMIN = 1</code>, pour désigner les utilisateurs administrateurs. Ce type de codage par des valeurs numériques ou textuelles devient problématique dès lors que le nombre de rôles ou de catégories augmente, ou si ces valeurs nécessitent des modifications. Cette approche de codage rigide limite l’évolutivité du code et peut facilement introduire des erreurs subtiles.</p>
-<p>**Emploi de chaînes de caractères constantes comme noms de champs dans des tableaux de données **</p>
-<p>Trop de primitifs se manifeste également lorsque des chaînes de caractères sont utilisées comme clés dans des tableaux ou dictionnaires pour représenter des noms de champs. Par exemple, dans une classe contenant un tableau de données hétérogènes, des constantes sous forme de chaînes de caractères sont définies pour accéder aux différents champs (par exemple, <code>array["NOM_UTILISATEUR"]</code>). Cette approche rend le code moins explicite, plus fragile et susceptible de générer des erreurs lorsque des modifications sont apportées aux champs.</p>
-<h2>Les causes</h2>
-<p>**Une solution de facilité dans des moments de rapidité **</p>
-<p>Comme pour de nombreuses pratiques de codage mal avisées, l’obsession des types primitifs provient souvent d’une solution de facilité ou d'une approche temporaire qui devient permanente. Le développeur pourrait se dire : « Il me suffit d'un champ pour stocker cette donnée ! » Utiliser un type primitif est alors plus rapide que de créer une classe dédiée, ce qui est perçu comme un effort injustifié. Cependant, au fur et à mesure que de nouvelles données sont ajoutées de la même manière, la classe gonfle et devient difficile à manipuler et à maintenir.</p>
-<p>**Simulation de types par des primitives **</p>
-<p>Pour éviter de concevoir de nouveaux types, il est fréquent de recourir à des types primitifs qui « simulent » les types nécessaires. Cela conduit à des listes de valeurs autorisées sous forme de nombres ou de chaînes, qui servent de type de substitution. Les noms de ces valeurs spécifiques sont ensuite attribués via des constantes pour faciliter la lecture, mais cela entraîne une diffusion de ces constantes dans le code et rend difficile l’identification de leur signification et de leur logique.</p>
-<p><strong>Simulation de champs à l’aide de types primitifs</strong> </p>
-<p>Un autre symptôme courant est l’utilisation de tableaux de données contenant des types primitifs pour simuler des champs. Ainsi, la classe inclut un tableau avec des données variées, et des constantes sous forme de chaînes de caractères servent d’index pour accéder à chaque type de donnée dans le tableau. Cette approche limite la clarté du code et augmente le risque d’erreurs, car ces chaînes d’index peuvent être facilement modifiées ou mal utilisées.</p>
-<h2>Gérer ce genre de cas</h2>
-<p>**Créer des classes dédiées pour les groupes logiques de primitives **</p>
-<p>Lorsqu'une classe contient de nombreux champs primitifs, il peut être pertinent de les regrouper logiquement au sein d'une nouvelle classe qui porte un nom explicite, facilitant ainsi la compréhension de leur rôle. Par ailleurs, le comportement associé à ces données peut être déplacé dans cette classe, offrant une meilleure encapsulation et rendant le code plus maintenable. La technique Remplacer une valeur de donnée par un objet est recommandée.</p>
-<p>**Encapsuler les paramètres primitifs dans un objet **</p>
-<p>Lorsque des valeurs primitives sont fréquemment passées en paramètres dans les méthodes, il est judicieux de créer un objet paramètre pour les regrouper. Cela améliore la lisibilité et permet de conserver la cohérence des données transmises. Les techniques Introduire un objet paramètre et Préserver l’objet entier sont adaptées pour atteindre cet objectif.</p>
-<p>**Remplacer les codes de type par des classes ou des sous-classes **</p>
-<p>Lorsque des variables de type primitif servent à encoder des informations complexes, comme des codes de type, il est préférable de les remplacer par une classe ou des sous-classes dédiées. Par exemple, au lieu d'utiliser un int pour représenter des catégories d'utilisateurs, une classe TypeUtilisateur ou des sous-classes Admin, Client, etc., permettent de structurer le code de manière claire. Les techniques Remplacer un code de type par une classe, Remplacer un code de type par des sous-classes  et Remplacer un code de type par un état/stratégie permettent d’adapter le code aux besoins spécifiques de chaque type.</p>
-<p>**Remplacer les tableaux par des objets **</p>
-<p>Dans les cas où des tableaux de données hétérogènes sont utilisés, remplacer ces tableaux par des objets permet d’assurer une meilleure structuration du code. Chaque champ de l'objet remplace un élément du tableau, rendant l’intention du code plus claire. Pour cette tâche, la technique Remplacer un tableau par un objet est recommandée.</p>
-<h2>Conclusion</h2>
-<p>L’utilisation d’objets en lieu et place des types primitifs permet d’augmenter la flexibilité du code. Les objets apportent une structure et peuvent évoluer avec les besoins, contrairement aux primitives qui imposent souvent des contraintes rigides.</p>
-<p>Le regroupement des opérations sur des données spécifiques au sein de classes permet d'éviter la dispersion du code. Les opérations deviennent centralisées et le code devient plus simple à comprendre, avec des données explicites et des comportements associés. Cela élimine les suppositions sur la signification de certaines constantes ou sur les raisons de leur présence dans des tableaux.</p>
-<p>La structuration par objets facilite l'identification de code dupliqué. Les doublons sont généralement plus difficiles à repérer lorsque des types primitifs sont disséminés dans le code, alors que les objets permettent de centraliser les données et les opérations, rendant plus évidentes les répétitions ou les similitudes dans les opérations.</p></div>
+      <div class="content"><p>L'en-tête d'un document peut contenir divers éléments qui servent à des fins différentes : balises méta, scripts, liens vers d'autres ressources, et plus encore. Ils peuvent être placés dans n'importe quel ordre, mais certains éléments doivent passer avant d'autres pour garantir de bonnes performances de chargement. Un chargement inefficace des ressources empêche les utilisateurs d'obtenir des informations rapidement, voire de les obtenir tout court.</p>
+<p>L'expert en performances Web Harry Roberts <a href="https://csswizardry.com/ct/" target="_blank">suggère un ordre spécifique</a> des éléments dans le site <code>&lt;head&gt;</code> pour garantir la meilleure stratégie de chargement possible, comme le montre l'<a href="#exemple-1">exemple 1</a>.</p>
+<p><strong><span id="exemple-1">Exemple 1</span> L'ordre idéal des éléments dans le <code>&lt;head&gt;</code></strong></p>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;!-- Character encoding --&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+
+  &lt;!-- Viewport meta tag --&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+  &lt;!-- CSP headers --&gt;
+  &lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;upgrade-insecure-requests&quot;&gt;
+
+  &lt;!-- Page title --&gt;
+  &lt;title&gt;Magasin vêtement Renaud&lt;/title&gt;
+
+  &lt;!-- preconnect --&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;#&quot; /&gt;
+
+  &lt;!-- Asynchronous JavaScript --&gt;
+  &lt;script src=&quot;&quot; async&gt;&lt;/script&gt;
+
+  &lt;!-- CSS that includes @import --&gt;
+  &lt;style&gt;
+    @import &quot;file.css&quot;;
+  &lt;/style&gt;
+
+  &lt;!-- Synchronous JavaScript --&gt;
+  &lt;script src=&quot;&quot;&gt;&lt;/script&gt;
+
+  &lt;!-- Synchronous CSS --&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;#&quot;&gt;
+
+  &lt;!-- preload --&gt;
+  &lt;link rel=&quot;preload&quot; href=&quot;#&quot; /&gt;
+
+  &lt;!-- Deferred JavaScript --&gt;
+  &lt;script src=&quot;&quot; defer&gt;&lt;/script&gt;
+  &lt;script src=&quot;&quot; type=&quot;module&quot;&gt;&lt;/script&gt;
+
+  &lt;!-- prefetch / prerender --&gt;
+  &lt;link rel=&quot;prefetch&quot; href=&quot;#&quot; /&gt;
+  &lt;link rel=&quot;prerender&quot; href=&quot;#&quot; /&gt;
+
+  &lt;!-- divers --&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+&lt;/head&gt;
+</code></pre>
+<p>Il existe différents domaines au sein de la conception et du développement web, comme l'accessibilité, la convivialité, l'expérience utilisateur, la performance et la sécurité. Ils se concentrent tous sur des choses différentes, mais ils ne s'excluent pas mutuellement. L'accessibilité, par exemple, recoupe tous ces domaines. Améliorer l'accessibilité des champs de formulaire peut se traduire par une meilleure expérience utilisateur pour tout le monde. Si un site web se charge lentement, cela affecte l'expérience des utilisateurs et l'accessibilité. Un site Web qui se charge trop longtemps ou pas du tout sur une connexion lente <a href="https://bell.bz/this-is-why-performance-matters/" target="_blank">n'est pas accessible</a>. Concevoir et construire des sites Web accessibles signifie créer des expériences inclusives sans barrières qui empêchent les gens d'interagir avec le Web. Ces obstacles comprennent les handicaps physiques, temporaires et situationnels, ainsi que les restrictions socio-économiques concernant le matériel, la bande passante et la vitesse.</p>
+<p>Le fait de respecter l'ordre des éléments dans le site <code>&lt;head&gt;</code> a une incidence sur les performances en général, mais aussi sur le rendu d'éléments spécifiques qui peuvent contenir des informations essentielles pour les utilisateurs de technologies d'assistance. Le HTML est analysé ligne par ligne, ce qui signifie qu'un navigateur ne sait pas que la ligne 4 existe alors que la ligne 3 n'a pas fini d'être analysée. Si quelque chose bloque le rendu au début d'un document, les lignes suivantes doivent attendre que le navigateur ait fini d'analyser les lignes précédentes. L'ordre correct des éléments dans le site <code>&lt;head&gt;</code> est donc crucial pour les performances et l'accessibilité du Web.</p>
+<p>Les experts en performance suggèrent plusieurs règles et optimisations, notamment :</p>
+<ul>
+<li>Si quelque chose n'a pas besoin d'être dans le site <code>&lt;head&gt;</code>, supprimez-le ou mettez-le dans le site <code>&lt;body&gt;</code>. Cela inclut les scripts de faible priorité, les redirections ou toute charge utile inutile.</li>
+<li>Auto-hébergez autant que possible et ne comptez pas sur des réseaux de diffusion de contenu (CDN) tiers. Harry Roberts explique pourquoi dans son article «&nbsp;<a href="https://csswizardry.com/2019/05/self-host-your-static-assets/" target="_blank">Self-Host Your Static Assets</a>&nbsp;». </li>
+<li><a href="https://validator.w3.org/" target="_blank">Validez votre code HTML</a>, car les éléments non valides dans le <code>&lt;head&gt;</code> peuvent causer des problèmes de performance.</li>
+<li>Les métadonnées sur la page, comme le codage des caractères et les informations sur le viewport, passent en premier.</li>
+<li>Rien de ce qui bloque le rendu ne doit venir avant le <code>&lt;title&gt;</code>.</li>
+<li>Le JavaScript synchrone vient avant le CSS, parce que le CSS bloque l'exécution du JavaScript suivant.</li>
+<li>Évitez @import dans les CSS.</li>
+<li>Les balises méta de référencement et sociales passent en dernier.</li>
+</ul>
+<p>Harry Roberts a créé un fichier CSS appelé <a href="https://csswizardry.com/ct/" target="_blank">ct.css</a>, également disponible sous forme de bookmarklet, que tu peux utiliser pour effectuer des tests sur tes éléments <code>&lt;head&gt;</code>.</p></div>
       <p class="text-right">Publié le 02 juin 2025, mise à jour le 03 juin 2025</p>
     </article>
   </section>

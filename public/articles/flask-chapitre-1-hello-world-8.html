@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="fr" id="top">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="bug4GPSDEqxoKku92DUfj_WE6b8PlwHJX-DCeZZBV1w" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-MCT7LV9P');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Flask - chapitre 1 : Hello world ! - RB webstudio </title>
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/static/styles-DBhRYU8w.css">
+    <meta name="description"  content="flask hello world">
+  </head>
+
+  <body>
+    <main class="grid-container">
+      <header class="flex-container align-justify align-middle">
+    
+    <div><a href="/">
+  <svg id="logo" width="5rem" height="5rem" version="1.1" viewBox="0 0 79.375 79.375">
+    <desc>RB webstudio - spécialiste Python - Javascript/Typescript</desc>
+    <g transform="translate(-57.558 -71.836)">
+    <circle cx="97.246" cy="111.52" r="33.073" fill="var(--color-cannes)" stroke-width=".177" style="paint-order:markers fill stroke"/>
+    <g transform="matrix(.33371 0 0 .33371 -78.371 192.62)" fill="var(--color-laval)">
+    <g transform="translate(243.55 81.615)" stroke-width=".67039" aria-label="rb">
+    <path d="m251.15-309.59v27.653h-25.077v-31.927q0-10.81 2.0112-16.843 2.0112-6.0963 6.8505-10.81 3.6452-3.6452 8.4846-5.6564 4.9022-2.074 9.8044-2.074 2.3882 0 4.7136 0.18855 2.3254 0.18854 4.5251 0.56563v26.396q-0.43994-0.0628-1.3198-0.18855-2.074-0.31424-2.6396-0.31424-4.0852 0-5.7192 2.6396-1.6341 2.6396-1.6341 10.37z"/>
+    <path d="m270.76-373.69h24.448v51.599q0 9.553 2.2626 13.324t7.5418 3.7709q3.8338 0 6.662-2.8282 2.8282-2.891 2.8282-6.7876 0-4.2109-2.7653-7.039-2.7653-2.891-6.7248-2.891-1.0056 0-2.1368 0.31425-1.1313 0.25139-3.2681 1.1313v-26.019q0.62849-0.0629 2.6396-0.18855 2.0112-0.18855 3.1424-0.18855 14.141 0 24.008 10.181 9.9301 10.119 9.9301 24.7 0 6.8505-2.514 13.135-2.5139 6.222-7.2276 11.061-4.9022 4.965-11.187 7.6675-6.222 2.6396-13.135 2.6396-10.181 0-18.415-5.2164-8.1703-5.2793-12.13-14.267-2.074-4.7765-3.0167-9.8672-0.94273-5.1536-0.94273-12.758v-4.9022z"/>
+    </g>
+    <path d="m542.38-288.15h-31.744l15.872-17.36z" stroke-width=".44511" style="paint-order:markers fill stroke"/>
+    </g>
+    </g>
+  </svg>
+</a></div>
+    
+    <nav class="flex-container align-right">
+      <a href="/articles/index.html" class="margin-horizontal-1">articles</a>
+      <a href="#contact" class="margin-horizontal-1">contact</a>
+    </nav>
+</header>
+
+      
+<progress id="progressTrue" max="100" value="0"></progress>
+  <section>
+    <article>
+      <h1>Flask - chapitre 1 : Hello world !</h1>
+      <div class="grid-x grid-padding-x">
+        <ul class="cell medium-6 flex-container no-bullet tags-list">
+          
+            <li><a href="/articles/chercher-articles-par-python.html"><span>python</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-developpement.html"><span>développement</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-flask.html"><span>flask</span></a></li>
+          
+        </ul>
+        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
+          <ul class="flex-container no-bullet share">
+            
+              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//rb-webstudio.go.yj.fr/articles/flask-chapitre-1-hello-world-8.html&amp;title=Flask%20-%20chapitre%201%20%3A%20Hello%20world%20%21&amp;source=http%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
+            
+              <li><a href="https://twitter.com/intent/tweet?url=http%3A//rb-webstudio.go.yj.fr/articles/flask-chapitre-1-hello-world-8.html&amp;text=Flask%20-%20chapitre%201%20%3A%20Hello%20world%20%21" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
+            
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//rb-webstudio.go.yj.fr/articles/flask-chapitre-1-hello-world-8.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
+            
+          </ul>
+        </nav>
+      </div>
+      <div class="content"><p>Bonjour mon cher lecteur ! Commençons dès maintenant à construire des applications Flask. Flask est assez minimaliste pour vous offrir choix et flexibilité ; contrairement aux frameworks plus lourds, vous choisissez ce que vous voulez faire et adaptez Flask pour répondre à vos besoins, tout en étant suffisamment complet pour fonctionner immédiatement.</p>
+<p>Nous allons développer ensemble trois applications web : la première est simple et vous permettra de vous familiariser avec Flask et de vous habituer aux nouvelles technologies et terminologies tout en construisant une application web non triviale ; la seconde vous initiera à la création d'une application web utilisant une base de données SQL traditionnelle ; et la dernière, plus complète, exploitera une base de données NoSQL et un framework frontend pour créer une application web utile et esthétique.</p>
+<p>Dans ce chapitre, nous verrons brièvement ce qu'est Flask et, peut-être plus important encore, ce qu'il n'est pas. Nous configurerons ensuite notre environnement de développement de base, un serveur web, et installerons un gestionnaire de paquets Python ainsi que Flask lui-même. D'ici la fin du chapitre, nous aurons esquissé notre première application et, comme le veut la tradition ancestrale, nous utiliserons nos nouvelles compétences pour afficher le texte "Hello, World!". </p>
+<p>En résumé, nous aborderons les points suivants :</p>
+<ul>
+<li>Présentation de Flask</li>
+<li>Configuration de notre environnement de développement</li>
+<li>Écrire «&nbsp;Hello, World!&nbsp;»</li>
+</ul>
+<h2>Présentation de Flask</h2>
+<p>Flask est un micro-framework pour le développement web en Python. Un framework, en termes simples, est une bibliothèque ou un ensemble de bibliothèques qui vise à résoudre une partie d'un problème générique plutôt qu'un cas spécifique complet. Lors de la création d'applications web, certains problèmes doivent toujours être résolus, comme le routage des URLs vers les ressources, l'insertion de données dynamiques dans le HTML et l'interaction avec l'utilisateur final. Flask est un micro-framework car il n'implémente que les fonctionnalités de base (y compris le routage) mais laisse les fonctionnalités avancées (comme l'authentification et les ORM de base de données) à des extensions. Le résultat est une configuration initiale plus simple pour les débutants et plus de choix et de flexibilité pour les utilisateurs expérimentés. Cela contraste avec les frameworks "plus complets" comme Django, qui imposent leur propre ORM et leurs technologies d'authentification. Comme nous le verrons, notre application Hello World en Flask peut être écrite en seulement sept lignes de code, l'application entière tenant dans un seul fichier. Ça vous paraît bien ? Allons-y !</p>
+<h3>Configuration de notre environnement de développement</h3>
+<p>Un environnement de développement comprend tous les logiciels qu'un développeur utilise lors de la création d'un programme. Pour commencer, nous installerons un gestionnaire de paquets Python (pip) et le package Flask. Dans ce tutoriel, nous détaillerons les étapes pour développer avec Python 2.7 sur une installation propre d'Ubuntu, mais toutes ces instructions pourront facilement être adaptées à Windows ou macOS.</p>
+<h3>Installation de pip</h3>
+<p>Pour notre application Hello World, seul le package Flask est nécessaire, mais nous installerons plusieurs packages Python au cours du développement de nos trois applications. Pour les gérer, nous utiliserons le gestionnaire de packages pip.</p>
+<p>Si vous avez développé en Python sans gestionnaire de packages jusqu'à présent, vous apprécierez la simplicité avec laquelle pip permet de télécharger, installer, supprimer et mettre à jour des packages. Si vous l'utilisez déjà, passez directement à l'étape suivante pour installer Flask.</p>
+<p>Le gestionnaire pip est inclus nativement dans Python 3.4+ et 2.7.9+. Pour les versions antérieures, une installation manuelle est requise.</p>
+<p>Sur GNU/Linux, ouvrez un terminal et exécutez :</p>
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get install python-pip
+</code></pre>
+<p><strong>Remarque</strong>: Sous Windows ou macOS, téléchargez et exécutez le fichier <code>get-pip.py</code> depuis le site officiel :
+https://pip.pypa.io/en/latest/installing/#install-or-upgrade-pip.</p>
+<p>Et voilà ! Vous pouvez désormais installer n'importe quel package Python via <em>pip</em>.</p>
+<h3>Installation de Flask</h3>
+<p>Installer Flask via pip est d'une simplicité exemplaire. Exécutez simplement cette commande :</p>
+<pre><code class="language-bash">pip install --user flask
+</code></pre>
+<p>Vous pourrez voir quelques avertissements dans le terminal, mais à la fin, le message <code>Successfully installed Flask</code> devrait apparaître. Vous pouvez désormais importer Flask dans vos programmes Python comme n'importe quelle autre bibliothèque.</p>
+<p><strong>Remarque</strong> : Si vous utilisez habituellement VirtualEnv pour le développement Python, vous pouvez installer Flask dans un environnement VirtualEnv. Nous aborderons ce point plus en détail dans l'annexe Un aperçu du futur.</p>
+<h2>Création de "Hello, World!"</h2>
+<p>Nous allons maintenant créer une page web basique et la servir en utilisant le serveur intégré de Flask sur localhost. Cela signifie que nous allons lancer un serveur web local sur notre machine, auquel nous pourrons facilement envoyer des requêtes depuis cette même machine. Cette méthode est très pratique pour le développement, mais ne convient pas aux applications en production. Plus tard, nous verrons comment déployer des applications Flask avec le serveur web Apache.</p>
+<h3>Écriture du code</h3>
+<p>Notre application consistera en un seul fichier Python. Créez un répertoire <code>firstapp</code> dans votre dossier personnel, puis un fichier <code>hello.py</code> à l'intérieur. Dans ce fichier, nous allons écrire le code pour servir une page web affichant le message statique "Hello, World!". Voici le code :</p>
+<pre><code class="language-python">from flask import Flask
+
+app = Flask(__name__)
+
+@app.route(&quot;/&quot;)
+def index():
+    return &quot;Hello, World!&quot;
+
+if __name__ == '__main__':
+    app.run(port=5000, debug=True)
+</code></pre>
+<p>Détaillons ce que fait ce code :
+1. <strong>Ligne 1</strong> : Importe Flask depuis le package flask (classique)
+2. <strong>Ligne 3</strong> : Crée une instance de l'objet Flask en utilisant <code>__name__</code> comme paramètre. Flask utilise ceci pour résoudre les ressources. Pour nos besoins, <code>__name__</code> suffit car il lie notre module à l'objet Flask.
+3.<strong> Ligne 5</strong> : Utilise un décorateur Python. Flask utilise les décorateurs pour le routage des URLs. Ce décorateur signifie que la fonction juste en-dessous (<code>index()</code>) sera appelée quand un utilisateur visitera la page racine ("/") de notre application. 
+<em>Pour les non-initiés</em> : Les décorateurs sont des raccourcis Python puissants qui peuvent sembler magiques au premier abord. En essence, ils modifient la fonction qu'ils décorent.
+4.<strong>Lignes 6-7</strong> : Définissent une fonction simple qui retourne notre message. Cette fonction est appelée par Flask quand un utilisateur visite notre application, et sa valeur de retour sera envoyée comme réponse.
+5.<strong>Ligne 9</strong> : Une expression Python commune qui évalue à <code>True</code> si notre application est exécutée directement. Cela empêche le script de s'exécuter accidentellement s'il est importé dans d'autres fichiers Python.
+6.<strong>Ligne 10</strong> : Lance le serveur de développement Flask en local. Configuration :
+    - Port : 5000 (le port 80 sera utilisé en production)
+    - Debug : True (affiche les erreurs détaillées dans le navigateur)</p>
+<h3>Exécution du code</h3>
+<p>Pour lancer notre serveur de développement, ouvrez simplement un terminal et exécutez le fichier <code>hello.py</code>. Si vous avez suivi la structure décrite précédemment, utilisez ces commandes :</p>
+<pre><code class="language-bash">cd firstapp
+python hello.py
+</code></pre>
+<p>Vous devriez obtenir une sortie similaire à ceci :</p>
+<pre><code>* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+* Restarting with stat
+* Debugger is active!
+* Debugger PIN: 123-456-789
+</code></pre>
+<p>Le processus continue de s'exécuter - c'est notre serveur web en attente de requêtes. Testons-le !
+1. <strong>Accès via navigateur</strong> :
+    - Ouvrez votre navigateur (Firefox, Chrome, etc.)
+    - Rendez-vous à l'adresse : <code>http://localhost:5000</code>
+2. <strong>Explications techniques</strong> :
+    - <code>localhost</code> : alias de l'adresse loopback (127.0.0.1) 
+    - <code>:5000</code> : port d'écoute (par défaut le HTTP utilise le 80)
+    - Nous utilisons le port 5000 en développement pour éviter les conflits
+    - En production, nous basculerons sur le port <code>80</code> standard 
+3. <strong>Résultat attendu </strong>: Votre navigateur affichera le message "Hello, World!" </p>
+<p>Félicitations, vous venez de créer votre première application Flask ! </p></div>
+      <p class="text-right">Publié le 02 juin 2025, mise à jour le 03 juin 2025</p>
+    </article>
+  </section>
+  <template id="tplProgressFalse">
+    <div id="progressFalse">
+      <div id="cursorProgress">&nbsp;</div>
+    </div>
+  </template>
+
+      <section class="contact" id="contact">
+  <h3>me contacter</h3>
+  <div class="content">
+    <p class="info">
+      <small><em><span>*</span> champ obligatoire</em></small>
+    </p>
+    <form id="formContact" action="/services/mail/send.html" method="post" class="grid-x grid-padding-x clearfix" novalidate>
+      <label class="cell medium-4 padding-left-0">
+        <span>
+          <span>Civilité</span>
+          <select name="civility" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
+            <option value="">choisir</option>
+            <option value="Mademoiselle">Mademoiselle</option>
+            <option value="Madame">Madame</option>
+            <option value="Monsieur">Monsieur</option>
+          </select>
+        </span>
+      </label>
+      <label class="cell medium-4">
+        <span>
+          <span>Prénom</span>
+          <input type="text" name="firstname">
+        </span>
+      </label>
+      <label class="cell medium-4 padding-right-0">
+        <span>
+          <span>Nom</span>
+          <input type="text" name="lastname" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
+        </span>
+      </label>
+      <label class="cell medium-6 margin-top-1 padding-left-0">
+        <span>
+          <span>Email</span>
+          <input type="email" name="email" required data-validate-rules="isnotempty isemail" data-error-isnotempty="ne doit pas être vide" data-error-isemail="Ce champ doit avoir la bonne saisie (dom@dom.com)">
+        </span>
+      </label>
+      <label><span><span>addresse</span><input type="text" name="address" tabindex="-1"></span></label>
+      <label class="cell medium-6 padding-right-0 margin-top-1">
+        <span>
+          <span>Sujet</span>
+          <input type="text" name="subject" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
+        </span>
+      </label>
+      <label class="cell medium-3 flex-container align-middle">
+        <span>
+          <input type="checkbox" name="appointement">
+          <span class="icon">
+            <i class="fa-regular fa-square"></i>
+            <i class="fa-solid fa-square-check"></i>
+          </span>
+          <span class="margin-left-1">un rendez-vous</span>
+        </span>
+      </label>
+      <label class="cell medium-3"><span><span>Téléphone</span><input type="text" name="phone" disabled data-validate-rules="isnotempty checkphone" data-error-isnotempty="le n° de téléphone est manquant" data-error-checkphone="Le format du champ téléphone ne semble pas être bon 0102030405" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Date</span><input type="date" name="date_appointment" disabled data-validate-rules="isnotempty datemin businessday isdate" data-error-isnotempty="la date est manquante" data-error-datemin="La date de rendez vous doit être suppérieur à aujourd'hui" data-error-businessday="les rendez vous sont du lundi au vendredi" data-error-isdate="Ce champ doit être une date valide" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Heure</span><input type="time" name="hour_appointment" disabled data-validate-rules="isnotempty betweenhour" data-error-isnotempty="l'heure est manquante" data-error-betweenhour="Les rendez vous sont compris entre 9 h 00 et 18 h 00" data-validate-target-error="#errorAppointment" data-validate-betweenhour-args="9;18"></span></label>
+      <div id="errorAppointment" class="cell medium-12"></div>
+      <label class="cell medium-12"><span><span>Message</span><textarea name="message" cols="30" rows="10" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3"></textarea></span></label>
+      <div class="cell medium-4 margin-top-1 large-offset-8">
+        <button class="button expanded" type="submit">envoyer</button>
+      </div>
+    </form>
+  </div>
+</section>
+      <footer>
+  <p class="flex-container align-middle align-justify">
+  <span>RB webstudio &ndash; <a href="https://www.alsacreations.com/profil/lire/11496-niuxe.html" target="_blank">Alsacreations</a> &ndash; <a href="https://github.com/niux3" target="_blank">Github</a> &ndash; <a href="https://www.linkedin.com/in/renaud-bourdeau-%F0%9F%90%A7-7639b944/" target="_blank">LinkedIn</a> &ndash; <a href="/static/renaud-bourdeau-cv.pdf">CV</a></span>
+    <span>
+      <button class="button clear changeMode margin-bottom-0 padding-0 padding-horizontal-1">
+        <span class="fa-solid fa-moon"><span class="text">light</span></span>
+      </button>
+      <a href="#top"><i class="fa-solid fa-arrow-up"></i></a>
+    </span>
+  </p>
+</footer>
+
+    </main>
+    <script src="/static/app-DWoJptpQ.js"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </body>
+</html>
