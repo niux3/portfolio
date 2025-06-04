@@ -21,7 +21,11 @@ table{
     tr{
       border-bottom: none !important;
       background-color: transparent !important;
-      td{
+      th{
+        text-align: left;
+        vertical-align: top;
+      }
+      td, th{
         padding: 1.25rem .625rem;
       }
     }
