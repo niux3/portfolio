@@ -1,9 +1,15 @@
-# Structurer votre HTML, c'est aussi structurer l'expérience utilisateur
+🔍 Créer des repères de navigation accessibles : un pilier souvent négligé de l’UX 🧭
 
-Trop de pages sont encore construites sans repères sémantiques. Résultat : une navigation laborieuse pour les utilisateurs de lecteurs d’écran, et une UX pénalisée.
+Que voit un lecteur d’écran en arrivant sur votre site ?
+Vos utilisateurs peuvent-ils s’orienter facilement ?
+Dans mon dernier article, je vous montre comment structurer efficacement vos navigations (principale, fil d’Ariane, locale) à l’aide de balises HTML sémantiques et d’attributs ARIA.
 
-Dans cet article, je vous explique comment utiliser intelligemment les éléments HTML comme <main>, <nav> ou encore <footer>, et comment ces balises améliorent l’accessibilité, la SEO et la compréhension globale de vos pages.
+✅ Amélioration de l’accessibilité
+✅ Meilleure expérience utilisateur
+✅ SEO renforcé
 
-Avec des exemples concrets, des bonnes pratiques et les raccourcis clavier associés aux repères sur différents lecteurs d’écran (JAWS, NVDA, VoiceOver, etc.).
+Avec des exemples concrets de code pour mettre en œuvre de bonnes pratiques directement dans vos projets.
 
-👉 À lire ici : [lien vers ton article]
+📖 À lire ici : [lien de ton article]
+
+#accessibilité #UXDesign #SEO #HTML #développementweb #a11y

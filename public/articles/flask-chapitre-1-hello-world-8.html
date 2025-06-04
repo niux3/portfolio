@@ -77,84 +77,190 @@
           </ul>
         </nav>
       </div>
-      <div class="content"><p>Bonjour cher lecteur ! Commençons dès maintenant à construire des applications Flask. Flask est assez minimaliste pour vous offrir choix et flexibilité ; contrairement aux frameworks plus lourds, vous choisissez ce que vous voulez faire et adaptez Flask pour répondre à vos besoins, tout en étant suffisamment complet pour fonctionner immédiatement.</p>
-<p>Nous allons développer ensemble trois applications web : la première est simple et vous permettra de vous familiariser avec Flask et de vous habituer aux nouvelles technologies et terminologies tout en construisant une application web non triviale ; la seconde vous initiera à la création d'une application web utilisant une base de données SQL traditionnelle ; et la dernière, plus complète, exploitera une base de données NoSQL et un framework frontend pour créer une application web utile et esthétique.</p>
-<p>Dans ce chapitre, nous verrons brièvement ce qu'est Flask et, peut-être plus important encore, ce qu'il n'est pas. Nous configurerons ensuite notre environnement de développement de base, un serveur web, et installerons un gestionnaire de paquets Python ainsi que Flask lui-même. D'ici la fin du chapitre, nous aurons esquissé notre première application et, comme le veut la tradition ancestrale, nous utiliserons nos nouvelles compétences pour afficher le texte "Hello, World!". </p>
-<p>En résumé, nous aborderons les points suivants :</p>
+      <div class="content"><p>« Flask, c’est amusant. » Cette déclaration audacieuse est l'une des premières choses que vous verrez en consultant la documentation officielle de Flask et, au fil de ce tuto, vous comprendrez pourquoi tant de développeurs Python sont du même avis.</p>
+<h2>Qu’est-ce que Flask ?</h2>
+<p>Flask est un framework Web léger écrit en Python. Il a commencé comme une blague du 1er avril, avant de devenir un outsider très populaire dans le monde des frameworks web en Python.
+Aujourd’hui, c’est l’un des frameworks Python les plus utilisés par les start-ups, et il est de plus en plus reconnu comme l’outil idéal pour développer des solutions simples et rapides dans la plupart des entreprises.
+Au cœur de Flask, on trouve un ensemble de bibliothèques puissantes permettant de gérer les tâches les plus courantes du développement web, telles que :</p>
 <ul>
-<li>Présentation de Flask</li>
-<li>Configuration de notre environnement de développement</li>
-<li>Écrire «&nbsp;Hello, World!&nbsp;»</li>
+<li>Le routage d’URL, qui permet de lier facilement des URLs à votre code</li>
+<li>Le rendu de templates avec Jinja2, l’un des moteurs de templates Python les plus puissants</li>
+<li>La gestion des sessions et la sécurisation des cookies</li>
+<li>L’analyse des requêtes HTTP et une gestion flexible des réponses</li>
+<li>Un débogueur interactif accessible via le navigateur</li>
+<li>Une gestion de configuration d’application simple, souple et facile à utiliser</li>
 </ul>
-<h2>Présentation de Flask</h2>
-<p>Flask est un micro-framework pour le développement web en Python. Un framework, en termes simples, est une bibliothèque ou un ensemble de bibliothèques qui vise à résoudre une partie d'un problème générique plutôt qu'un cas spécifique complet. Lors de la création d'applications web, certains problèmes doivent toujours être résolus, comme le routage des URLs vers les ressources, l'insertion de données dynamiques dans le HTML et l'interaction avec l'utilisateur final. Flask est un micro-framework car il n'implémente que les fonctionnalités de base (y compris le routage) mais laisse les fonctionnalités avancées (comme l'authentification et les ORM de base de données) à des extensions. Le résultat est une configuration initiale plus simple pour les débutants et plus de choix et de flexibilité pour les utilisateurs expérimentés. Cela contraste avec les frameworks "plus complets" comme Django, qui imposent leur propre ORM et leurs technologies d'authentification. Comme nous le verrons, notre application Hello World en Flask peut être écrite en seulement sept lignes de code, l'application entière tenant dans un seul fichier. Ça vous paraît bien ? Allons-y !</p>
-<h3>Configuration de notre environnement de développement</h3>
-<p>Un environnement de développement comprend tous les logiciels qu'un développeur utilise lors de la création d'un programme. Pour commencer, nous installerons un gestionnaire de paquets Python (pip) et le package Flask. Dans ce tutoriel, nous détaillerons les étapes pour développer avec Python 2.7 sur une installation propre d'Ubuntu, mais toutes ces instructions pourront facilement être adaptées à Windows ou macOS.</p>
+<p>Ce tuto vous apprendra à utiliser ces outils à travers des exemples pratiques et concrets. Nous aborderons également des bibliothèques tierces couramment utilisées pour les fonctionnalités que Flask ne propose pas en natif, comme l’accès aux bases de données ou la validation de formulaires. À la fin de ce tuto, vous serez prêt à vous lancer dans votre prochain grand projet avec Flask.</p>
+<h3>Une grande liberté implique une grande responsabilité</h3>
+<p>Comme le dit la documentation, Flask, c’est amusant, mais cela peut aussi être un défi, en particulier lorsque vous développez une application de grande envergure. Contrairement à d’autres frameworks web populaires en Python, comme Django, Flask n’impose pas de structure particulière pour organiser vos modules ou votre code. Si vous avez déjà utilisé d’autres frameworks web, vous pourriez être surpris de constater que développer avec Flask ressemble davantage à écrire du Python pur qu’à remplir un canevas imposé par le framework.</p>
+<p>Ce tuto vous apprendra à utiliser Flask pour écrire des applications claires et expressives.
+Au fil de votre progression, non seulement vous deviendrez un développeur Flask expérimenté, mais vous renforcerez aussi vos compétences en développement Python</p>
+<h2>Mise en place d’un environnement de développement</h2>
+<p>Flask est écrit en Python, donc avant de commencer à créer des applications Flask, nous devons nous assurer que Python est installé. La plupart des distributions Linux et les versions récentes de macOS sont livrées avec Python préinstallé.
+Les exemples de ce tuto nécessitent Python 3.x. Des instructions pour installer Python sont disponibles à l’adresse suivante : <a href="http://www.python.org" target="_blank">http://www.python.org</a>.</p>
+<p>Si c’est la première fois que vous utilisez Python, de nombreuses ressources gratuites et de qualité sont disponibles sur le web.
+Je vous recommande <a href="https://inforef.be/swi/download/apprendre_python3_5.pdf" target="blank">Apprendre à programmer avec Python 3</a>, de Gérard Swinnen, accessible gratuitement.</p>
+<p>Vous pouvez vérifier que Python est installé et que vous disposez de la bonne version en lançant l’interpréteur interactif Python depuis un terminal :</p>
+<pre><code class="language-bash">$python3
+Python 3.9.2 (default, Mar 20 2025, 02:07:39) 
+[GCC 10.2.1 20210110] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; 
+</code></pre>
+<p>À l’invite de commande (<code>&gt;&gt;&gt;</code>), tapez <code>exit()</code> puis appuyez sur Entrée pour quitter l’interpréteur.</p>
+<h3>Installation de packages Python</h3>
+<p>Maintenant que vous vous êtes assuré que Python est correctement installé, nous allons installer quelques packages Python populaires qui seront utilisés tout au long de ce tuto.</p>
+<p>Nous allons d’abord installer ces packages à l’échelle du système, mais une fois cela fait, nous travaillerons exclusivement dans des environnements virtuels.</p>
 <h3>Installation de pip</h3>
-<p>Pour notre application Hello World, seul le package Flask est nécessaire, mais nous installerons plusieurs packages Python au cours du développement de nos trois applications. Pour les gérer, nous utiliserons le gestionnaire de packages pip.</p>
-<p>Si vous avez développé en Python sans gestionnaire de packages jusqu'à présent, vous apprécierez la simplicité avec laquelle pip permet de télécharger, installer, supprimer et mettre à jour des packages. Si vous l'utilisez déjà, passez directement à l'étape suivante pour installer Flask.</p>
-<p>Le gestionnaire pip est inclus nativement dans Python 3.4+ et 2.7.9+. Pour les versions antérieures, une installation manuelle est requise.</p>
-<p>Sur GNU/Linux, ouvrez un terminal et exécutez :</p>
-<pre><code class="language-bash">sudo apt-get update
-sudo apt-get install python-pip
+<p>L’installateur de packages Python de référence est <code>pip</code>. Nous l’utiliserons tout au long de ce tuto pour installer Flask et d’autres bibliothèques tierces.</p>
+<p>Si vous avez déjà <code>setuptools</code> installé, vous pouvez installer <code>pip</code> en lançant simplement la commande suivante :</p>
+<pre><code class="language-bash">$sudo easy_install pip
 </code></pre>
-<p><strong>Remarque</strong>: Sous Windows ou macOS, téléchargez et exécutez le fichier <code>get-pip.py</code> depuis le site officiel :
-https://pip.pypa.io/en/latest/installing/#install-or-upgrade-pip.</p>
-<p>Et voilà ! Vous pouvez désormais installer n'importe quel package Python via <em>pip</em>.</p>
-<h3>Installation de Flask</h3>
-<p>Installer Flask via pip est d'une simplicité exemplaire. Exécutez simplement cette commande :</p>
-<pre><code class="language-bash">pip install --user flask
+<p>Après avoir terminé l’installation, vérifiez que pip est correctement installé :</p>
+<pre><code class="language-bash">$pip --version
+pip 22.1 from /home/$user/.local/lib/python3.9/site-packages/pip (python 3.9)
 </code></pre>
-<p>Vous pourrez voir quelques avertissements dans le terminal, mais à la fin, le message <code>Successfully installed Flask</code> devrait apparaître. Vous pouvez désormais importer Flask dans vos programmes Python comme n'importe quelle autre bibliothèque.</p>
-<p><strong>Remarque</strong> : Si vous utilisez habituellement VirtualEnv pour le développement Python, vous pouvez installer Flask dans un environnement VirtualEnv. Nous aborderons ce point plus en détail dans l'annexe Un aperçu du futur.</p>
-<h2>Création de "Hello, World!"</h2>
-<p>Nous allons maintenant créer une page web basique et la servir en utilisant le serveur intégré de Flask sur localhost. Cela signifie que nous allons lancer un serveur web local sur notre machine, auquel nous pourrons facilement envoyer des requêtes depuis cette même machine. Cette méthode est très pratique pour le développement, mais ne convient pas aux applications en production. Plus tard, nous verrons comment déployer des applications Flask avec le serveur web Apache.</p>
-<h3>Écriture du code</h3>
-<p>Notre application consistera en un seul fichier Python. Créez un répertoire <code>firstapp</code> dans votre dossier personnel, puis un fichier <code>hello.py</code> à l'intérieur. Dans ce fichier, nous allons écrire le code pour servir une page web affichant le message statique "Hello, World!". Voici le code :</p>
+<p>Les numéros de version sont susceptibles d’évoluer, donc pour un guide définitif, veuillez consulter les instructions officielles disponibles à l’adresse suivante : <a href="http://www.pip-installer.org/en/latest/installing.html" target="_blank">http://www.pip-installer.org/en/latest/installing.html</a>.</p>
+<h3>Installation de virtualenv</h3>
+<p>Une fois <code>pip</code> installé, nous pouvons passer à l’installation de l’outil le plus important dans la boîte à outils de tout développeur Python : <code>virtualenv</code>. <code>Virtualenv</code> facilite la création d’environnements Python isolés, chacun avec ses propres copies des packages système et tiers.</p>
+<h3>Pourquoi utiliser virtualenv ?</h3>
+<p><code>Virtualenv</code> résout plusieurs problèmes liés à la gestion des packages. Imaginez que vous ayez une vieille application construite avec une toute première version de Flask, et que vous souhaitiez créer un nouveau projet avec la version la plus récente de Flask.
+Si Flask est installé à l’échelle du système, vous seriez obligé soit de mettre à jour votre ancien projet, soit d’écrire votre nouveau projet en utilisant l’ancienne version de Flask. Si les deux projets utilisaient <code>virtualenv</code>, chacun pourrait fonctionner avec sa propre version de Flask, sans conflits ni problèmes. <code>Virtualenv</code> facilite le contrôle des versions des packages tiers utilisés par votre projet.</p>
+<p>Autre point important : installer des packages à l’échelle du système nécessite généralement des privilèges élevés (par exemple, <code>sudo pip install foo</code>). En utilisant <code>virtualenv</code>, vous pouvez créer des environnements Python et installer des packages en tant qu’utilisateur normal. Cela est particulièrement utile si vous déployez sur un hébergement mutualisé ou si vous n’avez pas les droits d’administrateur.</p>
+<h3>Installation de virtualenv avec pip</h3>
+<p>Nous allons utiliser pip pour installer <code>virtualenv</code> ; comme il s’agit d’un package Python standard, il peut être installé comme n’importe quel autre package Python. Pour vous assurer que virtualenv est installé à l’échelle du système, exécutez la commande suivante (qui nécessite des privilèges élevés) :</p>
+<pre><code class="language-bash">$sudo pip install virtualenv
+$virtualenv --version
+virtualenv 20.14.1 from /home/$user/.local/lib/python3.9/site-packages/virtualenv/__init__.py
+</code></pre>
+<p>Les numéros de version sont susceptibles d’évoluer, donc pour un guide définitif, veuillez consulter les instructions officielles sur : <a href="http://virtualenv.org" target="_blank">http://virtualenv.org</a>.</p>
+<h2>Créer votre première application Flask</h2>
+<p>Maintenant que nous avons installé les outils nécessaires, nous sommes prêts à créer notre première application Flask.
+Pour commencer, créez un répertoire à un emplacement pratique qui contiendra tous vos projets Python.
+Dans le terminal ou l’invite de commande, placez-vous dans ce répertoire ; pour ma part, c’est /home/$user/projects, ou simplement ~/projects sur les systèmes Unix.</p>
+<pre><code class="language-bash">$mkdir projects
+$cd projects
+</code></pre>
+<p>Nous allons maintenant créer un environnement virtuel (<code>virtualenv</code>). Les commandes ci-dessous vont créer un nouveau répertoire nommé hello_flask à l’intérieur de votre dossier de projets, contenant un environnement Python complet et isolé.</p>
+<pre><code class="language-bash">$virtualenv venv
+</code></pre>
+<p>Vous devriez avoir un nouveau dossier du nom de <code>venv</code> à la racine de <code>~ /projects</code>. Maintenant, il va falloir activer cet environnement virtuel. </p>
+<pre><code class="language-bash">$source venv/bin/activate
+</code></pre>
+<p>Vous devriez constater que votre prompt dans votre terminal a changé. En effet, avant les droits, le nom du dossier <code>venv</code> est entre parenthèses. </p>
+<p><strong>note</strong>: Dans un environnement Microsoft, ça n'est pas le cas ! </p>
+<pre><code class="language-bash">(venv) user@host:~/projects$ 
+</code></pre>
+<p>Lorsque vous activez un virtualenv, votre variable d’environnement <code>PATH</code> est temporairement modifiée afin de garantir que les packages que vous installez ou utilisez restent confinés à cet environnement virtuel.</p>
+<h3>Installer Flask dans votre virtualenv</h3>
+<p>Maintenant que nous avons vérifié que notre environnement virtuel est correctement configuré, nous pouvons installer Flask.
+Lorsque vous êtes dans un virtualenv, <strong>vous ne devez jamais installer de packages avec des privilèges administrateur.</strong>
+Si vous obtenez une erreur de permission lors de l’installation de Flask, vérifiez bien que votre virtualenv est activé correctement.</p>
+<pre><code class="language-bash">(venv)$ pip install Flask
+</code></pre>
+<p>Vous verrez défiler du texte pendant que pip télécharge le package Flask ainsi que ses dépendances avant de les installer dans votre environnement virtuel. Flask dépend de quelques bibliothèques tierces supplémentaires, que pip téléchargera et installera automatiquement pour vous. Vérifions maintenant que tout a bien été installé :</p>
+<pre><code class="language-bash">(venv) user@host:~/projects$ python
+Python 3.9.2 (default, Mar 20 2025, 02:07:39) 
+[GCC 10.2.1 20210110] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; import flask
+&gt;&gt;&gt; flask.__version__
+&lt;stdin&gt;:1: DeprecationWarning: The '__version__' attribute is deprecated and will be removed in Flask 3.2. Use feature detection or 'importlib.metadata.version(&quot;flask&quot;)' instead.
+'3.1.1'
+&gt;&gt;&gt; flask
+&lt;module 'flask' from '/home/user/Bureau/temp_projects/venv/lib/python3.9/site-packages/flask/__init__.py'&gt;
+&gt;&gt;&gt; 
+</code></pre>
+<p>Félicitations ! Vous avez installé Flask, et nous sommes maintenant prêts à commencer à coder.</p>
+<h2>Hello, Flask!</h2>
+<p>Créez un nouveau fichier nommé <code>app.py</code> dans le répertoire de votre virtualenv <code>venv</code>. À l’aide de votre éditeur de texte ou IDE préféré, saisissez le code suivant :</p>
 <pre><code class="language-python">from flask import Flask
+
 
 app = Flask(__name__)
 
 @app.route(&quot;/&quot;)
-def index():
-    return &quot;Hello, World!&quot;
+def hello():
+    return &quot;Hello, Flask!&quot;
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(debug=True)
 </code></pre>
-<p>Détaillons ce que fait ce code :
-1. <strong>Ligne 1</strong> : Importe Flask depuis le package flask (classique)
-2. <strong>Ligne 3</strong> : Crée une instance de l'objet Flask en utilisant <code>__name__</code> comme paramètre. Flask utilise ceci pour résoudre les ressources. Pour nos besoins, <code>__name__</code> suffit car il lie notre module à l'objet Flask.
-3.<strong> Ligne 5</strong> : Utilise un décorateur Python. Flask utilise les décorateurs pour le routage des URLs. Ce décorateur signifie que la fonction juste en-dessous (<code>index()</code>) sera appelée quand un utilisateur visitera la page racine ("/") de notre application. 
-<em>Pour les non-initiés</em> : Les décorateurs sont des raccourcis Python puissants qui peuvent sembler magiques au premier abord. En essence, ils modifient la fonction qu'ils décorent.
-4.<strong>Lignes 6-7</strong> : Définissent une fonction simple qui retourne notre message. Cette fonction est appelée par Flask quand un utilisateur visite notre application, et sa valeur de retour sera envoyée comme réponse.
-5.<strong>Ligne 9</strong> : Une expression Python commune qui évalue à <code>True</code> si notre application est exécutée directement. Cela empêche le script de s'exécuter accidentellement s'il est importé dans d'autres fichiers Python.
-6.<strong>Ligne 10</strong> : Lance le serveur de développement Flask en local. Configuration :
-    - Port : 5000 (le port 80 sera utilisé en production)
-    - Debug : True (affiche les erreurs détaillées dans le navigateur)</p>
-<h3>Exécution du code</h3>
-<p>Pour lancer notre serveur de développement, ouvrez simplement un terminal et exécutez le fichier <code>hello.py</code>. Si vous avez suivi la structure décrite précédemment, utilisez ces commandes :</p>
-<pre><code class="language-bash">cd firstapp
-python hello.py
+<p>Enregistrez le fichier, puis exécutez app.py en le lançant depuis la ligne de commande. Vous devez vous assurer que votre environnement virtuel <code>venv</code> est bien activé :</p>
+<pre><code class="language-bash">(venv) user@host:~/projects$ python app.py 
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 110-019-933
 </code></pre>
-<p>Vous devriez obtenir une sortie similaire à ceci :</p>
-<pre><code>* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-* Restarting with stat
-* Debugger is active!
-* Debugger PIN: 123-456-789
+<p>Lorsque vous ouvrez votre navigateur préféré et que vous accédez à l’adresse <code>http://127.0.0.1:5000</code>, vous verrez s’afficher une page blanche très simple, sans mise en forme ni image, avec uniquement le message suivant au centre (ou en haut à gauche selon le navigateur) :</p>
+<pre><code>Hello, Flask!
 </code></pre>
-<p>Le processus continue de s'exécuter - c'est notre serveur web en attente de requêtes. Testons-le !
-1. <strong>Accès via navigateur</strong> :
-    - Ouvrez votre navigateur (Firefox, Chrome, etc.)
-    - Rendez-vous à l'adresse : <code>http://localhost:5000</code>
-2. <strong>Explications techniques</strong> :
-    - <code>localhost</code> : alias de l'adresse loopback (127.0.0.1) 
-    - <code>:5000</code> : port d'écoute (par défaut le HTTP utilise le 80)
-    - Nous utilisons le port 5000 en développement pour éviter les conflits
-    - En production, nous basculerons sur le port <code>80</code> standard 
-3. <strong>Résultat attendu </strong>: Votre navigateur affichera le message "Hello, World!" </p>
-<p>Félicitations, vous venez de créer votre première application Flask ! </p></div>
-      <p class="text-right">Publié le 02 juin 2025, mise à jour le 03 juin 2025</p>
+<p>Ce rendu minimal est tout à fait normal : Flask renvoie simplement une chaîne de caractères brute sans HTML ni CSS. C’est le comportement de base d’une route Flask renvoyant du texte simple.</p>
+<h3>Comprendre le code</h3>
+<p>Nous venons de créer une application Flask très basique. Pour bien comprendre ce qui se passe, analysons ce code ligne par ligne :</p>
+<pre><code class="language-python">from flask import Flask
+</code></pre>
+<p>Notre application commence par importer la classe Flask. Cette classe représente une application WSGI (Web Server Gateway Interface) unique, et c’est l’objet central de tout projet Flask.</p>
+<p><strong>Qu’est-ce que WSGI ?</strong></p>
+<p>WSGI est le standard officiel pour les serveurs web Python, défini dans la <strong>PEP 333</strong>.
+On peut le voir comme un ensemble de règles et de comportements que doivent respecter une application et un serveur pour qu’ils puissent communiquer correctement.</p>
+<p>En d’autres termes, WSGI agit comme un intermédiaire :</p>
+<ul>
+<li>entre ton code Python (ton app Flask),</li>
+<li>et un serveur web (comme Gunicorn, uWSGI, ou même le serveur de développement de Flask).</li>
+</ul>
+<p><strong>Bonne nouvelle</strong> : Flask s’occupe de toute cette complexité pour vous. Vous n’avez pas besoin d’implémenter WSGI manuellement. Vous vous concentrez uniquement sur le développement de votre application, et Flask gère l’interface avec les serveurs.</p>
+<pre><code class="language-python">app = Flask(__name__)
+</code></pre>
+<p>Dans cette ligne, nous créons une instance de l'application Flask dans la variable app, en lui passant le nom de notre module (généralement via <code>__name__</code>).</p>
+<ul>
+<li><code>app</code> : c’est le nom de la variable dans laquelle on stocke notre application Flask. Ce nom est une convention courante, mais on pourrait l’appeler autrement si on le souhaite.</li>
+<li><code>Flask(__name__)</code> : on instancie Flask en lui passant <code>__name__</code>, qui est une variable spéciale contenant le nom du module actuel (par exemple <code>__main__</code> si vous exécutez le fichier directement).</li>
+</ul>
+<pre><code class="language-python">@app.route(&quot;/&quot;)
+def hello():
+    return &quot;Hello, Flask!&quot;
+</code></pre>
+<p>Dans les lignes précédentes, nous indiquons à notre application Flask de diriger toutes les requêtes vers / (l’URL racine) vers cette fonction de vue (index). Une vue est simplement une fonction ou une méthode qui retourne une réponse quelconque. Chaque fois que vous ouvrez un navigateur et accédez à l’URL racine de notre application, Flask appellera cette fonction de vue et enverra la valeur retournée au navigateur. Il y a quelques points à noter concernant ces lignes de code :</p>
+<ul>
+<li><code>@app.route</code> est un décorateur Python lié à la variable <code>app</code> définie précédemment. Ce décorateur (<code>app.route</code>) enveloppe la fonction suivante, ici <code>index</code>, afin de diriger les requêtes pour une URL particulière vers une vue spécifique. Le nom <code>index</code> est choisi pour cette fonction car c’est le nom courant pour la première page qu’un serveur web utilise. D’autres noms possibles pourraient être <code>homepage</code> ou <code>main</code>. Les décorateurs sont un sujet riche et intéressant pour les développeurs Python, donc si vous ne les connaissez pas encore, je vous recommande d’utiliser votre moteur de recherche préféré pour trouver un bon tutoriel.</li>
+<li>La fonction <code>index</code> ne prend aucun argument. Cela peut sembler étrange si vous venez d’autres frameworks web où l’on attend souvent un objet requête (<code>request</code>) ou quelque chose de similaire. Nous verrons dans les exemples suivants comment accéder aux valeurs de la requête.</li>
+<li>Les lignes suivantes exécutent notre application en utilisant le serveur de développement intégré en mode debug. L’instruction <code>if</code> est une convention Python courante qui garantit que l’application ne sera lancée que lorsque nous exécutons le script via <code>python app.py</code>, et ne sera pas lancée si nous essayons d’importer cette application depuis un autre fichier Python.</li>
+</ul>
+<pre><code class="language-python">if __name__ == '__main__':
+    app.run(debug=True)
+</code></pre>
+<h3>Routes et requêtes</h3>
+<p>Pour l’instant, notre application Flask n’est pas très amusante, alors voyons les différentes façons d’ajouter un comportement plus intéressant à notre application web. Une méthode courante consiste à ajouter un comportement réactif, de sorte que notre application puisse examiner les valeurs présentes dans l’URL et les traiter.</p>
+<p>Ajoutons une nouvelle route à notre application Hello Flask appelée hello. Cette nouvelle route affichera un message de bienvenue à la personne dont le nom apparaît dans l’URL :</p>
+<pre><code class="language-python">from flask import Flask
+
+
+app = Flask(__name__)
+
+@app.route(&quot;/&quot;)
+def hello():
+    return &quot;Hello, Flask!&quot;
+
+@app.route('/hello/&lt;name&gt;')
+def hello(name):
+    return 'Hello, %s' % name
+
+if __name__ == '__main__':
+    app.run(debug=True)
+</code></pre>
+<p>Voici une description possible du rendu dans le navigateur pour l’URL http://127.0.0.1:5000/hello/Charlie. Lorsque vous ouvrez cette URL dans votre navigateur, vous voyez une page blanche avec un message simple et personnalisé affiché en texte noir, centré en haut de la page. Le message dit :</p>
+<pre><code>Hello, Charlie
+</code></pre>
+<p>Ce message est généré dynamiquement par votre application Flask en utilisant la partie « Charlie » de l’URL pour personnaliser le contenu affiché à l’écran. C’est un exemple de contenu réactif en fonction des paramètres d’URL.
+Dans l’exemple précédent, la route que nous avons ajoutée spécifie un seul paramètre : <code>name</code>. Ce paramètre apparaît également dans la déclaration de la fonction en tant que seul argument. Flask associe automatiquement l’URL <code>/hello/Charlie</code> à la vue <code>hello</code> ; cela s’appelle le mapping. Il passe ensuite la chaîne de caractères « Charlie » à notre fonction de vue en tant qu’argument.</p>
+<p>Que se passe-t-il si nous naviguons vers <code>http://127.0.0.1:5000/hello/</code> sans spécifier de nom ? Comme tu peux le voir, le serveur de développement Flask renverra une réponse 404, indiquant que l’URL ne correspond à aucune route connue.</p></div>
+      <p class="text-right">Publié le 02 juin 2025, mise à jour le 04 juin 2025</p>
     </article>
   </section>
   <template id="tplProgressFalse">
