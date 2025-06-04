@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="/static/styles-Ccf_EuXF.css">
+    <link rel="stylesheet" href="/static/styles-BnJ0AZNy.css">
     <meta name="description"  content="flask hello world">
   </head>
 
@@ -259,7 +259,154 @@ if __name__ == '__main__':
 </code></pre>
 <p>Ce message est généré dynamiquement par votre application Flask en utilisant la partie « Charlie » de l’URL pour personnaliser le contenu affiché à l’écran. C’est un exemple de contenu réactif en fonction des paramètres d’URL.
 Dans l’exemple précédent, la route que nous avons ajoutée spécifie un seul paramètre : <code>name</code>. Ce paramètre apparaît également dans la déclaration de la fonction en tant que seul argument. Flask associe automatiquement l’URL <code>/hello/Charlie</code> à la vue <code>hello</code> ; cela s’appelle le mapping. Il passe ensuite la chaîne de caractères « Charlie » à notre fonction de vue en tant qu’argument.</p>
-<p>Que se passe-t-il si nous naviguons vers <code>http://127.0.0.1:5000/hello/</code> sans spécifier de nom ? Comme tu peux le voir, le serveur de développement Flask renverra une réponse 404, indiquant que l’URL ne correspond à aucune route connue.</p></div>
+<p>Que se passe-t-il si nous naviguons vers <code>http://127.0.0.1:5000/hello/</code> sans spécifier de nom ? Comme vous pouvez le voir, le serveur de développement Flask renverra une réponse 404, indiquant que l’URL ne correspond à aucune route connue.</p>
+<h3>Lecture des valeurs de la requête</h3>
+<p>En plus de l'URL, des valeurs peuvent être transmises à votre application via la chaîne de requête (query string). Celle-ci est composée de paires clé-valeur arbitraires ajoutées à la fin de l'URL, après un point d'interrogation&nbsp;(<code>?</code>).</p>
+<table>
+    <caption>Tableau : liste d'urls avec des querystrings</caption>
+    <thead>
+        <tr>
+            <th scope="col">URL</th>
+            <th scope="col">Valeurs des arguments</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/hello/?name=Charlie</td>
+            <td>name: Charlie</td>
+        </tr>
+        <tr>
+            <td>/hello/?name=Charlie&favorite_color=green</td>
+            <td>
+                name: Charlie <br>
+                favorite_color: green
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>Pour accéder à ces valeurs dans vos fonctions de vue, Flask fournit un objet request qui encapsule toutes les informations sur la requête <code>HTTP</code> en cours.</p>
+<p>Dans l'exemple suivant, nous allons modifier notre vue <code>hello</code> pour qu'elle réagisse également aux noms passés via la chaîne de requête. Si aucun nom n'est spécifié (ni dans l'URL ni dans les paramètres), nous renverrons une erreur 404.</p>
+<pre><code class="language-python">from flask import Flask, abort, request
+
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Hello, Flask!'
+
+@app.route('/hello/&lt;name&gt;')
+@app.route('/hello/')
+def hello(name=None):
+    if name is None:
+        # Si aucun nom n’est spécifié dans l’URL, tenter de le récupérer depuis la chaîne de requête.
+        name = request.args.get('name')
+        if name:
+            return 'Hello, %s' % name
+    else:
+        # Aucun nom n’a été spécifié dans l’URL ni dans la chaîne de requête.
+        abort(404)
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8000)
+</code></pre>
+<p>Comme vous pouvez le voir, nous avons ajouté un second décorateur de route à la vue <code>hello</code>. Flask permet d’associer plusieurs routes URL à une même fonction de vue.
+Puisque notre nouvelle route (<code>/hello/</code>) ne contient pas de paramètre name, nous devons adapter la signature de la fonction <code>hello</code> pour rendre ce paramètre optionnel. Cela se fait en lui assignant une valeur par défaut (<code>None</code>).</p>
+<p>Le corps de la fonction a également été modifié pour vérifier si un nom est présent. Si aucun nom n’est fourni via l’URL dynamique, la fonction tente alors de le récupérer dans les paramètres de la chaîne de requête (<code>request.args.get('name')</code>).
+Si le nom est trouvé, un message de bienvenue est retourné. Dans le cas contraire, la fonction interrompt le traitement en retournant une erreur 404 – Page non trouvée.</p>
+<h2>Débogage d'applications Flask</h2>
+<p>l est inévitable que, tôt ou tard, nous introduisions un bug dans notre code.
+Puisque les bugs sont inévitables, le mieux que nous puissions espérer en tant que développeurs est d'avoir de bons outils pour les diagnostiquer et les corriger rapidement. Heureusement, Flask intègre un débogueur web extrêmement puissant.</p>
+<p>Le débogueur de Flask permet d’inspecter l’état de votre application au moment même où une erreur se produit, éliminant ainsi le besoin d’ajouter des <code>print</code> ou des points d’arrêt manuellement.</p>
+<p>Pour l’activer, il suffit de lancer l’application Flask en mode debug.
+Cela peut se faire de plusieurs manières, mais nous l’avons déjà mis en place via le code suivant :</p>
+<pre><code class="language-python">if __name__ == '__main__':
+    app.run(debug=True)
+</code></pre>
+<p>Pour tester cela, introduisons un bug dans l'application <code>hello_flask</code> en créant une faute de frappe. Ici, j'ai simplement supprimé le "e" final du nom de la variable :</p>
+<pre><code class="language-python"> @app.route('/hello/&lt;name&gt;')
+@app.route('/hello/')
+def hello(name=None):
+    if nam is None:
+        # Si aucun nom n’est spécifié dans l’URL, tenter de le récupérer depuis la chaîne de requête.
+        name = request.args.get('name')
+        if name:
+            return 'Hello, %s' % name
+    else:
+        # Aucun nom n’a été spécifié dans l’URL ni dans la chaîne de requête.
+        abort(404)
+</code></pre>
+<p>Lorsque nous lançons le serveur de développement et tentons d’accéder à notre vue, la page de débogage s’affiche désormais. Cette liste de code s’appelle une traceback (ou pile d’appels) et elle est constituée de la pile des appels de fonctions imbriqués qui ont précédé l’erreur proprement dite. La traceback fournit en général un indice précieux sur ce qui a pu se passer.
+Tout en bas, on voit la ligne de code que nous avons intentionnellement mal écrite, accompagnée de l’erreur Python générée : une exception de type <code>NameError</code>, qui nous indique que <code>nam</code> n’est pas défini.</p>
+<p>La véritable magie opère lorsque vous placez votre souris sur la ligne surlignée. À droite s’affichent deux petites icônes représentant un terminal et un fichier source. En cliquant sur l’icône <code>Source Code</code>, vous développez le code source autour de la ligne qui a généré l’erreur. C’est très utile pour replacer l’erreur dans son contexte.</p>
+<p>L’icône Terminal est encore plus intéressante. En cliquant dessus, une console interactive apparaît avec l’invite Python standard.
+Cette console vous permet d’inspecter en temps réel la valeur des variables locales au moment où l’exception s’est produite.
+Essayez par exemple de taper <code>name</code> puis d’appuyer sur Entrée : si une valeur a été spécifiée dans l’URL, elle devrait s’afficher.
+On peut également consulter les arguments de la requête courante. Au fil des chapitres et de vos propres expérimentations, savoir diagnostiquer et corriger rapidement des bugs sera une compétence précieuse.</p>
+<h2>Présentation du projet de blog</h2>
+<p>Dans la suite de ce livre, nous allons construire, améliorer et déployer un site de blog conçu pour les développeurs.
+Ce projet vous initiera aux tâches les plus courantes du développement web, comme :</p>
+<ul>
+<li>La gestion de bases de données relationnelles,</li>
+<li>Le traitement et la validation des données de formulaire,</li>
+<li>et bien sûr (le préféré de tous) : les tests.</li>
+</ul>
+<p>À chaque chapitre, vous apprendrez une nouvelle compétence à travers des projets concrets et pratiques.
+Dans le tableau suivant, vous trouverez une brève description des compétences clés associées aux différentes fonctionnalités du blog.</p>
+<table>
+    <caption>Correspondance entre les compétences techniques et les fonctionnalités du site de blog</caption>
+    <thead>
+        <tr>
+            <th scope="col">Compétence</th>
+            <th scope="col">Fonctionnalité(s) du site de blog</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Bases de données relationnelles avec SQLAlchemy <br>Flask-SQLAlchemy</th>
+            <td>Stocker les articles et les tags dans une base de données relationnelle. Effectuer une grande variété de requêtes, y compris la pagination, les plages de dates, la recherche en texte intégral, les jointures internes et externes, et plus encore.</td>
+        </tr>
+        <tr>
+            <th scope="row">Traitement et validation de formulaires <br>Flask-WTF</th>
+            <td>Créer et modifier des articles de blog à l’aide de formulaires. Dans les chapitres suivants, nous utiliserons également les formulaires pour connecter les utilisateurs au site et permettre aux visiteurs de publier des commentaires.</td>
+        </tr>
+        <tr>
+            <th scope="row">Rendu de templates avec Jinja2</th>
+            <td>Créer un ensemble de templates clair et extensible, en utilisant l’héritage et les inclusions lorsque cela est pertinent.</td>
+        </tr>
+        <tr>
+            <th scope="row">Authentification des utilisateurs et tableaux de bord d’administration<br>Flask-Login</th>
+            <td>Stocker les comptes utilisateurs dans la base de données et restreindre la page de gestion des articles aux utilisateurs enregistrés. Construire un panneau d’administration pour gérer les articles, les comptes utilisateurs, et afficher des statistiques comme les pages vues, la géolocalisation IP, etc.</td>
+        </tr>
+        <tr>
+            <th scope="row">Ajax et APIs RESTful<br>Flask-API</th>
+            <td>Construire un système de commentaires dynamique avec Ajax affiché sur chaque article. Exposer les articles du blog via une API RESTful, et créer un client en ligne de commande pour publier des articles via l’API.</td>
+        </tr>
+        <tr>
+            <th scope="row">Tests unitaires <br>pytest</th>
+            <td>Construire une suite complète de tests pour le blog, et apprendre à simuler des requêtes réelles et à utiliser des mocks pour simplifier les interactions complexes.</td>
+        </tr>
+        <tr>
+            <th scope="row">Tout le reste</th>
+            <td>Protection contre les attaques CSRF, flux Atom, détection de spam, exécution de tâches asynchrones, déploiement, SSL (HTTPS), hébergement, et plus encore.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Le cahier des charges</h2>
+<p>Il est toujours bon, lorsqu’on démarre un projet ambitieux, d’avoir une spécification fonctionnelle en tête. Pour le site de blog, notre spécification sera tout simplement la liste des fonctionnalités que nous souhaitons intégrer. Ces fonctionnalités sont basées sur mon expérience dans le développement de mon blog personnel :</p>
+<ul>
+<li>Les articles doivent pouvoir être saisis via une interface web. Pour la mise en forme, l’auteur pourra utiliser <strong>Markdown</strong>, un langage de balisage léger et agréable visuellement.</li>
+<li>Des images pourront être téléversées sur le site et facilement intégrées aux articles.</li>
+<li>Les articles pourront être organisés à l’aide de <strong>tags</strong> (étiquettes) en nombre illimité.</li>
+<li>Le site devra supporter <strong>plusieurs auteurs</strong>.</li>
+<li>Les articles pourront être affichés par <strong>ordre de publication</strong>, mais aussi listés par <strong>mois</strong>, par <strong>tag</strong>, ou par <strong>auteur</strong>. Les longues listes d’articles seront <strong>paginées</strong>.</li>
+<li>Les articles pourront être enregistrés en tant que <strong>brouillons</strong>, visibles uniquement par leur auteur jusqu’à leur publication.</li>
+<li>Les visiteurs du site pourront <strong>poster des commentaires</strong> sur les articles. Ces commentaires seront <strong>vérifiés contre le spam</strong>, puis l’auteur pourra choisir de les rendre visibles ou non.</li>
+<li>Des <strong>flux Atom</strong> seront disponibles pour tous les articles, y compris des flux séparés pour chaque auteur et chaque tag.</li>
+<li>Les articles pourront être accédés via une <strong>API RESTful</strong>. Les auteurs disposeront d’un <strong>jeton d’API</strong> leur permettant de modifier les articles via l’API.</li>
+</ul>
+<p>Bien que cette liste ne soit pas exhaustive, elle couvre les fonctionnalités principales de notre site de blog. J’espère que vous trouverez ce projet à la fois <strong>amusant</strong> et <strong>stimulant</strong>.Je suis certain que vous avez hâte de commencer, alors lançons la mise en place de notre projet de blog.</p></div>
       <p class="text-right">Publié le 02 juin 2025, mise à jour le 04 juin 2025</p>
     </article>
   </section>
@@ -346,7 +493,7 @@ Dans l’exemple précédent, la route que nous avons ajoutée spécifie un seul
 </footer>
 
     </main>
-    <script src="/static/app-DL_Lxhor.js"></script>
+    <script src="/static/app-BzPm1XV_.js"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>
