@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="fr" id="top">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="bug4GPSDEqxoKku92DUfj_WE6b8PlwHJX-DCeZZBV1w" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-MCT7LV9P');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Gérer un environnement virtuel avec Python, pip et Pipenv - RB webstudio </title>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/static/styles-BnJ0AZNy.css">
+    <meta name="description"  content="Apprenez à gérer vos environnements Python avec venv, pip et Pipenv pour éviter les conflits de dépendances et garder vos projets propres.">
+  </head>
+
+  <body>
+    <main class="grid-container">
+      <header class="flex-container align-justify align-middle">
+    
+    <div><a href="/">
+  <svg id="logo" width="5rem" height="5rem" version="1.1" viewBox="0 0 79.375 79.375">
+    <desc>RB webstudio - spécialiste Python - Javascript/Typescript</desc>
+    <g transform="translate(-57.558 -71.836)">
+    <circle cx="97.246" cy="111.52" r="33.073" fill="var(--color-cannes)" stroke-width=".177" style="paint-order:markers fill stroke"/>
+    <g transform="matrix(.33371 0 0 .33371 -78.371 192.62)" fill="var(--color-laval)">
+    <g transform="translate(243.55 81.615)" stroke-width=".67039" aria-label="rb">
+    <path d="m251.15-309.59v27.653h-25.077v-31.927q0-10.81 2.0112-16.843 2.0112-6.0963 6.8505-10.81 3.6452-3.6452 8.4846-5.6564 4.9022-2.074 9.8044-2.074 2.3882 0 4.7136 0.18855 2.3254 0.18854 4.5251 0.56563v26.396q-0.43994-0.0628-1.3198-0.18855-2.074-0.31424-2.6396-0.31424-4.0852 0-5.7192 2.6396-1.6341 2.6396-1.6341 10.37z"/>
+    <path d="m270.76-373.69h24.448v51.599q0 9.553 2.2626 13.324t7.5418 3.7709q3.8338 0 6.662-2.8282 2.8282-2.891 2.8282-6.7876 0-4.2109-2.7653-7.039-2.7653-2.891-6.7248-2.891-1.0056 0-2.1368 0.31425-1.1313 0.25139-3.2681 1.1313v-26.019q0.62849-0.0629 2.6396-0.18855 2.0112-0.18855 3.1424-0.18855 14.141 0 24.008 10.181 9.9301 10.119 9.9301 24.7 0 6.8505-2.514 13.135-2.5139 6.222-7.2276 11.061-4.9022 4.965-11.187 7.6675-6.222 2.6396-13.135 2.6396-10.181 0-18.415-5.2164-8.1703-5.2793-12.13-14.267-2.074-4.7765-3.0167-9.8672-0.94273-5.1536-0.94273-12.758v-4.9022z"/>
+    </g>
+    <path d="m542.38-288.15h-31.744l15.872-17.36z" stroke-width=".44511" style="paint-order:markers fill stroke"/>
+    </g>
+    </g>
+  </svg>
+</a></div>
+    
+    <nav class="flex-container align-right">
+      <a href="/articles/index.html" class="margin-horizontal-1">articles</a>
+      <a href="#contact" class="margin-horizontal-1">contact</a>
+    </nav>
+</header>
+
+      
+<progress id="progressTrue" max="100" value="0"></progress>
+  <section>
+    <article>
+      <h1>Gérer un environnement virtuel avec Python, pip et Pipenv</h1>
+      <div class="grid-x grid-padding-x">
+        <ul class="cell medium-6 flex-container no-bullet tags-list">
+          
+            <li><a href="/articles/chercher-articles-par-python.html"><span>python</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-developpement.html"><span>développement</span></a></li>
+          
+        </ul>
+        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
+          <ul class="flex-container no-bullet share">
+            
+              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//rb-webstudio.go.yj.fr/articles/gerer-un-environnement-virtuel-avec-python-pip-et-pipenv-13.html&amp;title=G%C3%A9rer%20un%20environnement%20virtuel%20avec%20Python%2C%20pip%20et%20Pipenv&amp;source=http%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
+            
+              <li><a href="https://twitter.com/intent/tweet?url=http%3A//rb-webstudio.go.yj.fr/articles/gerer-un-environnement-virtuel-avec-python-pip-et-pipenv-13.html&amp;text=G%C3%A9rer%20un%20environnement%20virtuel%20avec%20Python%2C%20pip%20et%20Pipenv" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
+            
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//rb-webstudio.go.yj.fr/articles/gerer-un-environnement-virtuel-avec-python-pip-et-pipenv-13.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
+            
+          </ul>
+        </nav>
+      </div>
+      <div class="content"><p>Lorsque vous développez plusieurs projets Python, chacun peut nécessiter des bibliothèques différentes, voire des versions spécifiques de ces bibliothèques. Pour éviter les conflits, Python permet de créer des environnements virtuels : des espaces isolés dans lesquels vous installez uniquement les dépendances dont votre projet a besoin. Ainsi, votre système reste propre et vous maîtrisez exactement ce que votre projet utilise.</p>
+<h2>Créer un environnement virtuel avec venv</h2>
+<p>La première étape consiste à créer un environnement virtuel dans le répertoire de votre projet. Cela va générer un dossier contenant une version indépendante de l’interpréteur Python ainsi que de <code>pip</code>.</p>
+<pre><code class="language-bash">$python3 -m venv .venv
+</code></pre>
+<p>Ici, <code>.venv</code> est le nom du dossier qui contiendra l’environnement virtuel. Vous pouvez l’appeler autrement, mais .venv est une convention largement adoptée. Cette commande ne fait qu’installer une structure de fichiers, elle ne lance pas l’environnement.</p>
+<h2>Activer l’environnement virtuel</h2>
+<p>Avant d’utiliser votre environnement, vous devez l’activer. L’activation consiste à modifier temporairement ta session pour que Python et pip pointent vers l’environnement virtuel, et non vers les versions globales du système.</p>
+<p><strong>Selon le système :</strong></p>
+<ul>
+<li>GNU/Linux - MacOS :</li>
+</ul>
+<pre><code class="language-bash">source .venv/bin/activate
+</code></pre>
+<ul>
+<li>Microsoft Windows :  </li>
+</ul>
+<pre><code class="language-cmd">.venv\Scripts\activate.bat
+</code></pre>
+<p>Une fois activé, vous verrez le nom de l’environnement s’afficher dans ton terminal, ce qui confirme que vous travaillez bien dans ce contexte isolé.</p>
+<h2>Installer des bibliothèques avec pip</h2>
+<p>Maintenant que votre environnement est actif, vous pouvez installer les bibliothèques dont votre projet a besoin en utilisant <code>pip</code>.</p>
+<pre><code class="language-bash">pip install requests flask
+</code></pre>
+<p>Ces bibliothèques seront installées uniquement dans l’environnement virtuel .venv, et n’auront aucun impact sur les autres projets ou sur votre système.</p>
+<h3>Installer une version spécifique d’un module</h3>
+<p>Lorsque vous travaillez sur un projet, il est parfois essentiel d’installer une version précise d’un module pour garantir la compatibilité ou éviter une régression.</p>
+<pre><code class="language-bash">pip install numpy==1.21.0
+</code></pre>
+<p><strong>Quelques variantes utiles :</strong></p>
+<ul>
+<li><code>==</code> : exactement cette version</li>
+<li><code>&gt;=</code> : au moins cette version</li>
+<li><code>&lt;=</code> : au plus cette version</li>
+<li><code>!=</code> : toute version sauf celle-ci</li>
+<li><code>~=</code> : compatible avec (ex : requests~=2.25 installe la dernière 2.25.x)</li>
+</ul>
+<p><strong>avec <code>requirements.txt</code></strong> :
+Vous pouvez aussi fixer la version dans le fichier <code>requirements.txt</code> :</p>
+<pre><code>Django==4.2.3
+requests&gt;=2.26,&lt;3.0
+</code></pre>
+<p>Puis installer toutes les dépendances :</p>
+<pre><code class="language-bash">pip install -r requirements.txt
+</code></pre>
+<h2>Gérer les dépendances</h2>
+<p>Quand vous travaillez sur un projet, il est important de pouvoir facilement partager les bibliothèques utilisées. Pour cela, on utilise un fichier <code>requirements.txt</code> qui liste toutes les dépendances.</p>
+<p>Pour sauvegarder les dépendances :</p>
+<pre><code class="language-bash">pip freeze &gt; requirements.txt
+</code></pre>
+<p>Pour réinstaller les mêmes dépendances ailleurs :</p>
+<pre><code class="language-bash">pip install -r requirements.txt
+</code></pre>
+<p>Ainsi, n’importe qui (ou vous-même dans quelques mois) pourra recréer exactement le même environnement.</p>
+<h2>Désactiver l’environnement</h2>
+<p>Lorsque vous avez fini de travailler sur votre projet, vous pouvez désactiver l’environnement virtuel. Cela remet le terminal dans son état initial, en sortant de l’environnement isolé.</p>
+<pre><code class="language-bash">deactivate
+</code></pre>
+<p>Votre interpréteur Python redevient alors celui du système.</p>
+<h2>Supprimer un environnement virtuel</h2>
+<p>Si vous n’avez plus besoin de l’environnement (par exemple, si vous supprimez le projet), vous pouvez simplement supprimer le dossier .venv. Cela ne supprime que l’environnement, pas votre projet ou vos fichiers de code.</p>
+<p><strong>Selon le système :</strong></p>
+<ul>
+<li>GNU/Linux - MacOS :</li>
+</ul>
+<pre><code class="language-bash">rm -rf .venv
+</code></pre>
+<ul>
+<li>Microsoft Windows :  </li>
+</ul>
+<pre><code class="language-cmd">rd /s /q .venv
+</code></pre>
+<h2>Utiliser Pipenv pour simplifier la gestion des environnements et des dépendances</h2>
+<p>Bien que <code>venv</code> et <code>pip</code> soient des outils puissants, l'utilisation de Pipenv peut grandement simplifier la gestion des environnements virtuels et des dépendances. Pipenv combine les fonctionnalités de <code>pip</code> et <code>virtualenv</code> en un seul outil, offrant une expérience plus fluide et moins sujette aux erreurs. </p>
+<p>La documentation officielle de Python recommande l'utilisation de Pipenv pour la gestion des dépendances des applications.</p>
+<p>Dans le <a href="https://packaging.python.org/en/latest/guides/tool-recommendations/" target="_blank">Python Packaging User Guide</a>, il est indiqué que Pipenv est l'un des outils reconnus pour créer des fichiers de verrouillage (lock files), qui contiennent les versions exactes de tous les paquets installés dans un environnement, afin d'assurer la reproductibilité. Cela est particulièrement utile pour les projets collaboratifs où il est essentiel que tous les contributeurs utilisent les mêmes versions de dépendances.</p>
+<p>De plus, le guide <a href="https://packaging.python.org/en/latest/tutorials/managing-dependencies/" target="_blank">Managing Application Dependencies</a> présente un tutoriel détaillé sur l'utilisation de Pipenv pour gérer les dépendances d'une application. Il y est mentionné que, bien que <code>pip</code> soit souvent suffisant pour un usage personnel, Pipenv est recommandé pour les projets collaboratifs, car c'est un outil de plus haut niveau qui simplifie la gestion des dépendances pour les cas d'utilisation courants.</p>
+<p>En résumé, Pipenv est recommandé par la documentation officielle de Python pour la gestion des dépendances des applications, en particulier dans des contextes collaboratifs où la reproductibilité et la simplicité de gestion sont essentielles.</p>
+<h3>Installation de Pipenv</h3>
+<p>Installez Pipenv en utilisant <code>pip</code> :</p>
+<pre><code class="language-bash">pip install --user pipenv
+</code></pre>
+<p><strong>Note</strong>: Il est recommandé d'utiliser l'option <code>--user</code> pour éviter les problèmes de permissions et les conflits avec les paquets système.</p>
+<h3>Créer un nouveau projet avec Pipenv</h3>
+<p><strong>Initialiser un projet</strong></p>
+<p>Dans le répertoire de votre projet, exécutez :</p>
+<pre><code class="language-bash">pipenv shell
+</code></pre>
+<p><strong>Note</strong>: Cela créera un fichier Pipfile qui gérera les dépendances de votre projet.</p>
+<p><strong>Installer des paquets</strong></p>
+<p>Pour installer une bibliothèque, par exemple <code>requests</code> :</p>
+<pre><code class="language-bash">pipenv install requests
+</code></pre>
+<p><strong>Désactiver l'environnement virtuel :</strong>
+Pour sortir de l'environnement virtuel :</p>
+<pre><code class="language-bash">exit
+</code></pre>
+<p><strong>Gérer les dépendances de développement :</strong>
+Pour installer des paquets nécessaires uniquement pour le développement, utilise l'option <code>--dev</code> :</p>
+<pre><code class="language-bash">pipenv install --dev pytest
+</code></pre>
+<p><strong>Vérifier les dépendances :</strong>
+Pour vérifier les vulnérabilités de sécurité dans les dépendances :</p>
+<pre><code class="language-bash">pipenv check
+</code></pre>
+<h3>Avantages de Pipenv</h3>
+<ul>
+<li><strong>Gestion simplifiée</strong> : Unifie la gestion des environnements virtuels et des dépendances. </li>
+<li><strong>Reproductibilité </strong>: Le fichier Pipfile.lock assure que tous les contributeurs utilisent les mêmes versions de paquets.</li>
+<li><strong>Sécurité</strong> : Intègre des outils pour vérifier les vulnérabilités dans les dépendances.</li>
+<li><strong>Compatibilité</strong> : Fonctionne sur Windows, macOS et Linux.</li>
+</ul>
+<h2>Résumé des commandes importantes</h2>
+<table>
+    <caption>Commandes clés pour gérer efficacement un environnement Python avec <code>venv</code> et <code>pipenv</code>.</caption>
+    <thead>
+        <tr>
+            <th scope="col">Action</th>
+            <th scope="col">Commande</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Créer un environnement virtuel</td>
+            <td><code>python3 -m venv .venv</code></td>
+        </tr>
+        <tr>
+            <td>Activer (Linux/macOS)</td>
+            <td><code>source .venv/bin/activate</code></td>
+        </tr>
+        <tr>
+            <td>Activer (Windows)</td>
+            <td><code>.venv\Scripts\activate.bat</code></td>
+        </tr>
+        <tr>
+            <td>Installer un paquet</td>
+            <td><code>pip install nom_du_paquet</code></td>
+        </tr>
+        <tr>
+            <td>Geler les dépendances</td>
+            <td><code>pip freeze &gt; requirements.txt</code></td>
+        </tr>
+        <tr>
+            <td>Installer depuis requirements</td>
+            <td><code>pip install -r requirements.txt</code></td>
+        </tr>
+        <tr>
+            <td>Désactiver l’environnement</td>
+            <td><code>deactivate</code></td>
+        </tr>
+        <tr>
+            <td>Supprimer l’environnement</td>
+            <td><code>rm -rf .venv</code> ou <code>rd /s /q .venv</code></td>
+        </tr>
+        <tr>
+            <td>Installer Pipenv</td>
+            <td><code>pip install --user pipenv</code></td>
+        </tr>
+        <tr>
+            <td>Initialiser un projet avec Pipenv</td>
+            <td><code>pipenv install</code></td>
+        </tr>
+        <tr>
+            <td>Installer un paquet avec Pipenv</td>
+            <td><code>pipenv install nom_du_paquet</code></td>
+        </tr>
+        <tr>
+            <td>Activer l'environnement Pipenv</td>
+            <td><code>pipenv shell</code></td>
+        </tr>
+        <tr>
+            <td>Vérifier les vulnérabilités</td>
+            <td><code>pipenv check</code></td>
+        </tr>
+    </tbody>
+</table></div>
+      <p class="text-right">Publié le 05 juin 2025</p>
+    </article>
+  </section>
+  <template id="tplProgressFalse">
+    <div id="progressFalse">
+      <div id="cursorProgress">&nbsp;</div>
+    </div>
+  </template>
+
+      <section class="contact" id="contact">
+  <h3>me contacter</h3>
+  <div class="content">
+    <p class="info">
+      <small><em><span>*</span> champ obligatoire</em></small>
+    </p>
+    <form id="formContact" action="/services/mail/send.html" method="post" class="grid-x grid-padding-x clearfix" novalidate>
+      <label class="cell medium-4 padding-left-0">
+        <span>
+          <span>Civilité</span>
+          <select name="civility" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
+            <option value="">choisir</option>
+            <option value="Mademoiselle">Mademoiselle</option>
+            <option value="Madame">Madame</option>
+            <option value="Monsieur">Monsieur</option>
+          </select>
+        </span>
+      </label>
+      <label class="cell medium-4">
+        <span>
+          <span>Prénom</span>
+          <input type="text" name="firstname">
+        </span>
+      </label>
+      <label class="cell medium-4 padding-right-0">
+        <span>
+          <span>Nom</span>
+          <input type="text" name="lastname" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
+        </span>
+      </label>
+      <label class="cell medium-6 margin-top-1 padding-left-0">
+        <span>
+          <span>Email</span>
+          <input type="email" name="email" required data-validate-rules="isnotempty isemail" data-error-isnotempty="ne doit pas être vide" data-error-isemail="Ce champ doit avoir la bonne saisie (dom@dom.com)">
+        </span>
+      </label>
+      <label><span><span>addresse</span><input type="text" name="address" tabindex="-1"></span></label>
+      <label class="cell medium-6 padding-right-0 margin-top-1">
+        <span>
+          <span>Sujet</span>
+          <input type="text" name="subject" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
+        </span>
+      </label>
+      <label class="cell medium-3 flex-container align-middle">
+        <span>
+          <input type="checkbox" name="appointement">
+          <span class="icon">
+            <i class="fa-regular fa-square"></i>
+            <i class="fa-solid fa-square-check"></i>
+          </span>
+          <span class="margin-left-1">un rendez-vous</span>
+        </span>
+      </label>
+      <label class="cell medium-3"><span><span>Téléphone</span><input type="text" name="phone" disabled data-validate-rules="isnotempty checkphone" data-error-isnotempty="le n° de téléphone est manquant" data-error-checkphone="Le format du champ téléphone ne semble pas être bon 0102030405" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Date</span><input type="date" name="date_appointment" disabled data-validate-rules="isnotempty datemin businessday isdate" data-error-isnotempty="la date est manquante" data-error-datemin="La date de rendez vous doit être suppérieur à aujourd'hui" data-error-businessday="les rendez vous sont du lundi au vendredi" data-error-isdate="Ce champ doit être une date valide" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Heure</span><input type="time" name="hour_appointment" disabled data-validate-rules="isnotempty betweenhour" data-error-isnotempty="l'heure est manquante" data-error-betweenhour="Les rendez vous sont compris entre 9 h 00 et 18 h 00" data-validate-target-error="#errorAppointment" data-validate-betweenhour-args="9;18"></span></label>
+      <div id="errorAppointment" class="cell medium-12"></div>
+      <label class="cell medium-12"><span><span>Message</span><textarea name="message" cols="30" rows="10" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3"></textarea></span></label>
+      <div class="cell medium-4 margin-top-1 large-offset-8">
+        <button class="button expanded" type="submit">envoyer</button>
+      </div>
+    </form>
+  </div>
+</section>
+      <footer>
+  <p class="flex-container align-middle align-justify">
+  <span>RB webstudio &ndash; <a href="https://www.alsacreations.com/profil/lire/11496-niuxe.html" target="_blank">Alsacreations</a> &ndash; <a href="https://github.com/niux3" target="_blank">Github</a> &ndash; <a href="https://www.linkedin.com/in/renaud-bourdeau-%F0%9F%90%A7-7639b944/" target="_blank">LinkedIn</a> &ndash; <a href="/static/renaud-bourdeau-cv.pdf">CV</a></span>
+    <span>
+      <button class="button clear changeMode margin-bottom-0 padding-0 padding-horizontal-1">
+        <span class="fa-solid fa-moon"><span class="text">light</span></span>
+      </button>
+      <a href="#top"><i class="fa-solid fa-arrow-up"></i></a>
+    </span>
+  </p>
+</footer>
+
+    </main>
+    <script src="/static/app-BzPm1XV_.js"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </body>
+</html>

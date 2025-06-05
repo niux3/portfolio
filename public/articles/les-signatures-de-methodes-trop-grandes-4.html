@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Les signatures de méthodes trop grandes - RB webstudio </title>
 
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
@@ -80,7 +80,7 @@
 <p>Vérifiez quelles valeurs sont passées en tant que paramètres dans une méthode. Si certains des arguments ne sont en réalité que le résultat d'appels de méthode sur un autre objet, vous pouvez appliquer la technique <strong>Remplacer un paramètre par un appel de méthode</strong>. Cela consiste à éviter de passer le résultat de cet appel en paramètre et à plutôt effectuer cet appel directement à l'intérieur de la méthode concernée. L'objet sur lequel l'appel est fait peut être stocké dans un champ de la classe elle-même ou bien transmis à la méthode sous forme de paramètre.</p>
 <p>Au lieu de passer un ensemble de données issues d'un autre objet sous forme de plusieurs paramètres, il est souvent plus judicieux de passer directement l'objet entier à la méthode. Cette approche est connue sous le nom de <strong>Préserver l'objet entier</strong>. Cela permet de simplifier le nombre de paramètres et d'accéder plus facilement aux données nécessaires sans devoir les décomposer à l'avance.</p>
 <p>Cependant, si les paramètres proviennent de différentes sources (c'est-à-dire de différents objets ou structures de données), il est recommandé de les regrouper dans un objet unique. Ce regroupement de paramètres peut être effectué à l'aide de la technique <strong>Introduire un objet paramètre</strong>. Cela consiste à créer un objet spécifique qui contiendra tous les paramètres nécessaires, ce qui permet de ne passer qu'un seul paramètre à la méthode au lieu de plusieurs.</p></div>
-      <p class="text-right">Publié le 02 juin 2025, mise à jour le 04 juin 2025</p>
+      <p class="text-right">Publié le 02 juin 2025</p>
     </article>
   </section>
   <template id="tplProgressFalse">
