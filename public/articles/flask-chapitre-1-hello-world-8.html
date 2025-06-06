@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="/static/styles-BnJ0AZNy.css">
-    <meta name="description"  content="flask hello world">
+    <meta name="description"  content="Découvrez Flask avec un Hello World simple et rapide : premiers pas pour créer une appli web en Python. Idéal débutants. 1er chapitre d’un tuto complet.">
   </head>
 
   <body>
@@ -342,69 +342,7 @@ Tout en bas, on voit la ligne de code que nous avons intentionnellement mal écr
 <p>L’icône Terminal est encore plus intéressante. En cliquant dessus, une console interactive apparaît avec l’invite Python standard.
 Cette console vous permet d’inspecter en temps réel la valeur des variables locales au moment où l’exception s’est produite.
 Essayez par exemple de taper <code>name</code> puis d’appuyer sur Entrée : si une valeur a été spécifiée dans l’URL, elle devrait s’afficher.
-On peut également consulter les arguments de la requête courante. Au fil des chapitres et de vos propres expérimentations, savoir diagnostiquer et corriger rapidement des bugs sera une compétence précieuse.</p>
-<h2>Présentation du projet de blog</h2>
-<p>Dans la suite de ce tuto, nous allons construire, améliorer et déployer un site de blog conçu pour les développeurs. Ce projet vous initiera aux tâches les plus courantes du développement web, comme :</p>
-<ul>
-<li>La gestion de bases de données relationnelles,</li>
-<li>Le traitement et la validation des données de formulaire,</li>
-<li>et bien sûr (le préféré de tous) : les tests.</li>
-</ul>
-<p>À chaque chapitre, vous apprendrez une nouvelle compétence à travers des projets concrets et pratiques. Dans le tableau suivant, vous trouverez une brève description des compétences clés associées aux différentes fonctionnalités du blog.</p>
-<table>
-    <caption>Correspondance entre les compétences techniques et les fonctionnalités du site de blog</caption>
-    <thead>
-        <tr>
-            <th scope="col">Compétence</th>
-            <th scope="col">Fonctionnalité(s) du site de blog</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">Bases de données relationnelles avec SQLAlchemy <br>Flask-SQLAlchemy</th>
-            <td>Stocker les articles et les tags dans une base de données relationnelle. Effectuer une grande variété de requêtes, y compris la pagination, les plages de dates, la recherche en texte intégral, les jointures internes et externes, et plus encore.</td>
-        </tr>
-        <tr>
-            <th scope="row">Traitement et validation de formulaires <br>Flask-WTF</th>
-            <td>Créer et modifier des articles de blog à l’aide de formulaires. Dans les chapitres suivants, nous utiliserons également les formulaires pour connecter les utilisateurs au site et permettre aux visiteurs de publier des commentaires.</td>
-        </tr>
-        <tr>
-            <th scope="row">Rendu de templates avec Jinja2</th>
-            <td>Créer un ensemble de templates clair et extensible, en utilisant l’héritage et les inclusions lorsque cela est pertinent.</td>
-        </tr>
-        <tr>
-            <th scope="row">Authentification des utilisateurs et tableaux de bord d’administration<br>Flask-Login</th>
-            <td>Stocker les comptes utilisateurs dans la base de données et restreindre la page de gestion des articles aux utilisateurs enregistrés. Construire un panneau d’administration pour gérer les articles, les comptes utilisateurs, et afficher des statistiques comme les pages vues, la géolocalisation IP, etc.</td>
-        </tr>
-        <tr>
-            <th scope="row">Ajax et APIs RESTful<br>Flask-API</th>
-            <td>Construire un système de commentaires dynamique avec Ajax affiché sur chaque article. Exposer les articles du blog via une API RESTful, et créer un client en ligne de commande pour publier des articles via l’API.</td>
-        </tr>
-        <tr>
-            <th scope="row">Tests unitaires <br>pytest</th>
-            <td>Construire une suite complète de tests pour le blog, et apprendre à simuler des requêtes réelles et à utiliser des mocks pour simplifier les interactions complexes.</td>
-        </tr>
-        <tr>
-            <th scope="row">Tout le reste</th>
-            <td>Protection contre les attaques CSRF, flux Atom, détection de spam, exécution de tâches asynchrones, déploiement, SSL (HTTPS), hébergement, et plus encore.</td>
-        </tr>
-    </tbody>
-</table>
-
-<h2>Le cahier des charges</h2>
-<p>Il est toujours bon, lorsqu’on démarre un projet ambitieux, d’avoir une spécification fonctionnelle en tête. Pour le site de blog, notre spécification sera tout simplement la liste des fonctionnalités que nous souhaitons intégrer. Ces fonctionnalités sont basées sur mon expérience dans le développement de mon blog personnel :</p>
-<ul>
-<li>Les articles doivent pouvoir être saisis via une interface web. Pour la mise en forme, l’auteur pourra utiliser <strong>Markdown</strong>, un langage de balisage léger et agréable visuellement.</li>
-<li>Des images pourront être téléversées sur le site et facilement intégrées aux articles.</li>
-<li>Les articles pourront être organisés à l’aide de <strong>tags</strong> (étiquettes) en nombre illimité.</li>
-<li>Le site devra supporter <strong>plusieurs auteurs</strong>.</li>
-<li>Les articles pourront être affichés par <strong>ordre de publication</strong>, mais aussi listés par <strong>mois</strong>, par <strong>tag</strong>, ou par <strong>auteur</strong>. Les longues listes d’articles seront <strong>paginées</strong>.</li>
-<li>Les articles pourront être enregistrés en tant que <strong>brouillons</strong>, visibles uniquement par leur auteur jusqu’à leur publication.</li>
-<li>Les visiteurs du site pourront <strong>poster des commentaires</strong> sur les articles. Ces commentaires seront <strong>vérifiés contre le spam</strong>, puis l’auteur pourra choisir de les rendre visibles ou non.</li>
-<li>Des <strong>flux Atom</strong> seront disponibles pour tous les articles, y compris des flux séparés pour chaque auteur et chaque tag.</li>
-<li>Les articles pourront être accédés via une <strong>API RESTful</strong>. Les auteurs disposeront d’un <strong>jeton d’API</strong> leur permettant de modifier les articles via l’API.</li>
-</ul>
-<p>Bien que cette liste ne soit pas exhaustive, elle couvre les fonctionnalités principales de notre site de blog. J’espère que vous trouverez ce projet à la fois <strong>amusant</strong> et <strong>stimulant</strong>.Je suis certain que vous avez hâte de commencer, alors lançons la mise en place de notre projet de blog.</p></div>
+On peut également consulter les arguments de la requête courante. Au fil des chapitres et de vos propres expérimentations, savoir diagnostiquer et corriger rapidement des bugs sera une compétence précieuse.</p></div>
       <p class="text-right">Publié le 02 juin 2025</p>
     </article>
   </section>

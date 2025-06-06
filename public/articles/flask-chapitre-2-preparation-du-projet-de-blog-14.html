@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="fr" id="top">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="bug4GPSDEqxoKku92DUfj_WE6b8PlwHJX-DCeZZBV1w" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-MCT7LV9P');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Flask - Chapitre 2 : Préparation du projet de blog - RB webstudio </title>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/static/styles-BnJ0AZNy.css">
+    <meta name="description"  content="Chapitre 2 : Créez un blog minimaliste avec Flask en posant les bases du projet. Structure, routes simples et premières vues au programme.">
+  </head>
+
+  <body>
+    <main class="grid-container">
+      <header class="flex-container align-justify align-middle">
+    
+    <div><a href="/">
+  <svg id="logo" width="5rem" height="5rem" version="1.1" viewBox="0 0 79.375 79.375">
+    <desc>RB webstudio - spécialiste Python - Javascript/Typescript</desc>
+    <g transform="translate(-57.558 -71.836)">
+    <circle cx="97.246" cy="111.52" r="33.073" fill="var(--color-cannes)" stroke-width=".177" style="paint-order:markers fill stroke"/>
+    <g transform="matrix(.33371 0 0 .33371 -78.371 192.62)" fill="var(--color-laval)">
+    <g transform="translate(243.55 81.615)" stroke-width=".67039" aria-label="rb">
+    <path d="m251.15-309.59v27.653h-25.077v-31.927q0-10.81 2.0112-16.843 2.0112-6.0963 6.8505-10.81 3.6452-3.6452 8.4846-5.6564 4.9022-2.074 9.8044-2.074 2.3882 0 4.7136 0.18855 2.3254 0.18854 4.5251 0.56563v26.396q-0.43994-0.0628-1.3198-0.18855-2.074-0.31424-2.6396-0.31424-4.0852 0-5.7192 2.6396-1.6341 2.6396-1.6341 10.37z"/>
+    <path d="m270.76-373.69h24.448v51.599q0 9.553 2.2626 13.324t7.5418 3.7709q3.8338 0 6.662-2.8282 2.8282-2.891 2.8282-6.7876 0-4.2109-2.7653-7.039-2.7653-2.891-6.7248-2.891-1.0056 0-2.1368 0.31425-1.1313 0.25139-3.2681 1.1313v-26.019q0.62849-0.0629 2.6396-0.18855 2.0112-0.18855 3.1424-0.18855 14.141 0 24.008 10.181 9.9301 10.119 9.9301 24.7 0 6.8505-2.514 13.135-2.5139 6.222-7.2276 11.061-4.9022 4.965-11.187 7.6675-6.222 2.6396-13.135 2.6396-10.181 0-18.415-5.2164-8.1703-5.2793-12.13-14.267-2.074-4.7765-3.0167-9.8672-0.94273-5.1536-0.94273-12.758v-4.9022z"/>
+    </g>
+    <path d="m542.38-288.15h-31.744l15.872-17.36z" stroke-width=".44511" style="paint-order:markers fill stroke"/>
+    </g>
+    </g>
+  </svg>
+</a></div>
+    
+    <nav class="flex-container align-right">
+      <a href="/articles/index.html" class="margin-horizontal-1">articles</a>
+      <a href="#contact" class="margin-horizontal-1">contact</a>
+    </nav>
+</header>
+
+      
+<progress id="progressTrue" max="100" value="0"></progress>
+  <section>
+    <article>
+      <h1>Flask - Chapitre 2 : Préparation du projet de blog</h1>
+      <div class="grid-x grid-padding-x">
+        <ul class="cell medium-6 flex-container no-bullet tags-list">
+          
+            <li><a href="/articles/chercher-articles-par-python.html"><span>python</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-developpement.html"><span>développement</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-flask.html"><span>flask</span></a></li>
+          
+        </ul>
+        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
+          <ul class="flex-container no-bullet share">
+            
+              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//rb-webstudio.go.yj.fr/articles/flask-chapitre-2-preparation-du-projet-de-blog-14.html&amp;title=Flask%20-%20Chapitre%202%20%3A%20Pr%C3%A9paration%20du%20projet%20de%20blog&amp;source=http%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
+            
+              <li><a href="https://twitter.com/intent/tweet?url=http%3A//rb-webstudio.go.yj.fr/articles/flask-chapitre-2-preparation-du-projet-de-blog-14.html&amp;text=Flask%20-%20Chapitre%202%20%3A%20Pr%C3%A9paration%20du%20projet%20de%20blog" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
+            
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//rb-webstudio.go.yj.fr/articles/flask-chapitre-2-preparation-du-projet-de-blog-14.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
+            
+          </ul>
+        </nav>
+      </div>
+      <div class="content"><p>Dans la suite de ce tuto, nous allons construire, améliorer et déployer un site de blog conçu pour les développeurs. Ce projet vous initiera aux tâches les plus courantes du développement web, comme :</p>
+<ul>
+<li>La gestion de bases de données relationnelles,</li>
+<li>Le traitement et la validation des données de formulaire,</li>
+<li>et bien sûr (le préféré de tous) : les tests.</li>
+</ul>
+<p>À chaque chapitre, vous apprendrez une nouvelle compétence à travers des projets concrets et pratiques. Dans le tableau suivant, vous trouverez une brève description des compétences clés associées aux différentes fonctionnalités du blog.</p>
+<table>
+    <caption>Correspondance entre les compétences techniques et les fonctionnalités du site de blog</caption>
+    <thead>
+        <tr>
+            <th scope="col">Compétence</th>
+            <th scope="col">Fonctionnalité(s) du site de blog</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Bases de données relationnelles avec SQLAlchemy <br>Flask-SQLAlchemy</th>
+            <td>Stocker les articles et les tags dans une base de données relationnelle. Effectuer une grande variété de requêtes, y compris la pagination, les plages de dates, la recherche en texte intégral, les jointures internes et externes, et plus encore.</td>
+        </tr>
+        <tr>
+            <th scope="row">Traitement et validation de formulaires <br>Flask-WTF</th>
+            <td>Créer et modifier des articles de blog à l’aide de formulaires. Dans les chapitres suivants, nous utiliserons également les formulaires pour connecter les utilisateurs au site et permettre aux visiteurs de publier des commentaires.</td>
+        </tr>
+        <tr>
+            <th scope="row">Rendu de templates avec Jinja2</th>
+            <td>Créer un ensemble de templates clair et extensible, en utilisant l’héritage et les inclusions lorsque cela est pertinent.</td>
+        </tr>
+        <tr>
+            <th scope="row">Authentification des utilisateurs et tableaux de bord d’administration<br>Flask-Login</th>
+            <td>Stocker les comptes utilisateurs dans la base de données et restreindre la page de gestion des articles aux utilisateurs enregistrés. Construire un panneau d’administration pour gérer les articles, les comptes utilisateurs, et afficher des statistiques comme les pages vues, la géolocalisation IP, etc.</td>
+        </tr>
+        <tr>
+            <th scope="row">Ajax et APIs RESTful<br>Flask-API</th>
+            <td>Construire un système de commentaires dynamique avec Ajax affiché sur chaque article. Exposer les articles du blog via une API RESTful, et créer un client en ligne de commande pour publier des articles via l’API.</td>
+        </tr>
+        <tr>
+            <th scope="row">Tests unitaires <br>pytest</th>
+            <td>Construire une suite complète de tests pour le blog, et apprendre à simuler des requêtes réelles et à utiliser des mocks pour simplifier les interactions complexes.</td>
+        </tr>
+        <tr>
+            <th scope="row">Tout le reste</th>
+            <td>Protection contre les attaques CSRF, flux Atom, détection de spam, exécution de tâches asynchrones, déploiement, SSL (HTTPS), hébergement, et plus encore.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Le cahier des charges</h2>
+<p>Il est toujours bon, lorsqu’on démarre un projet ambitieux, d’avoir une spécification fonctionnelle en tête. Pour le site de blog, notre spécification sera tout simplement la liste des fonctionnalités que nous souhaitons intégrer. Ces fonctionnalités sont basées sur mon expérience dans le développement de mon blog personnel :</p>
+<ul>
+<li>Les articles doivent pouvoir être saisis via une interface web. Pour la mise en forme, l’auteur pourra utiliser <strong>Markdown</strong>, un langage de balisage léger et agréable visuellement.</li>
+<li>Des images pourront être téléversées sur le site et facilement intégrées aux articles.</li>
+<li>Les articles pourront être organisés à l’aide de <strong>tags</strong> (étiquettes) en nombre illimité.</li>
+<li>Le site devra supporter <strong>plusieurs auteurs</strong>.</li>
+<li>Les articles pourront être affichés par <strong>ordre de publication</strong>, mais aussi listés par <strong>mois</strong>, par <strong>tag</strong>, ou par <strong>auteur</strong>. Les longues listes d’articles seront <strong>paginées</strong>.</li>
+<li>Les articles pourront être enregistrés en tant que <strong>brouillons</strong>, visibles uniquement par leur auteur jusqu’à leur publication.</li>
+<li>Les visiteurs du site pourront <strong>poster des commentaires</strong> sur les articles. Ces commentaires seront <strong>vérifiés contre le spam</strong>, puis l’auteur pourra choisir de les rendre visibles ou non.</li>
+<li>Des <strong>flux Atom</strong> seront disponibles pour tous les articles, y compris des flux séparés pour chaque auteur et chaque tag.</li>
+<li>Les articles pourront être accédés via une <strong>API RESTful</strong>. Les auteurs disposeront d’un <strong>jeton d’API</strong> leur permettant de modifier les articles via l’API.</li>
+</ul>
+<p>Bien que cette liste ne soit pas exhaustive, elle couvre les fonctionnalités principales de notre site de blog. J’espère que vous trouverez ce projet à la fois <strong>amusant</strong> et <strong>stimulant</strong>.Je suis certain que vous avez hâte de commencer, alors lançons la mise en place de notre projet de blog.</p>
+<h2>Création du projet blog</h2>
+<p>Commençons par créer un nouveau projet dans notre répertoire de travail. Sur mon ordinateur portable, il s'agit de <code>/home/user/projects</code>, ou, sur un système Unix, simplement <code>~/projects</code>. C’est exactement ce que nous avons fait lorsque nous avons créé l’application <code>hello_flask</code>. <strong>Note</strong> : n'oubliez pas d'effacer l'ancien projet (hello_flask)</p>
+<pre><code class="language-bash">$ cd ~/projects
+$ mkdir blog
+$ cd blog
+</code></pre>
+<p>Nous allons ensuite devoir configurer notre environnement <code>virtualenv</code>. Cela diffère de ce que nous avons fait précédemment, car il s’agit d’une manière plus structurée d’utiliser <code>virtualenv</code>.</p>
+<pre><code class="language-bash">$ python -m venv .venv
+</code></pre>
+<p>L’étape suivante consiste à installer Flask dans notre environnement virtuel. Pour cela, nous allons activer le <code>virtualenv</code> et utiliser <code>pip</code> pour installer Flask.</p>
+<pre><code class="language-bash">$ source .venv/bin/activate
+(.venv) ... $ pip install flask
+</code></pre>
+<p>Jusqu’à présent, tout cela devrait t’être relativement familier. Cependant, au lieu de créer un seul fichier pour notre application — ce qui est tout à fait autorisé et pertinent pour des applications très simples — nous pouvons aussi créer un nouveau dossier nommé app. Ce dossier nous permettra de structurer notre application de manière modulaire et plus logique. </p>
+<p>À l’intérieur de ce dossier, nous allons créer cinq fichiers vides nommés : <code>__init__.py</code>, <code>app.py</code>, <code>config.py</code>, <code>main.py</code> et <code>views.py</code>, comme suit :</p>
+<pre><code class="language-bash">(.venv) ... $ mkdir app
+(.venv) ... $ touch app/{__init__,app,config,main,views}.py
+</code></pre>
+<p><strong>Note</strong> : La dernière commande utilise une petite astuce du shell pour créer plusieurs fichiers à partir des noms entre crochets. </p>
+<p>Mais à quoi servent ces fichiers que nous venons de créer ? Comme vous allez le voir, chaque fichier a un rôle important. Leur nom donne déjà une idée de leur fonction, mais voici un bref aperçu des responsabilités de chaque fichier :</p>
+<table>
+    <caption>Structure de base d’un dossier app/ pour une application Flask</caption>
+    <thead>
+        <tr>
+            <th scope="col">Nom du fichier</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>__init__.py</code></td>
+                        <td>Indique à Python que le dossier <code>app/</code> doit être traité comme un package Python.</td>
+        </tr>
+        <tr>
+            <td><code>app.py</code></td>
+            <td>Contient l’application Flask elle-même.</td>
+        </tr>
+        <tr>
+            <td><code>config.py</code></td>
+            <td>Fichier destiné à stocker les variables de configuration de notre application Flask.</td>
+        </tr>
+        <tr>
+            <td><code>main.py</code></td>
+            <td>Le point d’entrée pour exécuter l’application.</td>
+        </tr>
+        <tr>
+            <td><code>views.py</code></td>
+            <td>Définit les routes URL et les vues associées de l’application.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Une application Flask minimaliste</h2>
+<p>Remplissons maintenant ces fichiers avec le strict minimum de code nécessaire pour obtenir une application Flask exécutable.
+Cela mettra notre projet en bonne position pour le chapitre suivant, dans lequel nous commencerons à coder la sauvegarde et la récupération des articles du blog depuis la base de données.</p>
+<p>Nous allons commencer par le module <code>config.py</code>. Ce fichier contiendra une classe <code>Configuration</code> qui indiquera à Flask que nous souhaitons exécuter notre application en mode <code>DEBUG</code>.</p>
+<p>Ajoutez les deux lignes de code suivantes dans le fichier <code>config.py</code> :</p>
+<pre><code class="language-python">class Configuration(object):
+    DEBUG = True
+</code></pre>
+<p>Ensuite, nous allons créer notre application Flask et lui indiquer d’utiliser les valeurs de configuration définies dans le module <code>config</code>. Ajoutez le code suivant dans le fichier <code>app.py</code> :</p>
+<pre><code class="language-python">from flask import Flask
+from config import Configuration
+
+
+app = Flask(__name__)
+app.config.from_object(Configuration)
+</code></pre>
+<p>Le module views contiendra une seule vue, liée à l’URL racine du site. Ajoutez le code suivant dans <code>views.py</code> :</p>
+<pre><code class="language-python">from app import app
+
+
+@app.route('/')
+def homepage():
+    return 'Accueil'
+</code></pre>
+<p>Comme vous l’avez probablement remarqué, il nous manque encore l’appel à <code>app.run()</code>. Nous placerons ce code dans <code>main.py</code>, que nous utiliserons comme point d’entrée de notre application. Ajoute le code suivant dans le fichier <code>main.py</code> :</p>
+<pre><code class="language-python">from app import app
+import views
+
+
+if __name__ == '__main__':
+    app.run()
+</code></pre>
+<p>Nous n’appelons pas <code>app.run(debug=True)</code> car nous avons déjà indiqué à Flask d’exécuter l’application en mode debug via l’objet <code>Configuration</code>. Vous pouvez lancer l’application depuis la ligne de commande en exécutant le module main de la façon suivante : </p>
+<pre><code class="language-bash">(.venv) ... $ python app/main.py
+</code></pre>
+<h3>Prise de recul</h3>
+<p>À l’exception de la classe Configuration, la majeure partie de ce code devrait vous sembler familière. Nous avons essentiellement repris le code de l’exemple hello_flask et l’avons réparti en plusieurs modules. Cela peut sembler un peu excessif d’écrire seulement deux ou trois lignes par fichier, mais à mesure que votre projet grandira, vous verrez à quel point cet engagement précoce en faveur d’une bonne organisation porte ses fruits. Vous avez peut-être remarqué qu’il existe une priorisation interne entre ces fichiers, basée sur l’ordre dans lequel ils sont importés — ceci afin d’éviter le risque d’importations circulaires. Une importation circulaire se produit lorsque deux modules s’importent mutuellement, ce qui empêche leur importation effective. Avec Flask, il est très facile de générer ce genre de problème, car de nombreux éléments dépendent de l’objet central <code>app</code>.</p>
+<p>Pour éviter cela, certaines personnes préfèrent regrouper tout dans un seul module. Cela fonctionne pour les petites applications, mais ce n’est pas viable au-delà d’une certaine taille ou complexité. C’est pourquoi nous avons découpé notre application en plusieurs modules et créé un point d’entrée unique qui contrôle l’ordre des importations.</p>
+<h3>Le flux d’importation</h3>
+<p>L’exécution commence lorsque vous lancez la commande python <code>main.py</code> depuis la ligne de commande. La première ligne de code que l’interpréteur Python rencontre importe l’objet app depuis le module <code>app</code>. Nous nous trouvons maintenant dans <code>app.py</code>, qui importe Flask ainsi que notre objet <code>Configuration</code>. Le reste du module <code>app.py</code> est alors lu et interprété, puis le contrôle revient à <code>main.py</code>.</p>
+<p>La seconde ligne de <code>main.py</code> importe le module <code>views</code>. Nous sommes alors dans <code>views.py</code>, qui dépend de <code>app.py</code> pour le décorateur <code>@app.route</code> — et cet objet est déjà disponible depuis <code>main.py</code>. Les routes et les vues sont enregistrées au moment où le module <code>views</code> est interprété, puis l’exécution revient à <code>main.py</code>. Puisque vous exécutez directement <code>main.py</code>, la condition du bloc <code>if</code> s’évalue à <code>True</code> et votre application se lance.</p></div>
+      <p class="text-right">Publié le 05 juin 2025</p>
+    </article>
+  </section>
+  <template id="tplProgressFalse">
+    <div id="progressFalse">
+      <div id="cursorProgress">&nbsp;</div>
+    </div>
+  </template>
+
+      <section class="contact" id="contact">
+  <h3>me contacter</h3>
+  <div class="content">
+    <p class="info">
+      <small><em><span>*</span> champ obligatoire</em></small>
+    </p>
+    <form id="formContact" action="/services/mail/send.html" method="post" class="grid-x grid-padding-x clearfix" novalidate>
+      <label class="cell medium-4 padding-left-0">
+        <span>
+          <span>Civilité</span>
+          <select name="civility" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
+            <option value="">choisir</option>
+            <option value="Mademoiselle">Mademoiselle</option>
+            <option value="Madame">Madame</option>
+            <option value="Monsieur">Monsieur</option>
+          </select>
+        </span>
+      </label>
+      <label class="cell medium-4">
+        <span>
+          <span>Prénom</span>
+          <input type="text" name="firstname">
+        </span>
+      </label>
+      <label class="cell medium-4 padding-right-0">
+        <span>
+          <span>Nom</span>
+          <input type="text" name="lastname" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
+        </span>
+      </label>
+      <label class="cell medium-6 margin-top-1 padding-left-0">
+        <span>
+          <span>Email</span>
+          <input type="email" name="email" required data-validate-rules="isnotempty isemail" data-error-isnotempty="ne doit pas être vide" data-error-isemail="Ce champ doit avoir la bonne saisie (dom@dom.com)">
+        </span>
+      </label>
+      <label><span><span>addresse</span><input type="text" name="address" tabindex="-1"></span></label>
+      <label class="cell medium-6 padding-right-0 margin-top-1">
+        <span>
+          <span>Sujet</span>
+          <input type="text" name="subject" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
+        </span>
+      </label>
+      <label class="cell medium-3 flex-container align-middle">
+        <span>
+          <input type="checkbox" name="appointement">
+          <span class="icon">
+            <i class="fa-regular fa-square"></i>
+            <i class="fa-solid fa-square-check"></i>
+          </span>
+          <span class="margin-left-1">un rendez-vous</span>
+        </span>
+      </label>
+      <label class="cell medium-3"><span><span>Téléphone</span><input type="text" name="phone" disabled data-validate-rules="isnotempty checkphone" data-error-isnotempty="le n° de téléphone est manquant" data-error-checkphone="Le format du champ téléphone ne semble pas être bon 0102030405" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Date</span><input type="date" name="date_appointment" disabled data-validate-rules="isnotempty datemin businessday isdate" data-error-isnotempty="la date est manquante" data-error-datemin="La date de rendez vous doit être suppérieur à aujourd'hui" data-error-businessday="les rendez vous sont du lundi au vendredi" data-error-isdate="Ce champ doit être une date valide" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Heure</span><input type="time" name="hour_appointment" disabled data-validate-rules="isnotempty betweenhour" data-error-isnotempty="l'heure est manquante" data-error-betweenhour="Les rendez vous sont compris entre 9 h 00 et 18 h 00" data-validate-target-error="#errorAppointment" data-validate-betweenhour-args="9;18"></span></label>
+      <div id="errorAppointment" class="cell medium-12"></div>
+      <label class="cell medium-12"><span><span>Message</span><textarea name="message" cols="30" rows="10" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3"></textarea></span></label>
+      <div class="cell medium-4 margin-top-1 large-offset-8">
+        <button class="button expanded" type="submit">envoyer</button>
+      </div>
+    </form>
+  </div>
+</section>
+      <footer>
+  <p class="flex-container align-middle align-justify">
+  <span>RB webstudio &ndash; <a href="https://www.alsacreations.com/profil/lire/11496-niuxe.html" target="_blank">Alsacreations</a> &ndash; <a href="https://github.com/niux3" target="_blank">Github</a> &ndash; <a href="https://www.linkedin.com/in/renaud-bourdeau-%F0%9F%90%A7-7639b944/" target="_blank">LinkedIn</a> &ndash; <a href="/static/renaud-bourdeau-cv.pdf">CV</a></span>
+    <span>
+      <button class="button clear changeMode margin-bottom-0 padding-0 padding-horizontal-1">
+        <span class="fa-solid fa-moon"><span class="text">light</span></span>
+      </button>
+      <a href="#top"><i class="fa-solid fa-arrow-up"></i></a>
+    </span>
+  </p>
+</footer>
+
+    </main>
+    <script src="/static/app-BzPm1XV_.js"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </body>
+</html>
