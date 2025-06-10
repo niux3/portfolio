@@ -149,6 +149,16 @@
       "updated": "2025-06-06T14:58:44.844886",
       "meta_description": "Am\u00e9liorez l\u2019accessibilit\u00e9 de vos formulaires HTML gr\u00e2ce aux r\u00f4les ARIA et balises adapt\u00e9es. Guide pratique avec exemples et compatibilit\u00e9 lecteur d\u2019\u00e9cran.",
       "status_id": 3
+    },
+    {
+      "id": 16,
+      "title": "Flask - Chapitre 3 : Bases de donn\u00e9es relationnelles avec SQLAlchemy",
+      "slug": "flask-chapitre-3-bases-de-donnees-relationnelles-avec-sqlalchemy",
+      "body": "Les bases de donn\u00e9es relationnelles constituent la pierre angulaire sur laquelle repose presque toute application Web moderne. Apprendre \u00e0 concevoir votre application en termes de tables et de relations est l'une des cl\u00e9s d\u2019un projet propre et bien structur\u00e9. Comme vous le verrez dans ce chapitre, le mod\u00e8le de donn\u00e9es que vous choisirez d\u00e8s le d\u00e9part influencera presque tous les aspects du code qui suivra. Nous utiliserons SQLAlchemy, un puissant <abbr>[ORM](#def-orm)</abbr> qui nous permet d\u2019abstraire la complexit\u00e9 des diff\u00e9rents moteurs de bases de donn\u00e9es afin de travailler directement avec la base depuis Python.\r\n\r\n<span id=\"def-orm\"><strong>Remarque</strong>: Un mapping objet-relationnel (en anglais Object-Relational Mapping ou ORM) est un type de programme informatique qui se place en interface entre un programme applicatif et une base de donn\u00e9es relationnelle pour simuler une base de donn\u00e9es orient\u00e9e objet. Ce programme d\u00e9finit des correspondances entre les sch\u00e9mas de la base de donn\u00e9es et les classes du programme applicatif. On pourrait le d\u00e9signer par l\u00e0 \u00ab comme une couche d'abstraction entre le monde objet et monde relationnel \u00bb. Du fait de sa fonction, on retrouve ce type de programme dans un grand nombre de frameworks sous la forme de composant ORM qui a \u00e9t\u00e9 soit d\u00e9velopp\u00e9, soit int\u00e9gr\u00e9 depuis une solution externe. <span>\r\n\r\n## Pourquoi utiliser une base de donn\u00e9es relationnelle ?\r\n\r\nLa base de donn\u00e9es de votre application est bien plus qu\u2019un simple registre de ce qu\u2019il faut conserver pour un usage ult\u00e9rieur. Si votre seul besoin \u00e9tait de sauvegarder et de r\u00e9cup\u00e9rer des donn\u00e9es, vous pourriez facilement utiliser des fichiers texte plats. Cependant, vous souhaitez pouvoir effectuer des requ\u00eates int\u00e9ressantes sur vos donn\u00e9es. Et vous souhaitez le faire de mani\u00e8re efficace, sans r\u00e9inventer la roue. Bien que les bases de donn\u00e9es non relationnelles (parfois appel\u00e9es bases NoSQL) soient tr\u00e8s populaires et aient leur place dans l\u2019univers du Web, les bases de donn\u00e9es relationnelles ont depuis longtemps r\u00e9solu les probl\u00e8mes courants de filtrage, de tri, d\u2019agr\u00e9gation et de jointure de donn\u00e9es tabulaires. Elles permettent de d\u00e9finir des ensembles de donn\u00e9es de mani\u00e8re structur\u00e9e tout en maintenant la coh\u00e9rence des informations. En utilisant des bases de donn\u00e9es relationnelles, vous vous donnez aussi, en tant que d\u00e9veloppeur, la libert\u00e9 de vous concentrer sur les parties de votre application qui comptent vraiment.\r\n\r\nEn plus de permettre l\u2019ex\u00e9cution efficace de requ\u00eates ponctuelles, un serveur de base de donn\u00e9es relationnelle vous offre \u00e9galement les avantages suivants :\r\n\r\n- Il garantit que vos donn\u00e9es respectent les r\u00e8gles d\u00e9finies dans le sch\u00e9ma ;\r\n- Il permet \u00e0 plusieurs personnes d\u2019acc\u00e9der \u00e0 la base de donn\u00e9es simultan\u00e9ment, tout en assurant la coh\u00e9rence des donn\u00e9es sous-jacentes ;\r\n- Il s\u2019assure que les donn\u00e9es, une fois enregistr\u00e9es, ne soient pas perdues m\u00eame en cas de plantage de l\u2019application.\r\n\r\nLes bases de donn\u00e9es relationnelles et SQL, le langage de programmation utilis\u00e9 avec ces bases, sont des sujets qui m\u00e9riteraient \u00e0 eux seuls un ouvrage complet. Cependant, comme ce tutoriel est consacr\u00e9 \u00e0 l\u2019apprentissage du d\u00e9veloppement d\u2019applications avec Flask, je vais vous montrer comment utiliser un outil largement adopt\u00e9 par la communaut\u00e9 Python pour travailler avec des bases de donn\u00e9es : <a href=\"https://www.sqlalchemy.org/\" target=\"_blank\">SQLAlchemy</a>.\r\n\r\n**Important** : <a href=\"https://www.sqlalchemy.org/\" target=\"_blank\">SQLAlchemy</a> masque de nombreuses complications li\u00e9es \u00e0 l\u2019\u00e9criture de requ\u00eates SQL, mais rien ne remplace une compr\u00e9hension approfondie de SQL et du mod\u00e8le relationnel. \u2019est pourquoi, si vous d\u00e9butez avec SQL, je vous recommande vivement d'apprendre d'abord le SQL. \r\n\r\n## Introduction \u00e0 SQLAlchemy\r\n\r\nSQLAlchemy est une biblioth\u00e8que extr\u00eamement puissante pour travailler avec des bases de donn\u00e9es relationnelles en Python. Plut\u00f4t que d\u2019\u00e9crire manuellement des requ\u00eates SQL, vous pouvez utiliser des objets Python classiques pour repr\u00e9senter les tables de la base de donn\u00e9es et ex\u00e9cuter des requ\u00eates. Cette approche pr\u00e9sente plusieurs avantages :\r\n\r\n- Votre application peut \u00eatre enti\u00e8rement d\u00e9velopp\u00e9e en Python.\r\n- Les diff\u00e9rences subtiles entre les moteurs de bases de donn\u00e9es sont masqu\u00e9es. Cela vous permet, par exemple, d\u2019utiliser une base l\u00e9g\u00e8re comme SQLite pour le d\u00e9veloppement et les tests locaux, puis de passer \u00e0 une base con\u00e7ue pour de fortes charges (comme PostgreSQL) en production.\r\n- Les erreurs li\u00e9es \u00e0 la base de donn\u00e9es sont moins fr\u00e9quentes, car deux couches s\u2019interposent entre votre application et le serveur de base : l\u2019interpr\u00e9teur Python lui-m\u00eame (qui intercepte les erreurs de syntaxe \u00e9videntes) et SQLAlchemy, qui dispose d\u2019API bien d\u00e9finies et de son propre syst\u00e8me de v\u00e9rification des erreurs.\r\n- Votre code de gestion des donn\u00e9es peut devenir plus efficace gr\u00e2ce au mod\u00e8le de \u00ab\u00a0unit of work\u00a0\u00bb de SQLAlchemy, qui r\u00e9duit les allers-retours inutiles avec la base. SQLAlchemy propose \u00e9galement des m\u00e9canismes de pr\u00e9chargement efficace des objets li\u00e9s, appel\u00e9s \u00ab eager loading \u00bb.\r\n- Le mappage objet-relationnel (ORM) rend votre code plus maintenable, conform\u00e9ment au principe \u00ab ne vous r\u00e9p\u00e9tez pas \u00bb (DRY). Par exemple, si vous ajoutez une colonne \u00e0 un mod\u00e8le, celle-ci sera disponible partout o\u00f9 vous utilisez ce mod\u00e8le. \u00c0 l\u2019inverse, si vous aviez diss\u00e9min\u00e9 des requ\u00eates SQL \u00e9crites \u00e0 la main dans toute votre application, vous devriez modifier chacune d\u2019elles individuellement pour y inclure la nouvelle colonne.\r\n- SQLAlchemy peut vous aider \u00e0 \u00e9viter les vuln\u00e9rabilit\u00e9s li\u00e9es aux injections SQL.\r\n- Excellente compatibilit\u00e9 avec d\u2019autres biblioth\u00e8ques : comme vous le verrez dans les chapitres suivants, de nombreuses biblioth\u00e8ques utiles peuvent interagir directement avec vos mod\u00e8les SQLAlchemy pour offrir des interfaces de maintenance ou des API RESTful, par exemple.\r\n\r\nJ\u2019esp\u00e8re que cette liste vous enthousiasme. Si certains points ne vous sont pas encore clairs, ne vous inqui\u00e9tez pas : au fil de ce chapitre et des suivants, ces avantages deviendront plus concrets et significatifs. Maintenant que nous avons abord\u00e9 les b\u00e9n\u00e9fices de SQLAlchemy, installons-le et commen\u00e7ons \u00e0 coder.\r\n\r\n### Installer SQLAlchmy\r\n\r\nNous utiliserons `pip` pour installer SQLAlchemy dans l'environnement virtuel de l'application blog. Comme vous l'avez vu dans le chapitre pr\u00e9c\u00e9dent, pour activer votre environnement virtuel, modifiez les r\u00e9pertoires source du script d'activation comme suit :\r\n\r\n",
+      "created": "2025-06-10T10:44:28.015044",
+      "updated": "2025-06-10T11:54:44.821502",
+      "meta_description": "bla",
+      "status_id": 1
     }
   ],
   "tag": [
@@ -196,6 +206,11 @@
       "id": 9,
       "name": "flask",
       "slug": "flask"
+    },
+    {
+      "id": 10,
+      "name": "SQLAlchemy",
+      "slug": "sqlalchemy"
     }
   ],
   "posttag": [
@@ -413,6 +428,26 @@
       "id": 405,
       "posts_id": 15,
       "tags_id": 4
+    },
+    {
+      "id": 445,
+      "posts_id": 16,
+      "tags_id": 6
+    },
+    {
+      "id": 446,
+      "posts_id": 16,
+      "tags_id": 7
+    },
+    {
+      "id": 447,
+      "posts_id": 16,
+      "tags_id": 9
+    },
+    {
+      "id": 448,
+      "posts_id": 16,
+      "tags_id": 10
     }
   ],
   "status": [
