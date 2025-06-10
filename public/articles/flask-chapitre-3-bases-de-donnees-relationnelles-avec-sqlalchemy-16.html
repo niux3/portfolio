@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr" id="top">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="bug4GPSDEqxoKku92DUfj_WE6b8PlwHJX-DCeZZBV1w" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-MCT7LV9P');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Flask - Chapitre 3 : Bases de données relationnelles avec SQLAlchemy - RB webstudio </title>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/static/styles-BnJ0AZNy.css">
+    <meta name="description"  content="bla">
+  </head>
+
+  <body>
+    <main class="grid-container">
+      <header class="flex-container align-justify align-middle">
+    
+    <div><a href="/">
+  <svg id="logo" width="5rem" height="5rem" version="1.1" viewBox="0 0 79.375 79.375">
+    <desc>RB webstudio - spécialiste Python - Javascript/Typescript</desc>
+    <g transform="translate(-57.558 -71.836)">
+    <circle cx="97.246" cy="111.52" r="33.073" fill="var(--color-cannes)" stroke-width=".177" style="paint-order:markers fill stroke"/>
+    <g transform="matrix(.33371 0 0 .33371 -78.371 192.62)" fill="var(--color-laval)">
+    <g transform="translate(243.55 81.615)" stroke-width=".67039" aria-label="rb">
+    <path d="m251.15-309.59v27.653h-25.077v-31.927q0-10.81 2.0112-16.843 2.0112-6.0963 6.8505-10.81 3.6452-3.6452 8.4846-5.6564 4.9022-2.074 9.8044-2.074 2.3882 0 4.7136 0.18855 2.3254 0.18854 4.5251 0.56563v26.396q-0.43994-0.0628-1.3198-0.18855-2.074-0.31424-2.6396-0.31424-4.0852 0-5.7192 2.6396-1.6341 2.6396-1.6341 10.37z"/>
+    <path d="m270.76-373.69h24.448v51.599q0 9.553 2.2626 13.324t7.5418 3.7709q3.8338 0 6.662-2.8282 2.8282-2.891 2.8282-6.7876 0-4.2109-2.7653-7.039-2.7653-2.891-6.7248-2.891-1.0056 0-2.1368 0.31425-1.1313 0.25139-3.2681 1.1313v-26.019q0.62849-0.0629 2.6396-0.18855 2.0112-0.18855 3.1424-0.18855 14.141 0 24.008 10.181 9.9301 10.119 9.9301 24.7 0 6.8505-2.514 13.135-2.5139 6.222-7.2276 11.061-4.9022 4.965-11.187 7.6675-6.222 2.6396-13.135 2.6396-10.181 0-18.415-5.2164-8.1703-5.2793-12.13-14.267-2.074-4.7765-3.0167-9.8672-0.94273-5.1536-0.94273-12.758v-4.9022z"/>
+    </g>
+    <path d="m542.38-288.15h-31.744l15.872-17.36z" stroke-width=".44511" style="paint-order:markers fill stroke"/>
+    </g>
+    </g>
+  </svg>
+</a></div>
+    
+    <nav class="flex-container align-right">
+      <a href="/articles/index.html" class="margin-horizontal-1">articles</a>
+      <a href="#contact" class="margin-horizontal-1">contact</a>
+    </nav>
+</header>
+
+      
+<progress id="progressTrue" max="100" value="0"></progress>
+  <section>
+    <article>
+      <h1>Flask - Chapitre 3 : Bases de données relationnelles avec SQLAlchemy</h1>
+      <div class="grid-x grid-padding-x">
+        <ul class="cell medium-6 flex-container no-bullet tags-list">
+          
+            <li><a href="/articles/chercher-articles-par-python.html"><span>python</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-developpement.html"><span>développement</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-flask.html"><span>flask</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-sqlalchemy.html"><span>SQLAlchemy</span></a></li>
+          
+        </ul>
+        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
+          <ul class="flex-container no-bullet share">
+            
+              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//rb-webstudio.go.yj.fr/articles/flask-chapitre-3-bases-de-donnees-relationnelles-avec-sqlalchemy-16.html&amp;title=Flask%20-%20Chapitre%203%20%3A%20Bases%20de%20donn%C3%A9es%20relationnelles%20avec%20SQLAlchemy&amp;source=http%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
+            
+              <li><a href="https://twitter.com/intent/tweet?url=http%3A//rb-webstudio.go.yj.fr/articles/flask-chapitre-3-bases-de-donnees-relationnelles-avec-sqlalchemy-16.html&amp;text=Flask%20-%20Chapitre%203%20%3A%20Bases%20de%20donn%C3%A9es%20relationnelles%20avec%20SQLAlchemy" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
+            
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//rb-webstudio.go.yj.fr/articles/flask-chapitre-3-bases-de-donnees-relationnelles-avec-sqlalchemy-16.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
+            
+          </ul>
+        </nav>
+      </div>
+      <div class="content"><p>Les bases de données relationnelles constituent la pierre angulaire sur laquelle repose presque toute application Web moderne. Apprendre à concevoir votre application en termes de tables et de relations est l'une des clés d’un projet propre et bien structuré. Comme vous le verrez dans ce chapitre, le modèle de données que vous choisirez dès le départ influencera presque tous les aspects du code qui suivra. Nous utiliserons SQLAlchemy, un puissant <abbr><a href="#def-orm">ORM</a></abbr> qui nous permet d’abstraire la complexité des différents moteurs de bases de données afin de travailler directement avec la base depuis Python.</p>
+<p><span id="def-orm"><strong>Remarque</strong>: Un mapping objet-relationnel (en anglais Object-Relational Mapping ou ORM) est un type de programme informatique qui se place en interface entre un programme applicatif et une base de données relationnelle pour simuler une base de données orientée objet. Ce programme définit des correspondances entre les schémas de la base de données et les classes du programme applicatif. On pourrait le désigner par là « comme une couche d'abstraction entre le monde objet et monde relationnel ». Du fait de sa fonction, on retrouve ce type de programme dans un grand nombre de frameworks sous la forme de composant ORM qui a été soit développé, soit intégré depuis une solution externe. <span></p>
+<h2>Pourquoi utiliser une base de données relationnelle ?</h2>
+<p>La base de données de votre application est bien plus qu’un simple registre de ce qu’il faut conserver pour un usage ultérieur. Si votre seul besoin était de sauvegarder et de récupérer des données, vous pourriez facilement utiliser des fichiers texte plats. Cependant, vous souhaitez pouvoir effectuer des requêtes intéressantes sur vos données. Et vous souhaitez le faire de manière efficace, sans réinventer la roue. Bien que les bases de données non relationnelles (parfois appelées bases NoSQL) soient très populaires et aient leur place dans l’univers du Web, les bases de données relationnelles ont depuis longtemps résolu les problèmes courants de filtrage, de tri, d’agrégation et de jointure de données tabulaires. Elles permettent de définir des ensembles de données de manière structurée tout en maintenant la cohérence des informations. En utilisant des bases de données relationnelles, vous vous donnez aussi, en tant que développeur, la liberté de vous concentrer sur les parties de votre application qui comptent vraiment.</p>
+<p>En plus de permettre l’exécution efficace de requêtes ponctuelles, un serveur de base de données relationnelle vous offre également les avantages suivants :</p>
+<ul>
+<li>Il garantit que vos données respectent les règles définies dans le schéma ;</li>
+<li>Il permet à plusieurs personnes d’accéder à la base de données simultanément, tout en assurant la cohérence des données sous-jacentes ;</li>
+<li>Il s’assure que les données, une fois enregistrées, ne soient pas perdues même en cas de plantage de l’application.</li>
+</ul>
+<p>Les bases de données relationnelles et SQL, le langage de programmation utilisé avec ces bases, sont des sujets qui mériteraient à eux seuls un ouvrage complet. Cependant, comme ce tutoriel est consacré à l’apprentissage du développement d’applications avec Flask, je vais vous montrer comment utiliser un outil largement adopté par la communauté Python pour travailler avec des bases de données : <a href="https://www.sqlalchemy.org/" target="_blank">SQLAlchemy</a>.</p>
+<p><strong>Important</strong> : <a href="https://www.sqlalchemy.org/" target="_blank">SQLAlchemy</a> masque de nombreuses complications liées à l’écriture de requêtes SQL, mais rien ne remplace une compréhension approfondie de SQL et du modèle relationnel. ’est pourquoi, si vous débutez avec SQL, je vous recommande vivement d'apprendre d'abord le SQL. </p>
+<h2>Introduction à SQLAlchemy</h2>
+<p>SQLAlchemy est une bibliothèque extrêmement puissante pour travailler avec des bases de données relationnelles en Python. Plutôt que d’écrire manuellement des requêtes SQL, vous pouvez utiliser des objets Python classiques pour représenter les tables de la base de données et exécuter des requêtes. Cette approche présente plusieurs avantages :</p>
+<ul>
+<li>Votre application peut être entièrement développée en Python.</li>
+<li>Les différences subtiles entre les moteurs de bases de données sont masquées. Cela vous permet, par exemple, d’utiliser une base légère comme SQLite pour le développement et les tests locaux, puis de passer à une base conçue pour de fortes charges (comme PostgreSQL) en production.</li>
+<li>Les erreurs liées à la base de données sont moins fréquentes, car deux couches s’interposent entre votre application et le serveur de base : l’interpréteur Python lui-même (qui intercepte les erreurs de syntaxe évidentes) et SQLAlchemy, qui dispose d’API bien définies et de son propre système de vérification des erreurs.</li>
+<li>Votre code de gestion des données peut devenir plus efficace grâce au modèle de « unit of work » de SQLAlchemy, qui réduit les allers-retours inutiles avec la base. SQLAlchemy propose également des mécanismes de préchargement efficace des objets liés, appelés « eager loading ».</li>
+<li>Le mappage objet-relationnel (ORM) rend votre code plus maintenable, conformément au principe « ne vous répétez pas » (DRY). Par exemple, si vous ajoutez une colonne à un modèle, celle-ci sera disponible partout où vous utilisez ce modèle. À l’inverse, si vous aviez disséminé des requêtes SQL écrites à la main dans toute votre application, vous devriez modifier chacune d’elles individuellement pour y inclure la nouvelle colonne.</li>
+<li>SQLAlchemy peut vous aider à éviter les vulnérabilités liées aux injections SQL.</li>
+<li>Excellente compatibilité avec d’autres bibliothèques : comme vous le verrez dans les chapitres suivants, de nombreuses bibliothèques utiles peuvent interagir directement avec vos modèles SQLAlchemy pour offrir des interfaces de maintenance ou des API RESTful, par exemple.</li>
+</ul>
+<p>J’espère que cette liste vous enthousiasme. Si certains points ne vous sont pas encore clairs, ne vous inquiétez pas : au fil de ce chapitre et des suivants, ces avantages deviendront plus concrets et significatifs. Maintenant que nous avons abordé les bénéfices de SQLAlchemy, installons-le et commençons à coder.</p>
+<h3>Installer SQLAlchmy</h3>
+<p>Nous utiliserons <code>pip</code> pour installer SQLAlchemy dans l'environnement virtuel de l'application blog. Comme vous l'avez vu dans le chapitre précédent, pour activer votre environnement virtuel, modifiez les répertoires source du script d'activation comme suit :</p></div>
+      <p class="text-right">Publié le 10 juin 2025</p>
+    </article>
+  </section>
+  <template id="tplProgressFalse">
+    <div id="progressFalse">
+      <div id="cursorProgress">&nbsp;</div>
+    </div>
+  </template>
+
+      <section class="contact" id="contact">
+  <h3>me contacter</h3>
+  <div class="content">
+    <p class="info">
+      <small><em><span>*</span> champ obligatoire</em></small>
+    </p>
+    <form id="formContact" action="/services/mail/send.html" method="post" class="grid-x grid-padding-x clearfix" novalidate>
+      <label class="cell medium-4 padding-left-0">
+        <span>
+          <span>Civilité</span>
+          <select name="civility" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
+            <option value="">choisir</option>
+            <option value="Mademoiselle">Mademoiselle</option>
+            <option value="Madame">Madame</option>
+            <option value="Monsieur">Monsieur</option>
+          </select>
+        </span>
+      </label>
+      <label class="cell medium-4">
+        <span>
+          <span>Prénom</span>
+          <input type="text" name="firstname">
+        </span>
+      </label>
+      <label class="cell medium-4 padding-right-0">
+        <span>
+          <span>Nom</span>
+          <input type="text" name="lastname" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
+        </span>
+      </label>
+      <label class="cell medium-6 margin-top-1 padding-left-0">
+        <span>
+          <span>Email</span>
+          <input type="email" name="email" required data-validate-rules="isnotempty isemail" data-error-isnotempty="ne doit pas être vide" data-error-isemail="Ce champ doit avoir la bonne saisie (dom@dom.com)">
+        </span>
+      </label>
+      <label><span><span>addresse</span><input type="text" name="address" tabindex="-1"></span></label>
+      <label class="cell medium-6 padding-right-0 margin-top-1">
+        <span>
+          <span>Sujet</span>
+          <input type="text" name="subject" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
+        </span>
+      </label>
+      <label class="cell medium-3 flex-container align-middle">
+        <span>
+          <input type="checkbox" name="appointement">
+          <span class="icon">
+            <i class="fa-regular fa-square"></i>
+            <i class="fa-solid fa-square-check"></i>
+          </span>
+          <span class="margin-left-1">un rendez-vous</span>
+        </span>
+      </label>
+      <label class="cell medium-3"><span><span>Téléphone</span><input type="text" name="phone" disabled data-validate-rules="isnotempty checkphone" data-error-isnotempty="le n° de téléphone est manquant" data-error-checkphone="Le format du champ téléphone ne semble pas être bon 0102030405" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Date</span><input type="date" name="date_appointment" disabled data-validate-rules="isnotempty datemin businessday isdate" data-error-isnotempty="la date est manquante" data-error-datemin="La date de rendez vous doit être suppérieur à aujourd'hui" data-error-businessday="les rendez vous sont du lundi au vendredi" data-error-isdate="Ce champ doit être une date valide" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Heure</span><input type="time" name="hour_appointment" disabled data-validate-rules="isnotempty betweenhour" data-error-isnotempty="l'heure est manquante" data-error-betweenhour="Les rendez vous sont compris entre 9 h 00 et 18 h 00" data-validate-target-error="#errorAppointment" data-validate-betweenhour-args="9;18"></span></label>
+      <div id="errorAppointment" class="cell medium-12"></div>
+      <label class="cell medium-12"><span><span>Message</span><textarea name="message" cols="30" rows="10" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3"></textarea></span></label>
+      <div class="cell medium-4 margin-top-1 large-offset-8">
+        <button class="button expanded" type="submit">envoyer</button>
+      </div>
+    </form>
+  </div>
+</section>
+      <footer>
+  <p class="flex-container align-middle align-justify">
+  <span>RB webstudio &ndash; <a href="https://www.alsacreations.com/profil/lire/11496-niuxe.html" target="_blank">Alsacreations</a> &ndash; <a href="https://github.com/niux3" target="_blank">Github</a> &ndash; <a href="https://www.linkedin.com/in/renaud-bourdeau-%F0%9F%90%A7-7639b944/" target="_blank">LinkedIn</a> &ndash; <a href="/static/renaud-bourdeau-cv.pdf">CV</a></span>
+    <span>
+      <button class="button clear changeMode margin-bottom-0 padding-0 padding-horizontal-1">
+        <span class="fa-solid fa-moon"><span class="text">light</span></span>
+      </button>
+      <a href="#top"><i class="fa-solid fa-arrow-up"></i></a>
+    </span>
+  </p>
+</footer>
+
+    </main>
+    <script src="/static/app-BzPm1XV_.js"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </body>
+</html>

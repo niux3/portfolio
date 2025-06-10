@@ -159,6 +159,16 @@
       "updated": "2025-06-10T11:54:44.821502",
       "meta_description": "bla",
       "status_id": 1
+    },
+    {
+      "id": 17,
+      "title": "Labelliser les points de rep\u00e8re",
+      "slug": "labelliser-les-points-de-repere",
+      "body": "Les rep\u00e8res ne sont utiles que si ce qu'ils repr\u00e9sentent est clair. Lorsqu'il existe plusieurs points de rep\u00e8re du m\u00eame type, les utilisateurs peuvent avoir du mal \u00e0 les diff\u00e9rencier, ce qui rend la navigation par points de rep\u00e8re difficile, voire inutile.\r\n\r\nLe moyen le plus fiable de diff\u00e9rencier les points de rep\u00e8re d'un m\u00eame type est de les \u00e9tiqueter \u00e0 l'aide des attributs `aria-labelledby` ([exemple 1](#exemple-1)) ou `aria-label` ([exemple 2](#exemple-2)).\r\n\r\n**<span id=\"exemple-1\">Exemple&nbsp;1</span>&nbsp;&ndash;&nbsp;Rep\u00e8re de navigation \u00e9tiquet\u00e9 via `aria-labelledby`**\r\n\r\n```html\r\n<nav aria-labelledby=\"pagination_heading\">\r\n  <h2 id=\"pagination_heading\">Pages</h2>\r\n  \u2026\r\n</nav>\r\n```\r\n\r\n**<span id=\"exemple-2\">Exemple&nbsp;2</span>&nbsp;&ndash;&nbsp;Rep\u00e8res de navigation \u00e9tiquet\u00e9s via `aria-label`**\r\n\r\n```html\r\n<nav aria-label=\"Main\">\r\n  \u2026\r\n</nav>\r\n<nav aria-label=\"Page\">\r\n  \u2026\r\n</nav>\r\n```\r\n\r\nLorsque vous avez plusieurs navigations sur une page, comme une navigation \u00e0 l'\u00e9chelle du site, une navigation locale pour la page et une pagination, vous avez \u00e9galement trois \u00e9l\u00e9ments `<nav>`, comme le montre l'[exemple&nbsp;3](#exemple-3).\r\n\r\n**<span id=\"exemple-3\">Exemple&nbsp;3</span>&nbsp;&ndash;&nbsp;Mauvaise pratique : Trois rep\u00e8res de navigation non \u00e9tiquet\u00e9s**\r\n\r\n```html\r\n<nav>\r\n  <ul>\r\n    <li>\r\n      <a href=\"/home\">Accueil</a>\r\n    </li>\r\n    ...\r\n  </ul>\r\n</nav>\r\n<nav>\r\n  <ul>\r\n    <li>\r\n       <a href=\"/category-1\">Categorie 1</a>\r\n    </li>\r\n  ...\r\n  </ul>\r\n</nav>\r\n<nav>\r\n  <ul>\r\n    <li>\r\n      <a href=\"/page-1\">1</a>\r\n    </li>\r\n  ...\r\n  </ul>\r\n</nav>\r\n```\r\n\r\nLe fait d'avoir plusieurs \u00e9l\u00e9ments `<nav>` sur une page est valable, mais il y a maintenant trois points de rep\u00e8re navigation qui se ressemblent tous. Il est difficile de les distinguer, \u00e0 moins que vous ne connaissiez tr\u00e8s bien la structure de la page. Pour les distinguer, vous pouvez les \u00e9tiqueter en utilisant `aria-labelledby` ou `aria-label`. \r\n\r\n\r\n## Choisir une \u00e9tiquette\r\n\r\nAvant de choisir le label d'un rep\u00e8re, v\u00e9rifiez s'il n'existe pas d\u00e9j\u00e0 une label utile quelque part sur la page. Si c'est le cas, utilisez l'attribut `aria-labelledby` pour cr\u00e9er une r\u00e9f\u00e9rence entre le rep\u00e8re et un autre \u00e9l\u00e9ment qui le label. Les titres conviennent souvent pour \u00e9tiqueter les points de rep\u00e8re, comme le montre l'[exemple 1](#exemple-1).\r\n\r\nUne bonne \u00e9tiquette d\u00e9crit le but du rep\u00e8re en moins de trois mots. Pour les navigations, \u00e9vitez les termes comme \u00ab&nbsp;menu&nbsp;\u00bb ou \u00ab&nbsp;navigation&nbsp;\u00bb car le r\u00f4le de l'\u00e9l\u00e9ment le transmet d\u00e9j\u00e0. Par exemple, un lecteur d'\u00e9cran annonce un libell\u00e9 comme \u00ab&nbsp;Navigation principale&nbsp;\u00bb comme \u00ab&nbsp;Navigation principale navigation&nbsp;\u00bb  \u00c9vitez \u00e9galement les noms visuels comme \u00ab&nbsp;Burger&nbsp;\u00bb , \u00ab&nbsp;Mobile&nbsp;\u00bb ou \u00ab&nbsp;Barre sup\u00e9rieure&nbsp;\u00bb ; utilisez plut\u00f4t des \u00e9tiquettes contextuelles comme \u00ab&nbsp;Principal&nbsp;\u00bb ou \u00ab&nbsp;Contenu&nbsp;\u00bb.\r\n\r\nN'\u00e9tiquettez pas les points de rep\u00e8re `<header>`, `<main>`, et `<footer>` parce qu'ils sont cens\u00e9s \u00eatre uniques de toute fa\u00e7on et n'ont pas besoin d'\u00e9tiquette.\r\n\r\nEn g\u00e9n\u00e9ral, je recommande d'utiliser `aria-labelledby` plut\u00f4t que `aria-label`, si possible, parce qu'il fonctionne avec le contenu existant au lieu d'introduire un nouveau texte, et qu'il fonctionne mieux avec les outils d'auto-traduction comme Google Translate. S'il n'y a pas d'en-t\u00eate ou de contenu appropri\u00e9, utilisez l'attribut `aria-label`, comme dans l'[exemple 2](#exemple-2).\r\n",
+      "created": "2025-06-10T13:42:19.551495",
+      "updated": "2025-06-10T14:05:35.753328",
+      "meta_description": "Apprenez \u00e0 labelliser les points de rep\u00e8re HTML (<nav>, <header>, etc.) avec aria-labelledby ou aria-label pour une accessibilit\u00e9 optimale. Exemples concrets et bonnes pratiques incluses.",
+      "status_id": 3
     }
   ],
   "tag": [
@@ -448,6 +458,26 @@
       "id": 448,
       "posts_id": 16,
       "tags_id": 10
+    },
+    {
+      "id": 469,
+      "posts_id": 17,
+      "tags_id": 1
+    },
+    {
+      "id": 470,
+      "posts_id": 17,
+      "tags_id": 2
+    },
+    {
+      "id": 471,
+      "posts_id": 17,
+      "tags_id": 3
+    },
+    {
+      "id": 472,
+      "posts_id": 17,
+      "tags_id": 4
     }
   ],
   "status": [

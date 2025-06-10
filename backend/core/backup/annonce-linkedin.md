@@ -1,13 +1,15 @@
-# Un <form> mal structuré, c’est plus qu’une mauvaise pratique.
+# Améliorez l’accessibilité de vos sites en labellisant les points de repère !
 
-C’est un frein pour :
+Vous utilisez des balises <nav>, <header> ou <main> dans vos projets ? Saviez-vous que des repères mal étiquetés peuvent rendre la navigation confuse, surtout pour les utilisateurs de lecteurs d'écran ?
 
-- l’accessibilité
-- l’expérience utilisateur
-- et même… le SEO
+Dans mon dernier article, je détaille comment différencier les repères similaires avec :
+✔ aria-labelledby (pour lier un repère à un titre existant)
+✔ aria-label (si aucun texte descriptif n’est disponible)
+✔ Les bonnes pratiques pour éviter les erreurs courantes (ex : ne pas étiqueter <footer>).
 
-Dans mon dernier article, je décrypte comment un simple formulaire peut ruiner l’UX et l’indexation. Des exemples concrets, des erreurs fréquentes, et des bonnes pratiques simples à mettre en place.
+📖 Lire l’article complet : [Lien vers l’article]
 
-Lire l'article ici : [lien]
+🔹 Pour qui ? Développeurs, intégrateurs, chefs de projet SEO et accessibilité.
+🔹 Pourquoi ? Améliorer l’UX, le référencement technique et la conformité RGAA/WCAG.
 
 #html #accessibilité #ux #seo
