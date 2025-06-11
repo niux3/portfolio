@@ -1,15 +1,12 @@
-# Améliorez l’accessibilité de vos sites en labellisant les points de repère !
+# Un bon HTML, c'est important. Ce n’est pas que pour les navigateurs.
+C’est aussi (et surtout) pour les humains… et les lecteurs d’écran.
 
-Vous utilisez des balises <nav>, <header> ou <main> dans vos projets ? Saviez-vous que des repères mal étiquetés peuvent rendre la navigation confuse, surtout pour les utilisateurs de lecteurs d'écran ?
+Dans mon dernier article, j’explique pourquoi :
+- une structure sémantique claire
+- des balises adaptées (<header>, <main>, <section>)
+- et des attributs comme aria-label ou aria-labelledby sont important pour un web plus accessible et mieux référencé.
 
-Dans mon dernier article, je détaille comment différencier les repères similaires avec :
-✔ aria-labelledby (pour lier un repère à un titre existant)
-✔ aria-label (si aucun texte descriptif n’est disponible)
-✔ Les bonnes pratiques pour éviter les erreurs courantes (ex : ne pas étiqueter <footer>).
+J’y montre aussi comment un bon balisage peut faire toute la différence pour le SEO, l’UX et l’accessibilité.
 
-📖 Lire l’article complet : [Lien vers l’article]
-
-🔹 Pour qui ? Développeurs, intégrateurs, chefs de projet SEO et accessibilité.
-🔹 Pourquoi ? Améliorer l’UX, le référencement technique et la conformité RGAA/WCAG.
-
-#html #accessibilité #ux #seo
+👉 [Lien de l’article]
+#HTML #Accessibilité #SEO #ARIA #WebDev #Inclusivité #DéveloppementWeb
