@@ -114,9 +114,9 @@
       "id": 12,
       "title": "Cr\u00e9er des rep\u00e8res de navigation",
       "slug": "creer-des-reperes-de-navigation",
-      "body": "Quelle que soit la fa\u00e7on dont les utilisateurs acc\u00e8dent \u00e0 un site Web, ils doivent \u00eatre en mesure d'identifier les navigations. Sinon, ils risquent de ne pas pouvoir trouver le contenu qu'ils recherchent, s'orienter et naviguer. Identifiez les navigations et permettez un acc\u00e8s rapide aux groupes de liens importants, tels que la navigation principale ([exemple 1](#exemple-1)), les fils d'Ariane ([exemple 2](#exemple-2)), ou les navigations locales ([exemple 3](#exemple-3)).\r\n\r\n**<span id=\"exemple-1\">Exemple 1</span> La navigation principale d'un site**\r\n\r\n```html\r\n<header>\r\n  <nav aria-label=\"Main\"> \r\n    <ul>\r\n      <li><a href=\"/accueil\">Accueil</a></li>\r\n      <li><a href=\"/produits\" aria-current=\"page\">Produits</a></li> \r\n      <li><a href=\"/a-propos-de-nous\">\u00e0 propos de nous</a></li>\r\n      <li><a href=\"/contacter\">nous contacter</a></li>\r\n    </ul>\r\n  </nav>\r\n</header>\r\n```\r\n\r\n**Note** : `aria-current=\"page\"` met en \u00e9vidence la page active.\r\n\r\n**<span id=\"exemple-2\">Exemple 2</span> Une navigation en fil d'Ariane sur des pages profond\u00e9ment imbriqu\u00e9es**\r\n\r\n```html\r\n<nav aria-label=\"Breadcrumb\">\r\n  <ol>\r\n    <li><a href=\"/produits/\">Produits</a></li>\r\n    <li><a href=\"/produits/robes/\">Nos robes</a></li>\r\n    <li>\r\n      <a href=\"/produits/robes/courtes\" aria-current=\"page\">robes courtes</a>\r\n    </li>\r\n  </ol>\r\n</nav>\r\n```\r\n\r\n**Note** : `aria-current=\"page\"` met en \u00e9vidence la page active.\r\n\r\n\r\n**<span id=\"exemple-3\">Exemple 3</span> Une navigation locale \u00e0 l'int\u00e9rieur d'une page**\r\n\r\n```html\r\n<nav aria-label=\"Contents\">\r\n  <ol>\r\n    <li><a href=\"#entreprise\">Entreprise</a></li>\r\n    <li><a href=\"#license\">License</a></li>\r\n    <li><a href=\"#voir-aussi\">voir aussi</a></li>\r\n    <li><a href=\"#nos-references\">Nos r\u00e9f\u00e9rences</a></li>\r\n  </ol>\r\n</nav>\r\n```\r\n**Note** : l'utilisation des attributs aria-label sur les navigations n'est pas obligatoire, surtout si le but de la navigation est clair d'apr\u00e8s le contexte. \r\n\r\nLa navigation d'une page doit se distinguer visuellement et s\u00e9mantiquement du reste du contenu de la page. En termes de style, cela signifie g\u00e9n\u00e9ralement qu'il faut la placer \u00e0 un endroit bien visible du site ou de la page et la mettre en valeur en utilisant un style diff\u00e9rent de celui des \u00e9l\u00e9ments similaires du reste de la page. En termes de s\u00e9mantique, vous utilisez l'\u00e9l\u00e9ment `<nav>` pour d\u00e9finir un rep\u00e8re de navigation et marquer les principaux liens de navigation. Un lecteur d'\u00e9cran annonce quelque chose comme `navigation` lorsque l'utilisateur interagit avec lui. Cependant, tous les groupes de liens ne constituent pas automatiquement une navigation. Par exemple, si le pied de page de votre site ne contient que quelques liens, il n'est pas n\u00e9cessaire de les inclure dans un \u00e9l\u00e9ment `<nav>`. Le rep\u00e8re `contentinfo` est suffisant pour ce cas d'utilisation. Cela ne veut pas dire que vous ne devez jamais utiliser l'\u00e9l\u00e9ment `<nav>` \u00e0 l'int\u00e9rieur d'un pied de page. Lorsqu'il y a diff\u00e9rents groupes de liens dans le pied de page, il peut \u00eatre utile d'envelopper chaque groupe dans un \u00e9l\u00e9ment `<nav>` et de l'\u00e9tiqueter. C'est une question de jugement, qui d\u00e9pend de la complexit\u00e9 et de l'\u00e9tendue du contenu.\r\n\r\nLe fait que les \u00e9l\u00e9ments de `<nav>` soient des rep\u00e8res est particuli\u00e8rement utile pour les utilisateurs de lecteurs d'\u00e9cran, car ils peuvent y acc\u00e9der directement \u00e0 l'aide de raccourcis clavier. \r\n\r\nVous pouvez utiliser l'\u00e9l\u00e9ment `<nav>` pour la navigation principale de votre site et les \u00e9l\u00e9ments de navigation sp\u00e9cifiques \u00e0 la page comme les navigations par fil d'Ariane ([exemple 2](#exemple-2)), la pagination ou la navigation par contenu ([exemple 3](#exemple-3)). \r\n\r\nPour finir, vous n'\u00eates pas oblig\u00e9 de structurer les liens d'une navigation \u00e0 l'aide d'un \u00e9l\u00e9ment de liste, mais c'est conseill\u00e9. Je vous expliquerai plus tard les avantages. Vous pouvez utiliser une liste ordonn\u00e9e ou non ordonn\u00e9e. Si vous n'\u00eates pas s\u00fbr, le choix par d\u00e9faut de `<ul>` (liste non ordonn\u00e9e) est s\u00fbr.",
+      "body": "Quelle que soit la fa\u00e7on dont les utilisateurs acc\u00e8dent \u00e0 un site Web, ils doivent \u00eatre en mesure d'identifier les navigations. Sinon, ils risquent de ne pas pouvoir trouver le contenu qu'ils recherchent, s'orienter et naviguer. Identifiez les navigations et permettez un acc\u00e8s rapide aux groupes de liens importants, tels que la navigation principale ([exemple 1](#exemple-1)), les fils d'Ariane ([exemple 2](#exemple-2)), ou les navigations locales ([exemple 3](#exemple-3)).\r\n\r\n**<span id=\"exemple-1\">Exemple 1</span> La navigation principale d'un site**\r\n\r\n```html\r\n<header>\r\n  <nav aria-label=\"Main\"> \r\n    <ul>\r\n      <li><a href=\"/accueil\">Accueil</a></li>\r\n      <li><a href=\"/produits\" aria-current=\"page\">Produits</a></li> \r\n      <li><a href=\"/a-propos-de-nous\">\u00e0 propos de nous</a></li>\r\n      <li><a href=\"/contacter\">nous contacter</a></li>\r\n    </ul>\r\n  </nav>\r\n</header>\r\n```\r\n\r\n**Note** : `aria-current=\"page\"` met en \u00e9vidence la page active.\r\n\r\n**<span id=\"exemple-2\">Exemple 2</span> Une navigation en fil d'Ariane sur des pages profond\u00e9ment imbriqu\u00e9es**\r\n\r\n```html\r\n<nav aria-label=\"Fil d\u2019Ariane\">\r\n  <ol>\r\n    <li><a href=\"/produits/\">Produits</a></li>\r\n    <li><a href=\"/produits/robes/\">Nos robes</a></li>\r\n    <li>\r\n      <a href=\"/produits/robes/courtes\" aria-current=\"page\">robes courtes</a>\r\n    </li>\r\n  </ol>\r\n</nav>\r\n```\r\n\r\n**Note** : `aria-current=\"page\"` met en \u00e9vidence la page active.\r\n\r\n\r\n**<span id=\"exemple-3\">Exemple 3</span> Une navigation locale \u00e0 l'int\u00e9rieur d'une page**\r\n\r\n```html\r\n<nav aria-label=\"Sommaire de la page\">\r\n  <ol>\r\n    <li><a href=\"#entreprise\">Entreprise</a></li>\r\n    <li><a href=\"#license\">License</a></li>\r\n    <li><a href=\"#voir-aussi\">voir aussi</a></li>\r\n    <li><a href=\"#nos-references\">Nos r\u00e9f\u00e9rences</a></li>\r\n  </ol>\r\n</nav>\r\n```\r\n**Note** : l'utilisation des attributs aria-label sur les navigations n'est pas obligatoire, surtout si le but de la navigation est clair d'apr\u00e8s le contexte. \r\n\r\nLa navigation d'une page doit se distinguer visuellement et s\u00e9mantiquement du reste du contenu de la page. En termes de style, cela signifie g\u00e9n\u00e9ralement qu'il faut la placer \u00e0 un endroit bien visible du site ou de la page et la mettre en valeur en utilisant un style diff\u00e9rent de celui des \u00e9l\u00e9ments similaires du reste de la page. En termes de s\u00e9mantique, vous utilisez l'\u00e9l\u00e9ment `<nav>` pour d\u00e9finir un rep\u00e8re de navigation et marquer les principaux liens de navigation. Un lecteur d'\u00e9cran annonce quelque chose comme `navigation` lorsque l'utilisateur interagit avec lui. Cependant, tous les groupes de liens ne constituent pas automatiquement une navigation. Par exemple, si le pied de page de votre site ne contient que quelques liens, il n'est pas n\u00e9cessaire de les inclure dans un \u00e9l\u00e9ment `<nav>`. Le rep\u00e8re `contentinfo` est suffisant pour ce cas d'utilisation. Cela ne veut pas dire que vous ne devez jamais utiliser l'\u00e9l\u00e9ment `<nav>` \u00e0 l'int\u00e9rieur d'un pied de page. Lorsqu'il y a diff\u00e9rents groupes de liens dans le pied de page, il peut \u00eatre utile d'envelopper chaque groupe dans un \u00e9l\u00e9ment `<nav>` et de l'\u00e9tiqueter. C'est une question de jugement, qui d\u00e9pend de la complexit\u00e9 et de l'\u00e9tendue du contenu.\r\n\r\nLe fait que les \u00e9l\u00e9ments de `<nav>` soient des rep\u00e8res est particuli\u00e8rement utile pour les utilisateurs de lecteurs d'\u00e9cran, car ils peuvent y acc\u00e9der directement \u00e0 l'aide de raccourcis clavier. \r\n\r\nVous pouvez utiliser l'\u00e9l\u00e9ment `<nav>` pour la navigation principale de votre site et les \u00e9l\u00e9ments de navigation sp\u00e9cifiques \u00e0 la page comme les navigations par fil d'Ariane ([exemple 2](#exemple-2)), la pagination ou la navigation par contenu ([exemple 3](#exemple-3)). \r\n\r\nPour finir, vous n'\u00eates pas oblig\u00e9 de structurer les liens d'une navigation \u00e0 l'aide d'un \u00e9l\u00e9ment de liste, mais c'est conseill\u00e9. Je vous expliquerai plus tard les avantages. Vous pouvez utiliser une liste ordonn\u00e9e ou non ordonn\u00e9e. Si vous n'\u00eates pas s\u00fbr, le choix par d\u00e9faut de `<ul>` (liste non ordonn\u00e9e) est s\u00fbr.",
       "created": "2025-06-04T14:39:29.634806",
-      "updated": "2025-06-04T14:46:16.022363",
+      "updated": "2025-06-11T15:09:45.214109",
       "meta_description": "Apprenez \u00e0 structurer des rep\u00e8res de navigation accessibles pour aider tous les utilisateurs \u00e0 s\u2019orienter efficacement sur votre site web.",
       "status_id": 3
     },
@@ -370,26 +370,6 @@
       "tags_id": 4
     },
     {
-      "id": 276,
-      "posts_id": 12,
-      "tags_id": 1
-    },
-    {
-      "id": 277,
-      "posts_id": 12,
-      "tags_id": 2
-    },
-    {
-      "id": 278,
-      "posts_id": 12,
-      "tags_id": 3
-    },
-    {
-      "id": 279,
-      "posts_id": 12,
-      "tags_id": 4
-    },
-    {
       "id": 332,
       "posts_id": 13,
       "tags_id": 6
@@ -507,6 +487,26 @@
     {
       "id": 580,
       "posts_id": 18,
+      "tags_id": 4
+    },
+    {
+      "id": 581,
+      "posts_id": 12,
+      "tags_id": 1
+    },
+    {
+      "id": 582,
+      "posts_id": 12,
+      "tags_id": 2
+    },
+    {
+      "id": 583,
+      "posts_id": 12,
+      "tags_id": 3
+    },
+    {
+      "id": 584,
+      "posts_id": 12,
       "tags_id": 4
     }
   ],

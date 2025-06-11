@@ -104,7 +104,142 @@
 </ul>
 <p>J’espère que cette liste vous enthousiasme. Si certains points ne vous sont pas encore clairs, ne vous inquiétez pas : au fil de ce chapitre et des suivants, ces avantages deviendront plus concrets et significatifs. Maintenant que nous avons abordé les bénéfices de SQLAlchemy, installons-le et commençons à coder.</p>
 <h3>Installer SQLAlchmy</h3>
-<p>Nous utiliserons <code>pip</code> pour installer SQLAlchemy dans l'environnement virtuel de l'application blog. Comme vous l'avez vu dans le chapitre précédent, pour activer votre environnement virtuel, modifiez les répertoires source du script d'activation comme suit :</p></div>
+<p>Nous utiliserons <code>pip</code> pour installer SQLAlchemy dans l'environnement virtuel de l'application blog. Comme vous l'avez vu dans le chapitre précédent, pour activer votre environnement virtuel, modifiez les répertoires source du script d'activation comme suit :</p>
+<pre><code class="language-bash">$ cd ~/projects
+$ source .venv/bin/activate
+(.venv) ... $ pip install sqlalchemy
+</code></pre>
+<p>Vous pouvez vérifier si votre installation a réussi en ouvrant un interpréteur Python et en vérifiant la version de SQLAlchemy ; notez que votre numéro de version exact risque de différer.</p>
+<pre><code class="language-bash">$ python
+&gt;&gt;&gt; import sqlalchemy
+&gt;&gt;&gt; sqlalchmy.__version__
+'2.0.41'
+</code></pre>
+<h3>Utiliser SQLAlchemy dans notre application Flask</h3>
+<p>SQLAlchemy fonctionne très bien avec Flask seul, mais l'auteur de Flask a publié une extension spéciale appelée Flask-SQLAlchemy qui fournit des aides pour de nombreuses tâches courantes et peut nous éviter de réinventer la roue plus tard. Utilisons pip pour installer cette extension :</p>
+<pre><code class="language-bash">(.venv) $ pip install flask-sqlalchemy
+</code></pre>
+<p>Flask fournit une interface standard pour les développeurs souhaitant créer des extensions. Avec la popularité croissante du framework, le nombre d'extensions de haute qualité a augmenté. Si vous souhaitez consulter certaines des extensions les plus populaires, une liste triée est disponible sur le site web du projet Flask à l'adresse <a href="http://flask.pocoo.org/extensions/" target="_blank">http://flask.pocoo.org/extensions/</a>.</p>
+<h3>Choisir le moteur de base de données</h3>
+<p>SQLAlchemy prend en charge une multitude de dialectes de bases de données populaires, notamment SQLite, MySQL et PostgreSQL. Selon la base de données que vous souhaitez utiliser, vous devrez peut-être installer un package Python supplémentaire contenant un pilote de base de données. Voici plusieurs bases de données populaires prises en charge par SQLAlchemy et leurs pilotes installables via <code>pip</code>. Certaines bases de données proposent plusieurs options de pilotes, j'ai donc listé les plus populaires en premier.</p>
+<table id="table-1">
+    <caption>Drivers SQLAlchemy par système de gestion de base de données (SGBD) – Packages Python recommandés pour chaque dialecte</caption>
+    <thead>
+        <tr>
+            <th scope="col">Base de données</th>
+            <th scope="col">Driver</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>SQLite</td>
+            <td>Non nécessaire, fait partie de la bibliothèque standard de Python depuis la version 2.5.</td>
+        </tr>
+        <tr>
+            <td>MySQL</td>
+            <td>MySQL-python, PyMySQL (pure Python), OurSQL</td>
+        </tr>
+        <tr>
+            <td>PostgreSQL</td>
+            <td>psycopg2-binary</td>
+        </tr>
+        <tr>
+            <td>Firebird</td>
+            <td>fdb</td>
+        </tr>
+        <tr>
+            <td>SQL Server</td>
+            <td>pymssql, PyODBC</td>
+        </tr>
+        <tr>
+            <td>Oracle</td>
+            <td>cx-Oracle</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>SQLite est fourni par défaut avec Python et ne nécessite pas de processus serveur séparé, ce qui le rend parfait pour démarrer rapidement. Par souci de simplicité dans les exemples suivants, je montrerai comment configurer l'application de blog pour l'utiliser avec SQLite. Si vous préférez utiliser une autre base de données pour votre projet de blog, n'hésitez pas à installer dès maintenant le package du pilote nécessaire via <code>pip</code>.</p>
+<h3>Se connecter à une base de données</h3>
+<p>Ouvrez le module <code>config.py</code> de notre projet blog (<code>~/projects/blog/app/config.py</code>) avec votre éditeur de texte préféré. Nous allons ajouter un paramètre spécifique à SQLAlchemy pour indiquer à Flask-SQLAlchemy comment se connecter à notre base de données. Les nouvelles lignes sont mises en évidence ci-dessous :</p>
+<pre><code class="language-python">from pathlib import Path
+
+class Configuration(object):
+    APPLICATION_DIR = Path(__file__).resolve().parent
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = f'sqlite:///{APPLICATION_DIR}/blog.db'
+</code></pre>
+<p><code>SQLALCHEMY_DATABASE_URI</code> se compose des éléments suivants :
+<code>protocole+driver://username:password@host:port/database</code></p>
+<p>Comme les bases de données SQLite sont stockées dans des fichiers locaux, la seule information à fournir est le chemin vers le fichier de base de données. En revanche, pour vous connecter à une instance PostgreSQL locale, votre URI ressemblerait plutôt à ceci :
+<code>postgresql://postgres:secretpassword@localhost:5432/blog_db</code></p>
+<p><strong>Remarque</strong> : Si vous rencontrez des difficultés pour vous connecter à votre base de données, consultez la documentation SQLAlchemy sur les URI de base de données : <a href="http://docs.sqlalchemy.org/en/rel_0_9/core/engines.html." target="_blank">http://docs.sqlalchemy.org/en/rel_0_9/core/engines.html</a>.</p>
+<p>Maintenant que nous avons spécifié comment se connecter à la base de données, créons l'objet responsable de la gestion des connexions à notre base. Cet objet est fourni par l'extension <code>Flask-SQLAlchemy</code> et se nomme simplement <code>SQLAlchemy</code>. Ouvrez <code>app.py</code> et ajoutez les éléments suivants :</p>
+<pre><code class="language-python">from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from config import Configuration
+
+
+app = Flask(__name__)
+app.config.from_object(Configuration)
+db = SQLAlchemy(app)
+</code></pre>
+<p>Ces modifications configurent notre application Flask (et par extension SQLAlchemy) pour communiquer avec la base de données. L'étape suivante consiste à créer une table pour stocker les articles du blog, ce qui nécessitera la création de notre premier modèle.</p>
+<h2>Création du modèle Entry</h2>
+<p>Un modèle représente une table de données que nous souhaitons stocker dans la base de données. Ces modèles contiennent des attributs appelés colonnes qui représentent les éléments de données. Par exemple, pour un modèle <code>Person</code>, nous pourrions avoir des colonnes pour le prénom, le nom, la date de naissance, l'adresse, la couleur des cheveux, etc. Dans notre cas, comme nous créons un modèle pour des articles de blog, nous utiliserons des colonnes pour le titre, le contenu et autres champs pertinents.</p>
+<p><strong>Remarque</strong>: on ne dit pas un modèle 'People' ou 'Entries' - <strong>les modèles sont toujours au singulier</strong> même s'ils représentent généralement plusieurs objets différents.</p>
+<p>Avec SQLAlchemy, créer un modèle est aussi simple que de définir une classe et de lui attribuer différents champs. Commençons par un modèle très basique pour nos articles de blog. Créez un nouveau fichier nommé <code>models.py</code> dans le répertoire <code>app/</code> du projet blog, puis ajoutez le code suivant :</p>
+<pre><code class="language-python">import datetime
+import re
+from app import db
+
+
+def slugify(s):
+    return re.sub('[^\w]+', '-', s).lower()
+
+
+class Entry(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255))
+    slug = db.Column(db.String(255), unique=True)
+    body = db.Column(db.Text)
+    created_timestamp = db.Column(db.DateTime, default=datetime.datetime.now)
+    modified_timestamp = db.Column(db.DateTime, default=datetime.datetime.now, onupdate=datetime.datetime.now)
+
+    def __init__(self, *args, **kwargs):
+        super(Entry, self).__init__(*args, **kwargs)
+        self.generate_slug()
+
+    def generate_slug(self):
+        self.slug = ''
+        if self.title:
+            self.slug = slugify(self.title)
+
+    def __repr__(self):
+        return '&lt;Entry: %r&gt;' % self.title
+</code></pre>
+<p>Plusieurs éléments sont à commenter. Commençons donc par les imports et détaillons progressivement. Nous importons d'abord les modules standards <code>datetime</code> et <code>re</code>. Le module <code>datetime</code> servira à obtenir la date/heure actuelle, tandis que <code>re</code> permettra des manipulations de chaînes. L'import suivant concerne l'objet <code>db</code> créé dans <code>app.py</code>. Comme vous vous en souvenez, <code>db</code> est une instance de la classe SQLAlchemy (fournie par Flask-SQLAlchemy) et donne accès aux classes nécessaires pour construire notre modèle <code>Entry</code>, que nous verrons sous peu. </p>
+<p>Avant le modèle <code>Entry</code>, nous définissons une fonction utilitaire <code>slugify</code> pour générer des URLs conviviales (utilisées au Chapitre 4). Cette fonction transforme une chaîne comme <code>Un article sur Flask</code> en <code>un-article-sur-flask</code> via des expressions régulières. </p>
+<p>Le modèle <code>Entry</code> lui-même est une classe héritant de <code>db.Model</code>, ce qui lui confère des helpers pour interroger la base de données. Ses attributs représentent la structure de la table : </p>
+<ul>
+<li><code>id</code> (clé primaire auto-générée), </li>
+<li><code>title</code> (String(100) pour le titre), </li>
+<li><code>slug</code> (String(100) unique pour l'URL), </li>
+<li><code>body</code> (Text pour le contenu illimité), </li>
+<li><code>created_timestamp</code> (DateTime rempli automatiquement à la création), </li>
+<li><code>modified_timestamp</code> (DateTime mis à jour à chaque sauvegarde).</li>
+</ul>
+<p><strong>Remarque</strong> : Pour les chaînes courtes comme les titres ou noms, la colonne <code>String</code> est appropriée, mais pour les textes potentiellement longs, il est préférable d'utiliser une colonne <code>Text</code> comme nous l'avons fait pour le corps de l'article.</p>
+<p>Nous avons surchargé le constructeur de la classe (<code>__init__</code>) pour qu'il génère automatiquement le slug à partir du titre lors de la création d'un nouveau modèle. </p>
+<p>La dernière partie est la méthode <code>__repr__</code> qui produit une représentation lisible des instances de notre classe <code>Entry</code>. Bien que son fonctionnement exact ne soit pas crucial,  <code>__repr__</code> permet d'identifier facilement les objets lors du débogage. </p>
+<p>Enfin, ajoutez les modifications indiquées dans <code>main.py</code> (point d'entrée de l'application) pour importer les modèles, comme suit :</p>
+<pre><code class="language-python">from app import app, db
+import models
+import views
+
+
+if __name__ == '__main__':
+    app.run()
+</code></pre></div>
       <p class="text-right">Publié le 10 juin 2025</p>
     </article>
   </section>
