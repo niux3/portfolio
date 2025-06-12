@@ -1,0 +1,26 @@
+*{
+  scrollbar-color: var(--color-cannes) var(--color-laval);
+  scrollbar-width: unset;
+}
+
+ /* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-laval);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-cannes);
+  transition: background .4s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-marseille);
+}
