@@ -199,20 +199,27 @@ def slugify(s):
 
 class Entry(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(255))
+    _title = db.Column('title', db.String(255))
     slug = db.Column(db.String(255), unique=True)
     body = db.Column(db.Text)
     created_timestamp = db.Column(db.DateTime, default=datetime.datetime.now)
     modified_timestamp = db.Column(db.DateTime, default=datetime.datetime.now, onupdate=datetime.datetime.now)
 
+    @property
+    def title(self):
+        return self._title
+
+    @title.setter
+    def title(self, value):
+        self._title = value
+        self.slug = slugify(value) if value else ''
+
     def __init__(self, *args, **kwargs):
         super(Entry, self).__init__(*args, **kwargs)
-        self.generate_slug()
-
-    def generate_slug(self):
-        self.slug = ''
-        if self.title:
-            self.slug = slugify(self.title)
+        if 'title' in kwargs:
+            self.slug = slugify(kwargs['title'])
+        else:
+            self.slug = ''
 
     def __repr__(self):
         return '&lt;Entry: %r&gt;' % self.title
@@ -239,6 +246,89 @@ import views
 
 if __name__ == '__main__':
     app.run()
+</code></pre>
+<h3>Création de la table Entry</h3>
+<p>Afin de commencer à travailler avec le modèle <code>Entry</code>, nous devons d'abord créer une table pour celui-ci dans notre base de données. Heureusement, Flask-SQLAlchemy propose un utilitaire pratique pour cela. créez un fichier nommé <code>create_db.py</code> :</p>
+<pre><code class="language-bash">(.venv) $ cd app/
+(.venv) $ touch script_create_db.py
+</code></pre>
+<p>Ajoutez le code suivant au module <code>create_db.py</code>. Cette fonction va automatiquement analyser tout le code que nous avons écrit et créer une nouvelle table dans notre base de données pour le modèle <code>Entry</code> basé sur nos modèles :</p>
+<pre><code class="language-python">from main import db
+from models import Entry
+from app import app
+
+
+with app.app_context():
+    db.create_all()
+</code></pre>
+<p><strong>Note</strong> : L'appel à app.app_context() est important car certaines opérations avec Flask-SQLAlchemy nécessitent un contexte d'application actif. </p>
+<p>Exécutez le script depuis le répertoire <code>app/</code>. Assurez-vous que l’environnement virtuel est activé. Si tout se passe correctement, vous ne devriez voir aucune sortie.</p>
+<pre><code class="language-bash">(.venv) $ python script_create_db.py
+</code></pre>
+<p><strong>Note</strong> : Si vous rencontrez des erreurs lors de la création des tables de la base de données, assurez-vous que vous vous trouvez dans le répertoire app et que l’environnement virtuel est activé lorsque vous exécutez le script. Vérifiez ensuite qu’il n’y a aucune faute de frappe dans votre paramètre SQLALCHEMY_DATABASE_URI.</p>
+<h2>Travailler avec le modèle <code>Entry</code></h2>
+<p>Expérimentons avec notre nouveau modèle <code>Entry</code> en enregistrant quelques articles de blog. Nous allons faire cela depuis le shell interactif de Python. À ce stade, installons IPython, un shell sophistiqué offrant des fonctionnalités telles que l’auto-complétion par tabulation (que le shell Python par défaut ne propose pas).</p>
+<pre><code class="language-bash">(.venv) $ pip install ipython
+</code></pre>
+<p>Vérifiez maintenant que vous êtes dans le répertoire app, puis lançons le shell et créons quelques entrées comme suit :</p>
+<pre><code class="language-bash">(.venv) $ ipython
+In []: from models import *
+In []: db
+Out[]: &lt;SQLAlchemy&gt;
+</code></pre>
+<p><strong>Note</strong>: Si vous êtes familier avec le shell Python classique mais pas avec IPython, certaines choses peuvent vous paraître un peu différentes au début. L’élément principal à connaître est que <code>In[]</code> fait référence au code que vous saisissez, et <code>Out[]</code> correspond au résultat des commandes que vous entrez dans le shell.</p>
+<p>IPython dispose d’une fonctionnalité pratique qui vous permet d’afficher des informations détaillées sur un objet. Pour cela, il suffit de taper le nom de l’objet suivi d’un point d’interrogation (?). L’inspection du modèle <code>Entry</code> fournit un certain nombre d’informations, notamment la signature des arguments et la chaîne représentant cet objet (appelée docstring) du constructeur.</p>
+<pre><code class="language-bash">In []: Entry?
+Init signature: Entry(*args, **kwargs)
+Docstring:     
+The base class of the :attr:`.SQLAlchemy.Model` declarative model class.
+
+To define models, subclass :attr:`db.Model &lt;.SQLAlchemy.Model&gt;`, not this. To
+customize ``db.Model``, subclass this and pass it as ``model_class`` to
+:class:`.SQLAlchemy`. To customize ``db.Model`` at the metaclass level, pass an
+already created declarative model class as ``model_class``.
+File:           ~/projects/app/models.py
+Type:           DefaultMeta
+Subclasses: 
+</code></pre>
+<p>Nous pouvons créer des objets <code>Entry</code> en passant les valeurs des colonnes sous forme d’arguments nommés. Dans l’exemple précédent, on utilise <code>**kwargs</code> ; il s’agit d’un raccourci permettant de prendre un objet de type dictionnaire et de l’utiliser comme valeurs pour définir l’objet, comme illustré ci-dessous. N'oubliez pas que vous devez être dans le contexte de <code>app</code> (<code>with app.app_context()</code>) :</p>
+<pre><code class="language-bash">In []: from main import app
+In []: with app.app_context():
+   ...:     first_entry = Entry(title='premier article', body='contenu du premier article')
+   ...:     db.session.add(first_entry)
+   ...:     db.session.commit()
+   ...:     db.session.refresh(first_entry)
+</code></pre>
+<p>La session est simplement un objet qui représente nos actions sur la base de données.. Pour enregistrer notre première entrée, nous devons l’ajouter à la session de base de données <code>db.session.add(first_entry)</code>. Pour l’enregistrer définitivement, nous devons valider la session (commit) <code>db.session.commit()</code>.  La méthode <code>refresh</code> permet de récuperer la ligne une fois enregistrer. Vous pouvez récupérer les données générées en base de données  :</p>
+<pre><code class="language-bash">In []: first_entry.id
+Out[]: 1
+In []: first_entry.created_timestamp
+Out[]: datetime.datetime(2025, 5, 25, 9, 49, 53, 1337)
+</code></pre>
+<p>Comme vous pouvez le voir dans les exemples de code précédents, une fois que vous validez la session, un identifiant unique sera attribué à votre première entrée et le champ <code>created_timestamp</code> sera défini à l’heure actuelle. Félicitations, vous avez créé votre premier article de blog ! N’hésitez pas à en ajouter plusieurs autres par vous-même. Vous pouvez ajouter plusieurs objets <code>Entry</code> à la même session avant de la valider, alors essayez aussi cette méthode.</p>
+<p><strong>Note</strong>: À tout moment, pendant vos expérimentations, n’hésitez pas à supprimer le fichier <code>blog.db</code> puis à relancer le script <code>script_create_db.py</code> pour repartir avec une base de données toute neuve.</p>
+<h3>Modifier une entrée existante</h3>
+<p>Pour apporter des modifications à une entrée existante (<code>Entry</code>), il vous suffit d’effectuer les changements souhaités, puis de valider la session (commit). Récupérons notre entrée à l’aide de l’identifiant qui nous a été retourné précédemment, modifions-la, puis validons les changements. SQLAlchemy détectera automatiquement qu’une mise à jour est nécessaire.</p>
+<p>Voici un exemple illustrant comment modifier la première entrée :</p>
+<pre><code class="language-bash">In []: with app.app_context():
+    ...:     first_entry = Entry.query.get(1)
+    ...:     first_entry.title = &quot;changement du titre de l'article&quot;
+    ...:     db.session.commit()
+</code></pre>
+<p>Et voilà, vos modifications sont enregistrées.</p>
+<p><strong>Astuce</strong> : Si vous souhaitez visualiser les données enregistrées dans votre base de données SQLite, vous pouvez utiliser un client graphique tel que <a href="http://sqlitebrowser.org" target="_blank">DB Browser for SQLite</a>.
+Il vous suffit d’ouvrir le fichier <code>blog.db</code> (ou le nom de votre base) avec ce logiciel pour parcourir, modifier ou exporter vos données de manière visuelle.</p>
+<h3>Supprimer une entrée</h3>
+<p>Supprimer une entrée est tout aussi simple que d’en créer une. Au lieu d’appeler db.session.add, vous appellerez db.session.delete en passant l’instance de l’Entry que vous souhaitez supprimer.</p>
+<pre><code class="language-bash">In []: with app.app_context():
+    ...:     second_entry = Entry()
+    ...:     second_entry.title = &quot;un second titre&quot;
+    ...:     second_entry.body = &quot;du contenu&quot;
+    ...:     db.session.add(second_entry) # création d'une nouvelle entrée
+    ...:     db.session.commit()
+    ...:     to_delete = Entry.query.get(1) # la première ligne à supprimer id = 1
+    ...:     db.session.delete(to_delete)
+    ...:     db.session.commit()
 </code></pre></div>
       <p class="text-right">Publié le 10 juin 2025</p>
     </article>
