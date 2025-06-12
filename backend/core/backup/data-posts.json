@@ -179,6 +179,16 @@
       "updated": "2025-06-11T14:56:29.508840",
       "meta_description": "Bien structurer son HTML avec des rep\u00e8res et balises s\u00e9mantiques am\u00e9liore l'accessibilit\u00e9, la navigation et l\u2019exp\u00e9rience utilisateur.",
       "status_id": 3
+    },
+    {
+      "id": 19,
+      "title": "Pr\u00e9senter le contenu dans l'ordre",
+      "slug": "presenter-le-contenu-dans-l-ordre",
+      "body": "Les utilisateurs peuvent ne pas \u00eatre en mesure de comprendre le contenu si vous ne le pr\u00e9sentez pas dans un ordre significatif ou si l'ordre visuel des \u00e9l\u00e9ments ne correspond pas \u00e0 l'ordre des \u00e9l\u00e9ments dans le document. Les utilisateurs de lecteurs d'\u00e9cran peuvent avoir besoin de temps pour comprendre comment la page est structur\u00e9e. Une page d\u00e9sorganis\u00e9e rend l'exp\u00e9rience des utilisateurs de clavier et de lecteur d'\u00e9cran impr\u00e9visible et d\u00e9routante.\r\n\r\nStructurez le contenu de la page de haut en bas pour qu'il ait un sens, m\u00eame lorsqu'il est pr\u00e9sent\u00e9 sans CSS. L '[exemple 1](#exemple-1) montre comment vous pouvez structurer une pag.\r\n\r\n**<span id=\"exemple-1\">Exemple&nbsp;1</span>&nbsp;&ndash;&nbsp;Structure typique d'une page web, ordonn\u00e9e de haut en bas.**\r\n\r\n```html\r\n<header>\r\n  <a class=\"skip-link\" href=\"#content\">Aller au contenu principal</a> \r\n\r\n  <a href=\"/\">\r\n    Magasin de V\u00eatements\r\n    <svg>\u2026</svg>\r\n  </a>\r\n\r\n  <nav aria-label=\"Principal\"> \r\n    <ul>\r\n      <li>\r\n        <a href=\"/home\">Accueil</a>\r\n      </li>\r\n      \u2026\r\n    </ul>\r\n  </nav>\r\n</header>\r\n\r\n<main id=\"content\">\r\n  <h1>Magasin de v\u00eatements</h1>\r\n\r\n  <h2>V\u00eatements</h2>\r\n  <h3>V\u00eatements pour b\u00e9b\u00e9s</h3>\r\n  <h3>V\u00eatements pour enfants</h3>\r\n  <h2>Livres</h2>\r\n  <h2>Occasions sp\u00e9ciales</h2>\r\n  <h2>Contact</h2>\r\n  <h2>Paiement</h2>\r\n</main>\r\n\r\n<footer>\r\n  &copy; 2025\r\n</footer>\r\n```\r\n\r\nLorsque vous disposez le contenu d'une page, il y a deux choses que vous devez prendre en compte : sa structure, son ordre g\u00e9n\u00e9ral et la pr\u00e9sentation visuelle des \u00e9l\u00e9ments.\r\n\r\nVous avez appris \u00e0 structurer un site \u00e0 l'aide de rep\u00e8res de haut niveau dans l'article \u00ab&nbsp;[Structure du document](https://rb-webstudio.go.yj.fr/articles/structure-du-document-11.html)&nbsp;\u00bb et \u00e0 structurer une page \u00e0 l'aide de rep\u00e8res de bas(article : \u00ab&nbsp;[Structure du contenu principal](https://rb-webstudio.go.yj.fr/articles/structure-du-contenu-principal-18.html)&nbsp;\u00bb). L'ordre des \u00e9l\u00e9ments dans les exemples dans ces articles n'est pas arbitraire. Travaillez dans le document de haut en bas et commencez par le contenu le plus pertinent, comme le montre l'[exemple 1](#exemple-1). Il s'agit g\u00e9n\u00e9ralement de l'en-t\u00eate, qui contient des \u00e9l\u00e9ments de navigation essentiels tels qu'un lien de saut, un lien vers la page d'accueil, la navigation principale et une recherche (article : \u00ab&nbsp;[Structure du document](https://rb-webstudio.go.yj.fr/articles/structure-du-document-11.html)&nbsp;\u00bb).\r\n\r\nSupposons que votre site contienne des \u00e9l\u00e9ments d'interface avec lesquels les utilisateurs doivent interagir avant d'acc\u00e9der au contenu, comme une banni\u00e8re de consentement aux cookies ou une s\u00e9lection de r\u00e9gion et de langue. Dans ce cas, ces \u00e9l\u00e9ments doivent venir en premier pour que les utilisateurs puissent s'en occuper en premier, quelle que soit la fa\u00e7on dont ils acc\u00e8dent au site. Apr\u00e8s l'en-t\u00eate vient le contenu principal, qui met en avant les informations les plus importantes et les plus pertinentes, structur\u00e9es par des titres. Le `<footer>` suit le `<main>` et contient des contenus tangentiellement li\u00e9s.\r\n\r\nUne erreur typique consiste \u00e0 suivre la repr\u00e9sentation visuelle des \u00e9l\u00e9ments de la conception sans pr\u00eater suffisamment attention \u00e0 l'ordre logique au sein de la page. Si vous prenez l'exemple suivant et que vous suiviez strictement la pr\u00e9sentation visuelle, vous obtiendrez le balisage de l'[exemple 2](#exemple-2).\r\n\r\n**<span id=\"exemple-2\">Exemple&nbsp;2</span>&nbsp;&ndash;&nbsp;Une accroche pour un article de blog avec l'image pr\u00e9c\u00e9dant le titre.**\r\n\r\n```html\r\n<img src=\"teaser.png\" alt=\"Exemples de menus d\u00e9roulants provenant de Dribbble, recherche Google et GitHub\">\r\n\r\n<h3>\r\n  Quand le CSS ne suffit pas : les besoins en JavaScript pour des composants accessibles\r\n</h3>\r\n\r\n<p>par Stephanie Eckles</p>\r\n\r\n<p>\r\n  Spoiler : les infobulles, modaux, onglets, carrousels et menus d\u00e9roulants\r\n  sont quelques-uns des composants d'interface utilisateur qui n\u00e9cessitent plus\r\n  que du CSS. Pour garantir l'accessibilit\u00e9 de votre interface, le JavaScript est\r\n  une addition n\u00e9cessaire pour g\u00e9rer le focus, r\u00e9pondre aux \u00e9v\u00e9nements clavier,\r\n  et basculer les attributs ARIA.\r\n</p>\r\n\r\n<p>Lisez <a href=\"#\">\u00ab Quand le CSS ne suffit pas \u00bb</a>.</p>\r\n```\r\n\r\nCela semble correct, mais compte tenu de l'objectif du titre (il pr\u00e9sente un nouveau sous-chapitre), l'image est mal plac\u00e9e parce qu'elle vient avant le titre. Il est beaucoup plus logique de commencer par le titre, comme le montre l'[exemple 3](#exemple-3).\r\n\r\n**<span id=\"exemple-3\">Exemple&nbsp;3</span>&nbsp;&ndash;&nbsp;Ordre am\u00e9lior\u00e9 : Une accroche pour un article de blog avec l'image qui suit le titre.**\r\n\r\n```html\r\n<h3>\r\n  Quand le CSS ne suffit pas : les besoins en JavaScript pour des composants accessibles\r\n</h3>\r\n<img src=\"teaser.png\" alt=\"Exemples de menus d\u00e9roulants provenant de Dribbble, recherche Google et GitHub\">\r\n<p>par Stephanie Eckles</p>\r\n\r\n<p>\r\n  Spoiler : les infobulles, modaux, onglets, carrousels et menus d\u00e9roulants\r\n  sont quelques-uns des composants d'interface utilisateur qui n\u00e9cessitent plus\r\n  que du CSS. Pour garantir l'accessibilit\u00e9 de votre interface, le JavaScript est\r\n  une addition n\u00e9cessaire pour g\u00e9rer le focus, r\u00e9pondre aux \u00e9v\u00e9nements clavier,\r\n  et basculer les attributs ARIA.\r\n</p>\r\n\r\n<p>Lisez <a href=\"#\">\u00ab Quand le CSS ne suffit pas \u00bb</a>.</p>\r\n```\r\n\r\nVous pouvez ensuite utiliser le CSS pour r\u00e9organiser visuellement les \u00e9l\u00e9ments. On peut soutenir qu'il serait pr\u00e9f\u00e9rable de concevoir une page qui corresponde \u00e0 l'ordre du document ou du composant en premier lieu. Ce n'est pas toujours faisable, mais c'est un id\u00e9al que vous devrez suivre.\r\n\r\nIl est pr\u00e9f\u00e9rable de s'abstenir de r\u00e9ordonner le contenu, en particulier les \u00e9l\u00e9ments interactifs, en utilisant des propri\u00e9t\u00e9s CSS comme `flex-direction`, `order`, `grid-auto-flow` ou des techniques comme le placement explicite, le positionnement absolu ou les marges n\u00e9gatives. Lorsque vous avez affaire \u00e0 des \u00e9l\u00e9ments interactifs, l'ordre visuel doit toujours repr\u00e9senter le mieux possible l'ordre du mod\u00e8le d'objet de document (DOM), car l'ordre des onglets suit l'ordre du DOM, quelle que soit la fa\u00e7on dont vous disposez les \u00e9l\u00e9ments visuellement.\r\n\r\nLa fa\u00e7on la plus simple d'obtenir une structure de page et un ordre de contenu corrects est de travailler d'abord en HTML et de concevoir un document qui fonctionne bien m\u00eame lorsqu'il est pr\u00e9sent\u00e9 sans CSS. Si vous pouvez regarder un document HTML final sans aucun style et comprendre comment la page est structur\u00e9e et comment les contenus sont li\u00e9s, vous avez fait un excellent travail. Vous \u00eates maintenant pr\u00eat \u00e0 commencer \u00e0 \u00e9crire du CSS.\r\n",
+      "created": "2025-06-12T15:25:53.478173",
+      "updated": "2025-06-12T16:02:45.996506",
+      "meta_description": "Apprenez \u00e0 structurer votre contenu HTML pour garantir accessibilit\u00e9 et coh\u00e9rence, m\u00eame sans CSS. Guide pratique pour un web inclusif et ordonn\u00e9.",
+      "status_id": 3
     }
   ],
   "tag": [
@@ -508,6 +518,26 @@
       "id": 622,
       "posts_id": 16,
       "tags_id": 10
+    },
+    {
+      "id": 631,
+      "posts_id": 19,
+      "tags_id": 1
+    },
+    {
+      "id": 632,
+      "posts_id": 19,
+      "tags_id": 2
+    },
+    {
+      "id": 633,
+      "posts_id": 19,
+      "tags_id": 3
+    },
+    {
+      "id": 634,
+      "posts_id": 19,
+      "tags_id": 4
     }
   ],
   "status": [
