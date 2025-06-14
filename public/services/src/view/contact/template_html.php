@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $lastname = htmlentities($lastname, ENT_NOQUOTES);
 
@@ -25,7 +25,7 @@ $output_html = <<<TPL
     body{
         margin: 0;
         padding: 0;
-        background-color: #f5f5f5;
+        background-color: #eeeeee;
         font-family: sans-serif;
         height: 100%;
     }
@@ -40,15 +40,15 @@ $output_html = <<<TPL
 </style>
 </head>
 <body>
-<table id="base" style="background-color:#f5f5f5; height:100%; width: 100%;">
+<table id="base" style="background-color:#eeeeee; height:100%; width: 100%;">
     <tr>
         <td align="center">
             <table id="view" style="max-width:600px; width:100%;">
                 <tr>
-                    <td align="center" style="height:200px"><a href="https://rb-webstudio.000webhostapp.com/" target="_blank"><span style="display:none !important">RB webstudio - digital designer - développeur frontend & backend - Python - TS/JS/ESnext - ExpressJS - React/Svelte - NodeJS</span><img src="https://rb-webstudio.000webhostapp.com/logo-mail.png?v=1" width="100" alt="RB webstudio - digital designer - développeur frontend & backend - Python - TS/JS/ESnext - ExpressJS - React/Svelte - NodeJS" /></a></td>
+                    <td align="center" style="height:200px"><a href="https://rb-webstudio.go.yj.fr/" target="_blank"><span style="display:none !important">RB webstudio - digital designer - développeur frontend & backend - Python - TS/JS/ESnext - ExpressJS - React/Svelte - NodeJS</span><img src="https://rb-webstudio.go.yj.fr/logo-mail.png?v=1" width="100" alt="RB webstudio - digital designer - développeur frontend & backend - Python - TS/JS/ESnext - ExpressJS - React/Svelte - NodeJS" /></a></td>
                 </tr>
                 <tr>
-                    <td style="color:#444 !important; padding-right:25px; padding-left:25px;">
+                    <td style="color:#355269 !important; padding-right:25px; padding-left:25px;">
                         <p>Bonjour $civility $lastname, <br> <br>
                         Je suis ravi de faire votre connaissance. Merci pour l&#039;email que vous m&#039;avez transmis.  J&#039;appr&eacute;cie le fait que vous ayez pris le temps de le r&eacute;diger.</p>
                         $appointment
