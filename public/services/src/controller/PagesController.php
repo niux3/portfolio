@@ -36,4 +36,12 @@ class PagesController extends Controller{
         }
         $this->render([]);
     }
+
+    function viewsLog(){
+        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest'){
+            $output = ["msg" => "ok"];
+            echo json_encode($arr);
+            die;
+        }
+    }
 }
