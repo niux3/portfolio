@@ -30,11 +30,7 @@ export default class AbstractStrategy{
             url = window.location.origin.includes('rb-webstudio') ? suffixUrl : `http://localhost/portfolio/public/${suffixUrl}`
 
         fetch(url, params).then(resp =>{
-            if(resp.ok === true)
-                return resp.json()
-        // pas de trace en console ou dans le DOM
-        //}).then(data =>{
-            //console.log('done')
+            if(resp.ok === true) return resp.json()
         }).catch(e => console.warn("error >", e))
     }
 
