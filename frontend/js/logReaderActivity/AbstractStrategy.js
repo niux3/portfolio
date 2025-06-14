@@ -35,19 +35,19 @@ export default class AbstractStrategy{
     }
 
     _logStart(path) {
-        this._sendLog({ type: 'start', path })
+        throw new Error("Cannot instantiate AbstractStrategy directly")
     }
 
     _logClick(path) {
-        this._sendLog({ type: 'click', path })
+        throw new Error("Cannot instantiate AbstractStrategy directly")
     }
 
     _logRead(path) {
-        this._sendLog({ type: 'read', path })
+        throw new Error("Cannot instantiate AbstractStrategy directly")
     }
 
     _logEnd(path) {
-        this._sendLog({ type: 'end', path })
+        throw new Error("Cannot instantiate AbstractStrategy directly")
     }
 
     execute(){
