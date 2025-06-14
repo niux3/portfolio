@@ -2,19 +2,23 @@ import AbstractStrategy from "./AbstractStrategy"
 
 
 export default class ArticleStrategy extends AbstractStrategy{
-    logStart(path) {
-        this.sendLog({ type: 'start', path })
+    _logStart(path) {
+        this._sendLog({ type: 'start', path })
     }
 
-    logClick(id) {
-        this.sendLog({ type: 'click', id })
+    _logClick(path) {
+        this._sendLog({ type: 'click', path })
     }
 
-    logRead50(id) {
-        this.sendLog({ type: 'read', id })
+    _logRead(path) {
+        this._sendLog({ type: 'read', path })
     }
 
-    logEnd(path) {
-        this.sendLog({ type: 'end', path })
+    _logEnd(path) {
+        this._sendLog({ type: 'end', path })
+    }
+
+    execute(path){
+        console.log("execute ArticleStrategy")
     }
 }

@@ -13,7 +13,8 @@ window.addEventListener('DOMContentLoaded', () =>{
     darkmode()
 
     //logReader
-    LogReaderActivity.execute()
+    let logReaderActivity = new LogReaderActivity()
+    logReaderActivity.execute()
 
     // form contact
     formContact()

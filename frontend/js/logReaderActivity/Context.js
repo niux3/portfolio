@@ -5,19 +5,7 @@ export default class Context{
         this.#strategy = strategy
     }
 
-    logStart(path) {
-        this.#strategy?.logStart(path)
-    }
-
-    logClick(id) {
-        this.#strategy?.logClick(id)
-    }
-
-    logRead50(id) {
-        this.#strategy?.logEnd(id)
-    }
-
-    logEnd(path) {
-        this.#strategy?.logEnd(path)
+    execute(data){
+        this.#strategy?.execute(data)
     }
 }
