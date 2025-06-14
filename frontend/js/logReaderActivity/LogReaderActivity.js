@@ -12,7 +12,7 @@ export default class LogReaderActivity{
         this.#strategiesUrls = {
             '^\\/articles\\/[a-zA-Z0-9\\-]+-\\d+\\.html$': ArticleStrategy,
             //'^\\/articles\\/index\\.html$': ArticlesIndexStrategy,
-            //'^\\/chercher-articles-par-[a-zA-Z0-9\\-]+\\.html$': TagsIndexStrategy,
+            //'^\\/articles\\/chercher-articles-par-[a-zA-Z0-9\\-]+\\.html$': TagsIndexStrategy,
             '^\\/$|^\\/index\\.html$': HomeStrategy,
         }
     }
