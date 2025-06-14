@@ -22,11 +22,6 @@ export default class ProgressBarBehavior{
                 })
 
             }
-            //['resize', 'DOMContentLoaded'].forEach(ev =>{
-                //window.addEventListener(ev, ()=>{
-                    //manager.setProgression(window.scrollY)
-                //})
-            //})
         }
     }
 }
