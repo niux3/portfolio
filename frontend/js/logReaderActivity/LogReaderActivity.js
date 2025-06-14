@@ -1,6 +1,8 @@
 import Context from "./Context"
 import ArticleStrategy from "./ArticleStrategy"
 import HomeStrategy from "./HomeStrategy"
+import ArticlesIndexStrategy from "./ArticlesIndexStrategy"
+import TagsIndexStrategy from "./TagsIndexStrategy"
 
 
 export default class LogReaderActivity{
@@ -11,8 +13,8 @@ export default class LogReaderActivity{
         this.#path = window.location.pathname
         this.#strategiesUrls = {
             '^\\/articles\\/[a-zA-Z0-9\\-]+-\\d+\\.html$': ArticleStrategy,
-            //'^\\/articles\\/index\\.html$': ArticlesIndexStrategy,
-            //'^\\/articles\\/chercher-articles-par-[a-zA-Z0-9\\-]+\\.html$': TagsIndexStrategy,
+            '^\\/articles\\/index\\.html$': ArticlesIndexStrategy,
+            '^\\/articles\\/chercher-articles-par-[a-zA-Z0-9\\-]+\\.html$': TagsIndexStrategy,
             '^\\/$|^\\/index\\.html$': HomeStrategy,
         }
     }

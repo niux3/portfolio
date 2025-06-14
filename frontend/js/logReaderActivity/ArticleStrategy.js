@@ -1,24 +1,24 @@
 import AbstractStrategy from "./AbstractStrategy"
+import Utils from '../Utils'
 
 
 export default class ArticleStrategy extends AbstractStrategy{
-    _logStart(path) {
-        this._sendLog({ type: 'start', path })
-    }
-
-    _logClick(path) {
-        this._sendLog({ type: 'click', path })
-    }
-
     _logRead(path) {
-        this._sendLog({ type: 'read', path })
-    }
-
-    _logEnd(path) {
-        this._sendLog({ type: 'end', path })
+        let $progress = document.querySelector('progress'),
+            isAlreadyRead = false
+        window.addEventListener('scroll', e =>{
+            Utils.debounce(()=>{
+                if($progress.value >= 50 && !isAlreadyRead){
+                    this._sendLog({ type: 'read', path })
+                    isAlreadyRead = true
+                }
+            }, 200)()
+        })
     }
 
     execute(path){
-        console.log("execute ArticleStrategy")
+        this._logStart(path)
+        this._logRead(path)
+        //this._logEnd(path)
     }
 }

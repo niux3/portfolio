@@ -1,13 +1,13 @@
 import AbstractStrategy from "./AbstractStrategy"
 
 
-export default class HomeStrategy extends AbstractStrategy{
+export default class ArticlesIndexStrategy extends AbstractStrategy{
     _logClick(path) {
-        document.querySelectorAll('.work a').forEach($a =>{
+        document.querySelectorAll('.posts .items-articles li a').forEach($a =>{
             $a.addEventListener('pointerdown', e =>{
                 let data = {
                     'url': $a.getAttribute('href'),
-                    'text': $a.querySelector('.bold').textContent
+                    'text': $a.textContent
                 }
                 this._sendLog({ type: 'click', path, ...data })
             })
@@ -16,7 +16,7 @@ export default class HomeStrategy extends AbstractStrategy{
 
     execute(path){
         this._logStart(path)
-        this._logClick(path)
+        //this._logClick(path)
         //this._logEnd(path)
     }
 }
