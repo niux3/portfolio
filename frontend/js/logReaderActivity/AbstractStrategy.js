@@ -11,16 +11,19 @@ export default class AbstractStrategy{
         let headers = new Headers({
                 "X-Requested-With": "XMLHttpRequest",
                 "Accept": "application/json",
-                "Content-Type": "application/x-www-form-urlencoded"
+                //"Content-Type":"application/json"
             }),
             //object = {},
-            //formData = new FormData()
+            formData = new FormData()
 
+        for (let key in data) {
+            formData.append(key, data[key])
+        }
         //formData.forEach((value, key) =>{
             //object[key] = value
         //})
         //let data = Object.entries(object).map(([k,v]) => `${k}=${v}`).join('&'),
-            params = {
+        let params = {
                 method: 'POST',
                 headers,
                 cache: 'no-cache',
@@ -28,7 +31,7 @@ export default class AbstractStrategy{
                 referrerPolicy: 'no-referrer',
                 mode: "cors",
                 keepalive: true,
-                body: JSON.stringify(data)
+                body: formData
             },
             suffixUrl = '/services/pages/views-log.html',
             url = window.location.origin.includes('rb-webstudio') ? suffixUrl : `http://localhost/portfolio/public/${suffixUrl}`

@@ -13,7 +13,7 @@ export default class HomeStrategy extends AbstractStrategy{
                     'url': $a.getAttribute('href'),
                     'text': $a.querySelector('.bold').textContent
                 }
-                this._sendLog({ type: 'click', path, data })
+                this._sendLog({ type: 'click', path, ...data })
             })
         })
     }

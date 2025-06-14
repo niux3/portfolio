@@ -8,6 +8,7 @@ export default class LogReaderActivity{
     #strategiesUrls
 
     constructor(){
+        console.log('ok LogReaderActivity')
         this.#path = window.location.pathname
         this.#strategiesUrls = {
             '^\\/articles\\/[a-zA-Z0-9\\-]+-\\d+\\.html$': ArticleStrategy,

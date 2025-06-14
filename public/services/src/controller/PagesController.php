@@ -38,10 +38,22 @@ class PagesController extends Controller{
     }
 
     function viewsLog(){
-        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest'){
-            $output = ["msg" => "ok"];
-            echo json_encode($arr);
-            die;
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+        header("Access-Control-Allow-Headers: Content-Type, X-Requested-With");
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            // Réponse à la pré-requête CORS
+            http_response_code(204);
+            exit;
         }
+
+        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest' && !empty($_POST)){
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode(["post" => $_POST, "msg" => 'ok']);
+            exit;
+        }
+        // Pour tout autre cas (ex: accès direct via navigateur)
+        echo json_encode(["msg" => "pas de POST"]);
+        exit;
     }
 }
