@@ -6,23 +6,16 @@ export default class AbstractStrategy{
     }
 
     _sendLog(data) {
-        console.log('envoie ajax ->', data)
-
+        data = {...data, 'theme': localStorage.getItem('theme')}
         let headers = new Headers({
                 "X-Requested-With": "XMLHttpRequest",
                 "Accept": "application/json",
-                //"Content-Type":"application/json"
             }),
-            //object = {},
             formData = new FormData()
 
         for (let key in data) {
             formData.append(key, data[key])
         }
-        //formData.forEach((value, key) =>{
-            //object[key] = value
-        //})
-        //let data = Object.entries(object).map(([k,v]) => `${k}=${v}`).join('&'),
         let params = {
                 method: 'POST',
                 headers,
@@ -39,8 +32,9 @@ export default class AbstractStrategy{
         fetch(url, params).then(resp =>{
             if(resp.ok === true)
                 return resp.json()
-        }).then(({data, errors}) =>{
-            console.log('>>', data)
+        // pas de trace en console ou dans le DOM
+        //}).then(data =>{
+            //console.log('done')
         }).catch(e => console.warn("error >", e))
     }
 
