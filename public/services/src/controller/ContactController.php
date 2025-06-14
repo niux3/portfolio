@@ -16,24 +16,47 @@ use PHPMailer\PHPMailer\SMTP;
 class ContactController extends Controller{
     function __construct($request){
         parent::__construct($request);
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Headers: *");
-    }
+        //header("Access-Control-Allow-Origin: *");
+        //header("Access-Control-Allow-Headers: *");
 
-    function show(){
-        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest'){
-            header('Content-Type: application/json; charset=utf-8');
-            $captcha = new AsciiCaptcha('AnsiShadow');
-            $data = $captcha->getCaptcha();
-            $arg_file = sprintf('%s/%s/%s.json', ROOT, 'logs', 'captcha');
-            file_put_contents($arg_file, json_encode($data));
-            echo json_encode([
-                'token' => $data['token'],
-                'captcha' => array_values($data['captcha'])
-            ]);
-            die;
+        // Liste blanche des origines autorisées
+        $allowed_origins = [
+            'http://localhost:5000',
+            'https://rb-webstudio.go.yj.fr'
+        ];
+
+        $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+
+        if (in_array($origin, $allowed_origins)) {
+            header("Access-Control-Allow-Origin: $origin");
+        } else {
+            // En prod, refuser (pas de CORS)
+            header("Access-Control-Allow-Origin: null");
+        }
+
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+        header("Access-Control-Allow-Headers: Content-Type, X-Requested-With");
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            // Réponse à la pré-requête CORS
+            http_response_code(204);
+            exit;
         }
     }
+
+    //function show(){
+        //if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest'){
+            //header('Content-Type: application/json; charset=utf-8');
+            //$captcha = new AsciiCaptcha('AnsiShadow');
+            //$data = $captcha->getCaptcha();
+            //$arg_file = sprintf('%s/%s/%s.json', ROOT, 'logs', 'captcha');
+            //file_put_contents($arg_file, json_encode($data));
+            //echo json_encode([
+                //'token' => $data['token'],
+                //'captcha' => array_values($data['captcha'])
+            //]);
+            //die;
+        //}
+    //}
 
 
     function send(){

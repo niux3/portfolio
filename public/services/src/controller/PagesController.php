@@ -8,37 +8,23 @@ use src\core\libs\db\querybuilder\QueryBuilder;
 class PagesController extends Controller{
     function __construct($request){
         parent::__construct($request);
-        $this->Page = $this->loadModel('Page');
-    }
+        // $this->Page = $this->loadModel('Page');
 
-    function index($name=""){
-        $q = new QueryBuilder('select');
-        echo $q->select('field')->from('tables')->where('id = :id OR name = :name', 'city = :city')->where('firstname = :firstname');
-        $this->render([
-            'rows' => $this->Page->fetchAll(),
-        ]);
-    }
+        // Liste blanche des origines autorisées
+        $allowed_origins = [
+            'http://localhost:5000',
+            'https://rb-webstudio.go.yj.fr'
+        ];
 
-    protected function beforeRender(){
-        echo 'ok';
-    }
+        $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 
-    function show($id){
-        $this->render([
-            'row' => current($this->Page->fetch($id))
-        ]);
-    }
-
-    function create(){
-        if(!empty($_POST)){
-            $this->Page->save($_POST);
-            header('location:/');
+        if (in_array($origin, $allowed_origins)) {
+            header("Access-Control-Allow-Origin: $origin");
+        } else {
+            // En prod, refuser (pas de CORS)
+            header("Access-Control-Allow-Origin: null");
         }
-        $this->render([]);
-    }
 
-    function viewsLog(){
-        header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
         header("Access-Control-Allow-Headers: Content-Type, X-Requested-With");
         if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -46,7 +32,35 @@ class PagesController extends Controller{
             http_response_code(204);
             exit;
         }
+    }
 
+    //function index($name=""){
+        //$q = new QueryBuilder('select');
+        //echo $q->select('field')->from('tables')->where('id = :id OR name = :name', 'city = :city')->where('firstname = :firstname');
+        //$this->render([
+            //'rows' => $this->Page->fetchAll(),
+        //]);
+    //}
+
+    //protected function beforeRender(){
+        //echo 'ok';
+    //}
+
+    //function show($id){
+        //$this->render([
+            //'row' => current($this->Page->fetch($id))
+        //]);
+    //}
+
+    //function create(){
+        //if(!empty($_POST)){
+            //$this->Page->save($_POST);
+            //header('location:/');
+        //}
+        //$this->render([]);
+    //}
+
+    function viewsLog(){
         if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest' && !empty($_POST)){
             header('Content-Type: application/json; charset=utf-8');
             echo json_encode(["post" => $_POST, "msg" => 'ok']);
