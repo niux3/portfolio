@@ -28,7 +28,7 @@ def export_json():
     with open(str(file_data), 'w', encoding='utf-8') as f:
         f.write(json.dumps(output, indent=2))
     flash("Votre export en json est réussi", "success")
-    return redirect(url_for('projects.index'))
+    return redirect(url_for('posts.index'))
 
 @bp.route('/articles-import-json.html')
 def import_json():
@@ -76,6 +76,5 @@ def export_html():
         url = item.get('url')[item.get('url').rfind('/') + 1:]
         with open(str(public_folder / 'articles' / url), 'w', encoding='utf-8') as f:
             f.write(item.get('content'))
-    return {
-        'msg': 'ok'
-    }
+    flash("Votre export en html est réussi", "success")
+    return redirect(url_for('posts.index'))
