@@ -89,7 +89,7 @@ class PagesController extends Controller{
                     echo json_encode(["post" => $_POST, "msg" => ROOT.'/log/pages_views.log']);
                 }else{
                     //echo json_encode(["post" => $_POST, "msg" => 'ko', "file" => file_exists($pathToLog), 'path' => $pathToLog]);
-                    echo json_encode(["msg" => 'ko');
+                    echo json_encode(["msg" => 'ko']);
                 }
                 die;
             }
