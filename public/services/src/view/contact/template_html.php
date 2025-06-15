@@ -45,7 +45,7 @@ $output_html = <<<TPL
         <td align="center">
             <table id="view" style="max-width:600px; width:100%;">
                 <tr>
-                    <td align="center" style="height:200px"><a href="https://rb-webstudio.go.yj.fr/" target="_blank"><span style="display:none !important">RB webstudio - digital designer - développeur frontend & backend - Python - TS/JS/ESnext - ExpressJS - React/Svelte - NodeJS</span><img src="https://rb-webstudio.go.yj.fr/logo-mail.png?v=1" width="100" alt="RB webstudio - digital designer - développeur frontend & backend - Python - TS/JS/ESnext - ExpressJS - React/Svelte - NodeJS" /></a></td>
+                    <td align="center" style="height:200px"><a href="https://rb-webstudio.go.yj.fr" target="_blank"><span style="display:none !important">RB webstudio - digital designer - développeur frontend & backend - Python - TS/JS/ESnext - ExpressJS - React/Svelte - NodeJS</span><img src="https://rb-webstudio.go.yj.fr/static/img/logo.png?v=1" width="100" alt="RB webstudio - digital designer - développeur frontend & backend - Python - TS/JS/ESnext - ExpressJS - React/Svelte - NodeJS" /></a></td>
                 </tr>
                 <tr>
                     <td style="color:#355269 !important; padding-right:25px; padding-left:25px;">
