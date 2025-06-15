@@ -62,8 +62,9 @@ def add():
         post.tags = form.tags.data
         db.session.add(post)
         db.session.commit()
+        db.session.refresh(post)
         flash("Votre item a bien été ajouté", "success")
-        return redirect(url_for(f'{prefix_bp}.index'))
+        return redirect(url_for(f'{prefix_bp}.edit', id=post.id))
     ctx = {
         'form': form
     }
@@ -87,9 +88,10 @@ def edit(id):
         db.session.add(post)
         db.session.commit()
         flash("Votre item a bien été modifié", "success")
-        return redirect(url_for(f'{prefix_bp}.index'))
+        return redirect(url_for(f'{prefix_bp}.edit', id=post.id))
     ctx = {
-        'form': form
+        'form': form,
+        'object': post
     }
     return render_template('articles/edit.html', **ctx)
 
