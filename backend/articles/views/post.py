@@ -99,7 +99,7 @@ def index_articles(export=None):
         'title': "Articles techniques - RB webstudio",
         'meta_description': "Découvrez nos articles récents sur le développement web, Python, JavaScript, frameworks modernes et bonnes pratiques techniques.",
         'h1': "Derniers articles & tutoriels de développement web",
-        'object_list': Post.query.join(Status, Post.status_id == Status.id).filter(Status.name == 'online').order_by(desc(Post.updated)).all()
+        'object_list': Post.query.join(Status, Post.status_id == Status.id).filter(Status.name == 'online').order_by(desc(Post.created)).all()
     }
     if export is not None:
         ctx.update(export)
