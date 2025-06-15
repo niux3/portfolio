@@ -1,0 +1,8 @@
+blockquote{
+  p{
+    color: var(--color-cannes);
+    &:first-of-type{
+      margin-top: 0 !important;
+    }
+  }
+}
