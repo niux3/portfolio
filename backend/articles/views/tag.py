@@ -12,7 +12,7 @@ def index():
     fields = {
         'Nom' : 'name',
     }
-    return BaseView.index(Tag, prefix_bp, fields, "un tag")
+    return BaseView.index(Tag.query.all(), prefix_bp, fields, "un tag")
 
 @bp.route('/backoffice/ajouter.html', methods=['GET', 'POST'])
 def add():

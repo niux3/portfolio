@@ -5,11 +5,11 @@ from backend import db
 
 class BaseView:
     @staticmethod
-    def index(obj, prefix_bp, fields, category="un item", add_filter_button=False):
+    def index(queryset, prefix_bp, fields, category="un item", add_filter_button=False):
         ctx = {action: f'{prefix_bp}.{action}' for action in ['add', 'edit', 'destroy']}
         if add_filter_button:
             ctx['url_filter_add'] = f'{prefix_bp}.filter_add'
-        ctx['object_list'] = obj.query.all()
+        ctx['object_list'] = queryset
         ctx['category'] = category
         ctx['fields'] = fields
         return render_template('project/index.html', **ctx)

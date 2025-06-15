@@ -15,7 +15,7 @@ def index():
     fields = {
         'Nom' : 'name',
     }
-    return BaseView.index(Project, prefix_bp, fields, "un projet")
+    return BaseView.index(Project.query.all(), prefix_bp, fields, "un projet")
 
 @bp.route('/projets/ajouter.html', methods=['GET', 'POST'])
 def add():

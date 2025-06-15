@@ -50,7 +50,7 @@ def index():
         'slug' : 'slug',
         'status' : 'status',
     }
-    return BaseView.index(Post, prefix_bp, fields, "un article")
+    return BaseView.index(Post.query.order_by(desc('created')).all(), prefix_bp, fields, "un article")
 
 @bp.route('/backoffice/ajouter.html', methods=['GET', 'POST'])
 def add():

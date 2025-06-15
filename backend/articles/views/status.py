@@ -12,7 +12,7 @@ def index():
     fields = {
         'Nom' : 'name',
     }
-    return BaseView.index(Status, prefix_bp, fields, "un status")
+    return BaseView.index(Status.query.all(), prefix_bp, fields, "un status")
 
 @bp.route('/ajouter.html', methods=['GET', 'POST'])
 def add():
