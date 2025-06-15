@@ -60,14 +60,40 @@ class PagesController extends Controller{
         //$this->render([]);
     //}
 
+    private function getUserIP() {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) return $_SERVER['HTTP_CLIENT_IP'];
+        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) return explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0];
+        return $_SERVER['REMOTE_ADDR'];
+    }
+
     function viewsLog(){
-        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest' && !empty($_POST)){
-            header('Content-Type: application/json; charset=utf-8');
-            echo json_encode(["post" => $_POST, "msg" => 'ok']);
-            exit;
+        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest'){
+            if(!empty($_POST)){
+                header('Content-Type: application/json; charset=utf-8');
+                $path = isset($_POST['path']) ? $_POST['path'] : 'unknown';
+                $type = isset($_POST['type']) ? $_POST['type'] : 'unknown';
+                $theme = isset($_POST['theme']) ? $_POST['theme'] : 'unknown';
+                $ip = $this->getUserIP();
+                $date = date('c');
+
+                $output = "$date | $ip | $type | $path | $theme";
+
+                if($type === 'click'){
+                    $url = isset($_POST['url']) ? $_POST['url'] : 'unknown';
+                    $text = isset($_POST['text']) ? $_POST['text'] : 'unknown';
+                    $output .= " | $url | $text";
+                }
+
+                $pathToLog = ROOT.'/log/pages_views.log';
+                if(file_exists($pathToLog) && file_put_contents($pathToLog, $output."\n", FILE_APPEND) !== false){
+                    echo json_encode(["post" => $_POST, "msg" => ROOT.'/log/pages_views.log']);
+                }else{
+                    //echo json_encode(["post" => $_POST, "msg" => 'ko', "file" => file_exists($pathToLog), 'path' => $pathToLog]);
+                    echo json_encode(["msg" => 'ko');
+                }
+                die;
+            }
         }
-        // Pour tout autre cas (ex: accès direct via navigateur)
-        echo json_encode(["msg" => "pas de POST"]);
-        exit;
+        die;
     }
 }

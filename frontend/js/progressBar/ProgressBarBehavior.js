@@ -20,7 +20,6 @@ export default class ProgressBarBehavior{
                         manager.setProgression(window.scrollY)
                     }, 200)()
                 })
-
             }
         }
     }
