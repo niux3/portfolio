@@ -1,10 +1,13 @@
-Optimisez l’accessibilité de vos sites web avec une bonne structure HTML !
+# Comment bien coder un lien HTML ?
 
-Vous savez que l’accessibilité est essentielle, mais savez-vous comment l’ordre de vos éléments HTML impacte l’expérience utilisateur, notamment pour les lecteurs d’écran et la navigation clavier ?
+Un lien mal structuré peut nuire à l’accessibilité, à l’expérience utilisateur et au SEO. Dans cet article, je partage une checklist simple pour s’assurer que vos liens sont :
 
-Cet article clair et concret vous guide pas à pas pour structurer votre contenu de manière logique, avant même d’appliquer le CSS.
-Une démarche simple, mais souvent négligée, qui fait toute la différence pour un site web inclusif et performant.
+- accessibles aux lecteurs d’écran,
+- compréhensibles hors contexte,
+- valides et sémantiquement corrects.
 
-lire l'article ici : [lien vers article]
+Un rappel utile pour tous ceux qui veulent coder proprement, pour tous.
 
-Un must-read pour tous les développeurs front-end et web designers soucieux de créer un web accessible !
+lien vers l'article : [text](lien)
+
+Bonne lecture et n’hésitez pas à partager vos retours !
