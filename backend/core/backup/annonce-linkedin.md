@@ -1,13 +1,7 @@
-# Comment bien coder un lien HTML ?
+Comment bien styliser vos liens HTML ?
 
-Un lien mal structuré peut nuire à l’accessibilité, à l’expérience utilisateur et au SEO. Dans cet article, je partage une checklist simple pour s’assurer que vos liens sont :
+Un lien mal conçu peut pénaliser l’accessibilité, l’expérience utilisateur et même le SEO ! Dans mon dernier article, je vous partage des bonnes pratiques, exemples CSS et astuces pour créer des liens clairs, visibles et adaptés à tous, y compris aux utilisateurs avec handicap.
 
-- accessibles aux lecteurs d’écran,
-- compréhensibles hors contexte,
-- valides et sémantiquement corrects.
+lien vers l'article : [Lien vers l'article]
 
-Un rappel utile pour tous ceux qui veulent coder proprement, pour tous.
-
-lien vers l'article : [text](lien)
-
-Bonne lecture et n’hésitez pas à partager vos retours !
+N’hésitez pas à me dire comment vous gérez vos styles de liens et à partager vos retours !
