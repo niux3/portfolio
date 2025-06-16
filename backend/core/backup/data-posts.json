@@ -580,19 +580,24 @@
       "tags_id": 4
     },
     {
-      "id": 706,
+      "id": 709,
       "posts_id": 21,
       "tags_id": 1
     },
     {
-      "id": 707,
+      "id": 710,
       "posts_id": 21,
       "tags_id": 2
     },
     {
-      "id": 708,
+      "id": 711,
       "posts_id": 21,
       "tags_id": 3
+    },
+    {
+      "id": 712,
+      "posts_id": 21,
+      "tags_id": 4
     }
   ],
   "status": [
