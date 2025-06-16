@@ -199,6 +199,16 @@
       "updated": "2025-06-15T16:00:46.563131",
       "meta_description": "Les bonnes pratiques pour cr\u00e9er des liens HTML accessibles, efficaces et compatibles avec les lecteurs d'\u00e9cran.",
       "status_id": 3
+    },
+    {
+      "id": 21,
+      "title": "Les styles de liens",
+      "slug": "les-styles-de-liens",
+      "body": "Le style personnalis\u00e9 des liens peut influencer la capacit\u00e9 des utilisateurs \u00e0 naviguer, \u00e0 s'orienter et \u00e0 percevoir le site Web de plusieurs fa\u00e7ons, notamment :\r\n\r\n- Les utilisateurs du clavier peuvent ne pas savoir o\u00f9 ils se trouvent sur la page.\r\n- Les personnes malvoyantes et celles qui utilisent des couleurs forc\u00e9es risquent de ne pas pouvoir distinguer les liens du texte normal.\r\n- Les utilisateurs risquent de ne pas reconna\u00eetre un lien ou de ne pas comprendre ce qu'ils en attendent si son style ne r\u00e9pond pas \u00e0 leurs attentes.\r\n- Les personnes souffrant d'un handicap qui affecte leur dext\u00e9rit\u00e9 et leurs mouvements moteurs peuvent avoir des difficult\u00e9s \u00e0 cliquer sur les liens. Il en va de m\u00eame pour toute personne qui se d\u00e9place pendant l'utilisation d'un site Web, par exemple en marchant, en prenant le m\u00e9tro ou en effectuant plusieurs t\u00e2ches \u00e0 la fois.\r\n\r\nVous devez styliser les liens de mani\u00e8re \u00e0 servir vos utilisateurs. Soulignez les liens, et ne vous fiez pas uniquement \u00e0 la couleur. \u00c9vitez de supprimer le soulignement par d\u00e9faut dans les blocs de texte et proposez diff\u00e9rents styles pour diff\u00e9rents \u00e9tats, comme le montre l'[exemple 1](#exemple-1).\r\n\r\n**<span id=\"exemple-1\">Exemple&nbsp;1</span>&nbsp;&ndash;&nbsp;Style personnalis\u00e9 pour quatre \u00e9tats diff\u00e9rents dans lesquels un lien peut se trouver**\r\n\r\n```css\r\na:link {\r\n  color: blue;\r\n  text-decoration: underline;\r\n}\r\n\r\na:visited {\r\n  color: rebeccapurple;\r\n}\r\n\r\na:hover {\r\n  color: green;\r\n  text-decoration: none;\r\n}\r\n\r\na:active {\r\n  color: red;\r\n}\r\n```\r\n\r\nUtilisez un style pro\u00e9minent pour les liens ax\u00e9s sur le clavier. Dans l'[exemple 2](#exemple-2), vous pouvez voir une combinaison des propri\u00e9t\u00e9s `outline` et `outline-offset` utilis\u00e9es pour les \u00e9tats `focus-visible` ou `focus`.\r\n\r\n**<span id=\"exemple-2\">Exemple&nbsp;2</span>&nbsp;&ndash;&nbsp;Un contour de 2 pixels de large avec un rembourrage suppl\u00e9mentaire**\r\n\r\n```css\r\na:focus-visible {\r\n  outline: 2px solid currentColor;\r\n  outline-offset: 2px;\r\n}\r\n\r\n/* ou */\r\n\r\na:focus {\r\n  outline: 2px solid currentColor;\r\n  outline-offset: 2px;\r\n}\r\n```\r\nN'utilisez pas `box-shadow` seul pour le style du lien ou du `focus` car les ombres ne seront pas affich\u00e9es en **forced-colors mode**. Une solution de rechange consiste \u00e0 l'utiliser en combinaison avec un contour transparent, comme le montre l'[exemple 3](#exemple-3).\r\n**<span id=\"exemple-3\">Exemple&nbsp;3</span>&nbsp;&ndash;&nbsp;Une combinaison de box-shadow et d'un contour transparent**\r\n\r\n```css\r\na:focus-visible {\r\n  box-shadow: 0 3px 0 0 currentcolor;\r\n  outline: 2px solid transparent;\r\n}\r\n```\r\n\r\nLa couleur ne doit pas \u00eatre le seul moyen de distinguer un \u00e9l\u00e9ment visuel, car de nombreux utilisateurs ont des difficult\u00e9s \u00e0 percevoir les couleurs. Il s'agit notamment des personnes \u00e2g\u00e9es qui ne voient pas bien, des daltoniens, des utilisateurs d'\u00e9crans anciens ou de mauvaise qualit\u00e9 et des malvoyants qui ont une vision limit\u00e9e des couleurs. Pour un lien, une couleur de texte diff\u00e9rente  de la couleur normale, combin\u00e9e \u00e0 un soulignement, convient le mieux \u00e0 la plupart des utilisateurs. Faites en sorte que les liens ressemblent \u00e0 des liens, et n'essayez pas de r\u00e9inventer la roue.\r\n\r\nC'est particuli\u00e8rement vrai pour les liens dans les blocs de texte, mais il y a des exceptions \u00e0 cette r\u00e8gle. Parfois, les liens ressemblent \u00e0 des boutons (par exemple, les liens d'appel \u00e0 l'action), et parfois ils n'ont pas besoin d'\u00eatre soulign\u00e9s, comme les liens dans une navigation. \r\n\r\n## \u00c9tats\r\n\r\nLes liens ont diff\u00e9rents \u00e9tats que vous pouvez styliser \u00e0 l'aide de CSS. Utilisez les pseudoclasses `:link` `:hover` , `:focus`,`:focus-\u2060visible`, `:visited`, et `:active` pour donner aux utilisateurs plus de contexte et les aider \u00e0 s'orienter. Votre interface utilisateur doit fournir aux utilisateurs un retour d'information lorsqu'ils survolent et se concentrent sur un lien, et il peut \u00eatre utile de savoir s'ils ont d\u00e9j\u00e0 cliqu\u00e9 sur un lien auparavant.\r\n\r\n## Focus styling\r\nSelon le navigateur, les styles de mise au point par d\u00e9faut peuvent ou non \u00eatre clairement visibles et peuvent ou non fonctionner avec les couleurs de votre site. Si c'est le cas, proposez un style personnalis\u00e9 qui fonctionne avec votre design. Les sites gouv.fr sont un excellent exemple de styles de mise au point qui sont clairement visibles et qui s'int\u00e8grent bien \u00e0 la charte graphique.\r\n\r\nIl est possible de cr\u00e9er des styles de mise au point qui fonctionnent bien pour les utilisateurs et qui sont beaux. Cependant, l'esth\u00e9tique ne doit pas \u00eatre ton objectif principal, mais la convivialit\u00e9 doit l'\u00eatre.\r\n\r\n## Taille de la cible\r\n\r\nLataille des cibles, les zones cliquables des \u00e9l\u00e9ments interactifs, doit \u00eatre suffisamment grande pour que les utilisateurs puissent les activer facilement sur les petits appareils \u00e0 \u00e9cran tactile ou sur les \u00e9crans plus grands. Les petites cibles peuvent \u00eatre difficiles \u00e0 activer pour les personnes qui ont une dext\u00e9rit\u00e9 limit\u00e9e ou d'autres difficult\u00e9s \u00e0 utiliser des souris et des dispositifs de pointage similaires.\r\n\r\n<a href=\"https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html\" target=\"_blank\">Ligne directrice 2.5.8 Taille (minimale) de la cible</a> les <a href=\"https://www.w3.org/TR/WCAG22/\" target=\"_blank\">directives d'accessibilit\u00e9 au contenu Web (WCAG) 2.2</a> sugg\u00e8rent que les cibles tactiles doivent avoir une taille minimale de 24 x 24 CSS pixels.\r\n\r\n**Note** : Gr\u00e2ce aux technologies d'affichage avanc\u00e9es, les r\u00e9solutions d'\u00e9cran sur les appareils mobiles sont parfois comparables aux r\u00e9solutions sur les appareils de bureau. En CSS, vous pouvez interroger les pixels disponibles sur l'\u00e9cran pour appliquer diff\u00e9rents styles, mais vous devez tenir compte de la r\u00e9solution et de la taille de l'\u00e9cran pour proposer aux utilisateurs une mise en page adapt\u00e9e sur chaque appareil. Faire cela manuellement est une t\u00e2che fastidieuse, c'est pourquoi le device pixel ratio (DPR) est utilis\u00e9 pour d\u00e9finir la relation entre les \"pixels de l'appareil\" et les \"pixels CSS\" sur un appareil particulier. Par exemple, si les pixels de l'appareil sont deux fois plus grands que les pixels CSS , on dira que l'appareil a un RPD de 2,0.\r\n\r\n## Mode contraste \u00e9lev\u00e9\r\nPour souligner les styles, je recommande `text-decoration`, et, pour les styles de mise au point, `outline`. Les d\u00e9veloppeurs aiment utiliser `box-shadow` pour cr\u00e9er des effets similaires. Il est facile \u00e0 utiliser car il n'affecte pas la largeur ou la hauteur de l'\u00e9l\u00e9ment, contrairement \u00e0 border, et il permet aux auteurs de cr\u00e9er des bordures imbriqu\u00e9es. Cependant, il ne fonctionne pas bien avec le mode <a href=\"https://www.w3.org/TR/css-color-adjust-1/#forced\" target=\"_blank\">Couleurs forc\u00e9es</a>, une fonction d'accessibilit\u00e9 destin\u00e9e \u00e0 am\u00e9liorer la lisibilit\u00e9 du texte gr\u00e2ce \u00e0 des couleurs d\u00e9finies par l'utilisateur et \u00e0 une palette limit\u00e9e, qui peut \u00eatre \u00e0 contraste \u00e9lev\u00e9 ou faible. L'[exemple 3](#exemple-3) montre une solution de contournement \u00e0 ce probl\u00e8me. En CSS, `transparent` est une couleur qui est normalement transparente mais qui peut \u00eatre visible en mode couleurs forc\u00e9es. Ainsi, si les utilisateurs n'utilisent pas de couleurs forc\u00e9es, ils voient l'ombre de la bo\u00eete ; s'ils le font, ils obtiennent un contour de 2 px .",
+      "created": "2025-06-16T16:16:30.693743",
+      "updated": "2025-06-16T16:49:02.602366",
+      "meta_description": "comment styliser correctement vos liens HTML pour am\u00e9liorer accessibilit\u00e9, UX et SEO avec des exemples pratiques et conseils experts.",
+      "status_id": 3
     }
   ],
   "tag": [
@@ -550,24 +560,39 @@
       "tags_id": 4
     },
     {
-      "id": 671,
+      "id": 675,
       "posts_id": 20,
       "tags_id": 1
     },
     {
-      "id": 672,
+      "id": 676,
       "posts_id": 20,
       "tags_id": 2
     },
     {
-      "id": 673,
+      "id": 677,
       "posts_id": 20,
       "tags_id": 3
     },
     {
-      "id": 674,
+      "id": 678,
       "posts_id": 20,
       "tags_id": 4
+    },
+    {
+      "id": 706,
+      "posts_id": 21,
+      "tags_id": 1
+    },
+    {
+      "id": 707,
+      "posts_id": 21,
+      "tags_id": 2
+    },
+    {
+      "id": 708,
+      "posts_id": 21,
+      "tags_id": 3
     }
   ],
   "status": [
