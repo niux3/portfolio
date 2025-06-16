@@ -16,7 +16,7 @@
         <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
           <ul class="flex-container no-bullet share">
             {% for k, v in shares.items() %}
-              <li><a href="{{ v.url }}" class="{{ v.icon }}" target="_blank" rel="noopener noreferrer"><span>Partager sur {{ k|title }}</span></a></li>
+              <li><a href="{{ v.url }}" class="{{ v.icon }}" target="_blank" rel="noopener noreferrer"><span>{{ k }}</span></a></li>
             {% endfor %}
           </ul>
         </nav>

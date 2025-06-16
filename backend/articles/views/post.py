@@ -28,19 +28,19 @@ def show(id, slug, export=None):
     ctx = {
         'object': obj,
         'shares': {
-            'linkedin' : {
+            'Partager sur Linkedin' : {
                 'url' : f'https://www.linkedin.com/shareArticle?mini=true&url={querystring_url}&title={querystring_title}&source={quote(querystring_site)}',
                 'icon' : 'fa-brands fa-linkedin',
             },
-            'twitter': {
+            'Partager sur Twitter': {
                 'url': f'https://twitter.com/intent/tweet?url={querystring_url}&text={querystring_title}',
                 'icon': 'fa-brands fa-square-x-twitter',
             },
-            'facebook': {
+            'Partager sur Facebook': {
                 'url': f'https://www.facebook.com/sharer/sharer.php?u={querystring_url}',
                 'icon': 'fa-brands fa-square-facebook',
             },
-            "partager à un ami": {
+            "Partager à un ami": {
                 'url': f'mailto:?subject={share_title}&body={share_content}',
                 'icon': 'fa-solid fa-square-share-nodes'
             }
