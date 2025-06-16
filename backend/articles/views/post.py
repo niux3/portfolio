@@ -22,6 +22,8 @@ def show(id, slug, export=None):
     querystring_site = 'http://rb-webstudio.go.yj.fr'
     url = url_for(f'{prefix_bp}.show', id=obj.id, slug=obj.slug)
     querystring_url = quote(f'{querystring_site}{url}')
+    share_title = quote(f"Je souhaite te partager cet article : {obj.title}")
+    share_content = quote(f"Salut,\nJe pense que cet article devrait t'intéresser :\nhttps://rb-webstudio.go.yj.fr{url}")
 
     ctx = {
         'object': obj,
@@ -38,6 +40,10 @@ def show(id, slug, export=None):
                 'url': f'https://www.facebook.com/sharer/sharer.php?u={querystring_url}',
                 'icon': 'fa-brands fa-square-facebook',
             },
+            "partager à un ami": {
+                'url': f'mailto:?subject={share_title}&body={share_content}',
+                'icon': 'fa-solid fa-square-share-nodes'
+            }
         }
     }
     if export is not None:
