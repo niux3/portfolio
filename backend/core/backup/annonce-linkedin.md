@@ -1,7 +1,10 @@
-Comment bien styliser vos liens HTML ?
+Saviez-vous que de simples liens de téléchargement peuvent freiner vos utilisateurs... ou les satisfaire pleinement ?
 
-Un lien mal conçu peut pénaliser l’accessibilité, l’expérience utilisateur et même le SEO ! Dans mon dernier article, je vous partage des bonnes pratiques, exemples CSS et astuces pour créer des liens clairs, visibles et adaptés à tous, y compris aux utilisateurs avec handicap.
+Dans cet article, je décortique comment structurer vos balises <a> pour informer, rassurer et guider vos visiteurs — tout en respectant les bonnes pratiques d'accessibilité, d’UX et de SEO.
 
-lien vers l'article : [Lien vers l'article]
+- Format, taille, action : tout doit être clair avant le clic.
+- Icônes, texte explicite, attributs HTML : on met les bons outils au bon endroit.
 
-N’hésitez pas à me dire comment vous gérez vos styles de liens et à partager vos retours !
+À lire ici : [lien article]
+
+Et vous, comment gérez-vous les liens de téléchargement ?
