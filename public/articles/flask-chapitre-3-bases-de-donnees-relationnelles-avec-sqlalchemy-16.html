@@ -505,7 +505,122 @@ Entry.query.filter(db.not_(Entry.title.contains('Python') | Entry.title.contains
     </tbody>
 </table>
 
-<p>Si vous avez du mal avec la priorité des opérateurs, il est prudent de mettre des parenthèses autour de toute comparaison utilisant <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code> et <code>&gt;=</code>.</p></div>
+<p>Si vous avez du mal avec la priorité des opérateurs, il est prudent de mettre des parenthèses autour de toute comparaison utilisant <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code> et <code>&gt;=</code>.</p>
+<h2>Créer un système de tags</h2>
+<p>Les tags sont un système de taxonomie léger, parfaitement adapté aux blogs. Ils permettent d’attribuer plusieurs catégories à un article de blog et de relier plusieurs articles entre eux, indépendamment de leur catégorie principale. Sur mon propre blog, j’utilise les tags pour organiser les articles, de sorte que les personnes intéressées par mes publications sur Flask puissent simplement consulter le tag « Flask » et trouver tous les articles pertinents.</p>
+<p>Comme indiqué dans les spécifications abordées au <a href="/articles/flask-chapitre-2-preparation-du-projet-de-blog-14.html">Chapitre 2, « Préparation du projet de blog »</a>, chaque article de blog peut avoir autant ou aussi peu de tags que vous le souhaitez. Ainsi, un article sur Flask peut être étiqueté à la fois avec les tags « Flask » et  « Python ». De même, chaque tag (par exemple <em>Python</em>) peut être associé à plusieurs articles. En termes de base de données, cela s’appelle une <strong>relation plusieurs-à-plusieurs</strong> (<em>many-to-many</em>).</p>
+<p>Pour modéliser cela, nous devons d’abord créer un modèle pour stocker les tags. Ce modèle contiendra les noms des tags que nous utilisons, donc après en avoir ajouté quelques-uns, la table pourrait ressembler à celle-ci :</p>
+<table>
+  <caption>Données de la table Tags</caption>
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">tag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Python</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Flask</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Django</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Divers</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ouvrons le fichier <code>models.py</code> et ajoutons une définition pour le modèle <code>Tag</code>. Ajoutez la classe suivante à la fin du fichier, en dessous de la classe <code>Entry</code> :</p>
+<pre><code class="language-python">class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64))
+    slug = db.Column(db.String(64), unique=True)
+
+    def __init__(self, *args, **kwargs):
+        super(Tag, self).__init__(*args, **kwargs)
+        self.slug = slugify(self.name)
+
+    def __repr__(self):
+        return '&lt;Tag %r&gt;' % self.name
+</code></pre>
+<p>Vous avez déjà vu tout cela auparavant. Nous avons ajouté une clé primaire, qui sera gérée par la base de données, ainsi qu’une seule colonne pour stocker le nom du tag. La colonne <code>name</code> est marquée comme unique, ce qui signifie que chaque tag ne sera représenté que par une seule ligne dans cette table, peu importe le nombre d’articles de blog auxquels il est associé.</p>
+<p>Maintenant que nous avons des modèles pour les articles de blog et pour les tags, nous avons besoin d’un troisième modèle pour stocker les relations entre les deux (relation n*n). Lorsque nous voulons indiquer qu’un article est associé à un tag particulier, nous stockons une référence dans cette table. </p>
+<p>Comme nous n’accéderons jamais directement à cette table intermédiaire (SQLAlchemy la gérera de manière transparente pour nous), nous ne créerons pas de modèle pour celle-ci, mais nous allons simplement définir une table pour stocker la correspondance. Ouvrez le fichier <code>models.py</code> et ajoutez le code suivant :</p>
+<p><strong>au dessus de la class <code>Entry</code></strong> :</p>
+<pre><code class="language-python">entry_tags = db.Table('entry_tags',
+    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')),
+    db.Column('entry_id', db.Integer, db.ForeignKey('entry.id'))
+)
+</code></pre>
+<p>**dans la class <code>Entry</code> au dessus de la méthode <code>__init__</code> : </p>
+<pre><code class="language-python">tags = db.relationship('Tag', secondary=entry_tags, backref=db.backref('entries', lazy='dynamic'))
+</code></pre>
+<p>Le fichier  <code>models.py</code> devrait être comme ceci: </p>
+<pre><code class="language-python">import datetime, re
+from app import db
+
+
+def slugify(s):
+    return re.sub('[^\w]+', '-', s).lower()
+
+
+entry_tags = db.Table('entry_tags',
+    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')),
+    db.Column('entry_id', db.Integer, db.ForeignKey('entry.id'))
+)
+
+class Entry(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    _title = db.Column('title', db.String(255))
+    slug = db.Column(db.String(255), unique=True)
+    body = db.Column(db.Text)
+    created_timestamp = db.Column(db.DateTime, default=datetime.datetime.now)
+    modified_timestamp = db.Column(db.DateTime, default=datetime.datetime.now, onupdate=datetime.datetime.now)
+
+    @property
+    def title(self):
+        return self._title
+
+    @title.setter
+    def title(self, value):
+        self._title = value
+        self.slug = slugify(value) if value else ''
+
+    def __init__(self, *args, **kwargs):
+        super(Entry, self).__init__(*args, **kwargs)
+        if 'title' in kwargs:
+            self.slug = slugify(kwargs['title'])
+        else:
+            self.slug = ''
+
+    def __repr__(self):
+        return '&lt;Entry: %r&gt;' % self.title
+
+
+class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64))
+    slug = db.Column(db.String(64), unique=True)
+
+    def __init__(self, *args, **kwargs):
+        super(Tag, self).__init__(*args, **kwargs)
+        self.slug = slugify(self.name)
+
+    def __repr__(self):
+        return '&lt;Tag %r&gt;' % self.name
+</code></pre>
+<p>En créant la table <code>entry_tags</code>, nous avons établi un lien entre les modèles <code>Entry</code> et <code>Tag</code>. SQLAlchemy fournit une API de haut niveau pour gérer cette relation, via la fonction bien nommée <code>db.relationship</code>. Cette fonction crée une nouvelle propriété sur le modèle <code>Entry</code> qui nous permet de lire et d’écrire facilement les tags associés à un article de blog donné. Ces deux lignes de code font beaucoup de choses, alors examinons-les de plus près :</p>
+<pre><code class="language-python">tags = db.relationship('Tag', secondary=entry_tags, backref=db.backref('entries', lazy='dynamic'))
+</code></pre>
+<p>Nous définissons l’attribut <code>tags</code> de la classe <code>Entry</code> comme étant égal à la valeur retournée par la fonction <code>db.relationship</code>. Les deux premiers arguments, <code>'Tag'</code> et <code>secondary=entry_tags</code>, indiquent à SQLAlchemy que nous allons interroger le modèle <code>Tag</code> via la table <code>entry_tags</code>. Le troisième argument crée une <strong>référence inverse</strong>, ce qui nous permet de passer du modèle <code>Tag</code> à la liste des articles de blog associés. En spécifiant <code>lazy='dynamic'</code>, nous demandons à SQLAlchemy de ne pas charger immédiatement tous les articles associés, mais de nous fournir à la place un objet <code>Query</code>.</p></div>
       <p class="text-right">Publié le <time datetime="25-06-10">10 juin 2025</time></p>
     </article>
   </section>
