@@ -22,7 +22,7 @@
         </nav>
       </div>
       <div class="content">{{ object.body|safe }}</div>
-      <p class="text-right">Publié le {{ object.created|date_fr }}</p>
+      <p class="text-right">Publié le <time datetime="{{ object.created|date_fr("%y-%m-%d") }}">{{ object.created|date_fr }}</time></p>
     </article>
   </section>
   <template id="tplProgressFalse">
