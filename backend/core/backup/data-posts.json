@@ -8,7 +8,8 @@
       "created": "2025-05-29T12:47:21.648027",
       "updated": "2025-06-01T10:32:12.828365",
       "meta_description": "Am\u00e9liorez l'exp\u00e9rience utilisateur et le SEO en d\u00e9finissant la langue de votre page web. Exemples HTML/CSS inclus pour tout comprendre !",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
       "created": "2025-05-29T13:05:21.427899",
       "updated": "2025-06-01T10:40:10.701424",
       "meta_description": "OWASP Top 10 2021 : Comment Django prot\u00e8ge votre app contre les vuln\u00e9rabilit\u00e9s critiques (injections, SSRF, contr\u00f4le d'acc\u00e8s). D\u00e9couvrez ses m\u00e9canismes int\u00e9gr\u00e9s et bonnes pratiques pour s\u00e9curiser votre projet.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 1
     },
     {
       "id": 3,
@@ -28,7 +30,8 @@
       "created": "2025-06-02T13:48:05.969214",
       "updated": "2025-06-02T13:48:05.969225",
       "meta_description": "D\u00e9couvrez pourquoi l\u2019abus de types primitifs (int, string, float) nuit \u00e0 la qualit\u00e9 du code. Apprenez \u00e0 les remplacer par des objets pour am\u00e9liorer la maintenabilit\u00e9, la lisibilit\u00e9 et l\u2019\u00e9volutivit\u00e9 de vos applications.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 1
     },
     {
       "id": 4,
@@ -38,7 +41,8 @@
       "created": "2025-06-02T13:52:58.039787",
       "updated": "2025-06-02T13:52:58.039793",
       "meta_description": "Des m\u00e9thodes avec trop de param\u00e8tres nuisent \u00e0 la lisibilit\u00e9 et \u00e0 la maintenance du code. D\u00e9couvrez comment simplifier vos signatures gr\u00e2ce aux techniques : introduire un objet param\u00e8tre, pr\u00e9server l\u2019objet entier et remplacer un param\u00e8tre par un appel de m\u00e9thode.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 1
     },
     {
       "id": 5,
@@ -48,7 +52,8 @@
       "created": "2025-06-02T14:00:00.904416",
       "updated": "2025-06-02T14:12:43.859562",
       "meta_description": "M\u00e9thodes trop longues ? Apprenez \u00e0 les simplifier pour un code plus clair, maintenable et performant.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 1
     },
     {
       "id": 6,
@@ -58,7 +63,8 @@
       "created": "2025-06-02T14:10:16.255067",
       "updated": "2025-06-02T14:10:16.255074",
       "meta_description": "Un code propre, c\u2019est un code qui parle de lui-m\u00eame. Moins de bugs, plus de clart\u00e9, z\u00e9ro dette technique. La propret\u00e9, c\u2019est la puissance.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 1
     },
     {
       "id": 7,
@@ -68,7 +74,8 @@
       "created": "2025-06-02T14:41:36.666000",
       "updated": "2025-06-02T16:49:32.014030",
       "meta_description": "Comment r\u00e9diger des titres de pages HTML accessibles et utiles pour les lecteurs d\u2019\u00e9cran.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     },
     {
       "id": 8,
@@ -78,7 +85,8 @@
       "created": "2025-06-02T17:26:10.889073",
       "updated": "2025-06-12T01:28:39.401566",
       "meta_description": "D\u00e9couvrez Flask avec un Hello World simple et rapide : premiers pas pour cr\u00e9er une appli web en Python. Id\u00e9al d\u00e9butants. 1er chapitre d\u2019un tuto complet.",
-      "status_id": 2
+      "status_id": 2,
+      "categories_id": 3
     },
     {
       "id": 9,
@@ -88,7 +96,8 @@
       "created": "2025-06-02T21:14:57.989721",
       "updated": "2025-06-02T21:39:51.082662",
       "meta_description": "Configurez la balise viewport pour un site responsive accessible, sans bloquer le zoom. Bonnes et mauvaises pratiques illustr\u00e9es.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     },
     {
       "id": 10,
@@ -98,7 +107,8 @@
       "created": "2025-06-02T22:03:08.850799",
       "updated": "2025-06-02T22:16:02.089880",
       "meta_description": "Optimisez l\u2019ordre des balises <head> pour un chargement web plus rapide, accessible et performant",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     },
     {
       "id": 11,
@@ -108,7 +118,8 @@
       "created": "2025-06-03T14:26:19.775914",
       "updated": "2025-06-03T17:00:57.675179",
       "meta_description": "Structure HTML accessible : facilitez la navigation avec des rep\u00e8res s\u00e9mantiques comme main, nav ou footer",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     },
     {
       "id": 12,
@@ -118,7 +129,8 @@
       "created": "2025-06-04T14:39:29.634806",
       "updated": "2025-06-11T15:09:45.214109",
       "meta_description": "Apprenez \u00e0 structurer des rep\u00e8res de navigation accessibles pour aider tous les utilisateurs \u00e0 s\u2019orienter efficacement sur votre site web.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     },
     {
       "id": 13,
@@ -128,7 +140,8 @@
       "created": "2025-06-05T11:44:50.830224",
       "updated": "2025-06-05T13:01:12.063571",
       "meta_description": "Apprenez \u00e0 g\u00e9rer vos environnements Python avec venv, pip et Pipenv pour \u00e9viter les conflits de d\u00e9pendances et garder vos projets propres.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 1
     },
     {
       "id": 14,
@@ -138,7 +151,8 @@
       "created": "2025-06-05T23:48:47.804219",
       "updated": "2025-06-12T01:28:50.954362",
       "meta_description": "Chapitre 2 : Cr\u00e9ez un blog minimaliste avec Flask en posant les bases du projet. Structure, routes simples et premi\u00e8res vues au programme.",
-      "status_id": 2
+      "status_id": 2,
+      "categories_id": 3
     },
     {
       "id": 15,
@@ -148,7 +162,8 @@
       "created": "2025-06-06T14:01:00.250866",
       "updated": "2025-06-06T14:58:44.844886",
       "meta_description": "Am\u00e9liorez l\u2019accessibilit\u00e9 de vos formulaires HTML gr\u00e2ce aux r\u00f4les ARIA et balises adapt\u00e9es. Guide pratique avec exemples et compatibilit\u00e9 lecteur d\u2019\u00e9cran.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     },
     {
       "id": 16,
@@ -158,7 +173,8 @@
       "created": "2025-06-10T10:44:28.015044",
       "updated": "2025-06-16T23:29:11.513921",
       "meta_description": "bla",
-      "status_id": 1
+      "status_id": 1,
+      "categories_id": 3
     },
     {
       "id": 17,
@@ -168,7 +184,8 @@
       "created": "2025-06-10T13:42:19.551495",
       "updated": "2025-06-10T14:05:35.753328",
       "meta_description": "Apprenez \u00e0 labelliser les points de rep\u00e8re HTML (<nav>, <header>, etc.) avec aria-labelledby ou aria-label pour une accessibilit\u00e9 optimale. Exemples concrets et bonnes pratiques incluses.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     },
     {
       "id": 18,
@@ -178,7 +195,8 @@
       "created": "2025-06-11T12:34:14.887102",
       "updated": "2025-06-11T14:56:29.508840",
       "meta_description": "Bien structurer son HTML avec des rep\u00e8res et balises s\u00e9mantiques am\u00e9liore l'accessibilit\u00e9, la navigation et l\u2019exp\u00e9rience utilisateur.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     },
     {
       "id": 19,
@@ -188,7 +206,8 @@
       "created": "2025-06-12T15:25:53.478173",
       "updated": "2025-06-12T16:02:45.996506",
       "meta_description": "Apprenez \u00e0 structurer votre contenu HTML pour garantir accessibilit\u00e9 et coh\u00e9rence, m\u00eame sans CSS. Guide pratique pour un web inclusif et ordonn\u00e9.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     },
     {
       "id": 20,
@@ -198,7 +217,8 @@
       "created": "2025-06-15T14:13:34.361610",
       "updated": "2025-06-15T16:00:46.563131",
       "meta_description": "Les bonnes pratiques pour cr\u00e9er des liens HTML accessibles, efficaces et compatibles avec les lecteurs d'\u00e9cran.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     },
     {
       "id": 21,
@@ -208,7 +228,8 @@
       "created": "2025-06-16T16:16:30.693743",
       "updated": "2025-06-16T16:49:02.602366",
       "meta_description": "comment styliser correctement vos liens HTML pour am\u00e9liorer accessibilit\u00e9, UX et SEO avec des exemples pratiques et conseils experts.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     },
     {
       "id": 22,
@@ -218,7 +239,8 @@
       "created": "2025-06-17T15:13:21.719563",
       "updated": "2025-06-17T16:25:31.839780",
       "meta_description": "Optimisez vos liens de t\u00e9l\u00e9chargement HTML pour une meilleure accessibilit\u00e9, exp\u00e9rience utilisateur et performance SEO.",
-      "status_id": 3
+      "status_id": 3,
+      "categories_id": 2
     }
   ],
   "tag": [
