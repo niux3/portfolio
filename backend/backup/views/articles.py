@@ -9,7 +9,7 @@ from sqlalchemy import desc
 from flask import render_template, Blueprint, jsonify, url_for, redirect, flash
 from backend.core.config import config
 from backend.articles.views.post import prefix_bp, show, index_articles, index_by_tags
-from backend.articles.models import Post, PostTag, Tag, Status
+from backend.articles.models import Post, PostTag, Tag, Status, Category
 from backend import db
 
 
@@ -23,6 +23,7 @@ def export_json():
         'tag': [r.to_dict() for r in Tag.query.all()],
         'posttag': [r.to_dict() for r in PostTag.query.all()],
         'status': [r.to_dict() for r in Status.query.all()],
+        'category': [r.to_dict() for r in Category.query.all()],
     }
 
     with open(str(file_data), 'w', encoding='utf-8') as f:
@@ -38,8 +39,9 @@ def import_json():
     tag = [Tag.from_dict(item) for item in data['tag']]
     posttag = [PostTag.from_dict(item) for item in data['posttag']]
     status = [Status.from_dict(item) for item in data['status']]
+    category = [Category.from_dict(item) for item in data['category']]
 
-    db.session.add_all(post + tag + posttag + status)
+    db.session.add_all(post + tag + posttag + status + category)
     db.session.commit()
     flash("Votre import en json est réussi", "success")
     return redirect(url_for('projects.index'))

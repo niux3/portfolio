@@ -18,8 +18,9 @@
         <a href="">articles</a>
         <ul class="menu">
           <li><a href="{{ url_for('posts.index') }}">Posts</a></li>
-          <li><a href="{{ url_for('tags.index') }}">Tags</a></li>
           <li><a href="{{ url_for('status.index') }}">Status</a></li>
+          <li><a href="{{ url_for('categories.index') }}">Catégories</a></li>
+          <li><a href="{{ url_for('tags.index') }}">Tags</a></li>
           <li><a href="{{ url_for('backup_articles.import_json') }}" onclick="javascript: return confirm('Êtes vous sur de vouloir importer ?')">Importer&nbsp;json</a></li>
           <li><a href="{{ url_for('backup_articles.export_json') }}">Exporter&nbsp;json</a></li>
           <li><a href="{{ url_for('backup_articles.export_html') }}">Exporter&nbsp;HTML</a></li>
