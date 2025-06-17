@@ -331,7 +331,181 @@ Il vous suffit d’ouvrir le fichier <code>blog.db</code> (ou le nom de votre ba
     ...:     to_delete = Entry.query.get(1) # la première ligne à supprimer id = 1
     ...:     db.session.delete(to_delete)
     ...:     db.session.commit()
-</code></pre></div>
+</code></pre>
+<h3>Récupération des articles de blog</h3>
+<p>Bien que la création, la mise à jour et la suppression soient des opérations assez simples, le vrai plaisir commence lorsque nous examinons les différentes manières de récupérer nos articles. Nous allons commencer par les bases, puis progresser vers des requêtes plus intéressantes. Nous allons utiliser un attribut spécial sur notre classe de modèle pour effectuer les requêtes : <code>Entry.query</code>. Cet attribut expose une variété d’interfaces (APIs) permettant de travailler avec la collection d’articles dans la base de données.</p>
+<p>Récupérons simplement une liste de toutes les entrées de la table <code>Entry</code> :</p>
+<pre><code class="language-bash">In []: with app.app_context():
+    ...:     entries = Entry.query.all()
+In []: entries
+Out[]: [&lt;Entry: 'ttitre 1 '&gt;, &lt;Entry: 'titre 2'&gt;]
+</code></pre>
+<p>Comme vous pouvez le voir, dans cet exemple, la requête retourne une liste d’instances de <code>Entry</code> que nous avons créées.
+Lorsque aucun ordre explicite n’est spécifié, les entrées nous sont renvoyées dans un ordre arbitraire défini par la base de données. Spécifions maintenant que nous souhaitons que les entrées nous soient renvoyées par ordre alphabétique, selon leur titre :</p>
+<pre><code class="language-bash">In []: with app.app_context():
+    ...:     entries = Entry.query.order_by('title').all()
+In []: entries
+Out[]: [&lt;Entry: 'titre A'&gt;, &lt;Entry: 'titre B'&gt;]
+</code></pre>
+<p>Voici maintenant comment lister vos entrées par ordre chronologique inverse, en se basant sur leur date de dernière mise à jour :</p>
+<pre><code class="language-bash">In []: from sqlalchemy import desc
+In []: with app.app_context():
+    ...:     entries = Entry.query.order_by(desc('modified_timestamp')).all()
+In []: entries
+Out[]: [&lt;Entry: 'titre B'&gt;, &lt;Entry: 'titre A'&gt;]
+</code></pre>
+<h3>Filtrer la liste des articles</h3>
+<p>Il est très utile de pouvoir récupérer l’ensemble des articles de blog, mais que faire si nous voulons filtrer cette liste ? Nous pourrions toujours récupérer toute la collection, puis la filtrer en Python à l’aide d’une boucle, mais ce serait très inefficace.</p>
+<p>À la place, nous allons nous appuyer sur la base de données pour effectuer le filtrage, en spécifiant simplement les conditions que doivent remplir les entrées à retourner. Dans l’exemple suivant, nous allons spécifier que nous voulons filtrer les entrées dont le titre est égal à <code>First entry</code>.</p>
+<pre><code class="language-bash">In []: with app.app_context():
+    ...:     entries = Entry.query.filter(Entry.title == 'titre B').all()
+In []: entries
+Out[]: [&lt;Entry: 'titre B'&gt;]
+</code></pre>
+<p>Si cela vous semble un peu magique, c’est parce que ça l’est vraiment ! SQLAlchemy utilise la surcharge d’opérateurs pour convertir des expressions telles que <code>&lt;Modèle&gt;.&lt;colonne&gt; == &lt;une valeur&gt;</code> en un objet abstrait appelé BinaryExpression.
+Lorsque vous êtes prêt à exécuter votre requête, ces structures de données sont ensuite traduites en SQL.</p>
+<p><strong>Note</strong> : Un BinaryExpression est tout simplement un objet qui représente une comparaison logique. Il est généré en surchargeant les méthodes standards généralement appelées sur un objet lors d’une comparaison de valeurs en Python.</p>
+<p>Pour récupérer une seule entrée, vous avez deux options : <code>.first()</code> et <code>.one()</code>. Leurs différences et similitudes sont résumées dans le tableau suivant :</p>
+<table>
+    <caption>Comparaison des comportements des méthodes <code>.first()</code> et <code>.one()</code> en fonction du nombre de lignes retournées par la requête</caption>
+    <thead>
+        <tr>
+            <th scope="col">Nombre de lignes correspondantes</th>
+            <th scope="col">Comportement <code>.first()</code></th>
+            <th scope="col">Comportement <code>.one()</code></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td><code>return object</code></td>
+            <td><code>return object</code></td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td><code>return None</code></td>
+            <td><code>Raise sqlalchemy.orm.exc.NoResultFound</code></td>
+        </tr>
+        <tr>
+            <td>2+</td>
+            <td><code>return object</code></td>
+            <td><code>Raise sqlalchemy.orm.exc.MultipleResultsFound</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Essayons la même requête qu’auparavant, mais au lieu d’appeler <code>.all()</code>, nous allons utiliser <code>.first()</code> pour récupérer une seule instance de <code>Entry</code> :</p>
+<pre><code class="language-bash">In []: with app.app_context():
+    ...:     entries = Entry.query.filter(Entry.title == 'titre B').first()
+In []: entries
+Out[]: &lt;Entry: 'titre B'&gt;
+</code></pre>
+<p>Notez qu’auparavant, <code>.all()</code> retournait une liste contenant l’objet, tandis que <code>.first()</code> renvoyait directement l’objet lui-même.</p>
+<h3>Recherches spéciales</h3>
+<p>Dans l’exemple précédent, nous avons testé une égalité, mais il existe de nombreux autres types de recherches possibles. Dans le tableau suivant, nous avons listé quelques-unes que vous pourriez trouver utiles. Vous pouvez consulter la documentation de SQLAlchemy pour obtenir la liste complète.</p>
+<table>
+    <caption>Exemples de requêtes SQLAlchemy avec leur signification correspondante</caption>
+    <thead>
+        <tr>
+            <th scope="col">Exemple</th>
+            <th scope="col">Signification</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Entry.title == 'The title'</td>
+            <td>Entrées dont le titre est "The title", en respectant la casse (sensible à la casse).</td>
+        </tr>
+        <tr>
+            <td>Entry.title != 'The title'</td>
+            <td>Entrées dont le titre n’est pas "The title".</td>
+        </tr>
+        <tr>
+            <td>Entry.created_timestamp &lt; datetime.date(2014, 1, 25)</td>
+            <td>Entrées créées avant le 25 janvier 2014. Pour "inférieur ou égal", utilisez &lt;=.</td>
+        </tr>
+        <tr>
+            <td>Entry.created_timestamp &gt; datetime.date(2014, 1, 25)</td>
+            <td>Entrées créées avant le 25 janvier 2014. Pour "supérieur ou égal", utilisez &gt;=.</td>
+        </tr>
+        <tr>
+            <td>Entry.body.contains('Python')</td>
+            <td>Entrées dont le contenu (**body**) contient le mot **"Python"**, en respectant la casse (sensible à la casse).</td>
+        </tr>
+        <tr>
+            <td>Entry.title.endswith('Python')</td>
+            <td>Entrées dont le titre se termine par la chaîne **"Python"**, en respectant la casse (sensible à la casse). Notez que cela correspondra également à des titres se terminant par des mots comme **"CPython"**, par exemple.</td>
+        </tr>
+        <tr>
+            <td>Entry.title.startswith('Python')</td>
+            <td>Entrées dont le titre commence par la chaîne **"Python"**, en respectant la casse (sensible à la casse). Notez que cela correspondra également à des titres comme **"Pythonistas"**, par exemple.</td>
+        </tr>
+        <tr>
+            <td>Entry.body.ilike('%python%')</td>
+            <td>Entrées dont le contenu (**body**) contient le mot **"python"** n'importe où dans le texte, **sans tenir compte de la casse** (insensible à la casse).  Le caractère **`%`** est un **joker** (wildcard) qui représente n’importe quelle séquence de caractères.</td>
+        </tr>
+        <tr>
+            <td>Entry.title.in_(['Title one', 'Title two'])</td>
+            <td>Entrées dont le titre figure dans la liste donnée, c’est-à-dire **'Title one'** ou **'Title two'**.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Combinaison d’expressions</h3>
+<p>Les expressions listées dans le tableau précédent peuvent être combinées à l’aide d’opérateurs binaires pour créer des expressions arbitrairement complexes.</p>
+<p>Par exemple, si nous voulons récupérer tous les articles de blog dont le titre contient le mot <strong>Python</strong> ou <strong>Flask</strong>, nous allons créer deux expressions <code>contains</code>, puis les combiner avec l’opérateur binaire <strong>OR</strong> de Python, qui s’écrit avec un caractère <strong>pipe</strong> <code>|</code>, contrairement à beaucoup d’autres langages qui utilisent le double pipe <code>||</code> :</p>
+<pre><code class="language-python">Entry.query.filter(Entry.title.contains('Python') |
+Entry.title.contains('Flask'))
+</code></pre>
+<p>En utilisant les opérateurs binaires, on peut créer des expressions assez complexes. Essaie de comprendre ce que demande l’exemple suivant :</p>
+<pre><code class="language-python">Entry.query.filter((Entry.title.contains('Python') | Entry.title.contains('Flask')) &amp; (Entry.created_timestamp &gt; (datetime.date.today() -
+datetime.timedelta(days=30))))
+</code></pre>
+<p>Comme vous l’avez probablement deviné, cette requête renvoie toutes les entrées dont le titre contient soit <strong>Python</strong> soit <strong>Flask</strong>, et qui ont été créées au cours des 30 derniers jours. Nous utilisons les opérateurs binaires <strong>OR</strong> et <strong>AND</strong> de Python pour combiner les sous-expressions.</p>
+<p>Pour toute requête que vous construisez, vous pouvez afficher le SQL généré en imprimant la requête de la manière suivante :</p>
+<pre><code class="language-bash">In []: with app.app_context():
+    ...:     entries = Entry.query.filter(Entry.slug.contains('test'))
+    ...:     print(str(entries))
+    ...: 
+SELECT entry.id AS entry_id, entry.title AS entry_title, entry.slug AS entry_slug, entry.body AS entry_body, entry.created_timestamp AS entry_created_timestamp, entry.modified_timestamp AS entry_modified_timestamp 
+FROM entry WHERE (entry.slug LIKE '%' || ? || '%')
+</code></pre>
+<h3>Négation</h3>
+<p>Il reste une notion à aborder : la négation. Si nous voulions obtenir une liste de tous les articles de blog dont le titre ne contient ni <strong>Python</strong> ni <strong>Flask</strong>, comment ferions-nous ? SQLAlchemy offre deux façons de créer ce type d’expressions : en utilisant soit l’opérateur unaire de négation de Python (<code>~</code>), soit en appelant <code>db.not_()</code>. Voici comment construire cette requête avec SQLAlchemy :</p>
+<pre><code class="language-python">Entry.query.filter(~(Entry.title.contains('Python') | Entry.title.contains('Flask')))
+Entry.query.filter(db.not_(Entry.title.contains('Python') | Entry.title.contains('Flask')))
+</code></pre>
+<h3>Priorité des opérateurs</h3>
+<p>Toutes les opérations ne sont pas traitées de la même manière par l’interpréteur Python. C’est un peu comme en mathématiques, où l’on apprend que l’expression <code>2 + 3 * 4</code> vaut <code>14</code> et non <code>20</code>, car la multiplication est effectuée avant l’addition. En Python, les opérateurs bit à bit ont une priorité plus élevée que, par exemple, les tests d’égalité. Cela signifie que, lorsque vous construisez votre expression de requête, il faut faire attention à bien utiliser les parenthèses. Regardons quelques exemples d’expressions Python et leurs requêtes correspondantes :</p>
+<table>
+    <caption>Exemples d’expressions SQLAlchemy et leurs résultats en fonction de la priorité des opérateurs</caption>
+    <thead>
+        <tr>
+            <th scope="col">Expression</th>
+            <th scope="col">Résultat</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>(Entry.title == 'Python' | Entry.title == 'Flask')</td>
+            <td>Faux ! SQLAlchemy génère une erreur parce que la première chose évaluée est en réalité 'Python' | Entry.title !</td>
+        </tr>
+        <tr>
+            <td>(Entry.title == 'Python') | (Entry.title == 'Flask')</td>
+            <td>Exact. Retourne les entrées dont le titre est soit « Python » soit « Flask ».</td>
+        </tr>
+        <tr>
+            <td>~Entry.title == 'Python'</td>
+            <td>Faux ! SQLAlchemy va transformer cela en une requête SQL valide, mais les résultats ne seront pas pertinents.</td>
+        </tr>
+        <tr>
+            <td>~(Entry.title == 'Python')</td>
+            <td>Exact. Retourne les entrées dont le titre n’est pas égal à « Python ».</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Si vous avez du mal avec la priorité des opérateurs, il est prudent de mettre des parenthèses autour de toute comparaison utilisant <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code> et <code>&gt;=</code>.</p></div>
       <p class="text-right">Publié le 10 juin 2025</p>
     </article>
   </section>
