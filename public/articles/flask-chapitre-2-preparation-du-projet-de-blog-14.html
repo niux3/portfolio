@@ -233,7 +233,7 @@ if __name__ == '__main__':
 <h3>Le flux d’importation</h3>
 <p>L’exécution commence lorsque vous lancez la commande python <code>main.py</code> depuis la ligne de commande. La première ligne de code que l’interpréteur Python rencontre importe l’objet app depuis le module <code>app</code>. Nous nous trouvons maintenant dans <code>app.py</code>, qui importe Flask ainsi que notre objet <code>Configuration</code>. Le reste du module <code>app.py</code> est alors lu et interprété, puis le contrôle revient à <code>main.py</code>.</p>
 <p>La seconde ligne de <code>main.py</code> importe le module <code>views</code>. Nous sommes alors dans <code>views.py</code>, qui dépend de <code>app.py</code> pour le décorateur <code>@app.route</code> — et cet objet est déjà disponible depuis <code>main.py</code>. Les routes et les vues sont enregistrées au moment où le module <code>views</code> est interprété, puis l’exécution revient à <code>main.py</code>. Puisque vous exécutez directement <code>main.py</code>, la condition du bloc <code>if</code> s’évalue à <code>True</code> et votre application se lance.</p></div>
-      <p class="text-right">Publié le 05 juin 2025</p>
+      <p class="text-right">Publié le <time datetime="25-06-05">05 juin 2025</time></p>
     </article>
   </section>
   <template id="tplProgressFalse">
