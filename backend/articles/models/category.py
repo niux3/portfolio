@@ -11,6 +11,8 @@ class Category(db.Model, SerializerMixin):
     slug = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(255), nullable=False)
 
+    posts = db.relationship('Post', backref='category', lazy=True)
+
     def generate_slug(self):
         self.slug = ''
         if self.name:

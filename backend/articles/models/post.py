@@ -17,6 +17,7 @@ class Post(db.Model, SerializerMixin):
     meta_description = db.Column(db.String(255), default="")
 
     status_id = db.Column(db.Integer, db.ForeignKey('articles_status.id', onupdate='CASCADE', ondelete='CASCADE'))
+    categories_id = db.Column(db.Integer, db.ForeignKey('articles_categories.id', onupdate='CASCADE', ondelete='CASCADE'), default=1)
 
     post_tags = db.relationship('PostTag', back_populates='post', cascade="all, delete-orphan")
 
