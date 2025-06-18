@@ -241,6 +241,17 @@
       "meta_description": "Optimisez vos liens de t\u00e9l\u00e9chargement HTML pour une meilleure accessibilit\u00e9, exp\u00e9rience utilisateur et performance SEO.",
       "status_id": 3,
       "categories_id": 2
+    },
+    {
+      "id": 23,
+      "title": "Cr\u00e9er des liens vers des courriels",
+      "slug": "creer-des-liens-vers-des-courriels",
+      "body": "En cliquant sur un lien de courrier \u00e9lectronique, l'utilisateur peut changer de contexte et passer du navigateur \u00e0 une application de courrier \u00e9lectronique, s'il y en a une d'install\u00e9e. Cela peut \u00eatre utile mais n'est pas toujours souhaitable car le passage d'une application \u00e0 l'autre peut \u00eatre fastidieux pour certains utilisateurs.\r\n\r\nUne solution est d'afficher l'adresse \u00e9lectronique directement et relie-la en utilisant <a href=\"https://datatracker.ietf.org/doc/html/rfc6068#section-2\" target=\"_blank\">le sch\u00e9ma `URImailto:`</a> , comme illustr\u00e9 dans l'[exemple 1](#exemple-1).\r\n\r\n**<span id=\"exemple-1\">Exemple&nbsp;1</span>&nbsp;&ndash;&nbsp;Un lien vers une adresse \u00e9lectronique**\r\n\r\n```html\r\n<a href=\"mailto:support@vetements.com\">\r\n  support@vetements.com\r\n</a>\r\n```\r\n\r\nVous pouvez \u00e9tablir un lien avec plusieurs adresses \u00e9lectroniques, comme le montre l'[exemple 2](#exemple-2).\r\n\r\n**<span id=\"exemple-2\">Exemple&nbsp;2</span>&nbsp;&ndash;&nbsp;Un lien vers plusieurs adresses**\r\n\r\n```html\r\n<a href=\"mailto: pierre@domain.com, office@domain.com\">\r\n  pierre@domain.com et office@domain.com\r\n</a>\r\n```\r\n\r\nVous pouvez m\u00eame pr\u00e9-remplir l'objet et le corps du courriel, comme le montre l'[exemple 3](#exemple-3).\r\n\r\n**<span id=\"exemple-3\">Exemple&nbsp;3</span>&nbsp;&ndash;&nbsp;Sujet et corps pr\u00e9-remplis**\r\n\r\n```html\r\n<a href=\"mailto:support@vetements.com?subject=Support%20enquete%20%23123&body=client%20num\u00e9ro%3A%20068303\">\r\n  support@vetements.com\r\n</a>\r\n```\r\n\r\n**Note** : Les caract\u00e8res sp\u00e9ciaux, les sauts de ligne et les espaces doivent \u00eatre convertis dans un format que tous les navigateurs et serveurs comprennent(<a href=\"https://www.urlencoder.org/\" target=\"_blank\">encodage URL</a>).\r\n\r\nCela peut \u00eatre pratique pour les utilisateurs lorsqu'une adresse \u00e9lectronique est li\u00e9e parce qu'en cliquant dessus, ils acc\u00e8dent \u00e0 leur application de messagerie et peuvent commencer \u00e0 \u00e9crire imm\u00e9diatement. Certains utilisateurs peuvent vouloir \u00e9viter ce changement de contexte et se contenter de copier une adresse \u00e9lectronique. Vous pouvez r\u00e9pondre \u00e0 ces deux exigences en utilisant l'adresse \u00e9lectronique comme texte du lien.\r\n\r\nJe recommande d'\u00e9viter les textes de liens g\u00e9n\u00e9riques tels que \u00ab&nbsp;Cliquez ici pour nous contacter&nbsp;\u00bb ou \u00ab&nbsp;Contactez-nous&nbsp;\u00bb, comme le montre l'[exemple 4](#exemple-4), car si l'utilisateur veut seulement conna\u00eetre l'adresse \u00e9lectronique, il devra cliquer sur le lien, passer \u00e0 l'application de messagerie ou \u00e0 l'onglet du navigateur de messagerie Web, et la copier dans le champ de l'adresse.\r\n\r\n**<span id=\"exemple-4\">Exemple&nbsp;4</span>&nbsp;&ndash;&nbsp;Mauvaise pratique : Texte de lien g\u00e9n\u00e9rique**\r\n\r\n```html\r\n<p>Si vous voulez en savoir plus sur nos produits, <a href=\"mailto:support@vetement.com\">contactez-nous</a>.</p>\r\n```\r\n\r\nC'est plus convivial si l'adresse \u00e9lectronique est imm\u00e9diatement visible :\r\n> Si vous voulez en savoir plus sur nos produits, contactez-nous \u00e0 support@vetement.com.\r\n\r\n\r\n",
+      "created": "2025-06-18T16:48:42.833659",
+      "updated": "2025-06-18T17:20:36.300614",
+      "meta_description": "Apprenez \u00e0 cr\u00e9er des liens vers des adresses e-mail en HTML tout en respectant l\u2019accessibilit\u00e9, l\u2019UX et les bonnes pratiques SEO",
+      "status_id": 3,
+      "categories_id": 2
     }
   ],
   "tag": [
@@ -650,6 +661,26 @@
       "id": 804,
       "posts_id": 16,
       "tags_id": 10
+    },
+    {
+      "id": 825,
+      "posts_id": 23,
+      "tags_id": 1
+    },
+    {
+      "id": 826,
+      "posts_id": 23,
+      "tags_id": 2
+    },
+    {
+      "id": 827,
+      "posts_id": 23,
+      "tags_id": 3
+    },
+    {
+      "id": 828,
+      "posts_id": 23,
+      "tags_id": 4
     }
   ],
   "status": [
