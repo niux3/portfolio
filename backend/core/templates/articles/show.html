@@ -8,15 +8,15 @@
     <article>
       <h1>{{ object.title }}</h1>
       <div class="grid-x grid-padding-x">
-        <ul class="cell medium-6 flex-container no-bullet tags-list">
+        <ul class="cell medium-6 small-12 flex-container no-bullet tags-list">
           {% for tag in object.tags %}
             <li><a href="{{ url_for('posts.index_by_tags', slug=tag.slug) }}"><span>{{ tag }}</span></a></li>
           {% endfor %}
         </ul>
-        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6">
+        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6 small-12">
           <ul class="flex-container no-bullet share">
             {% for k, v in shares.items() %}
-              <li><a href="{{ v.url }}" class="{{ v.icon }}" target="_blank" rel="noopener noreferrer"><span>{{ k }}</span></a></li>
+              <li><a href="{{ v.url }}" class="{{ v.icon.content }}" target="_blank" rel="noopener noreferrer"><span>{{ k }}</span></a></li>
             {% endfor %}
           </ul>
         </nav>
@@ -25,9 +25,43 @@
       <p class="text-right">Publié le <time datetime="{{ object.created|date_fr("%y-%m-%d") }}">{{ object.created|date_fr }}</time></p>
     </article>
   </section>
-  <template id="tplProgressFalse">
+  <section id="lateralBar">
+    <div>
+      <button type="button" class="button" id="tableOfContent" data-panel="true">
+        <span class="fa-solid fa-list"></span>
+        <span class="hide">Table de contenu</span>
+      </button>
+      <button type="button" class="button" id="tableOfContent" data-panel="true">
+        <span class="fa-solid fa-magnifying-glass"></span>
+        <span class="hide">Chercher</span>
+      </button>
+      <ul class="flex-container flex-dir-column no-bullet share">
+        {% for k, v in shares.items() %}
+          <li>
+            <a href="{{ v.url }}" class="button" target="_blank" rel="noopener noreferrer">
+              <span class="{{ v.icon.bar }}"></span>
+              <span class="hide">{{ k }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div>
+      <button class="button changeMode">
+        <span class="fa-solid fa-moon"><span class="text">light</span></span>
+      </button>
+      <a class="button" id="goToTop" href="#top"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+  </section>
+  <script type="text/template" id="tplProgressFalse">
     <div id="progressFalse">
       <div id="cursorProgress">&nbsp;</div>
     </div>
-  </template>
+  </script>
+  <script type="text/template" id="tplReader">
+    <div id="progressFalse">
+      <div id="cursorProgress">&nbsp;</div>
+    </div>
+  </script>
+
 {% endblock %}

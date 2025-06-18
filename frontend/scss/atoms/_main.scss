@@ -1,0 +1,10 @@
+main{
+
+  position: relative;
+  left: 0;
+  transition: left .4s;
+
+  &.move{
+    left: -25%;
+  }
+}

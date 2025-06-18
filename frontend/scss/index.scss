@@ -36,6 +36,10 @@
 @import "atoms/li";
 @import "atoms/table";
 @import "atoms/blockquote";
+@import "atoms/lateralBar";
+@import "atoms/main";
+@import "atoms/tags_list";
+@import "atoms/goto_top";
 
 // helpers
 @import "atoms/bold";
@@ -53,6 +57,7 @@
 @import "molecules/items_articles";
 @import "molecules/posts";
 @import "molecules/blockquote";
+@import "molecules/lateralBar";
 
 //organismes
 @import "organismes/contact";

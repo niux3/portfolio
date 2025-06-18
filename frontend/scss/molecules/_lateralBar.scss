@@ -1,0 +1,59 @@
+#lateralBar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  > div{
+    display: flex;
+    flex-direction: column;
+
+    .button{
+      padding: .8rem;
+      background-color: transparent;
+      color: var(--color-cannes);
+      transition: background-color .4s, color .4s;
+      margin-bottom: 0;
+      margin-top: 1rem;
+
+      &:first-child{
+        margin-top: 0;
+      }
+
+      &:hover{
+        color: var(--color-marseille) !important;
+      }
+
+      &.current{
+        background-color: var(--color-cannes);
+        color: var(--color-laval);
+        cursor: default;
+
+        &:hover{
+          color: var(--color-laval) !important;
+        }
+      }
+    }
+    .share{
+      margin-top: 0;
+      opacity: 0;
+      transition: opacity .4s;
+
+      &.visible{
+        opacity: 1;
+      }
+
+      li{
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+html[data-theme-preference="dark"]{
+  #lateralBar{
+    > div{
+      .button{
+        border: none;
+      }
+    }
+  }
+}

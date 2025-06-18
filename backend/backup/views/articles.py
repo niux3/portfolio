@@ -57,7 +57,7 @@ def export_html():
     items = []
     data_for_frontend = {
         "layout_template": "base_export.html",
-        "js_file": manifest_data.get('frontend/main.js').get('file'),
+        "js_file": manifest_data.get('frontend/js/main.js').get('file'),
         "css_file": manifest_data.get('frontend/scss/index.scss').get('file'),
     }
     for obj in Post.query.all():

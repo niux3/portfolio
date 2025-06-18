@@ -21,7 +21,7 @@ export default defineConfig(({ command }) => ({
         rollupOptions: {
             input: {
                 // index: path.resolve(__dirname, 'index.html'), // Point d'entrée HTML
-                app: path.resolve(__dirname, 'frontend/main.js'), // Point d'entrée HTML
+                app: path.resolve(__dirname, 'frontend/js/main.js'), // Point d'entrée HTML
                 styles: path.resolve(__dirname, 'frontend/scss/index.scss'), // Point d'entrée HTML
                 // index: 'main.js', // Point d'entrée JS, important les assets
                 // custom: 'resources/scripts/burger-menu.js',

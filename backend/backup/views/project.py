@@ -21,7 +21,7 @@ def export_html():
 
     with open(str(path_manifest), encoding='utf-8') as f:
         manifest_data = json.load(f)
-    pathlib.Path.unlink(public_folder / manifest_data.get('frontend/main.js').get('file'))
+    pathlib.Path.unlink(public_folder / manifest_data.get('frontend/js/main.js').get('file'))
     pathlib.Path.unlink(public_folder / manifest_data.get('frontend/scss/index.scss').get('file'))
 
     result = subprocess.check_call('npm run build', shell=True)
@@ -31,7 +31,7 @@ def export_html():
 
     ctx = {
         "layout_template": "base_export.html",
-        "js_file": manifest_data.get('frontend/main.js').get('file'),
+        "js_file": manifest_data.get('frontend/js/main.js').get('file'),
         "css_file": manifest_data.get('frontend/scss/index.scss').get('file'),
         "object_list": {
             "projects": Project.query.filter(Project.online == 1).order_by(desc('year')),
