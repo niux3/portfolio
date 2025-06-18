@@ -26,14 +26,22 @@
     </article>
   </section>
   <section id="lateralBar">
-    <button type="button" class="button" id="tableOfContent">
-      <span class="fa-solid fa-list"></span>
-      <span class="hide">Table de contenu</span>
-    </button>
-    <button type="button" class="button" id="tableOfContent">
-      <span class="fa-solid fa-magnifying-glass"></span>
-      <span class="hide">Chercher</span>
-    </button>
+    <div>
+      <button type="button" class="button" id="tableOfContent" data-panel="true">
+        <span class="fa-solid fa-list"></span>
+        <span class="hide">Table de contenu</span>
+      </button>
+      <button type="button" class="button" id="tableOfContent" data-panel="true">
+        <span class="fa-solid fa-magnifying-glass"></span>
+        <span class="hide">Chercher</span>
+      </button>
+    </div>
+    <div>
+      <button class="button changeMode">
+        <span class="fa-solid fa-moon"><span class="text">light</span></span>
+      </button>
+      <a class="button" href="#top"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
   </section>
   <script type="text/template" id="tplProgressFalse">
     <div id="progressFalse">

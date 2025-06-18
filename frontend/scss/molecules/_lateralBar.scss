@@ -1,13 +1,40 @@
 #lateralBar{
   display: flex;
   flex-direction: column;
-  .button{
-    padding: 1rem;
-    background-color: transparent;
-    color: var(--color-cannes);
+  justify-content: space-between;
+  > div{
+    display: flex;
+    flex-direction: column;
 
-    &:hover{
-      color: var(--color-marseille) !important;
+    .button{
+      padding: .8rem;
+      background-color: transparent;
+      color: var(--color-cannes);
+      transition: background-color .4s, color .4s;
+
+      &:hover{
+        color: var(--color-marseille) !important;
+      }
+
+      &.current{
+        background-color: var(--color-cannes);
+        color: var(--color-laval);
+        cursor: default;
+
+        &:hover{
+          color: var(--color-laval) !important;
+        }
+      }
+    }
+  }
+}
+
+html[data-theme-preference="dark"]{
+  #lateralBar{
+    > div{
+      .button{
+        border: none;
+      }
     }
   }
 }

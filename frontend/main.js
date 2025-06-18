@@ -22,7 +22,22 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     // lateralBar
     if(document.getElementById('lateralBar')){
-        console.log('ok')
+        let $lateralBar = document.getElementById('lateralBar'),
+            $buttons = document.querySelectorAll('#lateralBar button'),
+            $main = document.body.querySelector('main')
+
+        $buttons.forEach($button =>{
+            $button.addEventListener('pointerdown', e =>{
+                console.log($button.dataset.panel)
+                if($button.dataset.panel === "true"){
+                    $buttons.forEach($btn => $btn.classList.remove('current'))
+                    $button.classList.add('current')
+
+                    $main.classList.add('move')
+                    $lateralBar.classList.add('move')
+                }
+            })
+        })
     }
 
 })
