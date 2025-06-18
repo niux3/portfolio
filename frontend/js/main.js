@@ -1,8 +1,8 @@
-import './scss/index.scss'
-import ProgressBarBehavior from './js/progressBar/ProgressBarBehavior'
-import darkmode from './js/darkmode'
-import formContact from './js/formContact'
-import LogReaderActivity from './js/logReaderActivity/LogReaderActivity'
+import '../scss/index.scss'
+import ProgressBarBehavior from './progressBar/ProgressBarBehavior'
+import darkmode from './darkmode'
+import formContact from './formContact'
+import LogReaderActivity from './logReaderActivity/LogReaderActivity'
 
 
 window.addEventListener('DOMContentLoaded', () =>{
@@ -19,7 +19,6 @@ window.addEventListener('DOMContentLoaded', () =>{
     // form contact
     formContact()
 
-
     // lateralBar
     if(document.getElementById('lateralBar')){
         let $lateralBar = document.getElementById('lateralBar'),
@@ -33,7 +32,7 @@ window.addEventListener('DOMContentLoaded', () =>{
                     $buttons.forEach($btn => $btn.classList.remove('current'))
                     $button.classList.add('current')
 
-                    $main.classList.add('move')
+                    //$main.classList.add('move')
                     $lateralBar.classList.add('move')
                 }
             })

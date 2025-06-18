@@ -1,18 +1,18 @@
 #lateralBar{
   margin: 0;
   position: fixed;
-  top: 10.5rem;
+  top: 11rem;
   bottom: 2.5rem;
-  left: calc(100vw - 10rem);
+  right: 10rem;
 
-  transition: left .4s;
+  transition: right .4s;
 
   &.move{
-    left: calc(52vw - 10rem) !important;
+    right: 500px !important;
   }
 
   @include breakpoints(1024px){
-    left: calc(100vw - 4.5rem);
+    right: calc(100vw - 4.5rem);
 
   }
 }
