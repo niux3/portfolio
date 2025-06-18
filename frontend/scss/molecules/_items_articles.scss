@@ -32,12 +32,21 @@
           flex-wrap: wrap;
           li{
             display: block;
-            &:before{
-              content: '#';
-              margin-right: .1rem;
-            }
             a{
               margin-right: .4rem;
+              text-decoration: none;
+
+              &:before{
+                content: '#';
+                margin-right: .1rem;
+              }
+              &:hover{
+                color: var(--color-marseille);
+
+                span{
+                  text-decoration: underline;
+                }
+              }
             }
           }
         }
