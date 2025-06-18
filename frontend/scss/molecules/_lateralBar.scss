@@ -1,0 +1,13 @@
+#lateralBar{
+  display: flex;
+  flex-direction: column;
+  .button{
+    padding: 1rem;
+    background-color: transparent;
+    color: var(--color-cannes);
+
+    &:hover{
+      color: var(--color-marseille) !important;
+    }
+  }
+}

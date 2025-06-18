@@ -1,0 +1,12 @@
+#lateralBar{
+  margin: 0;
+  position: fixed;
+  top: 10.5rem;
+  bottom: 2.5rem;
+  left: calc(100vw - 10rem);
+
+  @include breakpoints(1024px){
+    left: calc(100vw - 4.5rem);
+
+  }
+}

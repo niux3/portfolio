@@ -18,4 +18,11 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     // form contact
     formContact()
+
+
+    // lateralBar
+    if(document.getElementById('lateralBar')){
+        console.log('ok')
+    }
+
 })

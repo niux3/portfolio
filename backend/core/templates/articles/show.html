@@ -25,9 +25,25 @@
       <p class="text-right">Publié le <time datetime="{{ object.created|date_fr("%y-%m-%d") }}">{{ object.created|date_fr }}</time></p>
     </article>
   </section>
-  <template id="tplProgressFalse">
+  <section id="lateralBar">
+    <button type="button" class="button" id="tableOfContent">
+      <span class="fa-solid fa-list"></span>
+      <span class="hide">Table de contenu</span>
+    </button>
+    <button type="button" class="button" id="tableOfContent">
+      <span class="fa-solid fa-magnifying-glass"></span>
+      <span class="hide">Chercher</span>
+    </button>
+  </section>
+  <script type="text/template" id="tplProgressFalse">
     <div id="progressFalse">
       <div id="cursorProgress">&nbsp;</div>
     </div>
-  </template>
+  </script>
+  <script type="text/template" id="tplReader">
+    <div id="progressFalse">
+      <div id="cursorProgress">&nbsp;</div>
+    </div>
+  </script>
+
 {% endblock %}
