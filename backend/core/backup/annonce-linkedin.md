@@ -1,10 +1,14 @@
-Saviez-vous que de simples liens de téléchargement peuvent freiner vos utilisateurs... ou les satisfaire pleinement ?
+# Créer des liens vers des adresses e-mail en HTML : bonnes pratiques UX & SEO incluses !
 
-Dans cet article, je décortique comment structurer vos balises <a> pour informer, rassurer et guider vos visiteurs — tout en respectant les bonnes pratiques d'accessibilité, d’UX et de SEO.
+Dans cet article, je vous montre pourquoi et comment intégrer proprement une adresse mail dans vos pages web, avec des exemples concrets et des conseils pour respecter l’accessibilité.
 
-- Format, taille, action : tout doit être clair avant le clic.
-- Icônes, texte explicite, attributs HTML : on met les bons outils au bon endroit.
+- Texte explicite
+- Schéma mailto:
+- Préremplissage objet/corps
+- Mauvaises pratiques à éviter
 
-À lire ici : [lien article]
+Un petit guide pratique pour mieux coder et mieux communiquer !
 
-Et vous, comment gérez-vous les liens de téléchargement ?
+[Lien de l’article]
+
+Vos retours, critiques constructives ou simples encouragements sont les bienvenus. Si vous trouvez ça utile, un partage ou un commentaire me fera très plaisir
