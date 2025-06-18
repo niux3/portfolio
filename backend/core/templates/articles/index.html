@@ -15,7 +15,7 @@
           <div>
             <ul class="no-bullet">
               {% for tag in object.tags %}
-                <li><a href="{{ url_for('posts.index_by_tags', slug=tag.slug) }}">{{ tag.name }}</a></li>
+                <li><a href="{{ url_for('posts.index_by_tags', slug=tag.slug) }}"><span>{{ tag.name }}</span></a></li>
               {% endfor %}
             </ul>
             <time datetime="{{ object.created|date_fr("%y-%m-%d") }}">{{ object.created|date_fr("%d-%m-%y") }}</time>

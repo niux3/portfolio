@@ -30,6 +30,10 @@ article{
         background-color: transparent;
         color: var(--color-cannes);
 
+        &:hover{
+          color: var(--color-marseille);
+        }
+
         &:before{
           content: '#';
           margin-right: .1rem;
