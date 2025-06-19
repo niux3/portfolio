@@ -21,10 +21,48 @@ window.addEventListener('DOMContentLoaded', () =>{
     formContact()
 
     // lateralBar
+
+    class Observer{
+        #observers
+
+        constructor(){
+            this.#observers = []
+        }
+
+        add(o){
+            this.#observers.push(o)
+        }
+
+        notify(data){
+            for(let o of this.#observers){
+                o.update(data)
+            }
+        }
+    }
+
+    class Element{
+        #el
+
+        constructor($el){
+            this.#el = $el
+        }
+
+        get $el(){
+            return this.#el
+        }
+
+        update(data){
+            let isVisible = data > window.innerHeight
+            this.#el.setAttribute('aria-hidden', isVisible? 'true': 'false')
+            this.#el.classList[isVisible? 'add' : 'remove']('visible')
+        }
+    }
+
     if(document.getElementById('lateralBar')){
         let $lateralBar = document.getElementById('lateralBar'),
             $buttons = document.querySelectorAll('#lateralBar button'),
             $main = document.body.querySelector('main'),
+            heightWindow = window.innerHeight,
             placementLateralBar = ()=>{
                 if(window.matchMedia('( min-width: 961px )').matches){
                     console.log('matches')
@@ -33,7 +71,7 @@ window.addEventListener('DOMContentLoaded', () =>{
                     $lateralBar.classList.remove('visible')
                     $lateralBar.style.right = `${( (widthWindow - widthMain) / 2 ) - 40}px`
                     $lateralBar.addEventListener('transitionend', e => $lateralBar.classList.add('visible'))
-                }else if(window.matchMedia('( max-width: 960px )').matches){
+                }else if(window.matchMedia('(max-width: 960px)').matches){
                     $lateralBar.classList.add('visible')
                 }
             }
@@ -43,6 +81,18 @@ window.addEventListener('DOMContentLoaded', () =>{
                 console.log('resize')
                 Utils.debounce(placementLateralBar, 50)()
             })
+        let obserser = new Observer(),
+            goToTop = new Element(document.querySelector('#lateralBar a[href="#top"]'))
+        obserser.add(goToTop)
+        Utils.debounce(()=>{
+            obserser.notify(window.scrollY)
+        }, 400)()
+        window.addEventListener('scroll', e =>{
+            Utils.debounce(()=>{
+                obserser.notify(window.scrollY)
+            }, 400)()
+
+        })
         
 
         $buttons.forEach($button =>{
