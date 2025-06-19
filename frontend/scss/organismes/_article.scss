@@ -51,8 +51,14 @@ article{
 
   .share{
     justify-content: flex-end;
+    @include breakpoints(640px){
+      justify-content: flex-start;
+    }
     li{
       margin-left: 1rem;
+      &:first-of-type{
+        margin-left: 0;
+      }
       a{
         font-size: 2rem;
 
