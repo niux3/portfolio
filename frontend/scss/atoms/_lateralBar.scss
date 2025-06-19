@@ -4,15 +4,20 @@
   top: 11rem;
   bottom: 2.5rem;
   right: 10rem;
+  opacity: 0;
 
-  transition: right .4s;
+  transition: right .4s, opacity .2s;
 
   &.move{
     right: 500px !important;
   }
 
-  @include breakpoints(1024px){
-    right: calc(100vw - 4.5rem);
+  &.visible{
+    opacity: 1;
+  }
+
+  @include breakpoints(960px){
+    right: .8rem !important;
 
   }
 }
