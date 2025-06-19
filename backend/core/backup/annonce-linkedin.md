@@ -1,14 +1,9 @@
-# Créer des liens vers des adresses e-mail en HTML : bonnes pratiques UX & SEO incluses !
+# Près de 45 % des sites présentent des liens vides ou mal accessibles aux lecteurs d’écran
 
-Dans cet article, je vous montre pourquoi et comment intégrer proprement une adresse mail dans vos pages web, avec des exemples concrets et des conseils pour respecter l’accessibilité.
+Dans mon dernier article, je décortique les bonnes pratiques pour rendre vos liens images accessibles, selon leur rôle (informatives, décoratives ou fonctionnelles), avec exemples HTML et impact sur l'expérience utilisateur.
 
-- Texte explicite
-- Schéma mailto:
-- Préremplissage objet/corps
-- Mauvaises pratiques à éviter
+Accessibilité, sémantique, SEO… tout est lié !
 
-Un petit guide pratique pour mieux coder et mieux communiquer !
+Lisez l'article ici : [lien à insérer]
 
-[Lien de l’article]
-
-Vos retours, critiques constructives ou simples encouragements sont les bienvenus. Si vous trouvez ça utile, un partage ou un commentaire me fera très plaisir
+Et vous, comment gérez-vous les liens images ?
