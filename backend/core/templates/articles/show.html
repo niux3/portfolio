@@ -16,7 +16,7 @@
         <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6 small-12">
           <ul class="flex-container no-bullet share">
             {% for k, v in shares.items() %}
-              <li><a href="{{ v.url }}" class="{{ v.icon }}" target="_blank" rel="noopener noreferrer"><span>{{ k }}</span></a></li>
+              <li><a href="{{ v.url }}" class="{{ v.icon.content }}" target="_blank" rel="noopener noreferrer"><span>{{ k }}</span></a></li>
             {% endfor %}
           </ul>
         </nav>
@@ -35,6 +35,16 @@
         <span class="fa-solid fa-magnifying-glass"></span>
         <span class="hide">Chercher</span>
       </button>
+      <ul class="flex-container flex-dir-column no-bullet share">
+        {% for k, v in shares.items() %}
+          <li>
+            <a href="{{ v.url }}" class="button" target="_blank" rel="noopener noreferrer">
+              <span class="{{ v.icon.bar }}"></span>
+              <span class="hide">{{ k }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
     <div>
       <button class="button changeMode">

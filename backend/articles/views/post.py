@@ -30,19 +30,31 @@ def show(id, slug, export=None):
         'shares': {
             'Partager sur Linkedin' : {
                 'url' : f'https://www.linkedin.com/shareArticle?mini=true&url={querystring_url}&title={querystring_title}&source={quote(querystring_site)}',
-                'icon' : 'fa-brands fa-linkedin',
+                'icon' : {
+                    'content': 'fa-brands fa-linkedin',
+                    'bar': 'fa-brands fa-linkedin-in'
+                },
             },
             'Partager sur Twitter': {
                 'url': f'https://twitter.com/intent/tweet?url={querystring_url}&text={querystring_title}',
-                'icon': 'fa-brands fa-square-x-twitter',
+                'icon' : {
+                    'content': 'fa-brands fa-square-x-twitter',
+                    'bar': 'fa-brands fa-x-twitter'
+                },
             },
             'Partager sur Facebook': {
                 'url': f'https://www.facebook.com/sharer/sharer.php?u={querystring_url}',
-                'icon': 'fa-brands fa-square-facebook',
+                'icon' : {
+                    'content': 'fa-brands fa-square-facebook',
+                    'bar': 'fa-brands fa-facebook'
+                },
             },
             "Partager à un ami": {
                 'url': f'mailto:?subject={share_title}&body={share_content}',
-                'icon': 'fa-solid fa-square-share-nodes'
+                'icon' : {
+                    'content': 'fa-solid fa-square-share-nodes',
+                    'bar': 'fa-solid fa-share-nodes'
+                },
             }
         }
     }

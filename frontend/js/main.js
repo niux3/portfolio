@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     // lateralBar
 
-    class Observer{
+    class Subject{
         #observers
 
         constructor(){
@@ -40,21 +40,41 @@ window.addEventListener('DOMContentLoaded', () =>{
         }
     }
 
-    class Element{
-        #el
+    class Observer{
+        #isVisible
 
         constructor($el){
-            this.#el = $el
+            this._el = $el
+            this.#isVisible = false
         }
 
         get $el(){
-            return this.#el
+            return this._el
+        }
+
+        checkVisibility(data) {
+            throw new Error("Method 'checkVisibility' must be implemented")
         }
 
         update(data){
-            let isVisible = data > window.innerHeight
-            this.#el.setAttribute('aria-hidden', isVisible? 'true': 'false')
-            this.#el.classList[isVisible? 'add' : 'remove']('visible')
+            this.#isVisible = this.checkVisibility(data)
+            this._el.setAttribute('aria-hidden', this.#isVisible)
+            this._el.classList[this.#isVisible? 'add' : 'remove']('visible')
+        }
+    }
+
+    class GoToTopObserver extends Observer{
+        checkVisibility(data){
+            return data > window.innerHeight
+        }
+    }
+
+    class ShareObserver extends Observer{
+        checkVisibility(data){
+            //console.log(this.$el)
+            //console.log(document.querySelector('article .share').getBoundingClientRect())
+            return document.querySelector('article .share').getBoundingClientRect().y < 0
+            //return data > window.innerHeight
         }
     }
 
@@ -65,7 +85,6 @@ window.addEventListener('DOMContentLoaded', () =>{
             heightWindow = window.innerHeight,
             placementLateralBar = ()=>{
                 if(window.matchMedia('( min-width: 961px )').matches){
-                    console.log('matches')
                     let widthMain = $main.getBoundingClientRect().width,
                         widthWindow = window.innerWidth
                     $lateralBar.classList.remove('visible')
@@ -81,19 +100,22 @@ window.addEventListener('DOMContentLoaded', () =>{
                 console.log('resize')
                 Utils.debounce(placementLateralBar, 50)()
             })
-        let obserser = new Observer(),
-            goToTop = new Element(document.querySelector('#lateralBar a[href="#top"]'))
-        obserser.add(goToTop)
+        let subject = new Subject(),
+            goToTop = new GoToTopObserver(document.querySelector('#lateralBar a[href="#top"]')),
+            shareLateralBar = new ShareObserver(document.querySelector('#lateralBar .share'))
+        subject.add(goToTop)
+        subject.add(shareLateralBar)
+
         Utils.debounce(()=>{
-            obserser.notify(window.scrollY)
+            subject.notify(window.scrollY)
         }, 400)()
         window.addEventListener('scroll', e =>{
             Utils.debounce(()=>{
-                obserser.notify(window.scrollY)
+                subject.notify(window.scrollY)
             }, 400)()
 
         })
-        
+
 
         $buttons.forEach($button =>{
             $button.addEventListener('pointerdown', e =>{
