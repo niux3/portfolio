@@ -263,6 +263,17 @@
       "meta_description": "Comment rendre vos liens images accessibles\u202f? D\u00e9couvrez les bonnes pratiques et erreurs courantes avec exemples HTML concrets.",
       "status_id": 3,
       "categories_id": 2
+    },
+    {
+      "id": 25,
+      "title": "Informer les utilisateurs de l'\u00e9volution du contexte",
+      "slug": "informer-les-utilisateurs-de-l-evolution-du-contexte",
+      "body": "Lorsque un lien s'ouvre dans un nouvel onglet ou une nouvelle fen\u00eatre de fa\u00e7on inattendue, cela peut causer plusieurs probl\u00e8mes aux utilisateurs :\r\n\r\n- Il <a href=\"https://www.w3.org/WAI/WCAG21/Techniques/general/G201.html\" target=\"_blank\">peut confondre et d\u00e9sorienter</a> les personnes ayant des difficult\u00e9s \u00e0 percevoir le contenu visuel ou souffrant de troubles cognitifs.\r\n- Il n'est pas toujours \u00e9vident de savoir qu'un lien s'est ouvert dans un nouvel onglet, en particulier sur les navigateurs mobiles, ce qui peut \u00eatre d\u00e9sorientant.\r\n- Le bouton retour peut ne pas fonctionner parce que tous les navigateurs ne partagent pas l'historique de navigation d'une session entre les onglets. Si l'utilisateur ne peut pas utiliser le bouton retour, il doit trouver le moyen de revenir \u00e0 la page pr\u00e9c\u00e9dente.\r\n- Les utilisateurs moins techniques peuvent ne pas comprendre comment naviguer entre les fen\u00eatres et les onglets.\r\n- En plus de cela, il encombre l'espace d'information de l'utilisateur.\r\n\r\nSi l'ouverture d'un lien dans un nouvel onglet ou une nouvelle fen\u00eatre am\u00e9liore l'exp\u00e9rience de l'utilisateur et que vous utilisez `target=\"_blank\"` sur un lien, il est pr\u00e9f\u00e9rable d'informer les utilisateurs dans le texte du lien que le lien s'ouvrira dans un nouvel onglet, comme le montre l'[exemple 1](#exemple-1).\r\n\r\n**<span id=\"exemple-1\">Exemple&nbsp;1</span>&nbsp;&ndash;&nbsp;Un texte de lien qui comprend un avertissement entre parenth\u00e8ses.**\r\n\r\n```html\r\n<a href=\"https://www.bob-eponge.fr\" target=\"_blank\">\r\n  Le site de  Bob l'\u00e9ponge (ouverture nouvel onglet).\r\n</a>\r\n```\r\nSi vous ne pouvez pas ajouter d'avertissements manuellement et que vous n'avez pas de logique d'automatisation c\u00f4t\u00e9 serveur en place, vous pouvez utiliser le CSS. C'est mieux que de ne pas avoir d'avertissement, mais cette solution pr\u00e9sente des inconv\u00e9nients:\r\n\r\n- Sur les sites comportant plusieurs langues, vous devez g\u00e9rer les traductions du texte d'avertissement en CSS et non en HTML ou dans une base de donn\u00e9es. Ce n'est pas intuitif et c'est une source d'erreur parce qu'en g\u00e9n\u00e9ral, vous ne vous attendez pas \u00e0 un contenu textuel en CSS.\r\n- Les outils de traduction automatique risquent de ne pas traduire le pseudo-contenu.\r\n- Les informations ne sont pas disponibles si le CSS ne parvient pas \u00e0 se charger ou si la page est pr\u00e9sent\u00e9e sans CSS.\r\n\r\nL'[exemple 2](#exemple-2) semble \u00eatre une solution \u00e9l\u00e9gante, mais je recommande d'utiliser le texte de l'\u00e9l\u00e9ment directement au lieu d'un texte provenant d'un pseudo-\u00e9l\u00e9ment.\r\n\r\n**<span id=\"exemple-2\">Exemple&nbsp;2</span>&nbsp;&ndash;&nbsp;Un avertissement ajout\u00e9 par l'interm\u00e9diaire d'un pseudo-\u00e9l\u00e9ment**\r\n\r\n```html\r\n<a href=\"https://www.bob-eponge.fr\" target=\"_blank\">\r\n  Le site de  Bob l'\u00e9ponge (ouverture nouvel onglet).\r\n</a>\r\n```\r\n\r\n```css\r\n[target=\"_blank\"]::after {\r\n  content: \" (ouverture nouvel onglet)\";\r\n}\r\n```\r\n\r\n**Note** : Un \u00e9l\u00e9ment normal en HTML est un \u00e9l\u00e9ment que vous ajoutez \u00e0 une page directement dans votre document HTML ou via JavaScript. Un pseudo-\u00e9l\u00e9ment ne fait pas partie de ton document HTML mais est ajout\u00e9 au DOM via CSS.\r\n\r\nEst-ce une bonne id\u00e9e de forcer l'ouverture des liens dans de nouveaux onglets ou de nouvelles fen\u00eatres ? Selon la personne \u00e0 qui vous posez la question, vous obtiendrez des r\u00e9ponses tr\u00e8s diff\u00e9rentes. Certaines personnes favorisent l'ouverture de liens externes dans de nouvelles fen\u00eatres parce que cela permet aux utilisateurs de rester sur votre site. Ce sur quoi les experts en utilisabilit\u00e9 et en accessibilit\u00e9 sont d'accord, c'est que vous devez l'\u00e9viter (\u00e0 quelques exceptions pr\u00e8s) et informer les utilisateurs si vous ne le faites pas.\r\n\r\nQue les liens s'ouvrent dans de nouvelles fen\u00eatres ou de nouveaux onglets peut \u00eatre probl\u00e9matique pour la convivialit\u00e9 et l'accessibilit\u00e9 n'est pas une id\u00e9e nouvelle. Depuis, nous avons vu appara\u00eetre beaucoup plus d'appareils portables comme les smartphones et les tablettes, o\u00f9 l'espace est limit\u00e9 et o\u00f9 garder une trace des onglets et des fen\u00eatres ouvertes est encore plus difficile.\r\n\r\nOutre les probl\u00e8mes \u00e9num\u00e9r\u00e9s dans la section de cette recette consacr\u00e9e aux probl\u00e8mes, l'un des arguments les plus convaincants contre l'ouverture des liens dans un nouvel onglet est que lorsque vous appliquez la m\u00e9thode `target=\"_blank\"` vous enlevez \u00e0 l'utilisateur la possibilit\u00e9 de d\u00e9cider comment ouvrir un lien. Il s'ouvrira toujours dans un nouvel onglet ou une nouvelle fen\u00eatre (selon les param\u00e8tres du navigateur). \r\n\r\nLe site <a href=\"https://www.w3.org/WAI/WCAG21/Techniques/general/G200.html#examples\" target=\"_blank\">(WCAG) \u00e9num\u00e8re des sc\u00e9narios</a> dans lesquels le fait de forcer les liens \u00e0 s'ouvrir dans un nouvel onglet est pr\u00e9f\u00e9rable pour l'exp\u00e9rience de l'utilisateur :\r\n\r\n- Si une page li\u00e9e contient des informations contextuelles destin\u00e9es \u00e0 persister \u00e0 c\u00f4t\u00e9 du contenu principal, comme des instructions pour remplir un formulaire ou d'autres documents de r\u00e9f\u00e9rence, l'ouverture de la page dans le m\u00eame onglet peut perturber un flux de travail en plusieurs \u00e9tapes.\r\n- Si un lien ouvre des widgets dans une fen\u00eatre contextuelle, comme un s\u00e9lecteur de date bas\u00e9 sur un calendrier ou une connexion, vous voulez que les utilisateurs effectuent ces actions en dehors de la page principale.\r\n- Si un utilisateur est connect\u00e9, le fait d'acc\u00e9der \u00e0 une page en dehors de la zone s\u00e9curis\u00e9e pourrait mettre fin \u00e0 la session de l'utilisateur.\r\n\r\nDans les cas o\u00f9 l'ouverture d'un nouvel onglet par d\u00e9faut aide les utilisateurs, pr\u00e9voiyez un avertissement. Cela leur permet de d\u00e9cider s'ils veulent quitter la fen\u00eatre actuelle, et cela les aidera \u00e0 s'orienter et \u00e0 naviguer.\r\n\r\nLa fa\u00e7on la plus fiable d'ajouter un avertissement est d'utiliser du texte et un message d'avertissement rapide, comme \"S'ouvre dans un nouvel onglet\", comme le montrent les exemples [1](#exemple-1) et [2](#exemple-2). Ces deux solutions ajoutent du contenu \u00e0 l'\u00e9tiquette d'origine et ne l'\u00e9crasent pas. Une mauvaise pratique courante consiste \u00e0 utiliser `aria-label` pour cette t\u00e2che, comme le montre l'[exemple 3](#exemple-3). `aria-label` \u00e9crase le texte original et rend le lien pratiquement inutile parce que son nom accessible est maintenant \u00ab&nbsp;S'ouvre dans un nouvel onglet&nbsp;\u00bb.\r\n\r\n**<span id=\"exemple-3\">Exemple&nbsp;3</span>&nbsp;&ndash;&nbsp;Mauvaise pratique : aria-label \u00e9crase l'\u00e9tiquette originale**\r\n\r\n```html\r\n<a href=\"https://www.bob-eponge.fr\" target=\"_blank\"  aria-label=\"ouverture nouvel onglet\">\r\n  Le site de  Bob l'\u00e9ponge.\r\n</a>\r\n```\r\n\r\nSi vous d\u00e9finissez un lien pour qu'il s'ouvre dans un onglet, basez votre d\u00e9cision sur ce qui est le mieux pour vos utilisateurs. Le r\u00e9f\u00e9rencement ou les indicateurs cl\u00e9s de performance (ICP) ne devraient pas entrer en ligne de compte. Si possible, \u00e9tayez vos choix par des tests de convivialit\u00e9 ou des enqu\u00eates contextuelles.",
+      "created": "2025-06-22T23:23:45.066472",
+      "updated": "2025-06-23T00:08:14.430872",
+      "meta_description": "Informez vos utilisateurs lorsqu\u2019un lien s\u2019ouvre dans un nouvel onglet. D\u00e9couvrez les bonnes pratiques d\u2019accessibilit\u00e9 et d\u2019exp\u00e9rience utilisateur.",
+      "status_id": 3,
+      "categories_id": 2
     }
   ],
   "tag": [
@@ -711,6 +722,26 @@
     {
       "id": 864,
       "posts_id": 24,
+      "tags_id": 4
+    },
+    {
+      "id": 889,
+      "posts_id": 25,
+      "tags_id": 1
+    },
+    {
+      "id": 890,
+      "posts_id": 25,
+      "tags_id": 2
+    },
+    {
+      "id": 891,
+      "posts_id": 25,
+      "tags_id": 3
+    },
+    {
+      "id": 892,
+      "posts_id": 25,
       "tags_id": 4
     }
   ],
