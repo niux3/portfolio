@@ -34,19 +34,67 @@
     }
     .share{
       margin-top: 0;
-      opacity: 0;
-      transition: opacity .4s;
 
-      &.visible{
-        opacity: 1;
-      }
 
       li{
         margin-top: 1rem;
+        transform-origin: top;
+        overflow: hidden;
+        animation-fill-mode: both;
+        max-height: 3.2rem;
+
+        @for $i from 1 through 4{
+          &:nth-child(#{$i}){
+            animation: fadeOut 0.4s forwards;
+            animation-delay: #{($i - 1) * 0.4}s;
+          }
+        }
+      }
+
+      &.visible{
+        li{
+          opacity: 0;
+          height: 0;
+          margin-top: 0;
+          @for $i from 4 through 1{
+            &:nth-child(#{$i}){
+              animation: fadeIn 0.4s forwards;
+              animation-delay: #{(4 - $i) * 0.2}s;
+            }
+          }
+        }
       }
     }
   }
 }
+
+// Animations keyframes
+@keyframes fadeIn {
+  0% {
+    height: 0;
+    opacity: 0;
+    margin-top: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    margin-top: 1rem;
+    height: 100%;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+    margin-top: 0;
+  }
+}
+
 
 html[data-theme-preference="dark"]{
   #lateralBar{

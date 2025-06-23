@@ -89,7 +89,11 @@ window.addEventListener('DOMContentLoaded', () =>{
                         widthWindow = window.innerWidth
                     $lateralBar.classList.remove('visible')
                     $lateralBar.style.right = `${( (widthWindow - widthMain) / 2 ) - 40}px`
-                    $lateralBar.addEventListener('transitionend', e => $lateralBar.classList.add('visible'))
+                    $lateralBar.addEventListener('transitionend', e => {
+                        setTimeout(()=>{
+                            $lateralBar.classList.add('visible')
+                        }, 1200)
+                    })
                 }else if(window.matchMedia('(max-width: 960px)').matches){
                     $lateralBar.classList.add('visible')
                 }
@@ -97,7 +101,6 @@ window.addEventListener('DOMContentLoaded', () =>{
 
             placementLateralBar()
             window.addEventListener('resize', e =>{
-                console.log('resize')
                 Utils.debounce(placementLateralBar, 50)()
             })
         let subject = new Subject(),

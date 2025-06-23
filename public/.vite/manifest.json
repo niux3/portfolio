@@ -1,15 +1,28 @@
 {
+<<<<<<< HEAD
   "frontend/main.js": {
     "file": "static/app-CjcxeS0y.js",
+=======
+  "frontend/js/main.js": {
+    "file": "static/app-BvJgo5fT.js",
+>>>>>>> 25c678a (feat: build)
     "name": "app",
-    "src": "frontend/main.js",
+    "src": "frontend/js/main.js",
     "isEntry": true,
     "css": [
+<<<<<<< HEAD
       "static/styles-BJubuOiB.css"
     ]
   },
   "frontend/scss/index.scss": {
     "file": "static/styles-BJubuOiB.css",
+=======
+      "static/styles-VGf9UM7l.css"
+    ]
+  },
+  "frontend/scss/index.scss": {
+    "file": "static/styles-VGf9UM7l.css",
+>>>>>>> 25c678a (feat: build)
     "src": "frontend/scss/index.scss",
     "isEntry": true
   }
