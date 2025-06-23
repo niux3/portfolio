@@ -1,5 +1,5 @@
 const darkmode = ()=>{
-    let $btnChangeMode = document.querySelector('.changeMode'),
+    let $btnChangeMode = document.querySelector('footer .changeMode'),
         storedTheme = localStorage.getItem('theme'),
         changeMode = $btn =>{
             let mode = {
@@ -28,8 +28,10 @@ const darkmode = ()=>{
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
         changeMode($btnChangeMode)
     })
-    $btnChangeMode.addEventListener('pointerdown', e =>{
-        changeMode($btnChangeMode)
-    })
+    if($btnChangeMode !== null){
+        $btnChangeMode.addEventListener('pointerdown', e =>{
+            changeMode($btnChangeMode)
+        })
+    }
 }
 export default darkmode

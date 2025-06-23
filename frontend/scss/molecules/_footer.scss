@@ -1,0 +1,14 @@
+footer{
+  .button{
+    margin-bottom: 0;
+    border: none !important;
+    background: none !important;
+    color: var(--color-cannes) !important;
+    padding: 0 .8rem;
+
+    &:hover{
+      color: var(--color-marseille) !important;
+    }
+
+  }
+}
