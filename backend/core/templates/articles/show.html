@@ -25,9 +25,8 @@
       <p class="text-right">Publié le <time datetime="{{ object.created|date_fr("%y-%m-%d") }}">{{ object.created|date_fr }}</time></p>
     </article>
   </section>
-  <section id="lateralBar">
+  <section id="lateralBar" class="hide">
     <div>
-      <!--
       <button type="button" class="button" id="tableOfContent" data-panel="true">
         <span class="fa-solid fa-list"></span>
         <span class="hide">Table de contenu</span>
@@ -36,7 +35,6 @@
         <span class="fa-solid fa-magnifying-glass"></span>
         <span class="hide">Chercher</span>
       </button>
-      -->
       <ul class="flex-container flex-dir-column no-bullet share">
         {% for k, v in shares.items() %}
           <li>
