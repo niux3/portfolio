@@ -1,23 +1,16 @@
-# Liens qui s’ouvrent dans un nouvel onglet : bonne ou mauvaise idée ?
+# Améliorer l'accessibilité quand on fait du routage côté client en JavaScript ?
 
-Aujourd’hui, je vous parle d’un sujet trop souvent sous-estimé. L’impact de `target="_blank"` sur l’accessibilité et l’UX.
+C’est possible, mais pas sans effort. Dans cet article, je vous montre comment :
 
-Pour certains, c’est une bonne idée marketing. Pour d’autres, c’est une source de confusion, surtout pour les publics fragiles (mobilité, cognitif, techniques…).
+- gérer le focus correctement après un changement de page
+- informer les lecteurs d’écran grâce aux régions dynamiques (role="status")
+- reproduire (ou améliorer) le comportement natif du navigateur
 
-Dans mon dernier article, je vous explique :
+Avec des exemples simples en HTML et JS natif, c'est de ne pas sacrifier l’expérience utilisateur au nom du "tout dynamique".
 
-- Pourquoi cela peut poser problème
-- Quand cela peut être utile
-- Comment bien informer les utilisateurs
-- Et les erreurs fréquentes à éviter (comme aria-label mal utilisé)
+L'accessibilité est souvent la grande oubliée des SPAs. Pourtant, 97,4 % des pages web présentent encore des erreurs critiques, comme un mauvais focus ou un DOM peu clair pour les lecteurs d'écran.
 
-## Ouvrir un lien dans un nouvel onglet n’est pas anodin.
+- Près de 5 à 10 % des utilisateurs utilisent exclusivement le clavier pour naviguer, notamment les personnes atteintes de handicaps moteurs ou visuels. Si le focus est mal géré dans une SPA, l’utilisateur peut se retrouver perdu ou bloqué sans possibilité d’interaction.
+- Google prend en compte l’accessibilité dans son score Core Web Vitals, ce qui influence directement le référencement. Une meilleure accessibilité améliore aussi le taux de rétention sur les applications web, réduisant le taux de rebond.
 
-- 60 % des utilisateurs abandonnent un site présentant des barrières d’accessibilité, incluant par exemple des liens inattendus s’ouvrant dans un nouvel onglet, ce qui réduit la durée de session — un signal négatif pour le SEO (source : https://www.bluetonemedia.com/blog/opening-internal-links-in-new-windows-is-bad-for-seo)
-- 78 % des utilisateurs préfèrent que les liens internes s’ouvrent dans le même onglet — sinon, ils ressentent de la frustration et peuvent quitter le site prématurément (source : https://www.asclique.com/blog/why-opening-links-in-new-windows-bad-for-seo/)
-- Une étude Mozilla révèle que 25 % des utilisateurs ne reviennent pas à la tâche initiale dans les 10 minutes suivant un clic ouvrant un nouvel onglet (source : https://www.reddit.com/r/web_design/comments/13qj0zh/you_dont_need_a_modal_window/)
-- Les experts UX/UI (Jakob Nielsen, W3C…) recommandent d’éviter l’ouverture automatique dans de nouveaux onglets : confusion, surcharges d’onglets, perte du bouton « retour » et manque de repères (source : https://norday.tech/posts/opening-links-in-new-tabs)
-
-Bonne lecture à toutes et tous. N’hésitez pas à partager vos retours
-
-[Lien vers l'article]
+Et vous, comment gérez-vous ces problématiques dans vos applications React, Vue ou Svelte ? Partagez vos retours ou questions en commentaire, je vous lis avec attention !
