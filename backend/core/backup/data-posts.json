@@ -337,6 +337,11 @@
       "id": 10,
       "name": "SQLAlchemy",
       "slug": "sqlalchemy"
+    },
+    {
+      "id": 11,
+      "name": "javascript",
+      "slug": "javascript"
     }
   ],
   "posttag": [
@@ -756,24 +761,29 @@
       "tags_id": 9
     },
     {
-      "id": 972,
+      "id": 976,
       "posts_id": 26,
       "tags_id": 1
     },
     {
-      "id": 973,
+      "id": 977,
       "posts_id": 26,
       "tags_id": 2
     },
     {
-      "id": 974,
+      "id": 978,
       "posts_id": 26,
       "tags_id": 3
     },
     {
-      "id": 975,
+      "id": 979,
       "posts_id": 26,
       "tags_id": 4
+    },
+    {
+      "id": 980,
+      "posts_id": 26,
+      "tags_id": 11
     }
   ],
   "status": [
