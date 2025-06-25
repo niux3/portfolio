@@ -107,11 +107,11 @@ Performances</p>
   </section>
   <section id="lateralBar" class="hide">
     <div>
-      <button type="button" class="button" id="tableOfContent" data-panel="true">
+      <button type="button" class="button" id="tableOfContent" data-panel="true" data-panel-target="#summary">
         <span class="fa-solid fa-list"></span>
         <span class="hide">Table de contenu</span>
       </button>
-      <button type="button" class="button" id="tableOfContent" data-panel="true">
+      <button type="button" class="button" id="tableOfContent" data-panel="true" data-panel-target="#search">
         <span class="fa-solid fa-magnifying-glass"></span>
         <span class="hide">Chercher</span>
       </button>
@@ -160,9 +160,9 @@ Performances</p>
     </div>
   </script>
   <script type="text/template" id="tplReader">
-    <div id="progressFalse">
-      <div id="cursorProgress">&nbsp;</div>
-    </div>
+    <output id="summary">
+      <h1></h1>
+    </output>
   </script>
 
 

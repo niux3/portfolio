@@ -127,6 +127,8 @@ window.addEventListener('DOMContentLoaded', () =>{
                     $buttons.forEach($btn => $btn.classList.remove('current'))
                     $button.classList.add('current')
 
+                    console.log(">", $button.dataset.panelTarget)
+
                     //$main.classList.add('move')
                     //$lateralBar.classList.add('move')
                 }

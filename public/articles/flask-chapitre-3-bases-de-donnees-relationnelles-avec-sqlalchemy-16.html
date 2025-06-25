@@ -263,8 +263,8 @@ from app import app
 with app.app_context():
     db.create_all()
 </code></pre>
-<p><strong>Note</strong> : L'appel à app.app_context() est important car certaines opérations avec Flask-SQLAlchemy nécessitent un contexte d'application actif. </p>
-<p>Exécutez le script depuis le répertoire <code>app/</code>. Assurez-vous que l’environnement virtuel est activé. Si tout se passe correctement, vous ne devriez voir aucune sortie.</p>
+<p><strong>Important</strong> : L'appel à app.app_context() est important car certaines opérations avec Flask-SQLAlchemy nécessitent un contexte d'application actif. </p>
+<p>Exécutez le script depuis le répertoire <code>app/</code>. Assurez-vous que l’environnement virtuel soit activé. Si tout se passe correctement, vous ne devriez voir aucune sortie.</p>
 <pre><code class="language-bash">(.venv) $ python script_create_db.py
 </code></pre>
 <p><strong>Note</strong> : Si vous rencontrez des erreurs lors de la création des tables de la base de données, assurez-vous que vous vous trouvez dans le répertoire app et que l’environnement virtuel est activé lorsque vous exécutez le script. Vérifiez ensuite qu’il n’y a aucune faute de frappe dans votre paramètre SQLALCHEMY_DATABASE_URI.</p>
@@ -293,13 +293,26 @@ File:           ~/projects/app/models.py
 Type:           DefaultMeta
 Subclasses: 
 </code></pre>
-<p>Nous pouvons créer des objets <code>Entry</code> en passant les valeurs des colonnes sous forme d’arguments nommés. Dans l’exemple précédent, on utilise <code>**kwargs</code> ; il s’agit d’un raccourci permettant de prendre un objet de type dictionnaire et de l’utiliser comme valeurs pour définir l’objet, comme illustré ci-dessous. N'oubliez pas que vous devez être dans le contexte de <code>app</code> (<code>with app.app_context()</code>) :</p>
-<pre><code class="language-bash">In []: from main import app
-In []: with app.app_context():
-   ...:     first_entry = Entry(title='premier article', body='contenu du premier article')
-   ...:     db.session.add(first_entry)
-   ...:     db.session.commit()
-   ...:     db.session.refresh(first_entry)
+<h3>Travailler avec IPython dans un contexte d'application Flask</h3>
+<p>Créez un fichier nommé shell.py dans le dossier app. Dans ce fichier, ajoutez le code suivant :</p>
+<pre><code class="language-python">from main import *
+from models import *
+
+
+with app.app_context():
+    import IPython
+    IPython.embed()
+</code></pre>
+<p>Désormais, lorsque vous souhaiterez utiliser IPython dans un environnement Flask, vous n’aurez plus besoin d'encapsuler vos requêtes dans <code>with app.app_context()</code>. Pour l’utiliser, il suffit d’exécuter :</p>
+<pre><code class="language-bash">(.venv) $ python shell.py
+</code></pre>
+<p>Revenons à notre model <code>Entry.</code>Nous pouvons créer des objets <code>Entry</code> en passant les valeurs des colonnes sous forme d’arguments nommés. Dans l’exemple précédent, on utilise <code>**kwargs</code> ; il s’agit d’un raccourci permettant de prendre un objet de type dictionnaire et de l’utiliser comme valeurs pour définir l’objet, comme illustré ci-dessous. N'oubliez pas que vous devez être dans le contexte de <code>app</code> (<code>with app.app_context()</code>) :</p>
+<pre><code class="language-bash">(.venv)$ python shell.py
+In []: from main import app
+In []: first_entry = Entry(title='premier article', body='contenu du premier article')
+In []: db.session.add(first_entry)
+In []: db.session.commit()
+In []: db.session.refresh(first_entry)
 </code></pre>
 <p>La session est simplement un objet qui représente nos actions sur la base de données.. Pour enregistrer notre première entrée, nous devons l’ajouter à la session de base de données <code>db.session.add(first_entry)</code>. Pour l’enregistrer définitivement, nous devons valider la session (commit) <code>db.session.commit()</code>.  La méthode <code>refresh</code> permet de récuperer la ligne une fois enregistrer. Vous pouvez récupérer les données générées en base de données  :</p>
 <pre><code class="language-bash">In []: first_entry.id
@@ -312,53 +325,47 @@ Out[]: datetime.datetime(2025, 5, 25, 9, 49, 53, 1337)
 <h3>Modifier une entrée existante</h3>
 <p>Pour apporter des modifications à une entrée existante (<code>Entry</code>), il vous suffit d’effectuer les changements souhaités, puis de valider la session (commit). Récupérons notre entrée à l’aide de l’identifiant qui nous a été retourné précédemment, modifions-la, puis validons les changements. SQLAlchemy détectera automatiquement qu’une mise à jour est nécessaire.</p>
 <p>Voici un exemple illustrant comment modifier la première entrée :</p>
-<pre><code class="language-bash">In []: with app.app_context():
-    ...:     first_entry = Entry.query.get(1)
-    ...:     first_entry.title = &quot;changement du titre de l'article&quot;
-    ...:     db.session.commit()
+<pre><code class="language-bash">In []: first_entry = Entry.query.get(1)
+In []:  first_entry.title = &quot;changement du titre de l'article&quot;
+In []:  db.session.commit()
 </code></pre>
 <p>Et voilà, vos modifications sont enregistrées.</p>
 <p><strong>Astuce</strong> : Si vous souhaitez visualiser les données enregistrées dans votre base de données SQLite, vous pouvez utiliser un client graphique tel que <a href="http://sqlitebrowser.org" target="_blank">DB Browser for SQLite</a>.
 Il vous suffit d’ouvrir le fichier <code>blog.db</code> (ou le nom de votre base) avec ce logiciel pour parcourir, modifier ou exporter vos données de manière visuelle.</p>
 <h3>Supprimer une entrée</h3>
 <p>Supprimer une entrée est tout aussi simple que d’en créer une. Au lieu d’appeler db.session.add, vous appellerez db.session.delete en passant l’instance de l’Entry que vous souhaitez supprimer.</p>
-<pre><code class="language-bash">In []: with app.app_context():
-    ...:     second_entry = Entry()
-    ...:     second_entry.title = &quot;un second titre&quot;
-    ...:     second_entry.body = &quot;du contenu&quot;
-    ...:     db.session.add(second_entry) # création d'une nouvelle entrée
-    ...:     db.session.commit()
-    ...:     to_delete = Entry.query.get(1) # la première ligne à supprimer id = 1
-    ...:     db.session.delete(to_delete)
-    ...:     db.session.commit()
+<pre><code class="language-bash">In []: second_entry = Entry()
+In []: second_entry.title = &quot;un second titre&quot;
+In []: second_entry.body = &quot;du contenu&quot;
+In []: db.session.add(second_entry) # création d'une nouvelle entrée
+In []: db.session.commit()
+In []: to_delete = Entry.query.get(1) # la première ligne à supprimer id = 1
+In []: db.session.delete(to_delete)
+In []: db.session.commit()
 </code></pre>
 <h3>Récupération des articles de blog</h3>
 <p>Bien que la création, la mise à jour et la suppression soient des opérations assez simples, le vrai plaisir commence lorsque nous examinons les différentes manières de récupérer nos articles. Nous allons commencer par les bases, puis progresser vers des requêtes plus intéressantes. Nous allons utiliser un attribut spécial sur notre classe de modèle pour effectuer les requêtes : <code>Entry.query</code>. Cet attribut expose une variété d’interfaces (APIs) permettant de travailler avec la collection d’articles dans la base de données.</p>
 <p>Récupérons simplement une liste de toutes les entrées de la table <code>Entry</code> :</p>
-<pre><code class="language-bash">In []: with app.app_context():
-    ...:     entries = Entry.query.all()
+<pre><code class="language-bash">In []: entries = Entry.query.all()
 In []: entries
 Out[]: [&lt;Entry: 'ttitre 1 '&gt;, &lt;Entry: 'titre 2'&gt;]
 </code></pre>
 <p>Comme vous pouvez le voir, dans cet exemple, la requête retourne une liste d’instances de <code>Entry</code> que nous avons créées.
 Lorsque aucun ordre explicite n’est spécifié, les entrées nous sont renvoyées dans un ordre arbitraire défini par la base de données. Spécifions maintenant que nous souhaitons que les entrées nous soient renvoyées par ordre alphabétique, selon leur titre :</p>
-<pre><code class="language-bash">In []: with app.app_context():
-    ...:     entries = Entry.query.order_by('title').all()
+<pre><code class="language-bash">In []: entries = Entry.query.order_by('title').all()
 In []: entries
 Out[]: [&lt;Entry: 'titre A'&gt;, &lt;Entry: 'titre B'&gt;]
 </code></pre>
 <p>Voici maintenant comment lister vos entrées par ordre chronologique inverse, en se basant sur leur date de dernière mise à jour :</p>
 <pre><code class="language-bash">In []: from sqlalchemy import desc
-In []: with app.app_context():
-    ...:     entries = Entry.query.order_by(desc('modified_timestamp')).all()
+In []: entries = Entry.query.order_by(desc('modified_timestamp')).all()
 In []: entries
 Out[]: [&lt;Entry: 'titre B'&gt;, &lt;Entry: 'titre A'&gt;]
 </code></pre>
 <h3>Filtrer la liste des articles</h3>
 <p>Il est très utile de pouvoir récupérer l’ensemble des articles de blog, mais que faire si nous voulons filtrer cette liste ? Nous pourrions toujours récupérer toute la collection, puis la filtrer en Python à l’aide d’une boucle, mais ce serait très inefficace.</p>
 <p>À la place, nous allons nous appuyer sur la base de données pour effectuer le filtrage, en spécifiant simplement les conditions que doivent remplir les entrées à retourner. Dans l’exemple suivant, nous allons spécifier que nous voulons filtrer les entrées dont le titre est égal à <code>First entry</code>.</p>
-<pre><code class="language-bash">In []: with app.app_context():
-    ...:     entries = Entry.query.filter(Entry.title == 'titre B').all()
+<pre><code class="language-bash">In []: entries = Entry.query.filter(Entry.title == 'titre B').all()
 In []: entries
 Out[]: [&lt;Entry: 'titre B'&gt;]
 </code></pre>
@@ -395,8 +402,7 @@ Lorsque vous êtes prêt à exécuter votre requête, ces structures de données
 </table>
 
 <p>Essayons la même requête qu’auparavant, mais au lieu d’appeler <code>.all()</code>, nous allons utiliser <code>.first()</code> pour récupérer une seule instance de <code>Entry</code> :</p>
-<pre><code class="language-bash">In []: with app.app_context():
-    ...:     entries = Entry.query.filter(Entry.title == 'titre B').first()
+<pre><code class="language-bash">In []: entries = Entry.query.filter(Entry.title == 'titre B').first()
 In []: entries
 Out[]: &lt;Entry: 'titre B'&gt;
 </code></pre>
@@ -454,8 +460,7 @@ Out[]: &lt;Entry: 'titre B'&gt;
 <h3>Combinaison d’expressions</h3>
 <p>Les expressions listées dans le tableau précédent peuvent être combinées à l’aide d’opérateurs binaires pour créer des expressions arbitrairement complexes.</p>
 <p>Par exemple, si nous voulons récupérer tous les articles de blog dont le titre contient le mot <strong>Python</strong> ou <strong>Flask</strong>, nous allons créer deux expressions <code>contains</code>, puis les combiner avec l’opérateur binaire <strong>OR</strong> de Python, qui s’écrit avec un caractère <strong>pipe</strong> <code>|</code>, contrairement à beaucoup d’autres langages qui utilisent le double pipe <code>||</code> :</p>
-<pre><code class="language-python">Entry.query.filter(Entry.title.contains('Python') |
-Entry.title.contains('Flask'))
+<pre><code class="language-python">Entry.query.filter(Entry.title.contains('Python') | Entry.title.contains('Flask'))
 </code></pre>
 <p>En utilisant les opérateurs binaires, on peut créer des expressions assez complexes. Essaie de comprendre ce que demande l’exemple suivant :</p>
 <pre><code class="language-python">Entry.query.filter((Entry.title.contains('Python') | Entry.title.contains('Flask')) &amp; (Entry.created_timestamp &gt; (datetime.date.today() -
@@ -463,10 +468,8 @@ datetime.timedelta(days=30))))
 </code></pre>
 <p>Comme vous l’avez probablement deviné, cette requête renvoie toutes les entrées dont le titre contient soit <strong>Python</strong> soit <strong>Flask</strong>, et qui ont été créées au cours des 30 derniers jours. Nous utilisons les opérateurs binaires <strong>OR</strong> et <strong>AND</strong> de Python pour combiner les sous-expressions.</p>
 <p>Pour toute requête que vous construisez, vous pouvez afficher le SQL généré en imprimant la requête de la manière suivante :</p>
-<pre><code class="language-bash">In []: with app.app_context():
-    ...:     entries = Entry.query.filter(Entry.slug.contains('test'))
-    ...:     print(str(entries))
-    ...: 
+<pre><code class="language-bash">In []: entries = Entry.query.filter(Entry.slug.contains('test'))
+In []: print(str(entries))
 SELECT entry.id AS entry_id, entry.title AS entry_title, entry.slug AS entry_slug, entry.body AS entry_body, entry.created_timestamp AS entry_created_timestamp, entry.modified_timestamp AS entry_modified_timestamp 
 FROM entry WHERE (entry.slug LIKE '%' || ? || '%')
 </code></pre>
@@ -620,17 +623,71 @@ class Tag(db.Model):
 <p>En créant la table <code>entry_tags</code>, nous avons établi un lien entre les modèles <code>Entry</code> et <code>Tag</code>. SQLAlchemy fournit une API de haut niveau pour gérer cette relation, via la fonction bien nommée <code>db.relationship</code>. Cette fonction crée une nouvelle propriété sur le modèle <code>Entry</code> qui nous permet de lire et d’écrire facilement les tags associés à un article de blog donné. Ces deux lignes de code font beaucoup de choses, alors examinons-les de plus près :</p>
 <pre><code class="language-python">tags = db.relationship('Tag', secondary=entry_tags, backref=db.backref('entries', lazy='dynamic'))
 </code></pre>
-<p>Nous définissons l’attribut <code>tags</code> de la classe <code>Entry</code> comme étant égal à la valeur retournée par la fonction <code>db.relationship</code>. Les deux premiers arguments, <code>'Tag'</code> et <code>secondary=entry_tags</code>, indiquent à SQLAlchemy que nous allons interroger le modèle <code>Tag</code> via la table <code>entry_tags</code>. Le troisième argument crée une <strong>référence inverse</strong>, ce qui nous permet de passer du modèle <code>Tag</code> à la liste des articles de blog associés. En spécifiant <code>lazy='dynamic'</code>, nous demandons à SQLAlchemy de ne pas charger immédiatement tous les articles associés, mais de nous fournir à la place un objet <code>Query</code>.</p></div>
+<p>Nous définissons l’attribut <code>tags</code> de la classe <code>Entry</code> comme étant égal à la valeur retournée par la fonction <code>db.relationship</code>. Les deux premiers arguments, <code>'Tag'</code> et <code>secondary=entry_tags</code>, indiquent à SQLAlchemy que nous allons interroger le modèle <code>Tag</code> via la table <code>entry_tags</code>. Le troisième argument crée une <strong>référence inverse</strong>, ce qui nous permet de passer du modèle <code>Tag</code> à la liste des articles de blog associés. En spécifiant <code>lazy='dynamic'</code>, nous demandons à SQLAlchemy de ne pas charger immédiatement tous les articles associés, mais de nous fournir à la place un objet <code>Query</code>.</p>
+<h3>Ajouter et supprimer des tags des entrées</h3>
+<p>Utilisons le shell IPython pour voir comment cela fonctionne. Fermez votre shell actuel et relancez le script <code>script_create_db.py</code>. Cette étape est nécessaire car nous avons ajouté deux nouvelles tables. Maintenant, rouvrez IPython :</p>
+<pre><code class="language-bash">(.venv) $ python script_create_db.py
+(.venv) $ ipython
+In []: from models import *
+In []: from main import *
+In []: Tag.query.all()
+Out[]: []
+</code></pre>
+<p>Il n'y a actuellement aucun tag dans la base de données, alors créons-en quelques-uns :</p>
+<pre><code class="language-bash">In []: python = Tag(name='python')
+In []: flask = Tag(name='flask')
+In []: db.session.add_all([python, flask])
+In []: db.session.commit()
+</code></pre>
+<p>Chargeons maintenant quelques entrées d'exemple. Dans ma base de données, il y en a quatre :</p>
+<pre><code class="language-bash">In []: entries = Entry.query.all()
+In []: entries
+Out[]: 
+[&lt;Entry: 'python article'&gt;,
+ &lt;Entry: 'flask article'&gt;,
+ &lt;Entry: 'un autre article flask'&gt;,
+ &lt;Entry: 'Django article'&gt;]
+ In []: python_entry, flask_entry, more_flask, django_entry = entries
+</code></pre>
+<p>Pour ajouter des tags à une entrée, il suffit de les assigner à l’attribut <code>tags</code> de l’entrée. C’est aussi simple que ça !</p>
+<pre><code class="language-bash">In []: python_entry.tags = [python]   
+In []: flask_entry.tags = [python, flask]
+In []: db.session.commit()
+</code></pre>
+<p>Nous pouvons manipuler la liste de tags d’une entrée comme une liste Python classique, donc les méthodes habituelles <code>.append()</code> et <code>.remove()</code> fonctionneront également.</p>
+<pre><code class="language-bash">In []: pandas = Tag(name='pandas')
+In []: python_entry.tags.append(pandas)
+In []: db.session.commit()
+In []: python_entry.tags
+Out[]: [&lt;Tag python&gt;, &lt;Tag pandas&gt;]
+In []: python_entry.tags.remove(pandas)
+In []: db.session.commit()
+In []: python_entry.tags
+Out[]: [&lt;Tag python&gt;]
+</code></pre>
+<h3>Utilisation des références inversées</h3>
+<p>Lorsque nous avons créé l’attribut <code>tags</code> dans le modèle <code>Entry</code>, vous vous souvenez que nous avons passé un argument <code>backref</code>. Utilisons IPython pour voir comment la référence inversée est utilisée.</p>
+<pre><code class="language-bash">In []: python
+Out[]: &lt;Tag python&gt;
+In []: python.entries
+Out[]: &lt;sqlalchemy.orm.dynamic.AppenderQuery at 0x7f614cd7cac0&gt;
+In []: python.entries.all()
+Out[]: [&lt;Entry: 'python entry'&gt;, &lt;Entry: 'flask entry'&gt;]
+</code></pre>
+<p>Contrairement à la référence <code>Entry.tags</code>, la référence inverse est spécifiée avec <code>lazy='dynamic'</code>. Cela signifie que, contrairement à <code>entry.tags</code>, qui renvoie une liste de tags, nous ne recevrons pas une liste d'entrées chaque fois que nous accédons à <code>tag.entries</code>. Pourquoi ? En général, lorsque le résultat contient plus que quelques éléments, il est plus utile de traiter la référence inverse comme une requête, que l’on peut filtrer, trier, etc. Par exemple, que faire si l’on souhaite afficher la dernière entrée taguée avec "python" ?</p>
+<pre><code class="language-bash">In []: python.entries.order_by(Entry.created_timestamp.desc()).first()
+Out[]: &lt;Entry: 'flask entry'&gt;
+</code></pre></div>
       <p class="text-right">Publié le <time datetime="25-06-10">10 juin 2025</time></p>
     </article>
   </section>
   <section id="lateralBar" class="hide">
     <div>
-      <button type="button" class="button" id="tableOfContent" data-panel="true">
+      <button type="button" class="button" id="tableOfContent" data-panel="true" data-panel-target="#summary">
         <span class="fa-solid fa-list"></span>
         <span class="hide">Table de contenu</span>
       </button>
-      <button type="button" class="button" id="tableOfContent" data-panel="true">
+      <button type="button" class="button" id="tableOfContent" data-panel="true" data-panel-target="#search">
         <span class="fa-solid fa-magnifying-glass"></span>
         <span class="hide">Chercher</span>
       </button>
@@ -679,9 +736,9 @@ class Tag(db.Model):
     </div>
   </script>
   <script type="text/template" id="tplReader">
-    <div id="progressFalse">
-      <div id="cursorProgress">&nbsp;</div>
-    </div>
+    <output id="summary">
+      <h1></h1>
+    </output>
   </script>
 
 
