@@ -4,18 +4,21 @@ const darkmode = ()=>{
         changeMode = $btn =>{
             let mode = {
                 'light': {
-                    'text': 'mode clair',
+                    'text': 'mode sombre',
                     'icon': 'fa-solid fa-moon',
                 },
                 'dark': {
-                    'text': 'mode sombre',
+                    'text': 'mode clair',
                     'icon':  'fa-solid fa-sun'
                 }
             },
             isLigth = [undefined, 'light'].some(m => m === document.documentElement.dataset.themePreference),
-            key = isLigth ? 'dark' : 'light'
+            key = isLigth ? 'dark' : 'light',
+            text = `Activer le ${mode[key]['text']}`
+
+            $btn.setAttribute('aria-label', text)
             $btn.querySelector('.fa-solid').className = mode[key]['icon']
-            $btn.querySelector('.text').textContent = mode[key]['text']
+            $btn.querySelector('.text').textContent = text
             document.documentElement.dataset.themePreference = key
             localStorage.setItem('theme', key)
         }
