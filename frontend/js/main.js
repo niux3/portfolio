@@ -120,12 +120,14 @@ window.addEventListener('DOMContentLoaded', () =>{
         })
 
 
+        let $layer = document.querySelector('.layer')
         $buttons.forEach($button =>{
             $button.addEventListener('pointerdown', e =>{
                 console.log($button.dataset.panel)
                 if($button.dataset.panel === "true"){
                     $buttons.forEach($btn => $btn.classList.remove('current'))
-                    $button.classList.add('current')
+                    $layer.classList.toggle('move')
+                    $button.classList[$layer.classList.contains('move')? 'add' : 'remove']('current')
 
                     console.log(">", $button.dataset.panelTarget)
 

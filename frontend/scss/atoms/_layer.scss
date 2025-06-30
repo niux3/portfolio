@@ -1,0 +1,17 @@
+.layer{
+  position: fixed;
+  top: 0;
+  right: -32rem;
+  bottom: 0;
+  background: var(--color-rennes);
+  width: 32rem;
+  margin: 0;
+  padding: 0;
+  border-left: .1rem solid var(--color-rouen);
+  transition: right .4s;
+  
+  &.move{
+    right: 0;
+  }
+
+}
