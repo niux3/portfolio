@@ -1,9 +1,13 @@
-# Nouvel article : Comment rendre cliquable un groupe d'éléments en HTML ?
+# Vous utilisez des <div> pour vos boutons ? C’est surement une erreur.
 
-Je viens de publier un guide complet sur une problématique courante mais complexe en intégration web : augmenter la zone de clic d'un lien pour qu'elle s'étende sur plusieurs éléments. 85% des utilisateurs de smartphones abandonneront un site web mal conçu ou qui ne fonctionne pas correctement ?
+Dans cet article, je décortique les bonnes pratiques pour créer des boutons HTML accessibles, sémantiques, et vraiment utilisables par tous :
 
-Dans cet article, j'explore 5 techniques différentes, de la plus simple à la plus avancée (pseudo-éléments, JavaScript...). Pour chacune, je détaille ses avantages et inconvénients.
+- Pourquoi <button> est souvent le meilleur choix
+- Les 6 critères d’accessibilité essentiels selon les WCAG
+- Des exemples concrets (et contre-exemples à éviter)
 
-Lisez l'article complet et partagez vos réflexions en commentaire. Quelle technique utilisez-vous le plus souvent ? N'hésitez pas à partager ce post pour en faire profiter votre réseau !
+lire l'article ici : [lien]
 
-Lire l'article : [lien]
+Vos retours, astuces ou exemples sont les bienvenus en commentaire !
+
+
