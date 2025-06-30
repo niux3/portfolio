@@ -66,6 +66,10 @@ article{
           position: fixed;
           right: -5000px;
         }
+
+        &:hover{
+          text-decoration: none;
+        }
       }
     }
   }
