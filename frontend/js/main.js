@@ -28,4 +28,11 @@ window.addEventListener('DOMContentLoaded', () =>{
     window.addEventListener('resize', e =>{
         Utils.debounce(lateralBar.display(), 50)()
     })
+
+    if(document.querySelector('article')){
+        let numbers = [...Array(7).keys()],
+            titles = numbers.map(x => `article h${x}`),
+            selectors = [...titles, 'pre']
+        console.log(document.querySelectorAll(selectors.join(', ')))
+    }
 })
