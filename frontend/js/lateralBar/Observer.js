@@ -17,6 +17,6 @@ export default class Observer{
     update(data){
         this.#isVisible = this.checkVisibility(data)
         this._el.setAttribute('aria-hidden', this.#isVisible)
-        this._el.classList[this.#isVisible? 'add' : 'remove']('visible')
+        this._el.classList[this.#isVisible? 'add' : 'remove']('displayObserve')
     }
 }
