@@ -9,7 +9,8 @@
   padding: 0;
   border-left: .1rem solid var(--color-rouen);
   transition: right .4s;
-  
+  z-index: 1;
+
   &.move{
     right: 0;
   }

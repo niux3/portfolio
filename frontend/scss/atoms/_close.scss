@@ -1,0 +1,12 @@
+.close{
+  padding: .8em;
+  margin: 0;
+  background: transparent;
+  color: var(--color-cannes);
+  cursor: pointer !important;
+
+  &:hover{
+    color: var(--color-laval);
+    background: var(--color-cannes);
+  }
+}

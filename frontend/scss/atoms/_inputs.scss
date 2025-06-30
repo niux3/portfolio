@@ -30,3 +30,11 @@ select, option, input[type=text], input[type=email], input[type=date], input[typ
     pointer-events: none;
   }
 }
+html[data-theme-preference="dark"]{
+  select, option, input[type=text], input[type=email], input[type=date], input[type=time], textarea{
+    &:focus{
+      color: var(--color-laval);
+    }
+  }
+
+}

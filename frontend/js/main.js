@@ -71,10 +71,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     class ShareObserver extends Observer{
         checkVisibility(data){
-            //console.log(this.$el)
-            //console.log(document.querySelector('article .share').getBoundingClientRect())
             return document.querySelector('article .share').getBoundingClientRect().y < 0
-            //return data > window.innerHeight
         }
     }
 
@@ -120,20 +117,28 @@ window.addEventListener('DOMContentLoaded', () =>{
         })
 
 
-        let $layer = document.querySelector('.layer')
+        let $layers = document.querySelectorAll('.layer')
+        const resetLayer = () =>{
+            $buttons.forEach($btn => $btn.classList.remove('current'))
+            $layers.forEach($layer => $layer.classList.remove('move'))
+        }
         $buttons.forEach($button =>{
             $button.addEventListener('pointerdown', e =>{
-                console.log($button.dataset.panel)
                 if($button.dataset.panel === "true"){
-                    $buttons.forEach($btn => $btn.classList.remove('current'))
-                    $layer.classList.toggle('move')
-                    $button.classList[$layer.classList.contains('move')? 'add' : 'remove']('current')
-
-                    console.log(">", $button.dataset.panelTarget)
-
-                    //$main.classList.add('move')
-                    //$lateralBar.classList.add('move')
+                    if($button.classList.contains('current')){
+                        resetLayer()
+                        return;
+                    }
+                    resetLayer()
+                    let [$currentLayer, ...$othersLayers] = Array.from($layers).filter($l => $l.id === $button.dataset.panelTarget.substr(1))
+                    $currentLayer.classList.add('move')
+                    $button.classList.add('current')
                 }
+            })
+        })
+        document.querySelectorAll('.layer .close').forEach($btn =>{
+            $btn.addEventListener('pointerdown', e => {
+                resetLayer()
             })
         })
     }
