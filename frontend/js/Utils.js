@@ -58,4 +58,11 @@ export default class Utils{
             .replace(/\s+/g, '-')
             .replace(/-+/g, '-')
     }
+
+    static isMobile() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const isMobileUA = /android|iphone|ipad|ipod|opera mini|iemobile|blackberry|webos/i.test(userAgent.toLowerCase());
+        const isTouch = window.matchMedia("(pointer: coarse)").matches;
+        return isMobileUA || isTouch;
+    }
 }
