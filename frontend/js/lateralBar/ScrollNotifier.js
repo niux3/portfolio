@@ -1,4 +1,4 @@
-import Subject from './Subject'
+import Subject from '../Observer/Subject'
 import GoToTopObserver from './GoToTopObserver'
 import ShareObserver from './ShareObserver'
 import LateralBarObserver from './LateralBarObserver'
@@ -13,9 +13,15 @@ export default class ScrollNotifier{
 
     constructor(LateralBar){
         this.#subject = new Subject()
-        this.#goToTopObserver = new GoToTopObserver(lateralBar.querySelector('a[href="#top"]'))
-        this.#shareObserver = new ShareObserver(lateralBar.querySelector('.share'))
-        this.#lateralBarObserver = new LateralBarObserver(lateralBar)
+        this.#goToTopObserver = new GoToTopObserver({
+            el: LateralBar.querySelector('a[href="#top"]')
+        })
+        this.#shareObserver = new ShareObserver({
+            el: LateralBar.querySelector('.share')
+        })
+        this.#lateralBarObserver = new LateralBarObserver({
+            el: LateralBar
+        })
     }
 
     init(){

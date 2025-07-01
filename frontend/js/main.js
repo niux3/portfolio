@@ -35,6 +35,7 @@ window.addEventListener('DOMContentLoaded', () =>{
             $summaryLayer = document.getElementById('summary')
         if($summaryLayer){
             let $nav = $summaryLayer.querySelector('nav'),
+                reference = 130,
                 numbers = [...Array(6).keys()],
                 titles = numbers.map(x => `article h${x + 1}`),
                 selectors = [...titles, '[id^=exempl]'],
@@ -54,11 +55,18 @@ window.addEventListener('DOMContentLoaded', () =>{
                     text = el.textContent
                 }
                 elementsOutput.push({
+                    el,
                     url,
                     text
                 })
             })
-            $nav.style.height = `${window.innerHeight - 130}px`
+            $nav.style.height = `${window.innerHeight - reference}px`
+            window.addEventListener('resize', e =>{
+                Utils.debounce(()=>{
+                    $nav.style.height = `${window.innerHeight - reference}px`
+                }, 200)()
+
+            })
             $nav.insertAdjacentHTML('beforeend', templateEngine.render(tpl.textContent, {'rows': elementsOutput}))
         }
     }
