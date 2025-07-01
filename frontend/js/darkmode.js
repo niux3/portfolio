@@ -1,3 +1,6 @@
+import Utils from "./Utils"
+
+
 const darkmode = ()=>{
     let $btnChangeMode = document.querySelector('footer .changeMode'),
         storedTheme = localStorage.getItem('theme'),
@@ -32,7 +35,7 @@ const darkmode = ()=>{
         changeMode($btnChangeMode)
     })
     if($btnChangeMode !== null){
-        $btnChangeMode.addEventListener('pointerdown', e =>{
+        $btnChangeMode.addEventListener(Utils.isMobile()? 'pointerdown' : 'click', e =>{
             changeMode($btnChangeMode)
         })
     }

@@ -1,3 +1,6 @@
+import Utils from "../Utils"
+
+
 export default class LayerPanelController{
     #buttons
     #layers
@@ -13,8 +16,9 @@ export default class LayerPanelController{
     }
 
     init() {
+        let event = Utils.isMobile()? 'pointerdown' : 'click'
         this.#buttons.forEach($button => {
-            $button.addEventListener('pointerdown', e => {
+            $button.addEventListener(event, e => {
                 if ($button.dataset.panel === "true") {
                     if ($button.classList.contains('current')) {
                         this.#resetLayer()
@@ -30,7 +34,7 @@ export default class LayerPanelController{
         })
 
         document.querySelectorAll('.layer .close').forEach($btn => {
-            $btn.addEventListener('pointerdown', e => {
+            $btn.addEventListener(event, e => {
                 this.#resetLayer()
             })
         })
