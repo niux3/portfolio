@@ -1,0 +1,26 @@
+#summary{
+  nav{
+    padding: 1.5rem;
+
+    ul{
+      margin-left: 0;
+      li{
+        list-style: none;
+        margin-top: .8rem;
+
+        &:first-child{
+          margin-top: 0;
+        }
+        
+        &.active{
+          list-style: square;
+          color: var(--color-marseille);
+
+          a{
+            color: var(--color-marseille);
+          }
+        }
+      }
+    }
+  }
+}
