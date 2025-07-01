@@ -16,6 +16,30 @@
       padding: 4.5rem 2.5rem;
       min-height: 5000px;
       height: 100%;
+
+      nav{
+        margin-top: 2rem;
+        overflow: auto;
+        scrollbar-color: transparent transparent !important;
+
+        &::-webkit-scrollbar-track {
+          background: transparent !important;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+          background: transparent !important;
+          transition: background .4s;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+          background: transparent !important;
+        }
+        ul{
+          margin-top: 0;
+        }
+      }
     }
   }
 }

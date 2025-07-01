@@ -34,7 +34,8 @@ window.addEventListener('DOMContentLoaded', () =>{
         let $article = document.querySelector('article'),
             $summaryLayer = document.getElementById('summary')
         if($summaryLayer){
-            let numbers = [...Array(6).keys()],
+            let $nav = $summaryLayer.querySelector('nav'),
+                numbers = [...Array(6).keys()],
                 titles = numbers.map(x => `article h${x + 1}`),
                 selectors = [...titles, '[id^=exempl]'],
                 elements = document.querySelectorAll(selectors.join(', ')),
@@ -44,9 +45,6 @@ window.addEventListener('DOMContentLoaded', () =>{
 
             elements.forEach((el, i) => {
                 let url, text
-                //let row = {
-                    //'url': 
-                //}
                 if(el.id.startsWith('exemple-')){
                     text = el.parentNode.textContent
                     url = el.id
@@ -60,14 +58,8 @@ window.addEventListener('DOMContentLoaded', () =>{
                     text
                 })
             })
-
-            $summaryLayer.querySelector('nav').insertAdjacentHTML('beforeend', templateEngine.render(tpl.textContent, {'rows': elementsOutput}))
-
-            $summaryLayer.querySelectorAll('nav .button').forEach($btn =>{
-                $btn.addEventListener('pointerdown', e =>{
-                    window.scrollTo(0, $btn.dataset.positionTop)
-                })
-            })
+            $nav.style.height = `${window.innerHeight - 130}px`
+            $nav.insertAdjacentHTML('beforeend', templateEngine.render(tpl.textContent, {'rows': elementsOutput}))
         }
     }
 })
