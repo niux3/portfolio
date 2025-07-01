@@ -80,9 +80,8 @@
         <span class="fa-solid fa-xmark"></span>
       </button>
       <div class="content">
-        <h2><strong>Sommaire de l'article</strong></h2>
-
-        <p>layer <a href="#">ok ok ok</a></p>
+        <h2><strong>Table des matières</strong></h2>
+        <nav></nav>
       </div>
     </div>
   </aside>
@@ -91,10 +90,12 @@
       <div id="cursorProgress">&nbsp;</div>
     </div>
   </script>
-  <script type="text/template" id="tplReader">
-    <output id="summary">
-      <h1>{{ content }}</h1>
-    </output>
+  <script type="text/template" id="tplSummary">
+      <ul class="no-bullet">
+        [[ for(let row of rows){ ]]
+          <li><a href="#[[- row.url]]">[[- row.text ]]</a></li>
+        [[ } ]]
+      </ul>
   </script>
 
 {% endblock %}

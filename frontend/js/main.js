@@ -5,6 +5,7 @@ import formContact from './formContact'
 import LogReaderActivity from './logReaderActivity/LogReaderActivity'
 import Utils from './Utils'
 import LateralBar from './lateralBar/LateralBar'
+import TemplateEngine from './TemplateEngine'
 
 
 window.addEventListener('DOMContentLoaded', () =>{
@@ -30,9 +31,43 @@ window.addEventListener('DOMContentLoaded', () =>{
     })
 
     if(document.querySelector('article')){
-        let numbers = [...Array(7).keys()],
-            titles = numbers.map(x => `article h${x}`),
-            selectors = [...titles, 'pre']
-        console.log(document.querySelectorAll(selectors.join(', ')))
+        let $article = document.querySelector('article'),
+            $summaryLayer = document.getElementById('summary')
+        if($summaryLayer){
+            let numbers = [...Array(6).keys()],
+                titles = numbers.map(x => `article h${x + 1}`),
+                selectors = [...titles, '[id^=exempl]'],
+                elements = document.querySelectorAll(selectors.join(', ')),
+                tpl = document.getElementById('tplSummary'),
+                templateEngine = new TemplateEngine(),
+                elementsOutput = []
+
+            elements.forEach((el, i) => {
+                let url, text
+                //let row = {
+                    //'url': 
+                //}
+                if(el.id.startsWith('exemple-')){
+                    text = el.parentNode.textContent
+                    url = el.id
+                }else{
+                    el.setAttribute('id', `_${i}-${Utils.slugify(el.textContent)}`)
+                    url = el.id
+                    text = el.textContent
+                }
+                elementsOutput.push({
+                    url,
+                    text
+                })
+            })
+
+            $summaryLayer.querySelector('nav').insertAdjacentHTML('beforeend', templateEngine.render(tpl.textContent, {'rows': elementsOutput}))
+
+            $summaryLayer.querySelectorAll('nav .button').forEach($btn =>{
+                $btn.addEventListener('pointerdown', e =>{
+                    window.scrollTo(0, $btn.dataset.positionTop)
+                })
+            })
+        }
     }
 })
