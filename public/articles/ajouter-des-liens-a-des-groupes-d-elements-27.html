@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="/static/styles-BZJFhDtV.css">
+    <link rel="stylesheet" href="/static/styles-B0lRgZVQ.css">
     <meta name="description"  content="5 techniques pour étendre la zone de clic de vos éléments HTML. Analysez avantages, inconvénients, et impacts sur l&#39;accessibilité, le SEO et l&#39;UX.">
   </head>
 
@@ -91,7 +91,7 @@
 <li>Les liens vides ou verbeux peuvent être difficiles ou impossibles à sélectionner pour les utilisateurs vocaux..</li>
 <li>Les paramètres par défaut du navigateur, comme la sélection du texte, le clic du milieu pour ouvrir un lien dans une nouvelle fenêtre/un nouvel onglet, l'ouverture du menu contextuel ou la prévisualisation des URL, peuvent ne pas fonctionner.</li>
 </ul>
-<p>Malheureusement, il n'existe pas de méthode parfaite pour relier des groupes d'éléments ; les solutions sont toutes assorties de compromis. Cet article énumère cinq techniques de relier plusieurs éléments, en commençant par la plus simple. Si vous ne voulez pas les passer toutes en revue, passe à la technique du <a href="#section-pseudo-element">pseudo élément</a>, que je recommande pour la plupart des cas d'utilisation.</p>
+<p>Malheureusement, il n'existe pas de méthode parfaite pour relier des groupes d'éléments ; les solutions sont toutes assorties de compromis. Cet article énumère cinq techniques de relier plusieurs éléments, en commençant par la plus simple. Si vous ne voulez pas les passer toutes en revue, passe à la technique du <a href="#_16-pseudo-element">pseudo élément</a>, que je recommande pour la plupart des cas d'utilisation.</p>
 <p>Pour illustrer le problème, j'ai créé un composant de carte. c'est une accroche de page généralement composée d'un titre, d'une image et d'un texte, que je lie différemment dans chaque exemple. Le code de l'<a href="#exemple-1">exemple 1</a> est le code de base. Les exigences pour la carte sont :</p>
 <ul>
 <li>Toute la carte doit être cliquable.</li>
@@ -345,7 +345,7 @@
 <li>Le texte non cliquable Lire « Lorem Ipsum » peut prêter à confusion.</li>
 <li>Les éléments vides sont une mauvaise pratique.</li>
 </ul>
-<h2  id="section-pseudo-element">Pseudo-élément</h2>
+<h2  id="pseudo-element">Pseudo-élément</h2>
 
 <p>Pour éviter la redondance, la verbosité et les liens vides, ajoutez un pseudo-élément à un lien existant et positionnez le pseudo-contenu au-dessus du contenu de la carte, comme le montre l'<a href="#exemple-7">exemple 7</a>.</p>
 <p><strong><span id="exemple-7">Exemple&nbsp;7</span>&nbsp;&ndash;&nbsp;Composant de carte avec un pseudo-élément à l'intérieur du lien couvrant la carte</strong></p>
@@ -399,7 +399,7 @@
 <li>Si des parties de la carte utilisnet un <code>z-index</code> avec des éléments interactifs comme des liens, il est possible que l'utilisateur se trompe et clique sur la carte au lieu du lien.</li>
 </ul>
 <h2>Javascript</h2>
-<p>Le balisage est le même que dans le composant de base de l'<a href="#exemple">exemple 1</a> et vous utilisez JavaScript pour rendre toute la carte cliquable. J'ai choisi deux solutions différentes pour vous montrer comment vous pouvez y parvenir.</p>
+<p>Le balisage est le même que dans le composant de base de l'<a href="#exemple-1">exemple 1</a> et vous utilisez JavaScript pour rendre toute la carte cliquable. J'ai choisi deux solutions différentes pour vous montrer comment vous pouvez y parvenir.</p>
 <p>Dans cet <a href="#exemple-9">exemple 9</a>, vous récupérez la date sur <code>mousedown</code> et <code>mouseup</code>. Au lever de la souris, vous soustrayez le premier temps du second. Si le résultat est inférieur à 200 ms, il est probable que l'utilisateur n'a pas sélectionné le texte mais qu'il a simplement cliqué dessus ; et s'il est supérieur, il est probablement en train de le sélectionner.</p>
 <p><strong><span id="exemple-9">Exemple&nbsp;9</span>&nbsp;&ndash;&nbsp;Utilisation d'un seuil de temporisation pour détecter si un texte a été cliqué ou sélectionné.</strong></p>
 <pre><code class="language-Javascript">const card = document.querySelector(&quot;.card&quot;);
@@ -497,15 +497,49 @@ card.addEventListener(&quot;click&quot;, (e) =&gt; {
       <a class="button" id="goToTop" href="#top" aria-label="Retour en haut de la page"><i class="fa-solid fa-arrow-up"></i></a>
     </div>
   </section>
+  <aside class="layer" id="search">
+    <div class="wrap">
+      <button class="button close" aria-label="fermer le panneau">
+        <span class="fa-solid fa-xmark"></span>
+      </button>
+      <div class="content">
+        <h2><strong>Rechercher</strong></h2>
+        <form action="" method="get" role="search" class="grid-x grid-padding-x">
+          <label class="cell medium-9 small-10">
+            <input type="text" name="q" aria-label="saisir votre recherche">
+          </label>
+          <div class="cell medium-3 small-2">
+              <button type="submit" aria-label="envoyer" class="button">
+                <span class="fa-solid fa-magnifying-glass"></span>
+              </button>
+          </div>
+        </form>
+        <output></output>
+      </div>
+    </div>
+  </aside>
+  <aside class="layer" id="summary">
+    <div class="wrap">
+      <button class="button close" aria-label="fermer le panneau">
+        <span class="fa-solid fa-xmark"></span>
+      </button>
+      <div class="content">
+        <h2><strong>Table des matières</strong></h2>
+        <nav></nav>
+      </div>
+    </div>
+  </aside>
   <script type="text/template" id="tplProgressFalse">
     <div id="progressFalse">
       <div id="cursorProgress">&nbsp;</div>
     </div>
   </script>
-  <script type="text/template" id="tplReader">
-    <output id="summary">
-      <h1></h1>
-    </output>
+  <script type="text/template" id="tplSummary">
+      <ul class="no-bullet">
+        [[ for(let row of rows){ ]]
+          <li><a href="#[[- row.url]]">[[- row.text ]]</a></li>
+        [[ } ]]
+      </ul>
   </script>
 
 
@@ -586,7 +620,7 @@ card.addEventListener(&quot;click&quot;, (e) =&gt; {
 </footer>
 
     </main>
-    <script src="/static/app-NvGRAk28.js"></script>
+    <script src="/static/app-Bkh7ezGP.js"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>

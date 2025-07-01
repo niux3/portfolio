@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="/static/styles-BZJFhDtV.css">
+    <link rel="stylesheet" href="/static/styles-B0lRgZVQ.css">
     <meta name="description"  content="Découvrez Flask avec un Hello World simple et rapide : premiers pas pour créer une appli web en Python. Idéal débutants. 1er chapitre d’un tuto complet.">
   </head>
 
@@ -397,15 +397,49 @@ On peut également consulter les arguments de la requête courante. Au fil des c
       <a class="button" id="goToTop" href="#top" aria-label="Retour en haut de la page"><i class="fa-solid fa-arrow-up"></i></a>
     </div>
   </section>
+  <aside class="layer" id="search">
+    <div class="wrap">
+      <button class="button close" aria-label="fermer le panneau">
+        <span class="fa-solid fa-xmark"></span>
+      </button>
+      <div class="content">
+        <h2><strong>Rechercher</strong></h2>
+        <form action="" method="get" role="search" class="grid-x grid-padding-x">
+          <label class="cell medium-9 small-10">
+            <input type="text" name="q" aria-label="saisir votre recherche">
+          </label>
+          <div class="cell medium-3 small-2">
+              <button type="submit" aria-label="envoyer" class="button">
+                <span class="fa-solid fa-magnifying-glass"></span>
+              </button>
+          </div>
+        </form>
+        <output></output>
+      </div>
+    </div>
+  </aside>
+  <aside class="layer" id="summary">
+    <div class="wrap">
+      <button class="button close" aria-label="fermer le panneau">
+        <span class="fa-solid fa-xmark"></span>
+      </button>
+      <div class="content">
+        <h2><strong>Table des matières</strong></h2>
+        <nav></nav>
+      </div>
+    </div>
+  </aside>
   <script type="text/template" id="tplProgressFalse">
     <div id="progressFalse">
       <div id="cursorProgress">&nbsp;</div>
     </div>
   </script>
-  <script type="text/template" id="tplReader">
-    <output id="summary">
-      <h1></h1>
-    </output>
+  <script type="text/template" id="tplSummary">
+      <ul class="no-bullet">
+        [[ for(let row of rows){ ]]
+          <li><a href="#[[- row.url]]">[[- row.text ]]</a></li>
+        [[ } ]]
+      </ul>
   </script>
 
 
@@ -486,7 +520,7 @@ On peut également consulter les arguments de la requête courante. Au fil des c
 </footer>
 
     </main>
-    <script src="/static/app-NvGRAk28.js"></script>
+    <script src="/static/app-Bkh7ezGP.js"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>
