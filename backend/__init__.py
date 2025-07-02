@@ -6,6 +6,7 @@ from flask_migrate import Migrate
 from backend.core.libs.filters import format_date_fr
 from backend.core.config import config
 from backend.core.libs.autoload import Autoload
+from backend.core.context_processors import inject_footer_flag
 
 
 db = SQLAlchemy()
@@ -36,6 +37,7 @@ def create_app():
 
     # from app.auth import views as auth_views
     # app.register_blueprint(auth_views.bp, url_prefix='/auth')
+    app.context_processor(inject_footer_flag())
     app.jinja_env.filters['date_fr'] = format_date_fr
 
     return app
