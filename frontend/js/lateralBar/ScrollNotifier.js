@@ -1,4 +1,4 @@
-import Subject from '../Observer/Subject'
+import Subject from '../observer/Subject'
 import GoToTopObserver from './GoToTopObserver'
 import ShareObserver from './ShareObserver'
 import LateralBarObserver from './LateralBarObserver'

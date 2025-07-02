@@ -1,4 +1,4 @@
-import AbstractObserver from '../Observer/AbstractObserver'
+import AbstractObserver from '../observer/AbstractObserver'
 
 
 export default class AbstractLateralBarObserver extends AbstractObserver{
