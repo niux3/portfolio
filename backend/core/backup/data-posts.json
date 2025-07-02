@@ -307,6 +307,17 @@
       "meta_description": "Apprenez \u00e0 cr\u00e9er des boutons HTML accessibles, compr\u00e9hensibles et UX-friendly en respectant les bonnes pratiques et les normes WCAG essentielles.",
       "status_id": 3,
       "categories_id": 2
+    },
+    {
+      "id": 29,
+      "title": "Ex\u00e9cution des actions : labelliser clairement les boutons",
+      "slug": "execution-des-actions-labelliser-clairement-les-boutons",
+      "body": "Un bouton peut prendre diff\u00e9rentes formes. Le contenu envelopp\u00e9 dans le bouton peut \u00eatre du texte, une ic\u00f4ne ou les deux. Lorsque vous ne donnez pas de nom \u00e0 un bouton, m\u00eame si la conception le pr\u00e9voit, les utilisateurs de lecteurs d'\u00e9cran peuvent \u00eatre incapables de savoir \u00e0 quoi il sert. \r\n\r\nTout d'abord, si le bouton contient du texte, ce texte sert d'\u00e9tiquette, comme le montre l'[exemple 1](#exemple-1).\r\n\r\n**<span id=\"exemple-1\">Exemple&nbsp;1</span>&nbsp;&ndash;&nbsp;Un bouton dont le nom accessible provient de son contenu**\r\n\r\n```html\r\n<button type=\"button\">T\u00e9l\u00e9charger le rapport en pdf (130kio)</button>\r\n```\r\n\r\nSi le bouton contient une image , l'attribut `alt` de l'image doit fournir l'\u00e9tiquette, comme dans l'[exemple 2](#exemple-2).\r\n\r\n**<span id=\"exemple-2\">Exemple&nbsp;2</span>&nbsp;&ndash;&nbsp;Un bouton dont le nom accessible provient de l'attribut `alt` de l'image**\r\n\r\n```html\r\n<button type=\"button\">\r\n    <img src=\"/images/download.svg\" alt=\"T\u00e9l\u00e9charger le rapport en pdf (130kio)\" width=\"26\">\r\n</button>\r\n```\r\n\r\nAu lieu de `img`, vous pouvez aussi utiliser et un <a href=\"https://developer.mozilla.org/fr/docs/Web/SVG\" target=\"_blank\">SVG</a> avec un \u00e9l\u00e9ment `<title>` ou `<desc>`. Pour la prise en charge inter-navigateurs, utilisez `aria-labelledby` sur le SVG et cr\u00e9ez une r\u00e9f\u00e9rence au titre, comme le montre l'[exemple 3](#exemple-3).\r\n\r\n**<span id=\"exemple-3\">Exemple&nbsp;3</span>&nbsp;&ndash;&nbsp;Un bouton dont le nom accessible provient du SVG**\r\n\r\n```html\r\n<button type=\"button\">\r\n  <svg viewBox=\"0 0 39 44\" aria-labelledby=\"title\" role=\"img\" width=\"26\">\r\n    <title id=\"title\">T\u00e9l\u00e9charger le rapport en pdf (130kio)</title>\r\n    <path d=\"M19.5 36.5 1.6 26.1v-3.6l16.3 9.4V1.5h3.2v30.4l16.3-9.4v3.6z\"/>\r\n    <path d=\"M1 41.5h37\" style=\"stroke:#000;stroke-width:3;\"/>\r\n  </svg>\r\n</button>\r\n```\r\nVous pouvez \u00e9galement retirer le graphique de l'arbre d'accessibilit\u00e9 en d\u00e9finissant un attribut `alt` vide sur le img ou `aria-hidden=\"true\"` du SVG. Si vous faites cela, le bouton a toujours besoin d'une alternative textuelle, que vous pouvez fournir avec un texte visuellement cach\u00e9 (voir [exemple 4](#exemple-4)), `aria-labelledby`, ou `aria-label` (voir [exemple 5](#exemple-5)).\r\n\r\n**<span id=\"exemple-4\">Exemple&nbsp;4</span>&nbsp;&ndash;&nbsp;Le texte est visuellement cach\u00e9**\r\n\r\n```html\r\n<button type=\"button\">\r\n  <span class=\"visually-hidden\">T\u00e9l\u00e9charger le rapport en pdf (130kio)</span>\r\n  <img src=\"/images/download.svg\" alt=\"\" width=\"26\">\r\n</button>\r\n\r\n<!-- ou -->\r\n\r\n<button type=\"button\">\r\n  <span class=\"visually-hidden\">T\u00e9l\u00e9charger le rapport en pdf (130kio)</span>\r\n  <svg viewBox=\"0 0 39 44\" aria-hidden=\"true\" width=\"26\">\r\n    <path d=\"M19.5 36.5 1.6 26.1v-3.6l16.3 9.4V1.5h3.2v30.4l16.3-9.4v3.6z\"/>\r\n    <path d=\"M1 41.5h37\" style=\"stroke:#000;stroke-width:3;\"/>\r\n  </svg>\r\n</button>\r\n\r\n<style>\r\n  .visually-hidden {\r\n    clip-path: inset(50%);\r\n    height: 1px;\r\n    overflow: hidden;\r\n    position: absolute;\r\n    white-space: nowrap;\r\n    width: 1px;\r\n  }\r\n</style>\r\n```\r\n**<span id=\"exemple-5\">Exemple&nbsp;5</span>&nbsp;&ndash;&nbsp;L'attribut `aria-label` d\u00e9signe le bouton**\r\n\r\n```html\r\n<button type=\"button\" aria-label=\"Sauvegarder\">\r\n  <svg aria-hidden=\"true\" viewBox=\"0 0 39 44\" width=\"26\">\r\n    <path d=\"M19.5 36.5 1.6 26.1v-3.6l16.3 9.4V1.5h3.2v30.4l16.3-9.4v3.6z\"/>\r\n    <path d=\"M1 41.5h37\" style=\"stroke:#000;stroke-width:3;\"/>\r\n  </svg>\r\n</button>\r\n```\r\n\r\nLa suppression des graphiques imbriqu\u00e9s dans l'arbre d'accessibilit\u00e9 est \u00e9galement utile lorsque vous combinez une ic\u00f4ne avec du texte, car le texte \u00e9limine le besoin d'une \u00e9tiquette suppl\u00e9mentaire pour l'ic\u00f4ne, comme le montre l'[exemple 6](#exemple-6).\r\n\r\n**<span id=\"exemple-6\">Exemple&nbsp;6</span>&nbsp;&ndash;&nbsp;Combinaison de texte et d'ic\u00f4ne**\r\n\r\n```html\r\n<button type=\"button\">\r\n  Sauvegarder\r\n  <img src=\"/images/download.svg\" alt=\"\" width=\"26\">\r\n</button>\r\n\r\n<button type=\"button\">\r\n  Sauvegarder\r\n  <svg aria-hidden=\"true\" viewBox=\"0 0 39 44\" width=\"26\">\r\n    <path d=\"M19.5 36.5 1.6 26.1v-3.6l16.3 9.4V1.5h3.2v30.4l16.3-9.4v3.6z\"/>\r\n    <path d=\"M1 41.5h37\" style=\"stroke:#000;stroke-width:3;\"/>\r\n  </svg>\r\n</button>\r\n```\r\n\r\nSelon le rapport <a href=\"https://webaim.org/projects/million/\" target=\"_blank\">WebAIM Million 2024</a>, qui est le r\u00e9sultat d'une \u00e9valuation annuelle automatis\u00e9e de l'accessibilit\u00e9 du top 1 million de sites web, 28,2 % des sites web test\u00e9s contenaient des boutons vides, ce qui en fait l'un des cinq principaux probl\u00e8mes relev\u00e9s par l'\u00e9tude. Un bouton vide est soit un bouton sans enfant, soit un bouton qui contient des graphiques non \u00e9tiquet\u00e9s et sans aucune autre source que l'\u00e9tiquette.\r\n\r\nIl existe diff\u00e9rentes m\u00e9thodes pour \u00e9tiqueter les boutons. Celle que vous choisissez d\u00e9pend des besoins. Lorsque vous avez plusieurs options, je vous recommande de suivre cet ordre de priorit\u00e9 :\r\n\r\n1. Techniques HTML natives\r\n2. `aria-labelledby` en pointant le texte visible existant\r\n3. Contenu visiblement cach\u00e9\r\n4. `aria-label`\r\n\r\nSi le bouton ne contient que du texte ou une combinaison de texte et d'ic\u00f4nes, placez l'\u00e9tiquette sous forme de texte entre la balise de d\u00e9but et la balise de fin de l'\u00e9l\u00e9ment, comme le montre l'[exemple 1](#exemple-1). S'il y a une ic\u00f4ne qui ne fournit pas d'informations suppl\u00e9mentaires, supprimez-la de l'arbre d'accessibilit\u00e9 pour \u00e9viter la redondance (voir l'[exemple 6](#exemple-6)).\r\n\r\nS'il n'y a pas de texte visible mais seulement une image ou une ic\u00f4ne, son texte alternatif peut servir de nom au bouton (voir les exemples [2](#exemple-2) et [3](#exemple-3)). Ce type d'images est appel\u00e9 images fonctionnelles. Leur texte alternatif doit d\u00e9crire non pas ce qu'elles montrent, mais leur but. Vous pouvez aussi utiliser , un texte visuellement cach\u00e9([exemple 4](#exemple-4)), `aria-labelledby` ou l'attribut `aria-label` ([exemple 5](#exemple-5)).\r\n\r\nLes noms accessibles manquants sont probablement le probl\u00e8me le plus courant, mais les noms erron\u00e9s peuvent aussi \u00eatre probl\u00e9matiques. Parfois, ils sont dans la mauvaise langue naturelle, comme l'anglais sur un site fran\u00e7ais. Parfois, ils contiennent des variables non r\u00e9solues ou du texte de remplacement. Ces probl\u00e8mes surviennent g\u00e9n\u00e9ralement avec les boutons \u00e0 ic\u00f4ne seulement. Vous pouvez facilement manquer le texte ou les \u00e9tiquettes visuellement cach\u00e9s fournis par des attributs tels que `aria-label` puisqu'ils ne sont visibles que dans le code, et non dans l'interface utilisateur rendue. Vous devrez privil\u00e9gier les boutons dont le texte est visible car ils sont universellement compr\u00e9hensibles et moins sujets aux erreurs.\r\n\r\nL'\u00e9tiquette doit \u00eatre informative et concise. N'\u00e9tiquettez pas un bouton \u00ab Cliquer ici pour ouvrir ou fermer la navigation \u00bb. \u00ab Navigation \u00bb est suffisant.\r\n\r\n\r\n\r\n\r\n\r\n",
+      "created": "2025-07-02T04:14:12.951616",
+      "updated": "2025-07-02T04:57:51.939940",
+      "meta_description": "Apprenez \u00e0 labelliser efficacement vos boutons pour garantir l\u2019accessibilit\u00e9 et une exp\u00e9rience utilisateur optimale sur le web.",
+      "status_id": 3,
+      "categories_id": 2
     }
   ],
   "tag": [
@@ -851,6 +862,26 @@
       "id": 1210,
       "posts_id": 27,
       "tags_id": 11
+    },
+    {
+      "id": 1235,
+      "posts_id": 29,
+      "tags_id": 1
+    },
+    {
+      "id": 1236,
+      "posts_id": 29,
+      "tags_id": 2
+    },
+    {
+      "id": 1237,
+      "posts_id": 29,
+      "tags_id": 3
+    },
+    {
+      "id": 1238,
+      "posts_id": 29,
+      "tags_id": 4
     }
   ],
   "status": [
