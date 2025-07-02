@@ -45,7 +45,7 @@ window.addEventListener('DOMContentLoaded', () =>{
         }
 
         update(data){
-            let halfHeightWindow = Math.round(window.innerHeight / 2)
+            let halfHeightWindow = Math.round(window.innerHeight / 3)
             if(this.$el.getBoundingClientRect().y - halfHeightWindow < 0){
                 this.#linkNav.parentNode.classList.add('active')
                 this.#linkNav.parentNode.scrollIntoView({
