@@ -5,11 +5,9 @@ use src\core\Controller;
 use src\core\libs\db\querybuilder\QueryBuilder;
 
 
-class PagesController extends Controller{
+class PostsController extends Controller{
     function __construct($request){
         parent::__construct($request);
-        // $this->Page = $this->loadModel('Page');
-
         // Liste blanche des origines autorisées
         $allowed_origins = [
             'http://localhost:5000',
@@ -35,6 +33,9 @@ class PagesController extends Controller{
     }
 
     function search(){
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(["msg" => 'ok']);
+        die;
         if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest'){
             if(!empty($_GET)){
                 header('Content-Type: application/json; charset=utf-8');

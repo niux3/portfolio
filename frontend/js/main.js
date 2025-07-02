@@ -38,8 +38,37 @@ window.addEventListener('DOMContentLoaded', () =>{
             $formSearch = $search.querySelector('form')
         $formSearch.addEventListener('submit', e =>{
             e.preventDefault()
-            let formData = new FormData($formSearch)
-            console.table(formData.get('q'))
+            let headers = new Headers({
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Accept": "application/json",
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }),
+                object = {},
+                formData = new FormData($formSearch)
+            formData.forEach((value, key) =>{
+                object[key] = value
+            })
+            let data = Object.entries(object).map(([k,v]) => `${k}=${v}`).join('&'),
+                params = {
+                    method: $formSearch.method.toUpperCase(),
+                    headers,
+                    cache: 'no-cache',
+                    redirect: 'follow',
+                    referrerPolicy: 'no-referrer',
+                    mode: "cors",
+                    //body: data
+                },
+                url = window.location.origin.includes('rb-webstudio') ? $formSearch.action : `http://localhost/portfolio/public${$formSearch.getAttribute('action')}`
+            console.log('>', url)
+            if (params.method !== 'GET' && params.method !== 'HEAD') {
+                params.body = data;
+            }
+            fetch(url, params).then(resp =>{
+                if(resp.ok === true)
+                    return resp.json()
+            }).then(data =>{
+                console.log('>', data)
+            })
         })
     }
 })
