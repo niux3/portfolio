@@ -2,7 +2,7 @@ import Utils from "./Utils"
 
 
 const darkmode = ()=>{
-    let $btnChangeMode = document.querySelector('footer .changeMode'),
+    let $btnChangeMode = document.querySelector('.changeMode'),
         storedTheme = localStorage.getItem('theme'),
         changeMode = $btn =>{
             let mode = {
