@@ -1,17 +1,19 @@
 export default class Subject{
-    #observers
-
     constructor(){
-        this.#observers = []
+        this._observers = []
     }
 
     add(o){
-        this.#observers.push(o)
+        this._observers.push(o)
     }
 
     notify(data){
-        for(let o of this.#observers){
+        for(let o of this._observers){
             o.update(data)
         }
+    }
+
+    get observers(){
+        return this._observers
     }
 }
