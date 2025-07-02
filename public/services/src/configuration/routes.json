@@ -17,5 +17,9 @@
     "viewsLog@pages": {
         "url": "pages/views-log.html",
         "method": ["POST"]
+    },
+    "search@posts": {
+        "url": "articles/search.html",
+        "method": ["GET"]
     }
 }

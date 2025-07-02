@@ -32,4 +32,14 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     let layerSummary = new LayerSummary()
     layerSummary.init()
+
+    if(document.getElementById('search')){
+        let $search = document.getElementById('search'),
+            $formSearch = $search.querySelector('form')
+        $formSearch.addEventListener('submit', e =>{
+            e.preventDefault()
+            let formData = new FormData($formSearch)
+            console.table(formData.get('q'))
+        })
+    }
 })
