@@ -6,6 +6,8 @@ import LogReaderActivity from './logReaderActivity/LogReaderActivity'
 import Utils from './Utils'
 import LateralBar from './lateralBar/LateralBar'
 import TemplateEngine from './TemplateEngine'
+import AbstractObserver from './Observer/AbstractObserver'
+import Subject from './Observer/Subject'
 
 
 window.addEventListener('DOMContentLoaded', () =>{
@@ -30,9 +32,46 @@ window.addEventListener('DOMContentLoaded', () =>{
         Utils.debounce(lateralBar.display(), 50)()
     })
 
+    class NavLayerSummaryObserver extends AbstractObserver{
+        #linkNav
+        #subject
+
+        constructor(props, subject){
+            super(props)
+            let selector = `#summary nav a[href="#${this.$el.id}"]`
+            this.#linkNav = document.querySelector(selector)
+            this.#subject = subject
+            subject.add(this)
+        }
+
+        update(data){
+            let halfHeightWindow = Math.round(window.innerHeight / 2)
+            if(this.$el.getBoundingClientRect().y - halfHeightWindow < 0){
+                this.#linkNav.parentNode.classList.add('active')
+                this.#linkNav.parentNode.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                })
+            }else{
+                this.#linkNav.parentNode.classList.remove('active')
+            }
+            this.#desactiveBefore()
+        }
+
+        #desactiveBefore(){
+            let $navLinks = Array.from(document.querySelectorAll('#summary nav a')),
+                index = $navLinks.findLastIndex($el => $el.parentNode.classList.contains('active'))
+            if(index > 0){
+                $navLinks.slice(0, index).map(e => e.parentNode.classList.remove('active'))
+            }
+        }
+    }
+
     if(document.querySelector('article')){
         let $article = document.querySelector('article'),
             $summaryLayer = document.getElementById('summary')
+        let subject = new Subject()
+
         if($summaryLayer){
             let $nav = $summaryLayer.querySelector('nav'),
                 reference = 130,
@@ -54,6 +93,7 @@ window.addEventListener('DOMContentLoaded', () =>{
                     url = el.id
                     text = el.textContent
                 }
+
                 elementsOutput.push({
                     el,
                     url,
@@ -68,6 +108,14 @@ window.addEventListener('DOMContentLoaded', () =>{
 
             })
             $nav.insertAdjacentHTML('beforeend', templateEngine.render(tpl.textContent, {'rows': elementsOutput}))
+            elements.forEach(el => { new NavLayerSummaryObserver({el}, subject) })
+
+            subject.notify(window.scrollY)
+            window.addEventListener('scroll', e =>{
+                Utils.debounce(()=>{
+                    subject.notify(window.scrollY)
+                }, 500)()
+            })
         }
     }
 })
