@@ -43,8 +43,6 @@ class PostsController extends Controller{
                 });
 
                 echo json_encode([
-                    "response" =>$_GET,
-                    "public" => $public_folder,
                      "data" => $output
                 ]);
                 die;
