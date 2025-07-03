@@ -39,7 +39,7 @@ class PostsController extends Controller{
                 $path_to_json = $public_folder.'/static/data-posts.json';
                 $json = json_decode(file_get_contents($path_to_json));
                 $output = array_filter($json->post, function($v){
-                    return strstr($v->title, $_GET['q']) || strstr($v->body, $_GET['q']);
+                    return $v->status_id === 3 && (strstr($v->title, $_GET['q']) || strstr($v->body, $_GET['q']));
                 });
 
                 echo json_encode([
