@@ -1,3 +1,4 @@
+import shutil
 import subprocess
 import json
 import pathlib
@@ -14,7 +15,8 @@ from backend import db
 
 
 bp = Blueprint('backup_articles', __name__, url_prefix='/sauvegarde')
-file_data = config.BASEDIR / 'core' / 'backup' / 'data-posts.json'
+filename = 'data-posts.json'
+file_data = config.BASEDIR / 'core' / 'backup' / filename
 
 @bp.route('/articles-export-json.html')
 def export_json():
@@ -28,6 +30,7 @@ def export_json():
 
     with open(str(file_data), 'w', encoding='utf-8') as f:
         f.write(json.dumps(output, indent=2))
+    shutil.copy(str(file_data), str(config.BASEDIR.parent / 'public' / 'static' / filename))
     flash("Votre export en json est réussi", "success")
     return redirect(url_for('posts.index'))
 
