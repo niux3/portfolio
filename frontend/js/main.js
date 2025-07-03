@@ -36,7 +36,10 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     if(document.getElementById('search')){
         let $search = document.getElementById('search'),
-            $formSearch = $search.querySelector('form')
+            $formSearch = $search.querySelector('form'),
+            $resultSearch = $search.querySelector('#resultSearch'),
+            $output = $search.querySelector('output')
+
         $formSearch.addEventListener('submit', e =>{
             e.preventDefault()
             let headers = new Headers({
@@ -68,11 +71,10 @@ window.addEventListener('DOMContentLoaded', () =>{
                 let templateEngine = new TemplateEngine(),
                     tpl = document.getElementById('tplLayer'),
                     lenResult = Object.keys(data).length,
-                    rows = [],
-                    $output = $search.querySelector('output')
+                    rows = []
                 $output.innerHTML = `<strong>${lenResult}</strong> résultat${lenResult > 1? 's': ''} trouvé${lenResult > 1? 's': ''}`
 
-                if(lenResult > 1){
+                if(lenResult > 0){
                     let reference = 250,
                         $nav = document.createElement('nav')
 
@@ -91,7 +93,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 
                     })
                     $nav.innerHTML = templateEngine.render(tpl.textContent, {rows})
-                    $search.querySelector('#resultSearch').innerHTML = $nav.outerHTML
+                    $resultSearch.innerHTML = $nav.outerHTML
                 }
             })
         })
