@@ -2,7 +2,6 @@
 namespace src\controller;
 
 use src\core\Controller;
-use src\core\libs\db\querybuilder\QueryBuilder;
 
 
 class PostsController extends Controller{
@@ -33,13 +32,21 @@ class PostsController extends Controller{
     }
 
     function search(){
-        header('Content-Type: application/json; charset=utf-8');
-        echo json_encode(["msg" => 'ok']);
-        die;
         if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest'){
             if(!empty($_GET)){
                 header('Content-Type: application/json; charset=utf-8');
-                echo json_encode(["msg" => 'ok']);
+                $public_folder = dirname(ROOT);
+                $path_to_json = $public_folder.'/static/data-posts.json';
+                $json = json_decode(file_get_contents($path_to_json));
+                $output = array_filter($json->post, function($v){
+                    return strstr($v->title, $_GET['q']) || strstr($v->body, $_GET['q']);
+                });
+
+                echo json_encode([
+                    "response" =>$_GET,
+                    "public" => $public_folder,
+                     "data" => $output
+                ]);
                 die;
             }
         }

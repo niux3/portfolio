@@ -45,10 +45,12 @@ window.addEventListener('DOMContentLoaded', () =>{
                 }),
                 object = {},
                 formData = new FormData($formSearch)
+
             formData.forEach((value, key) =>{
                 object[key] = value
             })
-            let data = Object.entries(object).map(([k,v]) => `${k}=${v}`).join('&'),
+
+            let data = Object.entries(object).map(([k,v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&'),
                 params = {
                     method: $formSearch.method.toUpperCase(),
                     headers,
@@ -56,14 +58,9 @@ window.addEventListener('DOMContentLoaded', () =>{
                     redirect: 'follow',
                     referrerPolicy: 'no-referrer',
                     mode: "cors",
-                    //body: data
                 },
                 url = window.location.origin.includes('rb-webstudio') ? $formSearch.action : `http://localhost/portfolio/public${$formSearch.getAttribute('action')}`
-            console.log('>', url)
-            if (params.method !== 'GET' && params.method !== 'HEAD') {
-                params.body = data;
-            }
-            fetch(url, params).then(resp =>{
+            fetch(`${url}?${data}`, params).then(resp =>{
                 if(resp.ok === true)
                     return resp.json()
             }).then(data =>{
