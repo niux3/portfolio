@@ -1,4 +1,4 @@
-select, option, input[type=text], input[type=email], input[type=date], input[type=time], textarea{
+select, option, input[type=text], input[type=email], input[type=date], input[type=time], input[type=search], textarea{
   font-size: $font-size-base;
   margin-bottom: 0;
   border: none;
@@ -10,6 +10,11 @@ select, option, input[type=text], input[type=email], input[type=date], input[typ
   height: 4rem;
   opacity: 1;
   transition: opacity .2s;
+
+  &::placeholder{
+    color: var(--color-cannes);
+    font-style: italic;
+  }
 
   &.error{
     border-bottom: .1rem solid var(--color-marseille);
@@ -31,7 +36,7 @@ select, option, input[type=text], input[type=email], input[type=date], input[typ
   }
 }
 html[data-theme-preference="dark"]{
-  select, option, input[type=text], input[type=email], input[type=date], input[type=time], textarea{
+  select, option, input[type=text], input[type=email], input[type=date], input[type=time], input[type=search], textarea{
     &:focus{
       color: var(--color-laval);
     }

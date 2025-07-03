@@ -6,6 +6,7 @@ import LogReaderActivity from './logReaderActivity/LogReaderActivity'
 import Utils from './Utils'
 import LateralBar from './lateralBar/LateralBar'
 import LayerSummary from './layerSummary/LayerSummary'
+import TemplateEngine from './TemplateEngine'
 
 
 window.addEventListener('DOMContentLoaded', () =>{
@@ -63,8 +64,35 @@ window.addEventListener('DOMContentLoaded', () =>{
             fetch(`${url}?${data}`, params).then(resp =>{
                 if(resp.ok === true)
                     return resp.json()
-            }).then(data =>{
-                console.log('>', data)
+            }).then(({ data }) =>{
+                let templateEngine = new TemplateEngine(),
+                    tpl = document.getElementById('tplLayer'),
+                    lenResult = Object.keys(data).length,
+                    rows = [],
+                    $output = $search.querySelector('output')
+                $output.innerHTML = `<strong>${lenResult}</strong> résultat${lenResult > 1? 's': ''} trouvé${lenResult > 1? 's': ''}`
+
+                if(lenResult > 1){
+                    let reference = 250,
+                        $nav = document.createElement('nav')
+
+                    for(let v of Object.values(data)){
+                        rows.push({
+                            url: `/articles/${v.slug}-${v.id}.html`,
+                            text: v.title
+                        })
+                    }
+
+                    $nav.style.height = `${window.innerHeight - reference}px`
+                    window.addEventListener('resize', e =>{
+                        Utils.debounce(()=>{
+                            $nav.style.height = `${window.innerHeight - reference}px`
+                        }, 200)()
+
+                    })
+                    $nav.innerHTML = templateEngine.render(tpl.textContent, {rows})
+                    $search.querySelector('#resultSearch').innerHTML = $nav.outerHTML
+                }
             })
         })
     }

@@ -27,20 +27,21 @@ export default class LayerSummary{
                 titles = numbers.map(x => `article h${x + 1}`),
                 selectors = [...titles, '[id^=exempl]'],
                 elements = document.querySelectorAll(selectors.join(', ')),
-                tpl = document.getElementById('tplSummary'),
+                tpl = document.getElementById('tplLayer'),
                 templateEngine = new TemplateEngine(),
                 elementsOutput = []
 
             elements.forEach((el, i) => {
-                let url, text
+                let text, 
+                    url
+
                 if(el.id.startsWith('exemple-')){
                     text = el.parentNode.textContent
-                    url = el.id
                 }else{
                     el.setAttribute('id', `_${i}-${Utils.slugify(el.textContent)}`)
-                    url = el.id
                     text = el.textContent
                 }
+                url = `#${el.id}`
 
                 elementsOutput.push({
                     url,

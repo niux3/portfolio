@@ -1,17 +1,26 @@
 #summary{
   nav{
-    padding: 1.5rem;
+    scrollbar-color: transparent transparent !important;
+
+    &::-webkit-scrollbar-track {
+      background: transparent !important;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: transparent !important;
+      transition: background .4s;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: transparent !important;
+    }
 
     ul{
-      margin-left: 0;
       li{
         list-style: none;
-        margin-top: .8rem;
 
-        &:first-child{
-          margin-top: 0;
-        }
-        
         &.active{
           list-style: square;
           color: var(--color-marseille);
