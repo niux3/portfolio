@@ -59,15 +59,19 @@ def export_html():
         manifest_data = json.load(f)
     items = []
     data_for_frontend = {
-        "layout_template": "base_export.html",
-        "js_file": manifest_data.get('frontend/js/main.js').get('file'),
-        "css_file": manifest_data.get('frontend/scss/index.scss').get('file'),
+        'layout_template': "base_export.html",
+        'js_file': manifest_data.get('frontend/js/main.js').get('file'),
+        'css_file': manifest_data.get('frontend/scss/index.scss').get('file'),
     }
+
     for obj in Post.query.all():
+        data_for_frontend['display_buttons_footer'] = False
         items.append({
             "url": url_for(f'{prefix_bp}.show', id=obj.id, slug=obj.slug),
             'content': show(obj.id, obj.slug, export=data_for_frontend)
         })
+
+    data_for_frontend['display_buttons_footer'] = True
     items.append({
         "url": url_for('posts.index_articles'),
         "content": index_articles(export=data_for_frontend)
