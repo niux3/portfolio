@@ -772,13 +772,13 @@
       "description": "SFR, un acteur de premier plan dans le secteur des t\u00e9l\u00e9communications en France. En tant que d\u00e9veloppeur frontend et backend, j'ai eu l'opportunit\u00e9 de cor\u00e9aliser des modules personnalis\u00e9s sur le site de SFR.  ",
       "color": "#000000",
       "created": "2025-05-21T17:36:51.274908",
-      "modified": "2025-05-22T01:12:17.693937",
+      "modified": "2025-07-04T18:24:26.762241",
       "online": 1,
       "url": "https://sfr.fr",
       "functions_id": 1,
       "sort": null,
       "year": "2017",
-      "activities_id": 9,
+      "activities_id": 24,
       "customer": "Publicis - Prodigious",
       "location": "Paris 8"
     },
@@ -1136,6 +1136,11 @@
       "id": 23,
       "name": "nucl\u00e9aire",
       "icon": "fa-solid fa-radiation"
+    },
+    {
+      "id": 24,
+      "name": "T\u00e9l\u00e9phonie mobile",
+      "icon": "fa-solid fa-mobile-screen"
     }
   ],
   "function": [
