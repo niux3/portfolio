@@ -7,12 +7,14 @@ export default class LateralBar{
     #buttons
     #main
     constructor(){
-        this.#lateralBar = document.getElementById('lateralBar')
-        this.#buttons = this.#lateralBar.querySelectorAll('button')
-        this.#main = document.body.querySelector('main')
+        if(document.getElementById('lateralBar')){
+            this.#lateralBar = document.getElementById('lateralBar')
+            this.#buttons = this.#lateralBar.querySelectorAll('button')
+            this.#main = document.querySelector('main')
 
-        new ScrollNotifier(this.#lateralBar).init()
-        new LayerPanelController(this.#lateralBar).init()
+            new ScrollNotifier(this.#lateralBar).init()
+            new LayerPanelController(this.#lateralBar).init()
+        }
     }
 
     display(){
@@ -20,12 +22,13 @@ export default class LateralBar{
             let widthMain = this.#main.getBoundingClientRect().width,
                 widthWindow = window.innerWidth
 
+
             this.#lateralBar.classList.remove('visible')
             this.#lateralBar.style.right = `${( (widthWindow - widthMain) / 2 ) - 40}px`
             this.#lateralBar.addEventListener('transitionend', e => {
                 setTimeout(()=>{
                     this.#lateralBar.classList.add('visible')
-                }, 1200)
+                }, 500)
             })
         }else if(window.matchMedia('(max-width: 960px)').matches){
             this.#lateralBar.classList.add('visible')

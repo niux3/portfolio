@@ -18,10 +18,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     {% block css %}{% endblock %}
+      <style>
+      html.is-changing .transition-fade {
+        transition: opacity 0.4s, filter .4s, transform .4s;
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0);
+      }
+
+      html.is-animating .transition-fade {
+        opacity: 0;
+        filter: blur(0px);
+        transform: translateY(-5rem);
+      }
+      html.is-changing :is(.layer, #lateralBar){
+        opacity: 0 !important;
+        visibility: hidden !important;
+        #transition: none !important;#}
+      }
+      html.is-animating :is(.layer, #lateralBar){
+        opacity: 0 !important;
+        visibility: hidden !important;
+        {#transition: none !important;#}
+      }
+      </style>
   </head>
 
   <body>
-    <main class="grid-container">
+    <main class="grid-container transition-fade" id="viewsTransition">
       {% include "partials/frontend/header.html" %}
       {% block content %}{% endblock %}
       {% include "partials/frontend/contact.html" %}

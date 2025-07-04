@@ -27,7 +27,9 @@ export default class LayerPanelController{
                     this.#resetLayer()
                     let targetId = $button.dataset.panelTarget?.substring(1)
                     let $targetLayer = Array.from(this.#layers).find($l => $l.id === targetId)
-                    if ($targetLayer) $targetLayer.classList.add('move')
+                    if ($targetLayer){
+                        $targetLayer.classList.add('move')
+                    }
                     $button.classList.add('current')
                 }
             })
