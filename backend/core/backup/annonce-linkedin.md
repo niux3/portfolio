@@ -1,14 +1,17 @@
-# Et si vos boutons devenaient enfin compréhensibles… pour tous ?
+# Un bouton qui n’en a pas l’air… peut vite devenir un cauchemar d’accessibilité.
 
-Trop souvent négligée, l’étiquette d’un bouton joue un rôle crucial pour les lecteurs d’écran… et pour Google.
+Dans cet article, j’explique pourquoi il faut toujours utiliser un <button>, même sans ses styles par défaut, et comment le rendre accessible sans sacrifier le design.
 
-Un bouton bien nommé améliore :
+On y parle :
 
-- l’expérience des personnes en situation de handicap
-- le référencement naturel (SEO), grâce à un code plus lisible et structuré
+– Faux boutons en <div>
+– Accessibilité clavier
+– Problèmes sur mobile
+– Solutions CSS concrètes (all: unset, :focus-visible, etc.)
 
-Dans cet article, je décris comment labelliser un bouton efficacement (texte, image, SVG, aria-label, etc.) avec exemples HTML et bonnes pratiques à l’appui.
+Vous voulez créer des interfaces accessibles sans compromis esthétique ?
+Lisez l’article et faites le test : vos boutons sont-ils réellement accessibles ?
 
-À lire ici : [lien de l’article]
+Lire l'article ici : [lien]
 
-Vos retours sont les bienvenus ! Avez-vous déjà eu à corriger ce type de problème sur un projet ?
+Vos retours sont les bienvenus ! Avez-vous déjà rencontrer ce type de "bouton" ?
