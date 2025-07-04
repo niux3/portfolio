@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="/static/styles-Bogewi8T.css">
+    <link rel="stylesheet" href="/static/styles-BYdRQZXO.css">
     <meta name="description"  content="Chapitre 2 : Créez un blog minimaliste avec Flask en posant les bases du projet. Structure, routes simples et premières vues au programme.">
   </head>
 
@@ -294,7 +294,7 @@ if __name__ == '__main__':
         <h2><strong>Rechercher</strong></h2>
         <form action="/services/articles/search.html" method="get" role="search" class="grid-x grid-padding-x">
           <label class="cell medium-9 small-10">
-            <input type="text" name="q" aria-label="saisir votre recherche">
+            <input type="search" name="q" aria-label="saisir votre recherche" placeholder="Entrez vos mots-clés">
           </label>
           <div class="cell medium-3 small-2">
               <button type="submit" aria-label="envoyer" class="button">
@@ -303,6 +303,7 @@ if __name__ == '__main__':
           </div>
         </form>
         <output></output>
+        <div id="resultSearch" aria-live="polite" aria-atomic="true"></div>
       </div>
     </div>
   </aside>
@@ -322,10 +323,10 @@ if __name__ == '__main__':
       <div id="cursorProgress">&nbsp;</div>
     </div>
   </script>
-  <script type="text/template" id="tplSummary">
+  <script type="text/template" id="tplLayer">
       <ul class="no-bullet">
         [[ for(let row of rows){ ]]
-          <li><a href="#[[- row.url]]">[[= row.text ]]</a></li>
+          <li><a href="[[- row.url]]">[[= row.text ]]</a></li>
         [[ } ]]
       </ul>
   </script>
@@ -410,7 +411,7 @@ if __name__ == '__main__':
 </footer>
 
     </main>
-    <script src="/static/app-BwwKMqTk.js"></script>
+    <script src="/static/app-DEyxPof7.js"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>

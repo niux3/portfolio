@@ -1,15 +1,15 @@
 {
   "frontend/js/main.js": {
-    "file": "static/app-BwwKMqTk.js",
+    "file": "static/app-DEyxPof7.js",
     "name": "app",
     "src": "frontend/js/main.js",
     "isEntry": true,
     "css": [
-      "static/styles-Bogewi8T.css"
+      "static/styles-BYdRQZXO.css"
     ]
   },
   "frontend/scss/index.scss": {
-    "file": "static/styles-Bogewi8T.css",
+    "file": "static/styles-BYdRQZXO.css",
     "src": "frontend/scss/index.scss",
     "isEntry": true
   }
