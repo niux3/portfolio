@@ -1,17 +1,9 @@
-# Un bouton qui n’en a pas l’air… peut vite devenir un cauchemar d’accessibilité.
+# Vous utilisez aria-expanded, aria-pressed, ou aria-controls ? Ou... pas encore ?
 
-Dans cet article, j’explique pourquoi il faut toujours utiliser un <button>, même sans ses styles par défaut, et comment le rendre accessible sans sacrifier le design.
+J’ai rédigé un article concis et pratique sur l’importance d’ajouter des états et propriétés accessibles à vos boutons HTML.
 
-On y parle :
+Trop souvent négligés, ces attributs sont essentiels pour les utilisateurs de lecteurs d’écran. Vous y trouverez 4 exemples concrets en HTML/JS, commentés et expliqués.
 
-– Faux boutons en <div>
-– Accessibilité clavier
-– Problèmes sur mobile
-– Solutions CSS concrètes (all: unset, :focus-visible, etc.)
+À lire ici : [insère le lien]
 
-Vous voulez créer des interfaces accessibles sans compromis esthétique ?
-Lisez l’article et faites le test : vos boutons sont-ils réellement accessibles ?
-
-Lire l'article ici : [lien]
-
-Vos retours sont les bienvenus ! Avez-vous déjà rencontrer ce type de "bouton" ?
+N’hésitez pas à me dire ce que vous en pensez, ou à partager vos astuces ARIA !
