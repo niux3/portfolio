@@ -34,11 +34,11 @@ window.addEventListener('DOMContentLoaded', () =>{
         if(document.getElementById('lateralBar')){
             lateralBar = new LateralBar()
             lateralBar.display()
+            window.addEventListener('resize', e =>{
+                Utils.debounce(lateralBar.display(), 50)()
+            })
         }
 
-        window.addEventListener('resize', e =>{
-            Utils.debounce(lateralBar.display(), 50)()
-        })
 
         layerSummary = new LayerSummary()
         layerSummary.init()
