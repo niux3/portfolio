@@ -7,8 +7,8 @@ import Utils from './Utils'
 import LateralBar from './lateralBar/LateralBar'
 import LayerSummary from './layerSummary/LayerSummary'
 import TemplateEngine from './TemplateEngine'
-//import Swup from 'swup'
-//import SwupA11yPlugin from '@swup/a11y-plugin'
+import Swup from 'swup'
+import SwupA11yPlugin from '@swup/a11y-plugin'
 
 
 window.addEventListener('DOMContentLoaded', () =>{
@@ -31,8 +31,10 @@ window.addEventListener('DOMContentLoaded', () =>{
         formContact()
 
         //// lateralBar
-        lateralBar = new LateralBar()
-        lateralBar.display()
+        if(document.getElementById('lateralBar')){
+            lateralBar = new LateralBar()
+            lateralBar.display()
+        }
 
         window.addEventListener('resize', e =>{
             Utils.debounce(lateralBar.display(), 50)()
@@ -113,22 +115,22 @@ window.addEventListener('DOMContentLoaded', () =>{
         console.log('destroy >', lateralBar)
     }
     mount()
-    //let swup = new Swup({
-        //containers: ['#viewsTransition'],
-        //hooks: {
-            //'visit:end': (...args) => {
-                //mount()
-            //},
-            //'animation:out:start': () =>{
-            //},
-            //'animation:in:start': () =>{
-            //},
-            //'page:view': (...args) => {
-                //unmount()
-            //}
-        //},
-        //plugins: [
-            //new SwupA11yPlugin(),
-        //],
-    //})
+    let swup = new Swup({
+        containers: ['#viewsTransition'],
+        hooks: {
+            'visit:end': (...args) => {
+                mount()
+            },
+            'animation:out:start': () =>{
+            },
+            'animation:in:start': () =>{
+            },
+            'page:view': (...args) => {
+                unmount()
+            }
+        },
+        plugins: [
+            new SwupA11yPlugin(),
+        ],
+    })
 })
