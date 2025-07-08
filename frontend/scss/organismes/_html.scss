@@ -1,0 +1,29 @@
+html{
+  &.is-changing{
+    .transition-fade{
+        transition: opacity 0.4s, filter .4s, transform .4s;
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0);
+    }
+    :is(.layer, #lateralBar){
+        opacity: 0 !important;
+        visibility: hidden !important;
+        /*transition: none !important;*/
+    }
+  }
+
+  &.is-animating{
+    .transition-fade {
+      opacity: 0;
+      filter: blur(0px);
+      transform: translateY(-5rem);
+    }
+
+    :is(.layer, #lateralBar){
+        opacity: 0 !important;
+        visibility: hidden !important;
+        /*transition: none !important;*/
+    }
+  }
+}
