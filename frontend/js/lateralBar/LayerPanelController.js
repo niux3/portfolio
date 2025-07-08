@@ -40,5 +40,11 @@ export default class LayerPanelController{
                 this.#resetLayer()
             })
         })
+
+        window.addEventListener('keyup', e =>{
+            if(e.key === 'Escape'){
+                this.#resetLayer()
+            }
+        })
     }
 }
