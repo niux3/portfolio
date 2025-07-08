@@ -17,7 +17,6 @@ export default class LayerSearch{
     }
 
     init(){
-
         this.#formSearch.addEventListener('submit', e =>{
             e.preventDefault()
             let headers = new Headers({

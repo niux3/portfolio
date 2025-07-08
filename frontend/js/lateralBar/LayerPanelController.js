@@ -11,7 +11,10 @@ export default class LayerPanelController{
     }
 
     #resetLayer() {
-        this.#buttons.forEach($btn => $btn.classList.remove('current'))
+        this.#buttons.forEach($btn => {
+            $btn.classList.remove('current')
+            $btn.setAttribute('aria-expanded', false)
+        })
         this.#layers.forEach($layer => $layer.classList.remove('move'))
     }
 
@@ -31,6 +34,7 @@ export default class LayerPanelController{
                         $targetLayer.classList.add('move')
                     }
                     $button.classList.add('current')
+                    $button.setAttribute('aria-expanded', true)
                 }
             })
         })
