@@ -1,9 +1,20 @@
-# Vous utilisez aria-expanded, aria-pressed, ou aria-controls ? Ou... pas encore ?
+# Faut-il vraiment désactiver les boutons dans une interface ?
 
-J’ai rédigé un article concis et pratique sur l’importance d’ajouter des états et propriétés accessibles à vos boutons HTML.
+On le voit partout : bouton grisé, inactif, sans aucune explication.
+Mais derrière cette apparente "bonne pratique", se cache une vraie galère pour l'utilisateur.
 
-Trop souvent négligés, ces attributs sont essentiels pour les utilisateurs de lecteurs d’écran. Vous y trouverez 4 exemples concrets en HTML/JS, commentés et expliqués.
+- Pas de message d'erreur
+- Impossible de savoir quoi corriger
+- Illisible pour les personnes malvoyantes
+- Inaccessible au clavier ou aux lecteurs d’écran
 
-À lire ici : [insère le lien]
+Dans mon dernier article, je montre pourquoi désactiver un bouton peut dégrader l'expérience utilisateur, et dans quels cas très précis cela reste acceptable.
 
-N’hésitez pas à me dire ce que vous en pensez, ou à partager vos astuces ARIA !
+J’y propose aussi des alternatives concrètes pour guider l’utilisateur sans le bloquer, tout en respectant les règles d’accessibilité.
+
+lien vers l'article : [Lien vers l’article]
+
+Et vous, quelle est votre expérience avec les boutons désactivés ?
+Avez-vous déjà été frustré par un bouton inactif sans explication ?
+Ou peut-être en avez-vous implémenté un pour de “bonnes raisons” ?
+Je suis curieux d’avoir vos retours !
