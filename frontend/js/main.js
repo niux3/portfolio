@@ -112,10 +112,9 @@ window.addEventListener('DOMContentLoaded', () =>{
         logReaderActivity = null
         lateralBar = null
         layerSummary = null
-        console.log('destroy >', lateralBar)
     }
     mount()
-    let swup = new Swup({
+    const swup = new Swup({
         containers: ['#viewsTransition'],
         hooks: {
             'visit:end': (...args) => {
