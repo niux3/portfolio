@@ -7,6 +7,7 @@ const formContact = ()=>{
             document.querySelector('input[name="hour_appointment"]'),
         ],
         $formContact = document.getElementById('formContact'),
+        $button = $formContact.querySelector('button[type="submit"]'),
         validate = new Validator()
 
     if(window.matchMedia('(max-width: 640px)').matches){
@@ -92,6 +93,10 @@ const formContact = ()=>{
                         $result.classList.add('show')
                     }, 0)
                 }
+            $button.textContent = "en cours d'envoi"
+            $button.insertAdjacentHTML('afterbegin', '<span class="fa-solid fa-rotate-right"></span>')
+            $button.setAttribute('disabled', 'disabled')
+
             formData.forEach((value, key) =>{
                 object[key] = value
             })

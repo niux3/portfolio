@@ -5,6 +5,19 @@
   background-color: var(--color-cannes);
   font-variant: small-caps;
   transition: color .4s, background-color .4s;
+  position: relative;
+
+  &:disabled{
+    background-color: var(--color-antibes);
+    color: var(--color-laval);
+    opacity: 1;
+
+    &:hover{
+      background-color: var(--color-antibes);
+      color: var(--color-laval);
+    }
+
+  }
 
   &.clear{
     color: var(--color-cannes);
@@ -34,6 +47,18 @@ html[data-theme-preference="dark"]{
       color: var(--color-cannes);
       background-color: var(--color-laval);
       border-color: var(--color-cannes);
+    }
+    &:disabled{
+      background-color: var(--color-laval);
+      color: var(--color-antibes);
+      opacity: 1;
+      border-color: var(--color-antibes);
+
+      &:hover{
+        background-color: var(--color-laval);
+        color: var(--color-antibes);
+      }
+
     }
   }
 }
