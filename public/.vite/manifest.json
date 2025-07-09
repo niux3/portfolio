@@ -1,15 +1,15 @@
 {
   "frontend/js/main.js": {
-    "file": "static/app-Pc_gtIGD.js",
+    "file": "static/app-CMI1Mozt.js",
     "name": "app",
     "src": "frontend/js/main.js",
     "isEntry": true,
     "css": [
-      "static/styles-zkdZfLGN.css"
+      "static/styles-B5lEBIL-.css"
     ]
   },
   "frontend/scss/index.scss": {
-    "file": "static/styles-zkdZfLGN.css",
+    "file": "static/styles-B5lEBIL-.css",
     "src": "frontend/scss/index.scss",
     "isEntry": true
   }
