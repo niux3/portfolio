@@ -1,20 +1,9 @@
-# Faut-il vraiment désactiver les boutons dans une interface ?
+# Vous avez déjà cliqué sur un site sans savoir où vous étiez ?
 
-On le voit partout : bouton grisé, inactif, sans aucune explication.
-Mais derrière cette apparente "bonne pratique", se cache une vraie galère pour l'utilisateur.
+C’est le quotidien de milliers d’utilisateurs clavier ou aidés par une technologie d’assistance. Et souvent, c’est à cause d’un détail négligé : l’indication de focus.
 
-- Pas de message d'erreur
-- Impossible de savoir quoi corriger
-- Illisible pour les personnes malvoyantes
-- Inaccessible au clavier ou aux lecteurs d’écran
+Dans cet article, je vous montre pourquoi et comment styliser correctement les éléments interactifs via :focus, :focus-visible, :focus-within, et pourquoi supprimer le contour par défaut est une erreur.
 
-Dans mon dernier article, je montre pourquoi désactiver un bouton peut dégrader l'expérience utilisateur, et dans quels cas très précis cela reste acceptable.
+Le but étant de rendre vos interfaces inclusives sans sacrifier le design.
 
-J’y propose aussi des alternatives concrètes pour guider l’utilisateur sans le bloquer, tout en respectant les règles d’accessibilité.
-
-lien vers l'article : [Lien vers l’article]
-
-Et vous, quelle est votre expérience avec les boutons désactivés ?
-Avez-vous déjà été frustré par un bouton inactif sans explication ?
-Ou peut-être en avez-vous implémenté un pour de “bonnes raisons” ?
-Je suis curieux d’avoir vos retours !
+[Lien vers l'article]
