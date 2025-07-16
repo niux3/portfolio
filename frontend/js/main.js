@@ -18,8 +18,6 @@ window.addEventListener('DOMContentLoaded', () =>{
         layerSearch = null
 
     const mount = ()=>{
-        // progressBar
-        ProgressBarBehavior.run()
 
         //// darkmode
         darkmode()
@@ -71,6 +69,9 @@ window.addEventListener('DOMContentLoaded', () =>{
         }else{
             $main.classList.remove('hide')
             playSwupLikeTransition()
+
+            // progressBar
+            ProgressBarBehavior.run()
             //// lateralBar
             if(document.getElementById('lateralBar')){
                 lateralBar = new LateralBar()
