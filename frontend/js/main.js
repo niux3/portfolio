@@ -31,20 +31,6 @@ window.addEventListener('DOMContentLoaded', () =>{
         //// form contact
         formContact()
 
-        //// lateralBar
-        if(document.getElementById('lateralBar')){
-            lateralBar = new LateralBar()
-            lateralBar.display()
-            window.addEventListener('resize', e =>{
-                Utils.debounce(lateralBar.display(), 50)()
-            })
-
-            layerSummary = new LayerSummary()
-            layerSummary.init()
-
-            layerSearch = new LayerSearch()
-            layerSearch.init()
-        }
 
         let $main = document.querySelector('main'),
             hasSeenAnimation = sessionStorage.getItem('introPlayed'),
@@ -57,43 +43,22 @@ window.addEventListener('DOMContentLoaded', () =>{
             requestAnimationFrame(() => {
                 $html.classList.remove('is-leaving')
                 $html.classList.add('is-rendering')
+                //void $html.offsetWidth
                 // Reflow encore une fois pour bien préparer la transition
                 requestAnimationFrame(() => {
                     $html.classList.remove('is-rendering', 'is-animating')
+                    //void $html.offsetWidth
 
                     setTimeout(() => {
                         $html.classList.remove('is-changing')
-                    }, 400)
+                    }, 200)
                 })
             })
-
-
-
-   
-            //$html.classList.add('is-changing', 'is-animating', 'is-leaving')
-                //$html.classList.add('is-rendering')
-
-            //// Force le navigateur à reflow pour prendre en compte les classes
-            //void $html.offsetWidth
-
-            //setTimeout(() => {
-                //$html.classList.remove('is-leaving', 'is-animating')
-                //$html.classList.remove('is-rendering')
-
-                //// Reflow encore une fois
-                //void $html.offsetWidth
-
-
-                //setTimeout(() => {
-                    //$html.classList.remove('is-changing')
-                //}, 200) // Temps de ta transition CSS
-            //}, 150)
         }
 
         if(['/index.html', '/'].some(p => p === window.location.pathname) && !hasSeenAnimation){
-            //hasSeenAnimation = sessionStorage.setItem('introPlayed', true)
+            hasSeenAnimation = sessionStorage.setItem('introPlayed', true)
             let $tplAnimLogo = document.getElementById('tplAnimLogo')
-            console.log($html)
             $main.insertAdjacentHTML('beforebegin', $tplAnimLogo.innerHTML)
 
             let $animLogo = document.getElementById('anim-logo')
@@ -106,6 +71,20 @@ window.addEventListener('DOMContentLoaded', () =>{
         }else{
             $main.classList.remove('hide')
             playSwupLikeTransition()
+            //// lateralBar
+            if(document.getElementById('lateralBar')){
+                lateralBar = new LateralBar()
+                lateralBar.display()
+                window.addEventListener('resize', e =>{
+                    Utils.debounce(lateralBar.display(), 50)()
+                })
+
+                layerSummary = new LayerSummary()
+                layerSummary.init()
+
+                layerSearch = new LayerSearch()
+                layerSearch.init()
+            }
         }
 
     }
