@@ -8,4 +8,5 @@ body{
   @include font-size(base);
   color: var(--color-cannes);
   background-color: var(--color-laval);
+  transition: background-color .2s linear;
 }
