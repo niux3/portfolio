@@ -1,9 +1,11 @@
-# Vous avez déjà cliqué sur un site sans savoir où vous étiez ?
+# Vous utilisez tabindex sans trop savoir ce que ça fait ?
+J’ai rédigé un article clair et illustré sur l’accessibilité au clavier et la gestion des éléments focalisables.  Ce que vous allez découvrir :
 
-C’est le quotidien de milliers d’utilisateurs clavier ou aidés par une technologie d’assistance. Et souvent, c’est à cause d’un détail négligé : l’indication de focus.
+- Pourquoi le HTML sémantique est souvent suffisant
+- Quand et comment utiliser tabindex="-1" ou tabindex="0"
+- Pourquoi il faut fuir les valeurs positives
+- Des exemples concrets, lien vers le W3C
 
-Dans cet article, je vous montre pourquoi et comment styliser correctement les éléments interactifs via :focus, :focus-visible, :focus-within, et pourquoi supprimer le contour par défaut est une erreur.
+J’aimerais beaucoup savoir comment vous l’implémentez, quels pièges vous avez rencontrés, ou quelles astuces vous avez découvertes pour optimiser l’accessibilité clavier. N’hésitez pas à partager votre retour d’expérience en commentaire, cela peut être très utile à toute la communauté !
 
-Le but étant de rendre vos interfaces inclusives sans sacrifier le design.
-
-[Lien vers l'article]
+À lire ici : [lien vers l’article]
