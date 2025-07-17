@@ -1,7 +1,7 @@
 html{
   &.is-changing{
     .transition-fade{
-        transition: opacity 0.4s, filter .4s, transform .4s;
+        transition: opacity 0.6s, filter .6s, transform .4s;
         opacity: 1;
         //transform: translateY(0);
         filter: blur(0);
@@ -23,7 +23,7 @@ html{
     .transition-fade {
       opacity: 0;
       //transform: translateY(-5rem);
-      filter: blur(10px);
+      filter: blur(5px);
       @for $i from 1 to 100{
         &.delay#{$i}{
           transition-delay: #{200 * $i}ms;

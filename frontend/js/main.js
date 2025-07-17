@@ -110,18 +110,17 @@ window.addEventListener('DOMContentLoaded', () =>{
         animateHistoryBrowsing: true,
     })
     swup.hooks.on('visit:start', () => {
-        alert('1. Swup: visit:start - Un clic a été détecté et Swup commence une nouvelle visite.')
+        console.log('1. Swup: visit:start - Un clic a été détecté et Swup commence une nouvelle visite.')
         console.log('visit:start - from:', swup.currentPageUrl, 'to:', swup.currentVisit.to.url)
         unmount()
     })
 
     swup.hooks.on('page:load', () => {
-        alert('2. Swup: page:load - La page actuelle est sur le point d\'être déchargée (avant l\'animation de sortie).')
+        console.log('2. Swup: page:load - La page actuelle est sur le point d\'être déchargée (avant l\'animation de sortie).')
         let hasSeenAnimation = sessionStorage.getItem('introPlayed')
         if(['/index.html', '/'].some(p => p === window.location.pathname) && !hasSeenAnimation){
             return new Promise(resolve => {
                 setTimeout(() => {
-                    alert('ok')
                     console.log('>> ', hasSeenAnimation)
                     resolve()
                 }, 3100)
@@ -130,23 +129,23 @@ window.addEventListener('DOMContentLoaded', () =>{
     })
 
     swup.hooks.on('animation:out:start', () => {
-        alert('3. Swup: animation:out:start - L\'animation de sortie du contenu commence.')
+        console.log('3. Swup: animation:out:start - L\'animation de sortie du contenu commence.')
     })
 
     swup.hooks.on('animation:in:await', (visit, args) =>{
-        alert('4. Swup: animation:out:await - Le hook d\'attente de l\'animation de sortie est déclenché.')
+        console.log('4. Swup: animation:out:await - Le hook d\'attente de l\'animation de sortie est déclenché.')
     })
 
     swup.hooks.on('content:replace', (visit, args) =>{
-        alert('5. Swup: content:replace - Le nouveau contenu a été injecté dans le DOM.')
+        console.log('5. Swup: content:replace - Le nouveau contenu a été injecté dans le DOM.')
         document.querySelector('main').classList.remove('hidden')
     })
 
     swup.hooks.on('page:view', () => {
-        alert('6. Swup: page:view - La nouvelle page est entièrement chargée et prête.')
+        console.log('6. Swup: page:view - La nouvelle page est entièrement chargée et prête.')
     })
     swup.hooks.on('visit:end', () => {
-        alert('7. Swup: page:view - La nouvelle page est entièrement chargée et prête.')
+        console.log('7. Swup: page:view - La nouvelle page est entièrement chargée et prête.')
         mount()
     })
 })
