@@ -1,27 +1,46 @@
 html{
   &.is-changing{
     .transition-fade{
-        transition: opacity 0.4s, transform .4s;
+        transition: opacity 0.4s, filter .4s, transform .4s;
         opacity: 1;
-        transform: translateY(0);
+        //transform: translateY(0);
+        filter: blur(0);
+        @for $i from 1 to 100{
+          &.delay#{$i}{
+            transition-delay: #{200 * $i}ms;
+          }
+        }
     }
     :is(.layer, #lateralBar){
         opacity: 0 !important;
         visibility: hidden !important;
         /*transition: none !important;*/
     }
+
   }
 
   &.is-animating{
     .transition-fade {
       opacity: 0;
-      transform: translateY(-5rem);
+      //transform: translateY(-5rem);
+      filter: blur(10px);
+      @for $i from 1 to 100{
+        &.delay#{$i}{
+          transition-delay: #{200 * $i}ms;
+        }
+      }
     }
 
     :is(.layer, #lateralBar){
         opacity: 0 !important;
         visibility: hidden !important;
         /*transition: none !important;*/
+    }
+
+    &.is-leaving{
+      .transition-fade{
+        transition-delay: 0ms !important;
+      }
     }
   }
 }

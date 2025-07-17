@@ -1,3 +1,4 @@
+from random import randint
 from flask import Blueprint, render_template, flash, request, url_for, redirect
 from slugify import slugify
 from sqlalchemy import desc
@@ -76,10 +77,18 @@ def edit(id):
 
 @bp.route('/index.html')
 def show():
+    projects = Project.query.filter(Project.online == 1).order_by(desc('year')).all()
+
+    for project in projects:
+        project.delay_transition = randint(9, 15)
+
+    print(projects[0].delay_transition)
+
+
     ctx = {
         'homepage': True,
         "object_list": {
-            "projects": Project.query.filter(Project.online == 1).order_by(desc('year')),
+            "projects": projects,
             "technologies": Technology.query.filter(Technology.online == 1).all()
         }
     }
