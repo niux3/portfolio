@@ -49,7 +49,6 @@ window.addEventListener('DOMContentLoaded', () =>{
         // form contact
         formContact()
 
-
         const handleIntroAnimation = () =>{
             if(['/index.html', '/'].some(p => p === window.location.pathname) && !hasSeenAnimation){
                 $main.classList.add('hidden')
@@ -62,6 +61,8 @@ window.addEventListener('DOMContentLoaded', () =>{
                     $animLogo.remove()
                     sessionStorage.setItem('introPlayed', true)
                     $main.classList.remove('hidden')
+                    console.log(document.querySelector('html'))
+                    document.querySelector('html').classList.add('animate-home')
                     document.getElementById('logo').classList.add('transition-fade')
                 }, duration)
             }else{
@@ -81,29 +82,6 @@ window.addEventListener('DOMContentLoaded', () =>{
     mount()
     const swup = new Swup({
         containers: ['#viewsTransition'],
-        //hooks: {
-            //'visit:end': (...args) => {
-                //mount()
-            //},
-            //'animation:out:await': (visit, args) =>{
-                //if(['/index.html', '/'].some(p => p === window.location.pathname) && !hasSeenAnimation){
-                    //alert('ok')
-                    //return new Promise(resolve => {
-                        //setTimeout(() => {
-                            //resolve()
-                        //}, duration)
-                    //})
-                //}
-            //},
-            //'content:replace': () =>{
-                //$main.classList.remove('hidden')
-            //},
-            //'animation:in:start': () =>{
-            //},
-            //'page:view': (...args) => {
-                //unmount()
-            //}
-        //},
         plugins: [
             new SwupA11yPlugin(),
         ],
@@ -117,15 +95,16 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     swup.hooks.on('page:load', () => {
         console.log('2. Swup: page:load - La page actuelle est sur le point d\'être déchargée (avant l\'animation de sortie).')
-        let hasSeenAnimation = sessionStorage.getItem('introPlayed')
-        if(['/index.html', '/'].some(p => p === window.location.pathname) && !hasSeenAnimation){
-            return new Promise(resolve => {
-                setTimeout(() => {
-                    console.log('>> ', hasSeenAnimation)
-                    resolve()
-                }, 3100)
-            })
-        }
+        document.querySelector('html').classList.remove('animate-home')
+        //let hasSeenAnimation = sessionStorage.getItem('introPlayed')
+        //if(['/index.html', '/'].some(p => p === window.location.pathname) && !hasSeenAnimation){
+            //return new Promise(resolve => {
+                //setTimeout(() => {
+                    //console.log('>> ', hasSeenAnimation)
+                    //resolve()
+                //}, 3100)
+            //})
+        //}
     })
 
     swup.hooks.on('animation:out:start', () => {
