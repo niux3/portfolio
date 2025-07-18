@@ -1,11 +1,11 @@
 @keyframes animate_in{
   0%{
     opacity: 0;
-    filter: blur(5px);
+    filter: blur(2px);
   }
   100%{
     opacity: 1;
-    filter: blur(0px);
+     filter: blur(0px);
   }
 }
 @keyframes animate_out{
@@ -19,19 +19,31 @@
 @keyframes scale_up{
   0%{
     opacity: .03;
-    transform: scale(0);
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
   }
-  50%{
+  33%{
     opacity: .03;
-    transform: scale(1);
+    top: 49%;
+    right: 0%;
+    bottom: 49%;
+    left: 0%;
   }
-  60%{
+  66%{
     opacity: .03;
-    transform: scale(1);
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
   }
   100%{
     opacity: 0;
-    transform: scale(1);
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
   }
 }
 html{
@@ -50,20 +62,22 @@ html{
         content: '';
         z-index: 1;
         position: absolute;
-        inset: 0;
+        top: 50%;
+        right: 50%;
+        bottom: 50%;
+        left: 50%;
         background-color: var(--color-cannes);
         // border: .1rem solid var(--color-rouen);
         transform-origin: center center;
         opacity: .5;
-        transform: scale(0);
-        animation: var(--animation-duration) scale_up forwards;
+        animation: 1200ms scale_up forwards;
 
       }
 
       @for $i from 1 to 100{
         &.delay#{$i}{
           > *{
-            animation-delay: #{400 + (200 * $i)}ms;
+            animation-delay: #{800 + (200 * $i)}ms;
           }
 
           &:before{
