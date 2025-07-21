@@ -1,51 +1,3 @@
-@keyframes animate_in{
-  0%{
-    opacity: 0;
-    filter: blur(2px);
-  }
-  100%{
-    opacity: 1;
-     filter: blur(0px);
-  }
-}
-@keyframes animate_out{
-  0%{
-    opacity: 1;
-  }
-  100%{
-    opacity: 0;
-  }
-}
-@keyframes scale_up{
-  0%{
-    opacity: .03;
-    top: 50%;
-    right: 50%;
-    bottom: 50%;
-    left: 50%;
-  }
-  33%{
-    opacity: .03;
-    top: 49%;
-    right: 0%;
-    bottom: 49%;
-    left: 0%;
-  }
-  66%{
-    opacity: .03;
-    top: 0%;
-    right: 0%;
-    bottom: 0%;
-    left: 0%;
-  }
-  100%{
-    opacity: 0;
-    top: 0%;
-    right: 0%;
-    bottom: 0%;
-    left: 0%;
-  }
-}
 html{
   --animation-duration: .6s;
   .transition-fade{
@@ -60,17 +12,19 @@ html{
 
       &:before{
         content: '';
-        z-index: 1;
+        z-index: -1;
+        pointer-events: none;
         position: absolute;
         top: 50%;
         right: 50%;
         bottom: 50%;
         left: 50%;
         background-color: var(--color-cannes);
+        border-radius: .6rem;
         // border: .1rem solid var(--color-rouen);
         transform-origin: center center;
-        opacity: .5;
-        animation: 1000ms scale_up $easin forwards;
+        opacity: 0.5;
+        animation: 1800ms scale_up $easin forwards;
 
       }
 
@@ -82,13 +36,12 @@ html{
 
           &:before{
             animation-delay: #{200 * $i}ms;
-
           }
         }
       }
     }
   }
-  
+
   &.is-changing{
     .transition-fade{
       opacity: 0;
@@ -111,9 +64,8 @@ html{
 
   &.is-animating{
     .transition-fade {
-
       opacity: 0;
-      filter: blur(5px);
+      filter: blur(0px);
       animation: var(--animation-duration) animate_out forwards;
 
       @for $i from 1 to 100{

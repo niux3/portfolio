@@ -80,7 +80,6 @@ window.addEventListener('DOMContentLoaded', () =>{
         layerSearch = null
     }
     mount()
-    /*
     const swup = new Swup({
         containers: ['#viewsTransition'],
         plugins: [
@@ -128,5 +127,4 @@ window.addEventListener('DOMContentLoaded', () =>{
         console.log('7. Swup: page:view - La nouvelle page est entièrement chargée et prête.')
         mount()
     })
-*/
 })

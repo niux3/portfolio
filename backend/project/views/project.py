@@ -79,8 +79,8 @@ def edit(id):
 def show():
     projects = Project.query.filter(Project.online == 1).order_by(desc('year')).all()
 
-    for project in projects:
-        project.delay_transition = randint(9, 15)
+    for i, project in enumerate(projects, 9):
+        project.delay_transition = i
 
     print(projects[0].delay_transition)
 
