@@ -1,11 +1,10 @@
-# Vous utilisez tabindex sans trop savoir ce que ça fait ?
-J’ai rédigé un article clair et illustré sur l’accessibilité au clavier et la gestion des éléments focalisables.  Ce que vous allez découvrir :
+# Quand une modale s’ouvre, où est envoyé le focus clavier ?
 
-- Pourquoi le HTML sémantique est souvent suffisant
-- Quand et comment utiliser tabindex="-1" ou tabindex="0"
-- Pourquoi il faut fuir les valeurs positives
-- Des exemples concrets, lien vers le W3C
+Dans cet article, je vous montre comment déplacer correctement le focus vers les contenus modaux (et inversement), avec exemples HTML, JS, et bonne pratique UX.
+Astuces, pièges à éviter, et comparaison entre solutions personnalisées et natives.
 
-J’aimerais beaucoup savoir comment vous l’implémentez, quels pièges vous avez rencontrés, ou quelles astuces vous avez découvertes pour optimiser l’accessibilité clavier. N’hésitez pas à partager votre retour d’expérience en commentaire, cela peut être très utile à toute la communauté !
+Si vous codez des interfaces accessibles ou souhaitez améliorer vos modales, c’est ici :
 
-À lire ici : [lien vers l’article]
+lire l'article complet : [lien]
+
+
