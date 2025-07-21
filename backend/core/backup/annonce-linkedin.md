@@ -8,3 +8,13 @@ Si vous codez des interfaces accessibles ou souhaitez améliorer vos modales, c�
 lire l'article complet : [lien]
 
 
+# Vous débutez en Python ou souhaitez matriser une fonctionnalité clé ? Découvrez comment affecter facilement les éléments d’une séquence à plusieurs variables gr0ce au dépaquetage.
+
+Dans mon dernier article, je vous explique avec exemples concrets comment utiliser cette syntaxe simple et puissante, ainsi qu’une astuce pour ignorer certaines valeurs.
+
+Un indispensable pour rendre votre code plus clair et efficace !
+
+lire l'article complet : [lien]
+
+
+
