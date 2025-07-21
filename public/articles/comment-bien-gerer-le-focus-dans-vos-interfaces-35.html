@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="fr" id="top">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="bug4GPSDEqxoKku92DUfj_WE6b8PlwHJX-DCeZZBV1w" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-MCT7LV9P');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Comment bien gérer le focus dans vos interfaces ? - RB webstudio </title>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/static/styles-B5lEBIL-.css">
+    <meta name="description"  content="Apprenez à gérer le focus dans vos modales HTML pour garantir une accessibilité optimale et éviter des erreurs courantes de navigation clavier.">
+  </head>
+
+  <body>
+    <main class="grid-container transition-fade" id="viewsTransition">
+      <header class="flex-container align-justify align-middle">
+    
+    <div><a href="/">
+  <svg id="logo" width="5rem" height="5rem" version="1.1" viewBox="0 0 79.375 79.375">
+    <desc>RB webstudio - spécialiste Python - Javascript/Typescript</desc>
+    <g transform="translate(-57.558 -71.836)">
+    <circle cx="97.246" cy="111.52" r="33.073" fill="var(--color-cannes)" stroke-width=".177" style="paint-order:markers fill stroke"/>
+    <g transform="matrix(.33371 0 0 .33371 -78.371 192.62)" fill="var(--color-laval)">
+    <g transform="translate(243.55 81.615)" stroke-width=".67039" aria-label="rb">
+    <path d="m251.15-309.59v27.653h-25.077v-31.927q0-10.81 2.0112-16.843 2.0112-6.0963 6.8505-10.81 3.6452-3.6452 8.4846-5.6564 4.9022-2.074 9.8044-2.074 2.3882 0 4.7136 0.18855 2.3254 0.18854 4.5251 0.56563v26.396q-0.43994-0.0628-1.3198-0.18855-2.074-0.31424-2.6396-0.31424-4.0852 0-5.7192 2.6396-1.6341 2.6396-1.6341 10.37z"/>
+    <path d="m270.76-373.69h24.448v51.599q0 9.553 2.2626 13.324t7.5418 3.7709q3.8338 0 6.662-2.8282 2.8282-2.891 2.8282-6.7876 0-4.2109-2.7653-7.039-2.7653-2.891-6.7248-2.891-1.0056 0-2.1368 0.31425-1.1313 0.25139-3.2681 1.1313v-26.019q0.62849-0.0629 2.6396-0.18855 2.0112-0.18855 3.1424-0.18855 14.141 0 24.008 10.181 9.9301 10.119 9.9301 24.7 0 6.8505-2.514 13.135-2.5139 6.222-7.2276 11.061-4.9022 4.965-11.187 7.6675-6.222 2.6396-13.135 2.6396-10.181 0-18.415-5.2164-8.1703-5.2793-12.13-14.267-2.074-4.7765-3.0167-9.8672-0.94273-5.1536-0.94273-12.758v-4.9022z"/>
+    </g>
+    <path d="m542.38-288.15h-31.744l15.872-17.36z" stroke-width=".44511" style="paint-order:markers fill stroke"/>
+    </g>
+    </g>
+  </svg>
+</a></div>
+    
+    <nav class="flex-container align-right">
+      <a href="/articles/index.html" class="margin-horizontal-1">articles</a>
+      <a href="#contact" class="margin-horizontal-1">contact</a>
+    </nav>
+</header>
+
+      
+<progress id="progressTrue" max="100" value="0"></progress>
+  <section>
+    <article>
+      <h1>Comment bien gérer le focus dans vos interfaces ?</h1>
+      <div class="grid-x grid-padding-x">
+        <ul class="cell medium-6 small-12 flex-container no-bullet tags-list">
+          
+            <li><a href="/articles/chercher-articles-par-html.html"><span>html</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-accessibilite.html"><span>accessibilité</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-ux.html"><span>ux</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-javascript.html"><span>javascript</span></a></li>
+          
+            <li><a href="/articles/chercher-articles-par-css.html"><span>css</span></a></li>
+          
+        </ul>
+        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6 small-12">
+          <ul class="flex-container no-bullet share">
+            
+              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//rb-webstudio.go.yj.fr/articles/comment-bien-gerer-le-focus-dans-vos-interfaces-35.html&amp;title=Comment%20bien%20g%C3%A9rer%20le%20focus%20dans%20vos%20interfaces%20%3F&amp;source=http%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
+            
+              <li><a href="https://twitter.com/intent/tweet?url=http%3A//rb-webstudio.go.yj.fr/articles/comment-bien-gerer-le-focus-dans-vos-interfaces-35.html&amp;text=Comment%20bien%20g%C3%A9rer%20le%20focus%20dans%20vos%20interfaces%20%3F" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
+            
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//rb-webstudio.go.yj.fr/articles/comment-bien-gerer-le-focus-dans-vos-interfaces-35.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
+            
+              <li><a href="mailto:?subject=Je%20souhaite%20te%20partager%20cet%20article%20%3A%20Comment%20bien%20g%C3%A9rer%20le%20focus%20dans%20vos%20interfaces%20%3F&amp;body=Salut%2C%0AJe%20pense%20que%20cet%20article%20devrait%20t%27int%C3%A9resser%20%3A%0Ahttps%3A//rb-webstudio.go.yj.fr/articles/comment-bien-gerer-le-focus-dans-vos-interfaces-35.html" class="fa-solid fa-square-share-nodes" target="_blank" rel="noopener noreferrer"><span>Partager à un ami</span></a></li>
+            
+          </ul>
+        </nav>
+      </div>
+      <div class="content"><p>Lorsque vous déplacez l'attention des utilisateurs vers un autre endroit ou une autre couche de la page (par exemple, en affichant une boîte de dialogue modale ou une autre superposition), vous devez vous assurer qu'ils peuvent également interagir immédiatement avec ce contenu sans effort supplémentaire. Par conséquent, vous devez déplacer le focus vers cette partie de l'interface utilisateur. Si vous ne le faites pas, les utilisateurs risquent d'être encore sur un élément interactif de la page en arrière-plan. Le fait d'appuyer sur <code>Tab</code> aurait alors pour conséquence de focaliser des éléments qui sont obscurcis et non pertinents. Cela peut prêter à confusion et empêcher les gens d'accéder à des informations et à des fonctionnalités importantes.</p>
+<p>Vous devez déplacer votre attention vers l'endroit où elle est actuellement nécessaire. Ce processus s'appelle la gestion de l'attention. Les exemples <a href="#exemple-1">1</a> et <a href="#exemple-2">2</a> illustrent comment créer une fenêtre modale personnalisée et déplacer le focus du bouton vers la fenêtre modale et inversement, selon les besoins.</p>
+<p><strong><span id="exemple-1">Exemple&nbsp;1</span>&nbsp;&ndash;&nbsp;Un bouton et une boîte de dialogue modale personnalisée</strong></p>
+<pre><code class="language-html">&lt;button type=&quot;button&quot; class=&quot;open&quot; aria-haspopup=&quot;dialog&quot;&gt;Se connecter&lt;/button&gt;
+
+&lt;div role=&quot;dialog&quot; aria-modal=&quot;true&quot; hidden aria-labelledby=&quot;heading&quot;&gt;
+  &lt;div&gt;
+    &lt;button type=&quot;button&quot; class=&quot;close&quot;&gt;Fermer&lt;/button&gt;
+
+    &lt;h1 id=&quot;heading&quot; tabindex=&quot;-1&quot;&gt;Se connecter&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* Style de base pour le dialogue */
+  [role=&quot;dialog&quot;] {
+    align-items: center;
+    background: rgb( 0 0 0 / 0.2);
+    inset: 0;
+    justify-content: center;
+    margin: auto;
+    position: fixed;
+  }
+
+/* Modifie l'affichage de la boîte de dialogue lorsqu'elle est visible. */
+  [role=&quot;dialog&quot;]:not([hidden]) {
+    display: flex;
+  }
+
+/* Style de base pour le contenu du dialogue */
+  [role=&quot;dialog&quot;] &gt; div {
+    background: rgb(255 255 255);
+    box-sizing: border-box;
+    max-width: 40rem;
+    padding: 2rem;
+    width: 90vw;
+  }
+
+/* Affiche le style de mise au point pour tous les éléments */
+  :focus-visible {
+    outline: 4px solid #123456;
+    outline-offset: 0.25em;
+  }
+
+/* Déplace le contour de la boîte de dialogue à l'intérieur pour qu'il soit visible. */
+  [role=&quot;dialog&quot;]:focus-visible { 
+    outline-offset: -0.5em;
+  }
+&lt;/style&gt;
+</code></pre>
+<p><strong><span id="exemple-2">Exemple&nbsp;2</span>&nbsp;&ndash;&nbsp;Exemple simple de gestion de la mise au point</strong></p>
+<pre><code class="language-Javascript">const dialogOpen = document.querySelector(&quot;.open&quot;);
+const dialogClose = document.querySelector(&quot;.close&quot;);
+const dialog = document.querySelector('[role=&quot;dialog&quot;]');
+const heading = dialog.querySelectorAll('[tabindex=&quot;-1&quot;]')[0];
+let trigger;
+
+dialogOpen.addEventListener(&quot;click&quot;, open);
+dialogClose.addEventListener(&quot;click&quot;, close);
+
+function open() {
+    // l'élément qui a déclenché l'action.
+  trigger = document.activeElement; 
+    // Affiche le dialogue.
+  dialogToggle(); 
+}
+
+function close() {
+  // Cache la boîte de dialogue.
+  dialogToggle();
+}
+
+function dialogToggle() {
+  const isOpen = !dialog.hasAttribute(&quot;hidden&quot;);
+
+  if (!isOpen) {
+    dialog.removeAttribute(&quot;hidden&quot;);
+        // Déplace le focus du bouton vers l'en-tête de la boîte de dialogue.
+    heading.focus();
+  } else {
+    dialog.setAttribute(&quot;hidden&quot;, &quot;hidden&quot;);
+        // Déplace l'attention de l'en-tête vers le bouton.
+    trigger.focus(); 
+  }
+}
+</code></pre>
+<p>Si vous utilisez la boîte de dialogue modale native en HTML, vous n'avez pas besoin de gérer le focus, comme le montre l'<a href="#exemple-3">exemple&nbsp;3</a>.</p>
+<p><strong><span id="exemple-3">Exemple&nbsp;3</span>&nbsp;&ndash;&nbsp;Un bouton et une boîte de dialogue modale native</strong></p>
+<pre><code class="language-html">&lt;button type=&quot;button&quot; class=&quot;open&quot; aria-haspopup=&quot;dialog&quot;&gt;Se connecter&lt;/button&gt;
+
+&lt;dialog aria-labelledby=&quot;heading&quot;&gt;
+  &lt;form method=&quot;dialog&quot;&gt;
+    &lt;button type=&quot;button&quot;&gt;Fermer&lt;/button&gt;
+  &lt;/form&gt;
+
+  &lt;h1 id=&quot;heading&quot;&gt;Se connecter&lt;/h1&gt;
+&lt;/dialog&gt;
+
+&lt;script&gt;
+const dialogOpen = document.querySelector(&quot;.open&quot;);
+const dialog = document.querySelector(&quot;dialog&quot;);
+
+dialogOpen.addEventListener(&quot;click&quot;, open);
+
+function open() {
+  dialog.showModal();
+}
+&lt;/script&gt;
+</code></pre>
+<p>L'<a href="#exemple-2">exemple 2</a> illustre le concept de base de la gestion du focus : vous vous souvienez du dernier élément focalisé en stockant une référence à cet élément dans une variable à l'aide de <code>document.activeElement</code>. Avant de déplacer le focus, vous devez décider où vous voulez le mettre. Plusieurs options s'offrent à vous :</p>
+<ul>
+<li>Le premier élément focalisable, s'il y en a un. Cela fonctionne, mais les utilisateurs risquent d'atterrir quelque part au milieu ou à la fin du contenu, en fonction de sa position dans le DOM.</li>
+<li>Le bouton de fermeture, s'il y en a un. C'est une option sûre si vous ne pouvez pas garantir qu'il y a d'autres éléments interactifs. L'inconvénient est que cela peut être irritant lorsque la première chose qu'entend un utilisateur de lecteur d'écran est « bouton de fermeture ».</li>
+<li>S'il y a un titre, vous pouvez le rendre focalisable en utilisant <code>tabindex=-1</code>. Un titre se trouve généralement au début du contenu, et en se concentrant dessus, un lecteur d'écran annonce automatiquement son contenu textuel.</li>
+<li>Comme pour l'en-tête, vous pouvez rendre le dialogue labelisé focalisable à l'aide de <code>tabindex=-1</code>.</li>
+</ul>
+<p>Votre choix dépendra de vos possibilités et contraintes et de ce qui fonctionne le mieux pour tes utilisateurs. Je préfère me concentrer sur l'en-tête. Une fois que l'utilisateur a fini d'interagir avec le contenu de la boîte de dialogue, vous ramenez le focus sur le bouton qui l'a ouverte.</p>
+<p>L'<a href="#exemple-1">exemple 1</a> utilise une solution de dialogue personnalisée, mais en HTML, il existe également un élément de dialogue natif (voir <a href="#exemple-3">exemple 3</a>). Cet élément est pratique parce qu'il intègre beaucoup de choses que vous devez faire manuellement :</p>
+<ul>
+<li>Il a un rôle implicite de dialogue.</li>
+<li>Il fournit des méthodes d'ouverture et de fermeture.</li>
+<li>Elle rend le reste de la page inerte.</li>
+<li>Il gère le focus.</li>
+</ul>
+<p><a href="https://html.spec.whatwg.org/#dialog-focusing-steps" target="_blank">La spécification</a> définit les règles de gestion du focus comme suit :</p>
+<ul>
+<li>S'il existe un descendant focalisable, « focalisez-le ».</li>
+<li>Si ce n'est pas le cas, concentre l'élément de dialogue lui-même.</li>
+</ul>
+<p>La gestion du focus est essentielle pour rendre les interfaces utilisateur complexes accessibles.99% du temps, il ne faut pas toucher à l'ordre du focus. Vous voulez presque toujours que le focus suive l'ordre naturel et laissez les utilisateurs décider quand et où aller ensuite. Vous ne devez scénariser le focus lorsque les utilisateurs ne peuvent pas atteindre certaines parties de l'interface sans faire beaucoup d'efforts. Cela s'applique également à l'attribut <code>autofocus</code> en HTML, que vous pouvez également utiliser pour déplacer le focus. Vous devez certainement éviter de déplacer le focus dans la plupart des navigations et des formulaires.</p>
+<p>Parfois, ce n'est pas l'utilisateur qui déclenche l'action. La première fois que vous visitez de nombreux sites Web européens, une boîte de dialogue s'ouvre automatiquement pour afficher une bannière de consentement aux cookies. Lorsque vous ne gèrez pas le focus dans des cas comme celui-ci, les utilisateurs peuvent interagir avec la page en arrière-plan sans pouvoir fermer la superposition .</p></div>
+      <p class="text-right">Publié le <time datetime="25-07-21">21 juillet 2025</time></p>
+    </article>
+  </section>
+  <section id="lateralBar">
+    <div>
+      <button type="button" class="button" id="tableOfContent" data-panel="true" data-panel-target="#summary" aria-expanded="false" aria-controls="summary">
+        <span class="fa-solid fa-list"></span>
+        <span class="hide">Table de contenu</span>
+      </button>
+      <button type="button" class="button" id="tableOfContent" data-panel="true" data-panel-target="#search" aria-expanded="false" aria-controls="search">
+        <span class="fa-solid fa-magnifying-glass"></span>
+        <span class="hide">Chercher</span>
+      </button>
+      <ul class="flex-container flex-dir-column no-bullet share">
+        
+          <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//rb-webstudio.go.yj.fr/articles/comment-bien-gerer-le-focus-dans-vos-interfaces-35.html&amp;title=Comment%20bien%20g%C3%A9rer%20le%20focus%20dans%20vos%20interfaces%20%3F&amp;source=http%3A//rb-webstudio.go.yj.fr" class="button" target="_blank" rel="noopener noreferrer">
+              <span class="fa-brands fa-linkedin-in"></span>
+              <span class="hide">Partager sur Linkedin</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="https://twitter.com/intent/tweet?url=http%3A//rb-webstudio.go.yj.fr/articles/comment-bien-gerer-le-focus-dans-vos-interfaces-35.html&amp;text=Comment%20bien%20g%C3%A9rer%20le%20focus%20dans%20vos%20interfaces%20%3F" class="button" target="_blank" rel="noopener noreferrer">
+              <span class="fa-brands fa-x-twitter"></span>
+              <span class="hide">Partager sur Twitter</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//rb-webstudio.go.yj.fr/articles/comment-bien-gerer-le-focus-dans-vos-interfaces-35.html" class="button" target="_blank" rel="noopener noreferrer">
+              <span class="fa-brands fa-facebook"></span>
+              <span class="hide">Partager sur Facebook</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="mailto:?subject=Je%20souhaite%20te%20partager%20cet%20article%20%3A%20Comment%20bien%20g%C3%A9rer%20le%20focus%20dans%20vos%20interfaces%20%3F&amp;body=Salut%2C%0AJe%20pense%20que%20cet%20article%20devrait%20t%27int%C3%A9resser%20%3A%0Ahttps%3A//rb-webstudio.go.yj.fr/articles/comment-bien-gerer-le-focus-dans-vos-interfaces-35.html" class="button" target="_blank" rel="noopener noreferrer">
+              <span class="fa-solid fa-share-nodes"></span>
+              <span class="hide">Partager à un ami</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+    <div>
+      <button class="button changeMode" aria-label="Activer le mode sombre">
+        <span class="fa-solid fa-moon"><span class="text">Activer le mode sombre</span></span>
+      </button>
+      <a class="button" id="goToTop" href="#top" aria-label="Retour en haut de la page"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+  </section>
+  <aside class="layer" id="search">
+    <div class="wrap">
+      <button class="button close" aria-label="fermer le panneau">
+        <span class="fa-solid fa-xmark"></span>
+      </button>
+      <div class="content">
+        <h2><strong>Rechercher</strong></h2>
+        <form action="/services/articles/search.html" method="get" role="search" class="grid-x grid-padding-x">
+          <label class="cell medium-9 small-10">
+            <input type="search" name="q" aria-label="saisir votre recherche" placeholder="Entrez vos mots-clés">
+          </label>
+          <div class="cell medium-3 small-2">
+              <button type="submit" aria-label="envoyer" class="button">
+                <span class="fa-solid fa-magnifying-glass"></span>
+              </button>
+          </div>
+        </form>
+        <output></output>
+        <div id="resultSearch" aria-live="polite" aria-atomic="true"></div>
+      </div>
+    </div>
+  </aside>
+  <aside class="layer" id="summary">
+    <div class="wrap">
+      <button class="button close" aria-label="fermer le panneau">
+        <span class="fa-solid fa-xmark"></span>
+      </button>
+      <div class="content">
+        <h2><strong>Table des matières</strong></h2>
+        <nav></nav>
+      </div>
+    </div>
+  </aside>
+  <script type="text/template" id="tplProgressFalse">
+    <div id="progressFalse">
+      <div id="cursorProgress">&nbsp;</div>
+    </div>
+  </script>
+  <script type="text/template" id="tplLayer">
+      <ul class="no-bullet">
+        [[ for(let row of rows){ ]]
+          <li><a href="[[- row.url]]">[[= row.text ]]</a></li>
+        [[ } ]]
+      </ul>
+  </script>
+
+
+      <section class="contact" id="contact">
+  <h3>me contacter</h3>
+  <div class="content">
+    <p class="info">
+      <small><em><span>*</span> champ obligatoire</em></small>
+    </p>
+    <form id="formContact" action="/services/mail/send.html" method="post" class="grid-x grid-padding-x clearfix" novalidate>
+      <label class="cell medium-4 padding-left-0">
+        <span>
+          <span>Civilité</span>
+          <select name="civility" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
+            <option value="">choisir</option>
+            <option value="Mademoiselle">Mademoiselle</option>
+            <option value="Madame">Madame</option>
+            <option value="Monsieur">Monsieur</option>
+          </select>
+        </span>
+      </label>
+      <label class="cell medium-4">
+        <span>
+          <span>Prénom</span>
+          <input type="text" name="firstname">
+        </span>
+      </label>
+      <label class="cell medium-4 padding-right-0">
+        <span>
+          <span>Nom</span>
+          <input type="text" name="lastname" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
+        </span>
+      </label>
+      <label class="cell medium-6 margin-top-1 padding-left-0">
+        <span>
+          <span>Email</span>
+          <input type="email" name="email" required data-validate-rules="isnotempty isemail" data-error-isnotempty="ne doit pas être vide" data-error-isemail="Ce champ doit avoir la bonne saisie (dom@dom.com)">
+        </span>
+      </label>
+      <label><span><span>addresse</span><input type="text" name="address" tabindex="-1"></span></label>
+      <label class="cell medium-6 padding-right-0 margin-top-1">
+        <span>
+          <span>Sujet</span>
+          <input type="text" name="subject" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
+        </span>
+      </label>
+      <label class="cell medium-3 flex-container align-middle">
+        <span>
+          <input type="checkbox" name="appointement">
+          <span class="icon">
+            <i class="fa-regular fa-square"></i>
+            <i class="fa-solid fa-square-check"></i>
+          </span>
+          <span class="margin-left-1">un rendez-vous</span>
+        </span>
+      </label>
+      <label class="cell medium-3"><span><span>Téléphone</span><input type="text" name="phone" disabled data-validate-rules="isnotempty checkphone" data-error-isnotempty="le n° de téléphone est manquant" data-error-checkphone="Le format du champ téléphone ne semble pas être bon 0102030405" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Date</span><input type="date" name="date_appointment" disabled data-validate-rules="isnotempty datemin businessday isdate" data-error-isnotempty="la date est manquante" data-error-datemin="La date de rendez vous doit être suppérieur à aujourd'hui" data-error-businessday="les rendez vous sont du lundi au vendredi" data-error-isdate="Ce champ doit être une date valide" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Heure</span><input type="time" name="hour_appointment" disabled data-validate-rules="isnotempty betweenhour" data-error-isnotempty="l'heure est manquante" data-error-betweenhour="Les rendez vous sont compris entre 9 h 00 et 18 h 00" data-validate-target-error="#errorAppointment" data-validate-betweenhour-args="9;18"></span></label>
+      <div id="errorAppointment" class="cell medium-12"></div>
+      <label class="cell medium-12"><span><span>Message</span><textarea name="message" cols="30" rows="10" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3"></textarea></span></label>
+      <div class="cell medium-4 margin-top-1 large-offset-8">
+        <button class="button expanded" type="submit">envoyer</button>
+      </div>
+    </form>
+  </div>
+</section>
+      <footer>
+  <p class="flex-container align-middle align-justify">
+  <span>RB webstudio &ndash; <a href="https://www.alsacreations.com/profil/lire/11496-niuxe.html" target="_blank">Alsacreations</a> &ndash; <a href="https://github.com/niux3" target="_blank">Github</a> &ndash; <a href="https://www.linkedin.com/in/renaud-bourdeau-%F0%9F%90%A7-7639b944/" target="_blank">LinkedIn</a> &ndash; <a href="/static/renaud-bourdeau-cv.pdf">CV</a></span>
+  
+  </p>
+</footer>
+
+    </main>
+    <script src="/static/app-CMI1Mozt.js"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </body>
+</html>
