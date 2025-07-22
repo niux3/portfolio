@@ -1,7 +1,7 @@
 {% extends layout_template or 'base_frontend.html' %}
 
 {% block content %}
-<section class="introduction fill-right delay4">
+<section class="introduction flag-right delay6">
     <h2>
         <span class="bold">RB Webstudio</span>
         <br>
@@ -11,11 +11,11 @@
     </h2>
 </section>
 
-<section class="work">
-  <h3 class="transition-fade delay4"><span>PROJETS PERSONNELS</span></h3>
+<section class="work flag-down delay9">
+  <h3>PROJETS PERSONNELS</h3>
   <nav class="content">
     <ul class="items-icons">
-      <li class="transition-fade delay5">
+      <li>
         <a href="https://github.com/niux3/validator" target="_blank">
           <span class="fa-brands fa-js"></span>
           <span>
@@ -24,7 +24,7 @@
           </span>
         </a>
       </li>
-      <li class="transition-fade delay6">
+      <li>
         <a href="https://github.com/niux3/js-template-engine" target="_blank">
           <span class="fa-brands fa-js"></span>
           <span>
@@ -33,7 +33,7 @@
           </span>
         </a>
       </li>
-      <li class="transition-fade delay7">
+      <li>
         <a href="https://github.com/niux3/forum" target="_blank">
           <span class="fa-brands fa-python"></span>
           <span>
@@ -44,11 +44,11 @@
       </li>
     </ul>
   </nav>
-  <h3 class="transition-fade delay8"><span>PROJETS</span></h3>
+  <h3>PROJETS</h3>
   <nav class="content">
     <ul class="items-icons">
       {% for object in object_list.projects %}
-      <li class="transition-fade delay{{ object.delay_transition }}">
+      <li>
         <a href="{{ object.url }}" target="_blank">
           <span class="{{ object.activity.icon }}"></span>
           <span>

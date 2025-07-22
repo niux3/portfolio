@@ -2,7 +2,9 @@ html{
   --animation-duration: .6s;
   &.animate-home{
     .animate-logo-home{
-      transform: scale(1);
+      transform: scale(1.5);
+      opacity: 0;
+      filter: blur(2px);
       animation: 600ms animate_logo_home forwards $easin;
     }
 
@@ -10,41 +12,69 @@ html{
       opacity: 0;
       filter: blur(2px);
       animation: 600ms animate_in forwards linear;
-      @for $i from 1 to 100{
+      @for $i from 1 to 20{
         &.delay#{$i}{
           animation-delay: #{200 * $i}ms;
         }
       }
     }
 
-    .fill-right{
-      > *{
-        clip-path: inset(0 100% 0 0);
-        animation: 600ms fill_right $easin forwards;
-      }
+    .flag-down{
+      clip-path: inset(0 0 100% 0);
+      animation: 600ms flag_down $easin forwards;
 
-      @for $i from 1 to 100{
+      @for $i from 1 to 20{
         &.delay#{$i}{
-          > *{
-            animation-delay: #{(200 * $i)}ms;
-          }
+          animation-delay: #{200 * $i}ms;
+        }
+      }
+    }
+
+    .flag-right{
+      clip-path: inset(0 100% 0 0);
+      animation: 600ms flag_right $easin forwards;
+
+      @for $i from 1 to 20{
+        &.delay#{$i}{
+          animation-delay: #{200 * $i}ms;
         }
       }
     }
   }
 
-  &.is-changing{
+  &.is-rendering{
     .transition-fade{
       opacity: 0;
-      filter: blur(5px);
-      animation: var(--animation-duration) animate_in forwards;
-
-      @for $i from 1 to 100{
+      filter: blur(2px);
+      animation: 600ms animate_in forwards linear;
+      @for $i from 1 to 20{
         &.delay#{$i}{
           animation-delay: #{200 * $i}ms;
         }
       }
+    }
 
+    .flag-down{
+      clip-path: inset(0 0 100% 0);
+      animation: 600ms flag_down $easin forwards;
+
+      @for $i from 1 to 20{
+        &.delay#{$i}{
+          animation-delay: #{200 * $i}ms;
+        }
+      }
+    }
+
+    .flag-right{
+      background-color: red;
+      clip-path: inset(0 100% 0 0);
+      animation: 600ms flag_right $easin forwards;
+
+      @for $i from 1 to 20{
+        &.delay#{$i}{
+          animation-delay: #{200 * $i}ms;
+        }
+      }
     }
     :is(.layer, #lateralBar){
         opacity: 0 !important;
@@ -54,10 +84,9 @@ html{
   }
 
   &.is-animating{
-    .transition-fade {
-      opacity: 0;
-      filter: blur(0px);
-      animation: var(--animation-duration) animate_out forwards;
+    .transition-fade, .flag-down, .flag-right {
+      opacity: 1;
+      animation: 600ms animate_out forwards;
 
       @for $i from 1 to 100{
         &.delay#{$i}{
