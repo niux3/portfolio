@@ -15,6 +15,3 @@ Dans mon dernier article, je vous explique avec exemples concrets comment utilis
 Un indispensable pour rendre votre code plus clair et efficace !
 
 lire l'article complet : [lien]
-
-
-
