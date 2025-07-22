@@ -1,17 +1,7 @@
-# Quand une modale s’ouvre, où est envoyé le focus clavier ?
+# Vous piégez le focus dans vos modales ? Et si vous le conteniez proprement ?
 
-Dans cet article, je vous montre comment déplacer correctement le focus vers les contenus modaux (et inversement), avec exemples HTML, JS, et bonne pratique UX.
-Astuces, pièges à éviter, et comparaison entre solutions personnalisées et natives.
+L’attribut inert, les dialogues natifs et un soupçon d’ARIA peuvent faire toute la différence pour vos utilisateurs, notamment ceux en situation de handicap.
 
-Si vous codez des interfaces accessibles ou souhaitez améliorer vos modales, c’est ici :
+Dans mon nouvel article, je vous montre 3 façons concrètes de limiter l’attention et éviter les erreurs d’accessibilité trop fréquentes.
 
-lire l'article complet : [lien]
-
-
-# Vous débutez en Python ou souhaitez matriser une fonctionnalité clé ? Découvrez comment affecter facilement les éléments d’une séquence à plusieurs variables gr0ce au dépaquetage.
-
-Dans mon dernier article, je vous explique avec exemples concrets comment utiliser cette syntaxe simple et puissante, ainsi qu’une astuce pour ignorer certaines valeurs.
-
-Un indispensable pour rendre votre code plus clair et efficace !
-
-lire l'article complet : [lien]
+lire l'article ici : [lien]
