@@ -3,7 +3,7 @@ html{
   &.animate-home{
     .animate-logo-home{
       transform: scale(1);
-      animation: 600ms animate_logo_home forwards linear;
+      animation: 600ms animate_logo_home forwards $easin;
     }
 
     .transition-fade{
