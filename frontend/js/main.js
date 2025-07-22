@@ -63,7 +63,6 @@ window.addEventListener('DOMContentLoaded', () =>{
                     $main.classList.remove('hidden')
                     console.log(document.querySelector('html'))
                     document.querySelector('html').classList.add('animate-home')
-                    document.getElementById('logo').classList.add('transition-fade')
                 }, duration)
             }else{
                 $main.classList.remove('hidden')
@@ -90,12 +89,15 @@ window.addEventListener('DOMContentLoaded', () =>{
     swup.hooks.on('visit:start', () => {
         console.log('1. Swup: visit:start - Un clic a été détecté et Swup commence une nouvelle visite.')
         console.log('visit:start - from:', swup.currentPageUrl, 'to:', swup.currentVisit.to.url)
+        document.querySelector('html').classList.remove('animate-home')
         unmount()
+    })
+    swup.hooks.on('link:click', () => {
+        document.querySelector('html').classList.remove('animate-home')
     })
 
     swup.hooks.on('page:load', () => {
         console.log('2. Swup: page:load - La page actuelle est sur le point d\'être déchargée (avant l\'animation de sortie).')
-        document.querySelector('html').classList.remove('animate-home')
         //let hasSeenAnimation = sessionStorage.getItem('introPlayed')
         //if(['/index.html', '/'].some(p => p === window.location.pathname) && !hasSeenAnimation){
             //return new Promise(resolve => {
@@ -109,6 +111,7 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     swup.hooks.on('animation:out:start', () => {
         console.log('3. Swup: animation:out:start - L\'animation de sortie du contenu commence.')
+        document.querySelector('html').classList.remove('animate-home')
     })
 
     swup.hooks.on('animation:in:await', (visit, args) =>{

@@ -1,8 +1,8 @@
 <header class="flex-container align-justify align-middle">
     {% if homepage %}
-    <h1 class="transition-fade delay0"><div>{% include "partials/frontend/logo.html" %}</div></h1>
+    <h1 class="animate-logo-home">{% include "partials/frontend/logo.html" %}</h1>
     {% else %}
-    <div class="transition-fade delay0"><div>{% include "partials/frontend/logo.html" %}</div></div>
+    <div>{% include "partials/frontend/logo.html" %}</div>
     {% endif %}
     <nav class="flex-container align-right">
       <a href="{{ url_for('posts.index_articles') }}" class="margin-horizontal-1 transition-fade delay2"><span>articles</span></a>
