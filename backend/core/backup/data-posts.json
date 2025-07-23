@@ -406,6 +406,17 @@
       "meta_description": "G\u00e9rer le focus dans les dialogues pour une meilleure accessibilit\u00e9 : pi\u00e8ges, inert, et bonnes pratiques \u00e0 conna\u00eetre en HTML & JavaScript.",
       "status_id": 3,
       "categories_id": 2
+    },
+    {
+      "id": 38,
+      "title": "Pr\u00e9server l'ordre",
+      "slug": "preserver-l-ordre",
+      "body": "Un d\u00e9calage entre l'ordre des \u00e9l\u00e9ments dans le document et l'ordre visuel peut entra\u00eener de la confusion et de l'impr\u00e9visibilit\u00e9. Cela rend difficile la navigation, l'orientation et la compr\u00e9hension de l'interface utilisateur pour les utilisateurs de clavier et de lecteurs d'\u00e9cran. \r\n\r\nLorsque vous cr\u00e9ez des mises en page en CSS, laissez les \u00e9l\u00e9ments s'\u00e9couler naturellement sur les axes x et y et abstienez-vous d'utiliser des attributs et des propri\u00e9t\u00e9s qui affectent l'ordre visuel ou l'ordre de tabulation, comme le montrent les exemples [1](#exemple-1) et [2](#exemple-2).\r\n\r\n**<span id=\"exemple-1\">Exemple&nbsp;1</span>&nbsp;&ndash;&nbsp;Contenu align\u00e9 naturellement sur l'axe des x**\r\n\r\n```css\r\nul {\r\n  display: flex;\r\n  gap: 1rem;\r\n}\r\n```\r\n\r\n**<span id=\"exemple-2\">Exemple&nbsp;2</span>&nbsp;&ndash;&nbsp;Une mise en page en deux colonnes suivant le flux naturel du contenu**\r\n\r\n```css\r\nmain {\r\n  display: grid;\r\n  grid-template-columns: 2fr 1fr;\r\n  gap: 1rem;\r\n}\r\n```\r\n\r\nLorsque vous visitez une page et que vous appuyez sur `Tab`, la focalisation passe au premier \u00e9l\u00e9ment focalisable dans le DOM. Lorsque vous appuyez \u00e0 nouveau, il passe au deuxi\u00e8me \u00e9l\u00e9ment, etc. C'est un comportement pr\u00e9visible et attendu. Lorsque vous modifiez la mise en page d'une page \u00e0 l'aide de CSS, vous devez vous assurer que l'exp\u00e9rience reste ainsi. L'ordre doit \u00eatre s\u00e9quentiel, m\u00eame lorsque vous transformez une liste verticale en liste horizontale ou que vous disposez les \u00e9l\u00e9ments dans une grille. Pour la plupart des langues naturelles , comme l'anglais, le fran\u00e7ais ou l'allemand, cela signifie que l'attention se d\u00e9place de haut en bas, de gauche \u00e0 droite. Dans d'autres langues, comme l'h\u00e9breu, il se d\u00e9place de haut en bas, de droite \u00e0 gauche.\r\n\r\nLa chose la plus importante que vous devez savoir est que le fait de changer l'ordre visuel de n'affecte pas l'ordre naturelle. Le premier lien qui re\u00e7oit le focus dans l'[exemple 3](#exemple-3) est \u00e0 la fois le premier \u00e9l\u00e9ment du document et de la page.\r\n\r\n**<span id=\"exemple-3\">Exemple&nbsp;3</span>&nbsp;&ndash;&nbsp;Une liste de trois liens**\r\n\r\n```html\r\n<ul>\r\n  <li><a href=\"#\">Un</a></li>\r\n  <li><a href=\"#\">Deux</a></li>\r\n  <li><a href=\"#\">Trois</a></li>\r\n</ul>\r\n```\r\n\r\nC'est \u00e9galement le cas lorsque vous laissez les \u00e9l\u00e9ments s'\u00e9couler naturellement sur l'axe des x \u00e0 l'aide de Flexbox (voir l'[exemple 4](#exemple-4)). \r\n\r\n**<span id=\"exemple-4\">Exemple&nbsp;4</span>&nbsp;&ndash;&nbsp;Alignement horizontal de la liste**\r\n\r\n```css\r\nul {\r\n  display: flex;\r\n  gap: 1rem;\r\n  list-style-type: none;\r\n}\r\n```\r\n\r\nSi vous rompez le flux naturel et r\u00e9organisez les \u00e9l\u00e9ments manuellement, comme le montre l'[exemple 5](#exemple-5), vous obtienez un ordre visuel diff\u00e9rent, mais l'ordre des onglets reste le m\u00eame.\r\n\r\n**<span id=\"exemple-5\">Exemple&nbsp;5</span>&nbsp;&ndash;&nbsp;Mauvaise pratique : Modifier l'ordre naturel \u00e0 l'aide de la propri\u00e9t\u00e9 d'ordre**\r\n\r\n```css\r\nul {\r\n  display: flex;\r\n  gap: 1rem;\r\n  list-style-type: none;\r\n}\r\n\r\nli:first-child {  order: 2 }\r\nli:nth-child(2) { order: 3 }\r\nli:last-child {   order: 1 }\r\n```\r\n\r\nSi l'ordre visuel et l'ordre du DOM ne correspondent pas, cela peut irriter et troubler les utilisateurs jusqu'\u00e0 ce que l'exp\u00e9rience soit si mauvaise que le site soit inutilisable. Par exemple :\r\n\r\n- L'ordre visuel pr\u00e9occupe les utilisateurs de clavier car ils peuvent avoir du mal \u00e0 pr\u00e9dire o\u00f9 le focus ira ensuite.\r\n- Cela peut irriter les utilisateurs de loupes d'\u00e9cran si la partie agrandie de l'\u00e9cran saute beaucoup.\r\n- Si un utilisateur aveugle travaille avec un utilisateur voyant qui lit la page dans l'ordre visuel, il peut \u00eatre d\u00e9rout\u00e9 lorsqu'il rencontre des informations dans des ordres diff\u00e9rents.\r\n\r\nAyant appris \u00e0 conna\u00eetre l'attribut `tabindex` dans l'article : [Rendre les \u00e9l\u00e9ments focalisables](/articles/rendre-les-elements-focalisables-34.html), vous pouvez penser que vous pouvez compenser le probl\u00e8me caus\u00e9 par le code de l'[exemple 5](#exemple-5) en adaptant l'indice de tabulation de chaque \u00e9l\u00e9ment en cons\u00e9quence, comme le montre l'[exemple 6](#exemple-6). Si vous utilisez la touche `Tab`, l'ordre DOM et l'ordre visuel correspondent \u00e0 nouveau, mais le curseur virtuel d'un lecteur d'\u00e9cran ignore l'attribut et suit toujours l'ordre DOM original. En plus de cela, vous devez maintenant g\u00e9rer et maintenir un ordre de tabulation significatif pour l'ensemble de la page, ce qui est fastidieux et source d'erreurs.\r\n\r\n**<span id=\"exemple-6\">Exemple&nbsp;6</span>&nbsp;&ndash;&nbsp;Mauvaise pratique : Modifier l'ordre naturel du DOM en utilisant la propri\u00e9t\u00e9 `tabindex`**\r\n\r\n```html\r\n<ul>\r\n  <li><a href=\"#\" tabindex=\"2\">Un</a></li>\r\n  <li><a href=\"#\" tabindex=\"3\">Deux</a></li>\r\n  <li><a href=\"#\" tabindex=\"1\">Trois</a></li>\r\n</ul>\r\n```\r\nN'utilisez pas d'index de tabulation dont la valeur est sup\u00e9rieure \u00e0 0, et ne r\u00e9organisez pas les \u00e9l\u00e9ments interactifs en utilisant des propri\u00e9t\u00e9s CSS comme `flex-direction`, `order`, `grid-auto-flow`, ou des techniques comme le placement explicite dans la Grille, le positionnement absolu ou les marges n\u00e9gatives. Lorsque vous avez affaire \u00e0 des \u00e9l\u00e9ments interactifs, l'ordre visuel doit toujours repr\u00e9senter l'ordre DOM le mieux possible, car l'ordre des tabulations suit l'ordre DOM, quelle que soit la fa\u00e7on dont vous disposez visuellement les \u00e9l\u00e9ments .\r\n\r\n\r\n\r\n",
+      "created": "2025-07-23T23:51:33.074579",
+      "updated": "2025-07-24T00:49:02.068113",
+      "meta_description": "lorem",
+      "status_id": 3,
+      "categories_id": 2
     }
   ],
   "tag": [
@@ -1120,6 +1131,26 @@
       "id": 1528,
       "posts_id": 37,
       "tags_id": 11
+    },
+    {
+      "id": 1541,
+      "posts_id": 38,
+      "tags_id": 1
+    },
+    {
+      "id": 1542,
+      "posts_id": 38,
+      "tags_id": 2
+    },
+    {
+      "id": 1543,
+      "posts_id": 38,
+      "tags_id": 4
+    },
+    {
+      "id": 1544,
+      "posts_id": 38,
+      "tags_id": 12
     }
   ],
   "status": [
