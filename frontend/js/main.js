@@ -88,7 +88,7 @@ window.addEventListener('DOMContentLoaded', () =>{
     })
     swup.hooks.on('visit:start', () => {
         console.log('1. Swup: visit:start - Un clic a été détecté et Swup commence une nouvelle visite.')
-        console.log('visit:start - from:', swup.currentPageUrl, 'to:', swup.currentVisit.to.url)
+        //console.log('visit:start - from:', swup.currentPageUrl, 'to:', swup.currentVisit.to.url)
         document.querySelector('html').classList.remove('animate-home')
         unmount()
     })
@@ -116,6 +116,17 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     swup.hooks.on('animation:in:await', (visit, args) =>{
         console.log('4. Swup: animation:out:await - Le hook d\'attente de l\'animation de sortie est déclenché.')
+    })
+
+    swup.hooks.on('animation:in:start', (visit, args) =>{
+        const elements = document.querySelectorAll('[class*=delay]');
+        console.log('>>', elements)
+        elements.forEach(el => {
+            //el.classList.remove('animate-in'); // reset si besoin
+            void el.offsetWidth; // force reflow
+            //el.classList.add('animate-in');
+
+        });
     })
 
     swup.hooks.on('content:replace', (visit, args) =>{
