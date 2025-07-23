@@ -3,7 +3,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from backend.core.libs.filters import format_date_fr
+from backend.core.libs.filters import format_date_fr, random_delay_transition
 from backend.core.config import config
 from backend.core.libs.autoload import Autoload
 from backend.core.context_processors import inject_footer_flag
@@ -39,5 +39,6 @@ def create_app():
     # app.register_blueprint(auth_views.bp, url_prefix='/auth')
     app.context_processor(inject_footer_flag())
     app.jinja_env.filters['date_fr'] = format_date_fr
+    app.jinja_env.filters['random_delay'] = random_delay_transition
 
     return app

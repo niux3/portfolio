@@ -2,6 +2,7 @@
 @import "config/vars";
 @import "config/mixin";
 @import "config/themes";
+@import "config/animations_theme";
 
 // base
 @import "base/foundation-float.min";
@@ -41,6 +42,7 @@
 @import "atoms/goto_top";
 @import "atoms/layer";
 @import "atoms/close";
+@import "atoms/hidden";
 
 // helpers
 @import "atoms/bold";
@@ -69,5 +71,6 @@
 @import "organismes/html";
 @import "organismes/contact";
 @import "organismes/article";
+@import "organismes/anim_intro";
 
 //templates

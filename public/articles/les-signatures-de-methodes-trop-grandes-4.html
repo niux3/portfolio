@@ -13,6 +13,15 @@
     <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Les signatures de méthodes trop grandes - RB webstudio </title>
+    <style>
+      .hidden{
+        visibility: hidden;
+      }
+      #anim-logo{
+        position: absolute;
+        top: -5000px;
+      }
+    </style>
 
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,15 +29,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="/static/styles-B5lEBIL-.css">
+    <link rel="stylesheet" href="/static/styles-DpiJFAbq.css">
     <meta name="description"  content="Des méthodes avec trop de paramètres nuisent à la lisibilité et à la maintenance du code. Découvrez comment simplifier vos signatures grâce aux techniques : introduire un objet paramètre, préserver l’objet entier et remplacer un paramètre par un appel de méthode.">
   </head>
 
   <body>
-    <main class="grid-container transition-fade" id="viewsTransition">
+    <main class="grid-container hidden" id="viewsTransition">
       <header class="flex-container align-justify align-middle">
     
-    <div><a href="/">
+    <div><a href="/index.html">
   <svg id="logo" width="5rem" height="5rem" version="1.1" viewBox="0 0 79.375 79.375">
     <desc>RB webstudio - spécialiste Python - Javascript/Typescript</desc>
     <g transform="translate(-57.558 -71.836)">
@@ -45,8 +54,8 @@
 </a></div>
     
     <nav class="flex-container align-right">
-      <a href="/articles/index.html" class="margin-horizontal-1">articles</a>
-      <a href="#contact" class="margin-horizontal-1">contact</a>
+      <a href="/articles/index.html" class="margin-horizontal-1 transition-fade delay2"><span>articles</span></a>
+      <a href="#contact" class="margin-horizontal-1 transition-fade delay3"><span>contact</span></a>
     </nav>
 </header>
 
@@ -54,15 +63,15 @@
 <progress id="progressTrue" max="100" value="0"></progress>
   <section>
     <article>
-      <h1>Les signatures de méthodes trop grandes</h1>
+      <h1 class="flag-right delay3">Les signatures de méthodes trop grandes</h1>
       <div class="grid-x grid-padding-x">
-        <ul class="cell medium-6 small-12 flex-container no-bullet tags-list">
+        <ul class="cell medium-6 small-12 flex-container no-bullet tags-list transition-fade delay4">
           
             <li><a href="/articles/chercher-articles-par-developpement.html"><span>développement</span></a></li>
           
         </ul>
         <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6 small-12">
-          <ul class="flex-container no-bullet share">
+          <ul class="flex-container no-bullet share transition-fade delay5">
             
               <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//rb-webstudio.go.yj.fr/articles/les-signatures-de-methodes-trop-grandes-4.html&amp;title=Les%20signatures%20de%20m%C3%A9thodes%20trop%20grandes&amp;source=http%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
             
@@ -75,7 +84,7 @@
           </ul>
         </nav>
       </div>
-      <div class="content"><p>Une méthode qui prend plus de trois ou quatre paramètres peut rapidement devenir problématique. Ce phénomène se produit souvent lorsqu'on essaie de combiner plusieurs algorithmes ou logiques au sein d'une même méthode. Dans ces cas, une longue liste de paramètres est utilisée pour indiquer quel algorithme ou quelle logique doit être exécuté et comment cela doit se dérouler.</p>
+      <div class="content flag-down delay6"><p>Une méthode qui prend plus de trois ou quatre paramètres peut rapidement devenir problématique. Ce phénomène se produit souvent lorsqu'on essaie de combiner plusieurs algorithmes ou logiques au sein d'une même méthode. Dans ces cas, une longue liste de paramètres est utilisée pour indiquer quel algorithme ou quelle logique doit être exécuté et comment cela doit se dérouler.</p>
 <p>Un autre facteur pouvant conduire à des listes de paramètres excessives est l'effort de rendre les classes plus indépendantes entre elles. Par exemple, pour réduire les dépendances entre classes, le code qui s'occupait de créer des objets dans une méthode est déplacé en dehors de celle-ci. Désormais, c’est la méthode appelante qui crée ces objets et les passe en paramètres. Cela permet à la classe d'origine de ne plus être au courant des relations entre ces objets, ce qui réduit sa dépendance. Cependant, si plusieurs objets doivent être créés de cette manière, chacun d'entre eux devra être transmis sous forme de paramètre, allongeant ainsi la liste des paramètres de la méthode.</p>
 <p>Les longues listes de paramètres présentent plusieurs inconvénients. Elles rendent la méthode plus difficile à comprendre, car il devient de plus en plus complexe de savoir ce que chaque paramètre représente et comment ils interagissent. De plus, ces listes de paramètres peuvent devenir contradictoires et compliquées à utiliser à mesure qu'elles grandissent.</p>
 <h2>Vérification des valeurs passées en paramètres</h2>
@@ -253,7 +262,39 @@
 </footer>
 
     </main>
-    <script src="/static/app-CMI1Mozt.js"></script>
+    <script type="text/template" id="tplAnimLogo">
+      <div id="anim-logo">
+  <div class="wrap">
+    <svg width="120" height="120" viewBox="0 0 200 200">
+      <circle
+        id="anim-progress"
+        cx="100"
+        cy="100"
+        r="50"
+        stroke="var(--color-cannes)"
+        stroke-width="100"
+        fill="none"
+        stroke-dasharray="314"
+        stroke-dashoffset="314"
+        />
+    </svg>
+    <svg class="logo" width="145" height="145" version="1.1" viewBox="0 0 79.375 79.375">
+      <desc>RB webstudio - spécialiste Python - Javascript/Typescript</desc>
+      <g transform="translate(-57.558 -71.836)">
+      <circle cx="97.246" cy="111.52" r="33.073" fill="var(--color-cannes)" stroke-width=".177" style="paint-order:markers fill stroke"/>
+      <g transform="matrix(.33371 0 0 .33371 -78.371 192.62)" fill="var(--color-laval)">
+      <g transform="translate(243.55 81.615)" stroke-width=".67039" aria-label="rb">
+      <path d="m251.15-309.59v27.653h-25.077v-31.927q0-10.81 2.0112-16.843 2.0112-6.0963 6.8505-10.81 3.6452-3.6452 8.4846-5.6564 4.9022-2.074 9.8044-2.074 2.3882 0 4.7136 0.18855 2.3254 0.18854 4.5251 0.56563v26.396q-0.43994-0.0628-1.3198-0.18855-2.074-0.31424-2.6396-0.31424-4.0852 0-5.7192 2.6396-1.6341 2.6396-1.6341 10.37z"/>
+      <path d="m270.76-373.69h24.448v51.599q0 9.553 2.2626 13.324t7.5418 3.7709q3.8338 0 6.662-2.8282 2.8282-2.891 2.8282-6.7876 0-4.2109-2.7653-7.039-2.7653-2.891-6.7248-2.891-1.0056 0-2.1368 0.31425-1.1313 0.25139-3.2681 1.1313v-26.019q0.62849-0.0629 2.6396-0.18855 2.0112-0.18855 3.1424-0.18855 14.141 0 24.008 10.181 9.9301 10.119 9.9301 24.7 0 6.8505-2.514 13.135-2.5139 6.222-7.2276 11.061-4.9022 4.965-11.187 7.6675-6.222 2.6396-13.135 2.6396-10.181 0-18.415-5.2164-8.1703-5.2793-12.13-14.267-2.074-4.7765-3.0167-9.8672-0.94273-5.1536-0.94273-12.758v-4.9022z"/>
+      </g>
+      <path d="m542.38-288.15h-31.744l15.872-17.36z" stroke-width=".44511" style="paint-order:markers fill stroke"/>
+      </g>
+      </g>
+    </svg>
+  </div>
+</div>
+    </script>
+    <script src="/static/app-B9JQDJV9.js"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>

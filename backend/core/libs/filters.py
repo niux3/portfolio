@@ -1,5 +1,6 @@
-from datetime import datetime
 import locale
+from random import randint
+from datetime import datetime
 
 
 try:
@@ -12,3 +13,6 @@ def format_date_fr(value, format="%d %B %Y"):
     if isinstance(value, str):
         value = datetime.fromisoformat(value)
     return value.strftime(format)
+
+def random_delay_transition(value, start=1, end=100):
+    return f'{value}{randint(start, end)}'
