@@ -1,7 +1,5 @@
-# Vous piégez le focus dans vos modales ? Et si vous le conteniez proprement ?
+# Saviez-vous que modifier l'ordre visuel avec CSS peut rendre votre site inutilisable pour certains utilisateurs ?
 
-L’attribut inert, les dialogues natifs et un soupçon d’ARIA peuvent faire toute la différence pour vos utilisateurs, notamment ceux en situation de handicap.
+Dans mon dernier article, j'explique pourquoi il est important de laisser les éléments suivre un flux naturel, et comment mal utiliser order ou tabindex peut nuire à l'expérience des personnes utilisant un clavier ou un lecteur d’écran.
 
-Dans mon nouvel article, je vous montre 3 façons concrètes de limiter l’attention et éviter les erreurs d’accessibilité trop fréquentes.
-
-lire l'article ici : [lien]
+➡️ [Lien de l’article]
