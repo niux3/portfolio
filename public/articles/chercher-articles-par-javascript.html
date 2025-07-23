@@ -13,6 +13,15 @@
     <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chercher les articles par javascript - RB webstudio</title>
+    <style>
+      .hidden{
+        visibility: hidden;
+      }
+      #anim-logo{
+        position: absolute;
+        top: -5000px;
+      }
+    </style>
 
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,15 +29,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="/static/styles-B5lEBIL-.css">
+    <link rel="stylesheet" href="/static/styles-DpiJFAbq.css">
     <meta name="description"  content="Découvrez nos articles sur javascript">
   </head>
 
   <body>
-    <main class="grid-container transition-fade" id="viewsTransition">
+    <main class="grid-container hidden" id="viewsTransition">
       <header class="flex-container align-justify align-middle">
     
-    <div><a href="/">
+    <div><a href="/index.html">
   <svg id="logo" width="5rem" height="5rem" version="1.1" viewBox="0 0 79.375 79.375">
     <desc>RB webstudio - spécialiste Python - Javascript/Typescript</desc>
     <g transform="translate(-57.558 -71.836)">
@@ -45,13 +54,13 @@
 </a></div>
     
     <nav class="flex-container align-right">
-      <a href="/articles/index.html" class="margin-horizontal-1">articles</a>
-      <a href="#contact" class="margin-horizontal-1">contact</a>
+      <a href="/articles/index.html" class="margin-horizontal-1 transition-fade delay2"><span>articles</span></a>
+      <a href="#contact" class="margin-horizontal-1 transition-fade delay3"><span>contact</span></a>
     </nav>
 </header>
 
       
-<section class="posts">
+<section class="posts flag-down delay3">
   <h1>Chercher des articles avec le tag : javascript</h1>
   <div class="content">
     <ul class="no-bullet items-articles">
@@ -206,7 +215,39 @@
 </footer>
 
     </main>
-    <script src="/static/app-CMI1Mozt.js"></script>
+    <script type="text/template" id="tplAnimLogo">
+      <div id="anim-logo">
+  <div class="wrap">
+    <svg width="120" height="120" viewBox="0 0 200 200">
+      <circle
+        id="anim-progress"
+        cx="100"
+        cy="100"
+        r="50"
+        stroke="var(--color-cannes)"
+        stroke-width="100"
+        fill="none"
+        stroke-dasharray="314"
+        stroke-dashoffset="314"
+        />
+    </svg>
+    <svg class="logo" width="145" height="145" version="1.1" viewBox="0 0 79.375 79.375">
+      <desc>RB webstudio - spécialiste Python - Javascript/Typescript</desc>
+      <g transform="translate(-57.558 -71.836)">
+      <circle cx="97.246" cy="111.52" r="33.073" fill="var(--color-cannes)" stroke-width=".177" style="paint-order:markers fill stroke"/>
+      <g transform="matrix(.33371 0 0 .33371 -78.371 192.62)" fill="var(--color-laval)">
+      <g transform="translate(243.55 81.615)" stroke-width=".67039" aria-label="rb">
+      <path d="m251.15-309.59v27.653h-25.077v-31.927q0-10.81 2.0112-16.843 2.0112-6.0963 6.8505-10.81 3.6452-3.6452 8.4846-5.6564 4.9022-2.074 9.8044-2.074 2.3882 0 4.7136 0.18855 2.3254 0.18854 4.5251 0.56563v26.396q-0.43994-0.0628-1.3198-0.18855-2.074-0.31424-2.6396-0.31424-4.0852 0-5.7192 2.6396-1.6341 2.6396-1.6341 10.37z"/>
+      <path d="m270.76-373.69h24.448v51.599q0 9.553 2.2626 13.324t7.5418 3.7709q3.8338 0 6.662-2.8282 2.8282-2.891 2.8282-6.7876 0-4.2109-2.7653-7.039-2.7653-2.891-6.7248-2.891-1.0056 0-2.1368 0.31425-1.1313 0.25139-3.2681 1.1313v-26.019q0.62849-0.0629 2.6396-0.18855 2.0112-0.18855 3.1424-0.18855 14.141 0 24.008 10.181 9.9301 10.119 9.9301 24.7 0 6.8505-2.514 13.135-2.5139 6.222-7.2276 11.061-4.9022 4.965-11.187 7.6675-6.222 2.6396-13.135 2.6396-10.181 0-18.415-5.2164-8.1703-5.2793-12.13-14.267-2.074-4.7765-3.0167-9.8672-0.94273-5.1536-0.94273-12.758v-4.9022z"/>
+      </g>
+      <path d="m542.38-288.15h-31.744l15.872-17.36z" stroke-width=".44511" style="paint-order:markers fill stroke"/>
+      </g>
+      </g>
+    </svg>
+  </div>
+</div>
+    </script>
+    <script src="/static/app-B9JQDJV9.js"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>
