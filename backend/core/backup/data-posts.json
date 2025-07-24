@@ -417,6 +417,28 @@
       "meta_description": "\u00c9vitez les pi\u00e8ges de l'ordre visuel en CSS : comprenez son impact sur l'accessibilit\u00e9, la navigation clavier et les lecteurs d'\u00e9cran.",
       "status_id": 3,
       "categories_id": 2
+    },
+    {
+      "id": 39,
+      "title": "Conserver les N derniers \u00e9l\u00e9ments",
+      "slug": "conserver-les-n-derniers-elements",
+      "body": "Vous souhaitez conserver un historique limit\u00e9 des derniers \u00e9l\u00e9ments rencontr\u00e9s lors d'une it\u00e9ration ou d'un autre type de traitement.  Conserver un historique limit\u00e9 est un cas d'usage id\u00e9al pour un `collections.deque`. Par exemple, le code suivant effectue une recherche textuelle simple sur une s\u00e9quence de lignes et renvoie la ligne correspondante ainsi que les N lignes de contexte pr\u00e9c\u00e9dentes lorsqu'un match est trouv\u00e9 :\r\n\r\n```Python\r\nfrom collections import deque\r\n\r\n\r\ndef search(lines, pattern, history=5):\r\n    previous_lines = deque(maxlen=history)\r\n    for line in lines:\r\n        if pattern in line:\r\n            yield line, previous_lines\r\n            previous_lines.append(line)\r\n\r\n# Example use on a file\r\nif __name__ == '__main__':\r\n    with open('somefile.txt') as f:\r\n        for line, prevlines in search(f, 'python', 5):\r\n            for pline in prevlines:\r\n                print(pline, end='')\r\n                print(line, end='')\r\n                print('-' * 20)\r\n```\r\n\r\nLorsqu'on \u00e9crit du code pour rechercher des \u00e9l\u00e9ments, il est courant d'utiliser une fonction g\u00e9n\u00e9ratrice avec `yield`, comme dans la solution de cet article. Cela permet de d\u00e9coupler la logique de recherche du code qui utilise les r\u00e9sultats. L'utilisation de `deque(maxlen=N)` cr\u00e9e une file de taille fixe. Lorsque de nouveaux \u00e9l\u00e9ments sont ajout\u00e9s alors que la file est pleine, l'\u00e9l\u00e9ment le plus ancien est automatiquement supprim\u00e9. Par exemple : \r\n\r\n```Python\r\nfrom collections import deque\r\n\r\n\r\nq = deque(maxlen=3)\r\nq.append(1)\r\nq.append(2)\r\nq.append(3)\r\nprint(q)\r\nq.append(4)\r\nprint(q)\r\nq.append(5)\r\nprint(q)\r\n```\r\n\r\nBien qu'il soit possible d'effectuer ces op\u00e9rations manuellement sur une liste (ajouts, suppressions, etc.), la solution utilisant une file est bien plus \u00e9l\u00e9gante et nettement plus rapide.\r\n\r\nPlus g\u00e9n\u00e9ralement, un deque peut \u00eatre utilis\u00e9 chaque fois qu'une structure de file simple est n\u00e9cessaire. Si vous ne sp\u00e9cifiez pas de taille maximale, vous obtenez une file sans limite de taille permettant d'ajouter ou de retirer des \u00e9l\u00e9ments \u00e0 chaque extr\u00e9mit\u00e9. Par exemple :\r\n\r\n```Python\r\nfrom collections import deque\r\n\r\n\r\nq = deque()\r\nq.append(1)\r\nq.append(2)\r\nq.append(3)\r\nprint(q)\r\nq.appendleft(4)\r\nprint(q)\r\nq.pop()\r\nprint(q)\r\nq.popleft()\r\nprint(q)\r\n```\r\n\r\nL'ajout ou la suppression d'\u00e9l\u00e9ments \u00e0 chaque extr\u00e9mit\u00e9 d'une file a une complexit\u00e9 O(1). Ceci contraste avec une liste classique o\u00f9 l'insertion ou la suppression en t\u00eate de liste a une complexit\u00e9 O(N).\r\n",
+      "created": "2025-07-24T23:12:02.087757",
+      "updated": "2025-07-24T23:36:54.138877",
+      "meta_description": "Apprenez \u00e0 conserver efficacement les N derniers \u00e9l\u00e9ments gr\u00e2ce \u00e0 collections.deque et am\u00e9liorez vos performances Python avec \u00e9l\u00e9gance.",
+      "status_id": 3,
+      "categories_id": 4
+    },
+    {
+      "id": 40,
+      "title": "Trouver les N plus grands ou plus petits \u00e9l\u00e9ments",
+      "slug": "trouver-les-n-plus-grands-ou-plus-petits-elements",
+      "body": "Vous souhaitez cr\u00e9er une liste des N plus grands ou plus petits \u00e9l\u00e9ments d'une collection.\r\n\r\n```Python\r\nimport heapq\r\nfrom random import sample, seed\r\n\r\n\r\nseed(1)\r\nnums = sample(list(range(1, 51)), 11)\r\nprint(nums)\r\nprint(heapq.nlargest(3, nums)) # 42, 37, 32\r\nprint(heapq.nsmallest(3, nums)) # 5, 8, 9\r\n```\r\n\r\nCes deux fonctions acceptent \u00e9galement un param\u00e8tre key qui permet de les utiliser avec des structures de donn\u00e9es plus complexes. Par exemple :\r\n\r\n```Python\r\nfrom collections import namedtuple\r\nimport heapq\r\n\r\n\r\nEmployee = namedtuple('Employee', ['name', 'salary', 'seniority'])\r\n\r\nemployees = [\r\n    Employee('Pierre', 3500, 3),\r\n    Employee('Sophie', 4200, 1),\r\n    Employee('Jean', 3800, 5)\r\n]\r\n\r\n# Top 2 des salaires les plus \u00e9lev\u00e9s\r\nhigh_salary = heapq.nlargest(2, employees, key=lambda e: e.salary)\r\nprint(high_salary)\r\n# [Employ\u00e9(name='Sophie', salary=4200, seniority=1),\r\n#  Employ\u00e9(name='Jean', salary=3800, seniority=5)]\r\n\r\n# 1er en anciennet\u00e9\r\nseniorityer = heapq.nlargest(1, employees, key=lambda e: e.seniority)\r\nprint(seniorityer)\r\n# [Employee(name='Jean', salary=3800, seniority=5)]\r\n```\r\n\r\nSi vous recherchez les N plus petits ou plus grands \u00e9l\u00e9ments d'une collection et que N est petit par rapport \u00e0 la taille totale de cette collection, ces fonctions offrent des performances sup\u00e9rieures. En arri\u00e8re-plan, ces fonctions fonctionnent en convertissant d'abord les donn\u00e9es en une liste o\u00f9 les \u00e9l\u00e9ments sont ordonn\u00e9s en tas (heap). Par exemple :\r\n\r\n```Python\r\nimport heapq\r\n\r\n\r\ndata = [3, 1, 4, 1, 5, 9, 2, 6]\r\n\r\n# \u00c9tape 1 : Conversion en heap (sur place)\r\nheapq.heapify(data)  \r\n# \u2192 data devient [1, 1, 2, 3, 5, 9, 4, 6] \r\n# (structure arborescente implicite)\r\n\r\n# \u00c9tape 2 : Extraction des 3 plus petits\r\npetits = [heapq.heappop(data) for _ in range(3)]\r\n# \u2192 [1, 1, 2]\r\n\"\"\"\r\nvisualisation\r\n       1\r\n     /   \\\r\n    1     2\r\n   / \\   / \\\r\n  3   5 9   4\r\n /\r\n6\r\n\"\"\"\r\n```\r\n\r\nLa caract\u00e9ristique principale d'un tas (heap) est que heap[0] est toujours l'\u00e9l\u00e9ment le plus petit. De plus, les \u00e9l\u00e9ments suivants peuvent \u00eatre facilement obtenus en utilisant la m\u00e9thode heapq.heappop(), qui retire le premier \u00e9l\u00e9ment et le remplace par le prochain \u00e9l\u00e9ment le plus petit (une op\u00e9ration qui s'effectue en O(log N), o\u00f9 N est la taille du tas). Par exemple, pour trouver les trois plus petits \u00e9l\u00e9ments, vous pourriez faire ceci :\r\n\r\n```Python\r\nimport heapq\r\n\r\ndata = [5, 3, 8, 1, 4]\r\nheapq.heapify(data)  # Transforme en tas: [1, 3, 8, 5, 4]\r\n\r\n# Extraction des 3 plus petits \u00e9l\u00e9ments\r\nfirst = heapq.heappop(data)  # 1, nouveau tas: [3, 4, 8, 5]\r\nsecond = heapq.heappop(data)   # 3, nouveau tas: [4, 5, 8]\r\nthird = heapq.heappop(data) # 4, nouveau tas: [5, 8]\r\n```\r\nLes fonctions `nlargest()` et `nsmallest()` sont particuli\u00e8rement adapt\u00e9es lorsque vous cherchez un petit nombre d'\u00e9l\u00e9ments. Si vous ne recherchez que le plus petit ou le plus grand \u00e9l\u00e9ment (N=1), il est plus efficace d'utiliser `min()` et `max()`. De m\u00eame, si N est proche de la taille totale de la collection, il est g\u00e9n\u00e9ralement plus rapide de trier d'abord la liste puis d'utiliser un d\u00e9coupage (par exemple, `sorted(items)[:N]` ou `sorted(items)[-N:]`).\r\n\r\nBien qu'il ne soit pas indispensable d'utiliser cette approche, l'impl\u00e9mentation d'un tas (heap) reste un sujet d'\u00e9tude int\u00e9ressant et formateur. On en trouve g\u00e9n\u00e9ralement des explications dans les ouvrages classiques d'algorithmique et de structures de donn\u00e9es. La documentation officielle du module heapq aborde \u00e9galement ces d\u00e9tails d'impl\u00e9mentation sous-jacents.\r\n",
+      "created": "2025-07-24T23:43:35.800547",
+      "updated": "2025-07-25T00:15:19.977346",
+      "meta_description": "Trouvez rapidement les N plus grands ou plus petits \u00e9l\u00e9ments d\u2019une collection avec heapq, une solution performante et \u00e9l\u00e9gante en Python.",
+      "status_id": 3,
+      "categories_id": 4
     }
   ],
   "tag": [
@@ -1151,6 +1173,16 @@
       "id": 1548,
       "posts_id": 38,
       "tags_id": 12
+    },
+    {
+      "id": 1552,
+      "posts_id": 39,
+      "tags_id": 6
+    },
+    {
+      "id": 1559,
+      "posts_id": 40,
+      "tags_id": 6
     }
   ],
   "status": [
