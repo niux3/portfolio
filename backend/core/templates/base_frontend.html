@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}RB webstudio - spécialiste Python - Javascript/Typescript{% endblock %}</title>
-    <meta name="description"  content="RB webstudio - spécialiste Python - Javascript/Typescript">
 
     <style>
       .hidden{
@@ -28,6 +27,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     {% block css %}{% endblock %}
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="{{ canonical_url }}" />
+    <meta name="description"  content="{% block meta_description %}RB webstudio - spécialiste Python - Javascript/Typescript{% endblock %}" />
+    <meta property="og:site_name" content="RB webstudio" />
+    <meta property="og:title" content="{% block og_title %}RB webstudio - spécialiste Python - Javascript/Typescript{% endblock %}" />
+    <meta property="og:description" content="{% block og_description %}RB webstudio - spécialiste Python - Javascript/Typescript{% endblock %}" />
+    <meta property="og:image" content="{{ full_url_og_img  }}" />
+    {% block meta_published_time %}{% endblock %}
+    {% block meta_tags %}{% endblock %}
   </head>
 
   <body>

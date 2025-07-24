@@ -1,7 +1,10 @@
 {% extends layout_template or 'base_frontend.html' %}
 
 {% block title %}{{ title }}{% endblock %}
+{% block og_title %}{{ title }}{% endblock %}
 {% block meta_description %}{{ meta_description }}{% endblock %}
+{% block og_description %}{{ meta_description }}{% endblock %}
+
 {% block content %}
 <section class="posts flag-down delay3">
   <h1>{{ h1 }}</h1>

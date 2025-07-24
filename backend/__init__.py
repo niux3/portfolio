@@ -6,7 +6,11 @@ from flask_migrate import Migrate
 from backend.core.libs.filters import format_date_fr, random_delay_transition
 from backend.core.config import config
 from backend.core.libs.autoload import Autoload
-from backend.core.context_processors import inject_footer_flag
+from backend.core.context_processors import (
+    inject_footer_flag,
+    inject_canonical_url,
+    inject_og_image
+)
 
 
 db = SQLAlchemy()
@@ -37,7 +41,11 @@ def create_app():
 
     # from app.auth import views as auth_views
     # app.register_blueprint(auth_views.bp, url_prefix='/auth')
+    #context processor
     app.context_processor(inject_footer_flag())
+    app.context_processor(inject_canonical_url())
+    app.context_processor(inject_og_image())
+    # filters
     app.jinja_env.filters['date_fr'] = format_date_fr
     app.jinja_env.filters['random_delay'] = random_delay_transition
 

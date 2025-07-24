@@ -23,6 +23,7 @@ class BaseConfig:
     STATIC = os.getenv('STATIC')
     TEMPLATES = os.getenv('TEMPLATES')
     MIGRATIONS = os.getenv('MIGRATIONS')
+    URL_PROJECT = "https://rb-webstudio.go.yj.fr"
 
     @staticmethod
     def init_app(app):
