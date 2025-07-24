@@ -1,5 +1,8 @@
-# Saviez-vous que modifier l'ordre visuel avec CSS peut rendre votre site inutilisable pour certains utilisateurs ?
+# Savez-vous comment conserver efficacement les N derniers éléments dans une boucle Python ?
 
-Dans mon dernier article, j'explique pourquoi il est important de laisser les éléments suivre un flux naturel, et comment mal utiliser order ou tabindex peut nuire à l'expérience des personnes utilisant un clavier ou un lecteur d’écran.
+Beaucoup utilisent des listes, mais il existe une solution bien plus élégante et rapide : collections.deque.
+J’ai rédigé un petit article technique pour partager ce pattern que j’utilise souvent, notamment dans les traitements de logs ou l'analyse de fichiers.
 
-➡️ [Lien de l’article]
+Au programme : deque, yield, et des exemples concrets.
+
+l'article est ici : [lien]
