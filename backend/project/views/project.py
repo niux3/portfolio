@@ -47,7 +47,7 @@ def destroy(id):
     flash("Votre item a bien été supprimé", "success")
     return redirect(url_for(f'{prefix_bp}.index'))
 
-@bp.route('/projets/<int:id>-editer.html', methods=['GET', 'POST'])
+@bp.route('/backoffice/projets/<int:id>-editer.html', methods=['GET', 'POST'])
 def edit(id):
     project = Project.query.get_or_404(id)
     form = ProjectForm(obj=project)
