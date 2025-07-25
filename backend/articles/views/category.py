@@ -7,7 +7,7 @@ from backend.core.libs.base_views import BaseView
 prefix_bp = 'categories'
 bp = Blueprint(prefix_bp, __name__, url_prefix='/categories')
 
-@bp.route('/index.html')
+@bp.route('/backoffice/index.html')
 def index():
     fields = {
         'Nom' : 'name',
@@ -15,15 +15,15 @@ def index():
     }
     return BaseView.index(Category.query.all(), prefix_bp, fields, "une categorie")
 
-@bp.route('/ajouter.html', methods=['GET', 'POST'])
+@bp.route('/backoffice/ajouter.html', methods=['GET', 'POST'])
 def add():
     return BaseView.add(CategoryForm, Category, prefix_bp)
 
-@bp.route('/<int:id>-supprimer.html')
+@bp.route('/backoffice/<int:id>-supprimer.html')
 def destroy(id):
     return BaseView.destroy(id, Category, prefix_bp)
 
-@bp.route('/<int:id>-editer.html', methods=['GET', 'POST'])
+@bp.route('/backoffice/<int:id>-editer.html', methods=['GET', 'POST'])
 def edit(id):
     return BaseView.edit(id, Category, CategoryForm, prefix_bp)
 

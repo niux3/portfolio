@@ -18,7 +18,7 @@ def index():
     }
     return BaseView.index(Project.query.all(), prefix_bp, fields, "un projet")
 
-@bp.route('/projets/ajouter.html', methods=['GET', 'POST'])
+@bp.route('/backoffice/projets/ajouter.html', methods=['GET', 'POST'])
 def add():
     form = ProjectForm()
     if form.validate_on_submit() and request.method == "POST":
@@ -36,7 +36,7 @@ def add():
     }
     return render_template('project/edit.html', **ctx)
 
-@bp.route('/projets/<int:id>-supprimer.html')
+@bp.route('/backoffice/projets/<int:id>-supprimer.html')
 def destroy(id):
     instance = Project.query.get_or_404(id)
     instance.technologies.clear()
