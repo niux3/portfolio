@@ -19,11 +19,11 @@ def show(id, slug, export=None):
     obj.body = markdown(obj.body, extensions=['extra'])
 
     querystring_title = quote(obj.title)
-    querystring_site = 'http://rb-webstudio.go.yj.fr'
+    querystring_site = config.URL_PROJECT
     url = url_for(f'{prefix_bp}.show', id=obj.id, slug=obj.slug)
     querystring_url = quote(f'{querystring_site}{url}')
     share_title = quote(f"Je souhaite te partager cet article : {obj.title}")
-    share_content = quote(f"Salut,\nJe pense que cet article devrait t'intéresser :\nhttps://rb-webstudio.go.yj.fr{url}")
+    share_content = quote(f"Salut,\nJe pense que cet article devrait t'intéresser :\n{config.URL_PROJECT}{url}")
 
     ctx = {
         'object': obj,
