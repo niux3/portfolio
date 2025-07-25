@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://rb-webstudio.go.yj.fr/sitemap.xml
