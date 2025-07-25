@@ -23,6 +23,7 @@
           <li><a href="{{ url_for('tags.index') }}">Tags</a></li>
           <li><a href="{{ url_for('backup_articles.import_json') }}" onclick="javascript: return confirm('Êtes vous sur de vouloir importer ?')">Importer&nbsp;json</a></li>
           <li><a href="{{ url_for('backup_articles.export_json') }}">Exporter&nbsp;json</a></li>
+          <li><a href="{{ url_for('backup_xml.export_xml') }}">Exporter&nbsp;XML</a></li>
           <li><a href="{{ url_for('backup_articles.export_html') }}">Exporter&nbsp;HTML</a></li>
         </ul>
       </li>
