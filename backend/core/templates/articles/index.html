@@ -1,6 +1,7 @@
 {% extends layout_template or 'base_frontend.html' %}
 
 {% block title %}{{ title }}{% endblock %}
+{% block url_page %}{% if tag_name == '' %}{{ url_for('posts.index_articles') }}{% else %}{{ url_for('posts.index_by_tags', slug=tag_name) }}{% endif %}{% endblock %}
 {% block og_title %}{{ title }}{% endblock %}
 {% block meta_description %}{{ meta_description }}{% endblock %}
 {% block og_description %}{{ meta_description }}{% endblock %}

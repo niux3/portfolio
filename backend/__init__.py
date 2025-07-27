@@ -8,7 +8,7 @@ from backend.core.config import config
 from backend.core.libs.autoload import Autoload
 from backend.core.context_processors import (
     inject_footer_flag,
-    inject_canonical_url,
+    inject_base_url_project,
     inject_og_image
 )
 
@@ -43,7 +43,7 @@ def create_app():
     # app.register_blueprint(auth_views.bp, url_prefix='/auth')
     #context processor
     app.context_processor(inject_footer_flag())
-    app.context_processor(inject_canonical_url())
+    app.context_processor(inject_base_url_project())
     app.context_processor(inject_og_image())
     # filters
     app.jinja_env.filters['date_fr'] = format_date_fr

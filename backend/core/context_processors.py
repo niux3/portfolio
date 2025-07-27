@@ -12,9 +12,9 @@ def inject_footer_flag():
         }
     return context
 
-def inject_canonical_url():
+def inject_base_url_project():
     def context():
-        return {'canonical_url': config.URL_PROJECT}
+        return {'base_url_project': config.URL_PROJECT}
     return context
 
 def inject_og_image():

@@ -119,6 +119,7 @@ def index_articles(export=None):
         'title': "Articles techniques - RB webstudio",
         'meta_description': "Découvrez nos articles récents sur le développement web, Python, JavaScript, frameworks modernes et bonnes pratiques techniques.",
         'h1': "Derniers articles & tutoriels de développement web",
+        'tag_name': '',
         'object_list': Post.query.join(Status, Post.status_id == Status.id).filter(Status.name == 'online').order_by(desc(Post.created)).all()
     }
     if export is not None:
@@ -139,6 +140,7 @@ def index_by_tags(slug, export=None):
         'title': f"Chercher les articles par {tag.name} - RB webstudio",
         'meta_description': f"Découvrez nos articles sur {tag.name}",
         'h1': f"Chercher des articles avec le tag : {tag.name}",
+        'tag_name': tag.name,
         'object_list': posts
     }
     if export is not None:

@@ -1,5 +1,8 @@
 {% extends layout_template or 'base_frontend.html' %}
 
+
+{% block url_page %}{{ url_for('projects.show') }}{% endblock %}
+
 {% block content %}
 <section class="introduction flag-right delay3">
     <h2>

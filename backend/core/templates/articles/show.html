@@ -1,6 +1,7 @@
 {% extends layout_template or 'base_frontend.html' %}
 
 {% block title %} {{ object.title }} - RB webstudio {% endblock %}
+{% block url_page %}{{ url_for('posts.show', id=object.id, slug=object.slug) }}{% endblock %}
 {% block og_title %} {{ object.title }}{% endblock %}
 {% block meta_description %}{{ object.meta_description }}{% endblock %}
 {% block og_description %}{{ object.meta_description }}{% endblock %}

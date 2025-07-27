@@ -31,7 +31,7 @@
 
     <link rel="stylesheet" href="/{{ css_file }}">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <link rel="canonical" href="{{ canonical_url }}" />
+    <link rel="canonical" href="{{ base_url_project }}{% block url_page %}{% endblock %}" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ canonical_url }}/sitemap.xml" />
     <meta name="description"  content="{% block meta_description %}RB webstudio - spécialiste Python - Javascript/Typescript{% endblock %}" />
     <meta property="og:site_name" content="RB webstudio">
