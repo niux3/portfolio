@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>RB webstudio - spécialiste Python - Javascript/Typescript</title>
+        <link>https://rb-webstudio.go.yj.fr</link>
+        <description>RB webstudio - spécialiste Python - Javascript/Typescript</description>
+        <language>fr</language>
+        <lastBuildDate>2025-07-28</lastBuildDate>
+        
+        <item>
+            <title>Trouver les N plus grands ou plus petits éléments</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-40.html</link>
+            <description><![CDATA[Trouvez rapidement les N plus grands ou plus petits éléments d’une collection avec heapq, une solution performante et élégante en Python.]]></description>
+            <pubDate>2025-07-24 23:43:35.800547</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-40.html</guid>
+        </item>
+        
+        <item>
+            <title>Conserver les N derniers éléments</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-39.html</link>
+            <description><![CDATA[Apprenez à conserver efficacement les N derniers éléments grâce à collections.deque et améliorez vos performances Python avec élégance.]]></description>
+            <pubDate>2025-07-24 23:12:02.087757</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-39.html</guid>
+        </item>
+        
+        <item>
+            <title>Préserver l'ordre</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-38.html</link>
+            <description><![CDATA[Évitez les pièges de l'ordre visuel en CSS : comprenez son impact sur l'accessibilité, la navigation clavier et les lecteurs d'écran.]]></description>
+            <pubDate>2025-07-23 23:51:33.074579</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-38.html</guid>
+        </item>
+        
+        <item>
+            <title>Limiter l'attention</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-37.html</link>
+            <description><![CDATA[Gérer le focus dans les dialogues pour une meilleure accessibilité : pièges, inert, et bonnes pratiques à connaître en HTML & JavaScript.]]></description>
+            <pubDate>2025-07-22 23:54:04.782503</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-37.html</guid>
+        </item>
+        
+        <item>
+            <title>Affecter les éléments d’une séquence à plusieurs variables</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-36.html</link>
+            <description><![CDATA[Découvrez comment décomposer facilement des séquences Python, y compris avec des longueurs variables, grâce au dépaquetage et aux expressions étoile.]]></description>
+            <pubDate>2025-07-21 23:53:30.919894</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-36.html</guid>
+        </item>
+        
+        <item>
+            <title>Comment bien gérer le focus dans vos interfaces ?</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-35.html</link>
+            <description><![CDATA[Apprenez à gérer le focus dans vos modales HTML pour garantir une accessibilité optimale et éviter des erreurs courantes de navigation clavier.]]></description>
+            <pubDate>2025-07-21 23:09:24.840211</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-35.html</guid>
+        </item>
+        
+        <item>
+            <title>Rendre les éléments focalisables</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-34.html</link>
+            <description><![CDATA[Comprendre et maîtriser les éléments focalisables pour garantir l'accessibilité clavier sur vos sites web. Bonnes pratiques et pièges à éviter.]]></description>
+            <pubDate>2025-07-17 23:48:41.970596</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-34.html</guid>
+        </item>
+        
+        <item>
+            <title>Fournir des styles de focalisation</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-33.html</link>
+            <description><![CDATA[Améliorez l'accessibilité de vos interfaces en stylisant correctement les éléments interactifs avec :focus, :focus-visible et :focus-within]]></description>
+            <pubDate>2025-07-16 00:44:08.861391</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-33.html</guid>
+        </item>
+        
+        <item>
+            <title>Exécuter des actions : éviter de désactiver les boutons</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-32.html</link>
+            <description><![CDATA[Désactiver un bouton peut nuire à l'expérience utilisateur. Voici pourquoi vous devriez privilégier des retours explicites et accessibles.]]></description>
+            <pubDate>2025-07-09 00:46:37.898015</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-32.html</guid>
+        </item>
+        
+        <item>
+            <title>Exécuter des actions : ajouter des états et des propriétés</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-31.html</link>
+            <description><![CDATA[Améliorez l'accessibilité de vos interfaces avec les attributs ARIA : 4 exemples concrets pour des boutons inclusifs et informatifs.]]></description>
+            <pubDate>2025-07-08 00:04:55.894320</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-31.html</guid>
+        </item>
+        
+        <item>
+            <title>Exécuter des actions : supprimer les styles de boutons par défaut</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-30.html</link>
+            <description><![CDATA[Comment styliser vos boutons sans sacrifier l'accessibilité ? Exemples CSS, pièges à éviter, et bonnes pratiques pour tous les supports.]]></description>
+            <pubDate>2025-07-04 00:37:25.663139</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-30.html</guid>
+        </item>
+        
+        <item>
+            <title>Exécution des actions : labelliser clairement les boutons</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-29.html</link>
+            <description><![CDATA[Apprenez à labelliser efficacement vos boutons pour garantir l’accessibilité et une expérience utilisateur optimale sur le web.]]></description>
+            <pubDate>2025-07-02 04:14:12.951616</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-29.html</guid>
+        </item>
+        
+        <item>
+            <title>Exécuter des actions : choisissez le bon élément</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-28.html</link>
+            <description><![CDATA[Apprenez à créer des boutons HTML accessibles, compréhensibles et UX-friendly en respectant les bonnes pratiques et les normes WCAG essentielles.]]></description>
+            <pubDate>2025-06-30 09:08:51.071167</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-28.html</guid>
+        </item>
+        
+        <item>
+            <title>Ajouter des liens à des groupes d'éléments</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-27.html</link>
+            <description><![CDATA[5 techniques pour étendre la zone de clic de vos éléments HTML. Analysez avantages, inconvénients, et impacts sur l'accessibilité, le SEO et l'UX.]]></description>
+            <pubDate>2025-06-25 23:48:22.732182</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-27.html</guid>
+        </item>
+        
+        <item>
+            <title>Accessibilité et routage côté client</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-26.html</link>
+            <description><![CDATA[Gérer le focus et les régions dynamiques en routage JS pour une accessibilité optimale. Bonnes pratiques et exemples concrets à l’appui.]]></description>
+            <pubDate>2025-06-23 22:48:50.081394</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-26.html</guid>
+        </item>
+        
+        <item>
+            <title>Informer les utilisateurs de l'évolution du contexte</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-25.html</link>
+            <description><![CDATA[Informez vos utilisateurs lorsqu’un lien s’ouvre dans un nouvel onglet. Découvrez les bonnes pratiques d’accessibilité et d’expérience utilisateur.]]></description>
+            <pubDate>2025-06-22 23:23:45.066472</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-25.html</guid>
+        </item>
+        
+        <item>
+            <title>Les liens images</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-24.html</link>
+            <description><![CDATA[Comment rendre vos liens images accessibles ? Découvrez les bonnes pratiques et erreurs courantes avec exemples HTML concrets.]]></description>
+            <pubDate>2025-06-19 15:36:57.172287</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-24.html</guid>
+        </item>
+        
+        <item>
+            <title>Créer des liens vers des courriels</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-23.html</link>
+            <description><![CDATA[Apprenez à créer des liens vers des adresses e-mail en HTML tout en respectant l’accessibilité, l’UX et les bonnes pratiques SEO]]></description>
+            <pubDate>2025-06-18 16:48:42.833659</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-23.html</guid>
+        </item>
+        
+        <item>
+            <title>Créer des liens de téléchargement</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-22.html</link>
+            <description><![CDATA[Optimisez vos liens de téléchargement HTML pour une meilleure accessibilité, expérience utilisateur et performance SEO.]]></description>
+            <pubDate>2025-06-17 15:13:21.719563</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-22.html</guid>
+        </item>
+        
+        <item>
+            <title>Les styles de liens</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/object.slug-21.html</link>
+            <description><![CDATA[comment styliser correctement vos liens HTML pour améliorer accessibilité, UX et SEO avec des exemples pratiques et conseils experts.]]></description>
+            <pubDate>2025-06-16 16:16:30.693743</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/object.slug-21.html</guid>
+        </item>
+        
+    </channel>
+</rss>
