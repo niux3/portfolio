@@ -8,6 +8,14 @@
         <lastBuildDate>2025-07-28</lastBuildDate>
         
         <item>
+            <title>Implémenter une file de priorité</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/implementer-une-file-de-priorite-41.html</link>
+            <description><![CDATA[Apprenez à créer une file de priorité efficace en Python avec heapq, en gérant les conflits de priorité et en optimisant l'ordre d'exécution.]]></description>
+            <pubDate>2025-07-28 23:21:51.663238</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/implementer-une-file-de-priorite-41.html</guid>
+        </item>
+        
+        <item>
             <title>Trouver les N plus grands ou plus petits éléments</title>
             <link>https://rb-webstudio.go.yj.fr/articles/trouver-les-n-plus-grands-ou-plus-petits-elements-40.html</link>
             <description><![CDATA[Trouvez rapidement les N plus grands ou plus petits éléments d’une collection avec heapq, une solution performante et élégante en Python.]]></description>
@@ -157,14 +165,6 @@
             <description><![CDATA[Optimisez vos liens de téléchargement HTML pour une meilleure accessibilité, expérience utilisateur et performance SEO.]]></description>
             <pubDate>2025-06-17 15:13:21.719563</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/creer-des-liens-de-telechargement-22.html</guid>
-        </item>
-        
-        <item>
-            <title>Les styles de liens</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/les-styles-de-liens-21.html</link>
-            <description><![CDATA[comment styliser correctement vos liens HTML pour améliorer accessibilité, UX et SEO avec des exemples pratiques et conseils experts.]]></description>
-            <pubDate>2025-06-16 16:16:30.693743</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/les-styles-de-liens-21.html</guid>
         </item>
         
     </channel>

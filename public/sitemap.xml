@@ -100,6 +100,13 @@
     </url>
     
     <url>
+        <loc>https://rb-webstudio.go.yj.fr/articles/implementer-une-file-de-priorite-41.html</loc>
+        <lastmod>2025-07-28</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
         <loc>https://rb-webstudio.go.yj.fr/articles/trouver-les-n-plus-grands-ou-plus-petits-elements-40.html</loc>
         <lastmod>2025-07-28</lastmod>
         <changefreq>weekly</changefreq>
