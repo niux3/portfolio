@@ -9,10 +9,10 @@
         {% for object in object_list %}
         <item>
             <title>{{ object.title }}</title>
-            <link>{{ url_site }}{{ url_for('posts.show', id=object.id, slug='object.slug') }}</link>
+            <link>{{ object.url_article }}</link>
             <description><![CDATA[{{ object.meta_description }}]]></description>
             <pubDate>{{ object.created }}</pubDate>
-            <guid>{{ url_site }}{{ url_for('posts.show', id=object.id, slug='object.slug') }}</guid>
+            <guid>{{ object.url_article }}</guid>
         </item>
         {% endfor %}
     </channel>

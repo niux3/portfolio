@@ -63,8 +63,11 @@ def get_sitemap():
 
 
 def get_rss():
+    posts = Post.query.join(Status, Post.status_id == Status.id).filter(Status.name == 'online').order_by(desc(Post.created)).limit(20).all()
+    for post in posts:
+        post.url_article = f"{config.URL_PROJECT}{url_for('posts.show', id=post.id, slug=post.slug)}"
     ctx = {
-        'object_list': Post.query.join(Status, Post.status_id == Status.id).filter(Status.name == 'online').order_by(desc(Post.created)).limit(20).all(),
+        'object_list': posts,
         'today': datetime.utcnow().date().isoformat(),
         'title': "RB webstudio - spécialiste Python - Javascript/Typescript",
         'description': "RB webstudio - spécialiste Python - Javascript/Typescript",
