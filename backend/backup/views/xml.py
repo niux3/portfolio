@@ -1,4 +1,3 @@
-from pprint import pprint
 from datetime import datetime
 from flask import current_app, Blueprint, flash, redirect, url_for, render_template
 from sqlalchemy import desc
@@ -7,10 +6,10 @@ from backend.articles.models import Post, Status, Tag
 
 
 bp = Blueprint('backup_xml', __name__, url_prefix='/sauvegarde')
+public_folder = config.BASEDIR.parent / 'public'
 
 
 def get_sitemap():
-    public_folder = config.BASEDIR.parent / 'public'
     today = datetime.utcnow().date().isoformat()
     excludes_route = [
         'static',
@@ -63,8 +62,22 @@ def get_sitemap():
         f.write(sitemap_source)
 
 
+def get_rss():
+    ctx = {
+        'object_list': Post.query.join(Status, Post.status_id == Status.id).filter(Status.name == 'online').order_by(desc(Post.created)).limit(20).all(),
+        'today': datetime.utcnow().date().isoformat(),
+        'title': "RB webstudio - spécialiste Python - Javascript/Typescript",
+        'description': "RB webstudio - spécialiste Python - Javascript/Typescript",
+        'url_site': config.URL_PROJECT
+    }
+    rss_source = render_template('xml/flux_rss.tpl', **ctx)
+    with open(str(public_folder / 'rss.xml'), mode='w', encoding='utf-8') as f:
+        f.write(rss_source)
+
+
 @bp.route('/export-xml.html')
 def export_xml():
     get_sitemap()
+    get_rss()
     flash("Votre export xml est réussi", "success")
     return redirect(url_for('posts.index'))
