@@ -1,9 +1,8 @@
-# Vous utilisez heapq en Python, mais savez-vous vraiment comment implémenter une file de priorité robuste ?
+Vous voulez associer plusieurs valeurs à une même clé dans un dictionnaire Python ?
+Découvrez comment utiliser efficacement list, set, defaultdict et setdefault pour coder proprement et gagner en lisibilité.
 
-J’explique pas à pas comment construire une file de priorité avec gestion des conflits, gr0ce à un index d’insertion astucieux.
+J’ai rédigé un article simple et pratique avec des exemples concrets pour matriser cette technique essentielle en Python.
 
-Je parle aussi de comparaisons de tuples, de complexité algorithmique et d'exemples concrets.
+N’hésitez pas à le lire, partager et me dire ce que vous en pensez !
 
-lire l'article ici : [lien]
-
-#python
+#Python
