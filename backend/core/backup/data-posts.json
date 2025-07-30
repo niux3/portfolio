@@ -461,6 +461,17 @@
       "meta_description": "Associez plusieurs valeurs \u00e0 une cl\u00e9 dans un dictionnaire Python facilement avec list, set, defaultdict ou setdefault. Exemples et conseils pratiques.",
       "status_id": 3,
       "categories_id": 4
+    },
+    {
+      "id": 43,
+      "title": "Les liens d'\u00e9vitement",
+      "slug": "les-liens-d-evitement",
+      "body": "Pour les personnes qui utilisent uniquement le clavier pour naviguer, une page web comportant de nombreux \u00e9l\u00e9ments interactifs n\u00e9cessite souvent plusieurs actions r\u00e9p\u00e9titives, comme appuyer plusieurs fois sur la touche `Tab`, actionner un bouton sur un dispositif de commutation, ou manipuler une technologie d\u2019assistance avec les mains, les bras, la bouche ou la t\u00eate. Ces efforts r\u00e9p\u00e9t\u00e9s peuvent rapidement devenir fatigants, voire douloureux, rendant la navigation physiquement exigeante.\r\n\r\nPour r\u00e9soudre ce probl\u00e8me, il vous suffit d'int\u00e9grer des liens d\u2019acc\u00e8s rapide vers les sections d\u2019une page contenant de nombreux \u00e9l\u00e9ments interactifs, permettant ainsi aux utilisateurs de les ignorer facilement pour poursuivre leur navigation ailleurs, comme illustr\u00e9 dans cet [exemple](#exemple-1) : \r\n\r\n**<span id=\"exemple-1\">Exemple&nbsp;1</span>&nbsp;&ndash;&nbsp;Un lien (visuellement cach\u00e9 et visible uniquement lorsqu'il re\u00e7oit le focus) dans l'en-t\u00eate de la page qui permet aux utilisateurs de passer au contenu principal.**\r\n\r\n```html\r\n<style>\r\n.skip-link {\r\n  background-color: #fff;\r\n  position: absolute;\r\n  padding: 0.2em;\r\n  display: block;\r\n}\r\n\r\n/* Cache le lien uniquement lorsqu'il n'est pas focalis\u00e9 ou actif. */\r\n.skip-link:not(:focus):not(:active) { \r\n  clip-path: inset(50%);\r\n  height: 1px;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  width: 1px;\r\n}\r\n</style>\r\n<header>\r\n  <a href=\"#content\" class=\"skip-link\">Aller au contenu</a>\r\n\t<!-- Visuellement cach\u00e9 mais accessible via le clavier et le lecteur d'\u00e9cran. -->\r\n  <nav>\r\n    <!-- etc. -->\r\n  </nav>\r\n</header>\r\n<main id=\"content\">\r\n\r\n</main>\r\n```\r\n\r\nSi vous visitez le site <a href=\"https://alsacreations.com\" target=\"_blank\">Alsacr\u00e9ations.com</a> vous remarquerez que dans l'en-t\u00eate en haut, il y a une pl\u00e9thore d'\u00e9l\u00e9ments interactifs. Selon la page \u00e0 laquelle l'utilisateur du clavier acc\u00e8de, il devra appuyer sur la touche `Tab` (ou sur un bouton d'un dispositif de commutation) X fois sur chaque page qu'il visite. C'est ennuyeux et cela peut faire mal physiquement et m\u00eame aggraver les microtraumatismes r\u00e9p\u00e9t\u00e9s.\r\n\r\nHeureusement, il existe un lien d'\u00e9vitement sur le site Alsacreations. Un lien d'\u00e9vitement est un lien d'ancrage qui pointe vers une autre partie de la page, permettant d'y acc\u00e9der en cliquant sur le lien. Il s'agit g\u00e9n\u00e9ralement du premier \u00e9l\u00e9ment focalisable dans le DOM, visuellement cach\u00e9 et visible uniquement lorsqu'il re\u00e7oit la focalisation. L'[exemple](#exemple-1) pr\u00e9c\u00e9dent illustre une bonne impl\u00e9mentation.\r\n\r\nLes liens d'\u00e9vitement peuvent \u00eatre incroyablement utiles lorsqu'il y a beaucoup d'\u00e9l\u00e9ments interactifs avant le contenu principal de la page. Si l'on reprend l'exemple d du site Alsacr\u00e9ations, avec les liens d'\u00e9vitement (visible en haut \u00e0 gauche de la page parce qu'il est actuellement focalis\u00e9), les utilisateurs n'ont \u00e0 appuyer que deux fois sur `Tab` au lieu de X fois pour acc\u00e9der au contenu principal de la page. Cela dit, l'utilisation d'un lien d'\u00e9vitement peut \u00eatre contre-productive s'il n'y a qu'un ou deux \u00e9l\u00e9ments focalisables avant le contenu principal.\r\n\r\nSur la plupart des sites qui mettent en place des liens d'\u00e9vitement, vous trouverez un seul lien \u00ab passer au contenu \u00bb dans l'en-t\u00eate, mais certains proposent des liens suppl\u00e9mentaires pour acc\u00e9der \u00e0 la navigation, \u00e0 la recherche ou au pied de page comme le fait Alsacr\u00e9ations. La n\u00e9cessit\u00e9 de ces liens d\u00e9pend de la taille de votre site et de la densit\u00e9 d'information de votre en-t\u00eate et de votre pied de page. \r\n\r\nLorsque vous avez des sections avec de nombreux \u00e9l\u00e9ments interactifs, l'ajout de liens d'\u00e9vitement \u00e0 l'int\u00e9rieur de la page peut \u00e9galement s'av\u00e9rer utile. Les exemples typiques sont les widgets de m\u00e9dias sociaux, les cartes et les barres lat\u00e9rales. \r\n\r\nSelon le <a href=\"https://webaim.org/projects/million/#skip\" target=\"_blank\">rapport WebAIM Million 2024</a>, 13,3 % des sites web test\u00e9s avaient un lien d'\u00e9vitement. Cependant, un de ces liens sur six \u00e9tait cass\u00e9 parce qu'il \u00e9tait mal cach\u00e9 ou que la cible n'existait pas. L'utilisation de `display: none` ne permet pas de cacher les liens de saut. Vous devez utiliser une m\u00e9thode accessible, comme l'illustre l'[exemple](#exemple-1) pr\u00e9c\u00e9demment pr\u00e9sent\u00e9. Je vous recommande \u00e9galement d'afficher le lien d'\u00e9vitement au moment de la mise au point, car le fait de se concentrer sur un lien visuellement cach\u00e9 peut perturber les utilisateurs de clavier. \r\n\r\nL'objectif des liens d'\u00e9vitement est de rendre la navigation au clavier plus efficace. Choisissez les liens d'\u00e9vitement dont vous avez besoin en fonction de l'int\u00e9r\u00eat qu'ils pr\u00e9sentent pour les utilisateurs de votre site.",
+      "created": "2025-07-30T03:49:14.534927",
+      "updated": "2025-07-30T04:46:14.332022",
+      "meta_description": "D\u00e9couvrez comment les liens d\u2019\u00e9vitement am\u00e9liorent la navigation clavier, avec un exemple concret et des bonnes pratiques en HTML et CSS accessibles.",
+      "status_id": 3,
+      "categories_id": 2
     }
   ],
   "tag": [
@@ -1215,6 +1226,26 @@
       "id": 1568,
       "posts_id": 42,
       "tags_id": 6
+    },
+    {
+      "id": 1605,
+      "posts_id": 43,
+      "tags_id": 1
+    },
+    {
+      "id": 1606,
+      "posts_id": 43,
+      "tags_id": 2
+    },
+    {
+      "id": 1607,
+      "posts_id": 43,
+      "tags_id": 4
+    },
+    {
+      "id": 1608,
+      "posts_id": 43,
+      "tags_id": 12
     }
   ],
   "status": [

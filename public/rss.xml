@@ -8,6 +8,14 @@
         <lastBuildDate>2025-07-30</lastBuildDate>
         
         <item>
+            <title>Les liens d'évitement</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/les-liens-d-evitement-43.html</link>
+            <description><![CDATA[Découvrez comment les liens d’évitement améliorent la navigation clavier, avec un exemple concret et des bonnes pratiques en HTML et CSS accessibles.]]></description>
+            <pubDate>2025-07-30 03:49:14.534927</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/les-liens-d-evitement-43.html</guid>
+        </item>
+        
+        <item>
             <title>Associer plusieurs valeurs à une même clé dans un dictionnaire</title>
             <link>https://rb-webstudio.go.yj.fr/articles/associer-plusieurs-valeurs-a-une-meme-cle-dans-un-dictionnaire-42.html</link>
             <description><![CDATA[Associez plusieurs valeurs à une clé dans un dictionnaire Python facilement avec list, set, defaultdict ou setdefault. Exemples et conseils pratiques.]]></description>
@@ -157,14 +165,6 @@
             <description><![CDATA[Comment rendre vos liens images accessibles ? Découvrez les bonnes pratiques et erreurs courantes avec exemples HTML concrets.]]></description>
             <pubDate>2025-06-19 15:36:57.172287</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/les-liens-images-24.html</guid>
-        </item>
-        
-        <item>
-            <title>Créer des liens vers des courriels</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/creer-des-liens-vers-des-courriels-23.html</link>
-            <description><![CDATA[Apprenez à créer des liens vers des adresses e-mail en HTML tout en respectant l’accessibilité, l’UX et les bonnes pratiques SEO]]></description>
-            <pubDate>2025-06-18 16:48:42.833659</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/creer-des-liens-vers-des-courriels-23.html</guid>
         </item>
         
     </channel>
