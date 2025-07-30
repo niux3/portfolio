@@ -5,7 +5,15 @@
         <link>https://rb-webstudio.go.yj.fr</link>
         <description>RB webstudio - spécialiste Python - Javascript/Typescript</description>
         <language>fr</language>
-        <lastBuildDate>2025-07-28</lastBuildDate>
+        <lastBuildDate>2025-07-30</lastBuildDate>
+        
+        <item>
+            <title>Associer plusieurs valeurs à une même clé dans un dictionnaire</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/associer-plusieurs-valeurs-a-une-meme-cle-dans-un-dictionnaire-42.html</link>
+            <description><![CDATA[Associez plusieurs valeurs à une clé dans un dictionnaire Python facilement avec list, set, defaultdict ou setdefault. Exemples et conseils pratiques.]]></description>
+            <pubDate>2025-07-30 03:04:16.978993</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/associer-plusieurs-valeurs-a-une-meme-cle-dans-un-dictionnaire-42.html</guid>
+        </item>
         
         <item>
             <title>Implémenter une file de priorité</title>
@@ -157,14 +165,6 @@
             <description><![CDATA[Apprenez à créer des liens vers des adresses e-mail en HTML tout en respectant l’accessibilité, l’UX et les bonnes pratiques SEO]]></description>
             <pubDate>2025-06-18 16:48:42.833659</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/creer-des-liens-vers-des-courriels-23.html</guid>
-        </item>
-        
-        <item>
-            <title>Créer des liens de téléchargement</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/creer-des-liens-de-telechargement-22.html</link>
-            <description><![CDATA[Optimisez vos liens de téléchargement HTML pour une meilleure accessibilité, expérience utilisateur et performance SEO.]]></description>
-            <pubDate>2025-06-17 15:13:21.719563</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/creer-des-liens-de-telechargement-22.html</guid>
         </item>
         
     </channel>

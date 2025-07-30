@@ -450,6 +450,17 @@
       "meta_description": "Apprenez \u00e0 cr\u00e9er une file de priorit\u00e9 efficace en Python avec heapq, en g\u00e9rant les conflits de priorit\u00e9 et en optimisant l'ordre d'ex\u00e9cution.",
       "status_id": 3,
       "categories_id": 4
+    },
+    {
+      "id": 42,
+      "title": "Associer plusieurs valeurs \u00e0 une m\u00eame cl\u00e9 dans un dictionnaire",
+      "slug": "associer-plusieurs-valeurs-a-une-meme-cle-dans-un-dictionnaire",
+      "body": "Vous cherchez \u00e0 cr\u00e9er un dictionnaire capable d\u2019associer plusieurs valeurs \u00e0 une m\u00eame cl\u00e9, autrement dit un \u00ab multidictionnaire \u00bb. Un dictionnaire est une structure de donn\u00e9es qui associe chaque cl\u00e9 \u00e0 une seule valeur. Si vous souhaitez associer une cl\u00e9 \u00e0 plusieurs valeurs, vous devez stocker ces valeurs multiples dans un autre conteneur, comme une liste ou un ensemble `set`. Par exemple, vous pouvez cr\u00e9er des dictionnaires comme ceci :\r\n\r\n```python\r\nd = {\r\n    'a' : [1, 2, 3],\r\n    'b' : [4, 5]\r\n}\r\ne = {\r\n    'a' : {1, 2, 3},\r\n    'b' : {4, 5}\r\n}\r\n```\r\nLe choix entre utiliser des listes ou des ensembles `set` d\u00e9pend de l\u2019usage que vous souhaitez en faire. Utilisez une liste si vous voulez pr\u00e9server l\u2019ordre d\u2019insertion des \u00e9l\u00e9ments. Lorsque vous utilisez un `set` pour stocker plusieurs valeurs associ\u00e9es \u00e0 une m\u00eame cl\u00e9 dans un dictionnaire, il est important de garder \u00e0 l\u2019esprit que ce type de conteneur ne conserve pas l\u2019ordre des \u00e9l\u00e9ments et ne permet pas les doublons. Ainsi, si vous ajoutez plusieurs fois la m\u00eame valeur, elle ne sera stock\u00e9e qu\u2019une seule fois. Le comportement du `set` est un bon choix lorsque vous avez besoin de garantir l\u2019unicit\u00e9 des valeurs, comme dans le cas de cat\u00e9gories sans r\u00e9p\u00e9tition, de droits d\u2019acc\u00e8s ou des labels uniques.\r\n\r\nPour construire facilement ce type de dictionnaires (o\u00f9 une cl\u00e9 est associ\u00e9e \u00e0 plusieurs valeurs), vous pouvez utiliser la classe `defaultdict` du module `collections`. L\u2019un des avantages de `defaultdict`, c\u2019est qu\u2019il initialise automatiquement la premi\u00e8re valeur pour chaque nouvelle cl\u00e9, ce qui vous permet de vous concentrer uniquement sur l\u2019ajout des \u00e9l\u00e9ments. Par exemple :\r\n\r\n```python\r\nfrom collections import defaultdict\r\n\r\n\r\nd = defaultdict(list)\r\nd['a'].append(1)\r\nd['a'].append(2)\r\nd['a'].append(2)\r\nd['b'].append(4)\r\n\r\nprint(d)\r\n\r\nd = defaultdict(set)\r\nd['a'].add(1)\r\nd['a'].add(2)\r\nd['a'].add(2)\r\nd['b'].add(4)\r\n\r\nprint(d)\r\n```\r\n\r\n**Attention** : `defaultdict` cr\u00e9e automatiquement des entr\u00e9es dans le dictionnaire pour toute cl\u00e9 acc\u00e9d\u00e9e, m\u00eame si cette cl\u00e9 n\u2019existait pas auparavant. Si vous ne souhaitez pas ce comportement, vous pouvez plut\u00f4t utiliser la m\u00e9thode setdefault() sur un dictionnaire standard (dict). Par exemple :\r\n\r\n```python\r\nd = {} # A regular dictionary\r\n\r\nd.setdefault('a', []).append(1)\r\nd.setdefault('a', []).append(2)\r\nd.setdefault('b', []).append(4)\r\n```\r\n\r\nCependant, de nombreux d\u00e9veloppeurs trouvent que l\u2019utilisation de `setdefault()` est un peu contre-intuitive. Sans parler du fait qu\u2019elle cr\u00e9e \u00e0 chaque appel une nouvelle instance de la valeur initiale (par exemple, une liste vide [] dans l\u2019exemple).\r\n\r\nEn principe, la construction d\u2019un dictionnaire \u00e0 valeurs multiples est simple. Cependant, l\u2019initialisation de la premi\u00e8re valeur peut devenir fastidieuse si vous tentez de la g\u00e9rer manuellement. Par exemple, vous pourriez vous retrouver avec un code ressemblant \u00e0 ceci :\r\n\r\n```python\r\nd = {}\r\nfor key, value in pairs:\r\n    if key not in d:\r\n        d[key] = []\r\n    d[key].append(value)\r\n```\r\n\r\nL\u2019utilisation d\u2019un `defaultdict` permet simplement d\u2019obtenir un code beaucoup plus clair et lisible :\r\n\r\n```python\r\nd = defaultdict(list)\r\nfor key, value in pairs:\r\n    d[key].append(value)\r\n```",
+      "created": "2025-07-30T03:04:16.978993",
+      "updated": "2025-07-30T03:39:18.646940",
+      "meta_description": "Associez plusieurs valeurs \u00e0 une cl\u00e9 dans un dictionnaire Python facilement avec list, set, defaultdict ou setdefault. Exemples et conseils pratiques.",
+      "status_id": 3,
+      "categories_id": 4
     }
   ],
   "tag": [
@@ -1198,6 +1209,11 @@
     {
       "id": 1563,
       "posts_id": 41,
+      "tags_id": 6
+    },
+    {
+      "id": 1568,
+      "posts_id": 42,
       "tags_id": 6
     }
   ],
