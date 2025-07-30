@@ -15,7 +15,12 @@ export default class LayerPanelController{
             $btn.classList.remove('current')
             $btn.setAttribute('aria-expanded', false)
         })
-        this.#layers.forEach($layer => $layer.classList.remove('move'))
+        this.#layers.forEach($layer => {
+            $layer.classList.remove('move')
+            if($layer.id === 'search'){
+                $layer.querySelector("input[name='q']").blur()
+            }
+        })
     }
 
     init() {
@@ -30,7 +35,11 @@ export default class LayerPanelController{
                     this.#resetLayer()
                     let targetId = $button.dataset.panelTarget?.substring(1)
                     let $targetLayer = Array.from(this.#layers).find($l => $l.id === targetId)
+                    console.log($targetLayer)
                     if ($targetLayer){
+                        if($targetLayer.id === 'search'){
+                            $targetLayer.querySelector("input[name='q']").focus()
+                        }
                         $targetLayer.classList.add('move')
                     }
                     $button.classList.add('current')
