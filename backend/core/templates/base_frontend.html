@@ -42,7 +42,7 @@
   <body>
     <main class="grid-container hidden" id="viewsTransition">
       {% include "partials/frontend/header.html" %}
-      {% block content %}{% endblock %}
+      <div id="content">{% block content %}{% endblock %}</div>
       {% include "partials/frontend/contact.html" %}
       {% include "partials/frontend/footer.html" %}
     </main>

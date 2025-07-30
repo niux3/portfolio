@@ -20,11 +20,13 @@
     <article>
       <h1 class="flag-right delay3">{{ object.title }}</h1>
       <div class="grid-x grid-padding-x">
-        <ul class="cell medium-6 small-12 flex-container no-bullet tags-list transition-fade delay4">
-          {% for tag in object.tags %}
-            <li><a href="{{ url_for('posts.index_by_tags', slug=tag.slug) }}"><span>{{ tag }}</span></a></li>
-          {% endfor %}
-        </ul>
+        <nav class="cell medium-6 small-12">
+          <ul class="flex-container no-bullet tags-list transition-fade delay4">
+            {% for tag in object.tags %}
+              <li><a href="{{ url_for('posts.index_by_tags', slug=tag.slug) }}"><span>{{ tag }}</span></a></li>
+            {% endfor %}
+          </ul>
+        </nav>
         <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6 small-12">
           <ul class="flex-container no-bullet share transition-fade delay5">
             {% for k, v in shares.items() %}
