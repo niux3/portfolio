@@ -9,6 +9,7 @@ import LayerSummary from './layerSummary/LayerSummary'
 import LayerSearch from './layerSearch/LayerSearch'
 import Swup from 'swup'
 import SwupA11yPlugin from '@swup/a11y-plugin'
+import DarkMode from './darkmode'
 
 
 window.addEventListener('DOMContentLoaded', () =>{
@@ -23,7 +24,8 @@ window.addEventListener('DOMContentLoaded', () =>{
     const mount = ()=>{
 
         // darkmode
-        darkmode()
+        let darkmode = new DarkMode()
+        darkmode.init()
 
         // lateralBar
         if(document.getElementById('lateralBar')){
@@ -61,7 +63,7 @@ window.addEventListener('DOMContentLoaded', () =>{
                     $animLogo.remove()
                     sessionStorage.setItem('introPlayed', true)
                     $main.classList.remove('hidden')
-                    console.log(document.querySelector('html'))
+                    // console.log(document.querySelector('html'))
                     document.querySelector('html').classList.add('animate-home')
                 }, duration)
             }else{
@@ -87,7 +89,7 @@ window.addEventListener('DOMContentLoaded', () =>{
         animateHistoryBrowsing: true,
     })
     swup.hooks.on('visit:start', () => {
-        console.log('1. Swup: visit:start - Un clic a été détecté et Swup commence une nouvelle visite.')
+        // console.log('1. Swup: visit:start - Un clic a été détecté et Swup commence une nouvelle visite.')
         //console.log('visit:start - from:', swup.currentPageUrl, 'to:', swup.currentVisit.to.url)
         document.querySelector('html').classList.remove('animate-home')
         unmount()
@@ -97,7 +99,7 @@ window.addEventListener('DOMContentLoaded', () =>{
     })
 
     swup.hooks.on('page:load', () => {
-        console.log('2. Swup: page:load - La page actuelle est sur le point d\'être déchargée (avant l\'animation de sortie).')
+        // console.log('2. Swup: page:load - La page actuelle est sur le point d\'être déchargée (avant l\'animation de sortie).')
         //let hasSeenAnimation = sessionStorage.getItem('introPlayed')
         //if(['/index.html', '/'].some(p => p === window.location.pathname) && !hasSeenAnimation){
             //return new Promise(resolve => {
@@ -110,17 +112,17 @@ window.addEventListener('DOMContentLoaded', () =>{
     })
 
     swup.hooks.on('animation:out:start', () => {
-        console.log('3. Swup: animation:out:start - L\'animation de sortie du contenu commence.')
+        // console.log('3. Swup: animation:out:start - L\'animation de sortie du contenu commence.')
         document.querySelector('html').classList.remove('animate-home')
     })
 
     swup.hooks.on('animation:in:await', (visit, args) =>{
-        console.log('4. Swup: animation:out:await - Le hook d\'attente de l\'animation de sortie est déclenché.')
+        // console.log('4. Swup: animation:out:await - Le hook d\'attente de l\'animation de sortie est déclenché.')
     })
 
     swup.hooks.on('animation:in:start', (visit, args) =>{
         const elements = document.querySelectorAll('[class*=delay]');
-        console.log('>>', elements)
+        // console.log('>>', elements)
         elements.forEach(el => {
             //el.classList.remove('animate-in'); // reset si besoin
             void el.offsetWidth; // force reflow
@@ -130,15 +132,15 @@ window.addEventListener('DOMContentLoaded', () =>{
     })
 
     swup.hooks.on('content:replace', (visit, args) =>{
-        console.log('5. Swup: content:replace - Le nouveau contenu a été injecté dans le DOM.')
+        // console.log('5. Swup: content:replace - Le nouveau contenu a été injecté dans le DOM.')
         document.querySelector('main').classList.remove('hidden')
     })
 
     swup.hooks.on('page:view', () => {
-        console.log('6. Swup: page:view - La nouvelle page est entièrement chargée et prête.')
+        // console.log('6. Swup: page:view - La nouvelle page est entièrement chargée et prête.')
     })
     swup.hooks.on('visit:end', () => {
-        console.log('7. Swup: page:view - La nouvelle page est entièrement chargée et prête.')
+        // console.log('7. Swup: page:view - La nouvelle page est entièrement chargée et prête.')
         mount()
     })
 })

@@ -1,43 +1,61 @@
-import Utils from "./Utils"
+import Utils from './Utils'
 
 
-const darkmode = ()=>{
-    let $btnChangeMode = document.querySelector('.changeMode'),
-        storedTheme = localStorage.getItem('theme'),
-        changeMode = $btn =>{
-            let mode = {
-                'light': {
-                    'text': 'mode sombre',
-                    'icon': 'fa-solid fa-moon',
-                },
-                'dark': {
-                    'text': 'mode clair',
-                    'icon':  'fa-solid fa-sun'
-                }
+class DarkMode {
+    #button
+    #modes
+
+    constructor(selector = '.changeMode') {
+        this.#button = document.querySelector(selector)
+        this.#modes = {
+            light: {
+                text: 'mode sombre',
+                icon: 'fa-solid fa-moon',
             },
-            isLigth = [undefined, 'light'].some(m => m === document.documentElement.dataset.themePreference),
-            key = isLigth ? 'dark' : 'light',
-            text = `Activer le ${mode[key]['text']}`
+            dark: {
+                text: 'mode clair',
+                icon: 'fa-solid fa-sun',
+            }
+        }
+    }
 
-            $btn.setAttribute('aria-label', text)
-            $btn.querySelector('.fa-solid').className = mode[key]['icon']
-            $btn.querySelector('.text').textContent = text
-            document.documentElement.dataset.themePreference = key
-            localStorage.setItem('theme', key)
+    init() {
+        const storedTheme = localStorage.getItem('theme')
+
+        if (storedTheme) {
+            this.#applyMode(storedTheme)
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            this.#applyMode('dark')
         }
 
-    if(storedTheme){
-        document.documentElement.dataset.themePreference = storedTheme
-    }else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
-        changeMode($btnChangeMode)
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        changeMode($btnChangeMode)
-    })
-    if($btnChangeMode !== null){
-        $btnChangeMode.addEventListener(Utils.isMobile()? 'pointerdown' : 'click', e =>{
-            changeMode($btnChangeMode)
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            this.#applyMode(e.matches ? 'dark' : 'light')
         })
+
+        if (this.#button) {
+            this.#button.addEventListener(Utils.isMobile() ? 'pointerdown' : 'click', () => {
+                this.#toggleMode()
+            })
+        }
+    }
+
+    #applyMode(modeKey) {
+        const mode = this.#modes[modeKey]
+        document.documentElement.dataset.themePreference = modeKey
+        localStorage.setItem('theme', modeKey)
+
+        if (this.#button) {
+            this.#button.setAttribute('aria-label', `Activer le ${mode.text}`)
+            this.#button.querySelector('.fa-solid').className = mode.icon
+            this.#button.querySelector('.text').textContent = `Activer le ${mode.text}`
+        }
+    }
+
+    #toggleMode() {
+        const current = document.documentElement.dataset.themePreference
+        const next = [undefined, 'light'].includes(current) ? 'dark' : 'light'
+        this.#applyMode(next)
     }
 }
-export default darkmode
+
+export default DarkMode
