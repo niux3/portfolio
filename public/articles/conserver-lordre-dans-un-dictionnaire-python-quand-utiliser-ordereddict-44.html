@@ -12,7 +12,7 @@
           })(window,document,'script','dataLayer','GTM-MCT7LV9P');</script>
     <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Code propre : Lutter contre la Dette Technique - RB webstudio </title>
+    <title> Conserver l’ordre dans un dictionnaire Python : quand utiliser OrderedDict ? - RB webstudio </title>
     <style>
       .hidden{
         visibility: hidden;
@@ -31,19 +31,19 @@
 
     <link rel="stylesheet" href="/static/styles-Dx6gT-c0.css">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <link rel="canonical" href="https://rb-webstudio.go.yj.fr/articles/code-propre-lutter-contre-la-dette-technique-6.html" />
+    <link rel="canonical" href="https://rb-webstudio.go.yj.fr/articles/conserver-lordre-dans-un-dictionnaire-python-quand-utiliser-ordereddict-44.html" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-    <meta name="description"  content="Un code propre, c’est un code qui parle de lui-même. Moins de bugs, plus de clarté, zéro dette technique. La propreté, c’est la puissance." />
+    <meta name="description"  content="OrderedDict en Python : quand l&#39;utiliser ? Découvrez l&#39;impact mémoire, la différence avec un dict standard (3.7+) et les méthodes avancées." />
     <meta property="og:site_name" content="RB webstudio">
-    <meta property="og:title" content=" Code propre : Lutter contre la Dette Technique">
-    <meta property="og:description" content="Un code propre, c’est un code qui parle de lui-même. Moins de bugs, plus de clarté, zéro dette technique. La propreté, c’est la puissance.">
+    <meta property="og:title" content=" Conserver l’ordre dans un dictionnaire Python : quand utiliser OrderedDict ?">
+    <meta property="og:description" content="OrderedDict en Python : quand l&#39;utiliser ? Découvrez l&#39;impact mémoire, la différence avec un dict standard (3.7+) et les méthodes avancées.">
     <meta property="og:image" content="https://rb-webstudio.go.yj.fr/static/img/og_image_rb_webstudio.svg">
     
-  <meta property="article:published_time" content="2025-06-02T14:10:16.255067" />
+  <meta property="article:published_time" content="2025-08-01T04:05:40.962461" />
 
     
   
-    <meta property="article:tag" content="développement">
+    <meta property="article:tag" content="python">
   
 
   </head>
@@ -80,71 +80,114 @@
 <progress id="progressTrue" max="100" value="0"></progress>
   <section>
     <article>
-      <h1 class="flag-right delay3">Code propre : Lutter contre la Dette Technique</h1>
+      <h1 class="flag-right delay3">Conserver l’ordre dans un dictionnaire Python : quand utiliser OrderedDict ?</h1>
       <div class="grid-x grid-padding-x">
         <nav class="cell medium-6 small-12">
           <ul class="flex-container no-bullet tags-list transition-fade delay4">
             
-              <li><a href="/articles/chercher-articles-par-developpement.html"><span>développement</span></a></li>
+              <li><a href="/articles/chercher-articles-par-python.html"><span>python</span></a></li>
             
           </ul>
         </nav>
         <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6 small-12">
           <ul class="flex-container no-bullet share transition-fade delay5">
             
-              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//rb-webstudio.go.yj.fr/articles/code-propre-lutter-contre-la-dette-technique-6.html&amp;title=Code%20propre%20%3A%20Lutter%20contre%20la%20Dette%20Technique&amp;source=https%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
+              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//rb-webstudio.go.yj.fr/articles/conserver-lordre-dans-un-dictionnaire-python-quand-utiliser-ordereddict-44.html&amp;title=Conserver%20l%E2%80%99ordre%20dans%20un%20dictionnaire%20Python%20%3A%20quand%20utiliser%20OrderedDict%20%3F&amp;source=https%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
             
-              <li><a href="https://twitter.com/intent/tweet?url=https%3A//rb-webstudio.go.yj.fr/articles/code-propre-lutter-contre-la-dette-technique-6.html&amp;text=Code%20propre%20%3A%20Lutter%20contre%20la%20Dette%20Technique" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
+              <li><a href="https://twitter.com/intent/tweet?url=https%3A//rb-webstudio.go.yj.fr/articles/conserver-lordre-dans-un-dictionnaire-python-quand-utiliser-ordereddict-44.html&amp;text=Conserver%20l%E2%80%99ordre%20dans%20un%20dictionnaire%20Python%20%3A%20quand%20utiliser%20OrderedDict%20%3F" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
             
-              <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//rb-webstudio.go.yj.fr/articles/code-propre-lutter-contre-la-dette-technique-6.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//rb-webstudio.go.yj.fr/articles/conserver-lordre-dans-un-dictionnaire-python-quand-utiliser-ordereddict-44.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
             
-              <li><a href="mailto:?subject=Je%20souhaite%20te%20partager%20cet%20article%20%3A%20Code%20propre%20%3A%20Lutter%20contre%20la%20Dette%20Technique&amp;body=Salut%2C%0AJe%20pense%20que%20cet%20article%20devrait%20t%27int%C3%A9resser%20%3A%0Ahttps%3A//rb-webstudio.go.yj.fr/articles/code-propre-lutter-contre-la-dette-technique-6.html" class="fa-solid fa-square-share-nodes" target="_blank" rel="noopener noreferrer"><span>Partager à un ami</span></a></li>
+              <li><a href="mailto:?subject=Je%20souhaite%20te%20partager%20cet%20article%20%3A%20Conserver%20l%E2%80%99ordre%20dans%20un%20dictionnaire%20Python%20%3A%20quand%20utiliser%20OrderedDict%20%3F&amp;body=Salut%2C%0AJe%20pense%20que%20cet%20article%20devrait%20t%27int%C3%A9resser%20%3A%0Ahttps%3A//rb-webstudio.go.yj.fr/articles/conserver-lordre-dans-un-dictionnaire-python-quand-utiliser-ordereddict-44.html" class="fa-solid fa-square-share-nodes" target="_blank" rel="noopener noreferrer"><span>Partager à un ami</span></a></li>
             
           </ul>
         </nav>
       </div>
-      <div class="content flag-down delay6"><p><strong>Un code propre est évident pour les autres développeurs.</strong></p>
-<p>Il ne s'agit pas de créer des algorithmes complexes et sophistiqués. Des noms de variables mal choisis, des classes et méthodes surchargées, des "nombres magiques" — tous ces éléments rendent le code confus et difficile à comprendre. Un bon code est lisible, compréhensible et auto-explicatif, même pour quelqu'un qui ne l’a pas écrit.</p>
-<p><strong>Un code propre ne contient pas de doublons.</strong></p>
-<p>La duplication complique les changements futurs. Chaque fois que vous devez modifier un morceau de code dupliqué, vous devez vous souvenir de répliquer ce changement à chaque instance. Cela augmente inutilement la charge cognitive et ralentit le travail.</p>
-<p><strong>Un code propre est minimaliste.</strong></p>
-<p>Il doit contenir le strict nécessaire en termes de classes et d'éléments. Moins de code signifie moins de choses à comprendre et à maintenir, donc moins de bugs potentiels. Le code est une responsabilité — gardez-le concis et simple.</p>
-<p><strong>Les commentaires dans un code propre</strong></p>
-<p>Les commentaires jouent un rôle important dans la lisibilité et la compréhension d'un code, mais leur utilisation doit être judicieuse. Voici comment aborder les commentaires dans un code propre :</p>
-<ul>
-<li><strong>Clarté et Contexte </strong>: Les commentaires doivent expliquer le pourquoi d'un choix plutôt que le quoi. Un bon code devrait être suffisamment clair pour que les développeurs comprennent la logique sans avoir à lire des commentaires détaillés. Les commentaires peuvent fournir un contexte précieux, comme la raison d'un algorithme particulier ou des détails sur une décision de conception.</li>
-<li><strong>Éviter les Redondances</strong> : Évitez de commenter des éléments évidents ou de décrire ce que fait le code ligne par ligne. Par exemple, au lieu de commenter un code comme ci-dessous, il vaut mieux choisir des noms de variables explicites et rendre le code lisible.</li>
-</ul>
-<pre><code class="language-python">x = x + 1  # Ajoute 1 à x
-</code></pre>
-<ul>
-<li><strong>Documentation des Fonctions</strong> : Utilisez des docstrings (commentaires en début de fonction) pour expliquer le but de la fonction, ses paramètres et ce qu’elle retourne. Cela aide à comprendre comment utiliser une fonction sans avoir à lire son code.</li>
-</ul>
-<pre><code class="language-python">def add(a, b):
-    &quot;&quot;&quot;
-    Additionne deux nombres.
+      <div class="content flag-down delay6"><p>Vous devez générer un fichier JSON pour une API tierce qui exige un ordre strict des champs.
+Vous pensez naturellement à utiliser un dictionnaire Python… mais comment vous assurer que les champs apparaîtront dans le bon ordre lors de la sérialisation&nbsp;?</p>
+<h2>Utiliser <code>OrderedDict</code> pour garantir l’ordre</h2>
+<p>Pour contrôler l’ordre des éléments dans un dictionnaire, Python propose la classe <code>OrderedDict</code> dans le module <code>collections</code>. Cette structure de données préserve exactement l’ordre d’insertion des paires clé-valeur, ce qui est utile pour l’itération ou la sérialisation (par exemple en JSON). Voici un exemple simple :</p>
+<pre><code class="language-python">from collections import OrderedDict
 
-    :param a: Premier nombre
-    :param b: Deuxième nombre
-    :return: Somme de a et b
-    &quot;&quot;&quot;
-    return a + b
+
+d = OrderedDict()
+
+d['a'] = 1
+d['b'] = 2
+d['c'] = 3
+d['d'] = 4
+d['e'] = 5
+
+for k, v in d.items():
+    print(k, v)
 </code></pre>
-<ul>
-<li><strong>Mettre à Jour les Commentaires</strong> : Les commentaires doivent être mis à jour en même temps que le code. Des commentaires obsolètes peuvent induire en erreur et causer plus de confusion qu’ils n’en résolvent. Une bonne pratique est de revoir les commentaires lors de chaque refactoring.</li>
-<li><strong>Sections et TODOs</strong> : Les commentaires peuvent être utilisés pour marquer des sections de code ou des tâches à accomplir (TODOs). Cependant, veillez à ce que ces commentaires soient également suivis et maintenus. Par exemple :</li>
-</ul>
-<pre><code class="language-python"># TODO: Optimiser cette fonction pour de meilleures performances
+<p>Lorsqu'on sérialise ce dictionnaire avec json.dumps(), l’ordre est respecté :</p>
+<pre><code class="language-python">import json
+
+
+print(json.dumps(d))
 </code></pre>
-<ul>
-<li><strong>Exceptions et Cas Particuliers</strong> : Si vous gérez des cas particuliers ou des exceptions qui ne sont pas évidents, des commentaires peuvent aider à clarifier pourquoi une solution a été choisie. Cela permet de mieux comprendre les décisions qui ont été prises.</li>
-</ul>
-<p>Dans un code propre, les commentaires sont un complément, pas un substitut à la clarté du code. Ils doivent être utilisés pour améliorer la compréhension et fournir des informations essentielles sans surcharger le code de détails inutiles. Un bon équilibre entre un code lisible et des commentaires pertinents est la clé d'un code maintenable et efficace.</p>
-<h3>Un code propre réussit tous les tests.</h3>
-<p>Si seulement 95 % de vos tests passent, c’est un signal d’alerte. Pire encore, une couverture de tests à 0 % signifie que vous travaillez sans filet. Un code propre est pleinement testé, assurant ainsi sa robustesse.</p>
-<h3>Un code propre est économique à long terme.</h3>
-<p>Un code bien écrit est moins coûteux à maintenir. Il réduit la complexité, les erreurs, et donc le temps passé à corriger ou à faire évoluer le projet. En fin de compte, cela diminue les frais techniques.</p></div>
-      <p class="text-right">Publié le <time datetime="25-06-02">02 juin 2025</time></p>
+<p>Ce comportement est particulièrement utile si vous avez besoin de générer un mapping structuré dans un format externe (JSON, XML, CSV…) où l’ordre des champs est important.</p>
+<h2>Fonctionnement interne</h2>
+<p>Un <code>OrderedDict</code> repose sur une liste doublement chaînée pour maintenir l’ordre des clés. Quand un élément est ajouté, il est placé à la fin de cette liste. Si vous modifiez la valeur d’une clé déjà présente, son positionnement ne change pas.</p>
+<h3>Inconvénient : le coût mémoire</h3>
+<p>Un <code>OrderedDict</code> est plus lourd qu’un dictionnaire classique. Par exemple :</p>
+<pre><code class="language-python">import sys
+from collections import OrderedDict
+
+
+d1 = {'a': 1, 'b': 2, 'c': 3}
+d2 = OrderedDict(d1)
+
+print(sys.getsizeof(d1))  # ~232 octets
+print(sys.getsizeof(d2))  # ~456 octets
+</code></pre>
+<p>Résultat : un OrderedDict peut consommer deux fois plus de mémoire qu’un dict.
+Si vous chargez des dizaines de milliers d’objets (ex. : parsing de CSV), ce surcoût peut devenir un facteur limitant.</p>
+<h3>À savoir : les dict sont ordonnés depuis Python 3.7</h3>
+<p>Depuis Python 3.7, les dictionnaires standards (dict) conservent déjà l’ordre d’insertion des éléments. Ce comportement, apparu en Python 3.6 comme un détail d’implémentation, est devenu une caractéristique officielle du langage. Autrement dit : dans une version moderne de Python, le code ci-dessous produira un JSON dans le même ordre que l’insertion.</p>
+<pre><code class="language-python">d = {'a': 1, 'b': 2, 'c': 3}
+print(json.dumps(d))
+</code></pre>
+<p>Si vous utilisez Python 3.7 ou supérieur (ce qui est très probable aujourd’hui), et que vous n’avez pas besoin de méthodes spécifiques à <code>OrderedDict</code> comme <code>move_to_end()</code> ou <code>popitem(last=False)</code>, alors un simple dict est suffisant et plus léger en mémoire.</p>
+<h3>Méthodes avancées de OrderedDict</h3>
+<p>Au-delà de la simple conservation de l’ordre, <code>OrderedDict</code> offre des méthodes spécifiques pour manipuler précisément la position des éléments. <code>move_to_end(key, last=True)</code> : déplace une clé existante à la fin (par défaut) ou au début (last=False) du dictionnaire.</p>
+<pre><code class="language-python">from collections import OrderedDict
+
+d = OrderedDict()
+d['a'] = 1
+d['b'] = 2
+d['c'] = 3
+
+print(&quot;Avant :&quot;, list(d.items()))
+
+# On déplace 'a' à la fin
+d.move_to_end('a')
+
+print(&quot;Après move_to_end('a') :&quot;, list(d.items()))
+
+# On déplace 'c' au début
+d.move_to_end('c', last=False)
+
+print(&quot;Après move_to_end('c', last=False) :&quot;, list(d.items()))
+</code></pre>
+<p><code>popitem(last=True)</code> : supprime et retourne une paire clé-valeur. Par défaut, elle retire le dernier élément <code>(last=True)</code>, mais on peut retirer le premier en passant <code>last=False</code>.</p>
+<pre><code class="language-python">from collections import OrderedDict
+
+d = OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+
+# Retire le dernier élément
+last_item = d.popitem()
+print(&quot;popitem() =&gt;&quot;, last_item)
+print(&quot;Reste :&quot;, list(d.items()))
+
+# Retire le premier élément
+first_item = d.popitem(last=False)
+print(&quot;popitem(last=False) =&gt;&quot;, first_item)
+print(&quot;Reste :&quot;, list(d.items()))
+</code></pre>
+<p>Ces méthodes permettent de gérer des files d’attente, des caches ou des structures où l’ordre et la manipulation fine des éléments sont importants.</p></div>
+      <p class="text-right">Publié le <time datetime="25-08-01">01 août 2025</time></p>
     </article>
   </section>
   <section id="lateralBar">
@@ -160,28 +203,28 @@
       <ul class="flex-container flex-dir-column no-bullet share">
         
           <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//rb-webstudio.go.yj.fr/articles/code-propre-lutter-contre-la-dette-technique-6.html&amp;title=Code%20propre%20%3A%20Lutter%20contre%20la%20Dette%20Technique&amp;source=https%3A//rb-webstudio.go.yj.fr" class="button" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//rb-webstudio.go.yj.fr/articles/conserver-lordre-dans-un-dictionnaire-python-quand-utiliser-ordereddict-44.html&amp;title=Conserver%20l%E2%80%99ordre%20dans%20un%20dictionnaire%20Python%20%3A%20quand%20utiliser%20OrderedDict%20%3F&amp;source=https%3A//rb-webstudio.go.yj.fr" class="button" target="_blank" rel="noopener noreferrer">
               <span class="fa-brands fa-linkedin-in"></span>
               <span class="hide">Partager sur Linkedin</span>
             </a>
           </li>
         
           <li>
-            <a href="https://twitter.com/intent/tweet?url=https%3A//rb-webstudio.go.yj.fr/articles/code-propre-lutter-contre-la-dette-technique-6.html&amp;text=Code%20propre%20%3A%20Lutter%20contre%20la%20Dette%20Technique" class="button" target="_blank" rel="noopener noreferrer">
+            <a href="https://twitter.com/intent/tweet?url=https%3A//rb-webstudio.go.yj.fr/articles/conserver-lordre-dans-un-dictionnaire-python-quand-utiliser-ordereddict-44.html&amp;text=Conserver%20l%E2%80%99ordre%20dans%20un%20dictionnaire%20Python%20%3A%20quand%20utiliser%20OrderedDict%20%3F" class="button" target="_blank" rel="noopener noreferrer">
               <span class="fa-brands fa-x-twitter"></span>
               <span class="hide">Partager sur Twitter</span>
             </a>
           </li>
         
           <li>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//rb-webstudio.go.yj.fr/articles/code-propre-lutter-contre-la-dette-technique-6.html" class="button" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//rb-webstudio.go.yj.fr/articles/conserver-lordre-dans-un-dictionnaire-python-quand-utiliser-ordereddict-44.html" class="button" target="_blank" rel="noopener noreferrer">
               <span class="fa-brands fa-facebook"></span>
               <span class="hide">Partager sur Facebook</span>
             </a>
           </li>
         
           <li>
-            <a href="mailto:?subject=Je%20souhaite%20te%20partager%20cet%20article%20%3A%20Code%20propre%20%3A%20Lutter%20contre%20la%20Dette%20Technique&amp;body=Salut%2C%0AJe%20pense%20que%20cet%20article%20devrait%20t%27int%C3%A9resser%20%3A%0Ahttps%3A//rb-webstudio.go.yj.fr/articles/code-propre-lutter-contre-la-dette-technique-6.html" class="button" target="_blank" rel="noopener noreferrer">
+            <a href="mailto:?subject=Je%20souhaite%20te%20partager%20cet%20article%20%3A%20Conserver%20l%E2%80%99ordre%20dans%20un%20dictionnaire%20Python%20%3A%20quand%20utiliser%20OrderedDict%20%3F&amp;body=Salut%2C%0AJe%20pense%20que%20cet%20article%20devrait%20t%27int%C3%A9resser%20%3A%0Ahttps%3A//rb-webstudio.go.yj.fr/articles/conserver-lordre-dans-un-dictionnaire-python-quand-utiliser-ordereddict-44.html" class="button" target="_blank" rel="noopener noreferrer">
               <span class="fa-solid fa-share-nodes"></span>
               <span class="hide">Partager à un ami</span>
             </a>

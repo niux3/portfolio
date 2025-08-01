@@ -5,7 +5,15 @@
         <link>https://rb-webstudio.go.yj.fr</link>
         <description>RB webstudio - spécialiste Python - Javascript/Typescript</description>
         <language>fr</language>
-        <lastBuildDate>2025-07-30</lastBuildDate>
+        <lastBuildDate>2025-08-01</lastBuildDate>
+        
+        <item>
+            <title>Conserver l’ordre dans un dictionnaire Python : quand utiliser OrderedDict ?</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/conserver-lordre-dans-un-dictionnaire-python-quand-utiliser-ordereddict-44.html</link>
+            <description><![CDATA[OrderedDict en Python : quand l'utiliser ? Découvrez l'impact mémoire, la différence avec un dict standard (3.7+) et les méthodes avancées.]]></description>
+            <pubDate>2025-08-01 04:05:40.962461</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/conserver-lordre-dans-un-dictionnaire-python-quand-utiliser-ordereddict-44.html</guid>
+        </item>
         
         <item>
             <title>Les liens d'évitement</title>
@@ -157,14 +165,6 @@
             <description><![CDATA[Informez vos utilisateurs lorsqu’un lien s’ouvre dans un nouvel onglet. Découvrez les bonnes pratiques d’accessibilité et d’expérience utilisateur.]]></description>
             <pubDate>2025-06-22 23:23:45.066472</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/informer-les-utilisateurs-de-l-evolution-du-contexte-25.html</guid>
-        </item>
-        
-        <item>
-            <title>Les liens images</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/les-liens-images-24.html</link>
-            <description><![CDATA[Comment rendre vos liens images accessibles ? Découvrez les bonnes pratiques et erreurs courantes avec exemples HTML concrets.]]></description>
-            <pubDate>2025-06-19 15:36:57.172287</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/les-liens-images-24.html</guid>
         </item>
         
     </channel>
