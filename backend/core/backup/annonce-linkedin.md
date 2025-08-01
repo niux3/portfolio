@@ -1,7 +1,7 @@
 Garantir l'ordre d'un dictionnaire en Python est une problématique courante, notamment pour les fichiers JSON. Quand faut-il utiliser collections.OrderedDict ? Et quand un simple dict suffit-il ? J'ai rédigé un article qui explore ces questions, en abordant :
 
 - L'utilisation basique d'OrderedDict pour la sérialisation.
-- Le ct mémoire par rapport aux dictionnaires standards.
+- Le coût mémoire par rapport aux dictionnaires standards.
 - Le changement majeur de comportement des dict depuis Python 3.7.
 - Les méthodes spécifiques d'OrderedDict pour manipuler l'ordre.
 
