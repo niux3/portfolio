@@ -5,7 +5,15 @@
         <link>https://rb-webstudio.go.yj.fr</link>
         <description>RB webstudio - spécialiste Python - Javascript/Typescript</description>
         <language>fr</language>
-        <lastBuildDate>2025-08-01</lastBuildDate>
+        <lastBuildDate>2025-08-04</lastBuildDate>
+        
+        <item>
+            <title>Calculs malins avec des Dictionnaires Python</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/calculs-malins-avec-des-dictionnaires-python-45.html</link>
+            <description><![CDATA[Apprenez à extraire, trier et analyser des données dans un dictionnaire Python grâce à zip(), min(), max() et quelques astuces essentielles.]]></description>
+            <pubDate>2025-08-04 01:44:24.932971</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/calculs-malins-avec-des-dictionnaires-python-45.html</guid>
+        </item>
         
         <item>
             <title>Conserver l’ordre dans un dictionnaire Python : quand utiliser OrderedDict ?</title>
@@ -157,14 +165,6 @@
             <description><![CDATA[Gérer le focus et les régions dynamiques en routage JS pour une accessibilité optimale. Bonnes pratiques et exemples concrets à l’appui.]]></description>
             <pubDate>2025-06-23 22:48:50.081394</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/accessibilite-et-routage-cote-client-26.html</guid>
-        </item>
-        
-        <item>
-            <title>Informer les utilisateurs de l'évolution du contexte</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/informer-les-utilisateurs-de-l-evolution-du-contexte-25.html</link>
-            <description><![CDATA[Informez vos utilisateurs lorsqu’un lien s’ouvre dans un nouvel onglet. Découvrez les bonnes pratiques d’accessibilité et d’expérience utilisateur.]]></description>
-            <pubDate>2025-06-22 23:23:45.066472</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/informer-les-utilisateurs-de-l-evolution-du-contexte-25.html</guid>
         </item>
         
     </channel>
