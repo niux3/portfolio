@@ -1,13 +1,10 @@
-# Dictionnaires Python : Astuces pour des calculs efficaces !
+# Comment comparer rapidement deux dictionnaires en Python ?
 
-Manipuler des dictionnaires en Python semble simple… jusqu’à ce qu’il faille extraire le prix minimal, trier des valeurs, ou associer une clé à sa valeur max.
+Vous manipulez souvent des structures de type dict ? Voici une astuce simple : utilisez les opérations d'ensembles (&, -, etc.) sur les méthodes keys() et items() pour :
 
-Dans mon dernier article, je dévoile :
+- Trouver les clés communes
+- Isoler les clés uniques
+- Repérer les paires (clé, valeur) identiques
 
-- 3 méthodes pour éviter les pièges classiques (zip(), lambda, sorted).
-- Le piège méconnu de l’itérateur zip() (et comment le contourner).
-- Une comparaison clé entre calculs directs et solutions optimisées.
-
-Un must-read pour les devs Python qui veulent coder proprement et efficacement !
-
-Lien vers l’article : [insérer lien]
+Bonus : découvrez ce que sont vraiment les "views" de dictionnaires et comment elles facilitent ces comparaisons.
+Lire l’article : [lien]
