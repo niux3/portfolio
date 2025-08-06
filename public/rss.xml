@@ -5,7 +5,15 @@
         <link>https://rb-webstudio.go.yj.fr</link>
         <description>RB webstudio - spécialiste Python - Javascript/Typescript</description>
         <language>fr</language>
-        <lastBuildDate>2025-08-04</lastBuildDate>
+        <lastBuildDate>2025-08-06</lastBuildDate>
+        
+        <item>
+            <title>Trouver les similarités entre deux dictionnaires</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/trouver-les-similarites-entre-deux-dictionnaires-46.html</link>
+            <description><![CDATA[Comparez facilement deux dictionnaires Python grâce aux opérations d'ensembles sur keys() et items(). Exemples simples et astuces pratiques.]]></description>
+            <pubDate>2025-08-06 23:46:20.706819</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/trouver-les-similarites-entre-deux-dictionnaires-46.html</guid>
+        </item>
         
         <item>
             <title>Calculs malins avec des Dictionnaires Python</title>
@@ -157,14 +165,6 @@
             <description><![CDATA[5 techniques pour étendre la zone de clic de vos éléments HTML. Analysez avantages, inconvénients, et impacts sur l'accessibilité, le SEO et l'UX.]]></description>
             <pubDate>2025-06-25 23:48:22.732182</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/ajouter-des-liens-a-des-groupes-d-elements-27.html</guid>
-        </item>
-        
-        <item>
-            <title>Accessibilité et routage côté client</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/accessibilite-et-routage-cote-client-26.html</link>
-            <description><![CDATA[Gérer le focus et les régions dynamiques en routage JS pour une accessibilité optimale. Bonnes pratiques et exemples concrets à l’appui.]]></description>
-            <pubDate>2025-06-23 22:48:50.081394</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/accessibilite-et-routage-cote-client-26.html</guid>
         </item>
         
     </channel>

@@ -494,6 +494,17 @@
       "meta_description": "Apprenez \u00e0 extraire, trier et analyser des donn\u00e9es dans un dictionnaire Python gr\u00e2ce \u00e0 zip(), min(), max() et quelques astuces essentielles.",
       "status_id": 3,
       "categories_id": 4
+    },
+    {
+      "id": 46,
+      "title": "Trouver les similarit\u00e9s entre deux dictionnaires",
+      "slug": "trouver-les-similarites-entre-deux-dictionnaires",
+      "body": "Vous travaillez avec deux dictionnaires Python et souhaitez identifier rapidement ce qu'ils ont en commun ? Qu'il s'agisse de cl\u00e9s partag\u00e9es, de valeurs identiques ou de paires cl\u00e9-valeur communes, il existe des m\u00e9thodes simples et efficaces pour y parvenir.\r\n\r\n```python\r\na = {\r\n    'x': 1,\r\n    'y': 2,\r\n    'z': 3,\r\n}\r\n\r\nb = {\r\n    'w': 123,\r\n    'x': 42,\r\n    'y': 2,\r\n}\r\n```\r\n\r\n## Exemples d'op\u00e9rations\r\n\r\nPour trouver les points communs, il suffit d'utiliser les m\u00e9thodes `keys()` ou `items()` en combinaison avec les op\u00e9rations d'ensembles (set operations).\r\n\r\n### Trouver les cl\u00e9s communes\r\n\r\n L'op\u00e9rateur d'intersection `&` permet de trouver les cl\u00e9s pr\u00e9sentes dans les deux dictionnaires.\r\n \r\n```python\r\n# Renvoie un ensemble de cl\u00e9s communes :\r\na.keys() & b.keys()\r\n# R\u00e9sultat : {'x', 'y'}\r\n```\r\n\r\n### Trouver les cl\u00e9s uniques\r\n\r\nL'op\u00e9rateur de diff\u00e9rence `-` permet de trouver les cl\u00e9s pr\u00e9sentes dans le premier dictionnaire mais absentes du second.\r\n\r\n```python\r\n# Renvoie un ensemble de cl\u00e9s dans 'a' qui ne sont pas dans 'b' :\r\na.keys() - b.keys()\r\n# R\u00e9sultat : {'z'}\r\n```\r\n\r\n### Trouver les paires (cl\u00e9, valeur) communes\r\n\r\nDe la m\u00eame mani\u00e8re, l'op\u00e9rateur d'intersection peut \u00eatre appliqu\u00e9 sur la m\u00e9thode `items()` pour identifier les paires identiques.\r\n\r\n```python\r\n# Renvoie un ensemble de paires (cl\u00e9, valeur) communes :\r\na.items() & b.items()\r\n# R\u00e9sultat : {('y', 2)}\r\n```\r\n\r\n## Manipuler les dictionnaires \u00e0 partir d'op\u00e9rations d'ensembles\r\n\r\nCes op\u00e9rations peuvent \u00e9galement \u00eatre utilis\u00e9es pour manipuler ou filtrer des dictionnaires. Par exemple, si vous souhaitez cr\u00e9er un nouveau dictionnaire en excluant certaines cl\u00e9s, vous pouvez le faire avec une compr\u00e9hension de dictionnaire (dictionary comprehension).\r\n\r\n```python\r\n# Cr\u00e9er un nouveau dictionnaire en retirant les cl\u00e9s 'z' et 'w' :\r\nc = {key: a[key] for key in a.keys() - {'z', 'w'}}\r\n# Le dictionnaire 'c' est maintenant : {'x': 1, 'y': 2}\r\n```\r\n\r\n### Un mot sur les vues (views)\r\n\r\nLa m\u00e9thode `keys()` d'un dictionnaire ne renvoie pas un ensemble, mais un objet appel\u00e9 vue de cl\u00e9s (`keys-view object`). Une fonctionnalit\u00e9 moins connue de ces vues est qu'elles prennent en charge les op\u00e9rations d'ensembles courantes (union, intersection, diff\u00e9rence). Vous pouvez donc les utiliser directement sans avoir besoin de les convertir explicitement en un `set`.\r\n\r\nDe m\u00eame, la m\u00e9thode `items()` renvoie une vue d'items (`items-view object`) qui prend \u00e9galement en charge ces op\u00e9rations d'ensembles.\r\n\r\nCependant, il est important de noter que la m\u00e9thode `values()` ne supporte pas ces op\u00e9rations. En effet, contrairement aux cl\u00e9s, les valeurs ne sont pas garanties d'\u00eatre uniques, ce qui rendrait ces op\u00e9rations d'ensembles moins pertinentes. Si vous devez effectuer ces calculs, vous devrez d'abord convertir les valeurs en un ensemble `set`.\r\n\r\nLes dictionnaires sont des structures puissantes en Python, et savoir les comparer efficacement vous fera gagner en clart\u00e9 et en performance. En combinant simplement `keys()`, `items()` et les op\u00e9rations d\u2019ensembles, vous avez en main une bo\u00eete \u00e0 outils ultra-rapide pour analyser, filtrer ou croiser vos donn\u00e9es.",
+      "created": "2025-08-06T23:46:20.706819",
+      "updated": "2025-08-07T00:12:57.356885",
+      "meta_description": "Comparez facilement deux dictionnaires Python gr\u00e2ce aux op\u00e9rations d'ensembles sur keys() et items(). Exemples simples et astuces pratiques.",
+      "status_id": 3,
+      "categories_id": 4
     }
   ],
   "tag": [
@@ -1277,6 +1288,11 @@
     {
       "id": 1624,
       "posts_id": 45,
+      "tags_id": 6
+    },
+    {
+      "id": 1630,
+      "posts_id": 46,
       "tags_id": 6
     }
   ],
