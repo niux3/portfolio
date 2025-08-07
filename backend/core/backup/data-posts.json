@@ -505,6 +505,17 @@
       "meta_description": "Comparez facilement deux dictionnaires Python gr\u00e2ce aux op\u00e9rations d'ensembles sur keys() et items(). Exemples simples et astuces pratiques.",
       "status_id": 3,
       "categories_id": 4
+    },
+    {
+      "id": 47,
+      "title": "Supprimer les doublons d\u2019une liste sans perdre l\u2019ordre : m\u00e9thode simple et rapide",
+      "slug": "supprimer-les-doublons-dune-liste-sans-perdre-lordre-methode-simple-et-rapide",
+      "body": "Vous travaillez sur un fichier contenant des milliers de lignes, ou vous recevez des donn\u00e9es d\u2019une API, et vous devez retirer les doublons\u2026 sans chambouler l\u2019ordre des \u00e9l\u00e9ments ?\r\nAvec `set()`, vous perdez l\u2019ordre original. Heureusement, Python permet une approche simple, \u00e9l\u00e9gante et r\u00e9utilisable pour g\u00e9rer \u00e0 la fois les listes d\u2019\u00e9l\u00e9ments hachables\u2026 et celles d\u2019\u00e9l\u00e9ments plus complexes comme les dictionnaires.\r\n\r\n```python\r\ndef dedup(items):\r\n    seen = set()\r\n    for item in items:\r\n        if item not in seen:\r\n            yield item\r\n            seen.add(item)\r\n\r\n# Exemple d'utilisation\r\na = [1, 5, 2, 1, 9, 1, 5, 10]\r\nprint(list(dedup(a)))\r\n# R\u00e9sultat : [1, 5, 2, 9, 10]\r\n```\r\nCette approche fonctionne uniquement si les \u00e9l\u00e9ments de la s\u00e9quence sont hachables. Si vous essayez de supprimer des doublons dans une s\u00e9quence de types non hachables (comme les dictionnaires), vous pouvez modifier l\u00e9g\u00e8rement la solution comme suit :\r\n\r\n```python\r\ndef dedupe(items, key=None):\r\n    seen = set()\r\n    for item in items:\r\n        val = item if key is None else key(item)\r\n        if val not in seen:\r\n            yield item\r\n            seen.add(val)\r\n```\r\n\r\nIci, l'argument `key` a pour but de sp\u00e9cifier une fonction qui convertit les \u00e9l\u00e9ments de la s\u00e9quence en un type hachable, afin de pouvoir d\u00e9tecter les doublons.\r\n\r\nVoici comment l'utiliser avec des dictionnaires :\r\n\r\n```python\r\na = [{'x':1, 'y':2}, {'x':1, 'y':3}, {'x':1, 'y':2}, {'x':2, 'y':4}]\r\n\r\n# Supprimer les doublons bas\u00e9s sur la paire ('x', 'y')\r\nprint(list(dedupe(a, key=lambda d: (d['x'], d['y']))))\r\n# R\u00e9sultat : [{'x': 1, 'y': 2}, {'x': 1, 'y': 3}, {'x': 2, 'y': 4}]\r\n\r\n# Supprimer les doublons bas\u00e9s uniquement sur la cl\u00e9 'x'\r\nprint(list(dedupe(a, key=lambda d: d['x'])))\r\n# R\u00e9sultat : [{'x': 1, 'y': 2}, {'x': 2, 'y': 4}]\r\n```\r\n\r\n## Une alternative \u00e0 \u00e9viter pour maintenir l'ordre\r\n\r\nSi vous cherchez simplement \u00e0 \u00e9liminer les doublons sans vous soucier de l'ordre, il est souvent plus simple d'utiliser un `set`. Par exemple :\r\n\r\n```python\r\na = [1, 5, 2, 1, 9, 1, 5, 10]\r\nprint(set(a))\r\n# R\u00e9sultat possible : {1, 2, 10, 5, 9}\r\n```\r\n\r\nCependant, comme vous pouvez le voir, cette m\u00e9thode ne garantit en aucun cas l'ordre des \u00e9l\u00e9ments. L'approche avec un g\u00e9n\u00e9rateur `dedupe` r\u00e9sout ce probl\u00e8me en pr\u00e9servant l'ordre initial.\r\n\r\nL'utilisation d'une fonction g\u00e9n\u00e9ratrice dans cette solution la rend extr\u00eamement polyvalente. Elle n'est pas uniquement li\u00e9e au traitement des listes. Par exemple, si vous souhaitez lire un fichier et supprimer les lignes en double, vous pouvez faire ceci :\r\n\r\n```python\r\nwith open('mon_fichier.txt', 'r') as f:\r\n    for line in dedupe(f):\r\n        # Traitement des lignes uniques\r\n        print(line)\r\n```\r\nLa sp\u00e9cification de la fonction `key` est une fonctionnalit\u00e9 courante en Python. On la retrouve dans des fonctions natives comme `sorted()`, `min()` et `max()`, ce qui rend cette approche famili\u00e8re et intuitive pour de nombreux d\u00e9veloppeurs.\r\n\r\nEn r\u00e9sum\u00e9, utiliser un g\u00e9n\u00e9rateur avec un set pour suivre les \u00e9l\u00e9ments d\u00e9j\u00e0 vus est une approche \u00e0 la fois performante, lisible et flexible. Que ce soit pour nettoyer des donn\u00e9es issues d\u2019un fichier, d\u2019une API ou d\u2019une base de donn\u00e9es, cette m\u00e9thode vous garantit de conserver l\u2019ordre tout en \u00e9liminant les doublons intelligemment.",
+      "created": "2025-08-07T23:49:06.488449",
+      "updated": "2025-08-08T00:14:46.809981",
+      "meta_description": "Supprimez les doublons d'une liste Python tout en pr\u00e9servant l'ordre gr\u00e2ce \u00e0 une fonction simple, compatible avec \u00e9l\u00e9ments hachables ou non.",
+      "status_id": 3,
+      "categories_id": 4
     }
   ],
   "tag": [
@@ -1293,6 +1304,11 @@
     {
       "id": 1630,
       "posts_id": 46,
+      "tags_id": 6
+    },
+    {
+      "id": 1637,
+      "posts_id": 47,
       "tags_id": 6
     }
   ],

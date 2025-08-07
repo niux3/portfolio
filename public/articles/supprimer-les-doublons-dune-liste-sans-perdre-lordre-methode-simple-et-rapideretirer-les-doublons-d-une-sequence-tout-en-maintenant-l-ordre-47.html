@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="fr" id="top">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="bug4GPSDEqxoKku92DUfj_WE6b8PlwHJX-DCeZZBV1w" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-MCT7LV9P');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Supprimer les doublons d’une liste sans perdre l’ordre : méthode simple et rapideRetirer les doublons d&#39;une séquence tout en maintenant l&#39;ordre - RB webstudio </title>
+    <style>
+      .hidden{
+        visibility: hidden;
+      }
+      #anim-logo{
+        position: absolute;
+        top: -5000px;
+      }
+    </style>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/static/styles-Dx6gT-c0.css">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://rb-webstudio.go.yj.fr/articles/supprimer-les-doublons-dune-liste-sans-perdre-lordre-methode-simple-et-rapideretirer-les-doublons-d-une-sequence-tout-en-maintenant-l-ordre-47.html" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <meta name="description"  content="Supprimez les doublons d&#39;une liste Python tout en préservant l&#39;ordre grâce à une fonction simple, compatible avec éléments hachables ou non." />
+    <meta property="og:site_name" content="RB webstudio">
+    <meta property="og:title" content=" Supprimer les doublons d’une liste sans perdre l’ordre : méthode simple et rapideRetirer les doublons d&#39;une séquence tout en maintenant l&#39;ordre">
+    <meta property="og:description" content="Supprimez les doublons d&#39;une liste Python tout en préservant l&#39;ordre grâce à une fonction simple, compatible avec éléments hachables ou non.">
+    <meta property="og:image" content="https://rb-webstudio.go.yj.fr/static/img/og_image_rb_webstudio.svg">
+    
+  <meta property="article:published_time" content="2025-08-07T23:49:06.488449" />
+
+    
+  
+    <meta property="article:tag" content="python">
+  
+
+  </head>
+
+  <body>
+    <main class="grid-container hidden" id="viewsTransition">
+      <a href="#content" class="skip-link">aller au contenu</a>
+<header class="flex-container align-justify align-middle">
+    
+    <div><a href="/index.html">
+  <svg id="logo" width="5rem" height="5rem" version="1.1" viewBox="0 0 79.375 79.375">
+    <desc>RB webstudio - spécialiste Python - Javascript/Typescript</desc>
+    <g transform="translate(-57.558 -71.836)">
+    <circle cx="97.246" cy="111.52" r="33.073" fill="var(--color-cannes)" stroke-width=".177" style="paint-order:markers fill stroke"/>
+    <g transform="matrix(.33371 0 0 .33371 -78.371 192.62)" fill="var(--color-laval)">
+    <g transform="translate(243.55 81.615)" stroke-width=".67039" aria-label="rb">
+    <path d="m251.15-309.59v27.653h-25.077v-31.927q0-10.81 2.0112-16.843 2.0112-6.0963 6.8505-10.81 3.6452-3.6452 8.4846-5.6564 4.9022-2.074 9.8044-2.074 2.3882 0 4.7136 0.18855 2.3254 0.18854 4.5251 0.56563v26.396q-0.43994-0.0628-1.3198-0.18855-2.074-0.31424-2.6396-0.31424-4.0852 0-5.7192 2.6396-1.6341 2.6396-1.6341 10.37z"/>
+    <path d="m270.76-373.69h24.448v51.599q0 9.553 2.2626 13.324t7.5418 3.7709q3.8338 0 6.662-2.8282 2.8282-2.891 2.8282-6.7876 0-4.2109-2.7653-7.039-2.7653-2.891-6.7248-2.891-1.0056 0-2.1368 0.31425-1.1313 0.25139-3.2681 1.1313v-26.019q0.62849-0.0629 2.6396-0.18855 2.0112-0.18855 3.1424-0.18855 14.141 0 24.008 10.181 9.9301 10.119 9.9301 24.7 0 6.8505-2.514 13.135-2.5139 6.222-7.2276 11.061-4.9022 4.965-11.187 7.6675-6.222 2.6396-13.135 2.6396-10.181 0-18.415-5.2164-8.1703-5.2793-12.13-14.267-2.074-4.7765-3.0167-9.8672-0.94273-5.1536-0.94273-12.758v-4.9022z"/>
+    </g>
+    <path d="m542.38-288.15h-31.744l15.872-17.36z" stroke-width=".44511" style="paint-order:markers fill stroke"/>
+    </g>
+    </g>
+  </svg>
+</a></div>
+    
+    <nav class="flex-container align-right">
+      <a href="/articles/index.html" class="margin-horizontal-1 transition-fade delay2"><span>articles</span></a>
+      <a href="/rss.xml" class="margin-horizontal-1 transition-fade delay2"><span>rss</span></a>
+      <a href="#contact" class="margin-horizontal-1 transition-fade delay3"><span>contact</span></a>
+    </nav>
+</header>
+
+      <div id="content">
+<progress id="progressTrue" max="100" value="0"></progress>
+  <section>
+    <article>
+      <h1 class="flag-right delay3">Supprimer les doublons d’une liste sans perdre l’ordre : méthode simple et rapideRetirer les doublons d&#39;une séquence tout en maintenant l&#39;ordre</h1>
+      <div class="grid-x grid-padding-x">
+        <nav class="cell medium-6 small-12">
+          <ul class="flex-container no-bullet tags-list transition-fade delay4">
+            
+              <li><a href="/articles/chercher-articles-par-python.html"><span>python</span></a></li>
+            
+          </ul>
+        </nav>
+        <nav aria-label="Partage de l’article sur les réseaux sociaux" class="cell medium-6 small-12">
+          <ul class="flex-container no-bullet share transition-fade delay5">
+            
+              <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//rb-webstudio.go.yj.fr/articles/supprimer-les-doublons-dune-liste-sans-perdre-lordre-methode-simple-et-rapideretirer-les-doublons-d-une-sequence-tout-en-maintenant-l-ordre-47.html&amp;title=Supprimer%20les%20doublons%20d%E2%80%99une%20liste%20sans%20perdre%20l%E2%80%99ordre%20%3A%20m%C3%A9thode%20simple%20et%20rapideRetirer%20les%20doublons%20d%27une%20s%C3%A9quence%20tout%20en%20maintenant%20l%27ordre&amp;source=https%3A//rb-webstudio.go.yj.fr" class="fa-brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span>Partager sur Linkedin</span></a></li>
+            
+              <li><a href="https://twitter.com/intent/tweet?url=https%3A//rb-webstudio.go.yj.fr/articles/supprimer-les-doublons-dune-liste-sans-perdre-lordre-methode-simple-et-rapideretirer-les-doublons-d-une-sequence-tout-en-maintenant-l-ordre-47.html&amp;text=Supprimer%20les%20doublons%20d%E2%80%99une%20liste%20sans%20perdre%20l%E2%80%99ordre%20%3A%20m%C3%A9thode%20simple%20et%20rapideRetirer%20les%20doublons%20d%27une%20s%C3%A9quence%20tout%20en%20maintenant%20l%27ordre" class="fa-brands fa-square-x-twitter" target="_blank" rel="noopener noreferrer"><span>Partager sur Twitter</span></a></li>
+            
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//rb-webstudio.go.yj.fr/articles/supprimer-les-doublons-dune-liste-sans-perdre-lordre-methode-simple-et-rapideretirer-les-doublons-d-une-sequence-tout-en-maintenant-l-ordre-47.html" class="fa-brands fa-square-facebook" target="_blank" rel="noopener noreferrer"><span>Partager sur Facebook</span></a></li>
+            
+              <li><a href="mailto:?subject=Je%20souhaite%20te%20partager%20cet%20article%20%3A%20Supprimer%20les%20doublons%20d%E2%80%99une%20liste%20sans%20perdre%20l%E2%80%99ordre%20%3A%20m%C3%A9thode%20simple%20et%20rapideRetirer%20les%20doublons%20d%27une%20s%C3%A9quence%20tout%20en%20maintenant%20l%27ordre&amp;body=Salut%2C%0AJe%20pense%20que%20cet%20article%20devrait%20t%27int%C3%A9resser%20%3A%0Ahttps%3A//rb-webstudio.go.yj.fr/articles/supprimer-les-doublons-dune-liste-sans-perdre-lordre-methode-simple-et-rapideretirer-les-doublons-d-une-sequence-tout-en-maintenant-l-ordre-47.html" class="fa-solid fa-square-share-nodes" target="_blank" rel="noopener noreferrer"><span>Partager à un ami</span></a></li>
+            
+          </ul>
+        </nav>
+      </div>
+      <div class="content flag-down delay6"><p>Vous travaillez sur un fichier contenant des milliers de lignes, ou vous recevez des données d’une API, et vous devez retirer les doublons… sans chambouler l’ordre des éléments ?
+Avec <code>set()</code>, vous perdez l’ordre original. Heureusement, Python permet une approche simple, élégante et réutilisable pour gérer à la fois les listes d’éléments hachables… et celles d’éléments plus complexes comme les dictionnaires.</p>
+<pre><code class="language-python">def dedup(items):
+    seen = set()
+    for item in items:
+        if item not in seen:
+            yield item
+            seen.add(item)
+
+# Exemple d'utilisation
+a = [1, 5, 2, 1, 9, 1, 5, 10]
+print(list(dedup(a)))
+# Résultat : [1, 5, 2, 9, 10]
+</code></pre>
+<p>Cette approche fonctionne uniquement si les éléments de la séquence sont hachables. Si vous essayez de supprimer des doublons dans une séquence de types non hachables (comme les dictionnaires), vous pouvez modifier légèrement la solution comme suit :</p>
+<pre><code class="language-python">def dedupe(items, key=None):
+    seen = set()
+    for item in items:
+        val = item if key is None else key(item)
+        if val not in seen:
+            yield item
+            seen.add(val)
+</code></pre>
+<p>Ici, l'argument <code>key</code> a pour but de spécifier une fonction qui convertit les éléments de la séquence en un type hachable, afin de pouvoir détecter les doublons.</p>
+<p>Voici comment l'utiliser avec des dictionnaires :</p>
+<pre><code class="language-python">a = [{'x':1, 'y':2}, {'x':1, 'y':3}, {'x':1, 'y':2}, {'x':2, 'y':4}]
+
+# Supprimer les doublons basés sur la paire ('x', 'y')
+print(list(dedupe(a, key=lambda d: (d['x'], d['y']))))
+# Résultat : [{'x': 1, 'y': 2}, {'x': 1, 'y': 3}, {'x': 2, 'y': 4}]
+
+# Supprimer les doublons basés uniquement sur la clé 'x'
+print(list(dedupe(a, key=lambda d: d['x'])))
+# Résultat : [{'x': 1, 'y': 2}, {'x': 2, 'y': 4}]
+</code></pre>
+<h2>Une alternative à éviter pour maintenir l'ordre</h2>
+<p>Si vous cherchez simplement à éliminer les doublons sans vous soucier de l'ordre, il est souvent plus simple d'utiliser un <code>set</code>. Par exemple :</p>
+<pre><code class="language-python">a = [1, 5, 2, 1, 9, 1, 5, 10]
+print(set(a))
+# Résultat possible : {1, 2, 10, 5, 9}
+</code></pre>
+<p>Cependant, comme vous pouvez le voir, cette méthode ne garantit en aucun cas l'ordre des éléments. L'approche avec un générateur <code>dedupe</code> résout ce problème en préservant l'ordre initial.</p>
+<p>L'utilisation d'une fonction génératrice dans cette solution la rend extrêmement polyvalente. Elle n'est pas uniquement liée au traitement des listes. Par exemple, si vous souhaitez lire un fichier et supprimer les lignes en double, vous pouvez faire ceci :</p>
+<pre><code class="language-python">with open('mon_fichier.txt', 'r') as f:
+    for line in dedupe(f):
+        # Traitement des lignes uniques
+        print(line)
+</code></pre>
+<p>La spécification de la fonction <code>key</code> est une fonctionnalité courante en Python. On la retrouve dans des fonctions natives comme <code>sorted()</code>, <code>min()</code> et <code>max()</code>, ce qui rend cette approche familière et intuitive pour de nombreux développeurs.</p>
+<p>En résumé, utiliser un générateur avec un set pour suivre les éléments déjà vus est une approche à la fois performante, lisible et flexible. Que ce soit pour nettoyer des données issues d’un fichier, d’une API ou d’une base de données, cette méthode vous garantit de conserver l’ordre tout en éliminant les doublons intelligemment.</p></div>
+      <p class="text-right">Publié le <time datetime="25-08-07">07 août 2025</time></p>
+    </article>
+  </section>
+  <section id="lateralBar">
+    <div>
+      <button type="button" class="button" id="tableOfContent" data-panel="true" data-panel-target="#summary" aria-expanded="false" aria-controls="summary">
+        <span class="fa-solid fa-list"></span>
+        <span class="hide">Table de contenu</span>
+      </button>
+      <button type="button" class="button" id="tableOfContent" data-panel="true" data-panel-target="#search" aria-expanded="false" aria-controls="search">
+        <span class="fa-solid fa-magnifying-glass"></span>
+        <span class="hide">Chercher</span>
+      </button>
+      <ul class="flex-container flex-dir-column no-bullet share">
+        
+          <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//rb-webstudio.go.yj.fr/articles/supprimer-les-doublons-dune-liste-sans-perdre-lordre-methode-simple-et-rapideretirer-les-doublons-d-une-sequence-tout-en-maintenant-l-ordre-47.html&amp;title=Supprimer%20les%20doublons%20d%E2%80%99une%20liste%20sans%20perdre%20l%E2%80%99ordre%20%3A%20m%C3%A9thode%20simple%20et%20rapideRetirer%20les%20doublons%20d%27une%20s%C3%A9quence%20tout%20en%20maintenant%20l%27ordre&amp;source=https%3A//rb-webstudio.go.yj.fr" class="button" target="_blank" rel="noopener noreferrer">
+              <span class="fa-brands fa-linkedin-in"></span>
+              <span class="hide">Partager sur Linkedin</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="https://twitter.com/intent/tweet?url=https%3A//rb-webstudio.go.yj.fr/articles/supprimer-les-doublons-dune-liste-sans-perdre-lordre-methode-simple-et-rapideretirer-les-doublons-d-une-sequence-tout-en-maintenant-l-ordre-47.html&amp;text=Supprimer%20les%20doublons%20d%E2%80%99une%20liste%20sans%20perdre%20l%E2%80%99ordre%20%3A%20m%C3%A9thode%20simple%20et%20rapideRetirer%20les%20doublons%20d%27une%20s%C3%A9quence%20tout%20en%20maintenant%20l%27ordre" class="button" target="_blank" rel="noopener noreferrer">
+              <span class="fa-brands fa-x-twitter"></span>
+              <span class="hide">Partager sur Twitter</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//rb-webstudio.go.yj.fr/articles/supprimer-les-doublons-dune-liste-sans-perdre-lordre-methode-simple-et-rapideretirer-les-doublons-d-une-sequence-tout-en-maintenant-l-ordre-47.html" class="button" target="_blank" rel="noopener noreferrer">
+              <span class="fa-brands fa-facebook"></span>
+              <span class="hide">Partager sur Facebook</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="mailto:?subject=Je%20souhaite%20te%20partager%20cet%20article%20%3A%20Supprimer%20les%20doublons%20d%E2%80%99une%20liste%20sans%20perdre%20l%E2%80%99ordre%20%3A%20m%C3%A9thode%20simple%20et%20rapideRetirer%20les%20doublons%20d%27une%20s%C3%A9quence%20tout%20en%20maintenant%20l%27ordre&amp;body=Salut%2C%0AJe%20pense%20que%20cet%20article%20devrait%20t%27int%C3%A9resser%20%3A%0Ahttps%3A//rb-webstudio.go.yj.fr/articles/supprimer-les-doublons-dune-liste-sans-perdre-lordre-methode-simple-et-rapideretirer-les-doublons-d-une-sequence-tout-en-maintenant-l-ordre-47.html" class="button" target="_blank" rel="noopener noreferrer">
+              <span class="fa-solid fa-share-nodes"></span>
+              <span class="hide">Partager à un ami</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+    <div>
+      <button class="button changeMode" aria-label="Activer le mode sombre">
+        <span class="fa-solid fa-moon"><span class="text">Activer le mode sombre</span></span>
+      </button>
+      <a class="button" id="goToTop" href="#top" aria-label="Retour en haut de la page"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+  </section>
+  <aside class="layer" id="search">
+    <div class="wrap">
+      <button class="button close" aria-label="fermer le panneau">
+        <span class="fa-solid fa-xmark"></span>
+      </button>
+      <div class="content">
+        <h2><strong>Rechercher</strong></h2>
+        <form action="/services/articles/search.html" method="get" role="search" class="grid-x grid-padding-x">
+          <label class="cell medium-9 small-10">
+            <input type="search" name="q" aria-label="saisir votre recherche" placeholder="Entrez vos mots-clés">
+          </label>
+          <div class="cell medium-3 small-2">
+              <button type="submit" aria-label="envoyer" class="button">
+                <span class="fa-solid fa-magnifying-glass"></span>
+              </button>
+          </div>
+        </form>
+        <output></output>
+        <div id="resultSearch" aria-live="polite" aria-atomic="true"></div>
+      </div>
+    </div>
+  </aside>
+  <aside class="layer" id="summary">
+    <div class="wrap">
+      <button class="button close" aria-label="fermer le panneau">
+        <span class="fa-solid fa-xmark"></span>
+      </button>
+      <div class="content">
+        <h2><strong>Table des matières</strong></h2>
+        <nav></nav>
+      </div>
+    </div>
+  </aside>
+  <script type="text/template" id="tplProgressFalse">
+    <div id="progressFalse">
+      <div id="cursorProgress">&nbsp;</div>
+    </div>
+  </script>
+  <script type="text/template" id="tplLayer">
+      <ul class="no-bullet">
+        [[ for(let row of rows){ ]]
+          <li><a href="[[- row.url]]">[[= row.text ]]</a></li>
+        [[ } ]]
+      </ul>
+  </script>
+
+</div>
+      <section class="contact" id="contact">
+  <h3>me contacter</h3>
+  <div class="content">
+    <p class="info">
+      <small><em><span>*</span> champ obligatoire</em></small>
+    </p>
+    <form id="formContact" action="/services/mail/send.html" method="post" class="grid-x grid-padding-x clearfix" novalidate>
+      <label class="cell medium-4 padding-left-0">
+        <span>
+          <span>Civilité</span>
+          <select name="civility" required data-validate-rules="isnotempty" data-error-isnotempty="ne doit pas être vide">
+            <option value="">choisir</option>
+            <option value="Mademoiselle">Mademoiselle</option>
+            <option value="Madame">Madame</option>
+            <option value="Monsieur">Monsieur</option>
+          </select>
+        </span>
+      </label>
+      <label class="cell medium-4">
+        <span>
+          <span>Prénom</span>
+          <input type="text" name="firstname">
+        </span>
+      </label>
+      <label class="cell medium-4 padding-right-0">
+        <span>
+          <span>Nom</span>
+          <input type="text" name="lastname" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
+        </span>
+      </label>
+      <label class="cell medium-6 margin-top-1 padding-left-0">
+        <span>
+          <span>Email</span>
+          <input type="email" name="email" required data-validate-rules="isnotempty isemail" data-error-isnotempty="ne doit pas être vide" data-error-isemail="Ce champ doit avoir la bonne saisie (dom@dom.com)">
+        </span>
+      </label>
+      <label><span><span>addresse</span><input type="text" name="address" tabindex="-1"></span></label>
+      <label class="cell medium-6 padding-right-0 margin-top-1">
+        <span>
+          <span>Sujet</span>
+          <input type="text" name="subject" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3">
+        </span>
+      </label>
+      <label class="cell medium-3 flex-container align-middle">
+        <span>
+          <input type="checkbox" name="appointement">
+          <span class="icon">
+            <i class="fa-regular fa-square"></i>
+            <i class="fa-solid fa-square-check"></i>
+          </span>
+          <span class="margin-left-1">un rendez-vous</span>
+        </span>
+      </label>
+      <label class="cell medium-3"><span><span>Téléphone</span><input type="text" name="phone" disabled data-validate-rules="isnotempty checkphone" data-error-isnotempty="le n° de téléphone est manquant" data-error-checkphone="Le format du champ téléphone ne semble pas être bon 0102030405" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Date</span><input type="date" name="date_appointment" disabled data-validate-rules="isnotempty datemin businessday isdate" data-error-isnotempty="la date est manquante" data-error-datemin="La date de rendez vous doit être suppérieur à aujourd'hui" data-error-businessday="les rendez vous sont du lundi au vendredi" data-error-isdate="Ce champ doit être une date valide" data-validate-target-error="#errorAppointment"></span></label>
+      <label class="cell medium-3"><span><span>Heure</span><input type="time" name="hour_appointment" disabled data-validate-rules="isnotempty betweenhour" data-error-isnotempty="l'heure est manquante" data-error-betweenhour="Les rendez vous sont compris entre 9 h 00 et 18 h 00" data-validate-target-error="#errorAppointment" data-validate-betweenhour-args="9;18"></span></label>
+      <div id="errorAppointment" class="cell medium-12"></div>
+      <label class="cell medium-12"><span><span>Message</span><textarea name="message" cols="30" rows="10" required data-validate-rules="isnotempty isminlength" data-error-isnotempty="ne doit pas être vide" data-error-isminlength="doit avoir minimum 3 caractères" data-validate-isminlength-args="3"></textarea></span></label>
+      <div class="cell medium-4 margin-top-1 large-offset-8">
+        <button class="button expanded" type="submit">envoyer</button>
+      </div>
+    </form>
+  </div>
+</section>
+      <footer>
+  <p class="flex-container align-middle align-justify">
+  <span>RB webstudio &ndash; <a href="https://www.alsacreations.com/profil/lire/11496-niuxe.html" target="_blank">Alsacreations</a> &ndash; <a href="https://github.com/niux3" target="_blank">Github</a> &ndash; <a href="https://www.linkedin.com/in/renaud-bourdeau-%F0%9F%90%A7-7639b944/" target="_blank">LinkedIn</a> &ndash; <a href="/static/renaud-bourdeau-cv.pdf">CV</a></span>
+  
+  </p>
+</footer>
+
+    </main>
+    <script type="text/template" id="tplAnimLogo">
+      <div id="anim-logo">
+  <div class="wrap">
+    <svg width="120" height="120" viewBox="0 0 200 200">
+      <circle
+        id="anim-progress"
+        cx="100"
+        cy="100"
+        r="50"
+        stroke="var(--color-cannes)"
+        stroke-width="100"
+        fill="none"
+        stroke-dasharray="314"
+        stroke-dashoffset="314"
+        />
+    </svg>
+    <svg class="logo" width="145" height="145" version="1.1" viewBox="0 0 79.375 79.375">
+      <desc>RB webstudio - spécialiste Python - Javascript/Typescript</desc>
+      <g transform="translate(-57.558 -71.836)">
+      <circle cx="97.246" cy="111.52" r="33.073" fill="var(--color-cannes)" stroke-width=".177" style="paint-order:markers fill stroke"/>
+      <g transform="matrix(.33371 0 0 .33371 -78.371 192.62)" fill="var(--color-laval)">
+      <g transform="translate(243.55 81.615)" stroke-width=".67039" aria-label="rb">
+      <path d="m251.15-309.59v27.653h-25.077v-31.927q0-10.81 2.0112-16.843 2.0112-6.0963 6.8505-10.81 3.6452-3.6452 8.4846-5.6564 4.9022-2.074 9.8044-2.074 2.3882 0 4.7136 0.18855 2.3254 0.18854 4.5251 0.56563v26.396q-0.43994-0.0628-1.3198-0.18855-2.074-0.31424-2.6396-0.31424-4.0852 0-5.7192 2.6396-1.6341 2.6396-1.6341 10.37z"/>
+      <path d="m270.76-373.69h24.448v51.599q0 9.553 2.2626 13.324t7.5418 3.7709q3.8338 0 6.662-2.8282 2.8282-2.891 2.8282-6.7876 0-4.2109-2.7653-7.039-2.7653-2.891-6.7248-2.891-1.0056 0-2.1368 0.31425-1.1313 0.25139-3.2681 1.1313v-26.019q0.62849-0.0629 2.6396-0.18855 2.0112-0.18855 3.1424-0.18855 14.141 0 24.008 10.181 9.9301 10.119 9.9301 24.7 0 6.8505-2.514 13.135-2.5139 6.222-7.2276 11.061-4.9022 4.965-11.187 7.6675-6.222 2.6396-13.135 2.6396-10.181 0-18.415-5.2164-8.1703-5.2793-12.13-14.267-2.074-4.7765-3.0167-9.8672-0.94273-5.1536-0.94273-12.758v-4.9022z"/>
+      </g>
+      <path d="m542.38-288.15h-31.744l15.872-17.36z" stroke-width=".44511" style="paint-order:markers fill stroke"/>
+      </g>
+      </g>
+    </svg>
+  </div>
+</div>
+    </script>
+    <script src="/static/app-Co6DhCP3.js"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCT7LV9P" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </body>
+</html>

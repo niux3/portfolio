@@ -5,7 +5,15 @@
         <link>https://rb-webstudio.go.yj.fr</link>
         <description>RB webstudio - spécialiste Python - Javascript/Typescript</description>
         <language>fr</language>
-        <lastBuildDate>2025-08-06</lastBuildDate>
+        <lastBuildDate>2025-08-07</lastBuildDate>
+        
+        <item>
+            <title>Supprimer les doublons d’une liste sans perdre l’ordre : méthode simple et rapide</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/supprimer-les-doublons-dune-liste-sans-perdre-lordre-methode-simple-et-rapide-47.html</link>
+            <description><![CDATA[Supprimez les doublons d'une liste Python tout en préservant l'ordre grâce à une fonction simple, compatible avec éléments hachables ou non.]]></description>
+            <pubDate>2025-08-07 23:49:06.488449</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/supprimer-les-doublons-dune-liste-sans-perdre-lordre-methode-simple-et-rapide-47.html</guid>
+        </item>
         
         <item>
             <title>Trouver les similarités entre deux dictionnaires</title>
@@ -157,14 +165,6 @@
             <description><![CDATA[Apprenez à créer des boutons HTML accessibles, compréhensibles et UX-friendly en respectant les bonnes pratiques et les normes WCAG essentielles.]]></description>
             <pubDate>2025-06-30 09:08:51.071167</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/executer-des-actions-choisissez-le-bon-element-28.html</guid>
-        </item>
-        
-        <item>
-            <title>Ajouter des liens à des groupes d'éléments</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/ajouter-des-liens-a-des-groupes-d-elements-27.html</link>
-            <description><![CDATA[5 techniques pour étendre la zone de clic de vos éléments HTML. Analysez avantages, inconvénients, et impacts sur l'accessibilité, le SEO et l'UX.]]></description>
-            <pubDate>2025-06-25 23:48:22.732182</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/ajouter-des-liens-a-des-groupes-d-elements-27.html</guid>
         </item>
         
     </channel>
