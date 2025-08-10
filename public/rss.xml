@@ -5,7 +5,15 @@
         <link>https://rb-webstudio.go.yj.fr</link>
         <description>RB webstudio - spécialiste Python - Javascript/Typescript</description>
         <language>fr</language>
-        <lastBuildDate>2025-08-07</lastBuildDate>
+        <lastBuildDate>2025-08-10</lastBuildDate>
+        
+        <item>
+            <title>Créer une navigation principale</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/creer-une-navigation-principale-48.html</link>
+            <description><![CDATA[Concevez une navigation principale accessible et efficace grâce à HTML, CSS et ARIA. Bonnes pratiques, exemples et astuces pour tous les utilisateurs.]]></description>
+            <pubDate>2025-08-10 23:23:22.311532</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/creer-une-navigation-principale-48.html</guid>
+        </item>
         
         <item>
             <title>Supprimer les doublons d’une liste sans perdre l’ordre : méthode simple et rapide</title>
@@ -157,14 +165,6 @@
             <description><![CDATA[Apprenez à labelliser efficacement vos boutons pour garantir l’accessibilité et une expérience utilisateur optimale sur le web.]]></description>
             <pubDate>2025-07-02 04:14:12.951616</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/execution-des-actions-labelliser-clairement-les-boutons-29.html</guid>
-        </item>
-        
-        <item>
-            <title>Exécuter des actions : choisissez le bon élément</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/executer-des-actions-choisissez-le-bon-element-28.html</link>
-            <description><![CDATA[Apprenez à créer des boutons HTML accessibles, compréhensibles et UX-friendly en respectant les bonnes pratiques et les normes WCAG essentielles.]]></description>
-            <pubDate>2025-06-30 09:08:51.071167</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/executer-des-actions-choisissez-le-bon-element-28.html</guid>
         </item>
         
     </channel>
