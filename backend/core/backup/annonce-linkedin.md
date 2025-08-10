@@ -1,13 +1,13 @@
-# Python Tip du jour : Supprimer les doublons… sans perdre l’ordre !
+# La navigation principale, c’est le GPS de votre site.
 
-Combien de fois avez-vous voulu enlever les doublons d’une liste… pour découvrir que set() chamboulait tout ?
+Mal conçue, elle perd vos visiteurs. Bien pensée, elle les guide intuitivement vers ce qu’ils cherchent.
 
-Dans cet article, je vous montre une méthode simple et élégante pour gérer les éléments hachables… et même les non hachables comme les dictionnaires.
+Dans mon dernier article, je vous montre :
 
-- Code clair
-- Explications pas à pas
-- Utilisation d’un key comme dans sorted() pour personnaliser le filtrage
+- Les erreurs fréquentes à éviter
+- Comment enrichir une navigation sans la complexifier
+- Les bonnes pratiques HTML, CSS et ARIA pour l’accessibilité
 
-Lisez l’article complet ici [Lien de l’article]
+Le but étant d'offrir une expérience fluide à TOUS vos utilisateurs, quel que soit leur mode de navigation.
 
-Et vous, quelle est votre méthode préférée pour supprimer les doublons en Python ?
+l'article est ici: [lien]
