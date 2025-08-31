@@ -538,6 +538,17 @@
       "meta_description": "Apprenez \u00e0 mettre en \u00e9vidence la page active avec aria-current : am\u00e9liorez accessibilit\u00e9, orientation et exp\u00e9rience utilisateur.",
       "status_id": 3,
       "categories_id": 2
+    },
+    {
+      "id": 50,
+      "title": "Nommer une tranche (Slice) en Python",
+      "slug": "nommer-une-tranche-slice-en-python",
+      "body": "Votre code est devenu un fouillis illisible d'indices de tranches cod\u00e9s en dur et vous cherchez \u00e0 le nettoyer.\r\n\r\nImaginez que vous extrayiez des champs de donn\u00e9es sp\u00e9cifiques d'une chane de caract\u00e8res qui repr\u00e9sente un enregistrement, comme c'est souvent le cas avec un fichier plat (flat file) ou un format similaire. Vous pourriez vous retrouver avec un code comme celui-ci :\r\n\r\n```python\r\n# 0123456789012345678901234567890123456789012345678901234567890'\r\nrecord = '....................100 .......513.25 ..........' \r\ncost = int(record[20:32]) * float(record[40:48])\r\n```\r\n\r\nC'est l\u00e0 qu'intervient une approche bien plus lisible : nommer vos tranches. Plut\u00f4t que d'utiliser des indices \"myst\u00e9rieux\" et non document\u00e9s, vous pouvez les stocker dans des variables nomm\u00e9es, ce qui rend l'intention du code imm\u00e9diatement \u00e9vidente.\r\n\r\n```python\r\nSHARES = slice(20,32)\r\nPRICE = slice(40,48)\r\ncost = int(record[SHARES]) * float(record[PRICE])\r\n```\r\nDans cette version am\u00e9lior\u00e9e, l'objectif est clair : vous calculez un cout en utilisant les valeurs de `SHARES` (actions) et de `PRICE` (prix). Si vous revenez \u00e0 ce code un an plus tard, vous n'aurez pas \u00e0 vous demander ce que ces nombres (20:32 et 40:48) signifient.\r\n\r\n## L'objet slice() : un outil puissant\r\n\r\nEn Python, la fonction int\u00e9gr\u00e9e `slice()` permet de cr\u00e9er un objet de type slice qui peut \u00eatre utilis\u00e9 partout o\u00f9 une tranche est autoris\u00e9e. Cela offre une flexibilit\u00e9 incroyable, comme vous pouvez le voir dans cet exemple simple :\r\n\r\n```python\r\nitems = [0, 1, 2, 3, 4, 5, 6]\r\na = slice(2, 4)\r\nprint(items[2:4])\r\n# [2, 3]\r\nprint(items[a])\r\n# [2, 3]\r\nitems[a] = [10,11]\r\nprint(items)\r\n# [0, 1, 10, 11, 4, 5, 6]\r\ndel items[a]\r\nprint(items)\r\n# [0, 1, 4, 5, 6]\r\n```\r\n\r\nComme vous pouvez le voir, vous pouvez m\u00eame utiliser l'objet slice pour assigner de nouvelles valeurs ou pour supprimer des \u00e9l\u00e9ments d'une s\u00e9quence.\r\n\r\n## Acc\u00e9der aux attributs d'un objet slice\r\n\r\nUn autre avantage de l'objet slice est que vous pouvez facilement acc\u00e9der \u00e0 ses attributs. Si vous avez une instance de slice nomm\u00e9e s, vous pouvez obtenir des informations sur ses valeurs de d\u00e9but, de fin et de pas en utilisant les attributs `s.start`, `s.stop` et `s.step`.\r\n\r\n```python\r\na = slice(10, 50, 2)\r\nprint(a.start)\r\n# 10\r\nprint(a.stop)\r\n# 50\r\nprint(a.step)\r\n# 2\r\n```\r\nDe plus, la m\u00e9thode `indices(size)` vous permet d'adapter une tranche \u00e0 une s\u00e9quence d'une taille sp\u00e9cifique. Elle renvoie un tuple (`start, stop, step`) o\u00f9 toutes les valeurs sont ajust\u00e9es pour rester dans les limites de la s\u00e9quence, \u00e9vitant ainsi les erreurs d'indexation (`IndexError`).\r\n\r\n```python\r\ns = 'HelloWorld'\r\nprint(a.indices(len(s)))\r\n# (5, 10, 2)\r\nfor i in range(*a.indices(len(s))):\r\n    print(s[i])\r\n\r\n# W\r\n# r\r\n# d\r\n```\r\nN'est-ce pas un moyen \u00e9l\u00e9gant de rendre votre code \u00e0 la fois plus lisible et plus robuste ?\r\n",
+      "created": "2025-09-01T01:11:29.257845",
+      "updated": "2025-09-01T01:11:58.623317",
+      "meta_description": "Rendez votre code Python plus lisible et robuste gr\u00e2ce \u00e0 l\u2019utilisation de l\u2019objet slice() et \u00e0 la nomination de vos tranches.",
+      "status_id": 3,
+      "categories_id": 4
     }
   ],
   "tag": [
@@ -1377,6 +1388,11 @@
       "id": 1712,
       "posts_id": 49,
       "tags_id": 12
+    },
+    {
+      "id": 1714,
+      "posts_id": 50,
+      "tags_id": 6
     }
   ],
   "status": [

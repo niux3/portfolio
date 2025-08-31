@@ -8,6 +8,14 @@
         <lastBuildDate>2025-08-31</lastBuildDate>
         
         <item>
+            <title>Nommer une tranche (Slice) en Python</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/nommer-une-tranche-slice-en-python-50.html</link>
+            <description><![CDATA[Rendez votre code Python plus lisible et robuste grâce à l’utilisation de l’objet slice() et à la nomination de vos tranches.]]></description>
+            <pubDate>2025-09-01 01:11:29.257845</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/nommer-une-tranche-slice-en-python-50.html</guid>
+        </item>
+        
+        <item>
             <title>Mettre en évidence la page active</title>
             <link>https://rb-webstudio.go.yj.fr/articles/mettre-en-evidence-la-page-active-49.html</link>
             <description><![CDATA[Apprenez à mettre en évidence la page active avec aria-current : améliorez accessibilité, orientation et expérience utilisateur.]]></description>
@@ -157,14 +165,6 @@
             <description><![CDATA[Améliorez l'accessibilité de vos interfaces avec les attributs ARIA : 4 exemples concrets pour des boutons inclusifs et informatifs.]]></description>
             <pubDate>2025-07-08 00:04:55.894320</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/executer-des-actions-ajouter-des-etats-et-des-proprietes-31.html</guid>
-        </item>
-        
-        <item>
-            <title>Exécuter des actions : supprimer les styles de boutons par défaut</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/executer-des-actions-supprimer-les-styles-de-boutons-par-defaut-30.html</link>
-            <description><![CDATA[Comment styliser vos boutons sans sacrifier l'accessibilité ? Exemples CSS, pièges à éviter, et bonnes pratiques pour tous les supports.]]></description>
-            <pubDate>2025-07-04 00:37:25.663139</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/executer-des-actions-supprimer-les-styles-de-boutons-par-defaut-30.html</guid>
         </item>
         
     </channel>
