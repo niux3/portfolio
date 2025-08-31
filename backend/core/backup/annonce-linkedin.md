@@ -1,13 +1,12 @@
-# La navigation principale, c’est le GPS de votre site.
+# Nouvel article sur l’accessibilité web !
 
-Mal conçue, elle perd vos visiteurs. Bien pensée, elle les guide intuitivement vers ce qu’ils cherchent.
+Comment savoir quelle est la page active dans une navigation ?
+Visuellement, c’est simple. Mais pour un lecteur d’écran ? Beaucoup de sites échouent encore…
 
-Dans mon dernier article, je vous montre :
+Dans mon article, je montre pourquoi aria-current="page" est plus puissant qu’une simple classe CSS, avec des exemples clairs et testés sur plusieurs lecteurs d’écran.
 
-- Les erreurs fréquentes à éviter
-- Comment enrichir une navigation sans la complexifier
-- Les bonnes pratiques HTML, CSS et ARIA pour l’accessibilité
+Si vous vous intéressez à l’accessibilité, à l’UX ou simplement à de bonnes pratiques web, ça devrait vous parler !
 
-Le but étant d'offrir une expérience fluide à TOUS vos utilisateurs, quel que soit leur mode de navigation.
+l'article est ici : [lien]
 
-l'article est ici: [lien]
+#html #accessibilité #ux
