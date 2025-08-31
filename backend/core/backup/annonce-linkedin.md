@@ -10,3 +10,21 @@ Si vous vous intéressez à l’accessibilité, à l’UX ou simplement à de bo
 l'article est ici : [lien]
 
 #html #accessibilité #ux
+
+# Améliorez la lisibilité de votre code Python !
+
+Combien de fois avez-vous croisé des indices de tranches mystérieux comme record[20:32] ?
+Un an plus tard, impossible de se souvenir de leur signification…
+
+Avec slice(), vous pouvez nommer vos tranches et rendre vos intentions claires.
+Résultat : un code plus lisible, plus robuste et facile à maintenir.
+
+Avec slice(), vous pouvez nommer vos tranches et rendre vos intentions claires.
+Résultat : un code plus lisible, plus robuste et facile à maintenir.
+
+J’ai rédigé un article illustré d’exemples concrets sur ce sujet :
+
+l'article est ici : [lien]
+
+#python
+
