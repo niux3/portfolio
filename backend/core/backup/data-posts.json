@@ -527,6 +527,17 @@
       "meta_description": "Concevez une navigation principale accessible et efficace gr\u00e2ce \u00e0 HTML, CSS et ARIA. Bonnes pratiques, exemples et astuces pour tous les utilisateurs.",
       "status_id": 3,
       "categories_id": 2
+    },
+    {
+      "id": 49,
+      "title": "Mettre en \u00e9vidence la page active",
+      "slug": "mettre-en-evidence-la-page-active",
+      "body": "Sur les sites web complexes, dot\u00e9s de structures profond\u00e9ment imbriqu\u00e9es, il faut particuli\u00e8rement du temps aux utilisateurs pour s'orienter et obtenir une vue d'ensemble de leur position dans un ensemble de pages. Un utilisateur aveugle se servant d'un lecteur d'\u00e9cran peut ainsi \u00eatre incapable de faire la diff\u00e9rence entre la page active et les autres pages pr\u00e9sentes dans la liste des liens de la navigation principale.\r\n\r\nPour aider les utilisateurs \u00e0 s'orienter, vous devriez mettre en \u00e9vidence la page actuellement active. La mise en \u00e9vidence n'est pas une t\u00e2che purement visuelle. La page active doit communiquer son \u00e9tat \u00e0 la fois visuellement et s\u00e9mantiquement.\r\n\r\nL'attribut `aria-current` repr\u00e9sente l'\u00e9l\u00e9ment actuel au sein d'un ensemble d'\u00e9l\u00e9ments apparent\u00e9s. La valeur page limite l'\u00e9l\u00e9ment \u00e0 la page actuelle au sein d'un ensemble de pages, comme le montre l'[exemple 1](#exemple-1).\r\n\r\n**<span id=\"exemple-1\">Exemple&nbsp;1</span>&nbsp;&ndash;&nbsp; Le lien \"products\" \u00e9tiquet\u00e9 comme page active dans un ensemble de liens utilisant l'attribut `aria-current`.**\r\n\r\n```html\r\n<a href=\"/accueil\">Accueil</a>\r\n<a href=\"/produits\" aria-current=\"page\">Produits</a>\r\n<a href=\"/a-propos-de-nous\">\u00c0 propos de nous</a>\r\n<a href=\"/contactez-nous\">Contactez-nous</a>\r\n```\r\n\r\nUne solution plus populaire consiste \u00e0 utiliser l'attribut class, qui indique quel lien de l'ensemble des liens connexes est actuellement actif, mais uniquement de mani\u00e8re visuelle. Un utilisateur aveugle se servant d'un lecteur d'\u00e9cran ne pourrait pas faire la diff\u00e9rence entre la page active et les autres pages.\r\n\r\nL'utilisation de `class` au lieu de l'attribut `aria-current` ne pr\u00e9sente pas d'avantages \u00e9vidents, car l'attribut peut \u00eatre utilis\u00e9 pour styliser les pages actives tout aussi bien. Comme vous pouvez le voir dans l'[exemple 2](#exemple-2), j'utilise un attribut au lieu d'un s\u00e9lecteur de classe pour styliser la page active :\r\n\r\n**<span id=\"exemple-2\">Exemple&nbsp;2</span>&nbsp;&ndash;&nbsp; Mise en \u00e9vidence visuelle de la page active \u00e0 l'aide de CSS.**\r\n\r\n```css\r\nhtml {\r\n  --text-color: hsl(0 0% 0%);\r\n  --highlight-color: hsl(209 56% 45%);\r\n}\r\n/* Couleur de la bordure transparente par d\u00e9faut */\r\na {\r\n  border-block-end: 3px solid var(--border-color, transparent); \r\n  color: var(--text-color);\r\n  text-decoration: none;\r\n}\r\n/* Couleur de la bordure bleue de la page actuelle */\r\n[aria-current=\"page\"] {\r\n  --border-color: var(--highlight-color); \r\n  --text-color: var(--highlight-color);\r\n}\r\n```\r\nL'<a href=\"https://www.w3.org/TR/wai-aria/#aria-current\" target=\"_blank\">attribut `aria-current`</a> est une excellente alternative \u00e0 l'attribut `class`, qui est plus couramment utilis\u00e9, car il met en \u00e9vidence le lien actif de mani\u00e8re s\u00e9mantique, et pas seulement visuellement. Il a \u00e9galement l'avantage de pouvoir servir de s\u00e9lecteur en CSS avec la m\u00eame sp\u00e9cificit\u00e9 qu'un s\u00e9lecteur de classe.\r\n\r\nUn lien qui ne serait mis en \u00e9vidence que de mani\u00e8re visuelle (par exemple, avec une classe CSS) serait annonc\u00e9 aux utilisateurs de lecteurs d'\u00e9cran de la m\u00eame mani\u00e8re que tous les autres liens de la page. En revanche, l'attribut ARIA ajoute l'information suppl\u00e9mentaire que le lien s\u00e9lectionn\u00e9 correspond \u00e0 \"la page en cours\", offrant ainsi un rep\u00e8re auditif important pour l'orientation de l'utilisateur.\r\n\r\n## Test de aria-current=\"page\" avec les lecteurs d'\u00e9cran\r\n\r\nEn utilisant diff\u00e9rents lecteurs d'\u00e9cran, vous obtiendrez les informations suivantes en concentrant un lien actif avec le clavier (voir [Tableau 1](#table-1)).\r\n\r\n<table id=\"table-1\">\r\n    <caption>\r\n        Ce que les lecteurs d'\u00e9cran annoncent sur un lien dont l'adresse <code>aria-current</code> est r\u00e9gl\u00e9e sur <code>page</code>\r\n    </caption>\r\n    <thead>\r\n        <tr>\r\n            <th scope=\"col\">Lecteur d'\u00e9cran</th>\r\n            <th scope=\"col\">Annonce</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <th scope=\"row\">JAWS</th>\r\n            <td>Produits, lien, page actuelle</td>\r\n        </tr>\r\n        <tr>\r\n            <th scope=\"row\">NVDA</th>\r\n            <td>Produits, lien, page actuelle</td>\r\n        </tr>\r\n        <tr>\r\n            <th scope=\"row\">VoiceOver iOS</th>\r\n            <td>Produits, page actuelle, lien</td>\r\n        </tr>\r\n        <tr>\r\n            <th scope=\"row\">VoiceOver macOS</th>\r\n            <td>Page actuelle, lien, produits</td>\r\n        </tr>\r\n        <tr>\r\n            <th scope=\"row\">TalkBack</th>\r\n            <td>Page actuelle, produits, lien</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\nSi vous ne pouvez ou ne voulez pas utiliser un s\u00e9lecteur d'attribut, vous n'\u00eates pas oblig\u00e9 de le faire. Rien ne vous emp\u00eache d'utiliser \u00e0 la fois l'attribut et la classe, comme le montre l'[exemple 3](#exemple-3).\r\n\r\n**<span id=\"exemple-3\">Exemple&nbsp;3</span>&nbsp;&ndash;&nbsp; Une combinaison utilisant une classe pour le style et l'attribut `aria-current` pour la mise en \u00e9vidence s\u00e9mantique..**\r\n\r\n```html\r\n<a href=\"/produits\" class=\"active\" aria-current=\"page\">Produits</a>\r\n```\r\n\r\n## Stylisme\r\n\r\nJe ne recommande pas de se fier uniquement \u00e0 la mise en \u00e9vidence s\u00e9mantique sans style. La mise en \u00e9vidence visuelle aide les utilisateurs \u00e0 s'orienter sur la page. C'est particuli\u00e8rement vrai pour les structures de sites profond\u00e9ment imbriqu\u00e9es.\r\n\r\nVous avez toute libert\u00e9 artistique pour styliser les liens d'une navigation principale, tant que les utilisateurs comprennent ce que vous essayez d'obtenir, mais il y a des propri\u00e9t\u00e9s en CSS qui sont plus adapt\u00e9es que d'autres.\r\n\r\n### Les couleurs\r\n\r\nS'appuyer sur uniquement sur la couleur pour mettre en \u00e9vidence le lien actif est une mauvaise pratique car les interfaces utilisateur doivent fonctionner m\u00eame lorsque la couleur n'est pas disponible. La page peut \u00eatre pr\u00e9sent\u00e9e sur un \u00e9cran qui ne prend pas du tout en charge les couleurs ou qui les affiche mal. Le contraste des couleurs pourrait \u00eatre mauvais parce que les utilisateurs ont peut-\u00eatre r\u00e9duit la luminosit\u00e9 de leur \u00e9cran ou acc\u00e8dent au site sur un appareil mobile \u00e0 l'ext\u00e9rieur, la lumi\u00e8re vive du soleil d\u00e9t\u00e9riorant la visibilit\u00e9. L'utilisateur peut avoir un type de basse vision qui affecte sa perception des couleurs. Il y a de nombreuses raisons de soutenir la mise en \u00e9vidence des couleurs avec diff\u00e9rents styles.\r\n\r\n### Ombre port\u00e9e\r\n\r\n`box-shadow` est souvent utilis\u00e9 \u00e0 la place de border pour cr\u00e9er des effets similaires, car il est plus facile \u00e0 utiliser puisqu'il n'affecte pas la largeur ou la hauteur de l'\u00e9l\u00e9ment et qu'il permet aux auteurs de cr\u00e9er des bordures imbriqu\u00e9es. L'inconv\u00e9nient est qu'il ne fonctionne pas bien avec le mode couleur forc\u00e9e.\r\n\r\n\r\n\r\n\r\n",
+      "created": "2025-09-01T00:04:40.528937",
+      "updated": "2025-09-01T00:42:15.092351",
+      "meta_description": "Apprenez \u00e0 mettre en \u00e9vidence la page active avec aria-current : am\u00e9liorez accessibilit\u00e9, orientation et exp\u00e9rience utilisateur.",
+      "status_id": 3,
+      "categories_id": 2
     }
   ],
   "tag": [
@@ -1345,6 +1356,26 @@
     {
       "id": 1677,
       "posts_id": 48,
+      "tags_id": 12
+    },
+    {
+      "id": 1709,
+      "posts_id": 49,
+      "tags_id": 1
+    },
+    {
+      "id": 1710,
+      "posts_id": 49,
+      "tags_id": 2
+    },
+    {
+      "id": 1711,
+      "posts_id": 49,
+      "tags_id": 4
+    },
+    {
+      "id": 1712,
+      "posts_id": 49,
       "tags_id": 12
     }
   ],
