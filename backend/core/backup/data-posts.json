@@ -549,6 +549,17 @@
       "meta_description": "Rendez votre code Python plus lisible et robuste gr\u00e2ce \u00e0 l\u2019utilisation de l\u2019objet slice() et \u00e0 la nomination de vos tranches.",
       "status_id": 3,
       "categories_id": 4
+    },
+    {
+      "id": 51,
+      "title": "D\u00e9terminer les \u00e9l\u00e9ments les plus fr\u00e9quents d'une s\u00e9quence",
+      "slug": "determiner-les-elements-les-plus-frequents-d-une-sequence",
+      "body": "Si vous avez une s\u00e9quence d'\u00e9l\u00e9ments et que vous souhaitez identifier ceux qui apparaissent le plus souvent, la classe `collections.Counter` est l'outil parfait. Elle est m\u00eame dot\u00e9e d'une m\u00e9thode tr\u00e8s pratique, `most_common()`, qui vous fournit la r\u00e9ponse en un instant.\r\n\r\nImaginez que vous deviez analyser des logs serveur pour identifier les adresses IP les plus actives, compter la fr\u00e9quence de certains mots dans un corpus de texte, ou encore d\u00e9terminer le candidat qui a le plus de votes dans une \u00e9lection. Dans tous ces cas, `Counter` est l\u2019alli\u00e9 id\u00e9al.\r\n\r\nPour illustrer, supposons que vous ayez une liste de mots et que vous vouliez d\u00e9couvrir lesquels sont les plus fr\u00e9quents. Voici comment proc\u00e9der :\r\n\r\n```python\r\nfrom collections import Counter\r\n\r\n\r\nwords = [\r\n    'regarde', 'dans', 'mes', 'yeux', \r\n    'regarde', 'dans', 'mes', 'yeux', \r\n    'les', 'yeux', 'les', 'yeux', \r\n    'les', 'yeux', 'pas', 'autour', \r\n    'les', 'yeux', 'ne', 'regarde', \r\n    'autour', 'les', 'yeux', \r\n    'regarde', 'dans', 'mes', \r\n    'yeux', 'tu es', \r\n]\r\nword_counts = Counter(words)\r\ntop_three = word_counts.most_common(3)\r\nprint(top_three) \r\n# Outputs [('yeux', 8), ('les', 5), ('regarde', 4)]\r\n```\r\n\r\nLes objets Counter peuvent \u00eatre aliment\u00e9s par n'importe quelle s\u00e9quence d'\u00e9l\u00e9ments hachables. En coulisses, un `Counter` est un dictionnaire qui mappe chaque \u00e9l\u00e9ment \u00e0 son nombre d'occurrences. Par exemple :\r\n\r\n```python\r\nprint(word_counts['pas']) \r\n# 1\r\nprint(word_counts['yeux'])\r\n# 8\r\n```\r\nSi vous souhaitez incr\u00e9menter le compte manuellement, il vous suffit d'utiliser l'addition :\r\n\r\n```python\r\nmorewords = [\"pourquoi\", \"n'\", \"es\", \"tu\", \"pas\", \"en train\", \"de\", \"regarder\", \"dans\", \"mes\", \"yeux\"]\r\nfor word in morewords:\r\n    word_counts[word] += 1\r\nprint(word_counts['yeux'])\r\n# 9\r\n```\r\n\r\nSinon, vous pouvez aussi utiliser la m\u00e9thode `update()` :\r\n\r\n```python\r\nword_counts.update(morewords)\r\nprint(word_counts['yeux'])\r\n# 9\r\n```\r\nIl va sans dire que les objets Counter sont un outil extr\u00eamement utile pour presque tous les probl\u00e8mes n\u00e9cessitant de **tabuler** ou de **compter** des donn\u00e9es. Il est pr\u00e9f\u00e9rable d'utiliser cette approche plut\u00f4t que de cr\u00e9er vos propres solutions manuelles \u00e0 l'aide de dictionnaires.\r\n",
+      "created": "2025-09-10T01:33:31.082876",
+      "updated": "2025-09-10T01:39:56.380904",
+      "meta_description": "D\u00e9couvrez comment utiliser collections.Counter en Python pour identifier rapidement les \u00e9l\u00e9ments les plus fr\u00e9quents d\u2019une s\u00e9quence.",
+      "status_id": 3,
+      "categories_id": 4
     }
   ],
   "tag": [
@@ -1392,6 +1403,11 @@
     {
       "id": 1714,
       "posts_id": 50,
+      "tags_id": 6
+    },
+    {
+      "id": 1718,
+      "posts_id": 51,
       "tags_id": 6
     }
   ],

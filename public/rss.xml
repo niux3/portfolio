@@ -5,7 +5,15 @@
         <link>https://rb-webstudio.go.yj.fr</link>
         <description>RB webstudio - spécialiste Python - Javascript/Typescript</description>
         <language>fr</language>
-        <lastBuildDate>2025-08-31</lastBuildDate>
+        <lastBuildDate>2025-09-09</lastBuildDate>
+        
+        <item>
+            <title>Déterminer les éléments les plus fréquents d'une séquence</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/determiner-les-elements-les-plus-frequents-d-une-sequence-51.html</link>
+            <description><![CDATA[Découvrez comment utiliser collections.Counter en Python pour identifier rapidement les éléments les plus fréquents d’une séquence.]]></description>
+            <pubDate>2025-09-10 01:33:31.082876</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/determiner-les-elements-les-plus-frequents-d-une-sequence-51.html</guid>
+        </item>
         
         <item>
             <title>Nommer une tranche (Slice) en Python</title>
@@ -157,14 +165,6 @@
             <description><![CDATA[Désactiver un bouton peut nuire à l'expérience utilisateur. Voici pourquoi vous devriez privilégier des retours explicites et accessibles.]]></description>
             <pubDate>2025-07-09 00:46:37.898015</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/executer-des-actions-eviter-de-desactiver-les-boutons-32.html</guid>
-        </item>
-        
-        <item>
-            <title>Exécuter des actions : ajouter des états et des propriétés</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/executer-des-actions-ajouter-des-etats-et-des-proprietes-31.html</link>
-            <description><![CDATA[Améliorez l'accessibilité de vos interfaces avec les attributs ARIA : 4 exemples concrets pour des boutons inclusifs et informatifs.]]></description>
-            <pubDate>2025-07-08 00:04:55.894320</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/executer-des-actions-ajouter-des-etats-et-des-proprietes-31.html</guid>
         </item>
         
     </channel>
