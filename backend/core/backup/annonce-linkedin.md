@@ -1,13 +1,9 @@
-# Savez-vous quels sont les éléments les plus fréquents dans vos données ?
+# Besoin de trier une liste de dictionnaires en Python ?
 
-En Python, la classe collections.Counter fait des merveilles :
+La fonction itemgetter du module operator est votre alliée : simple, lisible et plus rapide qu’une lambda !
 
-- Compter facilement les occurrences
-- Identifier les éléments les plus communs
-- Mettre à jour vos données sans effort
+Je partage dans mon nouvel article comment trier vos données sur une ou plusieurs clés, et même utiliser min() ou max() pour aller plus loin.
 
-Fini les boucles et dictionnaires bricolés : Counter + most_common() = simplicité et efficacité.
-
-Lire l'article complet : [lien]
+Lien de l’article : [lien]
 
 #python
