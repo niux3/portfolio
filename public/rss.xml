@@ -5,7 +5,15 @@
         <link>https://rb-webstudio.go.yj.fr</link>
         <description>RB webstudio - spécialiste Python - Javascript/Typescript</description>
         <language>fr</language>
-        <lastBuildDate>2025-09-09</lastBuildDate>
+        <lastBuildDate>2025-09-11</lastBuildDate>
+        
+        <item>
+            <title>Trier une liste de dictionnaires par une clé commune</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/trier-une-liste-de-dictionnaires-par-une-cle-commune-52.html</link>
+            <description><![CDATA[Apprenez à trier facilement une liste de dictionnaires en Python avec itemgetter pour un code plus lisible, rapide et performant.]]></description>
+            <pubDate>2025-09-12 00:45:43.187333</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/trier-une-liste-de-dictionnaires-par-une-cle-commune-52.html</guid>
+        </item>
         
         <item>
             <title>Déterminer les éléments les plus fréquents d'une séquence</title>
@@ -157,14 +165,6 @@
             <description><![CDATA[Améliorez l'accessibilité de vos interfaces en stylisant correctement les éléments interactifs avec :focus, :focus-visible et :focus-within]]></description>
             <pubDate>2025-07-16 00:44:08.861391</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/fournir-des-styles-de-focalisation-33.html</guid>
-        </item>
-        
-        <item>
-            <title>Exécuter des actions : éviter de désactiver les boutons</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/executer-des-actions-eviter-de-desactiver-les-boutons-32.html</link>
-            <description><![CDATA[Désactiver un bouton peut nuire à l'expérience utilisateur. Voici pourquoi vous devriez privilégier des retours explicites et accessibles.]]></description>
-            <pubDate>2025-07-09 00:46:37.898015</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/executer-des-actions-eviter-de-desactiver-les-boutons-32.html</guid>
         </item>
         
     </channel>

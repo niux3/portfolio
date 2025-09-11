@@ -560,6 +560,17 @@
       "meta_description": "D\u00e9couvrez comment utiliser collections.Counter en Python pour identifier rapidement les \u00e9l\u00e9ments les plus fr\u00e9quents d\u2019une s\u00e9quence.",
       "status_id": 3,
       "categories_id": 4
+    },
+    {
+      "id": 52,
+      "title": "Trier une liste de dictionnaires par une cl\u00e9 commune",
+      "slug": "trier-une-liste-de-dictionnaires-par-une-cle-commune",
+      "body": "Vous avez d\u00e9j\u00e0 r\u00e9cup\u00e9r\u00e9 des donn\u00e9es depuis une API ou une base de donn\u00e9es et vous devez les trier\u2026 mais pas question de vous perdre dans des boucles compliqu\u00e9es. Voici une fa\u00e7on simple et ultra lisible de trier une liste de dictionnaires en Python.\r\n\r\nPour trier une liste de dictionnaires en fonction de l'une ou de plusieurs de leurs valeurs, la fonction `itemgetter` du module `operator` est l'outil parfait.\r\n\r\nImaginez que vous avez r\u00e9cup\u00e9r\u00e9 une liste de membres de votre site web \u00e0 partir d'une base de donn\u00e9es, repr\u00e9sent\u00e9e par cette structure de donn\u00e9es :\r\n\r\n```python\r\nrows = [\r\n    {'firstname':'Claude', 'lastname': 'Durant', 'id': 3},\r\n    {'firstname':'David', 'lastname': 'Hermann', 'id': 2},\r\n    {'firstname':'Jean', 'lastname': 'Dupont', 'id': 1},\r\n    {'firstname':'Robert', 'lastname': 'Michu', 'id': 4}\r\n]\r\n```\r\n\r\nIl est tr\u00e8s facile de trier cette liste par n'importe laquelle des cl\u00e9s communes \u00e0 tous les dictionnaires.\r\n\r\n## Tri simple et par cl\u00e9 multiple\r\n\r\nLa fonction `itemgetter()` peut accepter une ou plusieurs cl\u00e9s comme arguments. Par exemple, pour trier par pr\u00e9nom, ou par identifiant, il suffit d'\u00e9crire :\r\n\r\n```python\r\nfrom operator import itemgetter\r\n\r\nrows = [\r\n    {'firstname': 'Claude', 'lastname': 'Durant', 'id': 3},\r\n    {'firstname': 'David', 'lastname': 'Hermann', 'id': 2},\r\n    {'firstname': 'Jean', 'lastname': 'Dupont', 'id': 1},\r\n    {'firstname': 'Robert', 'lastname': 'Michu', 'id': 4}\r\n]\r\n\r\n# Tri par pr\u00e9nom\r\nrows_by_firstname = sorted(rows, key=itemgetter('firstname'))\r\n\r\n# Tri par identifiant\r\nrows_by_id = sorted(rows, key=itemgetter('id'))\r\n\r\nprint(\"Tri\u00e9 par pr\u00e9nom :\")\r\nprint(rows_by_firstname)\r\nprint(\"\\nTri\u00e9 par identifiant :\")\r\nprint(rows_by_id)\r\n```\r\nCe code produit le r\u00e9sultat suivant :\r\n\r\n```\r\nTri\u00e9 par pr\u00e9nom :\r\n[\r\n    {'firstname': 'Claude', 'lastname': 'Durant', 'id': 3}, \r\n    {'firstname': 'David', 'lastname': 'Hermann', 'id': 2}, \r\n    {'firstname': 'Jean', 'lastname': 'Dupont', 'id': 1}, \r\n    {'firstname': 'Robert', 'lastname': 'Michu', 'id': 4}\r\n]\r\n\r\nTri\u00e9 par identifiant :\r\n[\r\n    {'firstname': 'Jean', 'lastname': 'Dupont', 'id': 1}, \r\n    {'firstname': 'David', 'lastname': 'Hermann', 'id': 2}, \r\n    {'firstname': 'Claude', 'lastname': 'Durant', 'id': 3}, \r\n    {'firstname': 'Robert', 'lastname': 'Michu', 'id': 4}\r\n]\r\n```\r\nPour trier sur plusieurs crit\u00e8res, comme le nom de famille puis le pr\u00e9nom, il suffit de passer les deux cl\u00e9s \u00e0 `itemgetter()` :\r\n\r\n```python\r\nrows_by_lastname_firstname = sorted(rows, key=itemgetter('lastname','firstname'))\r\nprint(rows_by_lastname_firstname)\r\n```\r\nCe qui donnera :\r\n\r\n```\r\n[   \r\n    {'firstname': 'Jean', 'id': 1, 'lastname': 'Dupont'},\r\n    {'firstname': 'Claude', 'id': 3, 'lastname': 'Durant'},\r\n    {'firstname': 'David', 'id': 2, 'lastname': 'Hermann'},\r\n    {'firstname': 'Robert', 'id': 4, 'lastname': 'Michu'}\r\n]\r\n```\r\nDans cet exemple, `rows` est pass\u00e9 \u00e0 la fonction int\u00e9gr\u00e9e `sorted()`. Celle-ci utilise l'argument `key`, qui attend une fonction capable de prendre un \u00e9l\u00e9ment de `rows` et de renvoyer une valeur sur laquelle baser le tri. `itemgetter()` cr\u00e9e pr\u00e9cis\u00e9ment une telle fonction. Lorsque vous lui donnez plusieurs cl\u00e9s, elle renvoie un tuple, et la fonction `sorted()` trie alors les \u00e9l\u00e9ments en se basant sur ce tuple.\r\n\r\n## Alternative avec les expressions Lambda\r\n\r\nSouvent, on utilise des expressions lambda pour accomplir la m\u00eame chose. Par exemple :\r\n\r\n```python\r\nrows_by_firstname = sorted(rows, key=lambda r: r['firstname'])\r\nrows_by_lastname_firstname = sorted(rows, key=lambda r: (r['lastname'],r['firstname']))\r\n```\r\nBien que cette solution fonctionne tr\u00e8s bien, l'utilisation de `itemgetter()` est g\u00e9n\u00e9ralement un peu plus **rapide**. Si la performance est un enjeu pour votre application, `itemgetter` est donc le choix \u00e0 privil\u00e9gier.\r\n\r\n## Application \u00e0 d'autres fonctions\r\n\r\nLa technique avec `itemgetter()` n'est pas limit\u00e9e \u00e0 `sorted()`. Elle fonctionne aussi avec d'autres fonctions comme `min()` et `max()` pour trouver rapidement le dictionnaire avec la valeur minimale ou maximale d'une cl\u00e9 donn\u00e9e :\r\n\r\n```python\r\nprint(min(rows, key=itemgetter('id')))\r\n# {'firstname': 'Jean', 'id': 1, 'lastname': 'Dupont'}\r\nprint(max(rows, key=itemgetter('id')))\r\n# {'firstname': 'Robert', 'id': 4, 'lastname': 'Michu'}\r\n```\r\n",
+      "created": "2025-09-12T00:45:43.187333",
+      "updated": "2025-09-12T00:50:59.797203",
+      "meta_description": "Apprenez \u00e0 trier facilement une liste de dictionnaires en Python avec itemgetter pour un code plus lisible, rapide et performant.",
+      "status_id": 3,
+      "categories_id": 4
     }
   ],
   "tag": [
@@ -1408,6 +1419,11 @@
     {
       "id": 1718,
       "posts_id": 51,
+      "tags_id": 6
+    },
+    {
+      "id": 1722,
+      "posts_id": 52,
       "tags_id": 6
     }
   ],
