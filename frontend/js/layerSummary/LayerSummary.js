@@ -48,14 +48,25 @@ export default class LayerSummary{
                     text
                 })
             })
+
             $nav.style.height = `${window.innerHeight - reference}px`
             window.addEventListener('resize', e =>{
                 Utils.debounce(()=>{
                     $nav.style.height = `${window.innerHeight - reference}px`
                 }, 200)()
-
             })
+
             $nav.insertAdjacentHTML('beforeend', templateEngine.render(tpl.textContent, {'rows': elementsOutput}))
+            $nav.addEventListener('click', e => {
+                if(window.matchMedia("(max-width: 420px)").matches){
+                    if(e.target.nodeName == 'A'){
+                        const btn = $nav.closest('.wrap').querySelector('.close');
+                        if(btn){
+                            btn.dispatchEvent(new Event('click', { bubbles: true  }));
+                        } 
+                    }
+                }
+            })
             elements.forEach(el => new NavLayerSummaryObserver({el}, this.#subject))
 
             this.#subject.notify(window.scrollY)
