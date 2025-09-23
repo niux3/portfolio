@@ -35,7 +35,7 @@ export default class LayerPanelController{
                     this.#resetLayer()
                     let targetId = $button.dataset.panelTarget?.substring(1)
                     let $targetLayer = Array.from(this.#layers).find($l => $l.id === targetId)
-                    console.log($targetLayer)
+
                     if ($targetLayer){
                         if($targetLayer.id === 'search'){
                             $targetLayer.querySelector("input[name='q']").focus()
