@@ -5,7 +5,15 @@
         <link>https://rb-webstudio.go.yj.fr</link>
         <description>RB webstudio - spécialiste Python - Javascript/Typescript</description>
         <language>fr</language>
-        <lastBuildDate>2025-09-23</lastBuildDate>
+        <lastBuildDate>2025-12-12</lastBuildDate>
+        
+        <item>
+            <title>Grouper des enregistrements en fonction d’un champ avec itertools.groupby</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/grouper-des-enregistrements-en-fonction-dun-champ-avec-itertools-groupby-53.html</link>
+            <description><![CDATA[Apprenez à regrouper efficacement des données en Python grâce à itertools.groupby() et defaultdict. Découvrez les bonnes pratiques, exemples concrets et pièges à éviter pour manipuler et structurer vos enregistrements.]]></description>
+            <pubDate>2025-12-12 16:32:22.077518</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/grouper-des-enregistrements-en-fonction-dun-champ-avec-itertools-groupby-53.html</guid>
+        </item>
         
         <item>
             <title>Trier une liste de dictionnaires par une clé commune</title>
@@ -157,14 +165,6 @@
             <description><![CDATA[Comprendre et maîtriser les éléments focalisables pour garantir l'accessibilité clavier sur vos sites web. Bonnes pratiques et pièges à éviter.]]></description>
             <pubDate>2025-07-17 23:48:41.970596</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/rendre-les-elements-focalisables-34.html</guid>
-        </item>
-        
-        <item>
-            <title>Fournir des styles de focalisation</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/fournir-des-styles-de-focalisation-33.html</link>
-            <description><![CDATA[Améliorez l'accessibilité de vos interfaces en stylisant correctement les éléments interactifs avec :focus, :focus-visible et :focus-within]]></description>
-            <pubDate>2025-07-16 00:44:08.861391</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/fournir-des-styles-de-focalisation-33.html</guid>
         </item>
         
     </channel>
