@@ -11,6 +11,7 @@ flask-blueprint = "==1.3.0"
 flask-migrate = "==3.1.0"
 flask-sqlalchemy = "==2.5.1"
 flask-wtf = "==1.1.1"
+greenlet = "==1.1.1"
 importlib-metadata = "==4.8.1"
 importlib-resources = "==5.2.2"
 itsdangerous = "==2.0.1"
@@ -26,13 +27,10 @@ wtforms = "==2.3.3"
 zipp = "==3.5.0"
 pyhumps = "==3.8.0"
 flask-cors = "==5.0.1"
+python-dotenv = "==1.1.0"
 psycopg2-binary = "==2.9.10"
 jedi = "*"
 markdown = "*"
-python-dotenv = "==1.1.0"
-pillow = "*"
 
 [dev-packages]
 
-[requires]
-python_version = "3.13"
