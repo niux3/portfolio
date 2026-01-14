@@ -13,14 +13,14 @@
         <span class="light">Je construis des solutions techniques <span class="bold">stables</span> et <span class="bold">scalables</span>, pour que votre <span class="bold">tech</span> devienne un <span class="bold">levier de croissance</span> &ndash; pas un frein.</span>
     </h2>
 </section>
-
+<button type="button" class="button" data-panel="true" data-panel-target="#project" aria-expanded="false" aria-controls="project">layer</button>
 <section class="work flag-down delay5">
   <h3>PROJETS PERSONNELS</h3>
   <nav class="content">
     <ul class="items-icons">
       <li>
         <a href="https://github.com/niux3/chuck-ipsum/tree/api" target="_blank">
-          <span class="fa-solid fa-align-left"></span>
+          <span class="fa-regular fa-file-lines"></span>
           <span>
             <span class="bold">Chuck Norris Ipsum</span>
             <span>Générateur de texte</span>
@@ -38,7 +38,7 @@
       </li>
       <li>
         <a href="https://github.com/niux3/js-template-engine" target="_blank">
-          <span class="fa-regular fa-file-lines"></span>
+          <span class="fa-solid fa-gears"></span>
           <span>
             <span class="bold">Moteur de template en JS</span>
             <span>Moteur de template très léger (920 o)</span>
@@ -83,4 +83,15 @@
     </ul>
   </div>
 </section>
+<aside class="layer" id="project">
+    <div class="wrap">
+      <button class="button close" aria-label="fermer le panneau">
+        <span class="fa-solid fa-xmark"></span>
+      </button>
+      <div class="content">
+        <h2><strong>Table des matières</strong></h2>
+        <nav></nav>
+      </div>
+    </div>
+  </aside>
 {% endblock %}
