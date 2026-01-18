@@ -6,6 +6,7 @@ export default class LateralBar {
     #lateralBar
     #buttons
     #main
+
     constructor() {
         if (document.getElementById('lateralBar')) {
             this.#lateralBar = document.getElementById('lateralBar')
@@ -13,7 +14,6 @@ export default class LateralBar {
             this.#main = document.querySelector('main')
 
             new ScrollNotifier(this.#lateralBar).init()
-            // new LayerPanelController(this.#lateralBar).init()
         }
     }
 

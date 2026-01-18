@@ -32,6 +32,9 @@ export default class LayerPanelController {
         const $button = e.currentTarget
 
         if ($button.dataset.panel !== "true") return
+        if ($button.dataset.projectId !== undefined) {
+            sessionStorage.setItem('project-id', $button.dataset.projectId)
+        }
         if ($button.classList.contains('current')) {
             this.#resetLayer()
             return

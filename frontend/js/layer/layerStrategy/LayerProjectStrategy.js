@@ -3,14 +3,38 @@ import TemplateEngine from '../../TemplateEngine'
 
 
 export default class LayerProjectStrategy extends LayerStrategy {
-    #output
+    #output = null
+    #data = null
 
     constructor(layerElement) {
         super(layerElement)
-        this.#output = this._layerElement.querySelector('output')
+        // this.#output = this._layerElement.querySelector('output')
     }
 
-    init() {
-        console.log('layer Project')
+    async init() {
+        if (!this.#data) {
+            this.#data = await this.#fetchData()
+        }
+        let projectId = parseInt(sessionStorage.getItem('project-id'), 10),
+            row = this.#data.find(r => r.id === projectId)
+        console.log('Found row:', row)
+    }
+
+    async #fetchData() {
+        try {
+            let base_url = import.meta.env.DEV ? 'http://localhost:5173' : '',
+                url = `${base_url}/public/static/data-projects.json`
+
+            const response = await fetch(url)
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
+            const data = await response.json()
+            return data
+        } catch (e) {
+            console.error('Failed to fetch project details:', e)
+            return {}
+        }
+
     }
 }
