@@ -27,7 +27,7 @@ def export_project_data_frontend():
         "year": r.year,
         "activity_name": r.activity.name if r.activity else None,
         "activity_icon": r.activity.icon if r.activity else None,
-        "function": r.function.name if r.function else None,
+        "position": r.function.name if r.function else None,
         "location": r.location,
         "customer": r.customer,
         "technologies": [t.name for t in r.technologies]

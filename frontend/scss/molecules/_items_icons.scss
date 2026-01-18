@@ -15,6 +15,7 @@
       width: 100%;
       text-align: left;
       cursor: pointer;
+      line-height: normal;
 
       &:hover, &.current{
         background-color: var(--color-nice);
@@ -33,6 +34,7 @@
       > span:nth-child(2){
         width: 100%;
         max-width: calc(100% - 5rem);
+        line-height: 2.6rem;
         > span{
           display: block;
         }

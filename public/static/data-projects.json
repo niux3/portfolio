@@ -8,7 +8,7 @@
     "year": "2024",
     "activity_name": "musique",
     "activity_icon": "fa-solid fa-music",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "St Ouen",
     "customer": "Believe",
     "technologies": [
@@ -30,7 +30,7 @@
     "year": "2023",
     "activity_name": "conciergerie",
     "activity_icon": "fa-solid fa-bell-concierge",
-    "function": "backend",
+    "position": "backend",
     "location": "Paris",
     "customer": "John Paul",
     "technologies": [
@@ -49,7 +49,7 @@
     "year": "2023",
     "activity_name": "la radio",
     "activity_icon": "fa-solid fa-radio",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 16",
     "customer": "La Maison de la Radio",
     "technologies": [
@@ -69,7 +69,7 @@
     "year": "2022",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 15",
     "customer": "SEBDO",
     "technologies": [
@@ -89,7 +89,7 @@
     "year": "2020",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 15",
     "customer": "SEBDO",
     "technologies": [
@@ -111,7 +111,7 @@
     "year": "2019",
     "activity_name": "sant\u00e9",
     "activity_icon": "fa-solid fa-notes-medical",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 9",
     "customer": "Carenity",
     "technologies": [
@@ -133,7 +133,7 @@
     "year": "2018",
     "activity_name": "bagage",
     "activity_icon": "fa-solid fa-suitcase-rolling",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Boulogne",
     "customer": "Viseo",
     "technologies": [
@@ -152,7 +152,7 @@
     "year": "2018",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 2",
     "customer": "Creativ - Viseo",
     "technologies": [
@@ -171,7 +171,7 @@
     "year": "2018",
     "activity_name": "r\u00e9seau social",
     "activity_icon": "fa-solid fa-people-arrows",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris",
     "customer": "Creativ",
     "technologies": [
@@ -192,7 +192,7 @@
     "year": "2017",
     "activity_name": "grande distibution",
     "activity_icon": "fa-solid fa-shirt",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 8",
     "customer": "Publicis/Prodigious",
     "technologies": [
@@ -213,7 +213,7 @@
     "year": "2017",
     "activity_name": "hygi\u00e8ne",
     "activity_icon": "fa-solid fa-soap",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 8",
     "customer": "Publicis - Razorfish",
     "technologies": [
@@ -234,7 +234,7 @@
     "year": "2017",
     "activity_name": "motocyclette",
     "activity_icon": "fa-solid fa-motorcycle",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Paris 8",
     "customer": "Publicis - Prodigious",
     "technologies": [
@@ -254,7 +254,7 @@
     "year": "2018",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Paris 8",
     "customer": "Publicis - Prodigious",
     "technologies": [
@@ -274,7 +274,7 @@
     "year": "2018",
     "activity_name": "sant\u00e9",
     "activity_icon": "fa-solid fa-notes-medical",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 8",
     "customer": "Publicis - Prodigious",
     "technologies": [
@@ -294,7 +294,7 @@
     "year": "2016",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 8",
     "customer": "Publicis - Prodigious",
     "technologies": [
@@ -315,7 +315,7 @@
     "year": "2017",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 8",
     "customer": "Publicis - Prodigious",
     "technologies": [
@@ -335,7 +335,7 @@
     "year": "2016",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 8",
     "customer": "Publicis - Prodigious",
     "technologies": [
@@ -355,7 +355,7 @@
     "year": "2017",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 8",
     "customer": "Publicis - Prodigious",
     "technologies": [
@@ -377,7 +377,7 @@
     "year": "2016",
     "activity_name": "aviation",
     "activity_icon": "fa-solid fa-plane",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Levallois Perret",
     "customer": "Fullsix - ADP",
     "technologies": [
@@ -396,7 +396,7 @@
     "year": "2015",
     "activity_name": "opticien",
     "activity_icon": "fa-solid fa-glasses",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Levallois Perret",
     "customer": "Fullsix",
     "technologies": [
@@ -416,7 +416,7 @@
     "year": "2016",
     "activity_name": "r\u00e9seau social",
     "activity_icon": "fa-solid fa-people-arrows",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Levallois Perret",
     "customer": "Fullsix",
     "technologies": [
@@ -435,7 +435,7 @@
     "year": "2015",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Gennevillier",
     "customer": "groupe Bazarchic",
     "technologies": [
@@ -454,7 +454,7 @@
     "year": "2014",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Gennevillier",
     "customer": "groupe Bazarchic",
     "technologies": [
@@ -473,7 +473,7 @@
     "year": "2011",
     "activity_name": "alimentation",
     "activity_icon": "fa-solid fa-utensils",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Nanterre",
     "customer": "Groupe Flo",
     "technologies": [
@@ -494,7 +494,7 @@
     "year": "2011",
     "activity_name": "\u00e9lectrom\u00e9nager",
     "activity_icon": "fa-solid fa-blender-phone",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -515,7 +515,7 @@
     "year": "2012",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -534,7 +534,7 @@
     "year": "2013",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -553,7 +553,7 @@
     "year": "2011",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -574,7 +574,7 @@
     "year": "2010",
     "activity_name": "aviation",
     "activity_icon": "fa-solid fa-plane",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab - Amadeus",
     "technologies": [
@@ -593,7 +593,7 @@
     "year": "2011",
     "activity_name": "aviation",
     "activity_icon": "fa-solid fa-plane",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab - Amadeus",
     "technologies": [
@@ -612,7 +612,7 @@
     "year": "2011",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -631,7 +631,7 @@
     "year": "2011",
     "activity_name": "aviation",
     "activity_icon": "fa-solid fa-plane",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab - Amadeus",
     "technologies": [
@@ -650,7 +650,7 @@
     "year": "2011",
     "activity_name": "aviation",
     "activity_icon": "fa-solid fa-plane",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab - Amadeus",
     "technologies": [
@@ -669,7 +669,7 @@
     "year": "2013",
     "activity_name": "livres",
     "activity_icon": "fa-solid fa-book",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -690,7 +690,7 @@
     "year": "2011",
     "activity_name": "construction",
     "activity_icon": "fa-solid fa-person-digging",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -711,7 +711,7 @@
     "year": "2013",
     "activity_name": "finance",
     "activity_icon": "fa-solid fa-piggy-bank",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -732,7 +732,7 @@
     "year": "2011",
     "activity_name": "blog",
     "activity_icon": "fa-brands fa-blogger",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -752,7 +752,7 @@
     "year": "2013",
     "activity_name": "alimentation",
     "activity_icon": "fa-solid fa-utensils",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -770,7 +770,7 @@
     "year": "2010",
     "activity_name": "hygi\u00e8ne",
     "activity_icon": "fa-solid fa-soap",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -789,7 +789,7 @@
     "year": "2011",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab - Argonautes",
     "technologies": [
@@ -808,7 +808,7 @@
     "year": "2013",
     "activity_name": "finance",
     "activity_icon": "fa-solid fa-piggy-bank",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -828,7 +828,7 @@
     "year": "2010",
     "activity_name": "sports \u00e9questres",
     "activity_icon": "fa-solid fa-horse",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -847,7 +847,7 @@
     "year": "2011",
     "activity_name": "nucl\u00e9aire",
     "activity_icon": "fa-solid fa-radiation",
-    "function": "frontend",
+    "position": "frontend",
     "location": "La Garenne Colombe",
     "customer": "Business Lab - Areva",
     "technologies": [
@@ -867,7 +867,7 @@
     "year": "2012",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -887,7 +887,7 @@
     "year": "2009",
     "activity_name": "alimentation",
     "activity_icon": "fa-solid fa-utensils",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -906,7 +906,7 @@
     "year": "2017",
     "activity_name": "T\u00e9l\u00e9phonie mobile",
     "activity_icon": "fa-solid fa-mobile-screen",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 8",
     "customer": "Publicis - Prodigious",
     "technologies": [
@@ -927,7 +927,7 @@
     "year": "2013",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -946,7 +946,7 @@
     "year": "2012",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -965,7 +965,7 @@
     "year": "2011",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -984,7 +984,7 @@
     "year": "2017",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris 8",
     "customer": "Publicis - Prodigious",
     "technologies": [
@@ -1007,7 +1007,7 @@
     "year": "2011",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -1028,7 +1028,7 @@
     "year": "2012",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris, France",
     "customer": "Business Lab",
     "technologies": [
@@ -1048,7 +1048,7 @@
     "year": "2022",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris, France",
     "customer": "LePoint",
     "technologies": [
@@ -1070,7 +1070,7 @@
     "year": "2022",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris, France",
     "customer": "LePoint",
     "technologies": [
@@ -1092,7 +1092,7 @@
     "year": "2022",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris, France",
     "customer": "LePoint",
     "technologies": [
@@ -1113,7 +1113,7 @@
     "year": "2022",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris, France",
     "customer": "LePoint",
     "technologies": [
@@ -1134,7 +1134,7 @@
     "year": "2022",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris, France",
     "customer": "LePoint",
     "technologies": [
@@ -1154,7 +1154,7 @@
     "year": "2021",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris, France",
     "customer": "LePoint",
     "technologies": [
@@ -1174,7 +1174,7 @@
     "year": "2020",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
-    "function": "frontend",
+    "position": "frontend",
     "location": "Paris, France",
     "customer": "LePoint",
     "technologies": [
@@ -1193,7 +1193,7 @@
     "year": "2017",
     "activity_name": "motocyclette",
     "activity_icon": "fa-solid fa-motorcycle",
-    "function": "backend/frontend",
+    "position": "backend/frontend",
     "location": "Paris, France",
     "customer": "Publicis - Prodigious",
     "technologies": [

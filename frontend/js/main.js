@@ -17,7 +17,6 @@ window.addEventListener('DOMContentLoaded', () => {
     let logReaderActivity = null,
         lateralBar = null,
         layerController = null,
-        // layerSearch = null,
         $main = document.querySelector('main'),
         duration = 3100,
         hasSeenAnimation = sessionStorage.getItem('introPlayed')
@@ -76,8 +75,23 @@ window.addEventListener('DOMContentLoaded', () => {
     const unmount = () => {
         logReaderActivity = null
         lateralBar = null
-        layerController = null
-        // layerSearch = null
+        console.log('unmount =>', layerController.layers)
+        if (Array.from(layerController.layers)?.find(l => l.classList.contains('move'))) {
+            let currentLayerDisplayed = Array.from(layerController.layers)?.find(l => l.classList.contains('move'))
+            currentLayerDisplayed.classList.remove('move')
+            currentLayerDisplayed.addEventListener('transitionend', e => layerController = null)
+
+
+        } else {
+            layerController = null
+        }
+        // layerController.layers.forEach((l, i) => {
+        //     l.classList.remove('move')
+        //     if (i >= layerController.layers.length - 1) {
+        //         console.log(l)
+        //         l.addEventListener('transitionend', e => layerController = null)
+        //     }
+        // })
     }
     mount()
     const swup = new Swup({

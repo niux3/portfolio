@@ -87,15 +87,58 @@
       <button class="button close" aria-label="fermer le panneau">
         <span class="fa-solid fa-xmark"></span>
       </button>
-      <div class="content">
-        <h2><strong>Table des matières</strong></h2>
-        <nav></nav>
-      </div>
+      <div class="content"></div>
     </div>
   </aside>
 
   <script type="text/template" id="tplLayerProject">
-    <h2><strong>[[- name ]]</strong></h2>
-    <p class="description">[[- description]]</p>
+    <article class="project-card">
+      <header>
+        <div class="base-infos">
+          <time>[[- year ]]</time>
+          <span>
+            <span class="[[- activity_icon ]]"></span>
+            <span>[[- activity_name ]]</span>
+          </span>
+        </div>
+
+        <h2 class="project-card__title"><strong>[[- name ]]</strong></h2>
+
+        <ul class="meta no-bullet">
+          <li>
+            <span class="fa-solid fa-briefcase"></span>
+            <span>[[- position ]]</span>
+          </li>
+          <li>
+            <span class="fa-solid fa-map-marker-alt"></span>
+            <span>[[- location ]]</span>
+          </li>
+          <li>
+            <span class="fa-solid fa-building"></span>
+            <span>[[- customer ]]</span>
+          </li>
+        </ul>
+      </header>
+
+      <div class="project-card__body body">
+        <p class="project-card__description">[[- description ]]</p>
+
+        <div class="project-card__tech">
+          <h3 class="tech-title">
+            <i class="fa-solid fa-microchip"></i>
+            Stack technique
+          </h3>
+          <ul class="tech-list">
+          </ul>
+        </div>
+      </div>
+
+      <footer class="project-card__footer">
+        <a href="[[- url ]]" target="_blank" class="button button--primary">
+          <i class="fa-solid fa-eye"></i>
+          Consulter
+        </a>
+      </footer>
+    </article>
   </script>
 {% endblock %}

@@ -20,6 +20,10 @@ export default class LayerPanelController {
         this.#setupKeyboardHandlers()
     }
 
+    get layers() {
+        return this.#layers
+    }
+
     #setupButtonHandlers() {
         const eventType = Utils.isMobile() ? 'pointerdown' : 'click'
 
