@@ -13,7 +13,6 @@
         <span class="light">Je construis des solutions techniques <span class="bold">stables</span> et <span class="bold">scalables</span>, pour que votre <span class="bold">tech</span> devienne un <span class="bold">levier de croissance</span> &ndash; pas un frein.</span>
     </h2>
 </section>
-<button type="button" class="button" data-panel="true" data-panel-target="#project" data-project-id="3" aria-expanded="false" aria-controls="project">layer</button>
 <section class="work flag-down delay5">
   <h3>PROJETS PERSONNELS</h3>
   <nav class="content">
@@ -61,13 +60,13 @@
     <ul class="items-icons">
       {% for object in object_list.projects %}
       <li>
-        <a href="{{ object.url }}" target="_blank">
+        <button type="button" data-panel="true" data-panel-target="#project" data-project-id="{{ object.id }}" aria-expanded="false" aria-controls="project">
           <span class="{{ object.activity.icon }}"></span>
           <span>
             <span class="bold">{{ object.name }}</span>
             <span>développement {{ object.function.name }}</span>
           </span>
-        </a>
+        </button>
       </li>
       {% endfor %}
     </ul>
@@ -94,4 +93,9 @@
       </div>
     </div>
   </aside>
+
+  <script type="text/template" id="tplLayerProject">
+    <h2><strong>[[- name ]]</strong></h2>
+    <p class="description">[[- description]]</p>
+  </script>
 {% endblock %}

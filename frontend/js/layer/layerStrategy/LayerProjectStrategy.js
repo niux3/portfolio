@@ -5,10 +5,12 @@ import TemplateEngine from '../../TemplateEngine'
 export default class LayerProjectStrategy extends LayerStrategy {
     #output = null
     #data = null
+    #engine = null
 
     constructor(layerElement) {
         super(layerElement)
-        // this.#output = this._layerElement.querySelector('output')
+        this.#engine = new TemplateEngine()
+        this.#output = this._layerElement.querySelector('.content')
     }
 
     async init() {
@@ -17,7 +19,7 @@ export default class LayerProjectStrategy extends LayerStrategy {
         }
         let projectId = parseInt(sessionStorage.getItem('project-id'), 10),
             row = this.#data.find(r => r.id === projectId)
-        console.log('Found row:', row)
+        this.#output.innerHTML = this.#engine.render(document.getElementById('tplLayerProject').innerHTML, row)
     }
 
     async #fetchData() {
