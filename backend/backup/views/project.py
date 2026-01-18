@@ -12,17 +12,56 @@ from backend import db
 
 bp = Blueprint('backup_projects', __name__, url_prefix='/sauvegarde')
 file_data = config.BASEDIR / 'core' / 'backup' / 'data-projects.json'
+public_folder = config.BASEDIR.parent / 'public'
+static_folder = public_folder / 'static'
+file_data_public = static_folder / 'data-projects.json'
+
+
+def export_project_data_frontend():
+    output = [{
+        "id": r.id,
+        "name": r.name,
+        "slug": r.slug,
+        "url": r.url,
+        "description": r.description,
+        "year": r.year,
+        "activity_name": r.activity.name if r.activity else None,
+        "activity_icon": r.activity.icon if r.activity else None,
+        "function": r.function.name if r.function else None,
+        "location": r.location,
+        "customer": r.customer,
+        "technologies": [t.name for t in r.technologies]
+    } for r in Project.query.filter(Project.online == 1).all()]
+
+    with open(str(file_data_public), 'w', encoding='utf-8') as f:
+        f.write(json.dumps(output, indent=2))
+    return True
+
+
+def export_project_data_backend():
+    output = {
+        'project': [r.to_dict() for r in Project.query.all()],
+        'activity': [r.to_dict() for r in Activity.query.all()],
+        'function': [r.to_dict() for r in Function.query.all()],
+        'technology': [r.to_dict() for r in Technology.query.all()],
+        'project_technology': [r.to_dict() for r in ProjectTechnology.query.all()],
+    }
+
+    with open(str(file_data), 'w', encoding='utf-8') as f:
+        f.write(json.dumps(output, indent=2))
+    return True
+
 
 @bp.route('/projets-export-html.html')
 def export_html():
-    public_folder = config.BASEDIR.parent / 'public'
-    static_folder = public_folder / 'static'
     path_manifest = public_folder / '.vite' / 'manifest.json'
 
     with open(str(path_manifest), encoding='utf-8') as f:
         manifest_data = json.load(f)
-    pathlib.Path.unlink(public_folder / manifest_data.get('frontend/js/main.js').get('file'))
-    pathlib.Path.unlink(public_folder / manifest_data.get('frontend/scss/index.scss').get('file'))
+    pathlib.Path.unlink(
+        public_folder / manifest_data.get('frontend/js/main.js').get('file'))
+    pathlib.Path.unlink(
+        public_folder / manifest_data.get('frontend/scss/index.scss').get('file'))
 
     result = subprocess.check_call('npm run build', shell=True)
 
@@ -44,20 +83,13 @@ def export_html():
     flash("Votre export de la page accueil est réussi", "success")
     return redirect(url_for('projects.index'))
 
+
 @bp.route('/projets-export-json.html')
 def export_json():
-    output = {
-        'project': [r.to_dict() for r in Project.query.all()],
-        'activity': [r.to_dict() for r in Activity.query.all()],
-        'function': [r.to_dict() for r in Function.query.all()],
-        'technology': [r.to_dict() for r in Technology.query.all()],
-        'project_technology': [r.to_dict() for r in ProjectTechnology.query.all()],
-    }
+    if export_project_data_backend() and export_project_data_frontend():
+        flash("Votre export en json est réussi", "success")
+        return redirect(url_for('projects.index'))
 
-    with open(str(file_data), 'w', encoding='utf-8') as f:
-        f.write(json.dumps(output, indent=2))
-    flash("Votre export en json est réussi", "success")
-    return redirect(url_for('projects.index'))
 
 @bp.route('/projets-import-json.html')
 def import_json():
@@ -67,9 +99,11 @@ def import_json():
     activities = [Activity.from_dict(item) for item in data['activity']]
     functions = [Function.from_dict(item) for item in data['function']]
     technologies = [Technology.from_dict(item) for item in data['technology']]
-    project_technologies = [ProjectTechnology.from_dict(item) for item in data['project_technology']]
+    project_technologies = [ProjectTechnology.from_dict(
+        item) for item in data['project_technology']]
 
-    db.session.add_all(projects + activities + functions + technologies + project_technologies)
+    db.session.add_all(projects + activities + functions +
+                       technologies + project_technologies)
     db.session.commit()
     flash("Votre import en json est réussi", "success")
     return redirect(url_for('projects.index'))
