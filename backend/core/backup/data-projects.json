@@ -4,10 +4,10 @@
       "id": 1,
       "name": "Believe",
       "slug": "believe",
-      "description": "J'ai r\u00e9cemment eu l'opportunit\u00e9 de participer \u00e0 la refonte de l'application musicale Smart Entry. Mon r\u00f4le principal a \u00e9t\u00e9 de moderniser et d'am\u00e9liorer l'interface utilisateur pour offrir une exp\u00e9rience plus fluide et intuitive aux utilisateurs. En outre, j'ai d\u00e9velopp\u00e9 un syst\u00e8me de traduction int\u00e9gr\u00e9, permettant \u00e0 Smart Entry de devenir accessible \u00e0 un public international en 17 langues. Cette exp\u00e9rience enrichissante m'a permis de combiner mes comp\u00e9tences techniques et cr\u00e9atives pour apporter des solutions innovantes et am\u00e9liorer l'accessibilit\u00e9 de l'application.\r\n",
+      "description": "Refonte compl\u00e8te de l\u2019interface utilisateur (Easy Entry => Smart Entry) pour am\u00e9liorer l\u2019ergonomie et la fluidit\u00e9. D\u00e9veloppement front et back d\u2019un syst\u00e8me de traduction international, permettant de d\u00e9ployer l\u2019application en 17 langues. Optimisation de l\u2019accessibilit\u00e9 et de la scalabilit\u00e9 pour une audience mondiale.",
       "color": "#000000",
       "created": "2025-05-21T17:36:47.597021",
-      "modified": "2025-05-21T17:36:47.597027",
+      "modified": "2026-01-19T16:56:07.203417",
       "online": 1,
       "url": "https://www.believe.com/",
       "functions_id": 1,
@@ -21,10 +21,10 @@
       "id": 2,
       "name": "John Paul",
       "slug": "john-paul",
-      "description": "Au sein de l'\u00e9quipe John Paul, j'ai eu le privil\u00e8ge de travailler en tant que d\u00e9veloppeur backend, une exp\u00e9rience passionnante qui m'a permis de contribuer de mani\u00e8re significative au succ\u00e8s continu de l'entreprise. Mon r\u00f4le principal consistait \u00e0 assurer la maintenance et \u00e0 apporter des am\u00e9liorations essentielles aux projets.",
+      "description": "D\u00e9veloppement et maintenance de services backend Django/DRF pour une plateforme de conciergerie de luxe. Conception de web services interconnectant plusieurs applications Python, garantissant la robustesse et la fiabilit\u00e9 des \u00e9changes de donn\u00e9es.",
       "color": "#000000",
       "created": "2025-05-21T17:36:47.763054",
-      "modified": "2025-05-26T15:05:33.522614",
+      "modified": "2026-01-19T16:56:44.295303",
       "online": 1,
       "url": "https://www.johnpaul.com/fr",
       "functions_id": 2,
@@ -38,10 +38,10 @@
       "id": 3,
       "name": "Radio France",
       "slug": "radio-france",
-      "description": "J'ai eu l'opportunit\u00e9 exceptionnelle de collaborer en tant que d\u00e9veloppeur fullstack sur le projet Radio France.fr. Cette exp\u00e9rience de cor\u00e9alisation a \u00e9t\u00e9 enrichissante \u00e0 bien des \u00e9gards. Elle m'a permis de contribuer de mani\u00e8re significative \u00e0 la cr\u00e9ation d'une plateforme web de premier plan pour l'une des institutions culturelles les plus embl\u00e9matiques de France.",
+      "description": "Contribution au d\u00e9veloppement fullstack de RadioFrance.fr, site m\u00e9dia \u00e0 fort trafic. Impl\u00e9mentation de fonctionnalit\u00e9s critiques avec Node.js / Express / SvelteKit / TypeScript, tout en optimisant performance, SEO et accessibilit\u00e9.",
       "color": "#000000",
       "created": "2025-05-21T17:36:47.834763",
-      "modified": "2025-05-26T15:06:01.913529",
+      "modified": "2026-01-19T16:57:04.718346",
       "online": 1,
       "url": "https://www.radiofrance.fr/",
       "functions_id": 1,
@@ -55,27 +55,27 @@
       "id": 4,
       "name": "Journal LePoint",
       "slug": "journal-lepoint",
-      "description": "En qualit\u00e9 d'ing\u00e9nieur cumulant les comp\u00e9tences front-end et back-end, j'ai eu l'opportunit\u00e9 de jouer un r\u00f4le d\u00e9terminant dans l'\u00e9volution des plateformes num\u00e9riques du journal renomm\u00e9 Le Point. Mon r\u00f4le consistait \u00e0 garantir une exp\u00e9rience utilisateur de qualit\u00e9 tant sur leur site web que sur leur application mobile.",
+      "description": "Intervention fullstack pour am\u00e9liorer l\u2019exp\u00e9rience utilisateur et la fiabilit\u00e9 des services web et mobiles du journal Le Point. Gestion de bases de donn\u00e9es PostgreSQL/MySQL et mise en place d\u2019architectures Docker pour un flux de contenu continu et s\u00e9curis\u00e9.",
       "color": "#000000",
       "created": "2025-05-21T17:36:47.931535",
-      "modified": "2025-05-26T15:06:34.977804",
+      "modified": "2026-01-19T16:57:50.899687",
       "online": 1,
       "url": "https://www.lepoint.fr/",
       "functions_id": 1,
       "sort": null,
       "year": "2022",
       "activities_id": 4,
-      "customer": "SEBDO",
+      "customer": "SEBDO - LePoint",
       "location": "Paris 15"
     },
     {
       "id": 5,
       "name": "G\u00e9n\u00e9rateur palmar\u00e8s LePoint",
       "slug": "generateur-palmares-lepoint",
-      "description": "L'une de mes r\u00e9alisations les plus marquantes en tant qu'ing\u00e9nieur a \u00e9t\u00e9 la conception et la mise en place d'un syst\u00e8me de palmar\u00e8s complet pour le prestigieux journal Le Point. Mon r\u00f4le englobait \u00e0 la fois le d\u00e9veloppement front-end et back-end, et incluait m\u00eame la cr\u00e9ation d'applications sp\u00e9cifiques pour certains palmar\u00e8s.",
+      "description": "Conception d\u2019un g\u00e9n\u00e9rateur de palmar\u00e8s \u00e9ditoriaux permettant la cr\u00e9ation autonome de classements complexes. D\u00e9veloppement d\u2019une solution fiable et p\u00e9renne r\u00e9pondant aux exigences de production et de diffusion d\u2019un m\u00e9dia national.",
       "color": "#000000",
       "created": "2025-05-21T17:36:48.000970",
-      "modified": "2025-05-26T19:52:01.574772",
+      "modified": "2026-01-19T16:58:16.290136",
       "online": 1,
       "url": "https://www.lepoint.fr/",
       "functions_id": 1,
@@ -89,10 +89,10 @@
       "id": 6,
       "name": "Carenity",
       "slug": "carenity",
-      "description": "L'une de mes r\u00e9alisations notables en tant que d\u00e9veloppeur a \u00e9t\u00e9 la refonte compl\u00e8te du backoffice et l'am\u00e9lioration substantielle du syst\u00e8me de questionnaire pour Carenity. Dans ce projet, j'ai \u00e9t\u00e9 responsable du d\u00e9veloppement complet du front-end et du back-end, ce qui a \u00e9t\u00e9 une exp\u00e9rience particuli\u00e8rement enrichissante.",
+      "description": "Conception et d\u00e9veloppement d\u2019un backoffice et d\u2019un syst\u00e8me de questionnaires robustes. Optimisation de la gestion des contenus, exploitation fiable des donn\u00e9es et am\u00e9lioration de l\u2019exp\u00e9rience utilisateur sur la plateforme sant\u00e9.",
       "color": "#000000",
       "created": "2025-05-21T17:36:48.104021",
-      "modified": "2025-05-21T17:36:48.104026",
+      "modified": "2026-01-19T17:02:12.522270",
       "online": 1,
       "url": "https://www.carenity.com/",
       "functions_id": 1,
@@ -106,10 +106,10 @@
       "id": 7,
       "name": "Rimowa",
       "slug": "rimowa",
-      "description": "L'un de mes projets les plus gratifiants en tant que d\u00e9veloppeur a \u00e9t\u00e9 la refonte totale du site e-commerce de la marque embl\u00e9matique Rimowa. Dans cette entreprise, j'ai \u00e9t\u00e9 co-responsable du d\u00e9veloppement complet, en prenant en charge \u00e0 la fois le front-end et le back-end du site.",
+      "description": "Refonte compl\u00e8te du site e-commerce de Rimowa pour am\u00e9liorer l\u2019exp\u00e9rience utilisateur et la performance des transactions sur une plateforme \u00e0 fort trafic.",
       "color": "#000000",
       "created": "2025-05-21T17:36:48.204999",
-      "modified": "2025-05-21T17:36:48.205004",
+      "modified": "2026-01-19T17:02:43.486590",
       "online": 1,
       "url": "https://www.rimowa.com/",
       "functions_id": 1,
@@ -123,10 +123,10 @@
       "id": 8,
       "name": "Longchamp",
       "slug": "longchamp",
-      "description": "La refonte du site e-commerce Longchamp \u00e9tait un d\u00e9fi passionnant, car elle visait \u00e0 cr\u00e9er une plateforme en ligne \u00e0 la hauteur de la renomm\u00e9e de cette marque maroquinerie de luxe. Ma mission consistait \u00e0 m'assurer que le site alliait non seulement une esth\u00e9tique attrayante, mais aussi des performances optimales, ainsi que la gestion efficace d'une large gamme de produits et d'options de personnalisation.",
+      "description": "Refonte compl\u00e8te du site e-commerce Longchamp, garantissant une exp\u00e9rience client fluide, des performances optimis\u00e9es et une gestion efficace des produits et options de personnalisation sur une plateforme \u00e0 fort trafic.\r\nCette refonte a \u00e9galement permis de renforcer la coh\u00e9rence de la marque en ligne, d\u2019am\u00e9liorer la conversion client et de faciliter l\u2019\u00e9volution future du catalogue et des fonctionnalit\u00e9s.",
       "color": "#000000",
       "created": "2025-05-21T17:36:48.270757",
-      "modified": "2025-05-22T00:10:10.655549",
+      "modified": "2026-01-19T15:50:06.592274",
       "online": 1,
       "url": "https://www.longchamp.com",
       "functions_id": 1,
@@ -140,10 +140,10 @@
       "id": 9,
       "name": "Confbox",
       "slug": "confbox",
-      "description": "La refonte du projet Confbox, un syst\u00e8me de conf\u00e9rence en ligne, a \u00e9t\u00e9 une exp\u00e9rience de conception exceptionnelle \u00e0 laquelle j'ai eu le privil\u00e8ge d'\u00eatre concepteur et architecte. Cette refonte a \u00e9t\u00e9 l'occasion de mettre en avant ma passion pour l'innovation en mati\u00e8re de communication virtuelle et ma capacit\u00e9 \u00e0 cr\u00e9er des solutions technologiques de pointe.",
+      "description": "Refonte compl\u00e8te du syst\u00e8me de conf\u00e9rences en ligne Confbox. Cr\u00e9ation d\u2019une architecture \u00e9volutive et fiable, permettant l\u2019ajout de nouvelles fonctionnalit\u00e9s et une exp\u00e9rience utilisateur fluide pour des sessions \u00e0 grande \u00e9chelle.",
       "color": "#000000",
       "created": "2025-05-21T17:36:48.342124",
-      "modified": "2025-05-31T18:48:43.905310",
+      "modified": "2026-01-19T17:04:09.505201",
       "online": 1,
       "url": "https://confbox.com",
       "functions_id": 1,
@@ -157,11 +157,11 @@
       "id": 10,
       "name": "Cevital",
       "slug": "cevital",
-      "description": "J'ai eu l'occasion de mettre en \u0153uvre ma passion et mon expertise en tant que d\u00e9veloppeur full-stack dans la r\u00e9alisation du site vitrine du prestigieux groupe nord-africain Cevital. Cette exp\u00e9rience a \u00e9t\u00e9 marquante, car elle m'a permis de contribuer de mani\u00e8re significative \u00e0 la repr\u00e9sentation en ligne de l'une des entreprises les plus influentes et diversifi\u00e9es du Maghreb.",
+      "description": "D\u00e9veloppement fullstack du site vitrine du groupe Cevital, renfor\u00e7ant sa pr\u00e9sence en ligne et la visibilit\u00e9 de ses activit\u00e9s diversifi\u00e9es.\r\nLe projet a permis de cr\u00e9er une plateforme robuste, facile \u00e0 maintenir et \u00e9volutive, offrant une exp\u00e9rience utilisateur fluide et coh\u00e9rente avec l\u2019image de l\u2019entreprise.",
       "color": "#000000",
       "created": "2025-05-21T17:36:48.441146",
-      "modified": "2025-05-26T19:52:28.500809",
-      "online": 1,
+      "modified": "2026-01-19T16:27:52.446020",
+      "online": 0,
       "url": "https://www.cevital.com/",
       "functions_id": 1,
       "sort": null,
@@ -174,10 +174,10 @@
       "id": 11,
       "name": "Rene Furterer",
       "slug": "rene-furterer",
-      "description": "La refonte compl\u00e8te du projet Ren\u00e9 Furterer a repr\u00e9sent\u00e9 une \u00e9tape significative dans mon parcours en tant que d\u00e9veloppeur full-stack. Ce projet a permis de mettre en avant mon expertise dans la cr\u00e9ation d'exp\u00e9riences num\u00e9riques compl\u00e8tes, couvrant \u00e0 la fois le d\u00e9veloppement front-end et back-end.",
+      "description": "Conception et d\u00e9veloppement fullstack pour la refonte du site Ren\u00e9 Furterer, garantissant une exp\u00e9rience utilisateur coh\u00e9rente, des performances optimis\u00e9es et une gestion fiable des contenus. La solution a \u00e9t\u00e9 pens\u00e9e pour assurer la p\u00e9rennit\u00e9 du site, supporter les \u00e9volutions futures et renforcer la pr\u00e9sence digitale de la marque.",
       "color": "#000000",
       "created": "2025-05-21T17:36:48.533208",
-      "modified": "2025-05-26T19:52:38.797025",
+      "modified": "2026-01-19T16:04:00.119440",
       "online": 1,
       "url": "https://www.renefurterer.com/fr-fr",
       "functions_id": 1,
@@ -191,10 +191,10 @@
       "id": 12,
       "name": "Honda moto",
       "slug": "honda-moto",
-      "description": "La refonte int\u00e9grale des sites web Honda Moto et Honda Moto Occasion a \u00e9t\u00e9 un projet phare de ma carri\u00e8re de d\u00e9veloppeur full-stack. Cette initiative a repr\u00e9sent\u00e9 une opportunit\u00e9  pour mettre en valeur mon expertise en mati\u00e8re de d\u00e9veloppement web, couvrant \u00e0 la fois le front-end et le back-end.",
+      "description": "Refonte compl\u00e8te des sites Honda Moto et Honda Moto Occasion. Projet phare mettant en avant mon expertise full-stack et couvrant \u00e0 la fois front-end et back-end.",
       "color": "#000000",
       "created": "2025-05-21T17:36:48.646556",
-      "modified": "2025-05-26T19:52:51.720356",
+      "modified": "2026-01-19T17:07:34.810805",
       "online": 1,
       "url": "https://moto.honda.fr/",
       "functions_id": 3,
@@ -208,10 +208,10 @@
       "id": 13,
       "name": "Dacia",
       "slug": "dacia",
-      "description": "J'ai jou\u00e9 un r\u00f4le essentiel dans la maintenance et l'\u00e9volution continue du projet Dacia Automobile, une t\u00e2che qui a demand\u00e9 un engagement constant envers l'am\u00e9lioration de l'exp\u00e9rience en ligne de cette marque automobile renomm\u00e9e.",
+      "description": "Maintenance et \u00e9volution continue du projet Dacia Automobile pour am\u00e9liorer l\u2019exp\u00e9rience en ligne et assurer la satisfaction des utilisateurs sur la plateforme web de la marque.",
       "color": "#000000",
       "created": "2025-05-21T17:36:48.729231",
-      "modified": "2025-05-26T19:53:06.000379",
+      "modified": "2026-01-19T17:07:56.565683",
       "online": 1,
       "url": "https://www.dacia.fr/",
       "functions_id": 3,
@@ -225,10 +225,10 @@
       "id": 14,
       "name": "UPSA",
       "slug": "upsa",
-      "description": "La refonte du site vitrine de l'UPSA a repr\u00e9sent\u00e9 une \u00e9tape dans mon parcours en tant que d\u00e9veloppeur, o\u00f9 j'ai contribu\u00e9 \u00e0 la modernisation de la pr\u00e9sence en ligne de cette organisation pharmaceutique de renomm\u00e9e mondiale.",
+      "description": "Modernisation du site vitrine de l\u2019UPSA, contribuant \u00e0 la digitalisation et \u00e0 la visibilit\u00e9 en ligne de l\u2019organisation pharmaceutique.",
       "color": "#000000",
       "created": "2025-05-21T17:36:48.801258",
-      "modified": "2025-05-26T19:53:15.331065",
+      "modified": "2026-01-19T17:08:22.101505",
       "online": 1,
       "url": "https://www.upsa.com/",
       "functions_id": 1,
@@ -242,10 +242,10 @@
       "id": 15,
       "name": "Clio RS Melody",
       "slug": "clio-rs-melody",
-      "description": "La cr\u00e9ation de l'application web de Renault Clio RS melody f\u00fbt une belle exp\u00e9rience qui plus f\u00fbt r\u00e9compens\u00e9e par la profession et les m\u00e9dias. L'application \u00e9v\u00e9nementielle Renault Clio RS Melody repr\u00e9sente une innovation passionnante dans l'univers automobile, d\u00e9montrant la capacit\u00e9 de Renault \u00e0 combiner la technologie et la musique pour cr\u00e9er une exp\u00e9rience unique. Le spot publicitaire de l'application est ici https://www.dailymotion.com/video/x4xy0br",
+      "description": "Cr\u00e9ation de l\u2019application \u00e9v\u00e9nementielle Renault Clio RS Melody, combinant technologie et musique pour offrir une exp\u00e9rience unique \u00e0 partager. <strong>Le projet a \u00e9t\u00e9 r\u00e9compens\u00e9 par un Top Com d\u2019Or</strong>, soulignant l\u2019innovation et l\u2019impact m\u00e9diatique de l\u2019application.Le spot publicitaire de l'application est ici <a href=\"https://www.dailymotion.com/video/x4xy0br\" target=\"_blank\">Dailymotion</a>",
       "color": "#000000",
       "created": "2025-05-21T17:36:48.885691",
-      "modified": "2025-05-31T18:49:11.134712",
+      "modified": "2026-01-19T17:20:15.832580",
       "online": 1,
       "url": "https://clio-rs.renault.com",
       "functions_id": 1,
@@ -259,10 +259,10 @@
       "id": 16,
       "name": "Renault Kadjarquest",
       "slug": "renault-kadjarquest",
-      "description": "La cr\u00e9ation de l'application \u00e9v\u00e9nementielle Renault Kadjarquest a \u00e9t\u00e9 une initiative novatrice, marquant une \u00e9tape significative dans la strat\u00e9gie de Renault pour c\u00e9l\u00e9brer le lancement de son mod\u00e8le embl\u00e9matique, le Renault Kadjar. Cette application a \u00e9t\u00e9 le fruit d'une collaboration \u00e9troite entre Renault et des experts en d\u00e9veloppement d'applications, visant \u00e0 offrir une exp\u00e9rience unique aux passionn\u00e9s de voitures.",
+      "description": "Cr\u00e9ation de l\u2019application \u00e9v\u00e9nementielle Renault Kadjarquest pour le lancement du mod\u00e8le Kadjar. Le projet visait \u00e0 offrir une exp\u00e9rience interactive aux passionn\u00e9s de voitures, en combinant innovation digitale et communication \u00e9v\u00e9nementielle.",
       "color": "#000000",
       "created": "2025-05-21T17:36:48.964673",
-      "modified": "2025-05-21T17:36:48.964678",
+      "modified": "2026-01-19T17:19:10.822180",
       "online": 1,
       "url": "https://kadjarquest.renault.fr/",
       "functions_id": 1,
@@ -276,10 +276,10 @@
       "id": 17,
       "name": "Le Si\u00e8ge Renault",
       "slug": "le-siege-renault",
-      "description": "La refonte de l'application \u00e9v\u00e9nementielle de Renault en tant que partenaire officiel du Festival de Deauville a \u00e9t\u00e9 une initiative exceptionnelle, d\u00e9montrant l'engagement de Renault envers l'innovation et la cr\u00e9ation d'exp\u00e9riences uniques pour les amateurs de cin\u00e9ma et de voitures.",
+      "description": "Refonte de l\u2019application \u00e9v\u00e9nementielle de Renault pour le Festival de Deauville, d\u00e9montrant l\u2019engagement de Renault dans la cr\u00e9ation d\u2019exp\u00e9riences uniques pour le public et la valorisation de son image de marque.",
       "color": "#000000",
       "created": "2025-05-21T17:36:49.040767",
-      "modified": "2025-05-31T18:49:24.378165",
+      "modified": "2026-01-19T17:19:47.501471",
       "online": 1,
       "url": "https://lesiege.renault.fr",
       "functions_id": 1,
@@ -293,10 +293,10 @@
       "id": 18,
       "name": "Atelier Renault",
       "slug": "atelier-renault",
-      "description": "La maintenance en continu et les \u00e9volutions de l'application web de la boutique des Champs-\u00c9lys\u00e9es Atelier Renault ont \u00e9t\u00e9 une mission essentielle pour garantir une exp\u00e9rience en ligne exceptionnelle aux visiteurs de ce lieu embl\u00e9matique d\u00e9di\u00e9 \u00e0 l'automobile et \u00e0 l'art de vivre \u00e0 la fran\u00e7aise.",
+      "description": "Maintenance et \u00e9volution de l\u2019application web de la boutique des Champs-\u00c9lys\u00e9es Atelier Renault, assurant une exp\u00e9rience en ligne fluide et fid\u00e8le \u00e0 l\u2019image de la marque.",
       "color": "#000000",
       "created": "2025-05-21T17:36:49.115135",
-      "modified": "2025-05-21T17:36:49.115141",
+      "modified": "2026-01-19T17:23:31.095841",
       "online": 1,
       "url": "https://atelier.renault.com/",
       "functions_id": 1,
@@ -310,10 +310,10 @@
       "id": 19,
       "name": "A\u00e9roport de Paris",
       "slug": "aeroport-de-paris",
-      "description": "L'a\u00e9roport de Paris, en tant que plaque tournante majeure du voyage en Europe, est le th\u00e9\u00e2tre de mouvements incessants, accueillant des millions de voyageurs du monde entier chaque ann\u00e9e. Au c\u0153ur de cette m\u00e9canique complexe se trouve l'application web de l'a\u00e9roport de Paris, une ressource num\u00e9rique cruciale pour les passagers et un outil de gestion essentiel pour l'a\u00e9roport lui-m\u00eame.",
+      "description": "D\u00e9veloppement de l\u2019application web pour l\u2019a\u00e9roport de Paris, garantissant une exp\u00e9rience utilisateur optimale pour les millions de voyageurs, tout en facilitant la gestion interne des flux et services.",
       "color": "#000000",
       "created": "2025-05-21T17:36:49.228889",
-      "modified": "2025-05-26T19:53:59.807120",
+      "modified": "2026-01-19T17:24:03.284589",
       "online": 1,
       "url": "https://www.parisaeroport.fr/",
       "functions_id": 3,
@@ -327,10 +327,10 @@
       "id": 20,
       "name": "Afflelou",
       "slug": "afflelou",
-      "description": "L'opticien Afflelou est une marque bien connue dans le monde de l'optique, offrant une large gamme de produits et de services pour la sant\u00e9 visuelle. Au c\u0153ur de leur engagement envers la satisfaction des clients se trouve leur application web, un outil num\u00e9rique essentiel qui facilite la vie de ceux qui cherchent des solutions visuelles de qualit\u00e9.",
+      "description": "D\u00e9veloppement de l\u2019application web (prise de rendez vous en ligne et discussion avec commercial d'un magasin proche de l'utilisateur) permettant aux clients de g\u00e9rer et consulter leurs besoins visuels. Projet centr\u00e9 sur l\u2019ergonomie et la fluidit\u00e9 de l\u2019exp\u00e9rience utilisateur.",
       "color": "#000000",
       "created": "2025-05-21T17:36:49.309818",
-      "modified": "2025-05-26T19:54:07.832349",
+      "modified": "2026-01-19T17:26:04.965010",
       "online": 1,
       "url": "https://www.afflelou.com/",
       "functions_id": 3,
@@ -344,10 +344,10 @@
       "id": 21,
       "name": "Fullsix",
       "slug": "fullsix",
-      "description": "L'agence web FullSIX, reconnue pour son expertise dans le domaine du marketing digital et de la conception web, a entrepris une transformation significative en refondant son propre site web. Cette initiative d\u00e9montre l'engagement continu de FullSIX \u00e0 rester \u00e0 la pointe de l'innovation dans un secteur en constante \u00e9volution.",
+      "description": "Refonte du site web de l\u2019agence FullSIX, mettant en avant son expertise en marketing digital et design web, et d\u00e9montrant l\u2019engagement de l\u2019agence dans l\u2019innovation.",
       "color": "#000000",
       "created": "2025-05-21T17:36:49.389234",
-      "modified": "2025-05-26T19:54:19.773271",
+      "modified": "2026-01-19T17:26:35.766748",
       "online": 1,
       "url": "https://betcfullsix.com/",
       "functions_id": 1,
@@ -361,10 +361,10 @@
       "id": 22,
       "name": "MyTravelChic",
       "slug": "mytravelchic",
-      "description": "La maintenance et l'\u00e9volution d'un site web de voyage en ligne sont essentielles pour garantir une bonne exp\u00e9rience utilisateur, tout en restant \u00e0 la pointe de l'industrie du tourisme. Dans ce contexte, mes travaux sur le site de voyage en ligne MyTravelchic ont \u00e9t\u00e9 un exemple remarquable d'engagement envers la qualit\u00e9 et l'innovation dans le secteur du voyage.",
+      "description": "Maintenance et \u00e9volution d\u2019un site de voyage en ligne, garantissant une exp\u00e9rience utilisateur fluide et innovante pour les clients.",
       "color": "#000000",
       "created": "2025-05-21T17:36:49.464398",
-      "modified": "2025-05-26T19:54:30.728872",
+      "modified": "2026-01-19T17:27:46.561482",
       "online": 1,
       "url": "https://www.idiliz.com/",
       "functions_id": 3,
@@ -378,10 +378,10 @@
       "id": 23,
       "name": "Bazarchic",
       "slug": "bazarchic",
-      "description": "Les sites de ventes priv\u00e9es ont r\u00e9volutionn\u00e9 le monde du commerce en ligne en offrant aux consommateurs des offres exclusives sur des produits de qualit\u00e9. Parmi ces plateformes, Bazarchic s'est distingu\u00e9 en tant que destination privil\u00e9gi\u00e9e pour les chasseurs de bonnes affaires. Cependant, pour rester \u00e0 la pointe de l'industrie, j'ai effectu\u00e9 la refonte partielle, la maintenance et l'\u00e9volution de cette plateforme.",
+      "description": "Refonte partielle, maintenance et \u00e9volution d\u2019une plateforme de ventes priv\u00e9es, optimisant l\u2019exp\u00e9rience utilisateur et la navigation sur le site.",
       "color": "#000000",
       "created": "2025-05-21T17:36:49.535179",
-      "modified": "2025-05-26T19:54:43.489605",
+      "modified": "2026-01-19T17:28:43.531952",
       "online": 1,
       "url": "https://fr.bazarchic.com/",
       "functions_id": 3,
@@ -395,10 +395,10 @@
       "id": 24,
       "name": "Brasserie Flo",
       "slug": "brasserie-flo",
-      "description": "La Brasserie Flo est une ic\u00f4ne de la gastronomie fran\u00e7aise, offrant une exp\u00e9rience culinaire authentique et raffin\u00e9e depuis des d\u00e9cennies. Pour assurer une pr\u00e9sence en ligne \u00e0 la hauteur de cette renomm\u00e9e, une s\u00e9rie de sites web a \u00e9t\u00e9 con\u00e7ue et d\u00e9velopp\u00e9e. En tant que concepteur, J'ai jou\u00e9 un r\u00f4le essentiel dans la cr\u00e9ation de ces plateformes num\u00e9riques, visant \u00e0 refl\u00e9ter l'excellence de la Brasserie Flo et \u00e0 offrir aux visiteurs une excellente exp\u00e9rience en ligne.",
+      "description": "Conception et d\u00e9veloppement d'un site web master (la Coupole) et 22 d\u00e9clinaisons (Boffinger, Terminus Nord, Caf\u00e9 des Artistes, etc.) pour cette ic\u00f4ne de la gastronomie fran\u00e7aise, visant \u00e0 refl\u00e9ter l\u2019excellence culinaire et offrir une exp\u00e9rience en ligne immersive.",
       "color": "#000000",
       "created": "2025-05-21T17:36:49.614970",
-      "modified": "2025-05-21T17:36:49.614975",
+      "modified": "2026-01-19T17:31:05.561908",
       "online": 1,
       "url": "https://www.groupeflo.com/",
       "functions_id": 1,
@@ -412,10 +412,10 @@
       "id": 25,
       "name": "Dyson affaire airblade v1",
       "slug": "dyson-affaire-airblade-v1",
-      "description": "L'intranet commercial Dyson Airblade est un outil vital pour une entreprise qui a r\u00e9volutionn\u00e9 le domaine de la technologie de s\u00e9chage des mains. Pour assurer une interface intuitive, efficace et conviviale pour les \u00e9quipes commerciales et les partenaires, une conception exceptionnelle \u00e9tait cruciale. En tant que concepteur, j'ai jou\u00e9 un r\u00f4le central dans la cr\u00e9ation de cet intranet, apportant une expertise en design.",
+      "description": "Conception de l\u2019intranet commercial Dyson Airblade, outil central pour la gestion commerciale et la formation des \u00e9quipes, avec un design intuitif et efficace. <a href=\"https://www.youtube.com/watch?v=jU0WojRkd30\" target=\"_blank\">spot publicitaire </a> pr\u00e9sentant son lancement. ",
       "color": "#000000",
       "created": "2025-05-21T17:36:49.715533",
-      "modified": "2025-05-26T19:55:09.138560",
+      "modified": "2026-01-19T17:33:31.859347",
       "online": 1,
       "url": "https://www.youtube.com/watch?v=jU0WojRkd30",
       "functions_id": 1,
@@ -429,10 +429,10 @@
       "id": 26,
       "name": "Peugeot Design Lab",
       "slug": "peugeot-design-lab",
-      "description": "Peugeot Design Lab, une division de la c\u00e9l\u00e8bre marque automobile Peugeot, est synonyme d'innovation, de design novateur et d'excellence cr\u00e9ative. En tant que concepteur, j'ai eu l'opportunit\u00e9 de participer \u00e0 la refonte de cette entit\u00e9 de renom. Mes travaux ont contribu\u00e9 \u00e0 red\u00e9finir et \u00e0 moderniser l'image du Peugeot Design Lab, un laboratoire de design r\u00e9put\u00e9 pour son expertise en conception industrielle, son sens du d\u00e9tail et sa passion pour l'innovation.",
+      "description": "Refonte de l\u2019image digitale du laboratoire de design de Peugeot, en mettant l\u2019accent sur l\u2019innovation et le design interactif.",
       "color": "#000000",
       "created": "2025-05-21T17:36:49.804109",
-      "modified": "2025-05-31T18:49:46.604531",
+      "modified": "2026-01-19T17:35:36.447419",
       "online": 1,
       "url": "https://www.peugeotdesignlab.com/fr",
       "functions_id": 3,
@@ -446,10 +446,10 @@
       "id": 27,
       "name": "Peugeot",
       "slug": "peugeot",
-      "description": "La refonte d'une marque embl\u00e9matique telle que Peugeot est une t\u00e2che colossale qui n\u00e9cessite une expertise technique de haut niveau. Il est \u00e0 noter que le projet f\u00fbt r\u00e9compens\u00e9 par un topcom or",
+      "description": "Refonte de la marque digitale Peugeot, projet r\u00e9compens\u00e9 par un <strong>TopCom d\u2019Or</strong>, valorisant la cr\u00e9ativit\u00e9 et l\u2019innovation dans la communication digitale.",
       "color": "#000000",
       "created": "2025-05-21T17:36:49.867361",
-      "modified": "2025-05-26T19:56:00.803633",
+      "modified": "2026-01-19T17:36:20.399433",
       "online": 1,
       "url": "https://www.peugeot.fr/",
       "functions_id": 3,
@@ -463,13 +463,13 @@
       "id": 28,
       "name": "Peugeot 4008",
       "slug": "peugeot-4008",
-      "description": "Peugeot lance en avril 2012 un nouveau SUV, Peugeot 4008, sur un march\u00e9 tr\u00e8s dynamique et fortement concurrentiel, donc avec une probl\u00e9matique majeure d\u2019\u00e9mergence sur sa cat\u00e9gorie. Peugeot a souhait\u00e9 une campagne originale dans sa forme et dans son contenu, et proposant une exp\u00e9rience interactive innovante avec le mod\u00e8le.  Une op\u00e9ration 100% YouTube (custom channel + relais display) combinant une logique d\u2019engagement via un parcours vid\u00e9o ludique de \u00ab qu\u00eate \u00bb du v\u00e9hicule et une m\u00e9canique d\u2019acquisition performante via un jeu concours. Un lancement full digital in\u00e9dit, r\u00e9alis\u00e9 en seulement 4 semaines et en \u00e9troite collaboration avec les \u00e9quipes Google. Top Com d'Or (cat\u00e9gorie site \u00e9v\u00e9nementiel)\r\n",
+      "description": "Lancement digital du SUV Peugeot 4008 avec une campagne interactive 100% YouTube, combinant parcours vid\u00e9o ludique et jeu concours, r\u00e9compens\u00e9 par un <strong>TopCom d\u2019Or</strong>.",
       "color": "#000000",
       "created": "2025-05-21T17:36:49.932094",
-      "modified": "2025-05-26T19:55:48.990639",
+      "modified": "2026-01-19T17:37:19.448427",
       "online": 1,
       "url": "https://www.youtube.com/watch?v=p9SJQjioTb0",
-      "functions_id": 3,
+      "functions_id": 1,
       "sort": null,
       "year": "2011",
       "activities_id": 12,
@@ -480,10 +480,10 @@
       "id": 29,
       "name": "Flyopenskies v2",
       "slug": "flyopenskies-v2",
-      "description": "L'aviation a toujours \u00e9t\u00e9 un symbole de libert\u00e9, de d\u00e9couverte et de connexion. Dans un monde en constante \u00e9volution, les compagnies a\u00e9riennes jouent un r\u00f4le cl\u00e9 dans la r\u00e9alisation de ces aspirations. C'est avec une profonde passion pour l'aviation et un d\u00e9vouement envers l'innovation que nous avons entrepris la refonte des sites web de FlyOpenSky.",
+      "description": "Refonte compl\u00e8te des sites web FlyOpenSky et du syst\u00e8me de booking pour am\u00e9liorer la fluidit\u00e9 des communications et l\u2019exp\u00e9rience utilisateur des voyageurs.",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.021425",
-      "modified": "2025-05-31T18:52:01.748857",
+      "modified": "2026-01-19T17:38:06.297375",
       "online": 1,
       "url": "https://www.flyopenskies.com/",
       "functions_id": 3,
@@ -497,10 +497,10 @@
       "id": 30,
       "name": "Flyopenskies v3",
       "slug": "flyopenskies-v3",
-      "description": "L'aviation a toujours \u00e9t\u00e9 un symbole de libert\u00e9, de d\u00e9couverte et de connexion. Dans un monde en constante \u00e9volution, les compagnies a\u00e9riennes jouent un r\u00f4le cl\u00e9 dans la r\u00e9alisation de ces aspirations. C'est avec une profonde passion pour l'aviation et un d\u00e9vouement envers l'innovation que nous avons entrepris la refonte des sites web de FlyOpenSky.",
+      "description": "Continuit\u00e9 de la refonte (site plus application booking), avec optimisation de l\u2019exp\u00e9rience utilisateur et de l\u2019interaction pour les r\u00e9servations et informations de vol.",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.089890",
-      "modified": "2025-05-31T18:50:48.668107",
+      "modified": "2026-01-19T17:38:56.014137",
       "online": 1,
       "url": "https://www.flyopenskies.com/",
       "functions_id": 3,
@@ -514,10 +514,10 @@
       "id": 31,
       "name": "Europcar",
       "slug": "europcar",
-      "description": "La refonte du site web Europcar repr\u00e9sente bien plus qu'un simple rafra\u00eechissement visuel. C'est le fruit d'un engagement \u00e0 innover et \u00e0 am\u00e9liorer l'exp\u00e9rience des clients. Nous avons recr\u00e9\u00e9 une plateforme en ligne qui refl\u00e8te la passion pour la mobilit\u00e9, et \u00e0 offrir des services de location de voitures de premier ordre.",
+      "description": "Refonte compl\u00e8te de la plateforme en ligne pour am\u00e9liorer l\u2019exp\u00e9rience de r\u00e9servation et la fluidit\u00e9 des services de location de voitures.",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.153507",
-      "modified": "2025-05-21T17:36:50.153513",
+      "modified": "2026-01-19T17:39:23.189212",
       "online": 1,
       "url": "https://www.europcar.fr",
       "functions_id": 3,
@@ -531,10 +531,10 @@
       "id": 32,
       "name": "Air Cara\u00efbes",
       "slug": "air-caraibes",
-      "description": "Le voyage a\u00e9rien a le pouvoir de cr\u00e9er des souvenirs inoubliables, de connecter des cultures et d'inspirer l'exploration. Air Cara\u00efbes, une ic\u00f4ne du ciel carib\u00e9en, a toujours compris cette magie du voyage. J'ai \u00e9t\u00e9 ravi de pr\u00e9senter la refonte compl\u00e8te du site d'Air Cara\u00efbes, une transformation qui red\u00e9finissait la mani\u00e8re dont les clients planifiaient et r\u00e9servaient leurs voyages vers les Cara\u00efbes.",
+      "description": "Refonte du site pour optimiser la planification de voyages vers les Cara\u00efbes, en combinant exp\u00e9rience immersive et fluidit\u00e9 des interactions. \u00c9galement, d\u00e9veloppement d'un syst\u00e8me de templating responsive pour les campagnes emailing. ",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.220186",
-      "modified": "2025-05-26T19:56:43.349179",
+      "modified": "2026-01-19T17:40:52.597583",
       "online": 1,
       "url": "https://www.aircaraibes.com/",
       "functions_id": 3,
@@ -548,15 +548,15 @@
       "id": 33,
       "name": "Air Madagascar",
       "slug": "air-madagascar",
-      "description": "Le voyage a\u00e9rien, c'est bien plus que le simple d\u00e9placement d'un point A \u00e0 un point B. C'est l'opportunit\u00e9 de cr\u00e9er des souvenirs inoubliables, de d\u00e9couvrir de nouvelles cultures et de vivre des aventures qui marquent une vie. En tant que d\u00e9veloppeur frontend, j'ai eu le privil\u00e8ge de jouer un r\u00f4le essentiel dans la refonte du site web d'Air Madagascar, une compagnie a\u00e9rienne nationale qui symbolise la porte d'entr\u00e9e vers la magnifique \u00eele de Madagascar.",
+      "description": "Refonte du site de la compagnie nationale, pour am\u00e9liorer l\u2019exp\u00e9rience utilisateur et la visibilit\u00e9 digitale de Madagascar sur la sc\u00e8ne internationale.",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.294569",
-      "modified": "2025-05-26T19:56:53.475580",
+      "modified": "2026-01-19T17:41:20.371967",
       "online": 1,
       "url": "https://madagascarairlines.com",
       "functions_id": 3,
       "sort": null,
-      "year": "2011",
+      "year": "2012",
       "activities_id": 13,
       "customer": "Business Lab - Amadeus",
       "location": "Nanterre"
@@ -565,10 +565,10 @@
       "id": 34,
       "name": "CFC",
       "slug": "cfc",
-      "description": "La pr\u00e9servation et la promotion de la propri\u00e9t\u00e9 intellectuelle sont au c\u0153ur de la diffusion du savoir, de la culture et de l'innovation. En tant que d\u00e9veloppeur frontend et backend, j'ai jou\u00e9 un r\u00f4le primordial dans la refonte du site du Centre Fran\u00e7ais d'Exploitation du Droit de Copie (CFC), une institution majeure dans la gestion des droits d'auteur pour les copies papier et num\u00e9riques de publications en France.",
+      "description": "Refonte du site du Centre Fran\u00e7ais d\u2019Exploitation du Droit de Copie (CFC), institution majeure dans la gestion des droits d\u2019auteur en France. Le client \u00e9tait tr\u00e8s ravi de la qualit\u00e9 de la prestation. ",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.370475",
-      "modified": "2025-05-26T19:57:03.735532",
+      "modified": "2026-01-19T17:42:22.575769",
       "online": 1,
       "url": "https://www.cfcopies.com/",
       "functions_id": 1,
@@ -582,10 +582,10 @@
       "id": 35,
       "name": "Algeco",
       "slug": "algeco",
-      "description": "En tant que d\u00e9veloppeur frontend et backend, j'ai eu l'opportunit\u00e9 de participer \u00e0 la refonte du site Ageco.fr, une r\u00e9f\u00e9rence en mati\u00e8re de b\u00e2timents modulaires pour une \u00e9conomie locale et durable. Que ce soit des bureaux modulaires, des bungalows de chantier ou des \u00e9coles modulaires, ma mission \u00e9tait de rendre accessible \u00e0 tous les avantages de la construction modulaire.",
+      "description": "Refonte du site Algeco.fr pour valoriser les solutions modulaires, bureaux et \u00e9coles, avec un focus sur l\u2019accessibilit\u00e9 et la pr\u00e9sentation des produits.",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.465045",
-      "modified": "2025-05-26T19:57:28.247585",
+      "modified": "2026-01-19T17:42:40.655855",
       "online": 1,
       "url": "https://www.algeco.fr/",
       "functions_id": 1,
@@ -599,10 +599,10 @@
       "id": 36,
       "name": "Fidelity Vie",
       "slug": "fidelity-vie",
-      "description": "L'assurance vie est bien plus qu'un simple contrat financier. C'est une garantie de s\u00e9curit\u00e9 pour l'avenir, une assurance pour vos proches et un moyen de b\u00e2tir un patrimoine durable. En tant que d\u00e9veloppeur frontend et backend, j'ai eu le privil\u00e8ge de jouer un r\u00f4le central dans la refonte du site fidelityvie.fr, une plateforme d\u00e9di\u00e9e au contrat d'assurance vie qui incarne la confiance et la pr\u00e9voyance financi\u00e8re.",
+      "description": "Refonte du site d\u2019assurance vie, mettant en avant la s\u00e9curit\u00e9, la pr\u00e9voyance et la clart\u00e9 des informations pour les clients.",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.556172",
-      "modified": "2025-05-26T19:57:56.329403",
+      "modified": "2026-01-19T17:43:39.745943",
       "online": 1,
       "url": "https://www.fidelityvie.fr",
       "functions_id": 1,
@@ -615,11 +615,11 @@
     {
       "id": 37,
       "name": "De quoi je me M.E.L",
-      "slug": "de-quoi-je-me-mel",
-      "description": "La communication num\u00e9rique est devenue le reflet de la connaissance et de l'expertise, un moyen d'\u00e9changer des id\u00e9es et de partager des visions. En tant que d\u00e9veloppeur frontend, nous avons refait \u00e0 la demande Michel-\u00c9douard Leclerc son blog. Une plateforme qui incarne la voix d'un expert renomm\u00e9 en \u00e9conomie et en commerce.",
+      "slug": "de-quoi-je-me-m-e-l",
+      "description": "Refonte du blog de Michel-\u00c9douard Leclerc, offrant une plateforme ergonomique et moderne pour partager des analyses \u00e9conomiques et commerciales tout en valorisant l\u2019expertise de l\u2019auteur.",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.654930",
-      "modified": "2025-05-21T17:36:50.654938",
+      "modified": "2026-01-19T17:48:25.249362",
       "online": 1,
       "url": "https://www.michel-edouard-leclerc.com/",
       "functions_id": 3,
@@ -633,10 +633,10 @@
       "id": 38,
       "name": "Qui est le moins cher",
       "slug": "qui-est-le-moins-cher",
-      "description": "Dans un monde o\u00f9 l'efficacit\u00e9 et l'accessibilit\u00e9 sont des atouts majeurs, le site \"Qui Est le Moins Cher\" se distingue par son engagement \u00e0 offrir des offres in\u00e9galables. En tant que d\u00e9veloppeur frontend, j'ai eu l'opportunit\u00e9 de contribuer \u00e0 la refonte de cette plateforme, qui incarne la recherche des meilleures affaires et des prix les plus comp\u00e9titifs.",
+      "description": "Refonte de la plateforme pour mettre en avant les offres les plus comp\u00e9titives, avec une interface fluide et intuitive facilitant l\u2019acc\u00e8s rapide aux meilleures promotions.",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.729028",
-      "modified": "2025-05-26T19:58:18.250324",
+      "modified": "2026-01-19T17:48:55.764896",
       "online": 1,
       "url": "https://www.quiestlemoinscher.leclerc/",
       "functions_id": 3,
@@ -650,10 +650,10 @@
       "id": 39,
       "name": "Decolor Stop",
       "slug": "decolor-stop",
-      "description": "La pr\u00e9servation de la qualit\u00e9 et de la long\u00e9vit\u00e9 des v\u00eatements et du linge de maison est une pr\u00e9occupation majeure de la vie quotidienne. En tant que d\u00e9veloppeur frontend, j'ai contribu\u00e9 \u00e0 la maintenance et \u00e0 l'am\u00e9lioration en continu du site Decolor Stop",
+      "description": "Maintenance et optimisation continue du site Decolor Stop, am\u00e9liorant l\u2019exp\u00e9rience utilisateur et la pr\u00e9sentation des produits pour renforcer la confiance et la satisfaction des clients.",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.775141",
-      "modified": "2025-05-26T19:58:33.253313",
+      "modified": "2026-01-19T17:49:23.518998",
       "online": 1,
       "url": "https://www.decolorstop.com/",
       "functions_id": 3,
@@ -667,10 +667,10 @@
       "id": 40,
       "name": "My Peugeot",
       "slug": "my-peugeot",
-      "description": "L'automobile, c'est bien plus qu'un simple moyen de transport. C'est une exp\u00e9rience de mobilit\u00e9, de confort et de fiabilit\u00e9. En tant que lead d\u00e9veloppeur frontend, j'ai particip\u00e9 \u00e0 la refonte du site My Peugeot, l'espace client de Peugeot, un espace en ligne qui incarne l'engagement envers l'excellence du service client.",
+      "description": "Refonte de l\u2019espace client My Peugeot, offrant une exp\u00e9rience en ligne claire et fluide, renfor\u00e7ant l\u2019engagement des utilisateurs et la fid\u00e9lit\u00e9 \u00e0 la marque.",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.833770",
-      "modified": "2025-05-26T19:58:46.441868",
+      "modified": "2026-01-19T17:50:03.791636",
       "online": 1,
       "url": "https://mypeugeot.peugeot.fr/",
       "functions_id": 3,
@@ -684,10 +684,10 @@
       "id": 41,
       "name": "banque casino",
       "slug": "banque-casino",
-      "description": "L'efficacit\u00e9 de la communication num\u00e9rique est cruciale, en particulier dans le secteur financier o\u00f9 la confiance et la transparence sont essentielles. En tant que lead d\u00e9veloppeur frontend, j'ai particip\u00e9 \u00e0 la cr\u00e9ation de templates email pour Banque Casino, une institution financi\u00e8re de renom qui place ses clients au c\u0153ur de son engagement.",
+      "description": "Cr\u00e9ation de templates email pour Banque Casino, assurant une communication digitale efficace, s\u00e9curis\u00e9e et coh\u00e9rente pour les clients de l\u2019institution.",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.901333",
-      "modified": "2025-05-21T17:36:50.901338",
+      "modified": "2026-01-19T17:50:25.875107",
       "online": 1,
       "url": "https://client.floabank.fr/",
       "functions_id": 3,
@@ -699,12 +699,12 @@
     },
     {
       "id": 42,
-      "name": "leperon",
-      "slug": "leperon",
-      "description": "L'univers du sport \u00e9questre est en constante \u00e9volution, et l'acc\u00e8s \u00e0 l'information \u00e0 jour est crucial pour les passionn\u00e9s. En tant que lead d\u00e9veloppeur frontend, j'ai maintenu et fait \u00e9voluer le site Cavadeos (leperon.fr), la r\u00e9f\u00e9rence en mati\u00e8re d'actualit\u00e9 cheval et d'informations \u00e9questres.",
+      "name": "leperon (ex Cavad\u00e9os)",
+      "slug": "leperon-ex-cavadeos",
+      "description": "Maintenance et \u00e9volution du site de r\u00e9f\u00e9rence pour l\u2019actualit\u00e9 \u00e9questre, facilitant l\u2019acc\u00e8s \u00e0 une information \u00e0 jour et engageante pour les passionn\u00e9s.",
       "color": "#000000",
       "created": "2025-05-21T17:36:50.987588",
-      "modified": "2025-05-26T19:59:07.929647",
+      "modified": "2026-01-19T17:50:59.042352",
       "online": 1,
       "url": "https://www.leperon.fr/",
       "functions_id": 3,
@@ -718,10 +718,10 @@
       "id": 43,
       "name": "Areva",
       "slug": "areva",
-      "description": "Dans le monde en constante \u00e9volution de l'industrie de l'\u00e9nergie, la collaboration et la communication internes sont essentielles. En tant que lead d\u00e9veloppeur frontend, j'ai particip\u00e9 \u00e0 la cr\u00e9ation du r\u00e9seau social en interne d'Areva, une plateforme qui favorise la connectivit\u00e9, l'innovation et la collaboration au sein de cette entreprise leader du secteur nucl\u00e9aire. Le projet f\u00fbt r\u00e9compens\u00e9 et acclam\u00e9. ",
+      "description": "Cr\u00e9ation du r\u00e9seau social interne d\u2019Areva, favorisant collaboration et innovation au sein de l\u2019entreprise. Le projet a \u00e9t\u00e9 r\u00e9compens\u00e9 pour sa qualit\u00e9 et son impact interne.",
       "color": "#e83232",
       "created": "2025-05-21T17:36:51.056455",
-      "modified": "2025-05-31T18:51:08.574238",
+      "modified": "2026-01-19T17:51:44.184987",
       "online": 1,
       "url": "https://areva.com",
       "functions_id": 3,
@@ -735,10 +735,10 @@
       "id": 44,
       "name": "Leroy Merlin",
       "slug": "leroy-merlin",
-      "description": "Avoir la chance d'accompagner une refonte si ambitieuse est sans aucun doute un projet unique dans une carri\u00e8re. La richesse incroyable de la marque et les enjeux e-commerce du projet ont largement contribu\u00e9 \u00e0 animer mon quotidien pendant 2 ans et demie.  Ce f\u00fbt une vraie la passion que j'ai pour cette enseigne. \u00c0 noter que le projet a \u00e9t\u00e9 r\u00e9compens\u00e9. Aussi, leroymerlin.fr est dans le top 50 des sites pr\u00e9f\u00e9r\u00e9s des Fran\u00e7ais. ",
+      "description": "Refonte majeure du site leroymerlin.fr, combinant ergonomie et performance e\u2011commerce. Le projet a \u00e9t\u00e9 r\u00e9compens\u00e9 par un <strong>TopCom d'or</strong> et figure dans le top 50 des sites pr\u00e9f\u00e9r\u00e9s des Fran\u00e7ais.",
       "color": "#379a2a",
       "created": "2025-05-21T17:36:51.128084",
-      "modified": "2025-05-26T20:00:29.193042",
+      "modified": "2026-01-19T17:52:32.820458",
       "online": 1,
       "url": "https://www.leroymerlin.fr/",
       "functions_id": 3,
@@ -752,10 +752,10 @@
       "id": 45,
       "name": "Sacla",
       "slug": "sacla",
-      "description": "La cuisine, c'est bien plus qu'une simple pr\u00e9paration de repas, c'est une exp\u00e9rience sensorielle et une exploration de saveurs. En tant que lead d\u00e9veloppeur frontend, j'ai cor\u00e9alis\u00e9 le site de Sacla, une entreprise renomm\u00e9e pour ses produits alimentaires de qualit\u00e9 et ses d\u00e9lices culinaires.",
+      "description": "Conception du site Sacla, offrant une exp\u00e9rience culinaire en ligne riche et sensorielle, mettant en valeur les produits et recettes de la marque.",
       "color": "#000000",
       "created": "2025-05-21T17:36:51.211731",
-      "modified": "2025-05-26T20:00:44.207230",
+      "modified": "2026-01-19T17:53:22.175029",
       "online": 1,
       "url": "https://sacla.fr/",
       "functions_id": 3,
@@ -769,10 +769,10 @@
       "id": 46,
       "name": "SFR",
       "slug": "sfr",
-      "description": "SFR, un acteur de premier plan dans le secteur des t\u00e9l\u00e9communications en France. En tant que d\u00e9veloppeur frontend et backend, j'ai eu l'opportunit\u00e9 de cor\u00e9aliser des modules personnalis\u00e9s sur le site de SFR.  ",
+      "description": "D\u00e9veloppement de modules personnalis\u00e9s sur le site SFR, optimisant la gestion des services en ligne et am\u00e9liorant la performance et la fluidit\u00e9 de l\u2019exp\u00e9rience utilisateur.",
       "color": "#000000",
       "created": "2025-05-21T17:36:51.274908",
-      "modified": "2025-07-04T18:24:26.762241",
+      "modified": "2026-01-19T17:53:47.764620",
       "online": 1,
       "url": "https://sfr.fr",
       "functions_id": 1,
@@ -786,10 +786,10 @@
       "id": 47,
       "name": "Se soigner moins cher",
       "slug": "se-soigner-moins-cher",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet laborum illum maxime iusto minima reiciendis praesentium labore ab, sed sapiente officia enim consequuntur atque non rerum nostrum quibusdam rem molestiae!",
+      "description": "Refonte de la plateforme, permettant un acc\u00e8s rapide et intuitif \u00e0 des solutions de sant\u00e9 abordables, renfor\u00e7ant la confiance des utilisateurs.",
       "color": "#000000",
       "created": "2025-05-21T17:36:51.353996",
-      "modified": "2025-05-21T17:36:51.354002",
+      "modified": "2026-01-19T17:54:15.712691",
       "online": 1,
       "url": "https://www.e.leclerc/cat/parapharmacie",
       "functions_id": 3,
@@ -803,10 +803,10 @@
       "id": 48,
       "name": "histoire et archives Leclerc",
       "slug": "histoire-et-archives-leclerc",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet laborum illum maxime iusto minima reiciendis praesentium labore ab, sed sapiente officia enim consequuntur atque non rerum nostrum quibusdam rem molestiae!",
+      "description": "Mise en ligne d\u2019un site retra\u00e7ant l\u2019histoire et les archives Leclerc, combinant clart\u00e9 et accessibilit\u00e9 pour valoriser l\u2019image de marque.",
       "color": "#000000",
       "created": "2025-05-21T17:36:51.416304",
-      "modified": "2025-05-22T01:13:18.094539",
+      "modified": "2026-01-19T17:54:38.348412",
       "online": 1,
       "url": "https://www.histoireetarchives.leclerc/",
       "functions_id": 3,
@@ -820,10 +820,10 @@
       "id": 49,
       "name": "Le Mouvement Leclerc",
       "slug": "le-mouvement-leclerc",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet laborum illum maxime iusto minima reiciendis praesentium labore ab, sed sapiente officia enim consequuntur atque non rerum nostrum quibusdam rem molestiae!",
+      "description": "D\u00e9veloppement et maintenance du site institutionnel du mouvement Leclerc, facilitant la communication interne et externe de l\u2019organisation.",
       "color": "#000000",
       "created": "2025-05-21T17:36:51.480930",
-      "modified": "2025-05-22T01:13:04.871272",
+      "modified": "2026-01-19T17:55:09.252095",
       "online": 1,
       "url": "https://www.mouvement.leclerc/",
       "functions_id": 3,
@@ -837,10 +837,10 @@
       "id": 50,
       "name": "Emag SFR",
       "slug": "emag-sfr",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet laborum illum maxime iusto minima reiciendis praesentium labore ab, sed sapiente officia enim consequuntur atque non rerum nostrum quibusdam rem molestiae!",
+      "description": "D\u00e9veloppement du magazine en ligne Emag SFR, combinant interactivit\u00e9 et ergonomie pour proposer un contenu digital riche et accessible.",
       "color": "#000000",
       "created": "2025-05-21T17:36:51.545149",
-      "modified": "2025-05-22T01:12:35.762177",
+      "modified": "2026-01-19T17:56:00.021619",
       "online": 1,
       "url": "https://sfr.fr",
       "functions_id": 1,
@@ -854,10 +854,10 @@
       "id": 51,
       "name": "Europcar-up",
       "slug": "europcar-up",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet laborum illum maxime iusto minima reiciendis praesentium labore ab, sed sapiente officia enim consequuntur atque non rerum nostrum quibusdam rem molestiae!",
+      "description": "Refonte de la plateforme Europcar, facilitant la r\u00e9servation et la gestion des v\u00e9hicules tout en am\u00e9liorant l\u2019exp\u00e9rience utilisateur.",
       "color": "#000000",
       "created": "2025-05-21T17:36:51.646391",
-      "modified": "2025-05-31T18:51:38.781439",
+      "modified": "2026-01-19T17:55:43.932525",
       "online": 1,
       "url": "https://europcar.com",
       "functions_id": 1,
@@ -871,10 +871,10 @@
       "id": 52,
       "name": "Dyson affaire airblade v2",
       "slug": "dyson-affaire-airblade-v2",
-      "description": "description",
+      "description": "Refonte de l\u2019intranet commercial Dyson Airblade, optimisant la gestion des ventes et la formation des \u00e9quipes.",
       "color": "#000000",
       "created": "2025-05-22T00:57:57.468103",
-      "modified": "2025-05-31T18:50:25.740050",
+      "modified": "2026-01-19T17:56:58.327872",
       "online": 1,
       "url": "https://www.youtube.com/watch?v=jU0WojRkd30",
       "functions_id": 1,
@@ -888,10 +888,10 @@
       "id": 53,
       "name": "Palmar\u00e8s Avocats LePoint",
       "slug": "palmares-avocats-lepoint",
-      "description": "classement des cabinets avocats en Francs",
+      "description": "Mise en ligne du classement des cabinets d\u2019avocats en France, permettant un acc\u00e8s clair et rapide aux informations pour les professionnels et le grand public.",
       "color": "#000000",
       "created": "2025-05-26T15:08:38.168873",
-      "modified": "2025-05-26T15:11:13.193315",
+      "modified": "2026-01-19T17:57:20.049568",
       "online": 1,
       "url": "https://www.lepoint.fr/classements/avocats/",
       "functions_id": 1,
@@ -905,10 +905,10 @@
       "id": 54,
       "name": "Palmar\u00e8s des H\u00f4pitaux LePoint",
       "slug": "palmares-des-hopitaux-lepoint",
-      "description": "Classement Hopitaux et clinique",
+      "description": "Conception et d\u00e9veloppement d\u2019une application sp\u00e9cifique pour le classement des h\u00f4pitaux et cliniques. Gestion compl\u00e8te des donn\u00e9es, calculs de scores et pr\u00e9sentation interactive des r\u00e9sultats. Une solution robuste pour un projet ambitieux \u00e0 forte audience.",
       "color": "#000000",
       "created": "2025-05-26T15:10:44.408708",
-      "modified": "2025-05-26T15:10:44.408713",
+      "modified": "2026-01-19T18:00:04.001886",
       "online": 1,
       "url": "https://www.lepoint.fr/hopitaux/",
       "functions_id": 1,
@@ -922,10 +922,10 @@
       "id": 55,
       "name": "Palmar\u00e8s des \u00e9coles LePoint",
       "slug": "palmares-des-ecoles-lepoint",
-      "description": "Classement \u00e9cole de commerce",
+      "description": "D\u00e9clinaison du g\u00e9n\u00e9rateur de palmar\u00e8s pour les \u00e9coles de commerce, permettant une publication rapide et structur\u00e9e des r\u00e9sultats. Ergonomie et fiabilit\u00e9 au service de la diffusion d\u2019informations strat\u00e9giques.",
       "color": "#000000",
       "created": "2025-05-26T15:12:27.794973",
-      "modified": "2025-05-26T15:13:35.415483",
+      "modified": "2026-01-19T18:00:47.303024",
       "online": 1,
       "url": "https://www.lepoint.fr/classements/grandes-ecoles/",
       "functions_id": 1,
@@ -939,10 +939,10 @@
       "id": 56,
       "name": "Palmar\u00e8s des villes LePoint",
       "slug": "palmares-des-villes-lepoint",
-      "description": "Gestion des villes",
+      "description": "D\u00e9clinaison du g\u00e9n\u00e9rateur de palmar\u00e8s pour la gestion des villes fran\u00e7aises, offrant une interface claire et une consultation intuitive pour les lecteurs.",
       "color": "#000000",
       "created": "2025-05-26T15:16:06.582804",
-      "modified": "2025-05-26T15:16:06.582809",
+      "modified": "2026-01-19T18:01:19.790130",
       "online": 1,
       "url": "https://www.lepoint.fr/palmares-des-villes/",
       "functions_id": 1,
@@ -956,10 +956,10 @@
       "id": 57,
       "name": "Palmar\u00e8s RSE LePoint",
       "slug": "palmares-rse-lepoint",
-      "description": "Classement entreprise \u00e9co responsable",
+      "description": "D\u00e9clinaison du g\u00e9n\u00e9rateur de palmar\u00e8s pour les entreprises responsables, garantissant pr\u00e9cision et fiabilit\u00e9 des informations publi\u00e9es.",
       "color": "#000000",
       "created": "2025-05-26T15:18:15.564383",
-      "modified": "2025-05-26T15:18:15.564388",
+      "modified": "2026-01-19T18:01:40.514304",
       "online": 1,
       "url": "https://www.lepoint.fr/palmares-entreprises-responsables/",
       "functions_id": 1,
@@ -973,10 +973,10 @@
       "id": 58,
       "name": "Palmar\u00e8s sant\u00e9 par pays LePoint",
       "slug": "palmares-sante-par-pays-lepoint",
-      "description": "sant\u00e9 par pays",
+      "description": "D\u00e9clinaison du g\u00e9n\u00e9rateur de palmar\u00e8s pour la sant\u00e9 par pays, facilitant la comparaison des syst\u00e8mes de sant\u00e9 \u00e0 l\u2019international de mani\u00e8re interactive et p\u00e9dagogique.",
       "color": "#000000",
       "created": "2025-05-26T15:20:33.348118",
-      "modified": "2025-05-26T15:37:49.900105",
+      "modified": "2026-01-19T18:02:18.895797",
       "online": 1,
       "url": "https://www.lepoint.fr/palmares-sante-par-pays/",
       "functions_id": 1,
@@ -990,10 +990,10 @@
       "id": 59,
       "name": "Application mobile Lepoint",
       "slug": "application-mobile-lepoint",
-      "description": "app mobile",
+      "description": "D\u00e9veloppement et maintenance de l\u2019application mobile LePoint (version 8.x), garantissant un acc\u00e8s rapide et intuitif aux contenus et aux actualit\u00e9s, avec une navigation fluide et un design ergonomique.",
       "color": "#000000",
       "created": "2025-05-26T15:21:53.277551",
-      "modified": "2025-05-26T15:21:53.277556",
+      "modified": "2026-01-19T18:03:44.345311",
       "online": 1,
       "url": "https://play.google.com/store/apps/details?id=fr.lepoint.android&hl=fr",
       "functions_id": 3,
@@ -1007,10 +1007,10 @@
       "id": 60,
       "name": "Honda moto occasion",
       "slug": "honda-moto-occasion",
-      "description": "concessionnaires France moto occasion",
+      "description": "Maintenance puis refonte compl\u00e8te de la plateforme Honda Moto Occasion, un projet massif combinant performance, scalabilit\u00e9 et gestion complexe des donn\u00e9es. Optimisation des flux pour un site e-commerce \u00e0 fort trafic et haute volum\u00e9trie.",
       "color": "#000000",
       "created": "2025-05-26T15:35:22.401395",
-      "modified": "2025-05-26T15:35:22.401399",
+      "modified": "2026-01-19T18:04:30.973082",
       "online": 1,
       "url": "https://www.honda-motos.com/",
       "functions_id": 1,
@@ -1257,6 +1257,11 @@
       "id": 20,
       "name": "FastAPI",
       "online": 1
+    },
+    {
+      "id": 21,
+      "name": "websocket",
+      "online": 1
     }
   ],
   "project_technology": [
@@ -1283,11 +1288,6 @@
     {
       "id": 5,
       "technologies_id": 5,
-      "projects_id": 1
-    },
-    {
-      "id": 6,
-      "technologies_id": 6,
       "projects_id": 1
     },
     {
@@ -1408,16 +1408,6 @@
     {
       "id": 30,
       "technologies_id": 3,
-      "projects_id": 6
-    },
-    {
-      "id": 31,
-      "technologies_id": 11,
-      "projects_id": 6
-    },
-    {
-      "id": 32,
-      "technologies_id": 13,
       "projects_id": 6
     },
     {
@@ -1683,11 +1673,6 @@
     {
       "id": 85,
       "technologies_id": 4,
-      "projects_id": 16
-    },
-    {
-      "id": 86,
-      "technologies_id": 8,
       "projects_id": 16
     },
     {
@@ -2391,11 +2376,6 @@
       "projects_id": 46
     },
     {
-      "id": 227,
-      "technologies_id": 8,
-      "projects_id": 46
-    },
-    {
       "id": 228,
       "technologies_id": 9,
       "projects_id": 46
@@ -2478,11 +2458,6 @@
     {
       "id": 244,
       "technologies_id": 4,
-      "projects_id": 50
-    },
-    {
-      "id": 245,
-      "technologies_id": 8,
       "projects_id": 50
     },
     {
@@ -2771,16 +2746,6 @@
       "projects_id": 60
     },
     {
-      "id": 303,
-      "technologies_id": 11,
-      "projects_id": 60
-    },
-    {
-      "id": 304,
-      "technologies_id": 13,
-      "projects_id": 60
-    },
-    {
       "id": 305,
       "technologies_id": 11,
       "projects_id": 5
@@ -2789,6 +2754,346 @@
       "id": 306,
       "technologies_id": 13,
       "projects_id": 52
+    },
+    {
+      "id": 307,
+      "technologies_id": 20,
+      "projects_id": 1
+    },
+    {
+      "id": 308,
+      "technologies_id": 9,
+      "projects_id": 1
+    },
+    {
+      "id": 309,
+      "technologies_id": 7,
+      "projects_id": 2
+    },
+    {
+      "id": 310,
+      "technologies_id": 7,
+      "projects_id": 3
+    },
+    {
+      "id": 311,
+      "technologies_id": 15,
+      "projects_id": 3
+    },
+    {
+      "id": 312,
+      "technologies_id": 4,
+      "projects_id": 4
+    },
+    {
+      "id": 313,
+      "technologies_id": 7,
+      "projects_id": 4
+    },
+    {
+      "id": 314,
+      "technologies_id": 8,
+      "projects_id": 4
+    },
+    {
+      "id": 315,
+      "technologies_id": 9,
+      "projects_id": 4
+    },
+    {
+      "id": 316,
+      "technologies_id": 17,
+      "projects_id": 4
+    },
+    {
+      "id": 317,
+      "technologies_id": 18,
+      "projects_id": 4
+    },
+    {
+      "id": 318,
+      "technologies_id": 7,
+      "projects_id": 6
+    },
+    {
+      "id": 319,
+      "technologies_id": 8,
+      "projects_id": 6
+    },
+    {
+      "id": 320,
+      "technologies_id": 9,
+      "projects_id": 6
+    },
+    {
+      "id": 321,
+      "technologies_id": 17,
+      "projects_id": 6
+    },
+    {
+      "id": 322,
+      "technologies_id": 4,
+      "projects_id": 7
+    },
+    {
+      "id": 323,
+      "technologies_id": 7,
+      "projects_id": 7
+    },
+    {
+      "id": 324,
+      "technologies_id": 9,
+      "projects_id": 7
+    },
+    {
+      "id": 325,
+      "technologies_id": 17,
+      "projects_id": 7
+    },
+    {
+      "id": 326,
+      "technologies_id": 18,
+      "projects_id": 7
+    },
+    {
+      "id": 327,
+      "technologies_id": 19,
+      "projects_id": 7
+    },
+    {
+      "id": 328,
+      "technologies_id": 4,
+      "projects_id": 8
+    },
+    {
+      "id": 329,
+      "technologies_id": 7,
+      "projects_id": 8
+    },
+    {
+      "id": 330,
+      "technologies_id": 8,
+      "projects_id": 8
+    },
+    {
+      "id": 331,
+      "technologies_id": 9,
+      "projects_id": 8
+    },
+    {
+      "id": 332,
+      "technologies_id": 9,
+      "projects_id": 9
+    },
+    {
+      "id": 333,
+      "technologies_id": 12,
+      "projects_id": 9
+    },
+    {
+      "id": 334,
+      "technologies_id": 18,
+      "projects_id": 9
+    },
+    {
+      "id": 335,
+      "technologies_id": 21,
+      "projects_id": 9
+    },
+    {
+      "id": 336,
+      "technologies_id": 7,
+      "projects_id": 11
+    },
+    {
+      "id": 337,
+      "technologies_id": 7,
+      "projects_id": 12
+    },
+    {
+      "id": 338,
+      "technologies_id": 9,
+      "projects_id": 12
+    },
+    {
+      "id": 339,
+      "technologies_id": 7,
+      "projects_id": 14
+    },
+    {
+      "id": 340,
+      "technologies_id": 9,
+      "projects_id": 14
+    },
+    {
+      "id": 341,
+      "technologies_id": 6,
+      "projects_id": 16
+    },
+    {
+      "id": 342,
+      "technologies_id": 7,
+      "projects_id": 16
+    },
+    {
+      "id": 343,
+      "technologies_id": 9,
+      "projects_id": 16
+    },
+    {
+      "id": 344,
+      "technologies_id": 19,
+      "projects_id": 16
+    },
+    {
+      "id": 345,
+      "technologies_id": 7,
+      "projects_id": 17
+    },
+    {
+      "id": 346,
+      "technologies_id": 9,
+      "projects_id": 17
+    },
+    {
+      "id": 347,
+      "technologies_id": 7,
+      "projects_id": 18
+    },
+    {
+      "id": 348,
+      "technologies_id": 13,
+      "projects_id": 21
+    },
+    {
+      "id": 349,
+      "technologies_id": 15,
+      "projects_id": 21
+    },
+    {
+      "id": 350,
+      "technologies_id": 14,
+      "projects_id": 23
+    },
+    {
+      "id": 351,
+      "technologies_id": 6,
+      "projects_id": 26
+    },
+    {
+      "id": 352,
+      "technologies_id": 6,
+      "projects_id": 27
+    },
+    {
+      "id": 353,
+      "technologies_id": 6,
+      "projects_id": 33
+    },
+    {
+      "id": 354,
+      "technologies_id": 14,
+      "projects_id": 38
+    },
+    {
+      "id": 355,
+      "technologies_id": 14,
+      "projects_id": 37
+    },
+    {
+      "id": 356,
+      "technologies_id": 8,
+      "projects_id": 46
+    },
+    {
+      "id": 357,
+      "technologies_id": 19,
+      "projects_id": 50
+    },
+    {
+      "id": 358,
+      "technologies_id": 14,
+      "projects_id": 52
+    },
+    {
+      "id": 359,
+      "technologies_id": 6,
+      "projects_id": 54
+    },
+    {
+      "id": 360,
+      "technologies_id": 6,
+      "projects_id": 53
+    },
+    {
+      "id": 361,
+      "technologies_id": 6,
+      "projects_id": 55
+    },
+    {
+      "id": 362,
+      "technologies_id": 9,
+      "projects_id": 55
+    },
+    {
+      "id": 363,
+      "technologies_id": 6,
+      "projects_id": 56
+    },
+    {
+      "id": 364,
+      "technologies_id": 9,
+      "projects_id": 56
+    },
+    {
+      "id": 365,
+      "technologies_id": 6,
+      "projects_id": 57
+    },
+    {
+      "id": 366,
+      "technologies_id": 8,
+      "projects_id": 57
+    },
+    {
+      "id": 367,
+      "technologies_id": 9,
+      "projects_id": 57
+    },
+    {
+      "id": 368,
+      "technologies_id": 6,
+      "projects_id": 58
+    },
+    {
+      "id": 369,
+      "technologies_id": 8,
+      "projects_id": 58
+    },
+    {
+      "id": 370,
+      "technologies_id": 9,
+      "projects_id": 58
+    },
+    {
+      "id": 371,
+      "technologies_id": 12,
+      "projects_id": 59
+    },
+    {
+      "id": 372,
+      "technologies_id": 6,
+      "projects_id": 60
+    },
+    {
+      "id": 373,
+      "technologies_id": 8,
+      "projects_id": 60
+    },
+    {
+      "id": 374,
+      "technologies_id": 9,
+      "projects_id": 60
     }
   ]
 }

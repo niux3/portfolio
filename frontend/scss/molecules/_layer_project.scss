@@ -61,6 +61,29 @@
         max-height: calc(100vh - 400px);
           overflow-y: auto;
           margin-bottom: 2rem;
+
+          a{
+            text-decoration: underline;
+
+            &:after{
+              content: '';
+              margin: 0 .4rem;
+              display: inline-flex;
+              width: 1rem;
+              height: 1rem;
+              position: relative;
+              bottom: .8rem;
+              background-color: var(--color-mandelieu);
+              mask: url('/static/img/target_blank.svg') no-repeat center;
+              mask-size: contain;
+              -webkit-mask: url('/static/img/target_blank.svg') no-repeat center;
+              -webkit-mask-size: contain;
+            }
+
+            &:hover{
+              text-decoration: none;
+            }
+          }
       }
 
       ul{

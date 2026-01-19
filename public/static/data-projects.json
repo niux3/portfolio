@@ -4,7 +4,7 @@
     "name": "Believe",
     "slug": "believe",
     "url": "https://www.believe.com/",
-    "description": "J'ai r\u00e9cemment eu l'opportunit\u00e9 de participer \u00e0 la refonte de l'application musicale Smart Entry. Mon r\u00f4le principal a \u00e9t\u00e9 de moderniser et d'am\u00e9liorer l'interface utilisateur pour offrir une exp\u00e9rience plus fluide et intuitive aux utilisateurs. En outre, j'ai d\u00e9velopp\u00e9 un syst\u00e8me de traduction int\u00e9gr\u00e9, permettant \u00e0 Smart Entry de devenir accessible \u00e0 un public international en 17 langues. Cette exp\u00e9rience enrichissante m'a permis de combiner mes comp\u00e9tences techniques et cr\u00e9atives pour apporter des solutions innovantes et am\u00e9liorer l'accessibilit\u00e9 de l'application.\r\n",
+    "description": "Refonte compl\u00e8te de l\u2019interface utilisateur (Easy Entry => Smart Entry) pour am\u00e9liorer l\u2019ergonomie et la fluidit\u00e9. D\u00e9veloppement front et back d\u2019un syst\u00e8me de traduction international, permettant de d\u00e9ployer l\u2019application en 17 langues. Optimisation de l\u2019accessibilit\u00e9 et de la scalabilit\u00e9 pour une audience mondiale.",
     "year": "2024",
     "activity_name": "musique",
     "activity_icon": "fa-solid fa-music",
@@ -17,8 +17,9 @@
       "Javascript",
       "Python 3",
       "Svelte/Sveltkit",
-      "NodeJS",
-      "Docker"
+      "Docker",
+      "FastAPI",
+      "PostgreSQL"
     ]
   },
   {
@@ -26,7 +27,7 @@
     "name": "John Paul",
     "slug": "john-paul",
     "url": "https://www.johnpaul.com/fr",
-    "description": "Au sein de l'\u00e9quipe John Paul, j'ai eu le privil\u00e8ge de travailler en tant que d\u00e9veloppeur backend, une exp\u00e9rience passionnante qui m'a permis de contribuer de mani\u00e8re significative au succ\u00e8s continu de l'entreprise. Mon r\u00f4le principal consistait \u00e0 assurer la maintenance et \u00e0 apporter des am\u00e9liorations essentielles aux projets.",
+    "description": "D\u00e9veloppement et maintenance de services backend Django/DRF pour une plateforme de conciergerie de luxe. Conception de web services interconnectant plusieurs applications Python, garantissant la robustesse et la fiabilit\u00e9 des \u00e9changes de donn\u00e9es.",
     "year": "2023",
     "activity_name": "conciergerie",
     "activity_icon": "fa-solid fa-bell-concierge",
@@ -37,7 +38,8 @@
       "Python 3",
       "Django",
       "PostgreSQL",
-      "DRF"
+      "DRF",
+      "Docker"
     ]
   },
   {
@@ -45,7 +47,7 @@
     "name": "Radio France",
     "slug": "radio-france",
     "url": "https://www.radiofrance.fr/",
-    "description": "J'ai eu l'opportunit\u00e9 exceptionnelle de collaborer en tant que d\u00e9veloppeur fullstack sur le projet Radio France.fr. Cette exp\u00e9rience de cor\u00e9alisation a \u00e9t\u00e9 enrichissante \u00e0 bien des \u00e9gards. Elle m'a permis de contribuer de mani\u00e8re significative \u00e0 la cr\u00e9ation d'une plateforme web de premier plan pour l'une des institutions culturelles les plus embl\u00e9matiques de France.",
+    "description": "Contribution au d\u00e9veloppement fullstack de RadioFrance.fr, site m\u00e9dia \u00e0 fort trafic. Impl\u00e9mentation de fonctionnalit\u00e9s critiques avec Node.js / Express / SvelteKit / TypeScript, tout en optimisant performance, SEO et accessibilit\u00e9.",
     "year": "2023",
     "activity_name": "la radio",
     "activity_icon": "fa-solid fa-radio",
@@ -57,7 +59,9 @@
       "CSS",
       "Javascript",
       "Svelte/Sveltkit",
-      "NodeJS"
+      "NodeJS",
+      "Docker",
+      "ExpressJS"
     ]
   },
   {
@@ -65,19 +69,25 @@
     "name": "Journal LePoint",
     "slug": "journal-lepoint",
     "url": "https://www.lepoint.fr/",
-    "description": "En qualit\u00e9 d'ing\u00e9nieur cumulant les comp\u00e9tences front-end et back-end, j'ai eu l'opportunit\u00e9 de jouer un r\u00f4le d\u00e9terminant dans l'\u00e9volution des plateformes num\u00e9riques du journal renomm\u00e9 Le Point. Mon r\u00f4le consistait \u00e0 garantir une exp\u00e9rience utilisateur de qualit\u00e9 tant sur leur site web que sur leur application mobile.",
+    "description": "Intervention fullstack pour am\u00e9liorer l\u2019exp\u00e9rience utilisateur et la fiabilit\u00e9 des services web et mobiles du journal Le Point. Gestion de bases de donn\u00e9es PostgreSQL/MySQL et mise en place d\u2019architectures Docker pour un flux de contenu continu et s\u00e9curis\u00e9.",
     "year": "2022",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
     "position": "backend/frontend",
     "location": "Paris 15",
-    "customer": "SEBDO",
+    "customer": "SEBDO - LePoint",
     "technologies": [
       "HTML",
       "CSS",
       "Javascript",
       "PHP",
-      "ReactJS"
+      "ReactJS",
+      "Python 3",
+      "Docker",
+      "Django",
+      "PostgreSQL",
+      "VueJS/NuxtJS",
+      "Sqlite"
     ]
   },
   {
@@ -85,7 +95,7 @@
     "name": "G\u00e9n\u00e9rateur palmar\u00e8s LePoint",
     "slug": "generateur-palmares-lepoint",
     "url": "https://www.lepoint.fr/",
-    "description": "L'une de mes r\u00e9alisations les plus marquantes en tant qu'ing\u00e9nieur a \u00e9t\u00e9 la conception et la mise en place d'un syst\u00e8me de palmar\u00e8s complet pour le prestigieux journal Le Point. Mon r\u00f4le englobait \u00e0 la fois le d\u00e9veloppement front-end et back-end, et incluait m\u00eame la cr\u00e9ation d'applications sp\u00e9cifiques pour certains palmar\u00e8s.",
+    "description": "Conception d\u2019un g\u00e9n\u00e9rateur de palmar\u00e8s \u00e9ditoriaux permettant la cr\u00e9ation autonome de classements complexes. D\u00e9veloppement d\u2019une solution fiable et p\u00e9renne r\u00e9pondant aux exigences de production et de diffusion d\u2019un m\u00e9dia national.",
     "year": "2020",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
@@ -107,7 +117,7 @@
     "name": "Carenity",
     "slug": "carenity",
     "url": "https://www.carenity.com/",
-    "description": "L'une de mes r\u00e9alisations notables en tant que d\u00e9veloppeur a \u00e9t\u00e9 la refonte compl\u00e8te du backoffice et l'am\u00e9lioration substantielle du syst\u00e8me de questionnaire pour Carenity. Dans ce projet, j'ai \u00e9t\u00e9 responsable du d\u00e9veloppement complet du front-end et du back-end, ce qui a \u00e9t\u00e9 une exp\u00e9rience particuli\u00e8rement enrichissante.",
+    "description": "Conception et d\u00e9veloppement d\u2019un backoffice et d\u2019un syst\u00e8me de questionnaires robustes. Optimisation de la gestion des contenus, exploitation fiable des donn\u00e9es et am\u00e9lioration de l\u2019exp\u00e9rience utilisateur sur la plateforme sant\u00e9.",
     "year": "2019",
     "activity_name": "sant\u00e9",
     "activity_icon": "fa-solid fa-notes-medical",
@@ -118,10 +128,12 @@
       "HTML",
       "CSS",
       "Javascript",
-      "PHP",
-      "MySql",
       "Python 3",
-      "ReactJS"
+      "ReactJS",
+      "Docker",
+      "Django",
+      "PostgreSQL",
+      "VueJS/NuxtJS"
     ]
   },
   {
@@ -129,7 +141,7 @@
     "name": "Rimowa",
     "slug": "rimowa",
     "url": "https://www.rimowa.com/",
-    "description": "L'un de mes projets les plus gratifiants en tant que d\u00e9veloppeur a \u00e9t\u00e9 la refonte totale du site e-commerce de la marque embl\u00e9matique Rimowa. Dans cette entreprise, j'ai \u00e9t\u00e9 co-responsable du d\u00e9veloppement complet, en prenant en charge \u00e0 la fois le front-end et le back-end du site.",
+    "description": "Refonte compl\u00e8te du site e-commerce de Rimowa pour am\u00e9liorer l\u2019exp\u00e9rience utilisateur et la performance des transactions sur une plateforme \u00e0 fort trafic.",
     "year": "2018",
     "activity_name": "bagage",
     "activity_icon": "fa-solid fa-suitcase-rolling",
@@ -140,7 +152,13 @@
       "HTML",
       "CSS",
       "Javascript",
-      "ReactJS"
+      "ReactJS",
+      "Python 3",
+      "Docker",
+      "PostgreSQL",
+      "VueJS/NuxtJS",
+      "Sqlite",
+      "Flask"
     ]
   },
   {
@@ -148,7 +166,7 @@
     "name": "Longchamp",
     "slug": "longchamp",
     "url": "https://www.longchamp.com",
-    "description": "La refonte du site e-commerce Longchamp \u00e9tait un d\u00e9fi passionnant, car elle visait \u00e0 cr\u00e9er une plateforme en ligne \u00e0 la hauteur de la renomm\u00e9e de cette marque maroquinerie de luxe. Ma mission consistait \u00e0 m'assurer que le site alliait non seulement une esth\u00e9tique attrayante, mais aussi des performances optimales, ainsi que la gestion efficace d'une large gamme de produits et d'options de personnalisation.",
+    "description": "Refonte compl\u00e8te du site e-commerce Longchamp, garantissant une exp\u00e9rience client fluide, des performances optimis\u00e9es et une gestion efficace des produits et options de personnalisation sur une plateforme \u00e0 fort trafic.\r\nCette refonte a \u00e9galement permis de renforcer la coh\u00e9rence de la marque en ligne, d\u2019am\u00e9liorer la conversion client et de faciliter l\u2019\u00e9volution future du catalogue et des fonctionnalit\u00e9s.",
     "year": "2018",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
@@ -159,7 +177,11 @@
       "HTML",
       "CSS",
       "Javascript",
-      "ReactJS"
+      "ReactJS",
+      "Python 3",
+      "Docker",
+      "Django",
+      "PostgreSQL"
     ]
   },
   {
@@ -167,7 +189,7 @@
     "name": "Confbox",
     "slug": "confbox",
     "url": "https://confbox.com",
-    "description": "La refonte du projet Confbox, un syst\u00e8me de conf\u00e9rence en ligne, a \u00e9t\u00e9 une exp\u00e9rience de conception exceptionnelle \u00e0 laquelle j'ai eu le privil\u00e8ge d'\u00eatre concepteur et architecte. Cette refonte a \u00e9t\u00e9 l'occasion de mettre en avant ma passion pour l'innovation en mati\u00e8re de communication virtuelle et ma capacit\u00e9 \u00e0 cr\u00e9er des solutions technologiques de pointe.",
+    "description": "Refonte compl\u00e8te du syst\u00e8me de conf\u00e9rences en ligne Confbox. Cr\u00e9ation d\u2019une architecture \u00e9volutive et fiable, permettant l\u2019ajout de nouvelles fonctionnalit\u00e9s et une exp\u00e9rience utilisateur fluide pour des sessions \u00e0 grande \u00e9chelle.",
     "year": "2018",
     "activity_name": "r\u00e9seau social",
     "activity_icon": "fa-solid fa-people-arrows",
@@ -180,28 +202,11 @@
       "Javascript",
       "Python 3",
       "Django",
-      "NodeJS"
-    ]
-  },
-  {
-    "id": 10,
-    "name": "Cevital",
-    "slug": "cevital",
-    "url": "https://www.cevital.com/",
-    "description": "J'ai eu l'occasion de mettre en \u0153uvre ma passion et mon expertise en tant que d\u00e9veloppeur full-stack dans la r\u00e9alisation du site vitrine du prestigieux groupe nord-africain Cevital. Cette exp\u00e9rience a \u00e9t\u00e9 marquante, car elle m'a permis de contribuer de mani\u00e8re significative \u00e0 la repr\u00e9sentation en ligne de l'une des entreprises les plus influentes et diversifi\u00e9es du Maghreb.",
-    "year": "2017",
-    "activity_name": "grande distibution",
-    "activity_icon": "fa-solid fa-shirt",
-    "position": "backend/frontend",
-    "location": "Paris 8",
-    "customer": "Publicis/Prodigious",
-    "technologies": [
-      "HTML",
-      "CSS",
-      "Javascript",
-      "PHP",
-      "MySql",
-      "JQuery"
+      "NodeJS",
+      "PostgreSQL",
+      "ReactJS",
+      "Sqlite",
+      "websocket"
     ]
   },
   {
@@ -209,7 +214,7 @@
     "name": "Rene Furterer",
     "slug": "rene-furterer",
     "url": "https://www.renefurterer.com/fr-fr",
-    "description": "La refonte compl\u00e8te du projet Ren\u00e9 Furterer a repr\u00e9sent\u00e9 une \u00e9tape significative dans mon parcours en tant que d\u00e9veloppeur full-stack. Ce projet a permis de mettre en avant mon expertise dans la cr\u00e9ation d'exp\u00e9riences num\u00e9riques compl\u00e8tes, couvrant \u00e0 la fois le d\u00e9veloppement front-end et back-end.",
+    "description": "Conception et d\u00e9veloppement fullstack pour la refonte du site Ren\u00e9 Furterer, garantissant une exp\u00e9rience utilisateur coh\u00e9rente, des performances optimis\u00e9es et une gestion fiable des contenus. La solution a \u00e9t\u00e9 pens\u00e9e pour assurer la p\u00e9rennit\u00e9 du site, supporter les \u00e9volutions futures et renforcer la pr\u00e9sence digitale de la marque.",
     "year": "2017",
     "activity_name": "hygi\u00e8ne",
     "activity_icon": "fa-solid fa-soap",
@@ -222,7 +227,8 @@
       "Javascript",
       "Python 3",
       "Django",
-      "PostgreSQL"
+      "PostgreSQL",
+      "Docker"
     ]
   },
   {
@@ -230,7 +236,7 @@
     "name": "Honda moto",
     "slug": "honda-moto",
     "url": "https://moto.honda.fr/",
-    "description": "La refonte int\u00e9grale des sites web Honda Moto et Honda Moto Occasion a \u00e9t\u00e9 un projet phare de ma carri\u00e8re de d\u00e9veloppeur full-stack. Cette initiative a repr\u00e9sent\u00e9 une opportunit\u00e9  pour mettre en valeur mon expertise en mati\u00e8re de d\u00e9veloppement web, couvrant \u00e0 la fois le front-end et le back-end.",
+    "description": "Refonte compl\u00e8te des sites Honda Moto et Honda Moto Occasion. Projet phare mettant en avant mon expertise full-stack et couvrant \u00e0 la fois front-end et back-end.",
     "year": "2017",
     "activity_name": "motocyclette",
     "activity_icon": "fa-solid fa-motorcycle",
@@ -242,7 +248,9 @@
       "CSS",
       "Javascript",
       "Python 3",
-      "Django"
+      "Django",
+      "Docker",
+      "PostgreSQL"
     ]
   },
   {
@@ -250,7 +258,7 @@
     "name": "Dacia",
     "slug": "dacia",
     "url": "https://www.dacia.fr/",
-    "description": "J'ai jou\u00e9 un r\u00f4le essentiel dans la maintenance et l'\u00e9volution continue du projet Dacia Automobile, une t\u00e2che qui a demand\u00e9 un engagement constant envers l'am\u00e9lioration de l'exp\u00e9rience en ligne de cette marque automobile renomm\u00e9e.",
+    "description": "Maintenance et \u00e9volution continue du projet Dacia Automobile pour am\u00e9liorer l\u2019exp\u00e9rience en ligne et assurer la satisfaction des utilisateurs sur la plateforme web de la marque.",
     "year": "2018",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
@@ -270,7 +278,7 @@
     "name": "UPSA",
     "slug": "upsa",
     "url": "https://www.upsa.com/",
-    "description": "La refonte du site vitrine de l'UPSA a repr\u00e9sent\u00e9 une \u00e9tape dans mon parcours en tant que d\u00e9veloppeur, o\u00f9 j'ai contribu\u00e9 \u00e0 la modernisation de la pr\u00e9sence en ligne de cette organisation pharmaceutique de renomm\u00e9e mondiale.",
+    "description": "Modernisation du site vitrine de l\u2019UPSA, contribuant \u00e0 la digitalisation et \u00e0 la visibilit\u00e9 en ligne de l\u2019organisation pharmaceutique.",
     "year": "2018",
     "activity_name": "sant\u00e9",
     "activity_icon": "fa-solid fa-notes-medical",
@@ -282,7 +290,9 @@
       "CSS",
       "Javascript",
       "Python 3",
-      "Django"
+      "Django",
+      "Docker",
+      "PostgreSQL"
     ]
   },
   {
@@ -290,7 +300,7 @@
     "name": "Clio RS Melody",
     "slug": "clio-rs-melody",
     "url": "https://clio-rs.renault.com",
-    "description": "La cr\u00e9ation de l'application web de Renault Clio RS melody f\u00fbt une belle exp\u00e9rience qui plus f\u00fbt r\u00e9compens\u00e9e par la profession et les m\u00e9dias. L'application \u00e9v\u00e9nementielle Renault Clio RS Melody repr\u00e9sente une innovation passionnante dans l'univers automobile, d\u00e9montrant la capacit\u00e9 de Renault \u00e0 combiner la technologie et la musique pour cr\u00e9er une exp\u00e9rience unique. Le spot publicitaire de l'application est ici https://www.dailymotion.com/video/x4xy0br",
+    "description": "Cr\u00e9ation de l\u2019application \u00e9v\u00e9nementielle Renault Clio RS Melody, combinant technologie et musique pour offrir une exp\u00e9rience unique \u00e0 partager. <strong>Le projet a \u00e9t\u00e9 r\u00e9compens\u00e9 par un Top Com d\u2019Or</strong>, soulignant l\u2019innovation et l\u2019impact m\u00e9diatique de l\u2019application.Le spot publicitaire de l'application est ici <a href=\"https://www.dailymotion.com/video/x4xy0br\" target=\"_blank\">Dailymotion</a>",
     "year": "2016",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
@@ -311,7 +321,7 @@
     "name": "Renault Kadjarquest",
     "slug": "renault-kadjarquest",
     "url": "https://kadjarquest.renault.fr/",
-    "description": "La cr\u00e9ation de l'application \u00e9v\u00e9nementielle Renault Kadjarquest a \u00e9t\u00e9 une initiative novatrice, marquant une \u00e9tape significative dans la strat\u00e9gie de Renault pour c\u00e9l\u00e9brer le lancement de son mod\u00e8le embl\u00e9matique, le Renault Kadjar. Cette application a \u00e9t\u00e9 le fruit d'une collaboration \u00e9troite entre Renault et des experts en d\u00e9veloppement d'applications, visant \u00e0 offrir une exp\u00e9rience unique aux passionn\u00e9s de voitures.",
+    "description": "Cr\u00e9ation de l\u2019application \u00e9v\u00e9nementielle Renault Kadjarquest pour le lancement du mod\u00e8le Kadjar. Le projet visait \u00e0 offrir une exp\u00e9rience interactive aux passionn\u00e9s de voitures, en combinant innovation digitale et communication \u00e9v\u00e9nementielle.",
     "year": "2017",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
@@ -323,7 +333,10 @@
       "CSS",
       "Javascript",
       "Python 3",
-      "Django"
+      "NodeJS",
+      "Docker",
+      "PostgreSQL",
+      "Flask"
     ]
   },
   {
@@ -331,7 +344,7 @@
     "name": "Le Si\u00e8ge Renault",
     "slug": "le-siege-renault",
     "url": "https://lesiege.renault.fr",
-    "description": "La refonte de l'application \u00e9v\u00e9nementielle de Renault en tant que partenaire officiel du Festival de Deauville a \u00e9t\u00e9 une initiative exceptionnelle, d\u00e9montrant l'engagement de Renault envers l'innovation et la cr\u00e9ation d'exp\u00e9riences uniques pour les amateurs de cin\u00e9ma et de voitures.",
+    "description": "Refonte de l\u2019application \u00e9v\u00e9nementielle de Renault pour le Festival de Deauville, d\u00e9montrant l\u2019engagement de Renault dans la cr\u00e9ation d\u2019exp\u00e9riences uniques pour le public et la valorisation de son image de marque.",
     "year": "2016",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
@@ -343,7 +356,9 @@
       "CSS",
       "Javascript",
       "Python 3",
-      "Django"
+      "Django",
+      "Docker",
+      "PostgreSQL"
     ]
   },
   {
@@ -351,7 +366,7 @@
     "name": "Atelier Renault",
     "slug": "atelier-renault",
     "url": "https://atelier.renault.com/",
-    "description": "La maintenance en continu et les \u00e9volutions de l'application web de la boutique des Champs-\u00c9lys\u00e9es Atelier Renault ont \u00e9t\u00e9 une mission essentielle pour garantir une exp\u00e9rience en ligne exceptionnelle aux visiteurs de ce lieu embl\u00e9matique d\u00e9di\u00e9 \u00e0 l'automobile et \u00e0 l'art de vivre \u00e0 la fran\u00e7aise.",
+    "description": "Maintenance et \u00e9volution de l\u2019application web de la boutique des Champs-\u00c9lys\u00e9es Atelier Renault, assurant une exp\u00e9rience en ligne fluide et fid\u00e8le \u00e0 l\u2019image de la marque.",
     "year": "2017",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
@@ -365,7 +380,8 @@
       "Python 3",
       "Django",
       "ReactJS",
-      "DRF"
+      "DRF",
+      "Docker"
     ]
   },
   {
@@ -373,7 +389,7 @@
     "name": "A\u00e9roport de Paris",
     "slug": "aeroport-de-paris",
     "url": "https://www.parisaeroport.fr/",
-    "description": "L'a\u00e9roport de Paris, en tant que plaque tournante majeure du voyage en Europe, est le th\u00e9\u00e2tre de mouvements incessants, accueillant des millions de voyageurs du monde entier chaque ann\u00e9e. Au c\u0153ur de cette m\u00e9canique complexe se trouve l'application web de l'a\u00e9roport de Paris, une ressource num\u00e9rique cruciale pour les passagers et un outil de gestion essentiel pour l'a\u00e9roport lui-m\u00eame.",
+    "description": "D\u00e9veloppement de l\u2019application web pour l\u2019a\u00e9roport de Paris, garantissant une exp\u00e9rience utilisateur optimale pour les millions de voyageurs, tout en facilitant la gestion interne des flux et services.",
     "year": "2016",
     "activity_name": "aviation",
     "activity_icon": "fa-solid fa-plane",
@@ -392,7 +408,7 @@
     "name": "Afflelou",
     "slug": "afflelou",
     "url": "https://www.afflelou.com/",
-    "description": "L'opticien Afflelou est une marque bien connue dans le monde de l'optique, offrant une large gamme de produits et de services pour la sant\u00e9 visuelle. Au c\u0153ur de leur engagement envers la satisfaction des clients se trouve leur application web, un outil num\u00e9rique essentiel qui facilite la vie de ceux qui cherchent des solutions visuelles de qualit\u00e9.",
+    "description": "D\u00e9veloppement de l\u2019application web (prise de rendez vous en ligne et discussion avec commercial d'un magasin proche de l'utilisateur) permettant aux clients de g\u00e9rer et consulter leurs besoins visuels. Projet centr\u00e9 sur l\u2019ergonomie et la fluidit\u00e9 de l\u2019exp\u00e9rience utilisateur.",
     "year": "2015",
     "activity_name": "opticien",
     "activity_icon": "fa-solid fa-glasses",
@@ -412,7 +428,7 @@
     "name": "Fullsix",
     "slug": "fullsix",
     "url": "https://betcfullsix.com/",
-    "description": "L'agence web FullSIX, reconnue pour son expertise dans le domaine du marketing digital et de la conception web, a entrepris une transformation significative en refondant son propre site web. Cette initiative d\u00e9montre l'engagement continu de FullSIX \u00e0 rester \u00e0 la pointe de l'innovation dans un secteur en constante \u00e9volution.",
+    "description": "Refonte du site web de l\u2019agence FullSIX, mettant en avant son expertise en marketing digital et design web, et d\u00e9montrant l\u2019engagement de l\u2019agence dans l\u2019innovation.",
     "year": "2016",
     "activity_name": "r\u00e9seau social",
     "activity_icon": "fa-solid fa-people-arrows",
@@ -423,7 +439,9 @@
       "HTML",
       "CSS",
       "Javascript",
-      "NodeJS"
+      "NodeJS",
+      "MySql",
+      "ExpressJS"
     ]
   },
   {
@@ -431,7 +449,7 @@
     "name": "MyTravelChic",
     "slug": "mytravelchic",
     "url": "https://www.idiliz.com/",
-    "description": "La maintenance et l'\u00e9volution d'un site web de voyage en ligne sont essentielles pour garantir une bonne exp\u00e9rience utilisateur, tout en restant \u00e0 la pointe de l'industrie du tourisme. Dans ce contexte, mes travaux sur le site de voyage en ligne MyTravelchic ont \u00e9t\u00e9 un exemple remarquable d'engagement envers la qualit\u00e9 et l'innovation dans le secteur du voyage.",
+    "description": "Maintenance et \u00e9volution d\u2019un site de voyage en ligne, garantissant une exp\u00e9rience utilisateur fluide et innovante pour les clients.",
     "year": "2015",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
@@ -450,7 +468,7 @@
     "name": "Bazarchic",
     "slug": "bazarchic",
     "url": "https://fr.bazarchic.com/",
-    "description": "Les sites de ventes priv\u00e9es ont r\u00e9volutionn\u00e9 le monde du commerce en ligne en offrant aux consommateurs des offres exclusives sur des produits de qualit\u00e9. Parmi ces plateformes, Bazarchic s'est distingu\u00e9 en tant que destination privil\u00e9gi\u00e9e pour les chasseurs de bonnes affaires. Cependant, pour rester \u00e0 la pointe de l'industrie, j'ai effectu\u00e9 la refonte partielle, la maintenance et l'\u00e9volution de cette plateforme.",
+    "description": "Refonte partielle, maintenance et \u00e9volution d\u2019une plateforme de ventes priv\u00e9es, optimisant l\u2019exp\u00e9rience utilisateur et la navigation sur le site.",
     "year": "2014",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
@@ -461,7 +479,8 @@
       "HTML",
       "CSS",
       "Javascript",
-      "NodeJS"
+      "NodeJS",
+      "JQuery"
     ]
   },
   {
@@ -469,7 +488,7 @@
     "name": "Brasserie Flo",
     "slug": "brasserie-flo",
     "url": "https://www.groupeflo.com/",
-    "description": "La Brasserie Flo est une ic\u00f4ne de la gastronomie fran\u00e7aise, offrant une exp\u00e9rience culinaire authentique et raffin\u00e9e depuis des d\u00e9cennies. Pour assurer une pr\u00e9sence en ligne \u00e0 la hauteur de cette renomm\u00e9e, une s\u00e9rie de sites web a \u00e9t\u00e9 con\u00e7ue et d\u00e9velopp\u00e9e. En tant que concepteur, J'ai jou\u00e9 un r\u00f4le essentiel dans la cr\u00e9ation de ces plateformes num\u00e9riques, visant \u00e0 refl\u00e9ter l'excellence de la Brasserie Flo et \u00e0 offrir aux visiteurs une excellente exp\u00e9rience en ligne.",
+    "description": "Conception et d\u00e9veloppement d'un site web master (la Coupole) et 22 d\u00e9clinaisons (Boffinger, Terminus Nord, Caf\u00e9 des Artistes, etc.) pour cette ic\u00f4ne de la gastronomie fran\u00e7aise, visant \u00e0 refl\u00e9ter l\u2019excellence culinaire et offrir une exp\u00e9rience en ligne immersive.",
     "year": "2011",
     "activity_name": "alimentation",
     "activity_icon": "fa-solid fa-utensils",
@@ -490,7 +509,7 @@
     "name": "Dyson affaire airblade v1",
     "slug": "dyson-affaire-airblade-v1",
     "url": "https://www.youtube.com/watch?v=jU0WojRkd30",
-    "description": "L'intranet commercial Dyson Airblade est un outil vital pour une entreprise qui a r\u00e9volutionn\u00e9 le domaine de la technologie de s\u00e9chage des mains. Pour assurer une interface intuitive, efficace et conviviale pour les \u00e9quipes commerciales et les partenaires, une conception exceptionnelle \u00e9tait cruciale. En tant que concepteur, j'ai jou\u00e9 un r\u00f4le central dans la cr\u00e9ation de cet intranet, apportant une expertise en design.",
+    "description": "Conception de l\u2019intranet commercial Dyson Airblade, outil central pour la gestion commerciale et la formation des \u00e9quipes, avec un design intuitif et efficace. <a href=\"https://www.youtube.com/watch?v=jU0WojRkd30\" target=\"_blank\">spot publicitaire </a> pr\u00e9sentant son lancement. ",
     "year": "2011",
     "activity_name": "\u00e9lectrom\u00e9nager",
     "activity_icon": "fa-solid fa-blender-phone",
@@ -511,7 +530,7 @@
     "name": "Peugeot Design Lab",
     "slug": "peugeot-design-lab",
     "url": "https://www.peugeotdesignlab.com/fr",
-    "description": "Peugeot Design Lab, une division de la c\u00e9l\u00e8bre marque automobile Peugeot, est synonyme d'innovation, de design novateur et d'excellence cr\u00e9ative. En tant que concepteur, j'ai eu l'opportunit\u00e9 de participer \u00e0 la refonte de cette entit\u00e9 de renom. Mes travaux ont contribu\u00e9 \u00e0 red\u00e9finir et \u00e0 moderniser l'image du Peugeot Design Lab, un laboratoire de design r\u00e9put\u00e9 pour son expertise en conception industrielle, son sens du d\u00e9tail et sa passion pour l'innovation.",
+    "description": "Refonte de l\u2019image digitale du laboratoire de design de Peugeot, en mettant l\u2019accent sur l\u2019innovation et le design interactif.",
     "year": "2012",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
@@ -522,7 +541,8 @@
       "HTML",
       "CSS",
       "Javascript",
-      "JQuery"
+      "JQuery",
+      "NodeJS"
     ]
   },
   {
@@ -530,7 +550,7 @@
     "name": "Peugeot",
     "slug": "peugeot",
     "url": "https://www.peugeot.fr/",
-    "description": "La refonte d'une marque embl\u00e9matique telle que Peugeot est une t\u00e2che colossale qui n\u00e9cessite une expertise technique de haut niveau. Il est \u00e0 noter que le projet f\u00fbt r\u00e9compens\u00e9 par un topcom or",
+    "description": "Refonte de la marque digitale Peugeot, projet r\u00e9compens\u00e9 par un <strong>TopCom d\u2019Or</strong>, valorisant la cr\u00e9ativit\u00e9 et l\u2019innovation dans la communication digitale.",
     "year": "2013",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
@@ -541,7 +561,8 @@
       "HTML",
       "CSS",
       "Javascript",
-      "JQuery"
+      "JQuery",
+      "NodeJS"
     ]
   },
   {
@@ -549,11 +570,11 @@
     "name": "Peugeot 4008",
     "slug": "peugeot-4008",
     "url": "https://www.youtube.com/watch?v=p9SJQjioTb0",
-    "description": "Peugeot lance en avril 2012 un nouveau SUV, Peugeot 4008, sur un march\u00e9 tr\u00e8s dynamique et fortement concurrentiel, donc avec une probl\u00e9matique majeure d\u2019\u00e9mergence sur sa cat\u00e9gorie. Peugeot a souhait\u00e9 une campagne originale dans sa forme et dans son contenu, et proposant une exp\u00e9rience interactive innovante avec le mod\u00e8le.  Une op\u00e9ration 100% YouTube (custom channel + relais display) combinant une logique d\u2019engagement via un parcours vid\u00e9o ludique de \u00ab qu\u00eate \u00bb du v\u00e9hicule et une m\u00e9canique d\u2019acquisition performante via un jeu concours. Un lancement full digital in\u00e9dit, r\u00e9alis\u00e9 en seulement 4 semaines et en \u00e9troite collaboration avec les \u00e9quipes Google. Top Com d'Or (cat\u00e9gorie site \u00e9v\u00e9nementiel)\r\n",
+    "description": "Lancement digital du SUV Peugeot 4008 avec une campagne interactive 100% YouTube, combinant parcours vid\u00e9o ludique et jeu concours, r\u00e9compens\u00e9 par un <strong>TopCom d\u2019Or</strong>.",
     "year": "2011",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
-    "position": "frontend",
+    "position": "backend/frontend",
     "location": "Nanterre",
     "customer": "Business Lab",
     "technologies": [
@@ -570,7 +591,7 @@
     "name": "Flyopenskies v2",
     "slug": "flyopenskies-v2",
     "url": "https://www.flyopenskies.com/",
-    "description": "L'aviation a toujours \u00e9t\u00e9 un symbole de libert\u00e9, de d\u00e9couverte et de connexion. Dans un monde en constante \u00e9volution, les compagnies a\u00e9riennes jouent un r\u00f4le cl\u00e9 dans la r\u00e9alisation de ces aspirations. C'est avec une profonde passion pour l'aviation et un d\u00e9vouement envers l'innovation que nous avons entrepris la refonte des sites web de FlyOpenSky.",
+    "description": "Refonte compl\u00e8te des sites web FlyOpenSky et du syst\u00e8me de booking pour am\u00e9liorer la fluidit\u00e9 des communications et l\u2019exp\u00e9rience utilisateur des voyageurs.",
     "year": "2010",
     "activity_name": "aviation",
     "activity_icon": "fa-solid fa-plane",
@@ -589,7 +610,7 @@
     "name": "Flyopenskies v3",
     "slug": "flyopenskies-v3",
     "url": "https://www.flyopenskies.com/",
-    "description": "L'aviation a toujours \u00e9t\u00e9 un symbole de libert\u00e9, de d\u00e9couverte et de connexion. Dans un monde en constante \u00e9volution, les compagnies a\u00e9riennes jouent un r\u00f4le cl\u00e9 dans la r\u00e9alisation de ces aspirations. C'est avec une profonde passion pour l'aviation et un d\u00e9vouement envers l'innovation que nous avons entrepris la refonte des sites web de FlyOpenSky.",
+    "description": "Continuit\u00e9 de la refonte (site plus application booking), avec optimisation de l\u2019exp\u00e9rience utilisateur et de l\u2019interaction pour les r\u00e9servations et informations de vol.",
     "year": "2011",
     "activity_name": "aviation",
     "activity_icon": "fa-solid fa-plane",
@@ -608,7 +629,7 @@
     "name": "Europcar",
     "slug": "europcar",
     "url": "https://www.europcar.fr",
-    "description": "La refonte du site web Europcar repr\u00e9sente bien plus qu'un simple rafra\u00eechissement visuel. C'est le fruit d'un engagement \u00e0 innover et \u00e0 am\u00e9liorer l'exp\u00e9rience des clients. Nous avons recr\u00e9\u00e9 une plateforme en ligne qui refl\u00e8te la passion pour la mobilit\u00e9, et \u00e0 offrir des services de location de voitures de premier ordre.",
+    "description": "Refonte compl\u00e8te de la plateforme en ligne pour am\u00e9liorer l\u2019exp\u00e9rience de r\u00e9servation et la fluidit\u00e9 des services de location de voitures.",
     "year": "2011",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
@@ -627,7 +648,7 @@
     "name": "Air Cara\u00efbes",
     "slug": "air-caraibes",
     "url": "https://www.aircaraibes.com/",
-    "description": "Le voyage a\u00e9rien a le pouvoir de cr\u00e9er des souvenirs inoubliables, de connecter des cultures et d'inspirer l'exploration. Air Cara\u00efbes, une ic\u00f4ne du ciel carib\u00e9en, a toujours compris cette magie du voyage. J'ai \u00e9t\u00e9 ravi de pr\u00e9senter la refonte compl\u00e8te du site d'Air Cara\u00efbes, une transformation qui red\u00e9finissait la mani\u00e8re dont les clients planifiaient et r\u00e9servaient leurs voyages vers les Cara\u00efbes.",
+    "description": "Refonte du site pour optimiser la planification de voyages vers les Cara\u00efbes, en combinant exp\u00e9rience immersive et fluidit\u00e9 des interactions. \u00c9galement, d\u00e9veloppement d'un syst\u00e8me de templating responsive pour les campagnes emailing. ",
     "year": "2011",
     "activity_name": "aviation",
     "activity_icon": "fa-solid fa-plane",
@@ -646,8 +667,8 @@
     "name": "Air Madagascar",
     "slug": "air-madagascar",
     "url": "https://madagascarairlines.com",
-    "description": "Le voyage a\u00e9rien, c'est bien plus que le simple d\u00e9placement d'un point A \u00e0 un point B. C'est l'opportunit\u00e9 de cr\u00e9er des souvenirs inoubliables, de d\u00e9couvrir de nouvelles cultures et de vivre des aventures qui marquent une vie. En tant que d\u00e9veloppeur frontend, j'ai eu le privil\u00e8ge de jouer un r\u00f4le essentiel dans la refonte du site web d'Air Madagascar, une compagnie a\u00e9rienne nationale qui symbolise la porte d'entr\u00e9e vers la magnifique \u00eele de Madagascar.",
-    "year": "2011",
+    "description": "Refonte du site de la compagnie nationale, pour am\u00e9liorer l\u2019exp\u00e9rience utilisateur et la visibilit\u00e9 digitale de Madagascar sur la sc\u00e8ne internationale.",
+    "year": "2012",
     "activity_name": "aviation",
     "activity_icon": "fa-solid fa-plane",
     "position": "frontend",
@@ -657,7 +678,8 @@
       "HTML",
       "CSS",
       "Javascript",
-      "JQuery"
+      "JQuery",
+      "NodeJS"
     ]
   },
   {
@@ -665,7 +687,7 @@
     "name": "CFC",
     "slug": "cfc",
     "url": "https://www.cfcopies.com/",
-    "description": "La pr\u00e9servation et la promotion de la propri\u00e9t\u00e9 intellectuelle sont au c\u0153ur de la diffusion du savoir, de la culture et de l'innovation. En tant que d\u00e9veloppeur frontend et backend, j'ai jou\u00e9 un r\u00f4le primordial dans la refonte du site du Centre Fran\u00e7ais d'Exploitation du Droit de Copie (CFC), une institution majeure dans la gestion des droits d'auteur pour les copies papier et num\u00e9riques de publications en France.",
+    "description": "Refonte du site du Centre Fran\u00e7ais d\u2019Exploitation du Droit de Copie (CFC), institution majeure dans la gestion des droits d\u2019auteur en France. Le client \u00e9tait tr\u00e8s ravi de la qualit\u00e9 de la prestation. ",
     "year": "2013",
     "activity_name": "livres",
     "activity_icon": "fa-solid fa-book",
@@ -686,7 +708,7 @@
     "name": "Algeco",
     "slug": "algeco",
     "url": "https://www.algeco.fr/",
-    "description": "En tant que d\u00e9veloppeur frontend et backend, j'ai eu l'opportunit\u00e9 de participer \u00e0 la refonte du site Ageco.fr, une r\u00e9f\u00e9rence en mati\u00e8re de b\u00e2timents modulaires pour une \u00e9conomie locale et durable. Que ce soit des bureaux modulaires, des bungalows de chantier ou des \u00e9coles modulaires, ma mission \u00e9tait de rendre accessible \u00e0 tous les avantages de la construction modulaire.",
+    "description": "Refonte du site Algeco.fr pour valoriser les solutions modulaires, bureaux et \u00e9coles, avec un focus sur l\u2019accessibilit\u00e9 et la pr\u00e9sentation des produits.",
     "year": "2011",
     "activity_name": "construction",
     "activity_icon": "fa-solid fa-person-digging",
@@ -707,7 +729,7 @@
     "name": "Fidelity Vie",
     "slug": "fidelity-vie",
     "url": "https://www.fidelityvie.fr",
-    "description": "L'assurance vie est bien plus qu'un simple contrat financier. C'est une garantie de s\u00e9curit\u00e9 pour l'avenir, une assurance pour vos proches et un moyen de b\u00e2tir un patrimoine durable. En tant que d\u00e9veloppeur frontend et backend, j'ai eu le privil\u00e8ge de jouer un r\u00f4le central dans la refonte du site fidelityvie.fr, une plateforme d\u00e9di\u00e9e au contrat d'assurance vie qui incarne la confiance et la pr\u00e9voyance financi\u00e8re.",
+    "description": "Refonte du site d\u2019assurance vie, mettant en avant la s\u00e9curit\u00e9, la pr\u00e9voyance et la clart\u00e9 des informations pour les clients.",
     "year": "2013",
     "activity_name": "finance",
     "activity_icon": "fa-solid fa-piggy-bank",
@@ -726,9 +748,9 @@
   {
     "id": 37,
     "name": "De quoi je me M.E.L",
-    "slug": "de-quoi-je-me-mel",
+    "slug": "de-quoi-je-me-m-e-l",
     "url": "https://www.michel-edouard-leclerc.com/",
-    "description": "La communication num\u00e9rique est devenue le reflet de la connaissance et de l'expertise, un moyen d'\u00e9changer des id\u00e9es et de partager des visions. En tant que d\u00e9veloppeur frontend, nous avons refait \u00e0 la demande Michel-\u00c9douard Leclerc son blog. Une plateforme qui incarne la voix d'un expert renomm\u00e9 en \u00e9conomie et en commerce.",
+    "description": "Refonte du blog de Michel-\u00c9douard Leclerc, offrant une plateforme ergonomique et moderne pour partager des analyses \u00e9conomiques et commerciales tout en valorisant l\u2019expertise de l\u2019auteur.",
     "year": "2011",
     "activity_name": "blog",
     "activity_icon": "fa-brands fa-blogger",
@@ -740,7 +762,8 @@
       "CSS",
       "Javascript",
       "PHP",
-      "MySql"
+      "MySql",
+      "JQuery"
     ]
   },
   {
@@ -748,7 +771,7 @@
     "name": "Qui est le moins cher",
     "slug": "qui-est-le-moins-cher",
     "url": "https://www.quiestlemoinscher.leclerc/",
-    "description": "Dans un monde o\u00f9 l'efficacit\u00e9 et l'accessibilit\u00e9 sont des atouts majeurs, le site \"Qui Est le Moins Cher\" se distingue par son engagement \u00e0 offrir des offres in\u00e9galables. En tant que d\u00e9veloppeur frontend, j'ai eu l'opportunit\u00e9 de contribuer \u00e0 la refonte de cette plateforme, qui incarne la recherche des meilleures affaires et des prix les plus comp\u00e9titifs.",
+    "description": "Refonte de la plateforme pour mettre en avant les offres les plus comp\u00e9titives, avec une interface fluide et intuitive facilitant l\u2019acc\u00e8s rapide aux meilleures promotions.",
     "year": "2013",
     "activity_name": "alimentation",
     "activity_icon": "fa-solid fa-utensils",
@@ -758,7 +781,8 @@
     "technologies": [
       "HTML",
       "CSS",
-      "Javascript"
+      "Javascript",
+      "JQuery"
     ]
   },
   {
@@ -766,7 +790,7 @@
     "name": "Decolor Stop",
     "slug": "decolor-stop",
     "url": "https://www.decolorstop.com/",
-    "description": "La pr\u00e9servation de la qualit\u00e9 et de la long\u00e9vit\u00e9 des v\u00eatements et du linge de maison est une pr\u00e9occupation majeure de la vie quotidienne. En tant que d\u00e9veloppeur frontend, j'ai contribu\u00e9 \u00e0 la maintenance et \u00e0 l'am\u00e9lioration en continu du site Decolor Stop",
+    "description": "Maintenance et optimisation continue du site Decolor Stop, am\u00e9liorant l\u2019exp\u00e9rience utilisateur et la pr\u00e9sentation des produits pour renforcer la confiance et la satisfaction des clients.",
     "year": "2010",
     "activity_name": "hygi\u00e8ne",
     "activity_icon": "fa-solid fa-soap",
@@ -785,7 +809,7 @@
     "name": "My Peugeot",
     "slug": "my-peugeot",
     "url": "https://mypeugeot.peugeot.fr/",
-    "description": "L'automobile, c'est bien plus qu'un simple moyen de transport. C'est une exp\u00e9rience de mobilit\u00e9, de confort et de fiabilit\u00e9. En tant que lead d\u00e9veloppeur frontend, j'ai particip\u00e9 \u00e0 la refonte du site My Peugeot, l'espace client de Peugeot, un espace en ligne qui incarne l'engagement envers l'excellence du service client.",
+    "description": "Refonte de l\u2019espace client My Peugeot, offrant une exp\u00e9rience en ligne claire et fluide, renfor\u00e7ant l\u2019engagement des utilisateurs et la fid\u00e9lit\u00e9 \u00e0 la marque.",
     "year": "2011",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
@@ -804,7 +828,7 @@
     "name": "banque casino",
     "slug": "banque-casino",
     "url": "https://client.floabank.fr/",
-    "description": "L'efficacit\u00e9 de la communication num\u00e9rique est cruciale, en particulier dans le secteur financier o\u00f9 la confiance et la transparence sont essentielles. En tant que lead d\u00e9veloppeur frontend, j'ai particip\u00e9 \u00e0 la cr\u00e9ation de templates email pour Banque Casino, une institution financi\u00e8re de renom qui place ses clients au c\u0153ur de son engagement.",
+    "description": "Cr\u00e9ation de templates email pour Banque Casino, assurant une communication digitale efficace, s\u00e9curis\u00e9e et coh\u00e9rente pour les clients de l\u2019institution.",
     "year": "2013",
     "activity_name": "finance",
     "activity_icon": "fa-solid fa-piggy-bank",
@@ -821,10 +845,10 @@
   },
   {
     "id": 42,
-    "name": "leperon",
-    "slug": "leperon",
+    "name": "leperon (ex Cavad\u00e9os)",
+    "slug": "leperon-ex-cavadeos",
     "url": "https://www.leperon.fr/",
-    "description": "L'univers du sport \u00e9questre est en constante \u00e9volution, et l'acc\u00e8s \u00e0 l'information \u00e0 jour est crucial pour les passionn\u00e9s. En tant que lead d\u00e9veloppeur frontend, j'ai maintenu et fait \u00e9voluer le site Cavadeos (leperon.fr), la r\u00e9f\u00e9rence en mati\u00e8re d'actualit\u00e9 cheval et d'informations \u00e9questres.",
+    "description": "Maintenance et \u00e9volution du site de r\u00e9f\u00e9rence pour l\u2019actualit\u00e9 \u00e9questre, facilitant l\u2019acc\u00e8s \u00e0 une information \u00e0 jour et engageante pour les passionn\u00e9s.",
     "year": "2010",
     "activity_name": "sports \u00e9questres",
     "activity_icon": "fa-solid fa-horse",
@@ -843,7 +867,7 @@
     "name": "Areva",
     "slug": "areva",
     "url": "https://areva.com",
-    "description": "Dans le monde en constante \u00e9volution de l'industrie de l'\u00e9nergie, la collaboration et la communication internes sont essentielles. En tant que lead d\u00e9veloppeur frontend, j'ai particip\u00e9 \u00e0 la cr\u00e9ation du r\u00e9seau social en interne d'Areva, une plateforme qui favorise la connectivit\u00e9, l'innovation et la collaboration au sein de cette entreprise leader du secteur nucl\u00e9aire. Le projet f\u00fbt r\u00e9compens\u00e9 et acclam\u00e9. ",
+    "description": "Cr\u00e9ation du r\u00e9seau social interne d\u2019Areva, favorisant collaboration et innovation au sein de l\u2019entreprise. Le projet a \u00e9t\u00e9 r\u00e9compens\u00e9 pour sa qualit\u00e9 et son impact interne.",
     "year": "2011",
     "activity_name": "nucl\u00e9aire",
     "activity_icon": "fa-solid fa-radiation",
@@ -863,7 +887,7 @@
     "name": "Leroy Merlin",
     "slug": "leroy-merlin",
     "url": "https://www.leroymerlin.fr/",
-    "description": "Avoir la chance d'accompagner une refonte si ambitieuse est sans aucun doute un projet unique dans une carri\u00e8re. La richesse incroyable de la marque et les enjeux e-commerce du projet ont largement contribu\u00e9 \u00e0 animer mon quotidien pendant 2 ans et demie.  Ce f\u00fbt une vraie la passion que j'ai pour cette enseigne. \u00c0 noter que le projet a \u00e9t\u00e9 r\u00e9compens\u00e9. Aussi, leroymerlin.fr est dans le top 50 des sites pr\u00e9f\u00e9r\u00e9s des Fran\u00e7ais. ",
+    "description": "Refonte majeure du site leroymerlin.fr, combinant ergonomie et performance e\u2011commerce. Le projet a \u00e9t\u00e9 r\u00e9compens\u00e9 par un <strong>TopCom d'or</strong> et figure dans le top 50 des sites pr\u00e9f\u00e9r\u00e9s des Fran\u00e7ais.",
     "year": "2012",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
@@ -883,7 +907,7 @@
     "name": "Sacla",
     "slug": "sacla",
     "url": "https://sacla.fr/",
-    "description": "La cuisine, c'est bien plus qu'une simple pr\u00e9paration de repas, c'est une exp\u00e9rience sensorielle et une exploration de saveurs. En tant que lead d\u00e9veloppeur frontend, j'ai cor\u00e9alis\u00e9 le site de Sacla, une entreprise renomm\u00e9e pour ses produits alimentaires de qualit\u00e9 et ses d\u00e9lices culinaires.",
+    "description": "Conception du site Sacla, offrant une exp\u00e9rience culinaire en ligne riche et sensorielle, mettant en valeur les produits et recettes de la marque.",
     "year": "2009",
     "activity_name": "alimentation",
     "activity_icon": "fa-solid fa-utensils",
@@ -902,7 +926,7 @@
     "name": "SFR",
     "slug": "sfr",
     "url": "https://sfr.fr",
-    "description": "SFR, un acteur de premier plan dans le secteur des t\u00e9l\u00e9communications en France. En tant que d\u00e9veloppeur frontend et backend, j'ai eu l'opportunit\u00e9 de cor\u00e9aliser des modules personnalis\u00e9s sur le site de SFR.  ",
+    "description": "D\u00e9veloppement de modules personnalis\u00e9s sur le site SFR, optimisant la gestion des services en ligne et am\u00e9liorant la performance et la fluidit\u00e9 de l\u2019exp\u00e9rience utilisateur.",
     "year": "2017",
     "activity_name": "T\u00e9l\u00e9phonie mobile",
     "activity_icon": "fa-solid fa-mobile-screen",
@@ -914,8 +938,8 @@
       "CSS",
       "Javascript",
       "Python 3",
-      "Django",
-      "PostgreSQL"
+      "PostgreSQL",
+      "Django"
     ]
   },
   {
@@ -923,7 +947,7 @@
     "name": "Se soigner moins cher",
     "slug": "se-soigner-moins-cher",
     "url": "https://www.e.leclerc/cat/parapharmacie",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet laborum illum maxime iusto minima reiciendis praesentium labore ab, sed sapiente officia enim consequuntur atque non rerum nostrum quibusdam rem molestiae!",
+    "description": "Refonte de la plateforme, permettant un acc\u00e8s rapide et intuitif \u00e0 des solutions de sant\u00e9 abordables, renfor\u00e7ant la confiance des utilisateurs.",
     "year": "2013",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
@@ -942,7 +966,7 @@
     "name": "histoire et archives Leclerc",
     "slug": "histoire-et-archives-leclerc",
     "url": "https://www.histoireetarchives.leclerc/",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet laborum illum maxime iusto minima reiciendis praesentium labore ab, sed sapiente officia enim consequuntur atque non rerum nostrum quibusdam rem molestiae!",
+    "description": "Mise en ligne d\u2019un site retra\u00e7ant l\u2019histoire et les archives Leclerc, combinant clart\u00e9 et accessibilit\u00e9 pour valoriser l\u2019image de marque.",
     "year": "2012",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
@@ -961,7 +985,7 @@
     "name": "Le Mouvement Leclerc",
     "slug": "le-mouvement-leclerc",
     "url": "https://www.mouvement.leclerc/",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet laborum illum maxime iusto minima reiciendis praesentium labore ab, sed sapiente officia enim consequuntur atque non rerum nostrum quibusdam rem molestiae!",
+    "description": "D\u00e9veloppement et maintenance du site institutionnel du mouvement Leclerc, facilitant la communication interne et externe de l\u2019organisation.",
     "year": "2011",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
@@ -980,7 +1004,7 @@
     "name": "Emag SFR",
     "slug": "emag-sfr",
     "url": "https://sfr.fr",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet laborum illum maxime iusto minima reiciendis praesentium labore ab, sed sapiente officia enim consequuntur atque non rerum nostrum quibusdam rem molestiae!",
+    "description": "D\u00e9veloppement du magazine en ligne Emag SFR, combinant interactivit\u00e9 et ergonomie pour proposer un contenu digital riche et accessible.",
     "year": "2017",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
@@ -992,10 +1016,10 @@
       "CSS",
       "Javascript",
       "Python 3",
-      "Django",
       "ReactJS",
       "NodeJS",
-      "PostgreSQL"
+      "PostgreSQL",
+      "Flask"
     ]
   },
   {
@@ -1003,7 +1027,7 @@
     "name": "Europcar-up",
     "slug": "europcar-up",
     "url": "https://europcar.com",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet laborum illum maxime iusto minima reiciendis praesentium labore ab, sed sapiente officia enim consequuntur atque non rerum nostrum quibusdam rem molestiae!",
+    "description": "Refonte de la plateforme Europcar, facilitant la r\u00e9servation et la gestion des v\u00e9hicules tout en am\u00e9liorant l\u2019exp\u00e9rience utilisateur.",
     "year": "2011",
     "activity_name": "automobile",
     "activity_icon": "fa-solid fa-car",
@@ -1024,7 +1048,7 @@
     "name": "Dyson affaire airblade v2",
     "slug": "dyson-affaire-airblade-v2",
     "url": "https://www.youtube.com/watch?v=jU0WojRkd30",
-    "description": "description",
+    "description": "Refonte de l\u2019intranet commercial Dyson Airblade, optimisant la gestion des ventes et la formation des \u00e9quipes.",
     "year": "2012",
     "activity_name": "e-commerce",
     "activity_icon": "fa-solid fa-cart-shopping",
@@ -1036,7 +1060,8 @@
       "CSS",
       "Javascript",
       "PHP",
-      "MySql"
+      "MySql",
+      "JQuery"
     ]
   },
   {
@@ -1044,7 +1069,7 @@
     "name": "Palmar\u00e8s Avocats LePoint",
     "slug": "palmares-avocats-lepoint",
     "url": "https://www.lepoint.fr/classements/avocats/",
-    "description": "classement des cabinets avocats en Francs",
+    "description": "Mise en ligne du classement des cabinets d\u2019avocats en France, permettant un acc\u00e8s clair et rapide aux informations pour les professionnels et le grand public.",
     "year": "2022",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
@@ -1058,7 +1083,8 @@
       "Python 3",
       "Django",
       "PostgreSQL",
-      "PHP"
+      "PHP",
+      "NodeJS"
     ]
   },
   {
@@ -1066,7 +1092,7 @@
     "name": "Palmar\u00e8s des H\u00f4pitaux LePoint",
     "slug": "palmares-des-hopitaux-lepoint",
     "url": "https://www.lepoint.fr/hopitaux/",
-    "description": "Classement Hopitaux et clinique",
+    "description": "Conception et d\u00e9veloppement d\u2019une application sp\u00e9cifique pour le classement des h\u00f4pitaux et cliniques. Gestion compl\u00e8te des donn\u00e9es, calculs de scores et pr\u00e9sentation interactive des r\u00e9sultats. Une solution robuste pour un projet ambitieux \u00e0 forte audience.",
     "year": "2022",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
@@ -1080,7 +1106,8 @@
       "Python 3",
       "Django",
       "PostgreSQL",
-      "PHP"
+      "PHP",
+      "NodeJS"
     ]
   },
   {
@@ -1088,7 +1115,7 @@
     "name": "Palmar\u00e8s des \u00e9coles LePoint",
     "slug": "palmares-des-ecoles-lepoint",
     "url": "https://www.lepoint.fr/classements/grandes-ecoles/",
-    "description": "Classement \u00e9cole de commerce",
+    "description": "D\u00e9clinaison du g\u00e9n\u00e9rateur de palmar\u00e8s pour les \u00e9coles de commerce, permettant une publication rapide et structur\u00e9e des r\u00e9sultats. Ergonomie et fiabilit\u00e9 au service de la diffusion d\u2019informations strat\u00e9giques.",
     "year": "2022",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
@@ -1101,7 +1128,9 @@
       "Javascript",
       "Python 3",
       "Django",
-      "PHP"
+      "PHP",
+      "NodeJS",
+      "PostgreSQL"
     ]
   },
   {
@@ -1109,7 +1138,7 @@
     "name": "Palmar\u00e8s des villes LePoint",
     "slug": "palmares-des-villes-lepoint",
     "url": "https://www.lepoint.fr/palmares-des-villes/",
-    "description": "Gestion des villes",
+    "description": "D\u00e9clinaison du g\u00e9n\u00e9rateur de palmar\u00e8s pour la gestion des villes fran\u00e7aises, offrant une interface claire et une consultation intuitive pour les lecteurs.",
     "year": "2022",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
@@ -1122,7 +1151,9 @@
       "Javascript",
       "Python 3",
       "Django",
-      "PHP"
+      "PHP",
+      "NodeJS",
+      "PostgreSQL"
     ]
   },
   {
@@ -1130,7 +1161,7 @@
     "name": "Palmar\u00e8s RSE LePoint",
     "slug": "palmares-rse-lepoint",
     "url": "https://www.lepoint.fr/palmares-entreprises-responsables/",
-    "description": "Classement entreprise \u00e9co responsable",
+    "description": "D\u00e9clinaison du g\u00e9n\u00e9rateur de palmar\u00e8s pour les entreprises responsables, garantissant pr\u00e9cision et fiabilit\u00e9 des informations publi\u00e9es.",
     "year": "2022",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
@@ -1142,7 +1173,10 @@
       "CSS",
       "Javascript",
       "Python 3",
-      "PHP"
+      "PHP",
+      "NodeJS",
+      "Django",
+      "PostgreSQL"
     ]
   },
   {
@@ -1150,7 +1184,7 @@
     "name": "Palmar\u00e8s sant\u00e9 par pays LePoint",
     "slug": "palmares-sante-par-pays-lepoint",
     "url": "https://www.lepoint.fr/palmares-sante-par-pays/",
-    "description": "sant\u00e9 par pays",
+    "description": "D\u00e9clinaison du g\u00e9n\u00e9rateur de palmar\u00e8s pour la sant\u00e9 par pays, facilitant la comparaison des syst\u00e8mes de sant\u00e9 \u00e0 l\u2019international de mani\u00e8re interactive et p\u00e9dagogique.",
     "year": "2021",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
@@ -1162,7 +1196,10 @@
       "CSS",
       "Javascript",
       "Python 3",
-      "PHP"
+      "PHP",
+      "NodeJS",
+      "Django",
+      "PostgreSQL"
     ]
   },
   {
@@ -1170,7 +1207,7 @@
     "name": "Application mobile Lepoint",
     "slug": "application-mobile-lepoint",
     "url": "https://play.google.com/store/apps/details?id=fr.lepoint.android&hl=fr",
-    "description": "app mobile",
+    "description": "D\u00e9veloppement et maintenance de l\u2019application mobile LePoint (version 8.x), garantissant un acc\u00e8s rapide et intuitif aux contenus et aux actualit\u00e9s, avec une navigation fluide et un design ergonomique.",
     "year": "2020",
     "activity_name": "journalisme",
     "activity_icon": "fa-solid fa-newspaper",
@@ -1181,7 +1218,8 @@
       "HTML",
       "CSS",
       "Javascript",
-      "PHP"
+      "PHP",
+      "ReactJS"
     ]
   },
   {
@@ -1189,7 +1227,7 @@
     "name": "Honda moto occasion",
     "slug": "honda-moto-occasion",
     "url": "https://www.honda-motos.com/",
-    "description": "concessionnaires France moto occasion",
+    "description": "Maintenance puis refonte compl\u00e8te de la plateforme Honda Moto Occasion, un projet massif combinant performance, scalabilit\u00e9 et gestion complexe des donn\u00e9es. Optimisation des flux pour un site e-commerce \u00e0 fort trafic et haute volum\u00e9trie.",
     "year": "2017",
     "activity_name": "motocyclette",
     "activity_icon": "fa-solid fa-motorcycle",
@@ -1201,8 +1239,9 @@
       "CSS",
       "Javascript",
       "Docker",
-      "PHP",
-      "MySql"
+      "NodeJS",
+      "Django",
+      "PostgreSQL"
     ]
   }
 ]
