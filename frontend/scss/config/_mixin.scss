@@ -36,7 +36,7 @@
   $rule : $value;
 }
 
-@mixin breakpoints($screen, $key: max, $orientation: false){
+@mixin breakpoints($screen, $key: max, $dimension: width, $orientation: false){
   $value : 0;
 
   @each $k, $v in $breakpoints{
@@ -50,11 +50,11 @@
   }
 
   @if($orientation){
-    @media (#{$key}-width: $value) and (orientation : $orientation) {
+    @media (#{$key}-#{$dimension}: $value) and (orientation : $orientation) {
       @content;
     }
   }@else{
-    @media (#{$key}-width: $value) {
+    @media (#{$key}-#{$dimension}: $value) {
       @content;
     }
   }

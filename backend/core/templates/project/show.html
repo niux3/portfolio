@@ -102,11 +102,11 @@
           </span>
         </div>
 
-        <h2 class="project-card__title"><strong>[[- name ]]</strong></h2>
+        <h2><strong>[[- name ]]</strong></h2>
 
         <ul class="meta no-bullet">
           <li>
-            <span class="fa-solid fa-briefcase"></span>
+            <span class="fa-solid fa-user"></span>
             <span>[[- position ]]</span>
           </li>
           <li>
@@ -120,23 +120,29 @@
         </ul>
       </header>
 
-      <div class="project-card__body body">
-        <p class="project-card__description">[[- description ]]</p>
+      <div class="body">
+        <p>[[- description ]]</p>
 
-        <div class="project-card__tech">
-          <h3 class="tech-title">
-            <i class="fa-solid fa-microchip"></i>
+        <div class="technologies">
+          <h3>
+            <span class="fa-solid fa-toolbox"></span>
             Stack technique
           </h3>
-          <ul class="tech-list">
+          <ul class="no-bullet">
+          [[ for(technology of technologies){ ]]
+            <li>
+              <span class="fa-solid fa-wrench"></span>
+              [[- technology ]]
+            </li>
+          [[ } ]]
           </ul>
         </div>
       </div>
 
-      <footer class="project-card__footer">
-        <a href="[[- url ]]" target="_blank" class="button button--primary">
-          <i class="fa-solid fa-eye"></i>
-          Consulter
+      <footer>
+        <a href="[[- url ]]" target="_blank" class="link">
+          <span class="fa-solid fa-eye"></span>
+          consulter
         </a>
       </footer>
     </article>

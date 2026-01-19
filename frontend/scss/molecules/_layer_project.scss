@@ -1,5 +1,14 @@
 #project{
+  .content{
+    padding: 4.5rem 0;
+    height: 100%;
+  }
   article{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 100vh;
+    padding: 0 2.5rem;
     header{
       margin-top: 2.5rem;
       .base-infos{
@@ -36,68 +45,87 @@
       }
     }
     .body{
-      .description{
-        margin-bottom: 24px;
+      flex: 1;
+      min-height: 0;
+      @include breakpoints('md', min) {
+        overflow-y: visible;
+
+        p {
+          // Calcul dynamique en JS
+          // On définira max-height via JS
+        }
+      }
+
+      p{
+        margin-bottom: 2.4rem;
+        max-height: calc(100vh - 400px);
+          overflow-y: auto;
+          margin-bottom: 2rem;
+      }
+
+      ul{
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1.5rem;
+        align-items: center;
+        flex-shrink: 0; // Ne rétrécit pas
+        margin-top: auto;
+
+        li{
+          margin-right: 0.8rem;
+          display: flex;
+          align-items: center;
+          span{
+            margin-right: 0.5rem;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    footer{
+      text-align: center;
+      padding: 2.5rem 0;
+      flex-shrink: 0;
+      position: sticky;
+      bottom: 0;
+      // background: orange;
+      z-index: 10;
+      // pas envie de casser la tête avec les priorités. Alors, j'ai dû dupliquer du code venant de l'atom button
+      .link{
+        padding: 1rem 1.5rem;
+        display: inline-block;
+        border-radius: $border-radius;
+        font-size: $font-size-base;
+        color: var(--color-laval);
+        background-color: var(--color-cannes);
+        font-variant: small-caps;
+        text-decoration: none;
+        transition: color .4s, background-color .4s;
+
+        span{
+          font-size: 1.3rem;
+          margin-right: 0.5rem;
+        }
+
+        &:hover{
+          color: var(--color-cannes);
+          background-color: var(--color-nice);
+        }
       }
     }
   }
+}
+html[data-theme-preference="dark"]{
+  #project{
+    .link{
+      border: .2rem solid transparent;
 
-  .tech-title {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #64748b;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
 
-  .tech-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .tech-item {
-    background: #f1f5f9;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    color: #475569;
-    transition: all 0.2s;
-  }
-
-  .tech-item:hover {
-    background: #e2e8f0;
-    transform: translateY(-1px);
-  }
-
-  .project-card__footer {
-    padding: 0 25px 25px;
-    text-align: center;
-  }
-
-  .button--primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    color: white;
-    padding: 10px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .button--primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+      &:is(:hover, :active){
+        color: var(--color-cannes);
+        background-color: var(--color-laval);
+        border-color: var(--color-cannes);
+      }
+    }
   }
 }
