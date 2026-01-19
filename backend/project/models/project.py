@@ -13,14 +13,32 @@ class Project(db.Model, SerializerMixin):
     description = db.Column(db.Text)
     color = db.Column(db.String(8), nullable=False)
     created = db.Column(db.DateTime, default=datetime.now)
-    modified = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+    modified = db.Column(
+        db.DateTime,
+        default=datetime.now,
+        onupdate=datetime.now
+    )
     online = db.Column(db.SmallInteger, default=1)
     url = db.Column(db.String(256), nullable=False)
-    functions_id = db.Column(db.Integer, db.ForeignKey('project_functions.id', onupdate='CASCADE', ondelete='CASCADE'))
+    functions_id = db.Column(
+        db.Integer,
+        db.ForeignKey(
+            'project_functions.id',
+            onupdate='CASCADE',
+            ondelete='CASCADE'
+        )
+    )
     function = db.relationship("Function", backref="projects")
     sort = db.Column(db.Integer, nullable=True)
     year = db.Column(db.String(16), nullable=True)
-    activities_id = db.Column(db.Integer, db.ForeignKey('project_activities.id', onupdate='CASCADE', ondelete='CASCADE'))
+    activities_id = db.Column(
+        db.Integer,
+        db.ForeignKey(
+            'project_activities.id',
+            onupdate='CASCADE',
+            ondelete='CASCADE'
+        )
+    )
     activity = db.relationship("Activity", back_populates="projects")
     customer = db.Column(db.String(128), nullable=False)
     location = db.Column(db.String(128), nullable=False)
@@ -35,7 +53,7 @@ class Project(db.Model, SerializerMixin):
         'Technology',
         secondary='project_projects_technologies',
         backref=db.backref('projects', lazy='dynamic'),
-        viewonly=True  # Solution clé : marque cette relation comme lecture seule
+        # viewonly=True  # Solution clé : marque cette relation comme lecture seule
     )
 
     def __str__(self):
