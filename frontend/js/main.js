@@ -1,13 +1,10 @@
 import '../scss/index.scss'
 import ProgressBarBehavior from './progressBar/ProgressBarBehavior'
-import darkmode from './darkmode'
 import formContact from './formContact'
 import LogReaderActivity from './logReaderActivity/LogReaderActivity'
 import Utils from './Utils'
 import LateralBar from './lateralBar/LateralBar'
 import LayerPanelController from './layer/LayerPanelController'
-// import LayerSummary from './layer/layerSummary/LayerSummary'
-// import LayerSearch from './layer/layerSearch/LayerSearch'
 import Swup from 'swup'
 import SwupA11yPlugin from '@swup/a11y-plugin'
 import DarkMode from './darkmode'
@@ -41,6 +38,22 @@ window.addEventListener('DOMContentLoaded', () => {
         // layer
         layerController = new LayerPanelController(document)
         layerController.init()
+
+        // project
+        const $buttons = document.querySelectorAll('button[aria-controls="project"]')
+        if ($buttons.length) {
+            const $section = document.querySelector('section.work:has(button[aria-controls="project"])')
+            $section.addEventListener('mouseover', e => {
+                const $currentBtn = $section.querySelector('button.current')
+                if (e.target.closest('button, a[href]')) {
+                    let $item = e.target.closest('button, a[href]')
+                    if ($currentBtn !== null && !$item.classList.contains('current')) {
+                        $currentBtn.classList.add('reset')
+                        $item.addEventListener('mouseout', e => $currentBtn.classList.remove('reset'), { once: true }) // <--- Magique, il s'auto-détruit !
+                    }
+                }
+            }, true)
+        }
 
         //logReader
         logReaderActivity = new LogReaderActivity()
