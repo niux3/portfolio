@@ -1,21 +1,23 @@
-# Nouveau contenu Python : maîtriser enfin `itertools.groupby()` (et éviter les pièges)
+Django : sécuriser vos CreateView contre les race conditions
 
-Aujourd’hui, j’ai publié un article dédié à un sujet souvent mal compris, même par des développeurs expérimentés : le regroupement de données en Python.
+Aujourd'hui, j'ai publié un article (suite à un commentaire sur LinkedIn) sur un bug silencieux qui touche beaucoup d'applications Django en production que j'ai constaté régulièrement : la vente de stock fantôme.
 
-Comment grouper proprement des enregistrements par date, catégorie ou statut ?
-Pourquoi `itertools.groupby()` ne fonctionne-t-il pas sans tri préalable ?
-Quand vaut-il mieux utiliser `defaultdict` plutôt que `groupby` ?
-Quels sont les pièges classiques qui génèrent des bugs silencieux ?
+Pourquoi une CreateView parfaitement fonctionnelle en local peut-elle générer des stocks négatifs une fois en ligne ? Qu'est-ce qu'une race condition et comment Django peut-il y être vulnérable ? Comment utiliser correctement @transaction.atomic et select_for_update() ? Pourquoi models.F() est un allié précieux pour les mises à jour atomiques ? Comment transposer ces bonnes pratiques dans Django REST Framework ?
 
-Dans cet article, je partage :
+Dans cet article, je détaille :
 
-- des exemples concrets
-- des explications claires et pédagogiques
-- les bonnes pratiques à adopter
-- une comparaison utile entre `groupby()` et `defaultdict`
-- une version compacte et pythonique pour ceux qui veulent aller droit au but
+    le scénario concret qui fait planter une gestion de stock
 
-Si vous travaillez avec des listes de dictionnaires, des logs, des fichiers ou des objets Python, cet article peut vraiment vous faire gagner du temps et améliorer la qualité de votre code.
+    les outils natifs de Django pour garantir l'intégrité des données
 
-**Lien de l’article en commentaire.**
-Bonne lecture, et vos retours sont les bienvenus !
+    une version robuste pour les vues classiques et pour les API DRF
+
+    les erreurs à ne pas commettre quand on manipule des ressources partagées
+
+Si vous développez une boutique en ligne, un système de réservation ou toute application où plusieurs utilisateurs peuvent modifier une même ressource, cet article vous évitera des appels clients un dimanche soir.
+
+Django : Pourquoi votre CreateView « simple » peut vendre du stock fantôme
+
+Bonne lecture, et vos retours d'expérience sur les bugs de concurrence sont les bienvenus !
+
+#Django #Python #DRF #WebDevelopment #Backend #Concurrency
