@@ -5,7 +5,15 @@
         <link>https://rb-webstudio.go.yj.fr</link>
         <description>RB webstudio - spécialiste Python - Javascript/Typescript</description>
         <language>fr</language>
-        <lastBuildDate>2026-02-20</lastBuildDate>
+        <lastBuildDate>2026-04-19</lastBuildDate>
+        
+        <item>
+            <title>Django : Pourquoi votre CreateView « simple » peut vendre du stock fantôme</title>
+            <link>https://rb-webstudio.go.yj.fr/articles/django-pourquoi-votre-createview-simple-peut-vendre-du-stock-fantome-54.html</link>
+            <description><![CDATA[aze]]></description>
+            <pubDate>2026-04-19 21:03:54.892227</pubDate>
+            <guid>https://rb-webstudio.go.yj.fr/articles/django-pourquoi-votre-createview-simple-peut-vendre-du-stock-fantome-54.html</guid>
+        </item>
         
         <item>
             <title>Grouper des enregistrements en fonction d’un champ avec itertools.groupby</title>
@@ -157,14 +165,6 @@
             <description><![CDATA[Apprenez à gérer le focus dans vos modales HTML pour garantir une accessibilité optimale et éviter des erreurs courantes de navigation clavier.]]></description>
             <pubDate>2025-07-21 23:09:24.840211</pubDate>
             <guid>https://rb-webstudio.go.yj.fr/articles/comment-bien-gerer-le-focus-dans-vos-interfaces-35.html</guid>
-        </item>
-        
-        <item>
-            <title>Rendre les éléments focalisables</title>
-            <link>https://rb-webstudio.go.yj.fr/articles/rendre-les-elements-focalisables-34.html</link>
-            <description><![CDATA[Comprendre et maîtriser les éléments focalisables pour garantir l'accessibilité clavier sur vos sites web. Bonnes pratiques et pièges à éviter.]]></description>
-            <pubDate>2025-07-17 23:48:41.970596</pubDate>
-            <guid>https://rb-webstudio.go.yj.fr/articles/rendre-les-elements-focalisables-34.html</guid>
         </item>
         
     </channel>
