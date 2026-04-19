@@ -110,22 +110,42 @@
       <div class="content flag-down delay6"><h2>Le piège du code qui marche... jusqu'au jour de l'affluence</h2>
 <p>Quand on débute avec les vues génériques de Django, on est émerveillé par leur simplicité. Une <code>CreateView</code> pour gérer une commande, quelques lignes de validation, et le tour est joué.</p>
 <p>Regardons ce code qui semble parfaitement logique :</p>
-<pre><code class="language-Python"># views.py
-from django.views.generic.edit import CreateView
+<pre><code class="language-Python"># forms.py
+from django import forms
 from .models import Order, Product
+
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['product', 'quantity']
+
+    def clean(self):
+        cleaned_data = super().clean()
+        product = cleaned_data.get('product')
+        quantity = cleaned_data.get('quantity')
+
+        if product and quantity:
+            if product.stock &lt; quantity:
+                raise forms.ValidationError(
+                    f&quot;Stock insuffisant. Disponible : {product.stock}&quot;
+                )
+
+        return cleaned_data
+
+
+# views.py
+from django.views.generic.edit import CreateView
+from .models import Order
+from .forms import OrderForm
 
 class OrderCreateView(CreateView):
     model = Order
-    fields = ['product', 'quantity']
+    form_class = OrderForm
 
     def form_valid(self, form):
+        # Le formulaire est déjà valide (stock vérifié)
         product = form.cleaned_data['product']
         quantity = form.cleaned_data['quantity']
-
-        # Vérification du stock
-        if product.stock &lt; quantity:
-            form.add_error('quantity', 'Stock insuffisant')
-            return self.form_invalid(form)
 
         # Calcul du total
         form.instance.total = product.price * quantity
@@ -163,8 +183,11 @@ class OrderCreateView(CreateView):
 
 @transaction.atomic
 def form_valid(self, form):
+    # ...
     # Si une exception est levée ici, RIEN n'est enregistré en base.
-    ...
+    if product.stock &lt; quantity:
+        raise ValidationError(&quot;Stock insuffisant (vérification finale)&quot;)
+    # ...
 </code></pre>
 <h3>Outil n°2 : La méthode <code>select_for_update()</code></h3>
 <p>C'est l'arme fatale contre les race conditions. Elle pose un verrou sur la ligne de la base de données <code>SELECT ... FOR UPDATE</code>.</p>
