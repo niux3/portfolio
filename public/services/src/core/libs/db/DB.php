@@ -27,13 +27,31 @@
             try {
                 if(count($params) > 0){
                     $this->query = $this->pdo->prepare($sql);
-                    $this->query->execute($params);
+                    foreach($params as $key => $value){
+                        $paramType = PDO::PARAM_STR;
+
+                        if(is_int($value)){
+                            $paramType = PDO::PARAM_INT;
+                        } elseif(is_bool($value)){
+                            $paramType = PDO::PARAM_BOOL;
+                        } elseif(is_null($value)){
+                            $paramType = PDO::PARAM_NULL;
+                        }
+
+                        if(is_string($key)){
+                            $this->query->bindValue($key, $value, $paramType);
+                        } else {
+                            $this->query->bindValue($key + 1, $value, $paramType);
+                        }
+                    }
+                    $this->query->execute();
                 }else{
                     $this->query = $this->pdo->query($sql);
                 }
 
                 return $this;
             } catch (Exception $e) {
+                error_log("Database error: " . $e->getMessage());
                 return false;
             }
         }
