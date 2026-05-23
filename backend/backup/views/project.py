@@ -72,6 +72,7 @@ def export_html():
         "layout_template": "base_export.html",
         "js_file": manifest_data.get('frontend/js/main.js').get('file'),
         "css_file": manifest_data.get('frontend/scss/index.scss').get('file'),
+        'homepage': True,
         "object_list": {
             "projects": Project.query.filter(Project.online == 1).order_by(desc('year')),
             "technologies": Technology.query.filter(Technology.online == 1).all(),
