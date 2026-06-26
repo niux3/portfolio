@@ -3,7 +3,7 @@ from wtforms.validators import InputRequired
 from wtforms import StringField, BooleanField
 from wtforms.ext.sqlalchemy.fields import QuerySelectMultipleField, QuerySelectField
 from wtforms.widgets import TextArea, CheckboxInput, ListWidget
-from backend.project.models import Technology, Function, Activity
+from backend.project.models import Technology, Function, Activity, Customer
 
 
 class ProjectForm(FlaskForm):
@@ -16,7 +16,12 @@ class ProjectForm(FlaskForm):
     )], widget=TextArea(), render_kw={'style': 'min-height: 200px; resize: vertical;'})
     color = StringField('couleur', validators=[
                         InputRequired()], render_kw={"type": "color"})
-    customer = StringField('customer', validators=[InputRequired()])
+    customer = QuerySelectField(
+        'Client',
+        query_factory=lambda: Customer.query.order_by(Customer.name).all(),
+        get_label='name',
+        validators=[InputRequired()]
+    )
     location = StringField('location', validators=[InputRequired()])
     online = BooleanField('en ligne', render_kw={"value": "1"})
     activity = QuerySelectField(
