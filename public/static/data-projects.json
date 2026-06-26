@@ -913,7 +913,7 @@
     "activity_icon": "fa-solid fa-utensils",
     "position": "frontend",
     "location": "Nanterre",
-    "customer": null,
+    "customer": "Business Lab",
     "technologies": [
       "HTML",
       "CSS",
@@ -932,7 +932,7 @@
     "activity_icon": "fa-solid fa-mobile-screen",
     "position": "backend/frontend",
     "location": "Paris 8",
-    "customer": null,
+    "customer": "Publicis",
     "technologies": [
       "HTML",
       "CSS",
@@ -953,7 +953,7 @@
     "activity_icon": "fa-solid fa-cart-shopping",
     "position": "frontend",
     "location": "Nanterre",
-    "customer": null,
+    "customer": "Business Lab",
     "technologies": [
       "HTML",
       "CSS",
@@ -972,7 +972,7 @@
     "activity_icon": "fa-solid fa-cart-shopping",
     "position": "frontend",
     "location": "Nanterre",
-    "customer": null,
+    "customer": "Business Lab",
     "technologies": [
       "HTML",
       "CSS",
