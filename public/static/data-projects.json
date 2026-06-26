@@ -75,7 +75,7 @@
     "activity_icon": "fa-solid fa-newspaper",
     "position": "backend/frontend",
     "location": "Paris 15",
-    "customer": "SEBDO - LePoint",
+    "customer": "SEBDO (Journal Le Point)",
     "technologies": [
       "HTML",
       "CSS",
@@ -101,7 +101,7 @@
     "activity_icon": "fa-solid fa-newspaper",
     "position": "backend/frontend",
     "location": "Paris 15",
-    "customer": "SEBDO",
+    "customer": "SEBDO (Journal Le Point)",
     "technologies": [
       "HTML",
       "CSS",
@@ -147,7 +147,7 @@
     "activity_icon": "fa-solid fa-suitcase-rolling",
     "position": "backend/frontend",
     "location": "Boulogne",
-    "customer": "Viseo",
+    "customer": "Creativ",
     "technologies": [
       "HTML",
       "CSS",
@@ -172,7 +172,7 @@
     "activity_icon": "fa-solid fa-cart-shopping",
     "position": "backend/frontend",
     "location": "Paris 2",
-    "customer": "Creativ - Viseo",
+    "customer": "Creativ",
     "technologies": [
       "HTML",
       "CSS",
@@ -220,7 +220,7 @@
     "activity_icon": "fa-solid fa-soap",
     "position": "backend/frontend",
     "location": "Paris 8",
-    "customer": "Publicis - Razorfish",
+    "customer": "Publicis",
     "technologies": [
       "HTML",
       "CSS",
@@ -242,7 +242,7 @@
     "activity_icon": "fa-solid fa-motorcycle",
     "position": "frontend",
     "location": "Paris 8",
-    "customer": "Publicis - Prodigious",
+    "customer": "Publicis",
     "technologies": [
       "HTML",
       "CSS",
@@ -264,7 +264,7 @@
     "activity_icon": "fa-solid fa-car",
     "position": "frontend",
     "location": "Paris 8",
-    "customer": "Publicis - Prodigious",
+    "customer": "Publicis",
     "technologies": [
       "HTML",
       "CSS",
@@ -284,7 +284,7 @@
     "activity_icon": "fa-solid fa-notes-medical",
     "position": "backend/frontend",
     "location": "Paris 8",
-    "customer": "Publicis - Prodigious",
+    "customer": "Publicis",
     "technologies": [
       "HTML",
       "CSS",
@@ -306,7 +306,7 @@
     "activity_icon": "fa-solid fa-car",
     "position": "backend/frontend",
     "location": "Paris 8",
-    "customer": "Publicis - Prodigious",
+    "customer": "Publicis",
     "technologies": [
       "HTML",
       "CSS",
@@ -327,7 +327,7 @@
     "activity_icon": "fa-solid fa-car",
     "position": "backend/frontend",
     "location": "Paris 8",
-    "customer": "Publicis - Prodigious",
+    "customer": "Publicis",
     "technologies": [
       "HTML",
       "CSS",
@@ -350,7 +350,7 @@
     "activity_icon": "fa-solid fa-car",
     "position": "backend/frontend",
     "location": "Paris 8",
-    "customer": "Publicis - Prodigious",
+    "customer": "Publicis",
     "technologies": [
       "HTML",
       "CSS",
@@ -372,7 +372,7 @@
     "activity_icon": "fa-solid fa-car",
     "position": "backend/frontend",
     "location": "Paris 8",
-    "customer": "Publicis - Prodigious",
+    "customer": "Publicis",
     "technologies": [
       "HTML",
       "CSS",
@@ -395,7 +395,7 @@
     "activity_icon": "fa-solid fa-plane",
     "position": "frontend",
     "location": "Levallois Perret",
-    "customer": "Fullsix - ADP",
+    "customer": "Fullsix",
     "technologies": [
       "HTML",
       "CSS",
@@ -455,7 +455,7 @@
     "activity_icon": "fa-solid fa-cart-shopping",
     "position": "frontend",
     "location": "Gennevillier",
-    "customer": "groupe Bazarchic",
+    "customer": "Bazarchic",
     "technologies": [
       "HTML",
       "CSS",
@@ -474,7 +474,7 @@
     "activity_icon": "fa-solid fa-cart-shopping",
     "position": "frontend",
     "location": "Gennevillier",
-    "customer": "groupe Bazarchic",
+    "customer": "Bazarchic",
     "technologies": [
       "HTML",
       "CSS",
@@ -494,7 +494,7 @@
     "activity_icon": "fa-solid fa-utensils",
     "position": "backend/frontend",
     "location": "Nanterre",
-    "customer": "Groupe Flo",
+    "customer": "Business Lab",
     "technologies": [
       "HTML",
       "CSS",
@@ -597,7 +597,7 @@
     "activity_icon": "fa-solid fa-plane",
     "position": "frontend",
     "location": "Nanterre",
-    "customer": "Business Lab - Amadeus",
+    "customer": "Business Lab",
     "technologies": [
       "HTML",
       "CSS",
@@ -616,7 +616,7 @@
     "activity_icon": "fa-solid fa-plane",
     "position": "frontend",
     "location": "Nanterre",
-    "customer": "Business Lab - Amadeus",
+    "customer": "Business Lab",
     "technologies": [
       "HTML",
       "CSS",
@@ -654,7 +654,7 @@
     "activity_icon": "fa-solid fa-plane",
     "position": "frontend",
     "location": "Nanterre",
-    "customer": "Business Lab - Amadeus",
+    "customer": "Business Lab",
     "technologies": [
       "HTML",
       "CSS",
@@ -673,7 +673,7 @@
     "activity_icon": "fa-solid fa-plane",
     "position": "frontend",
     "location": "Nanterre",
-    "customer": "Business Lab - Amadeus",
+    "customer": "Business Lab",
     "technologies": [
       "HTML",
       "CSS",
@@ -815,7 +815,7 @@
     "activity_icon": "fa-solid fa-car",
     "position": "frontend",
     "location": "Nanterre",
-    "customer": "Business Lab - Argonautes",
+    "customer": "Business Lab",
     "technologies": [
       "HTML",
       "CSS",
@@ -873,7 +873,7 @@
     "activity_icon": "fa-solid fa-radiation",
     "position": "frontend",
     "location": "La Garenne Colombe",
-    "customer": "Business Lab - Areva",
+    "customer": "Business Lab",
     "technologies": [
       "HTML",
       "CSS",
@@ -913,7 +913,7 @@
     "activity_icon": "fa-solid fa-utensils",
     "position": "frontend",
     "location": "Nanterre",
-    "customer": "Business Lab",
+    "customer": null,
     "technologies": [
       "HTML",
       "CSS",
@@ -932,7 +932,7 @@
     "activity_icon": "fa-solid fa-mobile-screen",
     "position": "backend/frontend",
     "location": "Paris 8",
-    "customer": "Publicis - Prodigious",
+    "customer": null,
     "technologies": [
       "HTML",
       "CSS",
@@ -953,7 +953,7 @@
     "activity_icon": "fa-solid fa-cart-shopping",
     "position": "frontend",
     "location": "Nanterre",
-    "customer": "Business Lab",
+    "customer": null,
     "technologies": [
       "HTML",
       "CSS",
@@ -972,7 +972,7 @@
     "activity_icon": "fa-solid fa-cart-shopping",
     "position": "frontend",
     "location": "Nanterre",
-    "customer": "Business Lab",
+    "customer": null,
     "technologies": [
       "HTML",
       "CSS",
@@ -1010,7 +1010,7 @@
     "activity_icon": "fa-solid fa-newspaper",
     "position": "backend/frontend",
     "location": "Paris 8",
-    "customer": "Publicis - Prodigious",
+    "customer": "Publicis",
     "technologies": [
       "HTML",
       "CSS",
@@ -1075,7 +1075,7 @@
     "activity_icon": "fa-solid fa-newspaper",
     "position": "backend/frontend",
     "location": "Paris, France",
-    "customer": "LePoint",
+    "customer": "SEBDO (Journal Le Point)",
     "technologies": [
       "HTML",
       "CSS",
@@ -1098,7 +1098,7 @@
     "activity_icon": "fa-solid fa-newspaper",
     "position": "backend/frontend",
     "location": "Paris, France",
-    "customer": "LePoint",
+    "customer": "SEBDO (Journal Le Point)",
     "technologies": [
       "HTML",
       "CSS",
@@ -1121,7 +1121,7 @@
     "activity_icon": "fa-solid fa-newspaper",
     "position": "backend/frontend",
     "location": "Paris, France",
-    "customer": "LePoint",
+    "customer": "SEBDO (Journal Le Point)",
     "technologies": [
       "HTML",
       "CSS",
@@ -1144,7 +1144,7 @@
     "activity_icon": "fa-solid fa-newspaper",
     "position": "backend/frontend",
     "location": "Paris, France",
-    "customer": "LePoint",
+    "customer": "SEBDO (Journal Le Point)",
     "technologies": [
       "HTML",
       "CSS",
@@ -1167,7 +1167,7 @@
     "activity_icon": "fa-solid fa-newspaper",
     "position": "backend/frontend",
     "location": "Paris, France",
-    "customer": "LePoint",
+    "customer": "SEBDO (Journal Le Point)",
     "technologies": [
       "HTML",
       "CSS",
@@ -1190,7 +1190,7 @@
     "activity_icon": "fa-solid fa-newspaper",
     "position": "backend/frontend",
     "location": "Paris, France",
-    "customer": "LePoint",
+    "customer": "SEBDO (Journal Le Point)",
     "technologies": [
       "HTML",
       "CSS",
@@ -1213,7 +1213,7 @@
     "activity_icon": "fa-solid fa-newspaper",
     "position": "frontend",
     "location": "Paris, France",
-    "customer": "LePoint",
+    "customer": "SEBDO (Journal Le Point)",
     "technologies": [
       "HTML",
       "CSS",
@@ -1233,7 +1233,7 @@
     "activity_icon": "fa-solid fa-motorcycle",
     "position": "backend/frontend",
     "location": "Paris, France",
-    "customer": "Publicis - Prodigious",
+    "customer": "Publicis",
     "technologies": [
       "HTML",
       "CSS",
