@@ -6,7 +6,7 @@ from datetime import datetime
 from sqlalchemy import desc
 from flask import render_template, Blueprint, jsonify, url_for, redirect, flash
 from backend.core.config import config
-from backend.project.models import Project, Technology, Activity, Function, ProjectTechnology
+from backend.project.models import Project, Technology, Activity, Function, ProjectTechnology, Customer
 from backend import db
 
 
@@ -29,7 +29,7 @@ def export_project_data_frontend():
         "activity_icon": r.activity.icon if r.activity else None,
         "position": r.function.name if r.function else None,
         "location": r.location,
-        "customer": r.customer,
+        "customer": r.customer.name if r.customer else None,
         "technologies": [t.name for t in r.technologies]
     } for r in Project.query.filter(Project.online == 1).all()]
 
@@ -41,6 +41,7 @@ def export_project_data_frontend():
 def export_project_data_backend():
     output = {
         'project': [r.to_dict() for r in Project.query.all()],
+        'customer': [r.to_dict() for r in Customer.query.all()],
         'activity': [r.to_dict() for r in Activity.query.all()],
         'function': [r.to_dict() for r in Function.query.all()],
         'technology': [r.to_dict() for r in Technology.query.all()],
@@ -98,12 +99,13 @@ def import_json():
         data = json.load(f)
     projects = [Project.from_dict(item) for item in data['project']]
     activities = [Activity.from_dict(item) for item in data['activity']]
+    customers = [Customer.from_dict(item) for item in data['customer']]
     functions = [Function.from_dict(item) for item in data['function']]
     technologies = [Technology.from_dict(item) for item in data['technology']]
     project_technologies = [ProjectTechnology.from_dict(
         item) for item in data['project_technology']]
 
-    db.session.add_all(projects + activities + functions +
+    db.session.add_all(projects + activities + customers + functions +
                        technologies + project_technologies)
     db.session.commit()
     flash("Votre import en json est réussi", "success")
