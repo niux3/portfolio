@@ -18,4 +18,4 @@ class CvData(db.Model, SerializerMixin):
         return self.id
 
     def __repr__(self):
-        return "<Post %r>" % self.id
+        return "<CvData %r>" % self.id
