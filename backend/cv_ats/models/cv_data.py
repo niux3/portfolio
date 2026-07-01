@@ -6,7 +6,7 @@ from backend import db
 class CvData(db.Model, SerializerMixin):
     __tablename__ = 'cv_data'
     id = db.Column(db.Integer, primary_key=True)
-    data = db.Column(db.Text, nullable=False)  # Le JSON brut
+    json_data = db.Column(db.Text, nullable=False)  # Le JSON brut
     created = db.Column(db.DateTime, default=datetime.now)
     updated = db.Column(
         db.DateTime,
