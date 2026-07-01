@@ -5,7 +5,7 @@ from wtforms import StringField
 
 
 class CvDataForm(FlaskForm):
-    data = StringField(
+    json_data = StringField(
         'JSON du CV',
         validators=[InputRequired()],
         widget=TextArea(),
