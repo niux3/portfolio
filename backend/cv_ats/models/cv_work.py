@@ -30,6 +30,17 @@ class CvWork(db.Model, SerializerMixin):
     )
     position = db.relationship("CvPosition", backref="cv_works")
 
+    contract_type_id = db.Column(
+        db.Integer,
+        db.ForeignKey(
+            'cv_contracts.id',
+            onupdate='CASCADE',
+            ondelete='CASCADE'
+        ),
+        nullable=False
+    )
+    contract_type = db.relationship("CvContractType", backref="cv_works")
+
     customers_id = db.Column(
         db.Integer,
         db.ForeignKey(
