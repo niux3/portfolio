@@ -7,7 +7,6 @@ class CvWork(db.Model, SerializerMixin):
     __tablename__ = 'cv_works'
 
     id = db.Column(db.Integer, primary_key=True)
-    position = db.Column(db.String(128), nullable=False)
     location = db.Column(db.String(128), nullable=False)
     year_start = db.Column(db.SmallInteger, nullable=True)
     year_end = db.Column(db.SmallInteger, nullable=False)
