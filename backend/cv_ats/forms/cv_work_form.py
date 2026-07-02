@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms.validators import InputRequired
+from wtforms.validators import InputRequired, Optional
 from wtforms import StringField, IntegerField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms.widgets import TextArea
@@ -32,7 +32,7 @@ class CvWorkForm(FlaskForm):
             "autocomplete": "off"
         }
     )
-    year_start = IntegerField('year_start')
+    year_start = IntegerField('year_start', validators=[Optional()])
     year_end = IntegerField('year_end', validators=[InputRequired()])
     description = StringField(
         'description',
