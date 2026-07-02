@@ -34,6 +34,10 @@ class CvWorkForm(FlaskForm):
     )
     year_start = IntegerField('year_start', validators=[Optional()])
     year_end = IntegerField('year_end', validators=[InputRequired()])
+    summary = StringField(
+        'location',
+        validators=[InputRequired()],
+    )
     description = StringField(
         'description',
         validators=[InputRequired()],

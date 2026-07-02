@@ -11,6 +11,7 @@ class CvWork(db.Model, SerializerMixin):
     year_start = db.Column(db.SmallInteger, nullable=True)
     year_end = db.Column(db.SmallInteger, nullable=False)
     description = db.Column(db.Text, nullable=False)
+    summary = db.Column(db.String(255), nullable=True)
     created = db.Column(db.DateTime, default=datetime.now)
     updated = db.Column(
         db.DateTime,
