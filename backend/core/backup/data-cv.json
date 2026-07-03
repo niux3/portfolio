@@ -1,0 +1,87 @@
+{
+  "contract": [
+    {
+      "id": 1,
+      "name": "CDI"
+    },
+    {
+      "id": 2,
+      "name": "CDD"
+    },
+    {
+      "id": 3,
+      "name": "Freelance"
+    }
+  ],
+  "json_data": [
+    {
+      "id": 1,
+      "json_data": "{\r\n\"bla\": \"bla\"\r\n}",
+      "created": "2026-07-01T17:31:58.205514",
+      "updated": "2026-07-01T17:31:58.205521"
+    }
+  ],
+  "position": [
+    {
+      "id": 1,
+      "name": "Lead D\u00e9veloppeur Fullstack"
+    },
+    {
+      "id": 2,
+      "name": "Formateur professionnel"
+    },
+    {
+      "id": 3,
+      "name": "Lead d\u00e9veloppeur Frontend"
+    },
+    {
+      "id": 4,
+      "name": "D\u00e9veloppeur Backend"
+    },
+    {
+      "id": 5,
+      "name": "D\u00e9veloppeur Fullstack"
+    }
+  ],
+  "work": [
+    {
+      "id": 1,
+      "location": "Paris",
+      "year_start": 2025,
+      "year_end": 2026,
+      "description": "- Conception d'une plateforme d'apprentissage adaptative (Adaptive Learning) pilot\u00e9e par l'IA.\r\n- Conception d\u2019un backend haute performance avec Python (FastAPI & Django) pour l'orchestration de services d'IA G\u00e9n\u00e9rative (g\u00e9n\u00e9ration de quiz, r\u00e9sum\u00e9s dynamiques et tutorat automatis\u00e9).\r\n- D\u00e9veloppement d\u2019une UI r\u00e9active sous React & Vue.js, garantissant une exp\u00e9rience utilisateur fluide malgr\u00e9 la complexit\u00e9 des flux de donn\u00e9es temps r\u00e9el.\r\n- Impl\u00e9mentation du rendu hybride (SSR) pour assurer une indexation maximale des contenus p\u00e9dagogiques par les moteurs de recherche (SEO naturel).\r\n- Optimisation des performances et qualit\u00e9 du code\r\n- Mise en conformit\u00e9 stricte aux normes WCAG / RGAA (Accessibilit\u00e9), rendant la plateforme universellement utilisable (lecteurs d'\u00e9cran, navigation clavier).\r\n- Optimisation de la dette technique et des co\u00fbts d'infrastructure li\u00e9s aux appels LLM (IA).\r\n- Participation avec l'\u00e9quipe aux choix d'architecture technique\r\n- Intervention sur l'ensemble de la stack technique (depuis le d\u00e9veloppement d\u2019interfaces utilisateurs jusqu'\u00e0 l\u2019impl\u00e9mentation d\u2019agents IA et d\u2019architectures backend robustes et s\u00e9curis\u00e9es)",
+      "summary": "Renfort \u00e9quipe pour la conception d'une plateforme IA adaptative, backend performant, UI r\u00e9active, SSR, conforme WCAG/RGAA, optimisation LLM.",
+      "created": "2026-07-02T17:48:47.767815",
+      "updated": "2026-07-02T18:34:18.370506",
+      "position_id": 1,
+      "contract_type_id": 3,
+      "customers_id": 18
+    },
+    {
+      "id": 2,
+      "location": "Paris la D\u00e9fense",
+      "year_start": 2024,
+      "year_end": 2025,
+      "description": "- Formation JavaScript (3 jours) : Formation \u00e0 des salari\u00e9s \u00e0 IB Cegos \u00e0 Paris La D\u00e9fense, mettant l\u2019accent sur la programmation moderne, la performance web, et les bonnes pratiques dans le d\u00e9veloppement d\u2019applications\r\n- Formation Python (5 jours) : Formation aux outils Python, incluant des techniques de gestion de donn\u00e9es, d\u2019automatisation, et d\u2019optimisation des processus, adapt\u00e9e \u00e0 des professionnels en reconversion ou en am\u00e9lioration de leurs comp\u00e9tences.\r\n- Dans ces formations, j'ai partag\u00e9 mon expertise avec des \u00e9quipes en entreprise, am\u00e9liorant leur productivit\u00e9 tout en promouvant des pratiques de codage propres et efficaces, avec des retours extr\u00eamement positifs sur mes capacit\u00e9s p\u00e9dagogiques.\r\n- Cette exp\u00e9rience a renforc\u00e9 mes comp\u00e9tences en communication technique, en adaptabilit\u00e9 \u00e0 des publics vari\u00e9s et en gestion de projets de formation.",
+      "summary": "Formation JavaScript (3 jours) et Python (5 jours) aupr\u00e8s de professionnels chez IB Cegos. P\u00e9dagogie active, pratiques de codage propres, optimisation des processus. Retours excellents.",
+      "created": "2026-07-02T18:04:08.915374",
+      "updated": "2026-07-02T18:35:01.549378",
+      "position_id": 2,
+      "contract_type_id": 3,
+      "customers_id": 19
+    },
+    {
+      "id": 3,
+      "location": "Paris",
+      "year_start": 2023,
+      "year_end": 2024,
+      "description": "lorem",
+      "summary": "lorem",
+      "created": "2026-07-02T18:05:38.793308",
+      "updated": "2026-07-02T18:47:55.168268",
+      "position_id": 3,
+      "contract_type_id": 3,
+      "customers_id": 1
+    }
+  ]
+}
