@@ -1,5 +1,5 @@
 {
-  "contract": [
+  "contracts": [
     {
       "id": 1,
       "name": "CDI"
@@ -21,7 +21,7 @@
       "updated": "2026-07-01T17:31:58.205521"
     }
   ],
-  "position": [
+  "positions": [
     {
       "id": 1,
       "name": "Lead D\u00e9veloppeur Fullstack"
@@ -43,7 +43,7 @@
       "name": "D\u00e9veloppeur Fullstack"
     }
   ],
-  "work": [
+  "works": [
     {
       "id": 1,
       "location": "Paris",

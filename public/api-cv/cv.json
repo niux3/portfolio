@@ -19,9 +19,25 @@
         "Participation avec l'équipe aux choix d'architecture technique",
         "Intervention sur l'ensemble de la stack technique (depuis le développement d’interfaces utilisateurs jusqu'à l’implémentation d’agents IA et d’architectures backend robustes et sécurisées)"
       ],
-      "technologies": [],
+      "technologies": [
+        "CSS",
+        "Django",
+        "Docker",
+        "FastAPI",
+        "HTML",
+        "Javascript",
+        "NodeJS",
+        "Python 3",
+        "ReactJS",
+        "VueJS/NuxtJS"
+      ],
       "contract_type": "Freelance",
-      "projects": []
+      "projects": [
+        {
+          "name": "Skillwalker",
+          "url": "https://skillwaker.com/fr/"
+        }
+      ]
     },
     {
       "company": "Eluv/IB Cegos",
