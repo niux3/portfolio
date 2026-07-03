@@ -18,6 +18,7 @@ bp = Blueprint('backup_articles', __name__, url_prefix='/sauvegarde')
 filename = 'data-posts.json'
 file_data = config.BASEDIR / 'core' / 'backup' / filename
 
+
 @bp.route('/articles-export-json.html')
 def export_json():
     output = {
@@ -30,9 +31,11 @@ def export_json():
 
     with open(str(file_data), 'w', encoding='utf-8') as f:
         f.write(json.dumps(output, indent=2))
-    shutil.copy(str(file_data), str(config.BASEDIR.parent / 'public' / 'static' / filename))
+        path = config.BASEDIR.parent / 'public' / 'static' / filename
+    shutil.copy(str(file_data), str(path))
     flash("Votre export en json est réussi", "success")
     return redirect(url_for('posts.index'))
+
 
 @bp.route('/articles-import-json.html')
 def import_json():
