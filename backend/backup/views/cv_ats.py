@@ -1,7 +1,5 @@
 import json
-import pathlib
-from sqlalchemy import desc
-from flask import render_template, Blueprint, jsonify, url_for, redirect, flash
+from flask import Blueprint, url_for, redirect, flash
 from backend.core.config import config
 from backend.cv_ats.models import (
     CvContractType,
@@ -60,20 +58,16 @@ def export_json():
         return redirect(url_for('projects.index'))
 
 
-# @bp.route('/projets-import-json.html')
-# def import_json():
-#     with open(str(file_data), 'r', encoding='utf-8') as f:
-#         data = json.load(f)
-#     projects = [Project.from_dict(item) for item in data['project']]
-#     activities = [Activity.from_dict(item) for item in data['activity']]
-#     customers = [Customer.from_dict(item) for item in data['customer']]
-#     functions = [Function.from_dict(item) for item in data['function']]
-#     technologies = [Technology.from_dict(item) for item in data['technology']]
-#     project_technologies = [ProjectTechnology.from_dict(
-#         item) for item in data['project_technology']]
-#
-#     db.session.add_all(projects + activities + customers + functions +
-#                        technologies + project_technologies)
-#     db.session.commit()
-#     flash("Votre import en json est réussi", "success")
-#     return redirect(url_for('projects.index'))
+@bp.route('/cv-ats-import-json.html')
+def import_json():
+    with open(str(file_data), 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    contracts = [CvContractType.from_dict(item) for item in data['contract']]
+    json_data = [CvData.from_dict(item) for item in data['json_data']]
+    position = [CvPosition.from_dict(item) for item in data['position']]
+    work = [CvWork.from_dict(item) for item in data['work']]
+
+    db.session.add_all(contracts + json_data + position + work)
+    db.session.commit()
+    flash("Votre import en json est réussi", "success")
+    return redirect(url_for('projects.index'))
