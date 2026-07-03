@@ -1,5 +1,4 @@
 import json
-from pprint import pprint
 from flask import Blueprint, url_for, redirect, flash
 from backend.core.config import config
 from backend.project.models import Project
