@@ -66,7 +66,7 @@ def export_cv_ats_data_backend():
 
 @bp.route('/cv-ats-export-json.html')
 def export_json():
-    if export_cv_ats_frontend():
+    if export_cv_ats_frontend() and export_cv_ats_data_backend():
         flash("Votre export en json est réussi", "success")
         return redirect(url_for('projects.index'))
 
