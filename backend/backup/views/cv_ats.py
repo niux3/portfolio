@@ -38,12 +38,12 @@ file_data = config.BASEDIR / 'core' / 'backup' / 'data-cv.json'
 #     return True
 
 
-def export_project_data_backend():
+def export_cv_ats_data_backend():
     output = {
-        'contract': [r.to_dict() for r in CvContractType.query.all()],
+        'contracts': [r.to_dict() for r in CvContractType.query.all()],
         'json_data': [r.to_dict() for r in CvData.query.all()],
-        'position': [r.to_dict() for r in CvPosition.query.all()],
-        'work': [r.to_dict() for r in CvWork.query.all()],
+        'positions': [r.to_dict() for r in CvPosition.query.all()],
+        'works': [r.to_dict() for r in CvWork.query.all()],
     }
 
     with open(str(file_data), 'w', encoding='utf-8') as f:
@@ -53,7 +53,7 @@ def export_project_data_backend():
 
 @bp.route('/cv-ats-export-json.html')
 def export_json():
-    if export_project_data_backend():
+    if export_cv_ats_data_backend():
         flash("Votre export en json est réussi", "success")
         return redirect(url_for('projects.index'))
 
@@ -62,12 +62,12 @@ def export_json():
 def import_json():
     with open(str(file_data), 'r', encoding='utf-8') as f:
         data = json.load(f)
-    contracts = [CvContractType.from_dict(item) for item in data['contract']]
+    contracts = [CvContractType.from_dict(item) for item in data['contracts']]
     json_data = [CvData.from_dict(item) for item in data['json_data']]
-    position = [CvPosition.from_dict(item) for item in data['position']]
-    work = [CvWork.from_dict(item) for item in data['work']]
+    positions = [CvPosition.from_dict(item) for item in data['positions']]
+    works = [CvWork.from_dict(item) for item in data['works']]
 
-    db.session.add_all(contracts + json_data + position + work)
+    db.session.add_all(contracts + json_data + positions + works)
     db.session.commit()
     flash("Votre import en json est réussi", "success")
     return redirect(url_for('projects.index'))
