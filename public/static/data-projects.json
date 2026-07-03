@@ -928,7 +928,7 @@
     "url": "https://sfr.fr",
     "description": "D\u00e9veloppement de modules personnalis\u00e9s sur le site SFR, optimisant la gestion des services en ligne et am\u00e9liorant la performance et la fluidit\u00e9 de l\u2019exp\u00e9rience utilisateur.",
     "year": "2017",
-    "activity_name": "T\u00e9l\u00e9phonie mobile",
+    "activity_name": "t\u00e9l\u00e9phonie mobile",
     "activity_icon": "fa-solid fa-mobile-screen",
     "position": "backend/frontend",
     "location": "Paris 8",
@@ -1242,6 +1242,31 @@
       "NodeJS",
       "Django",
       "PostgreSQL"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Skillwalker",
+    "slug": "skillwalker",
+    "url": "https://skillwaker.com/fr/",
+    "description": "Skillwaker est une plateforme d'apprentissage adaptatif pilot\u00e9e par l'IA, con\u00e7ue pour personnaliser les parcours p\u00e9dagogiques.",
+    "year": "2026",
+    "activity_name": "formations pro",
+    "activity_icon": "fa-solid fa-graduation-cap",
+    "position": "backend/frontend",
+    "location": "Paris",
+    "customer": "Aesoweb",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "Javascript",
+      "Python 3",
+      "NodeJS",
+      "Docker",
+      "Django",
+      "ReactJS",
+      "VueJS/NuxtJS",
+      "FastAPI"
     ]
   }
 ]

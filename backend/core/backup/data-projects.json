@@ -1019,6 +1019,23 @@
       "activities_id": 11,
       "customers_id": 12,
       "location": "Paris, France"
+    },
+    {
+      "id": 61,
+      "name": "Skillwalker",
+      "slug": "skillwalker",
+      "description": "Skillwaker est une plateforme d'apprentissage adaptatif pilot\u00e9e par l'IA, con\u00e7ue pour personnaliser les parcours p\u00e9dagogiques.",
+      "color": "#000000",
+      "created": "2026-07-03T16:44:28.111710",
+      "modified": "2026-07-03T16:51:24.151717",
+      "online": 1,
+      "url": "https://skillwaker.com/fr/",
+      "functions_id": 1,
+      "sort": null,
+      "year": "2026",
+      "activities_id": 25,
+      "customers_id": 18,
+      "location": "Paris"
     }
   ],
   "customer": [
@@ -1065,6 +1082,10 @@
     {
       "id": 18,
       "name": "Aesoweb"
+    },
+    {
+      "id": 19,
+      "name": "Eluv/IB Cegos"
     }
   ],
   "activity": [
@@ -1185,8 +1206,13 @@
     },
     {
       "id": 24,
-      "name": "T\u00e9l\u00e9phonie mobile",
+      "name": "t\u00e9l\u00e9phonie mobile",
       "icon": "fa-solid fa-mobile-screen"
+    },
+    {
+      "id": 25,
+      "name": "formations pro",
+      "icon": "fa-solid fa-graduation-cap"
     }
   ],
   "function": [
@@ -3140,6 +3166,56 @@
       "id": 374,
       "technologies_id": 9,
       "projects_id": 60
+    },
+    {
+      "id": 375,
+      "technologies_id": 1,
+      "projects_id": 61
+    },
+    {
+      "id": 376,
+      "technologies_id": 2,
+      "projects_id": 61
+    },
+    {
+      "id": 377,
+      "technologies_id": 3,
+      "projects_id": 61
+    },
+    {
+      "id": 378,
+      "technologies_id": 4,
+      "projects_id": 61
+    },
+    {
+      "id": 379,
+      "technologies_id": 6,
+      "projects_id": 61
+    },
+    {
+      "id": 380,
+      "technologies_id": 7,
+      "projects_id": 61
+    },
+    {
+      "id": 381,
+      "technologies_id": 8,
+      "projects_id": 61
+    },
+    {
+      "id": 382,
+      "technologies_id": 12,
+      "projects_id": 61
+    },
+    {
+      "id": 383,
+      "technologies_id": 17,
+      "projects_id": 61
+    },
+    {
+      "id": 384,
+      "technologies_id": 20,
+      "projects_id": 61
     }
   ]
 }
