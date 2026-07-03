@@ -1,0 +1,76 @@
+{
+  "bla": "bla",
+  "work": [
+    {
+      "company": "Aesoweb",
+      "position": "Lead Développeur Fullstack",
+      "location": "Paris",
+      "startDate": "2025",
+      "endDate": "2026",
+      "summary": "Renfort équipe pour la conception d'une plateforme IA adaptative, backend performant, UI réactive, SSR, conforme WCAG/RGAA, optimisation LLM.",
+      "highlights": [
+        "Conception d'une plateforme d'apprentissage adaptative (Adaptive Learning) pilotée par l'IA.",
+        "Conception d’un backend haute performance avec Python (FastAPI & Django) pour l'orchestration de services d'IA Générative (génération de quiz, résumés dynamiques et tutorat automatisé).",
+        "Développement d’une UI réactive sous React & Vue.js, garantissant une expérience utilisateur fluide malgré la complexité des flux de données temps réel.",
+        "Implémentation du rendu hybride (SSR) pour assurer une indexation maximale des contenus pédagogiques par les moteurs de recherche (SEO naturel).",
+        "Optimisation des performances et qualité du code",
+        "Mise en conformité stricte aux normes WCAG / RGAA (Accessibilité), rendant la plateforme universellement utilisable (lecteurs d'écran, navigation clavier).",
+        "Optimisation de la dette technique et des coûts d'infrastructure liés aux appels LLM (IA).",
+        "Participation avec l'équipe aux choix d'architecture technique",
+        "Intervention sur l'ensemble de la stack technique (depuis le développement d’interfaces utilisateurs jusqu'à l’implémentation d’agents IA et d’architectures backend robustes et sécurisées)"
+      ],
+      "technologies": [],
+      "contract_type": "Freelance",
+      "projects": []
+    },
+    {
+      "company": "Eluv/IB Cegos",
+      "position": "Formateur professionnel",
+      "location": "Paris la Défense",
+      "startDate": "2024",
+      "endDate": "2025",
+      "summary": "Formation JavaScript (3 jours) et Python (5 jours) auprès de professionnels chez IB Cegos. Pédagogie active, pratiques de codage propres, optimisation des processus. Retours excellents.",
+      "highlights": [
+        "Formation JavaScript (3 jours) : Formation à des salariés à IB Cegos à Paris La Défense, mettant l’accent sur la programmation moderne, la performance web, et les bonnes pratiques dans le développement d’applications",
+        "Formation Python (5 jours) : Formation aux outils Python, incluant des techniques de gestion de données, d’automatisation, et d’optimisation des processus, adaptée à des professionnels en reconversion ou en amélioration de leurs compétences.",
+        "Dans ces formations, j'ai partagé mon expertise avec des équipes en entreprise, améliorant leur productivité tout en promouvant des pratiques de codage propres et efficaces, avec des retours extrêmement positifs sur mes capacités pédagogiques.",
+        "Cette expérience a renforcé mes compétences en communication technique, en adaptabilité à des publics variés et en gestion de projets de formation."
+      ],
+      "technologies": [
+        "JavaScript",
+        "Python",
+        "Svelte/SvelteKit"
+      ],
+      "contract_type": "Freelance",
+      "projects": []
+    },
+    {
+      "company": "Believe",
+      "position": "Lead développeur Frontend",
+      "location": "Paris",
+      "startDate": "2023",
+      "endDate": "2024",
+      "summary": "lorem",
+      "highlights": [
+        "lorem"
+      ],
+      "technologies": [
+        "CSS",
+        "Docker",
+        "FastAPI",
+        "HTML",
+        "Javascript",
+        "PostgreSQL",
+        "Python 3",
+        "Svelte/Sveltkit"
+      ],
+      "contract_type": "Freelance",
+      "projects": [
+        {
+          "name": "Believe",
+          "url": "https://www.believe.com/"
+        }
+      ]
+    }
+  ]
+}

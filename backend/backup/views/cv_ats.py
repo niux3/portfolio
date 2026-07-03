@@ -1,6 +1,8 @@
 import json
+from pprint import pprint
 from flask import Blueprint, url_for, redirect, flash
 from backend.core.config import config
+from backend.project.models import Project
 from backend.cv_ats.models import (
     CvContractType,
     CvData,
@@ -18,26 +20,35 @@ file_cv_api = api_cv_folder / 'cv.json'
 
 
 def export_cv_ats_frontend():
-    print('> ok')
+    cv_data = CvData.query.first()
+    basics = json.loads(cv_data.json_data) if cv_data else {}
+    works_list = []
+    for work in CvWork.query.order_by(CvWork.year_end.desc()).all():
+        projects = Project.query.filter_by(
+            customers_id=work.customers_id
+        ).all()
+        techs = set()
+        for p in projects:
+            for t in p.technologies:
+                if t.online == 1:
+                    techs.add(t.name)
+        works_list.append({
+            "company": work.customer.name,
+            "position": work.position.name if work.position else None,
+            "location": work.location,
+            "startDate": str(work.year_start) if work.year_start else None,
+            "endDate": str(work.year_end),
+            "summary": work.summary,
+            "highlights": [h.strip() for h in work.description.strip('- ').split('\n- ') if h.strip()],
+            "technologies": sorted(techs) if work.customer.name != 'Eluv/IB Cegos' else ['JavaScript', 'Python', 'Svelte/SvelteKit'],
+            "contract_type": work.contract_type.name if work.contract_type else None,
+            "projects": [{"name": p.name, "url": p.url} for p in projects]
+        })
+    output = basics
+    output["work"] = works_list
+    with open(str(file_cv_api), 'w', encoding='utf-8') as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
     return True
-    # output = [{
-    #     "id": r.id,
-    #     "name": r.name,
-    #     "slug": r.slug,
-    #     "url": r.url,
-    #     "description": r.description,
-    #     "year": r.year,
-    #     "activity_name": r.activity.name if r.activity else None,
-    #     "activity_icon": r.activity.icon if r.activity else None,
-    #     "position": r.function.name if r.function else None,
-    #     "location": r.location,
-    #     "customer": r.customer.name if r.customer else None,
-    #     "technologies": [t.name for t in r.technologies]
-    # } for r in Project.query.filter(Project.online == 1).all()]
-    #
-    # with open(str(file_data_public), 'w', encoding='utf-8') as f:
-    #     f.write(json.dumps(output, indent=2))
-    # return True
 
 
 def export_cv_ats_data_backend():
