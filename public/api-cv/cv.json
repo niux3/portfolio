@@ -234,9 +234,13 @@
       "location": "Paris",
       "startDate": "2023",
       "endDate": "2024",
-      "summary": "lorem",
+      "summary": "Renforcement d'équipe pour la refonte Smart Entry",
       "highlights": [
-        "lorem"
+        "Refonte complète du projet Easy Entry (Smart Entry) en intégrant de nouvelles fonctionnalités et en optimisant la structure du frontend, en utilisant des technologies modernes pour améliorer la performance et la réactivité des applications.",
+        "Maintenance et évolution du code : prise en charge de la gestion des bugs et des améliorations pour assurer une transition fluide avant la mise en production.",
+        "Développement d’un système de traduction backend afin de faciliter l'internationalisation et de répondre aux besoins spécifiques du projet.",
+        "POC SvelteKit et Svelte Router : Réalisation d’un proof of concept pour tester l'impact de Svelte sur les performances web et la réactivité du site, avec des résultats significatifs en termes de performance.",
+        "Cette expérience m’a permis de renforcer mes compétences en architecture front-end, gestion de projet, et performance web, tout en adoptant de nouvelles technologies pour offrir une expérience utilisateur optimale."
       ],
       "technologies": [
         "CSS",
@@ -253,6 +257,500 @@
         {
           "name": "Believe",
           "url": "https://www.believe.com/"
+        }
+      ]
+    },
+    {
+      "company": "John Paul",
+      "position": "Développeur Backend",
+      "location": "Paris",
+      "startDate": null,
+      "endDate": "2023",
+      "summary": "Remplacement congés maternité",
+      "highlights": [
+        "Développement et maintenance d'une application Django Rest pour la conciergerie, assurant la gestion des interactions utilisateurs avec des services personnalisés.",
+        "Migration et amélioration des systèmes existants en Django et DRF, garantissant la pérennité du code et l'optimisation des performances.",
+        "Évolutions et ajout de nouvelles fonctionnalités pour l’application de saisie de contenu de la conciergerie, en intégrant de nouvelles exigences métier tout en maintenant une architecture propre et évolutive.",
+        "Conception et mise en place d’un web service point d’entrée pour plusieurs applications Python interconnectées à la conciergerie, permettant la synchronisation et la gestion des données entre systèmes.",
+        "Mappage des données et gestion des logs pour assurer un suivi précis des opérations de CRUD, contribuant ainsi à l’optimisation de l’exploitation des applications."
+      ],
+      "technologies": [
+        "DRF",
+        "Django",
+        "Docker",
+        "PostgreSQL",
+        "Python 3"
+      ],
+      "contract_type": "Freelance",
+      "projects": [
+        {
+          "name": "John Paul",
+          "url": "https://www.johnpaul.com/fr"
+        }
+      ]
+    },
+    {
+      "company": "La Maison de la Radio",
+      "position": "Développeur Fullstack",
+      "location": "Paris",
+      "startDate": "2022",
+      "endDate": "2023",
+      "summary": "Refonte complète radiofrance.fr",
+      "highlights": [
+        "Refonte complète du site radiofrance.fr en adoptant une approche Full Stack, assurant la modernisation et l'optimisation des performances du site.",
+        "Conception et développement des parties front-end et back-end pour une interface fluide et une gestion efficace des données, en veillant à la compatibilité multiplateforme.",
+        "Mise en place de solutions scalables et maintenables, intégration avec des systèmes internes existants pour améliorer l’expérience utilisateur et les fonctionnalités du site.",
+        "Collaboration étroite avec les équipes UI/UX pour garantir une expérience utilisateur optimale."
+      ],
+      "technologies": [
+        "CSS",
+        "Docker",
+        "ExpressJS",
+        "HTML",
+        "Javascript",
+        "NodeJS",
+        "Svelte/Sveltkit"
+      ],
+      "contract_type": "Freelance",
+      "projects": [
+        {
+          "name": "Radio France",
+          "url": "https://www.radiofrance.fr/"
+        }
+      ]
+    },
+    {
+      "company": "SEBDO (Journal Le Point)",
+      "position": "Développeur Fullstack",
+      "location": "Paris",
+      "startDate": "2019",
+      "endDate": "2022",
+      "summary": "Remplacement de la personne partante",
+      "highlights": [
+        "Conception et développement d'un générateur de palmarès dynamiques, basé sur des modèles de données complexes, exploitant des bases SQL (MySQL) et Excel pour classer et analyser des données (égalité homme/femme, écoles de commerce, villes).",
+        "Développement et maintenance d’applications spécifiques pour les palmarès hôpitaux et avocats, incluant une application PyQT embarquée.",
+        "Optimisation des performances backend et requêtes SQL pour améliorer la rapidité d'affichage des données sur le site (réduction des temps de réponse API, indexation SQL avancée).",
+        "Optimisation significative des performances web des pages articles, réduisant les CLS, TTF, LCP, TTI et INP, pour une expérience utilisateur fluide.",
+        "Amélioration du reporting et du SEO en automatisant l’enrichissement des métadonnées à partir des données de contenu.",
+        "maintenance et évolution application mobile",
+        "POC page article : VueJS/React/Svelte",
+        "Refonte complète de la page article, garantissant une meilleure lisibilité, accessibilité et performance."
+      ],
+      "technologies": [
+        "CSS",
+        "Django",
+        "Docker",
+        "HTML",
+        "Javascript",
+        "NodeJS",
+        "PostgreSQL",
+        "Python 3",
+        "ReactJS",
+        "Sqlite",
+        "VueJS/NuxtJS"
+      ],
+      "contract_type": "Freelance",
+      "projects": [
+        {
+          "name": "Journal LePoint",
+          "url": "https://www.lepoint.fr/"
+        },
+        {
+          "name": "Générateur palmarès LePoint",
+          "url": "https://www.lepoint.fr/"
+        },
+        {
+          "name": "Palmarès Avocats LePoint",
+          "url": "https://www.lepoint.fr/classements/avocats/"
+        },
+        {
+          "name": "Palmarès des Hôpitaux LePoint",
+          "url": "https://www.lepoint.fr/hopitaux/"
+        },
+        {
+          "name": "Palmarès des écoles LePoint",
+          "url": "https://www.lepoint.fr/classements/grandes-ecoles/"
+        },
+        {
+          "name": "Palmarès des villes LePoint",
+          "url": "https://www.lepoint.fr/palmares-des-villes/"
+        },
+        {
+          "name": "Palmarès RSE LePoint",
+          "url": "https://www.lepoint.fr/palmares-entreprises-responsables/"
+        },
+        {
+          "name": "Palmarès santé par pays LePoint",
+          "url": "https://www.lepoint.fr/palmares-sante-par-pays/"
+        },
+        {
+          "name": "Application mobile Lepoint",
+          "url": "https://play.google.com/store/apps/details?id=fr.lepoint.android&hl=fr"
+        }
+      ]
+    },
+    {
+      "company": "Carenity",
+      "position": "Développeur Fullstack",
+      "location": "Paris",
+      "startDate": null,
+      "endDate": "2019",
+      "summary": "Création de poste",
+      "highlights": [
+        "Refonte et maintenance évolutive d’une plateforme de gestion de données médicales composée de trois applications (Back Office, Front Office, Questionnaire).",
+        "Correction et optimisation des traitements backend liés aux données patients et études médicales, avec un focus sur l’intégrité et la cohérence des bases de données SQL.",
+        "Amélioration des performances API pour optimiser la récupération et l’analyse des réponses aux questionnaires.",
+        "Gestion et sécurisation des flux de données sensibles, en appliquant les bonnes pratiques OWASP et RGPD."
+      ],
+      "technologies": [
+        "CSS",
+        "Django",
+        "Docker",
+        "HTML",
+        "Javascript",
+        "PostgreSQL",
+        "Python 3",
+        "ReactJS",
+        "VueJS/NuxtJS"
+      ],
+      "contract_type": "CDI",
+      "projects": [
+        {
+          "name": "Carenity",
+          "url": "https://www.carenity.com/"
+        }
+      ]
+    },
+    {
+      "company": "Creativ",
+      "position": "Développeur Fullstack",
+      "location": "Paris",
+      "startDate": "2018",
+      "endDate": "2019",
+      "summary": "Création de poste",
+      "highlights": [
+        "Optimisation backend et API pour la refonte des plateformes Rimowa et Longchamp.",
+        "Développement et mise en production de Confbox, une application de visioconférence WebRTC en PWA, avec gestion des flux de données en temps réel.",
+        "Conception et implémentation d’un système backend robuste (API REST, base de données SQL, gestion des sessions et des utilisateurs).",
+        "Gestion de projet et coordination technique pour assurer la livraison complète de l’application."
+      ],
+      "technologies": [
+        "CSS",
+        "Django",
+        "Docker",
+        "Flask",
+        "HTML",
+        "Javascript",
+        "NodeJS",
+        "PostgreSQL",
+        "Python 3",
+        "ReactJS",
+        "Sqlite",
+        "VueJS/NuxtJS",
+        "websocket"
+      ],
+      "contract_type": "CDI",
+      "projects": [
+        {
+          "name": "Rimowa",
+          "url": "https://www.rimowa.com/"
+        },
+        {
+          "name": "Longchamp",
+          "url": "https://www.longchamp.com"
+        },
+        {
+          "name": "Confbox",
+          "url": "https://confbox.com"
+        }
+      ]
+    },
+    {
+      "company": "Publicis",
+      "position": "Développeur Fullstack",
+      "location": "Paris",
+      "startDate": "2016",
+      "endDate": "2018",
+      "summary": "Création de poste et DSI",
+      "highlights": [
+        "Conception, refonte et amélioration des performances de plusieurs plateformes, dont Honda Motos, Cevital, UPSA, Renault , Dacia, BNP Vivatech, Dacia, René Furterer et Le Siège Renault.",
+        "Développement d’un moteur de recherche interne pour Publicis Conseil, structurant et indexant les données projet pour améliorer la recherche et l’accès aux informations.",
+        "Création d’une application PWA intégrée au robot Pepper pour Atelier Renault, avec gestion des interactions en temps réel et récupération de données utilisateur.",
+        "Mise en place d’un système d’analyse et de gestion des données publicitaires via une application de visionnage des encarts publicitaires pour le groupe Publicis.",
+        "Projet Clio RS récompensé, entièrement conçu en JavaScript, démontrant une expertise en optimisation d’expérience utilisateur et en gestion de données dynamiques."
+      ],
+      "technologies": [
+        "CSS",
+        "DRF",
+        "Django",
+        "Docker",
+        "ExpressJS",
+        "Flask",
+        "HTML",
+        "JQuery",
+        "Javascript",
+        "MySql",
+        "NodeJS",
+        "PostgreSQL",
+        "Python 3",
+        "ReactJS"
+      ],
+      "contract_type": "CDI",
+      "projects": [
+        {
+          "name": "Cevital",
+          "url": "https://www.cevital.com/"
+        },
+        {
+          "name": "Rene Furterer",
+          "url": "https://www.renefurterer.com/fr-fr"
+        },
+        {
+          "name": "Honda moto",
+          "url": "https://moto.honda.fr/"
+        },
+        {
+          "name": "Dacia",
+          "url": "https://www.dacia.fr/"
+        },
+        {
+          "name": "UPSA",
+          "url": "https://www.upsa.com/"
+        },
+        {
+          "name": "Clio RS Melody",
+          "url": "https://clio-rs.renault.com"
+        },
+        {
+          "name": "Renault Kadjarquest",
+          "url": "https://kadjarquest.renault.fr/"
+        },
+        {
+          "name": "Le Siège Renault",
+          "url": "https://lesiege.renault.fr"
+        },
+        {
+          "name": "Atelier Renault",
+          "url": "https://atelier.renault.com/"
+        },
+        {
+          "name": "SFR",
+          "url": "https://sfr.fr"
+        },
+        {
+          "name": "Emag SFR",
+          "url": "https://sfr.fr"
+        },
+        {
+          "name": "Honda moto occasion",
+          "url": "https://www.honda-motos.com/"
+        }
+      ]
+    },
+    {
+      "company": "Fullsix",
+      "position": "Lead développeur Frontend",
+      "location": "Levallois Perret",
+      "startDate": "2015",
+      "endDate": "2016",
+      "summary": "Remplacement de la personne partante",
+      "highlights": [
+        "Développement de modules personnalisés et optimisation des performances pour Afflelou, en intégrant des bonnes pratiques pour la gestion et la structuration des données côté client.",
+        "Mise en place de gabarits structurés pour Aéroport de Paris, garantissant une accessibilité optimale et une intégration fluide avec les systèmes backend.",
+        "Refonte complète du site de l'agence, en mettant l’accent sur la modularité et la maintenabilité du code.",
+        "Rédaction de documentations techniques et mise en place de standards de développement, assurant une meilleure scalabilité des projets."
+      ],
+      "technologies": [
+        "CSS",
+        "ExpressJS",
+        "HTML",
+        "Javascript",
+        "MySql",
+        "NodeJS",
+        "ReactJS"
+      ],
+      "contract_type": "CDI",
+      "projects": [
+        {
+          "name": "Aéroport de Paris",
+          "url": "https://www.parisaeroport.fr/"
+        },
+        {
+          "name": "Afflelou",
+          "url": "https://www.afflelou.com/"
+        },
+        {
+          "name": "Fullsix",
+          "url": "https://betcfullsix.com/"
+        }
+      ]
+    },
+    {
+      "company": "Bazarchic",
+      "position": "Lead développeur Frontend",
+      "location": "Gennevilliers",
+      "startDate": "2014",
+      "endDate": "2015",
+      "summary": "Remplacement congés maternité",
+      "highlights": [
+        "Refonte partielle de Bazarchic pour améliorer la performance et la gestion des données côté client.",
+        "Amélioration et refonte partielle de MyTravelChic, en optimisant la structure du code et la gestion dynamique des données.",
+        "Création d’un système de templating pour emailing, garantissant une gestion optimale des contenus et une intégration fluide avec les systèmes backend.",
+        "Maintenance et évolution des plateformes web (Bazarchic, MyTravelChic, Figaro Vin) avec un focus sur la scalabilité et l'intégration des composants backend."
+      ],
+      "technologies": [
+        "CSS",
+        "HTML",
+        "JQuery",
+        "Javascript",
+        "NodeJS"
+      ],
+      "contract_type": "CDD",
+      "projects": [
+        {
+          "name": "MyTravelChic",
+          "url": "https://www.idiliz.com/"
+        },
+        {
+          "name": "Bazarchic",
+          "url": "https://fr.bazarchic.com/"
+        }
+      ]
+    },
+    {
+      "company": "Business Lab",
+      "position": "Lead développeur Frontend",
+      "location": "Nanterre",
+      "startDate": "2010",
+      "endDate": "2014",
+      "summary": "Remplacement de la personne partante",
+      "highlights": [
+        "TMA et migration mobile pour Cavadeos, en optimisant les interfaces et en assurant une gestion fluide des données sur des plateformes mobiles.",
+        "Évolution continue du projet Leroy Merlin, intégrant des améliorations côté frontend et optimisations des flux de données en back-end. Projet récompensé pour l’innovation.",
+        "Création et refonte de projets événementiels (Peugeot 4008, Peugeot Design Lab) avec un focus sur la gestion dynamique de l’information et l’interaction utilisateur.",
+        "Développement d’une application géographique pour Areva, permettant la gestion de données géolocalisées et l'optimisation des performances des systèmes de backend associés.",
+        "Refonte de projets tels que mypeugeot, Peugeot.com, Europcar, et Air Caraïbes, en prenant en compte les bonnes pratiques de maintenance et en assurant une meilleure gestion des données côté frontend et backend.",
+        "Création d’un réseau social interne pour Areva, facilitant la gestion des données utilisateurs et la communication interne.",
+        "Développement et refonte de projets variés (Fidelity Vie, Brasseries Flo, Flyopenskies), avec une forte composante de gestion de données et d’optimisation de la performance."
+      ],
+      "technologies": [
+        "CSS",
+        "HTML",
+        "JQuery",
+        "Javascript",
+        "MJML",
+        "MySql",
+        "NodeJS"
+      ],
+      "contract_type": "CDI",
+      "projects": [
+        {
+          "name": "Brasserie Flo",
+          "url": "https://www.groupeflo.com/"
+        },
+        {
+          "name": "Dyson affaire airblade v1",
+          "url": "https://www.youtube.com/watch?v=jU0WojRkd30"
+        },
+        {
+          "name": "Peugeot Design Lab",
+          "url": "https://www.peugeotdesignlab.com/fr"
+        },
+        {
+          "name": "Peugeot",
+          "url": "https://www.peugeot.fr/"
+        },
+        {
+          "name": "Peugeot 4008",
+          "url": "https://www.youtube.com/watch?v=p9SJQjioTb0"
+        },
+        {
+          "name": "Flyopenskies v2",
+          "url": "https://www.flyopenskies.com/"
+        },
+        {
+          "name": "Flyopenskies v3",
+          "url": "https://www.flyopenskies.com/"
+        },
+        {
+          "name": "Europcar",
+          "url": "https://www.europcar.fr"
+        },
+        {
+          "name": "Air Caraïbes",
+          "url": "https://www.aircaraibes.com/"
+        },
+        {
+          "name": "Air Madagascar",
+          "url": "https://madagascarairlines.com"
+        },
+        {
+          "name": "CFC",
+          "url": "https://www.cfcopies.com/"
+        },
+        {
+          "name": "Algeco",
+          "url": "https://www.algeco.fr/"
+        },
+        {
+          "name": "Fidelity Vie",
+          "url": "https://www.fidelityvie.fr"
+        },
+        {
+          "name": "De quoi je me M.E.L",
+          "url": "https://www.michel-edouard-leclerc.com/"
+        },
+        {
+          "name": "Qui est le moins cher",
+          "url": "https://www.quiestlemoinscher.leclerc/"
+        },
+        {
+          "name": "Decolor Stop",
+          "url": "https://www.decolorstop.com/"
+        },
+        {
+          "name": "My Peugeot",
+          "url": "https://mypeugeot.peugeot.fr/"
+        },
+        {
+          "name": "banque casino",
+          "url": "https://client.floabank.fr/"
+        },
+        {
+          "name": "leperon (ex Cavadéos)",
+          "url": "https://www.leperon.fr/"
+        },
+        {
+          "name": "Areva",
+          "url": "https://areva.com"
+        },
+        {
+          "name": "Leroy Merlin",
+          "url": "https://www.leroymerlin.fr/"
+        },
+        {
+          "name": "Sacla",
+          "url": "https://sacla.fr/"
+        },
+        {
+          "name": "Se soigner moins cher",
+          "url": "https://www.e.leclerc/cat/parapharmacie"
+        },
+        {
+          "name": "histoire et archives Leclerc",
+          "url": "https://www.histoireetarchives.leclerc/"
+        },
+        {
+          "name": "Le Mouvement Leclerc",
+          "url": "https://www.mouvement.leclerc/"
+        },
+        {
+          "name": "Europcar-up",
+          "url": "https://europcar.com"
+        },
+        {
+          "name": "Dyson affaire airblade v2",
+          "url": "https://www.youtube.com/watch?v=jU0WojRkd30"
         }
       ]
     }
