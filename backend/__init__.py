@@ -14,6 +14,7 @@ from backend.core.context_processors import (
 
 
 db = SQLAlchemy()
+migrate = Migrate()
 
 
 def create_app():
@@ -25,23 +26,19 @@ def create_app():
     app.config.from_object(config)
     config.init_app(app)
 
-
     CORS(app)
 
-    migrate = Migrate()
-
     db.init_app(app)
-    migrate.init_app(app, db)
+    migrate.init_app(app, db, directory=config.BASEDIR / config.MIGRATIONS)
 
     Autoload.import_models()
-    migrate.init_app(app, db, directory=config.BASEDIR / config.MIGRATIONS)
 
     Autoload.import_views(app)
     # Autoload.import_errors(app)
 
     # from app.auth import views as auth_views
     # app.register_blueprint(auth_views.bp, url_prefix='/auth')
-    #context processor
+    # context processor
     app.context_processor(inject_footer_flag())
     app.context_processor(inject_base_url_project())
     app.context_processor(inject_og_image())

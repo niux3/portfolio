@@ -6,7 +6,8 @@ from backend import db
 class BaseView:
     @staticmethod
     def index(queryset, prefix_bp, fields, category="un item", add_filter_button=False):
-        ctx = {action: f'{prefix_bp}.{action}' for action in ['add', 'edit', 'destroy']}
+        ctx = {action: f'{prefix_bp}.{action}' for action in [
+            'add', 'edit', 'destroy']}
         if add_filter_button:
             ctx['url_filter_add'] = f'{prefix_bp}.filter_add'
         ctx['object_list'] = queryset
@@ -18,7 +19,8 @@ class BaseView:
     def add(objForm, obj, prefix_bp):
         form = objForm()
         if form.validate_on_submit() and request.method == "POST":
-            cleared_data = {k:v for k, v in form.data.items() if k != 'csrf_token'}
+            cleared_data = {k: v for k, v in form.data.items()
+                            if k != 'csrf_token'}
             if 'online' in cleared_data.keys():
                 cleared_data['online'] = 1 if cleared_data['online'] == True else 0
             instance = obj(**cleared_data)
@@ -48,8 +50,9 @@ class BaseView:
             form.populate_obj(instance)
             if 'online' in form.data.keys():
                 instance.online = 1 if form.data['online'] == True else 0
-            slug_data = form.name.data
-            instance.slug = slugify(slug_data)
+            if 'name' in form.data.keys():
+                slug_data = form.name.data
+                instance.slug = slugify(slug_data)
             db.session.add(instance)
             db.session.commit()
             db.session.refresh(instance)

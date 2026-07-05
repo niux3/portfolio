@@ -40,7 +40,15 @@ class Project(db.Model, SerializerMixin):
         )
     )
     activity = db.relationship("Activity", back_populates="projects")
-    customer = db.Column(db.String(128), nullable=False)
+    customers_id = db.Column(
+        db.Integer,
+        db.ForeignKey(
+            'project_customers.id',
+            onupdate='CASCADE',
+            ondelete='CASCADE'
+        )
+    )
+    customer = db.relationship("Customer", backref="projects")
     location = db.Column(db.String(128), nullable=False)
 
     project_technologies = db.relationship(

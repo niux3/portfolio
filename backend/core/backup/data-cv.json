@@ -1,0 +1,204 @@
+{
+  "contracts": [
+    {
+      "id": 1,
+      "name": "CDI"
+    },
+    {
+      "id": 2,
+      "name": "CDD"
+    },
+    {
+      "id": 3,
+      "name": "Freelance"
+    }
+  ],
+  "json_data": [
+    {
+      "id": 1,
+      "json_data": "{\r\n    \"basics\": {\r\n        \"name\": \"Renaud Bourdeau\",\r\n        \"label\": \"Developpeur fullstack Python/TypeScript/Javascript/SQL\",\r\n        \"phone\": \"+33 603 617 839\",\r\n        \"email\": \"renaudbourdeau@gmail.com\",\r\n        \"portfolio\": \"https://rb-webstudio.go.yj.fr/\",\r\n        \"github\": \"https://github.com/niux3\",\r\n        \"linkedin\": \"https://www.linkedin.com/in/renaud-bourdeau-%F0%9F%90%A7-7639b944/\",\r\n        \"twitter\": \"https://x.com/renaudbourdeau\",\r\n        \"volunteer\": \"https://www.alsacreations.com/profil/lire/11496-Niuxe.html\",\r\n        \"location\": [ \r\n            \"\u00cele de France\",\r\n            \"Provence Alpes C\u00f4te d'Azur\"\r\n        ],\r\n        \"education\": {\r\n            \"degree\": \"BTS communications visuelles\",\r\n            \"year\": \"1997\",\r\n            \"location\": \"Paris\"\r\n        },\r\n        \"summary\": \"Tech lead d\u00e9veloppeur avec plus de 15 ans d'exp\u00e9rience, r\u00e9compens\u00e9 \u00e0 plusieurs reprises (Top Com d'Or) pour des projets haute-visibilit\u00e9 (Renault, Peugeot, Leroy Merlin, Areva). Sp\u00e9cialis\u00e9 en d\u00e9veloppement fullstack, notamment en Python (10 ans) et JavaScript (17 ans). Sensible aux enjeux de s\u00e9curit\u00e9 (OWASP), de performance web, d'accessibilit\u00e9 et de SEO, je con\u00e7ois des solutions robustes, performantes et maintenables. Appr\u00e9ci\u00e9 pour mon esprit collaboratif et mon sens des responsabilit\u00e9s, je m'attache \u00e0 faire \u00e9voluer les pratiques tout en garantissant un haut niveau de qualit\u00e9 technique.\"\r\n    },\r\n    \"certificates\": [\r\n        {\r\n            \"name\": \"Javascript\",\r\n            \"url\": \"https://www.codingame.com/certification/WDRJ32zX0TEyCumC_Xd3gg\"\r\n        },\r\n        {\r\n            \"name\": \"Python\",\r\n            \"url\": \"https://www.codingame.com/certification/sdhq3l9dw42VYBN9KidsFw\"\r\n        }\r\n    ],\r\n    \"awards\" : {\r\n        \"url\": \"http://www.topcom.fr/best-of-topcom/?cpage=1&cvp-keyword=&form_annonceur=&form_agence=BUSINESS+LAB&form_year=&form_topcom=&form_section=&form_categorie=&form_prix=&bsubmit=Valider\",\r\n        \"projects\": [\"Leroy Merlin\", \"Peugeot\", \"peugeot4008\", \"areva\", \"renault clio rs trophy\"]\r\n    },\r\n    \"skills\": {\r\n        \"languages\" : [\"Python\",\"SQL\",\"JavaScript/TypeScript\",\"HTML\",\"CSS\",\"UML\",\"PHP\"],\r\n        \"backend - frontend\": [\"Django & DRF\",\"Flask (Flask-REST, Flask-SQLAlchemy, etc.)\",\"FastAPI\",\"SQLAlchemy\",\"Celery\",\"Pandas\",\"NumPy\",\"Matplotlib\",\"NodeJS\",\"Svelte/Sveltekit\",\"VueJS\",\"React\",\"Express\",\"Astro\"],\r\n        \"database\": [\"PostgreSQL\",\"MySQL\",\"SQLite\",\"MongoDB\",\"Redis\"],\r\n        \"tools\": [\"Vim & Tmux\",\"PyCharm\",\"Jupyter Notebook\"],\r\n        \"tests & quality\": [\"Pytest\",\"TOX\",\"Flake8\",\"Pylint\",\"Jest\",\"ViteJS\",\"Webperf (TTF, CLS, LCP, INP)\"],\r\n        \"devops\": [\"Docker\",\"GNU/Linux (OpenSUSE, Debian)\",\"CI/CD\", \"AWS\"],\r\n        \"architecture & best practices\": [\"POO\",\"Design Patterns (Observer, Factory, etc.)\",\"DRY\",\"YAGNI\",\"KISS\",\"OWASP\",\"PWA\",\"SEO\",\"Accessibilit\u00e9\",\"FN3 Boyce-Codd\"],\r\n        \"m\u00e9thodologies\": [\"Scrum\",\"Safe\",\"XP\",\"Cycle en V\",\"Merise\"]\r\n    },\r\n    \"personal projects\":[\r\n        {\r\n            \"name\": \"Template Engine\",\r\n            \"description\": \"Moteur de templates JavaScript ultra-l\u00e9ger (~1 kio gzipp\u00e9), cache LRU, \u00e9chappement HTML automatique.\",\r\n            \"url\": \"https://github.com/niux3/template-engine\",\r\n            \"type\": \"open source\", \r\n            \"technologies\": [\"Javascript\", \"NodeJS\", \"ViteJS\", \"Vitest\"]\r\n        },\r\n        {\r\n            \"name\": \"Validator js\",\r\n            \"description\": \"D\u00e9veloppement d\u2019un moteur de validation JavaScript con\u00e7u pour centraliser les r\u00e8gles m\u00e9tier et g\u00e9rer des formulaires dynamiques, ind\u00e9pendamment des frameworks (\u22486 kio gzipp\u00e9)\",\r\n            \"url\": \"github.com/niux3/validator\",\r\n            \"type\": \"open source\", \r\n            \"technologies\": [\"Typescript\", \"NodeJS\", \"ViteJS\", \"Jest\"]\r\n        },\r\n        {\r\n            \"name\": \"Plateforme forum communautaire\",\r\n            \"description\": \"D\u00e9veloppement d\u2019une application web Django volontairement sobre, reposant sur les Generic Class-Based Views afin de privil\u00e9gier la maintenabilit\u00e9.\",\r\n            \"url\": \"https://github.com/niux3/forum\",\r\n            \"type\": \"open source\", \r\n            \"technologies\": [\"Python\", \"Django\", \"Javascript\", \"NodeJS\", \"PostgreSQL\", \"Sqlite\"]\r\n        },\r\n        {\r\n            \"name\": \"CheckIpsum\",\r\n            \"description\": \"G\u00e9n\u00e9rateur de texte alternatif, alternative fonctionnelle au Lorem Ipsum classique. Interface web r\u00e9active, API HTTP (JSON, text/plain), param\u00e9trage CLI et web, d\u00e9ploy\u00e9 en service public.\",\r\n            \"url\": \"https://github.com/niux3/chuck-ipsum\",\r\n            \"type\": \"open source\",\r\n            \"technologies\": [\"PHP\", \"Svelte\", \"Sqlite\", \"Javascript\", \"Json\", \"Curl\", \"NodeJS\"]\r\n        }\r\n    ]\r\n}\r\n",
+      "created": "2026-07-01T17:31:58.205514",
+      "updated": "2026-07-03T18:57:26.857891"
+    }
+  ],
+  "positions": [
+    {
+      "id": 1,
+      "name": "Lead D\u00e9veloppeur Fullstack"
+    },
+    {
+      "id": 2,
+      "name": "Formateur professionnel"
+    },
+    {
+      "id": 3,
+      "name": "Lead d\u00e9veloppeur Frontend"
+    },
+    {
+      "id": 4,
+      "name": "D\u00e9veloppeur Backend"
+    },
+    {
+      "id": 5,
+      "name": "D\u00e9veloppeur Fullstack"
+    }
+  ],
+  "works": [
+    {
+      "id": 1,
+      "location": "Paris",
+      "year_start": 2025,
+      "year_end": 2026,
+      "description": "- Conception d'une plateforme d'apprentissage adaptative (Adaptive Learning) pilot\u00e9e par l'IA.\r\n- Conception d\u2019un backend haute performance avec Python (FastAPI & Django) pour l'orchestration de services d'IA G\u00e9n\u00e9rative (g\u00e9n\u00e9ration de quiz, r\u00e9sum\u00e9s dynamiques et tutorat automatis\u00e9).\r\n- D\u00e9veloppement d\u2019une UI r\u00e9active sous React & Vue.js, garantissant une exp\u00e9rience utilisateur fluide malgr\u00e9 la complexit\u00e9 des flux de donn\u00e9es temps r\u00e9el.\r\n- Impl\u00e9mentation du rendu hybride (SSR) pour assurer une indexation maximale des contenus p\u00e9dagogiques par les moteurs de recherche (SEO naturel).\r\n- Optimisation des performances et qualit\u00e9 du code\r\n- Mise en conformit\u00e9 stricte aux normes WCAG / RGAA (Accessibilit\u00e9), rendant la plateforme universellement utilisable (lecteurs d'\u00e9cran, navigation clavier).\r\n- Optimisation de la dette technique et des co\u00fbts d'infrastructure li\u00e9s aux appels LLM (IA).\r\n- Participation avec l'\u00e9quipe aux choix d'architecture technique\r\n- Intervention sur l'ensemble de la stack technique (depuis le d\u00e9veloppement d\u2019interfaces utilisateurs jusqu'\u00e0 l\u2019impl\u00e9mentation d\u2019agents IA et d\u2019architectures backend robustes et s\u00e9curis\u00e9es)",
+      "summary": "Renfort \u00e9quipe pour la conception d'une plateforme IA adaptative, backend performant, UI r\u00e9active, SSR, conforme WCAG/RGAA, optimisation LLM.",
+      "created": "2026-07-02T17:48:47.767815",
+      "updated": "2026-07-02T18:34:18.370506",
+      "position_id": 1,
+      "contract_type_id": 3,
+      "customers_id": 18
+    },
+    {
+      "id": 2,
+      "location": "Paris la D\u00e9fense",
+      "year_start": 2024,
+      "year_end": 2025,
+      "description": "- Formation JavaScript (3 jours) : Formation \u00e0 des salari\u00e9s \u00e0 IB Cegos \u00e0 Paris La D\u00e9fense, mettant l\u2019accent sur la programmation moderne, la performance web, et les bonnes pratiques dans le d\u00e9veloppement d\u2019applications\r\n- Formation Python (5 jours) : Formation aux outils Python, incluant des techniques de gestion de donn\u00e9es, d\u2019automatisation, et d\u2019optimisation des processus, adapt\u00e9e \u00e0 des professionnels en reconversion ou en am\u00e9lioration de leurs comp\u00e9tences.\r\n- Dans ces formations, j'ai partag\u00e9 mon expertise avec des \u00e9quipes en entreprise, am\u00e9liorant leur productivit\u00e9 tout en promouvant des pratiques de codage propres et efficaces, avec des retours extr\u00eamement positifs sur mes capacit\u00e9s p\u00e9dagogiques.\r\n- Cette exp\u00e9rience a renforc\u00e9 mes comp\u00e9tences en communication technique, en adaptabilit\u00e9 \u00e0 des publics vari\u00e9s et en gestion de projets de formation.",
+      "summary": "Formation JavaScript (3 jours) et Python (5 jours) aupr\u00e8s de professionnels chez IB Cegos. P\u00e9dagogie active, pratiques de codage propres, optimisation des processus. Retours excellents.",
+      "created": "2026-07-02T18:04:08.915374",
+      "updated": "2026-07-02T18:35:01.549378",
+      "position_id": 2,
+      "contract_type_id": 3,
+      "customers_id": 19
+    },
+    {
+      "id": 3,
+      "location": "Paris",
+      "year_start": 2023,
+      "year_end": 2024,
+      "description": "- Refonte compl\u00e8te du projet Easy Entry (Smart Entry) en int\u00e9grant de nouvelles fonctionnalit\u00e9s et en optimisant la structure du frontend, en utilisant des technologies modernes pour am\u00e9liorer la performance et la r\u00e9activit\u00e9 des applications.\r\n- Maintenance et \u00e9volution du code : prise en charge de la gestion des bugs et des am\u00e9liorations pour assurer une transition fluide avant la mise en production.\r\n- D\u00e9veloppement d\u2019un syst\u00e8me de traduction backend afin de faciliter l'internationalisation et de r\u00e9pondre aux besoins sp\u00e9cifiques du projet.\r\n- POC SvelteKit et Svelte Router : R\u00e9alisation d\u2019un proof of concept pour tester l'impact de Svelte sur les performances web et la r\u00e9activit\u00e9 du site, avec des r\u00e9sultats significatifs en termes de performance.\r\n- Cette exp\u00e9rience m\u2019a permis de renforcer mes comp\u00e9tences en architecture front-end, gestion de projet, et performance web, tout en adoptant de nouvelles technologies pour offrir une exp\u00e9rience utilisateur optimale.\r\n\r\n",
+      "summary": "Renforcement d'\u00e9quipe pour la refonte Smart Entry",
+      "created": "2026-07-02T18:05:38.793308",
+      "updated": "2026-07-04T17:55:00.629810",
+      "position_id": 3,
+      "contract_type_id": 3,
+      "customers_id": 1
+    },
+    {
+      "id": 4,
+      "location": "Paris",
+      "year_start": null,
+      "year_end": 2023,
+      "description": "- D\u00e9veloppement et maintenance d'une application Django Rest pour la conciergerie, assurant la gestion des interactions utilisateurs avec des services personnalis\u00e9s.\r\n- Migration et am\u00e9lioration des syst\u00e8mes existants en Django et DRF, garantissant la p\u00e9rennit\u00e9 du code et l'optimisation des performances.\r\n- \u00c9volutions et ajout de nouvelles fonctionnalit\u00e9s pour l\u2019application de saisie de contenu de la conciergerie, en int\u00e9grant de nouvelles exigences m\u00e9tier tout en maintenant une architecture propre et \u00e9volutive.\r\n- Conception et mise en place d\u2019un web service point d\u2019entr\u00e9e pour plusieurs applications Python interconnect\u00e9es \u00e0 la conciergerie, permettant la synchronisation et la gestion des donn\u00e9es entre syst\u00e8mes.\r\n- Mappage des donn\u00e9es et gestion des logs pour assurer un suivi pr\u00e9cis des op\u00e9rations de CRUD, contribuant ainsi \u00e0 l\u2019optimisation de l\u2019exploitation des applications.",
+      "summary": "Remplacement cong\u00e9s maternit\u00e9",
+      "created": "2026-07-04T17:57:41.260273",
+      "updated": "2026-07-04T17:57:41.260296",
+      "position_id": 4,
+      "contract_type_id": 3,
+      "customers_id": 2
+    },
+    {
+      "id": 5,
+      "location": "Paris",
+      "year_start": 2022,
+      "year_end": 2023,
+      "description": "- Refonte compl\u00e8te du site radiofrance.fr en adoptant une approche Full Stack, assurant la modernisation et l'optimisation des performances du site.\r\n- Conception et d\u00e9veloppement des parties front-end et back-end pour une interface fluide et une gestion efficace des donn\u00e9es, en veillant \u00e0 la compatibilit\u00e9 multiplateforme.\r\n- Mise en place de solutions scalables et maintenables, int\u00e9gration avec des syst\u00e8mes internes existants pour am\u00e9liorer l\u2019exp\u00e9rience utilisateur et les fonctionnalit\u00e9s du site.\r\n- Collaboration \u00e9troite avec les \u00e9quipes UI/UX pour garantir une exp\u00e9rience utilisateur optimale.",
+      "summary": "Refonte compl\u00e8te radiofrance.fr",
+      "created": "2026-07-04T18:01:23.057343",
+      "updated": "2026-07-04T18:01:23.057349",
+      "position_id": 5,
+      "contract_type_id": 3,
+      "customers_id": 3
+    },
+    {
+      "id": 6,
+      "location": "Paris",
+      "year_start": 2019,
+      "year_end": 2022,
+      "description": "- Conception et d\u00e9veloppement d'un g\u00e9n\u00e9rateur de palmar\u00e8s dynamiques, bas\u00e9 sur des mod\u00e8les de donn\u00e9es complexes, exploitant des bases SQL (MySQL) et Excel pour classer et analyser des donn\u00e9es (\u00e9galit\u00e9 homme/femme, \u00e9coles de commerce, villes).\r\n- D\u00e9veloppement et maintenance d\u2019applications sp\u00e9cifiques pour les palmar\u00e8s h\u00f4pitaux et avocats, incluant une application PyQT embarqu\u00e9e.\r\n- Optimisation des performances backend et requ\u00eates SQL pour am\u00e9liorer la rapidit\u00e9 d'affichage des donn\u00e9es sur le site (r\u00e9duction des temps de r\u00e9ponse API, indexation SQL avanc\u00e9e).\r\n- Optimisation significative des performances web des pages articles, r\u00e9duisant les CLS, TTF, LCP, TTI et INP, pour une exp\u00e9rience utilisateur fluide.\r\n- Am\u00e9lioration du reporting et du SEO en automatisant l\u2019enrichissement des m\u00e9tadonn\u00e9es \u00e0 partir des donn\u00e9es de contenu.\r\n- maintenance et \u00e9volution application mobile\r\n- POC page article : VueJS/React/Svelte\r\n- Refonte compl\u00e8te de la page article, garantissant une meilleure lisibilit\u00e9, accessibilit\u00e9 et performance.",
+      "summary": "Remplacement de la personne partante",
+      "created": "2026-07-04T18:10:36.080808",
+      "updated": "2026-07-04T18:10:36.080813",
+      "position_id": 5,
+      "contract_type_id": 3,
+      "customers_id": 4
+    },
+    {
+      "id": 7,
+      "location": "Paris",
+      "year_start": null,
+      "year_end": 2019,
+      "description": "- Refonte et maintenance \u00e9volutive d\u2019une plateforme de gestion de donn\u00e9es m\u00e9dicales compos\u00e9e de trois applications (Back Office, Front Office, Questionnaire).\r\n- Correction et optimisation des traitements backend li\u00e9s aux donn\u00e9es patients et \u00e9tudes m\u00e9dicales, avec un focus sur l\u2019int\u00e9grit\u00e9 et la coh\u00e9rence des bases de donn\u00e9es SQL.\r\n- Am\u00e9lioration des performances API pour optimiser la r\u00e9cup\u00e9ration et l\u2019analyse des r\u00e9ponses aux questionnaires.\r\n- Gestion et s\u00e9curisation des flux de donn\u00e9es sensibles, en appliquant les bonnes pratiques OWASP et RGPD.",
+      "summary": "Cr\u00e9ation de poste",
+      "created": "2026-07-04T18:16:42.389469",
+      "updated": "2026-07-04T18:16:42.389487",
+      "position_id": 5,
+      "contract_type_id": 1,
+      "customers_id": 6
+    },
+    {
+      "id": 8,
+      "location": "Paris",
+      "year_start": 2018,
+      "year_end": 2019,
+      "description": "- Optimisation backend et API pour la refonte des plateformes Rimowa et Longchamp.\r\n- D\u00e9veloppement et mise en production de Confbox, une application de visioconf\u00e9rence WebRTC en PWA, avec gestion des flux de donn\u00e9es en temps r\u00e9el.\r\n- Conception et impl\u00e9mentation d\u2019un syst\u00e8me backend robuste (API REST, base de donn\u00e9es SQL, gestion des sessions et des utilisateurs).\r\n- Gestion de projet et coordination technique pour assurer la livraison compl\u00e8te de l\u2019application.",
+      "summary": "Cr\u00e9ation de poste",
+      "created": "2026-07-04T18:19:02.990456",
+      "updated": "2026-07-04T18:19:02.990462",
+      "position_id": 5,
+      "contract_type_id": 1,
+      "customers_id": 9
+    },
+    {
+      "id": 9,
+      "location": "Paris",
+      "year_start": 2016,
+      "year_end": 2018,
+      "description": "- Conception, refonte et am\u00e9lioration des performances de plusieurs plateformes, dont Honda Motos, Cevital, UPSA, Renault , Dacia, BNP Vivatech, Dacia, Ren\u00e9 Furterer et Le Si\u00e8ge Renault.\r\n- D\u00e9veloppement d\u2019un moteur de recherche interne pour Publicis Conseil, structurant et indexant les donn\u00e9es projet pour am\u00e9liorer la recherche et l\u2019acc\u00e8s aux informations.\r\n- Cr\u00e9ation d\u2019une application PWA int\u00e9gr\u00e9e au robot Pepper pour Atelier Renault, avec gestion des interactions en temps r\u00e9el et r\u00e9cup\u00e9ration de donn\u00e9es utilisateur.\r\n- Mise en place d\u2019un syst\u00e8me d\u2019analyse et de gestion des donn\u00e9es publicitaires via une application de visionnage des encarts publicitaires pour le groupe Publicis.\r\n- Projet Clio RS r\u00e9compens\u00e9, enti\u00e8rement con\u00e7u en JavaScript, d\u00e9montrant une expertise en optimisation d\u2019exp\u00e9rience utilisateur et en gestion de donn\u00e9es dynamiques.",
+      "summary": "Cr\u00e9ation de poste et DSI",
+      "created": "2026-07-04T18:22:19.191016",
+      "updated": "2026-07-04T18:22:19.191023",
+      "position_id": 5,
+      "contract_type_id": 1,
+      "customers_id": 12
+    },
+    {
+      "id": 10,
+      "location": "Levallois Perret",
+      "year_start": 2015,
+      "year_end": 2016,
+      "description": "- D\u00e9veloppement de modules personnalis\u00e9s et optimisation des performances pour Afflelou, en int\u00e9grant des bonnes pratiques pour la gestion et la structuration des donn\u00e9es c\u00f4t\u00e9 client.\r\n- Mise en place de gabarits structur\u00e9s pour A\u00e9roport de Paris, garantissant une accessibilit\u00e9 optimale et une int\u00e9gration fluide avec les syst\u00e8mes backend.\r\n- Refonte compl\u00e8te du site de l'agence, en mettant l\u2019accent sur la modularit\u00e9 et la maintenabilit\u00e9 du code.\r\n- R\u00e9daction de documentations techniques et mise en place de standards de d\u00e9veloppement, assurant une meilleure scalabilit\u00e9 des projets.",
+      "summary": "Remplacement de la personne partante",
+      "created": "2026-07-04T18:29:53.095183",
+      "updated": "2026-07-04T18:29:53.095188",
+      "position_id": 3,
+      "contract_type_id": 1,
+      "customers_id": 14
+    },
+    {
+      "id": 11,
+      "location": "Gennevilliers",
+      "year_start": 2014,
+      "year_end": 2015,
+      "description": "- Refonte partielle de Bazarchic pour am\u00e9liorer la performance et la gestion des donn\u00e9es c\u00f4t\u00e9 client.\r\n- Am\u00e9lioration et refonte partielle de MyTravelChic, en optimisant la structure du code et la gestion dynamique des donn\u00e9es.\r\n- Cr\u00e9ation d\u2019un syst\u00e8me de templating pour emailing, garantissant une gestion optimale des contenus et une int\u00e9gration fluide avec les syst\u00e8mes backend.\r\n- Maintenance et \u00e9volution des plateformes web (Bazarchic, MyTravelChic, Figaro Vin) avec un focus sur la scalabilit\u00e9 et l'int\u00e9gration des composants backend.",
+      "summary": "Remplacement cong\u00e9s maternit\u00e9",
+      "created": "2026-07-04T18:33:29.800189",
+      "updated": "2026-07-04T18:33:29.800195",
+      "position_id": 3,
+      "contract_type_id": 2,
+      "customers_id": 15
+    },
+    {
+      "id": 12,
+      "location": "Nanterre",
+      "year_start": 2010,
+      "year_end": 2014,
+      "description": "- TMA et migration mobile pour Cavadeos, en optimisant les interfaces et en assurant une gestion fluide des donn\u00e9es sur des plateformes mobiles.\r\n- \u00c9volution continue du projet Leroy Merlin, int\u00e9grant des am\u00e9liorations c\u00f4t\u00e9 frontend et optimisations des flux de donn\u00e9es en back-end. Projet r\u00e9compens\u00e9 pour l\u2019innovation.\r\n- Cr\u00e9ation et refonte de projets \u00e9v\u00e9nementiels (Peugeot 4008, Peugeot Design Lab) avec un focus sur la gestion dynamique de l\u2019information et l\u2019interaction utilisateur.\r\n- D\u00e9veloppement d\u2019une application g\u00e9ographique pour Areva, permettant la gestion de donn\u00e9es g\u00e9olocalis\u00e9es et l'optimisation des performances des syst\u00e8mes de backend associ\u00e9s.\r\n- Refonte de projets tels que mypeugeot, Peugeot.com, Europcar, et Air Cara\u00efbes, en prenant en compte les bonnes pratiques de maintenance et en assurant une meilleure gestion des donn\u00e9es c\u00f4t\u00e9 frontend et backend.\r\n- Cr\u00e9ation d\u2019un r\u00e9seau social interne pour Areva, facilitant la gestion des donn\u00e9es utilisateurs et la communication interne.\r\n- D\u00e9veloppement et refonte de projets vari\u00e9s (Fidelity Vie, Brasseries Flo, Flyopenskies), avec une forte composante de gestion de donn\u00e9es et d\u2019optimisation de la performance.",
+      "summary": "Remplacement de la personne partante",
+      "created": "2026-07-04T18:34:07.253590",
+      "updated": "2026-07-04T18:36:59.267759",
+      "position_id": 3,
+      "contract_type_id": 1,
+      "customers_id": 17
+    }
+  ]
+}

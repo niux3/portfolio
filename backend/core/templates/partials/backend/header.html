@@ -8,6 +8,7 @@
           <li><a href="{{ url_for('projects.index') }}">Projets</a></li>
           <li><a href="{{ url_for('activities.index') }}">Activités</a></li>
           <li><a href="{{ url_for('functions.index') }}">Fonctions</a></li>
+          <li><a href="{{ url_for('customers.index') }}">Clients</a></li>
           <li><a href="{{ url_for('technology.index') }}">Technologies</a></li>
           <li><a href="{{ url_for('backup_projects.import_json') }}" onclick="javascript: return confirm('Êtes vous sur de vouloir importer ?')">Importer&nbsp;json</a></li>
           <li><a href="{{ url_for('backup_projects.export_json') }}">Exporter&nbsp;json</a></li>
@@ -25,6 +26,17 @@
           <li><a href="{{ url_for('backup_articles.export_json') }}">Exporter&nbsp;json</a></li>
           <li><a href="{{ url_for('backup_xml.export_xml') }}">Exporter&nbsp;XML</a></li>
           <li><a href="{{ url_for('backup_articles.export_html') }}">Exporter&nbsp;HTML</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">cv ats</a>
+        <ul class="menu">
+          <li><a href="{{ url_for('cv_position.index') }}">Fonction</a></li>
+          <li><a href="{{ url_for('cv_contract.index') }}">Contrat</a></li>
+          <li><a href="{{ url_for('cv_data.index') }}">Base</a></li>
+          <li><a href="{{ url_for('cv_work.index') }}">Work</a></li>
+          <li><a href="{{ url_for('backup_cv.import_json') }}" onclick="javascript: return confirm('Êtes vous sur de vouloir importer ?')">Importer&nbsp;json</a></li>
+          <li><a href="{{ url_for('backup_cv.export_json') }}">Exporter&nbsp;json</a></li>
         </ul>
       </li>
     </ul>

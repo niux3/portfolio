@@ -1,0 +1,77 @@
+{
+    "basics": {
+        "name": "Renaud Bourdeau",
+        "label": "Developpeur fullstack Python/TypeScript/Javascript/SQL",
+        "phone": "+33 603 617 839",
+        "email": "renaudbourdeau@gmail.com",
+        "portfolio": "https://rb-webstudio.go.yj.fr/",
+        "github": "https://github.com/niux3",
+        "linkedin": "https://www.linkedin.com/in/renaud-bourdeau-%F0%9F%90%A7-7639b944/",
+        "twitter": "https://x.com/renaudbourdeau",
+        "volunteer": "https://www.alsacreations.com/profil/lire/11496-Niuxe.html",
+        "location": [ 
+            "Île de France",
+            "Provence Alpes Côte d'Azur"
+        ],
+        "education": {
+            "degree": "BTS communications visuelles",
+            "year": "1997",
+            "location": "Paris"
+        },
+        "summary": "Tech lead développeur avec plus de 15 ans d'expérience, récompensé à plusieurs reprises (Top Com d'Or) pour des projets haute-visibilité (Renault, Peugeot, Leroy Merlin, Areva). Spécialisé en développement fullstack, notamment en Python (10 ans) et JavaScript (17 ans). Sensible aux enjeux de sécurité (OWASP), de performance web, d'accessibilité et de SEO, je conçois des solutions robustes, performantes et maintenables. Apprécié pour mon esprit collaboratif et mon sens des responsabilités, je m'attache à faire évoluer les pratiques tout en garantissant un haut niveau de qualité technique."
+    },
+    "certificates": [
+        {
+            "name": "Javascript",
+            "url": "https://www.codingame.com/certification/WDRJ32zX0TEyCumC_Xd3gg"
+        },
+        {
+            "name": "Python",
+            "url": "https://www.codingame.com/certification/sdhq3l9dw42VYBN9KidsFw"
+        }
+    ],
+    "awards" : {
+        "url": "http://www.topcom.fr/best-of-topcom/?cpage=1&cvp-keyword=&form_annonceur=&form_agence=BUSINESS+LAB&form_year=&form_topcom=&form_section=&form_categorie=&form_prix=&bsubmit=Valider",
+        "projects": ["Leroy Merlin", "Peugeot", "peugeot4008", "areva", "renault clio rs trophy"]
+    },
+    "skills": {
+        "languages" : ["Python","SQL","JavaScript/TypeScript","HTML","CSS","UML","PHP"],
+        "backend - frontend": ["Django & DRF","Flask (Flask-REST, Flask-SQLAlchemy, etc.)","FastAPI","SQLAlchemy","Celery","Pandas","NumPy","Matplotlib","NodeJS","Svelte/Sveltekit","VueJS","React","Express","Astro"],
+        "database": ["PostgreSQL","MySQL","SQLite","MongoDB","Redis"],
+        "tools": ["Vim & Tmux","PyCharm","Jupyter Notebook"],
+        "tests & quality": ["Pytest","TOX","Flake8","Pylint","Jest","ViteJS","Webperf (TTF, CLS, LCP, INP)"],
+        "devops": ["Docker","GNU/Linux (OpenSUSE, Debian)","CI/CD", "AWS"],
+        "architecture & best practices": ["POO","Design Patterns (Observer, Factory, etc.)","DRY","YAGNI","KISS","OWASP","PWA","SEO","Accessibilité","FN3 Boyce-Codd"],
+        "méthodologies": ["Scrum","Safe","XP","Cycle en V","Merise"]
+    },
+    "personal projects":[
+        {
+            "name": "Template Engine",
+            "description": "Moteur de templates JavaScript ultra-léger (~1 kio gzippé), cache LRU, échappement HTML automatique.",
+            "url": "https://github.com/niux3/template-engine",
+            "type": "open source", 
+            "technologies": ["Javascript", "NodeJS", "ViteJS", "Vitest"]
+        },
+        {
+            "name": "Validator js",
+            "description": "Développement d’un moteur de validation JavaScript conçu pour centraliser les règles métier et gérer des formulaires dynamiques, indépendamment des frameworks (≈6 kio gzippé)",
+            "url": "github.com/niux3/validator",
+            "type": "open source", 
+            "technologies": ["Typescript", "NodeJS", "ViteJS", "Jest"]
+        },
+        {
+            "name": "Plateforme forum communautaire",
+            "description": "Développement d’une application web Django volontairement sobre, reposant sur les Generic Class-Based Views afin de privilégier la maintenabilité.",
+            "url": "https://github.com/niux3/forum",
+            "type": "open source", 
+            "technologies": ["Python", "Django", "Javascript", "NodeJS", "PostgreSQL", "Sqlite"]
+        },
+        {
+            "name": "CheckIpsum",
+            "description": "Générateur de texte alternatif, alternative fonctionnelle au Lorem Ipsum classique. Interface web réactive, API HTTP (JSON, text/plain), paramétrage CLI et web, déployé en service public.",
+            "url": "https://github.com/niux3/chuck-ipsum",
+            "type": "open source",
+            "technologies": ["PHP", "Svelte", "Sqlite", "Javascript", "Json", "Curl", "NodeJS"]
+        }
+    ]
+}
