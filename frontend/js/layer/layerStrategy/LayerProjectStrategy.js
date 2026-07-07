@@ -25,7 +25,7 @@ export default class LayerProjectStrategy extends LayerStrategy {
     async #fetchData() {
         try {
             let base_url = import.meta.env.DEV ? 'http://localhost:5173/public' : '',
-                url = `${base_url}/static/data-projects.json`
+                url = `${base_url}/static/data-projects.json?v=${Date.now()}`
 
             const response = await fetch(url)
             if (!response.ok) {
