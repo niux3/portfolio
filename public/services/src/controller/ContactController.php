@@ -87,15 +87,16 @@ class ContactController extends Controller{
                 die;
             }else{
                 try{
+                    $env = parse_ini_file(ROOT.'/.env', false, INI_SCANNER_RAW);
                     $mail = new PHPMailer(true);
                     $mail->isSMTP();
 
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                     $mail->SMTPAuth = true;
 
-                    $mail->Host = 'smtp.gmail.com';
-                    $mail->Username = 'renaudbourdeau@gmail.com';
-                    $mail->Password = 'pvcr uiwq xjlt vlig ';
+                    $mail->Host = $env['SMTP_HOST'];
+                    $mail->Username = $env['USERNAME'];
+                    $mail->Password = $env['SMTP_PASSWORD'];
                     $mail->Port = 465;
                     $mail->charSet = "UTF-8";
 
