@@ -52,8 +52,8 @@ $output_html = <<<TPL
                         <p>Bonjour $civility $lastname, <br> <br>
                         Je suis ravi de faire votre connaissance. Merci pour l&#039;email que vous m&#039;avez transmis.  J&#039;appr&eacute;cie le fait que vous ayez pris le temps de le r&eacute;diger.</p>
                         $appointment
-                        <p>Je vous encourage &agrave; consulter <a href="https://www.linkedin.com/in/renaud-bourdeau-%F0%9F%90%A7-7639b944/">mon profil LinkedIn</a>. Vous y trouverez davantage d&#039;informations sur mon parcours professionnel et mes comp&eacute;tences.</p>
-                        <p>Je vous souhaite une excellente journ&eacute;e, et encore une fois, je vous remercie pour cette prise de contact.</p>
+                        <p>Je vous encourage &agrave; consulter <a href="https://rb-webstudio.go.yj.fr/static/renaud-bourdeau-cv.pdf">mon cv</a>. Vous y trouverez davantage d&#039;informations sur mon parcours professionnel et mes comp&eacute;tences.</p>
+                        <p>Je vous souhaite une excellente journ&eacute;e, et encore une fois, je vous remercie pour cette prise de contact. Je vous r&eacute;pondrai dans les plus brefs d&eacute;lais</p>
                         <p>Cordialement</p>
                     </td>
                 </tr>
