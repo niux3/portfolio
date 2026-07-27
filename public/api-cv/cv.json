@@ -56,6 +56,7 @@
       "FastAPI",
       "SQLAlchemy",
       "Celery",
+      "Lanchain",
       "Pandas",
       "NumPy",
       "Matplotlib",
@@ -177,7 +178,7 @@
       "endDate": "2026",
       "summary": "Renfort équipe pour la conception d'une plateforme IA adaptative, backend performant, UI réactive, SSR, conforme WCAG/RGAA, optimisation LLM.",
       "highlights": [
-        "Conception d'une plateforme d'apprentissage adaptative (Adaptive Learning) pilotée par l'IA.",
+        "Conception d'une plateforme d'apprentissage adaptative (Adaptive Learning) pilotée par l'IA. (Langchain)",
         "Conception d’un backend haute performance avec Python (FastAPI & Django) pour l'orchestration de services d'IA Générative (génération de quiz, résumés dynamiques et tutorat automatisé).",
         "Développement d’une UI réactive sous React & Vue.js, garantissant une expérience utilisateur fluide malgré la complexité des flux de données temps réel.",
         "Implémentation du rendu hybride (SSR) pour assurer une indexation maximale des contenus pédagogiques par les moteurs de recherche (SEO naturel).",
