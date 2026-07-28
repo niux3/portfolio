@@ -1024,10 +1024,10 @@
       "id": 61,
       "name": "Skillwalker",
       "slug": "skillwalker",
-      "description": "Skillwaker est une plateforme d'apprentissage adaptatif pilot\u00e9e par l'IA, con\u00e7ue pour personnaliser les parcours p\u00e9dagogiques.",
+      "description": "Skillwaker est une plateforme d'apprentissage adaptatif pilot\u00e9e par l'IA g\u00e9n\u00e9rative (Langchain), con\u00e7ue pour personnaliser les parcours p\u00e9dagogiques.",
       "color": "#000000",
       "created": "2026-07-03T16:44:28.111710",
-      "modified": "2026-07-03T16:51:24.151717",
+      "modified": "2026-07-28T15:38:44.657585",
       "online": 1,
       "url": "https://skillwaker.com/fr/",
       "functions_id": 1,
@@ -1334,6 +1334,11 @@
       "id": 21,
       "name": "websocket",
       "online": 1
+    },
+    {
+      "id": 22,
+      "name": "Langchain",
+      "online": 0
     }
   ],
   "project_technology": [
@@ -3215,6 +3220,11 @@
     {
       "id": 384,
       "technologies_id": 20,
+      "projects_id": 61
+    },
+    {
+      "id": 385,
+      "technologies_id": 22,
       "projects_id": 61
     }
   ]

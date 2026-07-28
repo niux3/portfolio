@@ -1249,7 +1249,7 @@
     "name": "Skillwalker",
     "slug": "skillwalker",
     "url": "https://skillwaker.com/fr/",
-    "description": "Skillwaker est une plateforme d'apprentissage adaptatif pilot\u00e9e par l'IA, con\u00e7ue pour personnaliser les parcours p\u00e9dagogiques.",
+    "description": "Skillwaker est une plateforme d'apprentissage adaptatif pilot\u00e9e par l'IA g\u00e9n\u00e9rative (Langchain), con\u00e7ue pour personnaliser les parcours p\u00e9dagogiques.",
     "year": "2026",
     "activity_name": "formations pro",
     "activity_icon": "fa-solid fa-graduation-cap",
@@ -1266,7 +1266,8 @@
       "Django",
       "ReactJS",
       "VueJS/NuxtJS",
-      "FastAPI"
+      "FastAPI",
+      "Langchain"
     ]
   }
 ]
